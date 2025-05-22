@@ -1,0 +1,50 @@
+{
+  "style": {
+    "heading": "heading",
+    "fontFamily": "font family",
+    "fontSize": "font size",
+    "lineHeight": "line height"
+  },
+  "format": {
+    "bold": "bold",
+    "italic": "italic",
+    "strike": "strikethrough",
+    "underline": "underline",
+    "sup": "superscript",
+    "sub": "subscript",
+    "break": "hard break",
+    "highlight": "highlight",
+    "line": "horizontal line",
+    "blockquote": "cite",
+    "code": "code",
+    "codeblock": "code block",
+    "codeblock_syntax": "code block w/ syntax highlighting",
+    "link": "external link"
+  },
+  "action": {
+    "undo": "undo",
+    "redo": "redo"
+  },
+  "alignment": "alignment",
+  "alignments": {
+    "left": "align left",
+    "center": "align center",
+    "right": "align right",
+    "justify": "justify"
+  },
+  "list": "list",
+  "lists": {
+    "bullet": "unordered list",
+    "numbered": "ordered list",
+    "task": "task list",
+    "indent": "list item indent",
+    "outdent": "list item outdent"
+  },
+  "dialog": {
+    "link": {
+      "title": "add/edit link",
+      "placeholder": "link address",
+      "apply": "apply"
+    }
+  }
+}

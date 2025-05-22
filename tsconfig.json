@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "lib": ["ESNext", "DOM"],
+    "types": ["vite/client", "node"],
+    "declaration": true,
+    "declarationDir": "lib",
+    "baseUrl": ".",
+    "paths": {
+      "@tiptapify/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

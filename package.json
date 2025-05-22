@@ -1,0 +1,92 @@
+{
+  "name": "tiptapify",
+  "version": "0.0.1",
+  "description": "Tiptap3 editor with Vuetify3 menu implementation",
+  "exports": {
+    ".": {
+      "import": "./dist/tiptapify.es.js",
+      "require": "./dist/tiptapify.umd.js"
+    },
+    "./style.css": "./dist/tiptapify.css"
+  },
+  "main": "./dist/tiptapify.umd.cjs",
+  "module": "./dist/tiptapify.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue", "vue3", "vue.js", "typescript", "vuetify", "vuetify3", "tiptap", "tiptap3", "editor", "material design",
+    "wysiwyg", "markdown"
+  ],
+  "author": "Igor Voytovich",
+  "license": "MIT",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "@intlify/unplugin-vue-i18n": "^6.0.8",
+    "@tiptap/core": "next",
+    "@tiptap/extension-blockquote": "next",
+    "@tiptap/extension-bold": "next",
+    "@tiptap/extension-bubble-menu": "next",
+    "@tiptap/extension-code": "next",
+    "@tiptap/extension-code-block": "next",
+    "@tiptap/extension-code-block-lowlight": "next",
+    "@tiptap/extension-color": "next",
+    "@tiptap/extension-document": "next",
+    "@tiptap/extension-floating-menu": "next",
+    "@tiptap/extension-font-family": "next",
+    "@tiptap/extension-hard-break": "next",
+    "@tiptap/extension-heading": "next",
+    "@tiptap/extension-highlight": "next",
+    "@tiptap/extension-horizontal-rule": "next",
+    "@tiptap/extension-image": "next",
+    "@tiptap/extension-italic": "next",
+    "@tiptap/extension-link": "next",
+    "@tiptap/extension-list": "next",
+    "@tiptap/extension-list-item": "next",
+    "@tiptap/extension-paragraph": "next",
+    "@tiptap/extension-placeholder": "next",
+    "@tiptap/extension-strike": "next",
+    "@tiptap/extension-subscript": "next",
+    "@tiptap/extension-superscript": "next",
+    "@tiptap/extension-table": "next",
+    "@tiptap/extension-task-item": "next",
+    "@tiptap/extension-task-list": "next",
+    "@tiptap/extension-text": "next",
+    "@tiptap/extension-text-align": "next",
+    "@tiptap/extension-text-style": "next",
+    "@tiptap/extension-typography": "next",
+    "@tiptap/extension-underline": "next",
+    "@tiptap/extensions": "next",
+    "@tiptap/pm": "next",
+    "@tiptap/starter-kit": "next",
+    "@tiptap/suggestion": "next",
+    "@tiptap/vue-3": "next",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vitejs/plugin-vue-jsx": "^4.2.0",
+    "highlight.js": "^11.11.1",
+    "linkifyjs": "^4.3.1",
+    "lowlight": "^3.3.0",
+    "tippy.js": "^6.3.7",
+    "unplugin-vue-components": "^28.5.0",
+    "vite": "^6.3.5",
+    "vite-plugin-vuetify": "^2.1.1",
+    "vite-svg-loader": "^5.1.0",
+    "vue-i18n": "^11.1.3"
+  },
+  "peerDependencies": {
+    "@mdi/js": "^7.4.47",
+    "vue": "^3.5.14",
+    "vuetify": "^3.8.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
+    "@types/node": "^22.15.21",
+    "rollup-plugin-tsconfig-paths": "^1.5.2",
+    "sass-embedded": "^1.89.0",
+    "typescript": "^5.8.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vue-tsc": "^2.2.10"
+  }
+}
