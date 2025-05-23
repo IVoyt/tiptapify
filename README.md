@@ -22,10 +22,10 @@
 Install package
 ```bash
 # npm
-npm i tiptify
+npm i tiptapify
 
 # or pnpm
-pnpm i tiptify
+pnpm i tiptapify
 ```
 
 Register plugin in your main.js (main.ts)
