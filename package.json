@@ -22,6 +22,7 @@
   ],
   "author": "Igor Voytovich",
   "license": "MIT",
+  "repository": "https://github.com/IVoyt/tiptapify",
   "packageManager": "pnpm@10.11.0",
   "dependencies": {
     "@intlify/unplugin-vue-i18n": "^6.0.8",
