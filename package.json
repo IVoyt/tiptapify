@@ -17,8 +17,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "vue", "vue3", "vue.js", "typescript", "vuetify", "vuetify3", "tiptap", "tiptap3", "editor", "material design",
-    "wysiwyg", "markdown"
+    "vue",
+    "vue3",
+    "vue.js",
+    "typescript",
+    "vuetify",
+    "vuetify3",
+    "tiptap",
+    "tiptap3",
+    "tiptap menu",
+    "tiptap slash command",
+    "tiptap toolbar",
+    "editor",
+    "material design",
+    "wysiwyg",
+    "markdown"
   ],
   "author": "Igor Voytovich",
   "license": "MIT",
