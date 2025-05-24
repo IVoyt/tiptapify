@@ -4,12 +4,12 @@ import { editorExtensions } from '@tiptapify/components/editorExtensions'
 
 let editorInstance: any = null
 
-export function useEditor(content: any = '', placeholder: string = '') {
+export function useEditor(content: any = '', placeholder: string = '', slashCommands: boolean = true) {
   class TiptapifyEditor {
     private editor
 
     constructor() {
-      const extensions = editorExtensions(placeholder)
+      const extensions = editorExtensions(placeholder, slashCommands)
       this.editor = useEditorOriginal({
         content,
         extensions,

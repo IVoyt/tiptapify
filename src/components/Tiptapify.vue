@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { onBeforeUnmount, ref } from "vue";
-import Toolbar from "@tiptapify/components/Toolbar.vue";
+import { default as Toolbar } from "@tiptapify/components/Toolbar/Index.vue";
 import { EditorContent } from '@tiptap/vue-3'
 import { useEditor } from '@tiptapify/composable/useEditor'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
@@ -11,16 +11,20 @@ import Footer from '@tiptapify/components/Footer.vue'
 
 const props = defineProps({
   content: String|Object,
-  variant: { type: String, default () { return 'outline' } },
-  menu: { type: Boolean, default () { return true } },
+  variant: { type: String, default () { return 'flat' } },
+  toolbar: { type: Boolean, default () { return true } },
+  items: { type: Array<string>, default() { return [] }},
+  itemsExclude: { type: Boolean, default() { return false } },
   bubbleMenu: { type: Boolean, default () { return true } },
   floatingMenu: { type: Boolean, default () { return true } },
+  slashCommands: { type: Boolean, default () { return true } },
   placeholder: { type: String, default () { return 'Write something here...' } },
   showCharacterCount: { type: Boolean, default () { return true } },
   defaultFontFamily: { type: String, default () { return 'Inter' } },
+  fontMeasure: { type: String, default () { return 'px' } },
 })
 
-const editor = useEditor(props.content, props.placeholder).editor
+const editor = useEditor(props.content, props.placeholder, props.slashCommands).editor
 const editorInstance = ref(editor.getInstance())
 editorInstance?.value?.chain().setFontFamily(props.defaultFontFamily).run()
 
@@ -35,8 +39,14 @@ onBeforeUnmount(() => {
     <VRow>
       <VCol>
         <div class="border rounded">
-          <template v-if="menu">
-            <Toolbar v-if="editorInstance" :variant="variant" />
+          <template v-if="toolbar">
+            <Toolbar
+                v-if="editorInstance"
+                :variant="variant"
+                :font-measure="fontMeasure"
+                :items="items"
+                :items-exclude="itemsExclude"
+            />
           </template>
 
           <div class="pa-2 tiptapify-container">

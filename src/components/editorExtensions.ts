@@ -35,7 +35,7 @@ import { common, createLowlight } from 'lowlight'
 // using all available languages
 const lowlight = createLowlight(common)
 
-// or you can register specific languages
+// or register specific languages
 // const lowlight = createLowlight()
 //
 // import language example
@@ -44,55 +44,60 @@ const lowlight = createLowlight(common)
 // register language example
 // lowlight.register('ts', ts)
 
-export const editorExtensions = (placeholder: string = '') => [
-  TextStyleKit,
-  Document,
-  Text,
-  Paragraph,
-  Heading,
-  Bold,
-  Italic,
-  Strike,
-  Blockquote,
-  OrderedList,
-  BulletList,
-  TaskList,
-  TaskItem,
-  ListItem,
-  ListKeymap,
-  HardBreak,
-  HorizontalRule,
-  Dropcursor,
-  Typography,
-  Underline,
-  Highlight,
-  Link.configure({
-    openOnClick: false,
-    defaultProtocol: 'https',
-  }),
-  Image,
-  Superscript,
-  Subscript,
-  TableKit,
-  Code,
-  UndoRedo,
-  Focus,
-  CodeBlockLowlight
-    .extend({
-      addNodeView() {
-        return VueNodeViewRenderer(CodeBlockComponent)
-      },
-    })
-    .configure({ lowlight }),
-  Selection.configure({
-    className: 'selection',
-  }),
-  TextAlign.configure({
-    types: ['heading', 'paragraph'],
-  }),
-  Placeholder.configure({ placeholder }),
-  SlashCommands.configure({
-    suggestion,
-  }),
-  CharacterCount
-]
+export function editorExtensions (placeholder: string, slashCommands: boolean) {
+  const extensions = [
+    TextStyleKit,
+    Document,
+    Text,
+    Paragraph,
+    Heading,
+    Bold,
+    Italic,
+    Strike,
+    Blockquote,
+    OrderedList,
+    BulletList,
+    TaskList,
+    TaskItem,
+    ListItem,
+    ListKeymap,
+    HardBreak,
+    HorizontalRule,
+    Dropcursor,
+    Typography,
+    Underline,
+    Highlight,
+    Link.configure({
+      openOnClick: false,
+      defaultProtocol: 'https',
+    }),
+    Image,
+    Superscript,
+    Subscript,
+    TableKit,
+    Code,
+    UndoRedo,
+    Focus,
+    CodeBlockLowlight
+      .extend({
+        addNodeView() {
+          return VueNodeViewRenderer(CodeBlockComponent)
+        },
+      })
+      .configure({ lowlight }),
+    Selection.configure({
+      className: 'selection',
+    }),
+    TextAlign.configure({
+      types: ['heading', 'paragraph'],
+    }),
+    Placeholder.configure({ placeholder }),
+    CharacterCount
+  ]
+
+  if (slashCommands) {
+    extensions.push(SlashCommands.configure({ suggestion }))
+  }
+
+  return extensions
+}
