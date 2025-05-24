@@ -1,6 +1,14 @@
 {
   "style": {
     "heading": "heading",
+    "headings": {
+      "h1": "heading level 1",
+      "h2": "heading level 2",
+      "h3": "heading level 3",
+      "h4": "heading level 4",
+      "h5": "heading level 5",
+      "h6": "heading level 6"
+    },
     "fontFamily": "font family",
     "fontSize": "font size",
     "lineHeight": "line height"
@@ -18,7 +26,6 @@
     "blockquote": "cite",
     "code": "code",
     "codeblock": "code block",
-    "codeblock_syntax": "code block w/ syntax highlighting",
     "link": "external link"
   },
   "action": {
