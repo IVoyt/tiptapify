@@ -67,7 +67,7 @@ app.mount('#app')
 ### TODO
 
 - [x] menu items list customizable
-- [ ] extend a built-in font list
+- [x] extend a built-in font list
 - [ ] menu extensions for media (image, video), tables
 - [ ] option to use custom component for link & media extension
 - [ ] option to provide custom extension
