@@ -271,6 +271,19 @@ export function toolbarItems(
         click: () => editor.value.chain().focus().toggleHighlight().run()
       }
     },
+    formatClear: {
+      name: 'format clear',
+      tooltip: 'format.formatClear',
+      icon: mdi.mdiFormatClear,
+      section: 'format',
+      enabled: true,
+      props: {
+        disabled: computed(() => !editor.value.can().chain().focus().unsetAllMarks().run()),
+      },
+      attrs: {
+        click: () => editor.value.chain().focus().unsetAllMarks().clearNodes().run()
+      }
+    },
 
     code: {
       name: 'code',

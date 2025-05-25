@@ -26,7 +26,8 @@
     "blockquote": "cite",
     "code": "code",
     "codeblock": "code block",
-    "link": "external link"
+    "link": "external link",
+    "formatClear": "format clear"
   },
   "action": {
     "undo": "undo",
