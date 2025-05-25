@@ -69,7 +69,7 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
                 </VBtn>
               </template>
 
-              <VList v-model="toolbarItem.modelValue">
+              <VList v-model="toolbarItem.modelValue" max-height="430px">
                 <VListItem
                     v-for="(item, menuItemKey) in toolbarItem.children"
                     :key="menuItemKey"

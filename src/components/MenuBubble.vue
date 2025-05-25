@@ -74,6 +74,14 @@ const items = ref([
       disabled: computed(() => editorInstance.value.isActive('code') || editorInstance.value.isActive('codeBlock')),
     },
     click: () => linkAction(),
+  },
+  {
+    name: 'format clear',
+    icon: mdi.mdiFormatClear,
+    props: {
+      active: false,
+    },
+    click: () => editorInstance.value.chain().focus().unsetAllMarks().clearNodes().run(),
   }
 ])
 
@@ -86,7 +94,7 @@ function linkAction() {
 
 <template>
 <!--  <BubbleMenu v-if="editorInstance" :editor="editorInstance" :tippy-options="{ duration: 100 }">-->
-  <BubbleMenu v-if="editorInstance" :editor="editorInstance">
+  <BubbleMenu v-if="editorInstance" :editor="editorInstance" :options="{ placement: 'bottom' }">
     <div class="bubble-menu">
       <VBtnToggle divided density="compact" :variant="variant">
         <VBtn v-for="(item, key) in items" :key="key" v-bind="item.props" @click="item.click" size="small">
