@@ -12,7 +12,7 @@
 - Vuetify components
 - Markdown support
 - TypeScript support
-- I18n support(`en`, `ru`, `ua`, more later)
+- I18n support(`en`, `ru`, `ua`, `pl`, `fr`, `de`, `it`, `es`, more later)
 - Vuetify 3.x and Vue 3.x support
 - Bubble Menu
 - Floating Menu
@@ -31,6 +31,7 @@ pnpm i tiptapify
 Register plugin in your main.js (main.ts)
 ```typescript
 import TiptapifyPlugin from 'tiptapify';
+import 'tiptapify/style.css';
 app.use(TiptapifyPlugin, { locale: 'en' });
 ```
 Should be something like this
@@ -57,6 +58,7 @@ app.use(vuetify);
 
 // add these lines
 import TiptapifyPlugin from 'tiptapify';
+import 'tiptapify/style.css';
 app.use(TiptapifyPlugin, { locale: 'en' });
 
 // Mount vue app
@@ -68,6 +70,7 @@ app.mount('#app')
 
 - [x] menu items list customizable
 - [x] extend a built-in font list
+- [x] raw html mode
 - [ ] menu extensions for media (image, video), tables
 - [ ] option to use custom component for link & media extension
 - [ ] option to provide custom extension
