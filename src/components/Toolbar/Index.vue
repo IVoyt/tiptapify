@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LinkDialog from "@tiptapify/components/extensions/components/LinkDialog.vue";
+import ShowSource from "@tiptapify/components/extensions/components/ShowSource.vue";
 import { useEditor } from "@tiptapify/composable/useEditor";
 import { computed, defineProps, Ref, ref } from 'vue'
 import { useI18n } from "vue-i18n";
@@ -111,6 +112,7 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
     </template>
 
     <LinkDialog ref="toolbarLinkButton" />
+    <ShowSource />
   </div>
 </template>
 

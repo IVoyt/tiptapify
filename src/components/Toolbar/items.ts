@@ -651,6 +651,17 @@ export function toolbarItems(
         click: () => editor.value.chain().focus().setHardBreak().run()
       }
     },
+    source: {
+      name: 'source',
+      tooltip: 'misc.source',
+      icon: mdi.mdiCodeTags,
+      section: 'misc',
+      enabled: true,
+      props: {},
+      attrs: {
+        click: () => editor.value.commands.showSource()
+      }
+    },
   }
 
 
