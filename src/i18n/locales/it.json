@@ -1,0 +1,67 @@
+{
+  "style": {
+    "paragraph": "paragrafo",
+    "heading": "intestazione",
+    "headings": {
+      "h1": "intestazione livello 1",
+      "h2": "intestazione livello 2",
+      "h3": "intestazione livello 3",
+      "h4": "intestazione livello 4",
+      "h5": "intestazione livello 5",
+      "h6": "intestazione livello 6"
+    },
+    "fontFamily": "famiglia del carattere",
+    "fontSize": "dimensione del carattere",
+    "lineHeight": "interlinea"
+  },
+  "format": {
+    "bold": "grassetto",
+    "italic": "corsivo",
+    "strike": "barrato",
+    "underline": "sottolineato",
+    "sup": "apice",
+    "sub": "pedice",
+    "break": "interruzione di riga",
+    "highlight": "evidenziato",
+    "line": "linea orizzontale",
+    "blockquote": "citazione",
+    "code": "codice",
+    "codeblock": "blocco di codice",
+    "link": "link esterno",
+    "formatClear": "cancella formattazione"
+  },
+  "action": {
+    "undo": "annulla",
+    "redo": "ripeti"
+  },
+  "alignment": "allineamento",
+  "alignments": {
+    "left": "allinea a sinistra",
+    "center": "allinea al centro",
+    "right": "allinea a destra",
+    "justify": "giustifica"
+  },
+  "list": "lista",
+  "lists": {
+    "bullet": "lista puntata",
+    "numbered": "lista numerata",
+    "task": "lista di attività",
+    "indent": "aumenta rientro",
+    "outdent": "riduci rientro"
+  },
+  "dialog": {
+    "close": "chiudi",
+    "apply": "applica",
+    "link": {
+      "title": "aggiungi/modifica link",
+      "placeholder": "indirizzo del link"
+    },
+    "source": {
+      "title": "visualizza codice sorgente",
+      "prettify": "prettify"
+    }
+  },
+  "misc": {
+    "source": "visualizza codice sorgente"
+  }
+}

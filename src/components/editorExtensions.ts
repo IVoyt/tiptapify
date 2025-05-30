@@ -25,6 +25,7 @@ import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 
 import { Link } from '@tiptap/extension-link'
 import CodeBlockComponent from '@tiptapify/components/CodeBlockComponent.vue'
+import { ViewSource } from '@tiptapify/components/extensions/view-source'
 import SlashCommands from '@tiptapify/components/extensions/slash-commands'
 import suggestion from '@tiptapify/components/extensions/components/slashCommands/suggestion'
 
@@ -92,7 +93,8 @@ export function editorExtensions (placeholder: string, slashCommands: boolean) {
       types: ['heading', 'paragraph'],
     }),
     Placeholder.configure({ placeholder }),
-    CharacterCount
+    CharacterCount,
+    ViewSource
   ]
 
   if (slashCommands) {

@@ -43,6 +43,7 @@ export default defineConfig({
     },
   },
   build: {
+    minify: 'esbuild',
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'Tiptapify',

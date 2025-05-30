@@ -1,0 +1,67 @@
+{
+  "style": {
+    "paragraph": "Absatz",
+    "heading": "Überschrift",
+    "headings": {
+      "h1": "Überschrift Ebene 1",
+      "h2": "Überschrift Ebene 2",
+      "h3": "Überschrift Ebene 3",
+      "h4": "Überschrift Ebene 4",
+      "h5": "Überschrift Ebene 5",
+      "h6": "Überschrift Ebene 6"
+    },
+    "fontFamily": "Schriftart",
+    "fontSize": "Schriftgröße",
+    "lineHeight": "Zeilenhöhe"
+  },
+  "format": {
+    "bold": "Fett",
+    "italic": "Kursiv",
+    "strike": "Durchgestrichen",
+    "underline": "Unterstrichen",
+    "sup": "Hochgestellt",
+    "sub": "Tiefgestellt",
+    "break": "Zeilenumbruch",
+    "highlight": "Hervorheben",
+    "line": "Horizontale Linie",
+    "blockquote": "Zitat",
+    "code": "Code",
+    "codeblock": "Codeblock",
+    "link": "Externer Link",
+    "formatClear": "Formatierung löschen"
+  },
+  "action": {
+    "undo": "Rückgängig",
+    "redo": "Wiederherstellen"
+  },
+  "alignment": "Ausrichtung",
+  "alignments": {
+    "left": "Linksbündig",
+    "center": "Zentriert",
+    "right": "Rechtsbündig",
+    "justify": "Blocksatz"
+  },
+  "list": "Liste",
+  "lists": {
+    "bullet": "Aufzählungsliste",
+    "numbered": "Nummerierte Liste",
+    "task": "Aufgabenliste",
+    "indent": "Einzug vergrößern",
+    "outdent": "Einzug verkleinern"
+  },
+  "dialog": {
+    "close": "Schließen",
+    "apply": "Anwenden",
+    "link": {
+      "title": "Link hinzufügen/bearbeiten",
+      "placeholder": "Linkadresse"
+    },
+    "source": {
+      "title": "Quellcode anzeigen",
+      "prettify": "prettify"
+    }
+  },
+  "misc": {
+    "source": "Quellcode anzeigen"
+  }
+}

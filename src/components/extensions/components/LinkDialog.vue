@@ -90,7 +90,7 @@ watch(dialog, val => {
 
       <VCardActions>
         <VBtn :disabled="isDisabled" @click="apply">
-          {{ t('dialog.link.apply') }}
+          {{ t('dialog.apply') }}
         </VBtn>
       </VCardActions>
     </VCard>

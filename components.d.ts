@@ -15,6 +15,7 @@ declare module 'vue' {
     LinkDialog: typeof import('./src/components/extensions/components/LinkDialog.vue')['default']
     MenuBubble: typeof import('./src/components/MenuBubble.vue')['default']
     MenuFloating: typeof import('./src/components/MenuFloating.vue')['default']
+    ShowSource: typeof import('./src/components/extensions/components/ShowSource.vue')['default']
     Tiptapify: typeof import('./src/components/Tiptapify.vue')['default']
   }
 }

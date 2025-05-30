@@ -1,0 +1,67 @@
+{
+  "style": {
+    "paragraph": "paragraphe",
+    "heading": "titre",
+    "headings": {
+      "h1": "titre niveau 1",
+      "h2": "titre niveau 2",
+      "h3": "titre niveau 3",
+      "h4": "titre niveau 4",
+      "h5": "titre niveau 5",
+      "h6": "titre niveau 6"
+    },
+    "fontFamily": "famille de police",
+    "fontSize": "taille de police",
+    "lineHeight": "hauteur de ligne"
+  },
+  "format": {
+    "bold": "gras",
+    "italic": "italique",
+    "strike": "barré",
+    "underline": "souligné",
+    "sup": "exposant",
+    "sub": "indice",
+    "break": "saut de ligne",
+    "highlight": "surbrillance",
+    "line": "ligne horizontale",
+    "blockquote": "citation",
+    "code": "code",
+    "codeblock": "bloc de code",
+    "link": "lien externe",
+    "formatClear": "effacer le formatage"
+  },
+  "action": {
+    "undo": "annuler",
+    "redo": "rétablir"
+  },
+  "alignment": "alignement",
+  "alignments": {
+    "left": "aligner à gauche",
+    "center": "centrer",
+    "right": "aligner à droite",
+    "justify": "justifier"
+  },
+  "list": "liste",
+  "lists": {
+    "bullet": "liste à puces",
+    "numbered": "liste numérotée",
+    "task": "liste de tâches",
+    "indent": "augmenter l'indentation",
+    "outdent": "diminuer l'indentation"
+  },
+  "dialog": {
+    "close": "fermer",
+    "apply": "appliquer",
+    "link": {
+      "title": "ajouter/modifier un lien",
+      "placeholder": "adresse du lien"
+    },
+    "source": {
+      "title": "voir le code source",
+      "prettify": "prettify"
+    }
+  },
+  "misc": {
+    "source": "voir le code source"
+  }
+}
