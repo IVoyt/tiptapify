@@ -1,0 +1,67 @@
+{
+  "style": {
+    "paragraph": "akapit",
+    "heading": "nagłówek",
+    "headings": {
+      "h1": "nagłówek poziomu 1",
+      "h2": "nagłówek poziomu 2",
+      "h3": "nagłówek poziomu 3",
+      "h4": "nagłówek poziomu 4",
+      "h5": "nagłówek poziomu 5",
+      "h6": "nagłówek poziomu 6"
+    },
+    "fontFamily": "rodzina czcionek",
+    "fontSize": "rozmiar czcionki",
+    "lineHeight": "wysokość linii"
+  },
+  "format": {
+    "bold": "pogrubienie",
+    "italic": "kursywa",
+    "strike": "przekreślenie",
+    "underline": "podkreślenie",
+    "sup": "indeks górny",
+    "sub": "indeks dolny",
+    "break": "twarda spacja",
+    "highlight": "wyróżnienie",
+    "line": "linia pozioma",
+    "blockquote": "cytat",
+    "code": "kod",
+    "codeblock": "blok kodu",
+    "link": "link zewnętrzny",
+    "formatClear": "wyczyść formatowanie"
+  },
+  "action": {
+    "undo": "cofnij",
+    "redo": "przywróć"
+  },
+  "alignment": "wyrównanie",
+  "alignments": {
+    "left": "wyrównaj do lewej",
+    "center": "wyśrodkuj",
+    "right": "wyrównaj do prawej",
+    "justify": "wyjustuj"
+  },
+  "list": "lista",
+  "lists": {
+    "bullet": "lista wypunktowana",
+    "numbered": "lista numerowana",
+    "task": "lista zadań",
+    "indent": "zwiększ wcięcie",
+    "outdent": "zmniejsz wcięcie"
+  },
+  "dialog": {
+    "close": "zamknij",
+    "apply": "zastosuj",
+    "link": {
+      "title": "dodaj/edytuj link",
+      "placeholder": "adres linku"
+    },
+    "source": {
+      "title": "pokaż kod źródłowy",
+      "prettify": "prettify"
+    }
+  },
+  "misc": {
+    "source": "pokaż kod źródłowy"
+  }
+}

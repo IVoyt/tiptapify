@@ -1,5 +1,6 @@
 {
   "style": {
+    "paragraph": "paragraph",
     "heading": "heading",
     "headings": {
       "h1": "heading level 1",
@@ -49,10 +50,18 @@
     "outdent": "list item outdent"
   },
   "dialog": {
+    "close": "close",
+    "apply": "apply",
     "link": {
       "title": "add/edit link",
-      "placeholder": "link address",
-      "apply": "apply"
+      "placeholder": "link address"
+    },
+    "source": {
+      "title": "view source code",
+      "prettify": "prettify"
     }
+  },
+  "misc": {
+    "source": "view source code"
   }
 }
