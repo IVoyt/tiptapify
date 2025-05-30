@@ -80,23 +80,41 @@ export function toolbarItems(
       props: {
         color: computed(() => editor.value.isActive('heading') ? 'primary' : ''),
       },
-      children: headingLevels.value.map(level => {
-        return {
-          name: `H${level}`,
-          tooltip: `style.headings.h${level}`,
-          icon: mdiIcons[`mdiFormatHeader${level}`],
+      children: [
+        {
+          name: `paragraph`,
+          tooltip: `style.paragraph`,
+          icon: mdiIcons[`mdiFormatParagraph`],
           noI18n: true,
           enabled: true,
           props: {
             color: computed(() => {
-              return editor.value.isActive('heading', { level }) ? 'primary' : ''
+              return editor.value.isActive('paragraph') ? 'primary' : ''
             }),
           },
           attrs: {
-            click: () => editor.value.chain().focus().toggleHeading({ level }).run()
+            click: () => editor.value.chain().focus().setParagraph().run()
           }
         }
-      })
+      ].concat(
+        headingLevels.value.map(level => {
+          return {
+            name: `H${level}`,
+            tooltip: `style.headings.h${level}`,
+            icon: mdiIcons[`mdiFormatHeader${level}`],
+            noI18n: true,
+            enabled: true,
+            props: {
+              color: computed(() => {
+                return editor.value.isActive('heading', { level }) ? 'primary' : ''
+              }),
+            },
+            attrs: {
+              click: () => editor.value.chain().focus().toggleHeading({ level }).run()
+            }
+          }
+        })
+      )
     },
     fontFamily: {
       name: 'font-family',
