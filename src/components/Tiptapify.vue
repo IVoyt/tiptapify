@@ -8,10 +8,11 @@ import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
 import Footer from '@tiptapify/components/Footer.vue'
+import { useTheme } from "vuetify/framework";
 
 const props = defineProps({
   content: String|Object,
-  variant: { type: String, default () { return 'flat' } },
+  variant: { type: String, default () { return 'elevated' } },
   toolbar: { type: Boolean, default () { return true } },
   items: { type: Array<string>, default() { return [] }},
   itemsExclude: { type: Boolean, default() { return false } },
@@ -22,7 +23,10 @@ const props = defineProps({
   showCharacterCount: { type: Boolean, default () { return true } },
   defaultFontFamily: { type: String, default () { return 'Inter' } },
   fontMeasure: { type: String, default () { return 'px' } },
+  rounded: { type: String, default () { return '0' } },
 })
+
+const theme = ref(useTheme().current.value.dark ? 'dark' : 'light')
 
 const editor = useEditor(props.content, props.placeholder, props.slashCommands).editor
 const editorInstance = ref(editor.getInstance())
@@ -38,21 +42,22 @@ onBeforeUnmount(() => {
   <VContainer>
     <VRow>
       <VCol>
-        <div class="border rounded">
-          <template v-if="toolbar">
-            <Toolbar
-                v-if="editorInstance"
-                :variant="variant"
-                :font-measure="fontMeasure"
-                :items="items"
-                :items-exclude="itemsExclude"
-            />
-          </template>
+        <template v-if="toolbar">
+          <Toolbar
+              v-if="editorInstance"
+              :variant="variant"
+              :font-measure="fontMeasure"
+              :items="items"
+              :items-exclude="itemsExclude"
+              :rounded="rounded"
+          />
+        </template>
 
+        <div :class="`border border-t-0 rounded-b-${rounded}`">
           <div class="pa-2 tiptapify-container">
-            <MenuFloating v-if="floatingMenu" />
+            <MenuFloating v-if="floatingMenu" :variant="variant" :theme="theme" />
 
-            <MenuBubble v-if="bubbleMenu" />
+            <MenuBubble v-if="bubbleMenu" :variant="variant" :theme="theme" />
 
             <EditorContent :editor="editorInstance" class="tiptapify-editor" />
           </div>
