@@ -11,11 +11,13 @@ declare module 'vue' {
     CodeBlockComponent: typeof import('./src/components/CodeBlockComponent.vue')['default']
     CommandsList: typeof import('./src/components/extensions/components/slashCommands/CommandsList.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    Group: typeof import('./src/components/Toolbar/Group.vue')['default']
     Index: typeof import('./src/components/Toolbar/Index.vue')['default']
     LinkDialog: typeof import('./src/components/extensions/components/LinkDialog.vue')['default']
     MenuBubble: typeof import('./src/components/MenuBubble.vue')['default']
     MenuFloating: typeof import('./src/components/MenuFloating.vue')['default']
     ShowSource: typeof import('./src/components/extensions/components/ShowSource.vue')['default']
     Tiptapify: typeof import('./src/components/Tiptapify.vue')['default']
+    Toggle: typeof import('./src/components/Toolbar/Toggle.vue')['default']
   }
 }
