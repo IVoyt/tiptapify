@@ -7,6 +7,7 @@ import * as mdi from '@mdi/js'
 
 defineProps({
   variant: { type: String, default () { return 'flat' }},
+  theme: { type: String, default () { return 'light' }},
 })
 
 const { editor } = useEditor()
@@ -19,7 +20,6 @@ const items = ref([
     name: 'bold',
     icon: mdi.mdiFormatBold,
     props: {
-      active: false,
       disabled: computed(() => !editorInstance.value.can().chain().focus().toggleBold().run()),
       color: computed(() => editorInstance.value.isActive('bold') ? 'primary' : ''),
     },
@@ -29,7 +29,6 @@ const items = ref([
     name: 'italic',
     icon: mdi.mdiFormatItalic,
     props: {
-      active: false,
       disabled: computed(() => !editorInstance.value.can().chain().focus().toggleItalic().run()),
       color: computed(() => editorInstance.value.isActive('italic') ? 'primary' : ''),
     },
@@ -39,7 +38,6 @@ const items = ref([
     name: 'strike',
     icon: mdi.mdiFormatStrikethroughVariant,
     props: {
-      active: false,
       disabled: computed(() => !editorInstance.value.can().chain().focus().toggleStrike().run()),
       color: computed(() => editorInstance.value.isActive('strike') ? 'primary' : ''),
     },
@@ -49,7 +47,6 @@ const items = ref([
     name: 'underline',
     icon: mdi.mdiFormatUnderline,
     props: {
-      active: false,
       disabled: computed(() => !editorInstance.value.can().chain().focus().toggleUnderline().run()),
       color: computed(() => editorInstance.value.isActive('underline') ? 'primary' : ''),
     },
@@ -59,17 +56,24 @@ const items = ref([
     name: 'highlight',
     icon: mdi.mdiFormatColorHighlight,
     props: {
-      active: false,
       disabled: computed(() => !editorInstance.value.can().chain().focus().toggleHighlight().run()),
       color: computed(() => editorInstance.value.isActive('highlight') ? 'primary' : ''),
     },
     click: () => editorInstance.value.chain().focus().toggleHighlight().run(),
   },
   {
+    name: 'code',
+    icon: mdi.mdiXml,
+    props: {
+      disabled: computed(() => !editorInstance.value.can().chain().focus().toggleCode().run()),
+      color: computed(() => editorInstance.value.isActive('code') ? 'primary' : ''),
+    },
+    click: () => editorInstance.value.chain().focus().toggleCode().run(),
+  },
+  {
     name: 'link',
     icon: computed(() => editorInstance.value.isActive('link') ? mdi.mdiLinkOff : mdi.mdiLink),
     props: {
-      active: false,
       color: computed(() => editorInstance.value.isActive('link') ? 'primary' : ''),
       disabled: computed(() => editorInstance.value.isActive('code') || editorInstance.value.isActive('codeBlock')),
     },
@@ -78,9 +82,6 @@ const items = ref([
   {
     name: 'format clear',
     icon: mdi.mdiFormatClear,
-    props: {
-      active: false,
-    },
     click: () => editorInstance.value.chain().focus().unsetAllMarks().clearNodes().run(),
   }
 ])
@@ -93,14 +94,21 @@ function linkAction() {
 </script>
 
 <template>
-<!--  <BubbleMenu v-if="editorInstance" :editor="editorInstance" :tippy-options="{ duration: 100 }">-->
   <BubbleMenu v-if="editorInstance" :editor="editorInstance" :options="{ placement: 'bottom' }">
     <div class="bubble-menu">
-      <VBtnToggle divided density="compact" :variant="variant">
-        <VBtn v-for="(item, key) in items" :key="key" v-bind="item.props" @click="item.click" size="small">
-          <VIcon :icon="item.icon" size="16" />
-        </VBtn>
-      </VBtnToggle>
+      <VCard>
+        <VCardText class="pa-0">
+          <VToolbar :theme="theme" density="compact" height="auto" class="p-0">
+            <VToolbarItems>
+              <VBtnGroup divided density="compact">
+                <VBtn v-for="(item, key) in items" :key="key" v-bind="item.props" @click="item.click" size="x-small">
+                  <VIcon :icon="item.icon" size="20" />
+                </VBtn>
+              </VBtnGroup>
+            </VToolbarItems>
+          </VToolbar>
+        </VCardText>
+      </VCard>
     </div>
   </BubbleMenu>
 
@@ -109,10 +117,7 @@ function linkAction() {
 
 <style scoped lang="scss">
 .bubble-menu {
-  border-radius: 4px;
-  border-color: var(--gray-3);
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: var(--shadow);
+  border-radius: 6px;
+  box-shadow: 4px 4px 20px var(--dark-gray);
 }
 </style>

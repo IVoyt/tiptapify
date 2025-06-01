@@ -77,6 +77,8 @@ onBeforeUnmount(() => {
   --white: #FFF;
   --black: #2E2B29;
   --black-contrast: #110F0E;
+  --dark-gray: rgb(98, 98, 98);
+  --gray: rgb(223 223 223);
   --gray-1: rgba(61, 37, 20, .05);
   --gray-2: rgba(61, 37, 20, .08);
   --gray-3: rgba(61, 37, 20, .12);
