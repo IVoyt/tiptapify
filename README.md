@@ -71,12 +71,17 @@ app.mount('#app')
 - [x] menu items list customizable
 - [x] extend a built-in font list
 - [x] raw html mode
+- [ ] text styling (background & font color)
+- [ ] print hotkey in tooltip
 - [ ] menu extensions for media (image, video), tables
+- [ ] emoji plugin
+- [ ] preview plugin
 - [ ] option to use custom component for link & media extension
 - [ ] option to provide custom extension
 - [ ] demo
 - [ ] documentation
 - [ ] dark theme
+- [ ] AI features
 
 ## Licence
 [MIT](./LICENSE)

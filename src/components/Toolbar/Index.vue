@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import LinkDialog from "@tiptapify/components/extensions/components/LinkDialog.vue";
 import ShowSource from "@tiptapify/components/extensions/components/ShowSource.vue";
+import Group from "@tiptapify/components/Toolbar/Group.vue";
+import Toggle from "@tiptapify/components/Toolbar/Toggle.vue";
 import { useEditor } from "@tiptapify/composable/useEditor";
 import { computed, defineProps, Ref, ref } from 'vue'
 import { useI18n } from "vue-i18n";
@@ -15,6 +17,8 @@ const props = defineProps({
   fontMeasure: { type: String, default () { return 'px' }},
   customFonts: { type: Array<string>, default () { return [] } },
   customFontsOverride: { type: Boolean, default() { return false } },
+  theme: { type: String, default() { return 'light' } },
+  rounded: { type: String, default() { return '0' } },
 })
 
 const { t } = useI18n();
@@ -36,80 +40,38 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
 </script>
 
 <template>
-  <div v-if="editor" class="d-flex flex-wrap gap-x-4 gap-y-2 tiptapify-menu">
-    <template v-for="(toolbarItems, sectionKey) in toolbarItemsRef" :key="sectionKey">
-      <template v-for="(toolbarItem, toolbarItemKey) in toolbarItems" :key="toolbarItemKey">
-        <VDivider v-if="toolbarItem.name === '|'" vertical class="menu-divider" />
+  <div v-if="editor">
+    <VToolbar elevation="1" :theme="theme" height="auto" :class="`ps-1 rounded-t-${rounded}`">
+      <VToolbarItems class="py-2">
+        <template v-for="(toolbarSection, sectionKey) in toolbarItemsRef" :key="sectionKey">
+          <Group v-if="toolbarSection.group" :variant="variant" :toolbar-section="toolbarSection" />
 
-        <template v-else-if="toolbarItem.enabled">
-          <template v-if="toolbarItem.children">
-            <VBtnToggle v-if="toolbarItem.group" :variant="variant">
-              <VBtn
-                  v-for="(item, key) of toolbarItem.children"
-                  v-bind="{ ...props, ...item.props}" v-on="item.attrs" size="32"
-                  :key="`${item.name}-${key}`"
-              >
-                <VTooltip :text="t(item.name)" location="top" activator="parent" />
+          <Toggle v-else-if="toolbarSection.toggle" :variant="variant" :toolbar-section="toolbarSection" />
 
-                <VIcon v-if="item.icon" :icon="item.icon" size="small" />
-                <span v-else class="menu-item-title">
-                {{ t(toolbarItem.name) }}
-              </span>
-              </VBtn>
-            </VBtnToggle>
-
-            <VMenu v-else>
-              <template #activator="{ props: menuProps }">
-                <VBtn :variant="variant" v-bind="menuProps" size="32" class="menu-button">
-                  <VTooltip :text="t(toolbarItem.tooltip)" location="top" activator="parent" />
-
-                  <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="small" />
-                  <span v-else class="menu-item-title">
-                  {{ t(toolbarItem.name) }}
-                </span>
-                </VBtn>
-              </template>
-
-              <VList v-model="toolbarItem.modelValue" max-height="430px">
-                <VListItem
-                    v-for="(item, menuItemKey) in toolbarItem.children"
-                    :key="menuItemKey"
-                    :value="item.name"
-                    density="compact"
-                    v-bind="item.props"
-                    v-on="item.attrs"
-                >
-                  <VTooltip v-if="item.tooltip" :text="t(item.tooltip)" location="top" activator="parent" />
-
-                  <VListItemTitle>
-                    <VIcon v-if="item.icon" :icon="item.icon" size="small" />
-                    <span v-else class="menu-item-title">
-                      <template v-if="item.noI18n">
-                        {{ item.name }}
-                      </template>
-                      <template v-else>
-                        {{ t(item.name) }}
-                      </template>
-                    </span>
-                  </VListItemTitle>
-                </VListItem>
-              </VList>
-            </VMenu>
-          </template>
-
-          <VBtn v-else :variant="variant" v-bind="toolbarItem.props" v-on="toolbarItem.attrs" class="menu-button" size="32">
+          <VBtn
+              v-else
+              v-for="(toolbarItem, itemKey) in toolbarSection.items"
+              :key="itemKey"
+              :variant="variant"
+              v-bind="toolbarItem.props"
+              v-on="toolbarItem.attrs"
+              class="menu-button"
+              size="32"
+              elevation="4"
+              rounded="sm"
+          >
             <VTooltip :text="t(toolbarItem.tooltip)" location="top" activator="parent" />
 
             <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="16" />
             <span v-else class="menu-item-title">
-            {{ t(toolbarItem.name) }}
-          </span>
+                {{ t(toolbarItem.name) }}
+              </span>
           </VBtn>
-        </template>
-      </template>
 
-      <VDivider vertical class="menu-divider" />
-    </template>
+          <div class="menu-divider"></div>
+        </template>
+      </VToolbarItems>
+    </VToolbar>
 
     <LinkDialog ref="toolbarLinkButton" />
     <ShowSource />
@@ -120,6 +82,10 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
 .tiptapify-menu {
   padding: 8px;
   border-bottom: var(--border);
+}
+
+:deep(.toolbar__items) {
+  flex-wrap: wrap;
 }
 
 :deep(.v-btn-group) {
@@ -134,11 +100,16 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
   margin: 0 1px;
 }
 
-.v-divider.menu-divider {
-  margin: 0 10px;
+.menu-divider {
+  margin: 0 4px;
 }
 
-.v-divider.menu-divider:nth-last-child(1) {
+.menu-divider:nth-last-child(1) {
   display: none;
+}
+
+.v-toolbar-items {
+  flex-wrap: wrap;
+  row-gap: 5px;
 }
 </style>
