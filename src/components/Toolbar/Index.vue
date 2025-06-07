@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import LinkDialog from "@tiptapify/components/extensions/components/LinkDialog.vue";
-import ShowSource from "@tiptapify/components/extensions/components/ShowSource.vue";
+import { Editor } from "@tiptap/vue-3";
+import LinkDialog from "@tiptapify/extensions/components/LinkDialog.vue";
+import ShowSourceDialog from "@tiptapify/extensions/components/ShowSourceDialog.vue";
+import PreviewDialog from "@tiptapify/extensions/components/PreviewDialog.vue";
 import Group from "@tiptapify/components/Toolbar/Group.vue";
 import Toggle from "@tiptapify/components/Toolbar/Toggle.vue";
-import { useEditor } from "@tiptapify/composable/useEditor";
-import { computed, defineProps, Ref, ref } from 'vue'
+import { computed, defineProps, inject, Ref, ref } from 'vue'
 import { useI18n } from "vue-i18n";
 
 import { toolbarItems, ToolbarItemSections } from "@tiptapify/components/Toolbar/items";
@@ -23,13 +24,12 @@ const props = defineProps({
 
 const { t } = useI18n();
 
-const { editor } = useEditor()
-const editorInstance = ref(editor.getInstance())
+const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const toolbarLinkButton = ref(null)
 
 const items = toolbarItems(
-    editorInstance,
+    editor,
     computed(() => props.fontMeasure).value,
     { list: computed(() => props.items).value, exclude: computed(() => props.itemsExclude).value },
     computed(() => props.headingLevels).value,
@@ -64,8 +64,8 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
 
             <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="16" />
             <span v-else class="menu-item-title">
-                {{ t(toolbarItem.name) }}
-              </span>
+              {{ t(toolbarItem.name) }}
+            </span>
           </VBtn>
 
           <div class="menu-divider"></div>
@@ -74,7 +74,8 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
     </VToolbar>
 
     <LinkDialog ref="toolbarLinkButton" />
-    <ShowSource />
+    <PreviewDialog />
+    <ShowSourceDialog />
   </div>
 </template>
 

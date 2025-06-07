@@ -10,9 +10,9 @@
       "h5": "intestazione livello 5",
       "h6": "intestazione livello 6"
     },
-    "fontFamily": "famiglia del carattere",
-    "fontSize": "dimensione del carattere",
-    "lineHeight": "interlinea"
+    "fontFamily": "famiglia di caratteri",
+    "fontSize": "dimensione carattere",
+    "lineHeight": "altezza di riga"
   },
   "format": {
     "bold": "grassetto",
@@ -22,46 +22,65 @@
     "sup": "apice",
     "sub": "pedice",
     "break": "interruzione di riga",
-    "highlight": "evidenziato",
+    "highlight": "evidenzia",
     "line": "linea orizzontale",
     "blockquote": "citazione",
     "code": "codice",
     "codeblock": "blocco di codice",
-    "link": "link esterno",
-    "formatClear": "cancella formattazione"
+    "link": "collegamento esterno",
+    "formatClear": "cancella formato",
+    "tables": {
+      "table": "tabella",
+      "insertTable": "inserisci tabella",
+      "deleteTable": "elimina tabella",
+      "insertWithHeaderRow": "inserisci tabella con riga di intestazione",
+      "rows": "righe",
+      "row": "riga",
+      "insertRowBefore": "inserisci riga prima",
+      "insertRowAfter": "inserisci riga dopo",
+      "deleteRow": "elimina riga",
+      "cols": "colonne",
+      "col": "colonna",
+      "insertColBefore": "inserisci colonna prima",
+      "insertColAfter": "inserisci colonna dopo",
+      "deleteCol": "elimina colonna",
+      "mergeCells": "unisci celle",
+      "splitCell": "dividi cella"
+    }
   },
   "action": {
     "undo": "annulla",
-    "redo": "ripeti"
+    "redo": "ripristina"
   },
   "alignment": "allineamento",
   "alignments": {
     "left": "allinea a sinistra",
-    "center": "allinea al centro",
+    "center": "centra",
     "right": "allinea a destra",
     "justify": "giustifica"
   },
-  "list": "lista",
+  "list": "elenco",
   "lists": {
-    "bullet": "lista puntata",
-    "numbered": "lista numerata",
-    "task": "lista di attività",
-    "indent": "aumenta rientro",
+    "bullet": "elenco puntato",
+    "numbered": "elenco numerato",
+    "task": "elenco attività",
+    "indent": "rientro elemento",
     "outdent": "riduci rientro"
   },
   "dialog": {
     "close": "chiudi",
     "apply": "applica",
     "link": {
-      "title": "aggiungi/modifica link",
-      "placeholder": "indirizzo del link"
+      "title": "aggiungi/modifica collegamento",
+      "placeholder": "indirizzo del collegamento"
     },
     "source": {
       "title": "visualizza codice sorgente",
-      "prettify": "prettify"
+      "prettify": "abbellisci"
     }
   },
   "misc": {
-    "source": "visualizza codice sorgente"
+    "source": "visualizza codice sorgente",
+    "preview": "anteprima"
   }
 }

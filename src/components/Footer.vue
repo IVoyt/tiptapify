@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { useEditor } from "@tiptapify/composable/useEditor";
-import { ref } from 'vue'
+import { Editor } from "@tiptap/vue-3";
+import { inject, Ref } from "vue";
 
-const { editor } = useEditor()
-const editorInstance = ref(editor.getInstance())
+const editor = inject('tiptapifyEditor') as Ref<Editor>
 </script>
 
 <template>
-  <div v-if="editorInstance" class="tiptapify-footer">
+  <div v-if="editor" class="tiptapify-footer">
     <VRow>
       <VCol class="d-flex justify-end">
         <span class="words-count">
-          {{ editorInstance.storage.characterCount.words() }} words
+          {{ editor.storage.characterCount.words() }} words
         </span>
       </VCol>
     </VRow>

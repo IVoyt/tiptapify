@@ -28,7 +28,25 @@
     "code": "code",
     "codeblock": "code block",
     "link": "external link",
-    "formatClear": "format clear"
+    "formatClear": "format clear",
+    "tables": {
+      "table": "table",
+      "insertTable": "insert table",
+      "deleteTable": "delete table",
+      "insertWithHeaderRow": "insert table with header row",
+      "rows": "rows",
+      "row": "row",
+      "insertRowBefore": "insert row before",
+      "insertRowAfter": "insert row after",
+      "deleteRow": "delete row",
+      "cols": "columns",
+      "col": "column",
+      "insertColBefore": "insert column before",
+      "insertColAfter": "insert column after",
+      "deleteCol": "delete column",
+      "mergeCells": "merge cells",
+      "splitCell": "split cell"
+    }
   },
   "action": {
     "undo": "undo",
@@ -62,6 +80,7 @@
     }
   },
   "misc": {
-    "source": "view source code"
+    "source": "view source code",
+    "preview": "preview"
   }
 }

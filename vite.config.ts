@@ -48,7 +48,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'Tiptapify',
       formats: ['es', 'umd'],
-      fileName: (format) => `tiptapify.${format}.js`
+      fileName: 'tiptapify'
     },
     cssCodeSplit: false,
     rollupOptions: {

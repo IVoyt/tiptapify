@@ -22,6 +22,7 @@ export interface ToolbarItem {
   icon: string|ComputedRef<string>,
   noI18n?: boolean,
   enabled: boolean,
+  component?: any,
   modelValue?: any,
   group?: boolean,
   toggle?: boolean,

@@ -22,13 +22,31 @@
     "sup": "superíndice",
     "sub": "subíndice",
     "break": "salto de línea",
-    "highlight": "resaltado",
+    "highlight": "resaltar",
     "line": "línea horizontal",
     "blockquote": "cita",
     "code": "código",
     "codeblock": "bloque de código",
     "link": "enlace externo",
-    "formatClear": "limpiar formato"
+    "formatClear": "borrar formato",
+    "tables": {
+      "table": "tabla",
+      "insertTable": "insertar tabla",
+      "deleteTable": "eliminar tabla",
+      "insertWithHeaderRow": "insertar tabla con fila de encabezado",
+      "rows": "filas",
+      "row": "fila",
+      "insertRowBefore": "insertar fila antes",
+      "insertRowAfter": "insertar fila después",
+      "deleteRow": "eliminar fila",
+      "cols": "columnas",
+      "col": "columna",
+      "insertColBefore": "insertar columna antes",
+      "insertColAfter": "insertar columna después",
+      "deleteCol": "eliminar columna",
+      "mergeCells": "combinar celdas",
+      "splitCell": "dividir celda"
+    }
   },
   "action": {
     "undo": "deshacer",
@@ -43,25 +61,26 @@
   },
   "list": "lista",
   "lists": {
-    "bullet": "lista con viñetas",
+    "bullet": "lista sin orden",
     "numbered": "lista numerada",
     "task": "lista de tareas",
-    "indent": "aumentar sangría",
-    "outdent": "disminuir sangría"
+    "indent": "sangría de elemento",
+    "outdent": "reducir sangría"
   },
   "dialog": {
     "close": "cerrar",
     "apply": "aplicar",
     "link": {
-      "title": "añadir/editar enlace",
+      "title": "agregar/editar enlace",
       "placeholder": "dirección del enlace"
     },
     "source": {
       "title": "ver código fuente",
-      "prettify": "prettify"
+      "prettify": "embellecer"
     }
   },
   "misc": {
-    "source": "ver código fuente"
+    "source": "ver código fuente",
+    "preview": "vista previa"
   }
 }
