@@ -5,7 +5,7 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/tiptapify.es.js",
+        "default": "./dist/tiptapify.mjs",
         "development": "./src/index.ts"
       },
       "require": {
@@ -18,7 +18,7 @@
     "./style.css": "./dist/tiptapify.css"
   },
   "main": "./dist/tiptapify.umd.cjs",
-  "module": "./dist/tiptapify.js",
+  "module": "./dist/tiptapify.mjs",
   "source": "./src/index.ts",
   "files": [
     "dist",
