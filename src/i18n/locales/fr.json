@@ -22,13 +22,31 @@
     "sup": "exposant",
     "sub": "indice",
     "break": "saut de ligne",
-    "highlight": "surbrillance",
+    "highlight": "surligner",
     "line": "ligne horizontale",
     "blockquote": "citation",
     "code": "code",
     "codeblock": "bloc de code",
     "link": "lien externe",
-    "formatClear": "effacer le formatage"
+    "formatClear": "effacer le format",
+    "tables": {
+      "table": "tableau",
+      "insertTable": "insérer un tableau",
+      "deleteTable": "supprimer le tableau",
+      "insertWithHeaderRow": "insérer un tableau avec ligne d'en-tête",
+      "rows": "lignes",
+      "row": "ligne",
+      "insertRowBefore": "insérer une ligne avant",
+      "insertRowAfter": "insérer une ligne après",
+      "deleteRow": "supprimer la ligne",
+      "cols": "colonnes",
+      "col": "colonne",
+      "insertColBefore": "insérer une colonne avant",
+      "insertColAfter": "insérer une colonne après",
+      "deleteCol": "supprimer la colonne",
+      "mergeCells": "fusionner les cellules",
+      "splitCell": "diviser la cellule"
+    }
   },
   "action": {
     "undo": "annuler",
@@ -46,22 +64,23 @@
     "bullet": "liste à puces",
     "numbered": "liste numérotée",
     "task": "liste de tâches",
-    "indent": "augmenter l'indentation",
-    "outdent": "diminuer l'indentation"
+    "indent": "retrait d'élément",
+    "outdent": "réduire le retrait"
   },
   "dialog": {
     "close": "fermer",
     "apply": "appliquer",
     "link": {
-      "title": "ajouter/modifier un lien",
+      "title": "ajouter/modifier le lien",
       "placeholder": "adresse du lien"
     },
     "source": {
       "title": "voir le code source",
-      "prettify": "prettify"
+      "prettify": "embellir"
     }
   },
   "misc": {
-    "source": "voir le code source"
+    "source": "voir le code source",
+    "preview": "aperçu"
   }
 }

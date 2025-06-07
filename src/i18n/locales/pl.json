@@ -21,18 +21,36 @@
     "underline": "podkreślenie",
     "sup": "indeks górny",
     "sub": "indeks dolny",
-    "break": "twarda spacja",
-    "highlight": "wyróżnienie",
+    "break": "łamanie linii",
+    "highlight": "podświetlenie",
     "line": "linia pozioma",
     "blockquote": "cytat",
     "code": "kod",
     "codeblock": "blok kodu",
     "link": "link zewnętrzny",
-    "formatClear": "wyczyść formatowanie"
+    "formatClear": "wyczyść formatowanie",
+    "tables": {
+      "table": "tabela",
+      "insertTable": "wstaw tabelę",
+      "deleteTable": "usuń tabelę",
+      "insertWithHeaderRow": "wstaw tabelę z wierszem nagłówka",
+      "rows": "wiersze",
+      "row": "wiersz",
+      "insertRowBefore": "wstaw wiersz przed",
+      "insertRowAfter": "wstaw wiersz po",
+      "deleteRow": "usuń wiersz",
+      "cols": "kolumny",
+      "col": "kolumna",
+      "insertColBefore": "wstaw kolumnę przed",
+      "insertColAfter": "wstaw kolumnę po",
+      "deleteCol": "usuń kolumnę",
+      "mergeCells": "połącz komórki",
+      "splitCell": "podziel komórkę"
+    }
   },
   "action": {
     "undo": "cofnij",
-    "redo": "przywróć"
+    "redo": "ponów"
   },
   "alignment": "wyrównanie",
   "alignments": {
@@ -43,10 +61,10 @@
   },
   "list": "lista",
   "lists": {
-    "bullet": "lista wypunktowana",
+    "bullet": "lista punktowana",
     "numbered": "lista numerowana",
     "task": "lista zadań",
-    "indent": "zwiększ wcięcie",
+    "indent": "wcięcie elementu",
     "outdent": "zmniejsz wcięcie"
   },
   "dialog": {
@@ -57,11 +75,12 @@
       "placeholder": "adres linku"
     },
     "source": {
-      "title": "pokaż kod źródłowy",
-      "prettify": "prettify"
+      "title": "wyświetl kod źródłowy",
+      "prettify": "sformatuj"
     }
   },
   "misc": {
-    "source": "pokaż kod źródłowy"
+    "source": "wyświetl kod źródłowy",
+    "preview": "podgląd"
   }
 }
