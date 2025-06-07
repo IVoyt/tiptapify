@@ -25,9 +25,10 @@ import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 
 import { Link } from '@tiptap/extension-link'
 import CodeBlockComponent from '@tiptapify/components/CodeBlockComponent.vue'
-import { ViewSource } from '@tiptapify/components/extensions/view-source'
-import SlashCommands from '@tiptapify/components/extensions/slash-commands'
-import suggestion from '@tiptapify/components/extensions/components/slashCommands/suggestion'
+import { ViewSource } from '@tiptapify/extensions/view-source'
+import { Preview } from '@tiptapify/extensions/preview'
+import SlashCommands from '@tiptapify/extensions/slash-commands'
+import suggestion from '@tiptapify/extensions/components/slashCommands/suggestion'
 
 // load all languages with "all" or common languages with "common"
 import { common, createLowlight } from 'lowlight'
@@ -94,7 +95,8 @@ export function editorExtensions (placeholder: string, slashCommands: boolean) {
     }),
     Placeholder.configure({ placeholder }),
     CharacterCount,
-    ViewSource
+    ViewSource,
+    Preview
   ]
 
   if (slashCommands) {

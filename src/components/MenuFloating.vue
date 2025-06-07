@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useEditor } from "@tiptapify/composable/useEditor";
-import { defineProps, ref } from "vue";
+import { Editor } from "@tiptap/vue-3";
+import { defineProps, inject, Ref } from "vue";
 import { FloatingMenu } from '@tiptap/vue-3/menus'
 import * as mdi from '@mdi/js'
 
@@ -9,11 +9,11 @@ defineProps({
   theme: { type: String, default () { return 'light' }},
 })
 
-const editorInstance = ref(useEditor().editor.getInstance())
+const editor = inject('tiptapifyEditor') as Ref<Editor>
 </script>
 
 <template>
-  <FloatingMenu v-if="editorInstance" :editor="editorInstance">
+  <FloatingMenu v-if="editor" :editor="editor">
     <div class="floating-menu">
       <VCard>
         <VCardText class="pa-0">
@@ -21,22 +21,22 @@ const editorInstance = ref(useEditor().editor.getInstance())
             <VToolbarItems>
               <VBtnGroup divided density="compact">
                 <VBtn
-                    @click="editorInstance.chain().focus().toggleHeading({ level: 1 }).run()"
-                    :color="`${editorInstance.isActive('heading', { level: 1 }) ? 'primary' : ''}`"
+                    @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
+                    :color="`${editor.isActive('heading', { level: 1 }) ? 'primary' : ''}`"
                     size="small"
                 >
                   <VIcon :icon="mdi['mdiFormatHeader1']" size="16" />
                 </VBtn>
                 <VBtn
-                    @click="editorInstance.chain().focus().toggleHeading({ level: 2 }).run()"
-                    :color="`${editorInstance.isActive('heading', { level: 2 }) ? 'primary' : ''}`"
+                    @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+                    :color="`${editor.isActive('heading', { level: 2 }) ? 'primary' : ''}`"
                     size="small"
                 >
                   <VIcon :icon="mdi['mdiFormatHeader2']" size="16" />
                 </VBtn>
                 <VBtn
-                    @click="editorInstance.chain().focus().toggleBulletList().run()"
-                    :color="`${editorInstance.isActive('bulletList') ? 'primary' : ''}`"
+                    @click="editor.chain().focus().toggleBulletList().run()"
+                    :color="`${editor.isActive('bulletList') ? 'primary' : ''}`"
                     size="small"
                 >
                   <VIcon :icon="mdi['mdiFormatListBulleted']" size="16" />

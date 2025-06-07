@@ -1,12 +1,16 @@
 <script setup lang="ts">
 
 import * as mdi from '@mdi/js'
-import { useEditor } from "@tiptapify/composable/useEditor";
+import { Editor } from "@tiptap/vue-3";
 
 import { useI18n } from 'vue-i18n'
-import { computed, ref, watch } from 'vue'
+import { computed, inject, Ref, ref, watch } from 'vue'
+
+import helpers from '@tiptapify/utils/helpers'
 
 defineExpose({ open })
+
+const { ucFirst } = helpers
 
 interface Props {
   value?: string
@@ -20,8 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
   destroy: undefined
 })
 
-const editor = useEditor().editor
-const editorInstance = editor.getInstance()
+const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = useI18n()
 
@@ -45,7 +48,7 @@ function apply() {
   const { href, target } = attrs.value
 
   if (href) {
-    editorInstance.value.chain().focus().extendMarkRange('link').setLink({ href, target }).run()
+    editor.value.chain().focus().extendMarkRange('link').setLink({ href, target }).run()
   }
   close()
 }
@@ -75,7 +78,7 @@ watch(dialog, val => {
   <VDialog v-model="dialog" max-width="400" absolute @click:outside="close">
     <VCard>
       <VToolbar class="px-6" density="compact">
-        <span class="headline">{{ t('dialog.link.title') }}</span>
+        <span class="headline">{{ ucFirst(t('dialog.link.title')) }}</span>
 
         <VSpacer />
 
@@ -85,12 +88,12 @@ watch(dialog, val => {
       </VToolbar>
 
       <VCardText>
-        <VTextField v-model="attrs.href" :label="t('dialog.link.placeholder')" autofocus />
+        <VTextField v-model="attrs.href" :label="ucFirst(t('dialog.link.placeholder'))" autofocus />
       </VCardText>
 
       <VCardActions>
         <VBtn :disabled="isDisabled" @click="apply">
-          {{ t('dialog.apply') }}
+          {{ ucFirst(t('dialog.apply')) }}
         </VBtn>
       </VCardActions>
     </VCard>

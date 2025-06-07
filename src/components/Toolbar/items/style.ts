@@ -70,7 +70,7 @@ export function getStyleItems(editor: Editor, fontMeasure: string, customHeading
       name: 'font-family',
       tooltip: 'style.fontFamily',
       icon: mdi.mdiFormatFont,
-      modelValue: null,
+      modelValue: false,
       enabled: true,
       attrs: {
         click: () => editor.chain().focus().unsetFontFamily().run()
@@ -96,7 +96,7 @@ export function getStyleItems(editor: Editor, fontMeasure: string, customHeading
       name: 'font-size',
       tooltip: 'style.fontSize',
       icon: mdi.mdiFormatSize,
-      modelValue: computed(() => editor.getAttributes('textStyle').fontSize || null),
+      modelValue: false,
       enabled: true,
       attrs: {
         click: () => editor.chain().focus().unsetFontSize().run()

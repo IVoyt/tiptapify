@@ -1,11 +1,12 @@
 <script setup lang="ts">
 
-import { onBeforeUnmount, ref } from "vue";
+import { onBeforeUnmount, provide, ref, ShallowRef, shallowRef, watch } from "vue";
 import { default as Toolbar } from "@tiptapify/components/Toolbar/Index.vue";
-import { EditorContent } from '@tiptap/vue-3'
-import { useEditor } from '@tiptapify/composable/useEditor'
+import { Editor, EditorContent } from '@tiptap/vue-3'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
+
+import { getTiptapEditor } from "@tiptapify/components/index";
 
 import Footer from '@tiptapify/components/Footer.vue'
 import { useTheme } from "vuetify/framework";
@@ -28,14 +29,30 @@ const props = defineProps({
 
 const theme = ref(useTheme().current.value.dark ? 'dark' : 'light')
 
-const editor = useEditor(props.content, props.placeholder, props.slashCommands).editor
-const editorInstance = ref(editor.getInstance())
-editorInstance?.value?.chain().setFontFamily(props.defaultFontFamily).run()
+const editor: ShallowRef<Editor | undefined> = shallowRef(
+    getTiptapEditor(props.content, props.placeholder, props.slashCommands)
+)
+
+const emit = defineEmits(['update:modelValue', 'editor-ready']);
+
+provide('tiptapifyEditor', editor)
+
+editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
+
+defineExpose({ editor: editor });
+
+watch(() => editor.value, (editorInstance) => {
+  if (editorInstance instanceof Editor) {
+    emit('editor-ready', {
+      getHTML: () => editorInstance.getHTML(),
+      getJSON: () => editorInstance.getJSON(),
+    });
+  }
+}, { immediate: true });
 
 onBeforeUnmount(() => {
-  editor.destroy()
+  editor.value?.destroy()
 })
-
 </script>
 
 <template>
@@ -44,7 +61,7 @@ onBeforeUnmount(() => {
       <VCol>
         <template v-if="toolbar">
           <Toolbar
-              v-if="editorInstance"
+              v-if="editor"
               :variant="variant"
               :font-measure="fontMeasure"
               :items="items"
@@ -59,7 +76,7 @@ onBeforeUnmount(() => {
 
             <MenuBubble v-if="bubbleMenu" :variant="variant" :theme="theme" />
 
-            <EditorContent :editor="editorInstance" class="tiptapify-editor" />
+            <EditorContent :editor="editor" class="tiptapify-editor" />
           </div>
 
           <template v-if="showCharacterCount">
@@ -297,5 +314,67 @@ onBeforeUnmount(() => {
     border-top: 1px solid var(--gray-2);
     margin: 2rem 0;
   }
+
+  /* Table-specific styling */
+  table {
+    border-collapse: collapse;
+    margin: 0;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 100%;
+
+    td,
+    th {
+      border: 1px solid var(--gray-3);
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 6px 8px;
+      position: relative;
+      vertical-align: top;
+
+      > * {
+        margin-bottom: 0;
+      }
+    }
+
+    th {
+      background-color: var(--gray-1);
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .selectedCell:after {
+      background: var(--gray-2);
+      content: '';
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .column-resize-handle {
+      background-color: var(--purple);
+      bottom: -2px;
+      pointer-events: none;
+      position: absolute;
+      right: -2px;
+      top: 0;
+      width: 4px;
+    }
+  }
+
+  .tableWrapper {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  &.resize-cursor {
+    cursor: ew-resize;
+    cursor: col-resize;
+  }
+
 }
 </style>

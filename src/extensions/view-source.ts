@@ -30,9 +30,7 @@ export const ViewSource = Extension.create<ViewSourceOptions>({
       showSource: () => ({ editor }) => {
         const event = new CustomEvent('tiptapify-show-source', {
           detail: {
-            // html: editor.getHTML()
-            html: editor.getHTML({ blockSeparator: '\n\n' })
-            // html: editor.getText({ blockSeparator: '\n\n' })
+            html: editor.getHTML()
           }
         })
 

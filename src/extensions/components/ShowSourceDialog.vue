@@ -1,15 +1,19 @@
 <script setup lang="ts">
-import { useEditor } from "@tiptapify/composable/useEditor";
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { Editor } from "@tiptap/vue-3";
+import { ref, onMounted, onUnmounted, watch, inject, Ref } from 'vue'
 import { useI18n } from "vue-i18n";
+
+import helpers from "@tiptapify/utils/helpers";
 
 const props = defineProps({
   indent: { type: Number, default: 2 },
 })
 
+const { ucFirst } = helpers;
+
 const { t } = useI18n();
 
-const editor = useEditor().editor.getInstance()
+const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const dialog = ref(false)
 const formatted = ref(false)
@@ -76,14 +80,14 @@ watch(() => formatted.value, () => {
 <template>
   <VDialog v-model="dialog" max-width="1500">
     <VCard>
-      <VCardTitle>{{ t('dialog.source.title') }}</VCardTitle>
+      <VCardTitle>{{ ucFirst(t('dialog.source.title')) }}</VCardTitle>
 
       <VCardText>
         <VContainer fluid class="pt-0 pl-0 pr-0">
           <VRow>
             <VCol>
               <VBtn v-model="formatted" :color="`${formatted ? 'primary' : ''}`" @click="formatted = !formatted">
-                {{ t('dialog.source.prettify') }}
+                {{ ucFirst(t('dialog.source.prettify')) }}
               </VBtn>
             </VCol>
           </VRow>
@@ -101,10 +105,10 @@ watch(() => formatted.value, () => {
       <VCardActions>
         <VSpacer></VSpacer>
         <VBtn color="primary" @click="dialog = false">
-          {{ t('dialog.close') }}
+          {{ ucFirst(t('dialog.close')) }}
         </VBtn>
         <VBtn color="primary" @click="saveChanges">
-          {{ t('dialog.apply') }}
+          {{ ucFirst(t('dialog.apply')) }}
         </VBtn>
       </VCardActions>
     </VCard>

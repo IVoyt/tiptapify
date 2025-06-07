@@ -1,6 +1,6 @@
 import * as mdi from "@mdi/js";
 import { Editor } from "@tiptap/vue-3";
-import { computed } from "vue";
+import { computed, Ref } from "vue";
 
 export function getMiscItems(editor: Editor) {
   return {
@@ -32,6 +32,15 @@ export function getMiscItems(editor: Editor) {
       props: {},
       attrs: {
         click: () => editor.commands.showSource()
+      }
+    },
+    preview: {
+      name: 'preview',
+      tooltip: 'misc.preview',
+      icon: mdi.mdiFileEyeOutline,
+      enabled: true,
+      attrs: {
+        click: () => editor.commands.showPreview()
       }
     },
     formatClear: {
