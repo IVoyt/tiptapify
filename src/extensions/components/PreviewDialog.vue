@@ -10,7 +10,6 @@ const content = ref()
 const dialog = ref(false)
 
 const showDialog = (event: CustomEvent) => {
-  console.log('preview event', event)
   content.value = event.detail.html
   dialog.value = true;
 }

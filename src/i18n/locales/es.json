@@ -21,14 +21,17 @@
     "underline": "subrayado",
     "sup": "superíndice",
     "sub": "subíndice",
-    "break": "salto de línea",
+    "break": "salto forzado",
     "highlight": "resaltar",
     "line": "línea horizontal",
     "blockquote": "cita",
     "code": "código",
     "codeblock": "bloque de código",
+    "formatClear": "limpiar formato"
+  },
+  "media": {
     "link": "enlace externo",
-    "formatClear": "borrar formato",
+    "image": "imagen",
     "tables": {
       "table": "tabla",
       "insertTable": "insertar tabla",
@@ -55,24 +58,35 @@
   "alignment": "alineación",
   "alignments": {
     "left": "alinear a la izquierda",
-    "center": "centrar",
+    "center": "alinear al centro",
     "right": "alinear a la derecha",
     "justify": "justificar"
   },
   "list": "lista",
   "lists": {
-    "bullet": "lista sin orden",
-    "numbered": "lista numerada",
+    "bullet": "lista desordenada",
+    "numbered": "lista ordenada",
     "task": "lista de tareas",
-    "indent": "sangría de elemento",
-    "outdent": "reducir sangría"
+    "indent": "sangrar elemento de lista",
+    "outdent": "reducir sangría de elemento de lista"
   },
   "dialog": {
-    "close": "cerrar",
     "apply": "aplicar",
+    "clear": "limpiar",
+    "close": "cerrar",
+    "image": {
+      "title": "agregar/editar imagen",
+      "src": "origen",
+      "alt": "alt",
+      "width": "ancho",
+      "height": "alto"
+    },
     "link": {
       "title": "agregar/editar enlace",
-      "placeholder": "dirección del enlace"
+      "href": "dirección del enlace",
+      "target": "abrir en nueva ventana",
+      "rel": "rel",
+      "class": "clase css"
     },
     "source": {
       "title": "ver código fuente",

@@ -21,14 +21,17 @@
     "underline": "unterstrichen",
     "sup": "hochgestellt",
     "sub": "tiefgestellt",
-    "break": "zeilenumbruch",
+    "break": "harter umbruch",
     "highlight": "hervorheben",
     "line": "horizontale linie",
     "blockquote": "zitat",
     "code": "code",
-    "codeblock": "codeblock",
+    "codeblock": "code block",
+    "formatClear": "formatierung löschen"
+  },
+  "media": {
     "link": "externer link",
-    "formatClear": "formatierung löschen",
+    "image": "bild",
     "tables": {
       "table": "tabelle",
       "insertTable": "tabelle einfügen",
@@ -36,13 +39,13 @@
       "insertWithHeaderRow": "tabelle mit kopfzeile einfügen",
       "rows": "zeilen",
       "row": "zeile",
-      "insertRowBefore": "zeile oberhalb einfügen",
-      "insertRowAfter": "zeile unterhalb einfügen",
+      "insertRowBefore": "zeile davor einfügen",
+      "insertRowAfter": "zeile danach einfügen",
       "deleteRow": "zeile löschen",
       "cols": "spalten",
       "col": "spalte",
-      "insertColBefore": "spalte links einfügen",
-      "insertColAfter": "spalte rechts einfügen",
+      "insertColBefore": "spalte davor einfügen",
+      "insertColAfter": "spalte danach einfügen",
       "deleteCol": "spalte löschen",
       "mergeCells": "zellen verbinden",
       "splitCell": "zelle teilen"
@@ -50,33 +53,44 @@
   },
   "action": {
     "undo": "rückgängig",
-    "redo": "wiederherstellen"
+    "redo": "wiederholen"
   },
   "alignment": "ausrichtung",
   "alignments": {
-    "left": "linksbündig",
-    "center": "zentriert",
-    "right": "rechtsbündig",
+    "left": "links ausrichten",
+    "center": "zentriert ausrichten",
+    "right": "rechts ausrichten",
     "justify": "blocksatz"
   },
   "list": "liste",
   "lists": {
-    "bullet": "aufzählungsliste",
-    "numbered": "nummerierte liste",
+    "bullet": "ungeordnete liste",
+    "numbered": "geordnete liste",
     "task": "aufgabenliste",
-    "indent": "einzug vergrößern",
-    "outdent": "einzug verkleinern"
+    "indent": "listenelement einrücken",
+    "outdent": "listenelement ausrücken"
   },
   "dialog": {
-    "close": "schließen",
     "apply": "anwenden",
+    "clear": "löschen",
+    "close": "schließen",
+    "image": {
+      "title": "bild hinzufügen/bearbeiten",
+      "src": "quelle",
+      "alt": "alt",
+      "width": "breite",
+      "height": "höhe"
+    },
     "link": {
       "title": "link hinzufügen/bearbeiten",
-      "placeholder": "linkadresse"
+      "href": "link-adresse",
+      "target": "in neuem fenster öffnen",
+      "rel": "rel",
+      "class": "css-klasse"
     },
     "source": {
       "title": "quellcode anzeigen",
-      "prettify": "formatieren"
+      "prettify": "verschönern"
     }
   },
   "misc": {

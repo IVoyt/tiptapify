@@ -7,6 +7,8 @@ import helpers from "@tiptapify/utils/helpers";
 
 const props = defineProps({
   indent: { type: Number, default: 2 },
+  variantBtn: { type: String, default: 'elevated' },
+  variantField: { type: String, default: 'solo' }
 })
 
 const { ucFirst } = helpers;
@@ -97,17 +99,17 @@ watch(() => formatted.value, () => {
             v-model="sourceCode"
             no-resize
             rows="100"
-            variant="outlined"
+            :variant="variantField"
             class="source-code-area"
         />
       </VCardText>
 
       <VCardActions>
         <VSpacer></VSpacer>
-        <VBtn color="primary" @click="dialog = false">
+        <VBtn :variant="variantBtn" @click="dialog = false">
           {{ ucFirst(t('dialog.close')) }}
         </VBtn>
-        <VBtn color="primary" @click="saveChanges">
+        <VBtn :variant="variantBtn" color="primary" @click="saveChanges">
           {{ ucFirst(t('dialog.apply')) }}
         </VBtn>
       </VCardActions>

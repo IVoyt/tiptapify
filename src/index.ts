@@ -11,7 +11,6 @@ const TiptapifyPlugin: Plugin = {
     const locale = options.locale || 'en'
     app.use(getI18n(locale));
     app.component('Tiptapify', Tiptapify);
-    app.component('v-tiptap', Tiptapify);
   }
 };
 

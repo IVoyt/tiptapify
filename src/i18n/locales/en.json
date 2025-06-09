@@ -27,8 +27,11 @@
     "blockquote": "cite",
     "code": "code",
     "codeblock": "code block",
+    "formatClear": "format clear"
+  },
+  "media": {
     "link": "external link",
-    "formatClear": "format clear",
+    "image": "image",
     "tables": {
       "table": "table",
       "insertTable": "insert table",
@@ -68,11 +71,22 @@
     "outdent": "list item outdent"
   },
   "dialog": {
-    "close": "close",
     "apply": "apply",
+    "clear": "clear",
+    "close": "close",
+    "image": {
+      "title": "add/edit image",
+      "src": "source",
+      "alt": "alt",
+      "width": "width",
+      "height": "height"
+    },
     "link": {
       "title": "add/edit link",
-      "placeholder": "link address"
+      "href": "link address",
+      "target": "open in new window",
+      "rel": "rel",
+      "class": "CSS class"
     },
     "source": {
       "title": "view source code",

@@ -13,7 +13,8 @@ import { useTheme } from "vuetify/framework";
 
 const props = defineProps({
   content: String|Object,
-  variant: { type: String, default () { return 'elevated' } },
+  variantBtn: { type: String, default () { return 'elevated' } },
+  variantField: { type: String, default () { return 'solo' } },
   toolbar: { type: Boolean, default () { return true } },
   items: { type: Array<string>, default() { return [] }},
   itemsExclude: { type: Boolean, default() { return false } },
@@ -62,7 +63,8 @@ onBeforeUnmount(() => {
         <template v-if="toolbar">
           <Toolbar
               v-if="editor"
-              :variant="variant"
+              :variant-btn="variantBtn"
+              :variant-field="variantField"
               :font-measure="fontMeasure"
               :items="items"
               :items-exclude="itemsExclude"
@@ -72,9 +74,9 @@ onBeforeUnmount(() => {
 
         <div :class="`border border-t-0 rounded-b-${rounded}`">
           <div class="pa-2 tiptapify-container">
-            <MenuFloating v-if="floatingMenu" :variant="variant" :theme="theme" />
+            <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="theme" />
 
-            <MenuBubble v-if="bubbleMenu" :variant="variant" :theme="theme" />
+            <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="theme" />
 
             <EditorContent :editor="editor" class="tiptapify-editor" />
           </div>

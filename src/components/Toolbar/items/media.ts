@@ -3,11 +3,11 @@ import { Editor } from "@tiptap/vue-3";
 import TableBuilder from "@tiptapify/extensions/components/TableBuilder.vue";
 import { computed, markRaw, Ref } from "vue";
 
-export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
+export function getMediaItems(editor: Editor) {
   return {
     link: {
-      name: 'format.link',
-      tooltip: 'format.link',
+      name: 'media.link',
+      tooltip: 'media.link',
       icon: computed(() => editor.isActive('link') ? mdi.mdiLinkOff : mdi.mdiLink),
       enabled: true,
       props: {
@@ -15,16 +15,25 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
         disabled: computed(() => editor.isActive('code') || editor.isActive('codeBlock')),
       },
       attrs: {
-        click: computed(() => {
-          return editor.isActive('link')
-            ? editor.chain().focus().unsetLink().run
-            : toolbarLinkButton?.value?.open
-        })
+        click: () => editor.commands.showLink()
+      }
+    },
+    image: {
+      name: 'media.image',
+      tooltip: 'media.image',
+      icon: mdi.mdiImage,
+      enabled: true,
+      props: {
+        color: computed(() => editor.isActive('image') ? 'primary' : ''),
+        disabled: computed(() => editor.isActive('code') || editor.isActive('codeBlock')),
+      },
+      attrs: {
+        click: () => editor.commands.showTiptapifyImage()
       }
     },
     table: {
       name: 'tables',
-      tooltip: 'format.tables.table',
+      tooltip: 'media.tables.table',
       icon: mdi.mdiTable,
       modelValue: false,
       enabled: true,
@@ -35,7 +44,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
       children: [
         {
           name: 'insert table',
-          tooltip: 'format.tables.insertTable',
+          tooltip: 'media.tables.insertTable',
           icon: mdi.mdiTablePlus,
           enabled: true,
           props: {
@@ -49,8 +58,8 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
           component: markRaw(TableBuilder),
         },
         {
-          name: 'insert table',
-          tooltip: 'format.tables.deleteTable',
+          name: 'delete table',
+          tooltip: 'media.tables.deleteTable',
           icon: mdi.mdiTableMinus,
           enabled: true,
           props: {
@@ -62,7 +71,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
         },
         {
           name: 'table row',
-          tooltip: 'format.tables.row',
+          tooltip: 'media.tables.row',
           icon: mdi.mdiTableRow,
           enabled: true,
           props: {
@@ -80,7 +89,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
           children: [
             {
               name: 'insert row before',
-              tooltip: 'format.tables.insertRowBefore',
+              tooltip: 'media.tables.insertRowBefore',
               icon: mdi.mdiTableRowPlusBefore,
               enabled: true,
               props: {
@@ -92,7 +101,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
             },
             {
               name: 'insert row after',
-              tooltip: 'format.tables.insertRowAfter',
+              tooltip: 'media.tables.insertRowAfter',
               icon: mdi.mdiTableRowPlusAfter,
               enabled: true,
               props: {
@@ -104,7 +113,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
             },
             {
               name: 'delete row',
-              tooltip: 'format.tables.deleteRow',
+              tooltip: 'media.tables.deleteRow',
               icon: mdi.mdiTableRowRemove,
               enabled: true,
               props: {
@@ -118,7 +127,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
         },
         {
           name: 'column',
-          tooltip: 'format.tables.col',
+          tooltip: 'media.tables.col',
           icon: mdi.mdiTableColumn,
           enabled: true,
           props: {
@@ -136,7 +145,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
           children: [
             {
               name: 'insert col before',
-              tooltip: 'format.tables.insertColBefore',
+              tooltip: 'media.tables.insertColBefore',
               icon: mdi.mdiTableColumnPlusBefore,
               enabled: true,
               props: {
@@ -148,7 +157,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
             },
             {
               name: 'insert column after',
-              tooltip: 'format.tables.insertColAfter',
+              tooltip: 'media.tables.insertColAfter',
               icon: mdi.mdiTableColumnPlusAfter,
               enabled: true,
               props: {
@@ -160,7 +169,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
             },
             {
               name: 'delete column',
-              tooltip: 'format.tables.deleteCol',
+              tooltip: 'media.tables.deleteCol',
               icon: mdi.mdiTableColumnRemove,
               enabled: true,
               props: {
@@ -174,7 +183,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
         },
         {
           name: 'merge cells',
-          tooltip: 'format.tables.mergeCells',
+          tooltip: 'media.tables.mergeCells',
           icon: mdi.mdiTableMergeCells,
           enabled: true,
           props: {
@@ -186,7 +195,7 @@ export function getMediaItems(editor: Editor, toolbarLinkButton: Ref) {
         },
         {
           name: 'split cell',
-          tooltip: 'format.tables.splitCell',
+          tooltip: 'media.tables.splitCell',
           icon: mdi.mdiTableSplitCell,
           enabled: true,
           props: {

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
-import LinkDialog from "@tiptapify/extensions/components/LinkDialog.vue";
 import { computed, defineProps, inject, Ref, ref } from "vue";
 import { BubbleMenu } from '@tiptap/vue-3/menus'
 import * as mdi from '@mdi/js'
@@ -11,8 +10,6 @@ defineProps({
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
-
-const bubbleMenuLinkButton = ref(null)
 
 const items = ref([
   {
@@ -76,7 +73,7 @@ const items = ref([
       color: computed(() => editor.value.isActive('link') ? 'primary' : ''),
       disabled: computed(() => editor.value.isActive('code') || editor.value.isActive('codeBlock')),
     },
-    click: () => linkAction(),
+    click: () => editor.value.commands.showLink()
   },
   {
     name: 'format clear',
@@ -84,12 +81,6 @@ const items = ref([
     click: () => editor.value.chain().focus().unsetAllMarks().clearNodes().run(),
   }
 ])
-
-function linkAction() {
-  return editor.value.isActive('link')
-      ? editor.value.chain().focus().unsetLink().run()
-      : bubbleMenuLinkButton.value?.open()
-}
 </script>
 
 <template>
@@ -98,6 +89,10 @@ function linkAction() {
       :editor="editor"
       :options="{ placement: 'bottom' }"
       :shouldShow="({ editor, view, state, from, to }) => {
+        if (editor.isActive('image') || editor.isActive('code') || editor.isActive('codeBlock')) {
+          return false
+        }
+
         const docSize = editor.state.doc.content.size
         const isAllSelected = from === 0 && to === docSize
 
@@ -120,8 +115,6 @@ function linkAction() {
       </VCard>
     </div>
   </BubbleMenu>
-
-  <LinkDialog ref="bubbleMenuLinkButton" />
 </template>
 
 <style scoped lang="scss">

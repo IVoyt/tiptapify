@@ -1,14 +1,14 @@
 {
   "style": {
     "paragraph": "paragraphe",
-    "heading": "titre",
+    "heading": "en-tête",
     "headings": {
-      "h1": "titre niveau 1",
-      "h2": "titre niveau 2",
-      "h3": "titre niveau 3",
-      "h4": "titre niveau 4",
-      "h5": "titre niveau 5",
-      "h6": "titre niveau 6"
+      "h1": "en-tête niveau 1",
+      "h2": "en-tête niveau 2",
+      "h3": "en-tête niveau 3",
+      "h4": "en-tête niveau 4",
+      "h5": "en-tête niveau 5",
+      "h6": "en-tête niveau 6"
     },
     "fontFamily": "famille de police",
     "fontSize": "taille de police",
@@ -21,14 +21,17 @@
     "underline": "souligné",
     "sup": "exposant",
     "sub": "indice",
-    "break": "saut de ligne",
+    "break": "saut forcé",
     "highlight": "surligner",
     "line": "ligne horizontale",
     "blockquote": "citation",
     "code": "code",
     "codeblock": "bloc de code",
+    "formatClear": "effacer le format"
+  },
+  "media": {
     "link": "lien externe",
-    "formatClear": "effacer le format",
+    "image": "image",
     "tables": {
       "table": "tableau",
       "insertTable": "insérer un tableau",
@@ -50,29 +53,40 @@
   },
   "action": {
     "undo": "annuler",
-    "redo": "rétablir"
+    "redo": "refaire"
   },
   "alignment": "alignement",
   "alignments": {
     "left": "aligner à gauche",
-    "center": "centrer",
+    "center": "aligner au centre",
     "right": "aligner à droite",
     "justify": "justifier"
   },
   "list": "liste",
   "lists": {
-    "bullet": "liste à puces",
-    "numbered": "liste numérotée",
+    "bullet": "liste non ordonnée",
+    "numbered": "liste ordonnée",
     "task": "liste de tâches",
-    "indent": "retrait d'élément",
-    "outdent": "réduire le retrait"
+    "indent": "indenter l'élément de liste",
+    "outdent": "désindenter l'élément de liste"
   },
   "dialog": {
-    "close": "fermer",
     "apply": "appliquer",
+    "clear": "effacer",
+    "close": "fermer",
+    "image": {
+      "title": "ajouter/modifier l'image",
+      "src": "source",
+      "alt": "alt",
+      "width": "largeur",
+      "height": "hauteur"
+    },
     "link": {
       "title": "ajouter/modifier le lien",
-      "placeholder": "adresse du lien"
+      "href": "adresse du lien",
+      "target": "ouvrir dans une nouvelle fenêtre",
+      "rel": "rel",
+      "class": "classe css"
     },
     "source": {
       "title": "voir le code source",
