@@ -56,7 +56,7 @@ function printSelection() {
         v-model="withHeaderRow"
         density="compact"
         color="primary"
-        :label="ucFirst(t('format.tables.insertWithHeaderRow'))" hide-details
+        :label="ucFirst(t('media.tables.insertWithHeaderRow'))" hide-details
     />
 
     <div v-for="rowNum in maxRows" :key="`row-${rowNum}`" class="tiptapify-insert-table-row">
@@ -74,8 +74,8 @@ function printSelection() {
 
     <div class="tiptapify-table-builder-info">
       <span>
-        {{ ucFirst(t('format.tables.rows')) }}: {{ rowHover }}
-        {{ ucFirst(t('format.tables.cols')) }}: {{ colHover }}
+        {{ ucFirst(t('media.tables.rows')) }}: {{ rowHover }}
+        {{ ucFirst(t('media.tables.cols')) }}: {{ colHover }}
       </span>
       <span>
         {{ printSelection() }}

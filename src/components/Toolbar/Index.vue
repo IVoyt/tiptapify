@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
+import ImageDialog from "@tiptapify/extensions/components/ImageDialog.vue";
 import LinkDialog from "@tiptapify/extensions/components/LinkDialog.vue";
 import ShowSourceDialog from "@tiptapify/extensions/components/ShowSourceDialog.vue";
 import PreviewDialog from "@tiptapify/extensions/components/PreviewDialog.vue";
@@ -11,7 +12,8 @@ import { useI18n } from "vue-i18n";
 import { toolbarItems, ToolbarItemSections } from "@tiptapify/components/Toolbar/items";
 
 const props = defineProps({
-  variant: { type: String, default () { return 'flat' }},
+  variantBtn: { type: String, default () { return 'elevated' }},
+  variantField: { type: String, default () { return 'solo' }},
   items: { type: Array<string>, default() { return [] }},
   itemsExclude: { type: Boolean, default() { return false } },
   headingLevels: { type: Array<number>, default() { return [] }},
@@ -26,14 +28,11 @@ const { t } = useI18n();
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const toolbarLinkButton = ref(null)
-
 const items = toolbarItems(
     editor,
     computed(() => props.fontMeasure).value,
     { list: computed(() => props.items).value, exclude: computed(() => props.itemsExclude).value },
-    computed(() => props.headingLevels).value,
-    toolbarLinkButton
+    computed(() => props.headingLevels).value
 )
 const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
 
@@ -44,15 +43,15 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
     <VToolbar elevation="1" :theme="theme" height="auto" :class="`ps-1 rounded-t-${rounded}`">
       <VToolbarItems class="py-2">
         <template v-for="(toolbarSection, sectionKey) in toolbarItemsRef" :key="sectionKey">
-          <Group v-if="toolbarSection.group" :variant="variant" :toolbar-section="toolbarSection" />
+          <Group v-if="toolbarSection.group" :variant="variantBtn" :toolbar-section="toolbarSection" />
 
-          <Toggle v-else-if="toolbarSection.toggle" :variant="variant" :toolbar-section="toolbarSection" />
+          <Toggle v-else-if="toolbarSection.toggle" :variant="variantBtn" :toolbar-section="toolbarSection" />
 
           <VBtn
               v-else
               v-for="(toolbarItem, itemKey) in toolbarSection.items"
               :key="itemKey"
-              :variant="variant"
+              :variant="variantBtn"
               v-bind="toolbarItem.props"
               v-on="toolbarItem.attrs"
               class="menu-button"
@@ -73,9 +72,10 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
       </VToolbarItems>
     </VToolbar>
 
-    <LinkDialog ref="toolbarLinkButton" />
+    <ImageDialog :variant-field="variantField" />
+    <LinkDialog :variant-field="variantField" />
     <PreviewDialog />
-    <ShowSourceDialog />
+    <ShowSourceDialog :variant-field="variantField" />
   </div>
 </template>
 

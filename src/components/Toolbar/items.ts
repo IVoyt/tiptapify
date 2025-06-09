@@ -49,8 +49,7 @@ export function toolbarItems(
   editor: any,
   fontMeasure: string,
   items: { list: Array<string>, exclude: boolean },
-  customHeadingLevels: Array<number>,
-  toolbarLinkButton: Ref,
+  customHeadingLevels: Array<number>
 ): ToolbarItemSections {
   const styleItems = ref(getStyleItems(editor.value, fontMeasure, customHeadingLevels))
   const formatItems = ref(getFormatItems(editor.value))
@@ -59,7 +58,7 @@ export function toolbarItems(
   const listItems = ref(getListItems(editor.value))
   const actionsItems = ref(getActionsItems(editor.value))
   const miscItems = ref(getMiscItems(editor.value))
-  const mediaItems = ref(getMediaItems(editor.value, toolbarLinkButton))
+  const mediaItems = ref(getMediaItems(editor.value))
 
   const allMenuItems: ToolbarItemSections = {
     /**

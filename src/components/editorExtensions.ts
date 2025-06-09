@@ -23,7 +23,8 @@ import { Underline } from '@tiptap/extension-underline'
 import { TableKit } from '@tiptap/extension-table'
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 
-import { Link } from '@tiptap/extension-link'
+import { TiptapifyLink } from '@tiptapify/extensions/link'
+import { TiptapifyImage } from '@tiptapify/extensions/image'
 import CodeBlockComponent from '@tiptapify/components/CodeBlockComponent.vue'
 import { ViewSource } from '@tiptapify/extensions/view-source'
 import { Preview } from '@tiptapify/extensions/preview'
@@ -69,11 +70,12 @@ export function editorExtensions (placeholder: string, slashCommands: boolean) {
     Typography,
     Underline,
     Highlight,
-    Link.configure({
+    TiptapifyLink.configure({
       openOnClick: false,
-      defaultProtocol: 'https',
+      defaultProtocol: 'https'
     }),
     Image,
+    TiptapifyImage,
     Superscript,
     Subscript,
     TableKit,

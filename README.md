@@ -73,9 +73,10 @@ app.mount('#app')
 - [x] raw html mode
 - [x] tables extension
 - [x] preview extension
+- [x] image extension
 - [ ] text styling (background & font color)
 - [ ] print hotkey in tooltip
-- [ ] menu extensions for media (image, video)
+- [ ] video extensions
 - [ ] emoji plugin
 - [ ] option to use custom component for link & media extension
 - [ ] option to provide custom extension

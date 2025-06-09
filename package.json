@@ -1,6 +1,6 @@
 {
   "name": "tiptapify",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Tiptap3 editor with Vuetify3 menu implementation",
   "exports": {
     ".": {

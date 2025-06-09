@@ -12,7 +12,7 @@
     },
     "fontFamily": "famiglia di caratteri",
     "fontSize": "dimensione carattere",
-    "lineHeight": "altezza di riga"
+    "lineHeight": "altezza riga"
   },
   "format": {
     "bold": "grassetto",
@@ -21,14 +21,17 @@
     "underline": "sottolineato",
     "sup": "apice",
     "sub": "pedice",
-    "break": "interruzione di riga",
+    "break": "interruzione forzata",
     "highlight": "evidenzia",
     "line": "linea orizzontale",
     "blockquote": "citazione",
     "code": "codice",
     "codeblock": "blocco di codice",
+    "formatClear": "cancella formato"
+  },
+  "media": {
     "link": "collegamento esterno",
-    "formatClear": "cancella formato",
+    "image": "immagine",
     "tables": {
       "table": "tabella",
       "insertTable": "inserisci tabella",
@@ -50,29 +53,40 @@
   },
   "action": {
     "undo": "annulla",
-    "redo": "ripristina"
+    "redo": "ripeti"
   },
   "alignment": "allineamento",
   "alignments": {
     "left": "allinea a sinistra",
-    "center": "centra",
+    "center": "allinea al centro",
     "right": "allinea a destra",
     "justify": "giustifica"
   },
   "list": "elenco",
   "lists": {
-    "bullet": "elenco puntato",
-    "numbered": "elenco numerato",
+    "bullet": "elenco non ordinato",
+    "numbered": "elenco ordinato",
     "task": "elenco attività",
-    "indent": "rientro elemento",
-    "outdent": "riduci rientro"
+    "indent": "rientra elemento elenco",
+    "outdent": "riduci rientro elemento elenco"
   },
   "dialog": {
-    "close": "chiudi",
     "apply": "applica",
+    "clear": "cancella",
+    "close": "chiudi",
+    "image": {
+      "title": "aggiungi/modifica immagine",
+      "src": "origine",
+      "alt": "alt",
+      "width": "larghezza",
+      "height": "altezza"
+    },
     "link": {
       "title": "aggiungi/modifica collegamento",
-      "placeholder": "indirizzo del collegamento"
+      "href": "indirizzo collegamento",
+      "target": "apri in nuova finestra",
+      "rel": "rel",
+      "class": "classe css"
     },
     "source": {
       "title": "visualizza codice sorgente",

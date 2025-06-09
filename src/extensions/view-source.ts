@@ -8,9 +8,6 @@ export interface ViewSourceOptions {
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     viewSource: {
-      /**
-       * Показать исходный HTML-код
-       */
       showSource: () => ReturnType
     }
   }
