@@ -1,4 +1,7 @@
 {
+  "content": {
+    "placeholder": "scrivi qualcosa qui..."
+  },
   "style": {
     "paragraph": "paragrafo",
     "heading": "intestazione",
@@ -10,9 +13,15 @@
       "h5": "intestazione livello 5",
       "h6": "intestazione livello 6"
     },
-    "fontFamily": "famiglia di caratteri",
+    "fontFamily": "famiglia carattere",
     "fontSize": "dimensione carattere",
-    "lineHeight": "altezza riga"
+    "lineHeight": "altezza riga",
+    "color": {
+      "highlight": "colore evidenziazione",
+      "text": "colore testo",
+      "unset": "rimuovi colore",
+      "custom": "colore personalizzato"
+    }
   },
   "format": {
     "bold": "grassetto",
@@ -21,13 +30,12 @@
     "underline": "sottolineato",
     "sup": "apice",
     "sub": "pedice",
-    "break": "interruzione forzata",
-    "highlight": "evidenzia",
-    "line": "linea orizzontale",
+    "break": "interruzione riga forzata",
+    "line": "riga orizzontale",
     "blockquote": "citazione",
     "code": "codice",
-    "codeblock": "blocco di codice",
-    "formatClear": "cancella formato"
+    "codeblock": "blocco codice",
+    "formatClear": "cancella formattazione"
   },
   "media": {
     "link": "collegamento esterno",
@@ -36,7 +44,7 @@
       "table": "tabella",
       "insertTable": "inserisci tabella",
       "deleteTable": "elimina tabella",
-      "insertWithHeaderRow": "inserisci tabella con riga di intestazione",
+      "insertWithHeaderRow": "inserisci tabella con riga intestazione",
       "rows": "righe",
       "row": "riga",
       "insertRowBefore": "inserisci riga prima",
@@ -76,7 +84,7 @@
     "close": "chiudi",
     "image": {
       "title": "aggiungi/modifica immagine",
-      "src": "origine",
+      "src": "sorgente",
       "alt": "alt",
       "width": "larghezza",
       "height": "altezza"
@@ -86,7 +94,7 @@
       "href": "indirizzo collegamento",
       "target": "apri in nuova finestra",
       "rel": "rel",
-      "class": "classe css"
+      "class": "classe CSS"
     },
     "source": {
       "title": "visualizza codice sorgente",
@@ -96,5 +104,9 @@
   "misc": {
     "source": "visualizza codice sorgente",
     "preview": "anteprima"
+  },
+  "footer": {
+    "words": "parole",
+    "chars": "caratteri"
   }
 }

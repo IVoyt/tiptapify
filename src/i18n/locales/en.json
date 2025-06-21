@@ -1,4 +1,7 @@
 {
+  "content": {
+    "placeholder": "write something here..."
+  },
   "style": {
     "paragraph": "paragraph",
     "heading": "heading",
@@ -12,7 +15,13 @@
     },
     "fontFamily": "font family",
     "fontSize": "font size",
-    "lineHeight": "line height"
+    "lineHeight": "line height",
+    "color": {
+      "highlight": "highlight color",
+      "text": "text color",
+      "unset": "unset color",
+      "custom": "custom color"
+    }
   },
   "format": {
     "bold": "bold",
@@ -22,7 +31,6 @@
     "sup": "superscript",
     "sub": "subscript",
     "break": "hard break",
-    "highlight": "highlight",
     "line": "horizontal line",
     "blockquote": "cite",
     "code": "code",
@@ -96,5 +104,9 @@
   "misc": {
     "source": "view source code",
     "preview": "preview"
+  },
+  "footer": {
+    "words": "words",
+    "chars": "characters"
   }
 }

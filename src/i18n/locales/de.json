@@ -1,4 +1,7 @@
 {
+  "content": {
+    "placeholder": "schreib hier etwas..."
+  },
   "style": {
     "paragraph": "absatz",
     "heading": "überschrift",
@@ -12,7 +15,13 @@
     },
     "fontFamily": "schriftart",
     "fontSize": "schriftgröße",
-    "lineHeight": "zeilenhöhe"
+    "lineHeight": "zeilenhöhe",
+    "color": {
+      "highlight": "hervorhebungsfarbe",
+      "text": "textfarbe",
+      "unset": "farbe zurücksetzen",
+      "custom": "benutzerdefinierte farbe"
+    }
   },
   "format": {
     "bold": "fett",
@@ -22,7 +31,6 @@
     "sup": "hochgestellt",
     "sub": "tiefgestellt",
     "break": "harter umbruch",
-    "highlight": "hervorheben",
     "line": "horizontale linie",
     "blockquote": "zitat",
     "code": "code",
@@ -96,5 +104,9 @@
   "misc": {
     "source": "quellcode anzeigen",
     "preview": "vorschau"
+  },
+  "footer": {
+    "words": "wörter",
+    "chars": "zeichen"
   }
 }
