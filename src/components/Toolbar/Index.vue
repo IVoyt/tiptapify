@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
-import ImageDialog from "@tiptapify/extensions/components/ImageDialog.vue";
-import LinkDialog from "@tiptapify/extensions/components/LinkDialog.vue";
-import ShowSourceDialog from "@tiptapify/extensions/components/ShowSourceDialog.vue";
-import PreviewDialog from "@tiptapify/extensions/components/PreviewDialog.vue";
-import Group from "@tiptapify/components/Toolbar/Group.vue";
-import Toggle from "@tiptapify/components/Toolbar/Toggle.vue";
-import { computed, defineProps, inject, Ref, ref } from 'vue'
-import { useI18n } from "vue-i18n";
+import { getDefaultComponents } from "@tiptapify/components/Toolbar/defaultExtensionComponents";
+import Items from "@tiptapify/components/Toolbar/Items.vue";
+import { computed, defineProps, inject, PropType, ref, Ref, ShallowRef, shallowRef, triggerRef } from 'vue'
+import { extensionsComponents } from '@tiptapify/types/overridable-extensions'
 
-import { toolbarItems, ToolbarItemSections } from "@tiptapify/components/Toolbar/items";
+import { toolbarItems } from "@tiptapify/components/Toolbar/items";
 
 const props = defineProps({
   variantBtn: { type: String, default () { return 'elevated' }},
@@ -22,9 +18,9 @@ const props = defineProps({
   customFontsOverride: { type: Boolean, default() { return false } },
   theme: { type: String, default() { return 'light' } },
   rounded: { type: String, default() { return '0' } },
+  toolbarScrollable: { type: Boolean, default() { return false } },
+  overrideExtensionsComponents: { type: Object as PropType<extensionsComponents>, default() { return {} } },
 })
-
-const { t } = useI18n();
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -34,7 +30,13 @@ const items = toolbarItems(
     { list: computed(() => props.items).value, exclude: computed(() => props.itemsExclude).value },
     computed(() => props.headingLevels).value
 )
-const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
+
+const defaultComponents: extensionsComponents = getDefaultComponents(props.variantField)
+
+const extensions: ShallowRef<extensionsComponents> = shallowRef({})
+Object.keys(defaultComponents).forEach(extension => {
+  extensions.value[extension] = props.overrideExtensionsComponents[extension] ?? defaultComponents[extension]
+})
 
 </script>
 
@@ -47,70 +49,15 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(items)
 
           <Toggle v-else-if="toolbarSection.toggle" :variant="variantBtn" :toolbar-section="toolbarSection" />
 
-          <VBtn
-              v-else
-              v-for="(toolbarItem, itemKey) in toolbarSection.items"
-              :key="itemKey"
-              :variant="variantBtn"
-              v-bind="toolbarItem.props"
-              v-on="toolbarItem.attrs"
-              class="menu-button"
-              size="32"
-              elevation="4"
-              rounded="sm"
-          >
-            <VTooltip :text="t(toolbarItem.tooltip)" location="top" activator="parent" />
-
-            <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="16" />
-            <span v-else class="menu-item-title">
-              {{ t(toolbarItem.name) }}
-            </span>
-          </VBtn>
-
-          <div class="menu-divider"></div>
-        </template>
-      </VToolbarItems>
+      <Items v-else :items="items" />
     </VToolbar>
 
-    <ImageDialog :variant-field="variantField" />
-    <LinkDialog :variant-field="variantField" />
-    <PreviewDialog />
-    <ShowSourceDialog :variant-field="variantField" />
+    <template v-for="extension in extensions">
+      <component :is="extension.component" v-bind="extension?.props ?? {}"  />
+    </template>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.tiptapify-menu {
-  padding: 8px;
-  border-bottom: var(--border);
-}
 
-:deep(.toolbar__items) {
-  flex-wrap: wrap;
-}
-
-:deep(.v-btn-group) {
-  height: 32px !important;
-}
-
-.menu-item-title {
-  font-size: 14px;
-}
-
-.menu-button {
-  margin: 0 1px;
-}
-
-.menu-divider {
-  margin: 0 4px;
-}
-
-.menu-divider:nth-last-child(1) {
-  display: none;
-}
-
-.v-toolbar-items {
-  flex-wrap: wrap;
-  row-gap: 5px;
-}
 </style>

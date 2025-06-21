@@ -110,7 +110,7 @@ $mutedColor: var(--v-theme-muted-color, #888888);
   margin: 2px;
   width: 100%;
   height: 100%;
-  border: 1px solid #888;
+  border: 1px solid #bbb;
   background: #fff;
   border-radius: 4px;
   filter: drop-shadow(2px 2px 4px #88888888);

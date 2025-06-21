@@ -1,15 +1,20 @@
 <script setup lang="ts">
 
-import { onBeforeUnmount, provide, ref, ShallowRef, shallowRef, watch } from "vue";
+import { extensionsComponents } from "@tiptapify/types/overridable-extensions";
+import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, watch } from "vue";
 import { default as Toolbar } from "@tiptapify/components/Toolbar/Index.vue";
 import { Editor, EditorContent } from '@tiptap/vue-3'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
+import { useI18n } from "vue-i18n";
+
 import { getTiptapEditor } from "@tiptapify/components/index";
 
 import Footer from '@tiptapify/components/Footer.vue'
 import { useTheme } from "vuetify/framework";
+
+const { t } = useI18n();
 
 const props = defineProps({
   content: String|Object,
@@ -21,17 +26,24 @@ const props = defineProps({
   bubbleMenu: { type: Boolean, default () { return true } },
   floatingMenu: { type: Boolean, default () { return true } },
   slashCommands: { type: Boolean, default () { return true } },
-  placeholder: { type: String, default () { return 'Write something here...' } },
-  showCharacterCount: { type: Boolean, default () { return true } },
+  placeholder: { type: String, default () { return '' } },
+  showWordsCount: { type: Boolean, default () { return true } },
+  showCharactersCount: { type: Boolean, default () { return true } },
   defaultFontFamily: { type: String, default () { return 'Inter' } },
   fontMeasure: { type: String, default () { return 'px' } },
   rounded: { type: String, default () { return '0' } },
+  overrideExtensionsComponents: { type: Object as PropType<extensionsComponents>, default() { return {} } },
 })
 
-const theme = ref(useTheme().current.value.dark ? 'dark' : 'light')
+// console.log('override extension components', computed(() => props.overrideExtensionsComponents).value)
 
-const editor: ShallowRef<Editor | undefined> = shallowRef(
-    getTiptapEditor(props.content, props.placeholder, props.slashCommands)
+const appTheme = useTheme()
+const currentTheme = ref(appTheme.global.name)
+
+const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
+    props.content,
+    computed(() => props.placeholder || t('content.placeholder')).value,
+    props.slashCommands
 )
 
 const emit = defineEmits(['update:modelValue', 'editor-ready']);
@@ -40,11 +52,10 @@ provide('tiptapifyEditor', editor)
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
 
-defineExpose({ editor: editor });
-
 watch(() => editor.value, (editorInstance) => {
   if (editorInstance instanceof Editor) {
     emit('editor-ready', {
+      editor: editorInstance,
       getHTML: () => editorInstance.getHTML(),
       getJSON: () => editorInstance.getJSON(),
     });
@@ -69,6 +80,7 @@ onBeforeUnmount(() => {
               :items="items"
               :items-exclude="itemsExclude"
               :rounded="rounded"
+              :override-extensions-components="overrideExtensionsComponents"
           />
         </template>
 
@@ -81,9 +93,7 @@ onBeforeUnmount(() => {
             <EditorContent :editor="editor" class="tiptapify-editor" />
           </div>
 
-          <template v-if="showCharacterCount">
-            <Footer />
-          </template>
+          <Footer :show-words-count="showWordsCount" :show-characters-count="showCharactersCount" />
         </div>
       </VCol>
     </VRow>
@@ -135,7 +145,6 @@ onBeforeUnmount(() => {
     background-repeat: no-repeat;
     background-position: right .1rem center;
     background-size: 1.25rem 1.25rem;
-    /* padding-right: 1.25rem; */
 
     border-radius: .5rem;
     border: none;
@@ -150,8 +159,7 @@ onBeforeUnmount(() => {
   }
 
   /* List styles */
-  ul,
-  ol {
+  ul, ol {
     padding: 0 1rem;
     margin: 1.25rem 1rem 1.25rem 0.4rem;
 
@@ -192,19 +200,13 @@ onBeforeUnmount(() => {
   }
 
   /* Heading styles */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
     margin-top: 2.5rem;
     text-wrap: pretty;
   }
 
-  h1,
-  h2 {
+  h1, h2 {
     margin-top: 3.5rem;
     margin-bottom: 1.5rem;
   }
@@ -221,9 +223,7 @@ onBeforeUnmount(() => {
     font-size: 1.1rem;
   }
 
-  h4,
-  h5,
-  h6 {
+  h4, h5, h6 {
     font-size: 1rem;
   }
 
@@ -325,8 +325,7 @@ onBeforeUnmount(() => {
     table-layout: fixed;
     width: 100%;
 
-    td,
-    th {
+    td, th {
       border: 1px solid var(--gray-3);
       box-sizing: border-box;
       min-width: 1em;
@@ -366,6 +365,14 @@ onBeforeUnmount(() => {
       top: 0;
       width: 4px;
     }
+  }
+
+  p.is-editor-empty:first-child::before {
+    color: var(--gray-4);
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
   }
 
   .tableWrapper {
