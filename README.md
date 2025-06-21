@@ -17,6 +17,7 @@
 - Bubble Menu
 - Floating Menu
 - Slash Command
+- Dark theme
 
 ## Installation
 Install package
@@ -65,6 +66,28 @@ app.use(TiptapifyPlugin, { locale: 'en' });
 app.mount('#app')
 ```
 
+## Usage
+
+```vue
+<script setup>
+  const handleEditorReady = (options: { editor: any, getHTML: Function, getJSON: Function, echo: Function }) => {
+    console.log('The editor is ready', options.editor);
+    console.log('editor html', options.getHTML());
+    console.log('editor json', options.getJSON());
+  };
+</script>
+
+<template>
+  <Tiptapify
+      :content="content"
+      :bubble-menu="true"
+      :floating-menu="false"
+      :slash-commands="true"
+      @editor-ready="handleEditorReady"
+  />
+</template>
+```
+
 
 ### TODO
 
@@ -74,7 +97,8 @@ app.mount('#app')
 - [x] tables extension
 - [x] preview extension
 - [x] image extension
-- [ ] text styling (background & font color)
+- [x] text styling (background & font color)
+- [x] dark theme
 - [ ] print hotkey in tooltip
 - [ ] video extensions
 - [ ] emoji plugin
@@ -82,7 +106,6 @@ app.mount('#app')
 - [ ] option to provide custom extension
 - [ ] demo
 - [ ] documentation
-- [ ] dark theme
 - [ ] AI features
 
 ## Licence

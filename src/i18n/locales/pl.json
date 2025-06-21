@@ -1,18 +1,28 @@
+
 {
+  "content": {
+    "placeholder": "napisz coś tutaj..."
+  },
   "style": {
     "paragraph": "akapit",
     "heading": "nagłówek",
     "headings": {
-      "h1": "nagłówek poziomu 1",
-      "h2": "nagłówek poziomu 2",
-      "h3": "nagłówek poziomu 3",
-      "h4": "nagłówek poziomu 4",
-      "h5": "nagłówek poziomu 5",
-      "h6": "nagłówek poziomu 6"
+      "h1": "nagłówek poziom 1",
+      "h2": "nagłówek poziom 2",
+      "h3": "nagłówek poziom 3",
+      "h4": "nagłówek poziom 4",
+      "h5": "nagłówek poziom 5",
+      "h6": "nagłówek poziom 6"
     },
-    "fontFamily": "rodzina czcionek",
+    "fontFamily": "rodzina czcionki",
     "fontSize": "rozmiar czcionki",
-    "lineHeight": "wysokość linii"
+    "lineHeight": "wysokość linii",
+    "color": {
+      "highlight": "kolor podświetlenia",
+      "text": "kolor tekstu",
+      "unset": "usuń kolor",
+      "custom": "kolor niestandardowy"
+    }
   },
   "format": {
     "bold": "pogrubienie",
@@ -21,8 +31,7 @@
     "underline": "podkreślenie",
     "sup": "indeks górny",
     "sub": "indeks dolny",
-    "break": "twardy podział",
-    "highlight": "wyróżnienie",
+    "break": "twarde łamanie",
     "line": "linia pozioma",
     "blockquote": "cytat",
     "code": "kod",
@@ -47,7 +56,7 @@
       "insertColBefore": "wstaw kolumnę przed",
       "insertColAfter": "wstaw kolumnę po",
       "deleteCol": "usuń kolumnę",
-      "mergeCells": "połącz komórki",
+      "mergeCells": "scal komórki",
       "splitCell": "podziel komórkę"
     }
   },
@@ -58,7 +67,7 @@
   "alignment": "wyrównanie",
   "alignments": {
     "left": "wyrównaj do lewej",
-    "center": "wyrównaj do środka",
+    "center": "wyśrodkuj",
     "right": "wyrównaj do prawej",
     "justify": "wyjustuj"
   },
@@ -68,7 +77,7 @@
     "numbered": "lista uporządkowana",
     "task": "lista zadań",
     "indent": "wcięcie elementu listy",
-    "outdent": "zmniejsz wcięcie elementu listy"
+    "outdent": "usuń wcięcie elementu listy"
   },
   "dialog": {
     "apply": "zastosuj",
@@ -86,15 +95,19 @@
       "href": "adres linku",
       "target": "otwórz w nowym oknie",
       "rel": "rel",
-      "class": "klasa css"
+      "class": "klasa CSS"
     },
     "source": {
-      "title": "pokaż kod źródłowy",
+      "title": "wyświetl kod źródłowy",
       "prettify": "upiększ"
     }
   },
   "misc": {
-    "source": "pokaż kod źródłowy",
+    "source": "wyświetl kod źródłowy",
     "preview": "podgląd"
+  },
+  "footer": {
+    "words": "słowa",
+    "chars": "znaki"
   }
 }

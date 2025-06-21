@@ -1,7 +1,7 @@
 import * as mdi from "@mdi/js";
 import { Editor } from "@tiptap/vue-3";
 import TableBuilder from "@tiptapify/extensions/components/TableBuilder.vue";
-import { computed, markRaw, Ref } from "vue";
+import { computed, markRaw } from "vue";
 
 export function getMediaItems(editor: Editor) {
   return {

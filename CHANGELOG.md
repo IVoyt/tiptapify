@@ -1,31 +1,38 @@
+### v0.0.9
+- added prop toolbarScrollable to allow overflow-x or wrap the toolbar items
+- added characters count to the Footer
+- dark theme support
+- text color extension
+- highlight color extension
+
 ### v0.0.8
 - extend link extension
-- add image extension
-- add properties to set field/button variant
+- added image extension
+- added properties to set field/button variant
 
 ### v0.0.7
-- add preview extension
-- add tables extension
+- added preview extension
+- added tables extension
 - refactor
 
 ### v0.0.6
 - refactor toolbar items
 - refactor Bubble/Floating menu
-- add style for task-list extension
-- update editor appearance
+- added style for task-list extension
+- updated editor appearance
 
 ### v0.0.5
-- add view source extension
-- add l10n
-- add paragraph extension to headings menu
+- added view source extension
+- added l10n
+- added paragraph extension to headings menu
 - refactor
 
 ### v0.0.4
-- update version
+- updated version
 
 ### v0.0.3
-- add the "format clear" button
-- extend font list
+- added the "format clear" button
+- extended font list
 
 ### v0.0.2
 - refactor BubbleMenu

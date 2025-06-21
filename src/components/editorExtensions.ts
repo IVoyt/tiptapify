@@ -69,7 +69,7 @@ export function editorExtensions (placeholder: string, slashCommands: boolean) {
     Dropcursor,
     Typography,
     Underline,
-    Highlight,
+    Highlight.configure({ multicolor: true }),
     TiptapifyLink.configure({
       openOnClick: false,
       defaultProtocol: 'https'
@@ -89,12 +89,8 @@ export function editorExtensions (placeholder: string, slashCommands: boolean) {
         },
       })
       .configure({ lowlight }),
-    Selection.configure({
-      className: 'selection',
-    }),
-    TextAlign.configure({
-      types: ['heading', 'paragraph'],
-    }),
+    Selection.configure({ className: 'selection' }),
+    TextAlign.configure({ types: ['heading', 'paragraph'] }),
     Placeholder.configure({ placeholder }),
     CharacterCount,
     ViewSource,

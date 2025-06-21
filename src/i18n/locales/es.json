@@ -1,4 +1,7 @@
 {
+  "content": {
+    "placeholder": "escribe algo aquí..."
+  },
   "style": {
     "paragraph": "párrafo",
     "heading": "encabezado",
@@ -12,7 +15,13 @@
     },
     "fontFamily": "familia de fuente",
     "fontSize": "tamaño de fuente",
-    "lineHeight": "altura de línea"
+    "lineHeight": "altura de línea",
+    "color": {
+      "highlight": "color de resaltado",
+      "text": "color de texto",
+      "unset": "quitar color",
+      "custom": "color personalizado"
+    }
   },
   "format": {
     "bold": "negrita",
@@ -21,8 +30,7 @@
     "underline": "subrayado",
     "sup": "superíndice",
     "sub": "subíndice",
-    "break": "salto forzado",
-    "highlight": "resaltar",
+    "break": "salto de línea forzado",
     "line": "línea horizontal",
     "blockquote": "cita",
     "code": "código",
@@ -47,7 +55,7 @@
       "insertColBefore": "insertar columna antes",
       "insertColAfter": "insertar columna después",
       "deleteCol": "eliminar columna",
-      "mergeCells": "combinar celdas",
+      "mergeCells": "fusionar celdas",
       "splitCell": "dividir celda"
     }
   },
@@ -64,7 +72,7 @@
   },
   "list": "lista",
   "lists": {
-    "bullet": "lista desordenada",
+    "bullet": "lista no ordenada",
     "numbered": "lista ordenada",
     "task": "lista de tareas",
     "indent": "sangrar elemento de lista",
@@ -76,7 +84,7 @@
     "close": "cerrar",
     "image": {
       "title": "agregar/editar imagen",
-      "src": "origen",
+      "src": "fuente",
       "alt": "alt",
       "width": "ancho",
       "height": "alto"
@@ -86,7 +94,7 @@
       "href": "dirección del enlace",
       "target": "abrir en nueva ventana",
       "rel": "rel",
-      "class": "clase css"
+      "class": "clase CSS"
     },
     "source": {
       "title": "ver código fuente",
@@ -96,5 +104,9 @@
   "misc": {
     "source": "ver código fuente",
     "preview": "vista previa"
+  },
+  "footer": {
+    "words": "palabras",
+    "chars": "caracteres"
   }
 }

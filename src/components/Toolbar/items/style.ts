@@ -1,14 +1,15 @@
 import * as mdi from "@mdi/js";
 import { Editor } from "@tiptap/vue-3";
 import { fonts } from "@tiptapify/components/Toolbar/fonts";
-import { computed, ref } from "vue";
+import StyleColor from "@tiptapify/extensions/components/StyleColor.vue";
+import { computed, markRaw, ref } from "vue";
 
 interface MDIIcons {
   [key: string]: string
 }
 const mdiIcons = mdi as MDIIcons
 
-export function getStyleItems(editor: Editor, fontMeasure: string, customHeadingLevels: Array<number> = []) {
+export function getStyleItems(editor: Editor, theme: any, fontMeasure: string, customHeadingLevels: Array<number> = []) {
   const headingLevels = ref([1, 2, 3, 4, 5, 6])
   if (customHeadingLevels.length) {
     customHeadingLevels.forEach(level => {
@@ -141,6 +142,46 @@ export function getStyleItems(editor: Editor, fontMeasure: string, customHeading
           }
         }
       })
+    },
+    highlight: {
+      name: 'highlight',
+      tooltip: 'style.color.highlight',
+      icon: mdi.mdiFormatColorFill,
+      icon2: mdi.mdiColorHelper,
+      enabled: true,
+      icon2Props: {
+        color: computed(() => {
+          const defaultColor = theme.global.current.value.dark ? '#fff' : '#000'
+          return editor.getAttributes('highlight').color || defaultColor
+        }),
+        style: 'filter: drop-shadow(rgba(0, 0, 0, .75) 1px 1px 2px);'
+      },
+      component: markRaw(StyleColor),
+      componentProps: {
+        fontColor: false,
+        backgroundColor: true,
+        color: computed(() => editor.getAttributes('highlight').color || ''),
+      }
+    },
+    color: {
+      name: 'color',
+      tooltip: 'style.color.text',
+      icon: mdi.mdiFormatColorText,
+      icon2: mdi.mdiColorHelper,
+      enabled: true,
+      icon2Props: {
+        color: computed(() => {
+          const defaultColor = theme.global.current.value.dark ? '#fff' : '#000'
+          return editor.getAttributes('textStyle').color || defaultColor
+        }),
+        style: 'filter: drop-shadow(rgba(0, 0, 0, .75) 1px 1px 2px);'
+      },
+      component: markRaw(StyleColor),
+      componentProps: {
+        fontColor: true,
+        backgroundColor: false,
+        color: computed(() => editor.getAttributes('textStyle').color || ''),
+      }
     }
   }
 }

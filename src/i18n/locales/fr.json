@@ -1,18 +1,27 @@
 {
+  "content": {
+    "placeholder": "écrivez quelque chose ici..."
+  },
   "style": {
     "paragraph": "paragraphe",
-    "heading": "en-tête",
+    "heading": "titre",
     "headings": {
-      "h1": "en-tête niveau 1",
-      "h2": "en-tête niveau 2",
-      "h3": "en-tête niveau 3",
-      "h4": "en-tête niveau 4",
-      "h5": "en-tête niveau 5",
-      "h6": "en-tête niveau 6"
+      "h1": "titre niveau 1",
+      "h2": "titre niveau 2",
+      "h3": "titre niveau 3",
+      "h4": "titre niveau 4",
+      "h5": "titre niveau 5",
+      "h6": "titre niveau 6"
     },
     "fontFamily": "famille de police",
     "fontSize": "taille de police",
-    "lineHeight": "hauteur de ligne"
+    "lineHeight": "hauteur de ligne",
+    "color": {
+      "highlight": "couleur de surbrillance",
+      "text": "couleur du texte",
+      "unset": "réinitialiser la couleur",
+      "custom": "couleur personnalisée"
+    }
   },
   "format": {
     "bold": "gras",
@@ -21,34 +30,33 @@
     "underline": "souligné",
     "sup": "exposant",
     "sub": "indice",
-    "break": "saut forcé",
-    "highlight": "surligner",
+    "break": "saut de ligne forcé",
     "line": "ligne horizontale",
     "blockquote": "citation",
     "code": "code",
     "codeblock": "bloc de code",
-    "formatClear": "effacer le format"
+    "formatClear": "effacer le formatage"
   },
   "media": {
     "link": "lien externe",
     "image": "image",
     "tables": {
       "table": "tableau",
-      "insertTable": "insérer un tableau",
-      "deleteTable": "supprimer le tableau",
-      "insertWithHeaderRow": "insérer un tableau avec ligne d'en-tête",
+      "insertTable": "insérer tableau",
+      "deleteTable": "supprimer tableau",
+      "insertWithHeaderRow": "insérer tableau avec ligne d'en-tête",
       "rows": "lignes",
       "row": "ligne",
-      "insertRowBefore": "insérer une ligne avant",
-      "insertRowAfter": "insérer une ligne après",
-      "deleteRow": "supprimer la ligne",
+      "insertRowBefore": "insérer ligne avant",
+      "insertRowAfter": "insérer ligne après",
+      "deleteRow": "supprimer ligne",
       "cols": "colonnes",
       "col": "colonne",
-      "insertColBefore": "insérer une colonne avant",
-      "insertColAfter": "insérer une colonne après",
-      "deleteCol": "supprimer la colonne",
-      "mergeCells": "fusionner les cellules",
-      "splitCell": "diviser la cellule"
+      "insertColBefore": "insérer colonne avant",
+      "insertColAfter": "insérer colonne après",
+      "deleteCol": "supprimer colonne",
+      "mergeCells": "fusionner cellules",
+      "splitCell": "diviser cellule"
     }
   },
   "action": {
@@ -58,7 +66,7 @@
   "alignment": "alignement",
   "alignments": {
     "left": "aligner à gauche",
-    "center": "aligner au centre",
+    "center": "centrer",
     "right": "aligner à droite",
     "justify": "justifier"
   },
@@ -67,26 +75,26 @@
     "bullet": "liste non ordonnée",
     "numbered": "liste ordonnée",
     "task": "liste de tâches",
-    "indent": "indenter l'élément de liste",
-    "outdent": "désindenter l'élément de liste"
+    "indent": "indenter élément de liste",
+    "outdent": "désindenter élément de liste"
   },
   "dialog": {
     "apply": "appliquer",
     "clear": "effacer",
     "close": "fermer",
     "image": {
-      "title": "ajouter/modifier l'image",
+      "title": "ajouter/modifier image",
       "src": "source",
       "alt": "alt",
       "width": "largeur",
       "height": "hauteur"
     },
     "link": {
-      "title": "ajouter/modifier le lien",
+      "title": "ajouter/modifier lien",
       "href": "adresse du lien",
       "target": "ouvrir dans une nouvelle fenêtre",
       "rel": "rel",
-      "class": "classe css"
+      "class": "classe CSS"
     },
     "source": {
       "title": "voir le code source",
@@ -96,5 +104,9 @@
   "misc": {
     "source": "voir le code source",
     "preview": "aperçu"
+  },
+  "footer": {
+    "words": "mots",
+    "chars": "caractères"
   }
 }
