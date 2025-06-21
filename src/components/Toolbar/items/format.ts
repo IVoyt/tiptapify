@@ -55,19 +55,6 @@ export function getFormatItems(editor: Editor) {
       attrs: {
         click: () => editor.chain().focus().toggleUnderline().run()
       }
-    },
-    highlight: {
-      name: 'highlight',
-      tooltip: 'format.highlight',
-      icon: mdi.mdiMarker,
-      enabled: true,
-      props: {
-        disabled: computed(() => !editor.can().chain().focus().toggleHighlight().run()),
-        color: computed(() => editor.isActive('highlight') ? 'primary' : ''),
-      },
-      attrs: {
-        click: () => editor.chain().focus().toggleHighlight().run()
-      }
     }
   }
 }
