@@ -1,17 +1,51 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
-import { inject, Ref } from "vue";
+import { computed, inject, ref, Ref } from "vue";
+
+import { useI18n } from "vue-i18n";
+
+const props = defineProps({
+  showWordsCount: { type: Boolean, default: true },
+  showCharactersCount: { type: Boolean, default: true },
+})
+
+const { t } = useI18n()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
+
+const statusItems = ref([
+  {
+    enabled: computed(() => props.showWordsCount),
+    text: 'footer.words',
+    value: computed(() => editor.value.storage.characterCount.words())
+  },
+  {
+    enabled: computed(() => props.showCharactersCount),
+    text: 'footer.chars',
+    value: computed(() => editor.value.storage.characterCount.characters())
+  }
+])
+
+function printStatusItemText(text: string): string {
+  return t(text)
+}
+
+function showFooter() {
+  return editor.value && (props.showWordsCount || props.showCharactersCount)
+}
 </script>
 
 <template>
-  <div v-if="editor" class="tiptapify-footer">
+  <div v-if="showFooter()" class="tiptapify-footer">
     <VRow>
       <VCol class="d-flex justify-end">
-        <span class="words-count">
-          {{ editor.storage.characterCount.words() }} words
-        </span>
+        <template v-for="statusItem in statusItems" :key="statusItem.text">
+          <span v-if="statusItem.enabled" class="tiptapify-footer--status-item">
+            {{ printStatusItemText(statusItem.text) }}: {{ statusItem.value }}
+          </span>
+
+          <VDivider class="tiptapify-footer--divider" vertical />
+        </template>
       </VCol>
     </VRow>
   </div>
@@ -23,7 +57,15 @@ const editor = inject('tiptapifyEditor') as Ref<Editor>
   border-top: var(--border);
 }
 
-.words-count {
+.tiptapify-footer--status-item {
   color: #999;
+}
+
+.tiptapify-footer--divider:not(:last-child) {
+  margin: 0 8px;
+}
+
+.tiptapify-footer--divider:last-child {
+  display: none;
 }
 </style>
