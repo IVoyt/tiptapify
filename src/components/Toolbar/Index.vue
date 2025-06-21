@@ -42,12 +42,10 @@ Object.keys(defaultComponents).forEach(extension => {
 
 <template>
   <div v-if="editor">
-    <VToolbar elevation="1" :theme="theme" height="auto" :class="`ps-1 rounded-t-${rounded}`">
-      <VToolbarItems class="py-2">
-        <template v-for="(toolbarSection, sectionKey) in toolbarItemsRef" :key="sectionKey">
-          <Group v-if="toolbarSection.group" :variant="variantBtn" :toolbar-section="toolbarSection" />
-
-          <Toggle v-else-if="toolbarSection.toggle" :variant="variantBtn" :toolbar-section="toolbarSection" />
+    <VToolbar elevation="1" :theme="theme" height="auto" :class="`ps-1 pr-1 rounded-t-${rounded}`">
+      <VSlideGroup v-if="toolbarScrollable">
+        <Items :items="items" />
+      </VSlideGroup>
 
       <Items v-else :items="items" />
     </VToolbar>
