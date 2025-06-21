@@ -81,14 +81,15 @@ onBeforeUnmount(() => {
               :items-exclude="itemsExclude"
               :rounded="rounded"
               :override-extensions-components="overrideExtensionsComponents"
+              :theme="currentTheme"
           />
         </template>
 
         <div :class="`border border-t-0 rounded-b-${rounded}`">
           <div class="pa-2 tiptapify-container">
-            <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="theme" />
+            <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 
-            <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="theme" />
+            <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
 
             <EditorContent :editor="editor" class="tiptapify-editor" />
           </div>

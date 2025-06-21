@@ -9,7 +9,7 @@ interface MDIIcons {
 }
 const mdiIcons = mdi as MDIIcons
 
-export function getStyleItems(editor: Editor, fontMeasure: string, customHeadingLevels: Array<number> = []) {
+export function getStyleItems(editor: Editor, theme: any, fontMeasure: string, customHeadingLevels: Array<number> = []) {
   const headingLevels = ref([1, 2, 3, 4, 5, 6])
   if (customHeadingLevels.length) {
     customHeadingLevels.forEach(level => {

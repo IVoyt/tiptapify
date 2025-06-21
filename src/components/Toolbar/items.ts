@@ -50,11 +50,12 @@ export interface ToolbarItemSections {
 
 export function toolbarItems(
   editor: any,
+  theme: any,
   fontMeasure: string,
   items: { list: Array<string>, exclude: boolean },
   customHeadingLevels: Array<number>
 ): ToolbarItemSections {
-  const styleItems = ref(getStyleItems(editor.value, fontMeasure, customHeadingLevels))
+  const styleItems = ref(getStyleItems(editor.value, theme, fontMeasure, customHeadingLevels))
   const formatItems = ref(getFormatItems(editor.value))
   const formatExtraItems = ref(getFormatExtraItems(editor.value))
   const alignmentItems = ref(getAlignmentItems(editor.value))

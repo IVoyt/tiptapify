@@ -6,6 +6,7 @@ import { computed, defineProps, inject, PropType, ref, Ref, ShallowRef, shallowR
 import { extensionsComponents } from '@tiptapify/types/overridable-extensions'
 
 import { toolbarItems } from "@tiptapify/components/Toolbar/items";
+import { useTheme } from "vuetify/framework";
 
 const props = defineProps({
   variantBtn: { type: String, default () { return 'elevated' }},
@@ -24,8 +25,11 @@ const props = defineProps({
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
+const theme = useTheme()
+
 const items = toolbarItems(
     editor,
+    theme,
     computed(() => props.fontMeasure).value,
     { list: computed(() => props.items).value, exclude: computed(() => props.itemsExclude).value },
     computed(() => props.headingLevels).value
