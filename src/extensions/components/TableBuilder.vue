@@ -13,7 +13,6 @@ const { ucFirst } = helpers
 defineExpose({ open })
 
 defineProps({
-  show: { type: Boolean, default: false },
   maxCols: { type: Number, default: 10 },
   maxRows: { type: Number, default: 10 },
 })

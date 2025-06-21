@@ -6,7 +6,7 @@ import { getListItems } from "@tiptapify/components/Toolbar/items/list";
 import { getMediaItems } from "@tiptapify/components/Toolbar/items/media";
 import { getMiscItems } from "@tiptapify/components/Toolbar/items/misc";
 import { getStyleItems } from "@tiptapify/components/Toolbar/items/style";
-import { ComputedRef, Ref, ref } from "vue";
+import { ComputedRef, ref } from "vue";
 
 interface ToolbarItemAttrs {
   [key: string]: Function | any
@@ -64,8 +64,6 @@ export function toolbarItems(
     /**
      * todo
      *
-     * font color, backgroundcolor
-     * tables
      * media (image, video)
      */
     style: { group: true, items: styleItems.value },

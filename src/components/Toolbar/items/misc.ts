@@ -1,6 +1,6 @@
 import * as mdi from "@mdi/js";
 import { Editor } from "@tiptap/vue-3";
-import { computed, Ref } from "vue";
+import { computed } from "vue";
 
 export function getMiscItems(editor: Editor) {
   return {
