@@ -17,6 +17,7 @@
 - Bubble Menu
 - Floating Menu
 - Slash Command
+- Dark theme
 
 ## Installation
 Install package
