@@ -69,7 +69,7 @@ export function editorExtensions (placeholder: string, slashCommands: boolean) {
     Dropcursor,
     Typography,
     Underline,
-    Highlight,
+    Highlight.configure({ multicolor: true }),
     TiptapifyLink.configure({
       openOnClick: false,
       defaultProtocol: 'https'
