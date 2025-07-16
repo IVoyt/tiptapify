@@ -7,7 +7,7 @@ import { computed, inject, Ref, ref } from 'vue'
 
 const { t } = useI18n()
 
-defineExpose({ open })
+defineExpose({ open, close })
 
 const props = defineProps({
   show: { type: Boolean, default: true },
@@ -21,25 +21,52 @@ const emit = defineEmits(['close'])
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const colorPicker = ref(false)
+const initialColor = ref(computed(() => props.color).value)
 const customColor = ref(computed(() => props.color).value)
 
-const colors = {
+const colorSelected = ref<boolean>(false)
+
+const greyShades = {
   black: '#000',
+  '#222': '#222',
   darkgray: '#444',
   gray: '#888',
   lightgray: '#ccc',
   white: '#fff',
-  cyan: '#00FFFF',
-  light: '#0088ff',
+}
+const blueShades = {
+  '#000044': '#000044',
+  '#00006e': '#00006e',
+  '#0000bb': '#0000bb',
   blue: '#0000ff',
-  indigo: '#4b0082',
-  purple: '#800080',
-  pink: '#ff00ff',
+  lightblue: '#0088ff',
+  cyan: '#00FFFF',
+}
+const greenShades = {
+  '#003100': '#003100',
+  '#005200': '#005200',
+  '#007000': '#007000',
+  '#00b700': '#00b700',
+  green: '#00ff00',
+  '#70ff70': '#70ff70',
+}
+const redShades = {
+  '#520000': '#520000',
+  '#810000': '#810000',
+  '#b20000': '#b20000',
   red: '#ff0000',
+  '#ff2323': '#ff2323',
+  '#ff5c5c': '#ff5c5c',
+}
+const otherShades = {
+  brown: '#964B00',
   orange: '#ff9900',
   yellow: '#ffff00',
-  green: '#00ff00',
+  pink: '#ff00ff',
+  purple: '#800080',
+  indigo: '#4b0082',
 }
+const colors = { ...greyShades, ...blueShades, ...greenShades, ...redShades, ...otherShades }
 
 type Color = { r: number, g: number, b: number, a?: number }
 
@@ -67,14 +94,38 @@ function hexToRgb(hex: string): Color {
   };
 }
 
-function setColor(color: string) {
+function hoverColor(color: string) {
+  colorSelected.value = false
+
   if (props.fontColor) {
     editor.value.chain().focus().setColor(color).run()
   }
 
   if (props.backgroundColor) {
-    editor.value.chain().focus().setHighlight({ color }).run()
+    editor.value.chain().focus().setHighlight({ color: color }).run()
   }
+}
+
+function close() {
+  resetColor()
+}
+
+function resetColor() {
+  if (colorSelected.value) {
+    return
+  }
+
+  if (props.fontColor) {
+    editor.value.chain().focus().setColor(initialColor.value).run()
+  }
+
+  if (props.backgroundColor) {
+    editor.value.chain().focus().setHighlight({ color: initialColor.value }).run()
+  }
+}
+
+function setColor() {
+  colorSelected.value = true
 
   emit('close')
 }
@@ -103,7 +154,9 @@ function isColorActive(color: string): boolean {
         <div
             class="tiptapify-style-color-item"
             :class="isColorActive(colorCode) ? 'tiptapify-style-color-item-active' : ''"
-            @click="setColor(colorCode)"
+            @mouseenter="hoverColor(colorCode)"
+            @mouseleave="resetColor()"
+            @click="setColor"
         >
           <div
               class="tiptapify-style-color-picker"
@@ -133,12 +186,12 @@ function isColorActive(color: string): boolean {
 
       <VCard>
         <VCardItem>
-          <VColorPicker v-model="customColor" elevated elevation="24" hide-inputs />
+          <VColorPicker v-model="customColor" elevated elevation="24" hide-inputs @update:model-value="hoverColor($event)" />
         </VCardItem>
 
         <VCardActions>
-          <VBtn variant="flat" color="primary" @click="setColor(customColor)">OK</VBtn>
-          <VBtn variant="flat" color="grey-400" @click="colorPicker = !colorPicker; customColor = color">Cancel</VBtn>
+          <VBtn variant="flat" color="primary" @click="setColor">OK</VBtn>
+          <VBtn variant="flat" color="grey-400" @click="colorPicker = !colorPicker; customColor = initialColor; resetColor()">Cancel</VBtn>
         </VCardActions>
       </VCard>
     </VMenu>
@@ -154,7 +207,7 @@ function isColorActive(color: string): boolean {
 <style lang="scss" scoped>
 .tiptapify-style-color-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .tiptapify-style-color-item {

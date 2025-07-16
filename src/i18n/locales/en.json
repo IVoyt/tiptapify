@@ -1,109 +1,115 @@
 {
   "content": {
-    "placeholder": "write something here..."
+    "placeholder": "Write something here..."
   },
   "style": {
-    "paragraph": "paragraph",
-    "heading": "heading",
+    "paragraph": "Paragraph",
+    "heading": "Heading",
     "headings": {
-      "h1": "heading level 1",
-      "h2": "heading level 2",
-      "h3": "heading level 3",
-      "h4": "heading level 4",
-      "h5": "heading level 5",
-      "h6": "heading level 6"
+      "h1": "Heading level 1",
+      "h2": "Heading level 2",
+      "h3": "Heading level 3",
+      "h4": "Heading level 4",
+      "h5": "Heading level 5",
+      "h6": "Heading level 6"
     },
-    "fontFamily": "font family",
-    "fontSize": "font size",
-    "lineHeight": "line height",
+    "fontFamily": "Font family",
+    "fontSize": "Font size",
+    "lineHeight": "Line height",
     "color": {
-      "highlight": "highlight color",
-      "text": "text color",
-      "unset": "unset color",
-      "custom": "custom color"
+      "highlight": "Highlight color",
+      "text": "Text color",
+      "unset": "Unset color",
+      "custom": "Custom color"
     }
   },
   "format": {
-    "bold": "bold",
-    "italic": "italic",
-    "strike": "strikethrough",
-    "underline": "underline",
-    "sup": "superscript",
-    "sub": "subscript",
-    "break": "hard break",
-    "line": "horizontal line",
-    "blockquote": "cite",
-    "code": "code",
-    "codeblock": "code block",
-    "formatClear": "format clear"
+    "bold": "Bold",
+    "italic": "Italic",
+    "strike": "Strikethrough",
+    "underline": "Underline",
+    "sup": "Superscript",
+    "sub": "Subscript",
+    "break": "Hard break",
+    "line": "Horizontal line",
+    "blockquote": "Cite",
+    "code": "Code",
+    "codeblock": "Code block",
+    "formatClear": "Format clear"
   },
   "media": {
-    "link": "external link",
-    "image": "image",
+    "link": "External link",
+    "image": "Image",
     "tables": {
-      "table": "table",
-      "insertTable": "insert table",
-      "deleteTable": "delete table",
-      "insertWithHeaderRow": "insert table with header row",
-      "rows": "rows",
-      "row": "row",
-      "insertRowBefore": "insert row before",
-      "insertRowAfter": "insert row after",
-      "deleteRow": "delete row",
-      "cols": "columns",
-      "col": "column",
-      "insertColBefore": "insert column before",
-      "insertColAfter": "insert column after",
-      "deleteCol": "delete column",
-      "mergeCells": "merge cells",
-      "splitCell": "split cell"
+      "table": "Table",
+      "insertTable": "Insert table",
+      "deleteTable": "Delete table",
+      "insertWithHeaderRow": "Insert table with header row",
+      "rows": "Rows",
+      "row": "Row",
+      "insertRowBefore": "Insert row before",
+      "insertRowAfter": "Insert row after",
+      "deleteRow": "Delete row",
+      "cols": "Columns",
+      "col": "Column",
+      "insertColBefore": "Insert column before",
+      "insertColAfter": "Insert column after",
+      "deleteCol": "Delete column",
+      "mergeCells": "Merge cells",
+      "splitCell": "Split cell"
     }
   },
   "action": {
-    "undo": "undo",
-    "redo": "redo"
+    "undo": "Undo",
+    "redo": "Redo"
   },
-  "alignment": "alignment",
+  "alignment": "Alignment",
   "alignments": {
-    "left": "align left",
-    "center": "align center",
-    "right": "align right",
-    "justify": "justify"
+    "left": "Align left",
+    "center": "Align center",
+    "right": "Align right",
+    "justify": "Justify"
   },
-  "list": "list",
+  "list": "List",
   "lists": {
-    "bullet": "unordered list",
-    "numbered": "ordered list",
-    "task": "task list",
-    "indent": "list item indent",
-    "outdent": "list item outdent"
+    "bullet": "Unordered list",
+    "numbered": "Ordered list",
+    "task": "Task list",
+    "indent": "List item indent",
+    "outdent": "List item outdent"
   },
   "dialog": {
-    "apply": "apply",
-    "clear": "clear",
-    "close": "close",
+    "apply": "Apply",
+    "clear": "Clear",
+    "close": "Close",
     "image": {
-      "title": "add/edit image",
-      "src": "source",
-      "alt": "alt",
-      "width": "width",
-      "height": "height"
+      "title": "Add/edit image",
+      "src": "Source",
+      "alt": "Alt",
+      "width": "Width",
+      "height": "Height"
     },
     "link": {
-      "title": "add/edit link",
-      "href": "link address",
-      "target": "open in new window",
-      "rel": "rel",
+      "title": "Add/edit link",
+      "href": "Link address",
+      "href_error": "Invalid link address",
+      "target": "Open in...",
+      "target_blank": "New window",
+      "target_self": "Current window",
+      "rel": "Rel",
       "class": "CSS class"
     },
+    "preview": {
+      "title": "Preview"
+    },
     "source": {
-      "title": "view source code",
-      "prettify": "prettify"
+      "title": "View source code",
+      "prettify": "Prettify"
     }
   },
   "misc": {
-    "source": "view source code",
-    "preview": "preview"
+    "source": "View source code",
+    "preview": "Preview"
   },
   "footer": {
     "words": "words",

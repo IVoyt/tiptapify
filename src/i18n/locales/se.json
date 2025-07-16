@@ -1,0 +1,118 @@
+{
+  "content": {
+    "placeholder": "Skriv något här..."
+  },
+  "style": {
+    "paragraph": "Stycke",
+    "heading": "Rubrik",
+    "headings": {
+      "h1": "Rubrik nivå 1",
+      "h2": "Rubrik nivå 2",
+      "h3": "Rubrik nivå 3",
+      "h4": "Rubrik nivå 4",
+      "h5": "Rubrik nivå 5",
+      "h6": "Rubrik nivå 6"
+    },
+    "fontFamily": "Teckensnittsfamilj",
+    "fontSize": "Teckenstorlek",
+    "lineHeight": "Radhöjd",
+    "color": {
+      "highlight": "Markeringsfärg",
+      "text": "Textfärg",
+      "unset": "Ta bort färg",
+      "custom": "Anpassad färg"
+    }
+  },
+  "format": {
+    "bold": "Fet",
+    "italic": "Kursiv",
+    "strike": "Genomstruken",
+    "underline": "Understruken",
+    "sup": "Upphöjt",
+    "sub": "Nedsänkt",
+    "break": "Hård radbrytning",
+    "line": "Horisontell linje",
+    "blockquote": "Citat",
+    "code": "Kod",
+    "codeblock": "Kodblock",
+    "formatClear": "Rensa formatering"
+  },
+  "media": {
+    "link": "Extern länk",
+    "image": "Bild",
+    "tables": {
+      "table": "Tabell",
+      "insertTable": "Infoga tabell",
+      "deleteTable": "Ta bort tabell",
+      "insertWithHeaderRow": "Infoga tabell med rubrikrad",
+      "rows": "Rader",
+      "row": "Rad",
+      "insertRowBefore": "Infoga rad före",
+      "insertRowAfter": "Infoga rad efter",
+      "deleteRow": "Ta bort rad",
+      "cols": "Kolumner",
+      "col": "Kolumn",
+      "insertColBefore": "Infoga kolumn före",
+      "insertColAfter": "Infoga kolumn efter",
+      "deleteCol": "Ta bort kolumn",
+      "mergeCells": "Slå samman celler",
+      "splitCell": "Dela cell"
+    }
+  },
+  "action": {
+    "undo": "Ångra",
+    "redo": "Gör om"
+  },
+  "alignment": "Justering",
+  "alignments": {
+    "left": "Vänsterjustera",
+    "center": "Centrera",
+    "right": "Högerjustera",
+    "justify": "Justera"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Punktlista",
+    "numbered": "Numrerad lista",
+    "task": "Uppgiftslista",
+    "indent": "Dra in objekt",
+    "outdent": "Dra ut objekt"
+  },
+  "dialog": {
+    "apply": "Tillämpa",
+    "clear": "Rensa",
+    "close": "Stäng",
+    "image": {
+      "title": "Lägg till/redigera bild",
+      "src": "Källa",
+      "alt": "Alternativ text",
+      "width": "Bredd",
+      "height": "Höjd"
+    },
+    "link": {
+      "title": "Lägg till/redigera länk",
+      "href": "Länkadress",
+      "href_error": "Ogiltig länkadress",
+      "target": "Öppna i...",
+      "target_blank": "Nytt fönster",
+      "target_self": "Aktuellt fönster",
+      "rel": "Rel",
+      "class": "CSS-klass"
+    },
+    "preview": {
+      "title": "Förhandsvisning"
+    },
+    "source": {
+      "title": "Visa källkod",
+      "prettify": "Formatera"
+    }
+  },
+  "misc": {
+    "source": "Visa källkod",
+    "preview": "Förhandsvisning"
+  },
+  "footer": {
+    "words": "ord",
+    "chars": "tecken"
+  }
+}

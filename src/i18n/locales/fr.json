@@ -1,109 +1,116 @@
+
 {
   "content": {
-    "placeholder": "écrivez quelque chose ici..."
+    "placeholder": "Écrivez quelque chose ici..."
   },
   "style": {
-    "paragraph": "paragraphe",
-    "heading": "titre",
+    "paragraph": "Paragraphe",
+    "heading": "Titre",
     "headings": {
-      "h1": "titre niveau 1",
-      "h2": "titre niveau 2",
-      "h3": "titre niveau 3",
-      "h4": "titre niveau 4",
-      "h5": "titre niveau 5",
-      "h6": "titre niveau 6"
+      "h1": "Titre niveau 1",
+      "h2": "Titre niveau 2",
+      "h3": "Titre niveau 3",
+      "h4": "Titre niveau 4",
+      "h5": "Titre niveau 5",
+      "h6": "Titre niveau 6"
     },
-    "fontFamily": "famille de police",
-    "fontSize": "taille de police",
-    "lineHeight": "hauteur de ligne",
+    "fontFamily": "Police de caractères",
+    "fontSize": "Taille de police",
+    "lineHeight": "Hauteur de ligne",
     "color": {
-      "highlight": "couleur de surbrillance",
-      "text": "couleur du texte",
-      "unset": "réinitialiser la couleur",
-      "custom": "couleur personnalisée"
+      "highlight": "Couleur de surligné",
+      "text": "Couleur du texte",
+      "unset": "Supprimer la couleur",
+      "custom": "Couleur personnalisée"
     }
   },
   "format": {
-    "bold": "gras",
-    "italic": "italique",
-    "strike": "barré",
-    "underline": "souligné",
-    "sup": "exposant",
-    "sub": "indice",
-    "break": "saut de ligne forcé",
-    "line": "ligne horizontale",
-    "blockquote": "citation",
-    "code": "code",
-    "codeblock": "bloc de code",
-    "formatClear": "effacer le formatage"
+    "bold": "Gras",
+    "italic": "Italique",
+    "strike": "Barré",
+    "underline": "Souligné",
+    "sup": "Exposant",
+    "sub": "Indice",
+    "break": "Saut de ligne",
+    "line": "Ligne horizontale",
+    "blockquote": "Citation",
+    "code": "Code",
+    "codeblock": "Bloc de code",
+    "formatClear": "Effacer le formatage"
   },
   "media": {
-    "link": "lien externe",
-    "image": "image",
+    "link": "Lien externe",
+    "image": "Image",
     "tables": {
-      "table": "tableau",
-      "insertTable": "insérer tableau",
-      "deleteTable": "supprimer tableau",
-      "insertWithHeaderRow": "insérer tableau avec ligne d'en-tête",
-      "rows": "lignes",
-      "row": "ligne",
-      "insertRowBefore": "insérer ligne avant",
-      "insertRowAfter": "insérer ligne après",
-      "deleteRow": "supprimer ligne",
-      "cols": "colonnes",
-      "col": "colonne",
-      "insertColBefore": "insérer colonne avant",
-      "insertColAfter": "insérer colonne après",
-      "deleteCol": "supprimer colonne",
-      "mergeCells": "fusionner cellules",
-      "splitCell": "diviser cellule"
+      "table": "Tableau",
+      "insertTable": "Insérer un tableau",
+      "deleteTable": "Supprimer le tableau",
+      "insertWithHeaderRow": "Insérer un tableau avec en-tête",
+      "rows": "Lignes",
+      "row": "Ligne",
+      "insertRowBefore": "Insérer une ligne avant",
+      "insertRowAfter": "Insérer une ligne après",
+      "deleteRow": "Supprimer la ligne",
+      "cols": "Colonnes",
+      "col": "Colonne",
+      "insertColBefore": "Insérer une colonne avant",
+      "insertColAfter": "Insérer une colonne après",
+      "deleteCol": "Supprimer la colonne",
+      "mergeCells": "Fusionner les cellules",
+      "splitCell": "Diviser la cellule"
     }
   },
   "action": {
-    "undo": "annuler",
-    "redo": "refaire"
+    "undo": "Annuler",
+    "redo": "Rétablir"
   },
-  "alignment": "alignement",
+  "alignment": "Alignement",
   "alignments": {
-    "left": "aligner à gauche",
-    "center": "centrer",
-    "right": "aligner à droite",
-    "justify": "justifier"
+    "left": "Aligner à gauche",
+    "center": "Centrer",
+    "right": "Aligner à droite",
+    "justify": "Justifier"
   },
-  "list": "liste",
+  "list": "Liste",
   "lists": {
-    "bullet": "liste non ordonnée",
-    "numbered": "liste ordonnée",
-    "task": "liste de tâches",
-    "indent": "indenter élément de liste",
-    "outdent": "désindenter élément de liste"
+    "bullet": "Liste à puces",
+    "numbered": "Liste numérotée",
+    "task": "Liste de tâches",
+    "indent": "Indenter l'élément",
+    "outdent": "Désindenter l'élément"
   },
   "dialog": {
-    "apply": "appliquer",
-    "clear": "effacer",
-    "close": "fermer",
+    "apply": "Appliquer",
+    "clear": "Effacer",
+    "close": "Fermer",
     "image": {
-      "title": "ajouter/modifier image",
-      "src": "source",
-      "alt": "alt",
-      "width": "largeur",
-      "height": "hauteur"
+      "title": "Ajouter/modifier une image",
+      "src": "Source",
+      "alt": "Texte alternatif",
+      "width": "Largeur",
+      "height": "Hauteur"
     },
     "link": {
-      "title": "ajouter/modifier lien",
-      "href": "adresse du lien",
-      "target": "ouvrir dans une nouvelle fenêtre",
-      "rel": "rel",
-      "class": "classe CSS"
+      "title": "Ajouter/modifier un lien",
+      "href": "Adresse du lien",
+      "href_error": "Adresse du lien invalide",
+      "target": "Ouvrir dans...",
+      "target_blank": "Nouvelle fenêtre",
+      "target_self": "Fenêtre actuelle",
+      "rel": "Rel",
+      "class": "Classe CSS"
+    },
+    "preview": {
+      "title": "Aperçu"
     },
     "source": {
-      "title": "voir le code source",
-      "prettify": "embellir"
+      "title": "Voir le code source",
+      "prettify": "Formater"
     }
   },
   "misc": {
-    "source": "voir le code source",
-    "preview": "aperçu"
+    "source": "Voir le code source",
+    "preview": "Aperçu"
   },
   "footer": {
     "words": "mots",

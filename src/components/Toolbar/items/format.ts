@@ -30,19 +30,6 @@ export function getFormatItems(editor: Editor) {
         click: () => editor.chain().focus().toggleItalic().run()
       }
     },
-    strike: {
-      name: 'strike',
-      tooltip: 'format.strike',
-      icon: mdi.mdiFormatStrikethroughVariant,
-      enabled: true,
-      props: {
-        disabled: computed(() => !editor.can().chain().focus().toggleStrike().run()),
-        color: computed(() => editor.isActive('strike') ? 'primary' : ''),
-      },
-      attrs: {
-        click: () => editor.chain().focus().toggleStrike().run()
-      }
-    },
     underline: {
       name: 'underline',
       tooltip: 'format.underline',
@@ -54,6 +41,19 @@ export function getFormatItems(editor: Editor) {
       },
       attrs: {
         click: () => editor.chain().focus().toggleUnderline().run()
+      }
+    },
+    strike: {
+      name: 'strike',
+      tooltip: 'format.strike',
+      icon: mdi.mdiFormatStrikethroughVariant,
+      enabled: true,
+      props: {
+        disabled: computed(() => !editor.can().chain().focus().toggleStrike().run()),
+        color: computed(() => editor.isActive('strike') ? 'primary' : ''),
+      },
+      attrs: {
+        click: () => editor.chain().focus().toggleStrike().run()
       }
     }
   }

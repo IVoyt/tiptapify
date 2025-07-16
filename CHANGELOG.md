@@ -1,3 +1,13 @@
+### v0.0.10
+- update dialogs UI
+- disable style & format buttons when code/codeblock is selected
+- make highlight/font color interactive
+- extend a color list in highlight/font color extension
+- make dialogs movable
+- update link extension UI
+- add href validation in link extension
+- extend i18n
+
 ### v0.0.9
 - added prop toolbarScrollable to allow overflow-x or wrap the toolbar items
 - added characters count to the Footer

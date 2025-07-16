@@ -1,110 +1,115 @@
-
 {
   "content": {
-    "placeholder": "napisz coś tutaj..."
+    "placeholder": "Napisz coś tutaj..."
   },
   "style": {
-    "paragraph": "akapit",
-    "heading": "nagłówek",
+    "paragraph": "Akapit",
+    "heading": "Nagłówek",
     "headings": {
-      "h1": "nagłówek poziom 1",
-      "h2": "nagłówek poziom 2",
-      "h3": "nagłówek poziom 3",
-      "h4": "nagłówek poziom 4",
-      "h5": "nagłówek poziom 5",
-      "h6": "nagłówek poziom 6"
+      "h1": "Nagłówek poziom 1",
+      "h2": "Nagłówek poziom 2",
+      "h3": "Nagłówek poziom 3",
+      "h4": "Nagłówek poziom 4",
+      "h5": "Nagłówek poziom 5",
+      "h6": "Nagłówek poziom 6"
     },
-    "fontFamily": "rodzina czcionki",
-    "fontSize": "rozmiar czcionki",
-    "lineHeight": "wysokość linii",
+    "fontFamily": "Rodzina czcionki",
+    "fontSize": "Rozmiar czcionki",
+    "lineHeight": "Wysokość linii",
     "color": {
-      "highlight": "kolor podświetlenia",
-      "text": "kolor tekstu",
-      "unset": "usuń kolor",
-      "custom": "kolor niestandardowy"
+      "highlight": "Kolor podświetlenia",
+      "text": "Kolor tekstu",
+      "unset": "Usuń kolor",
+      "custom": "Kolor niestandardowy"
     }
   },
   "format": {
-    "bold": "pogrubienie",
-    "italic": "kursywa",
-    "strike": "przekreślenie",
-    "underline": "podkreślenie",
-    "sup": "indeks górny",
-    "sub": "indeks dolny",
-    "break": "twarde łamanie",
-    "line": "linia pozioma",
-    "blockquote": "cytat",
-    "code": "kod",
-    "codeblock": "blok kodu",
-    "formatClear": "wyczyść formatowanie"
+    "bold": "Pogrubienie",
+    "italic": "Kursywa",
+    "strike": "Przekreślenie",
+    "underline": "Podkreślenie",
+    "sup": "Indeks górny",
+    "sub": "Indeks dolny",
+    "break": "Twarde łamanie",
+    "line": "Linia pozioma",
+    "blockquote": "Cytat",
+    "code": "Kod",
+    "codeblock": "Blok kodu",
+    "formatClear": "Wyczyść formatowanie"
   },
   "media": {
-    "link": "link zewnętrzny",
-    "image": "obraz",
+    "link": "Link zewnętrzny",
+    "image": "Obraz",
     "tables": {
-      "table": "tabela",
-      "insertTable": "wstaw tabelę",
-      "deleteTable": "usuń tabelę",
-      "insertWithHeaderRow": "wstaw tabelę z wierszem nagłówka",
-      "rows": "wiersze",
-      "row": "wiersz",
-      "insertRowBefore": "wstaw wiersz przed",
-      "insertRowAfter": "wstaw wiersz po",
-      "deleteRow": "usuń wiersz",
-      "cols": "kolumny",
-      "col": "kolumna",
-      "insertColBefore": "wstaw kolumnę przed",
-      "insertColAfter": "wstaw kolumnę po",
-      "deleteCol": "usuń kolumnę",
-      "mergeCells": "scal komórki",
-      "splitCell": "podziel komórkę"
+      "table": "Tabela",
+      "insertTable": "Wstaw tabelę",
+      "deleteTable": "Usuń tabelę",
+      "insertWithHeaderRow": "Wstaw tabelę z nagłówkiem",
+      "rows": "Wiersze",
+      "row": "Wiersz",
+      "insertRowBefore": "Wstaw wiersz przed",
+      "insertRowAfter": "Wstaw wiersz po",
+      "deleteRow": "Usuń wiersz",
+      "cols": "Kolumny",
+      "col": "Kolumna",
+      "insertColBefore": "Wstaw kolumnę przed",
+      "insertColAfter": "Wstaw kolumnę po",
+      "deleteCol": "Usuń kolumnę",
+      "mergeCells": "Połącz komórki",
+      "splitCell": "Podziel komórkę"
     }
   },
   "action": {
-    "undo": "cofnij",
-    "redo": "ponów"
+    "undo": "Cofnij",
+    "redo": "Ponów"
   },
-  "alignment": "wyrównanie",
+  "alignment": "Wyrównanie",
   "alignments": {
-    "left": "wyrównaj do lewej",
-    "center": "wyśrodkuj",
-    "right": "wyrównaj do prawej",
-    "justify": "wyjustuj"
+    "left": "Wyrównaj do lewej",
+    "center": "Wyrównaj do środka",
+    "right": "Wyrównaj do prawej",
+    "justify": "Justuj"
   },
-  "list": "lista",
+  "list": "Lista",
   "lists": {
-    "bullet": "lista nieuporządkowana",
-    "numbered": "lista uporządkowana",
-    "task": "lista zadań",
-    "indent": "wcięcie elementu listy",
-    "outdent": "usuń wcięcie elementu listy"
+    "bullet": "Lista punktowana",
+    "numbered": "Lista numerowana",
+    "task": "Lista zadań",
+    "indent": "Wcięcie elementu",
+    "outdent": "Usuń wcięcie"
   },
   "dialog": {
-    "apply": "zastosuj",
-    "clear": "wyczyść",
-    "close": "zamknij",
+    "apply": "Zastosuj",
+    "clear": "Wyczyść",
+    "close": "Zamknij",
     "image": {
-      "title": "dodaj/edytuj obraz",
-      "src": "źródło",
-      "alt": "alt",
-      "width": "szerokość",
-      "height": "wysokość"
+      "title": "Dodaj/edytuj obraz",
+      "src": "Źródło",
+      "alt": "Tekst alternatywny",
+      "width": "Szerokość",
+      "height": "Wysokość"
     },
     "link": {
-      "title": "dodaj/edytuj link",
-      "href": "adres linku",
-      "target": "otwórz w nowym oknie",
-      "rel": "rel",
-      "class": "klasa CSS"
+      "title": "Dodaj/edytuj link",
+      "href": "Adres linku",
+      "href_error": "Nieprawidłowy adres linku",
+      "target": "Otwórz w...",
+      "target_blank": "Nowe okno",
+      "target_self": "Bieżące okno",
+      "rel": "Rel",
+      "class": "Klasa CSS"
+    },
+    "preview": {
+      "title": "Podgląd"
     },
     "source": {
-      "title": "wyświetl kod źródłowy",
-      "prettify": "upiększ"
+      "title": "Pokaż kod źródłowy",
+      "prettify": "Formatuj"
     }
   },
   "misc": {
-    "source": "wyświetl kod źródłowy",
-    "preview": "podgląd"
+    "source": "Pokaż kod źródłowy",
+    "preview": "Podgląd"
   },
   "footer": {
     "words": "słowa",

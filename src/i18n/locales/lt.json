@@ -1,0 +1,118 @@
+{
+  "content": {
+    "placeholder": "Rašykite ką nors čia..."
+  },
+  "style": {
+    "paragraph": "Pastraipa",
+    "heading": "Antraštė",
+    "headings": {
+      "h1": "Antraštė 1 lygis",
+      "h2": "Antraštė 2 lygis",
+      "h3": "Antraštė 3 lygis",
+      "h4": "Antraštė 4 lygis",
+      "h5": "Antraštė 5 lygis",
+      "h6": "Antraštė 6 lygis"
+    },
+    "fontFamily": "Šrifto šeima",
+    "fontSize": "Šrifto dydis",
+    "lineHeight": "Eilutės aukštis",
+    "color": {
+      "highlight": "Paryškinimo spalva",
+      "text": "Teksto spalva",
+      "unset": "Pašalinti spalvą",
+      "custom": "Pasirinktinė spalva"
+    }
+  },
+  "format": {
+    "bold": "Paryškinti",
+    "italic": "Kursyvas",
+    "strike": "Perbraukti",
+    "underline": "Pabraukti",
+    "sup": "Viršutinis indeksas",
+    "sub": "Apatinis indeksas",
+    "break": "Kietasis lūžis",
+    "line": "Horizontali linija",
+    "blockquote": "Citata",
+    "code": "Kodas",
+    "codeblock": "Kodo blokas",
+    "formatClear": "Išvalyti formatavimą"
+  },
+  "media": {
+    "link": "Išorinis nuoroda",
+    "image": "Vaizdas",
+    "tables": {
+      "table": "Lentelė",
+      "insertTable": "Įterpti lentelę",
+      "deleteTable": "Ištrinti lentelę",
+      "insertWithHeaderRow": "Įterpti lentelę su antrašte",
+      "rows": "Eilutės",
+      "row": "Eilutė",
+      "insertRowBefore": "Įterpti eilutę prieš",
+      "insertRowAfter": "Įterpti eilutę po",
+      "deleteRow": "Ištrinti eilutę",
+      "cols": "Stulpeliai",
+      "col": "Stulpelis",
+      "insertColBefore": "Įterpti stulpelį prieš",
+      "insertColAfter": "Įterpti stulpelį po",
+      "deleteCol": "Ištrinti stulpelį",
+      "mergeCells": "Sujungti langelius",
+      "splitCell": "Padalinti langelį"
+    }
+  },
+  "action": {
+    "undo": "Atšaukti",
+    "redo": "Pakartoti"
+  },
+  "alignment": "Lygiavimas",
+  "alignments": {
+    "left": "Lygiuoti kairėje",
+    "center": "Lygiuoti centre",
+    "right": "Lygiuoti dešinėje",
+    "justify": "Išlygiuoti"
+  },
+  "list": "Sąrašas",
+  "lists": {
+    "bullet": "Netvarkingas sąrašas",
+    "numbered": "Numeruotas sąrašas",
+    "task": "Užduočių sąrašas",
+    "indent": "Įtraukti elementą",
+    "outdent": "Ištraukti elementą"
+  },
+  "dialog": {
+    "apply": "Taikyti",
+    "clear": "Išvalyti",
+    "close": "Uždaryti",
+    "image": {
+      "title": "Pridėti/redaguoti vaizdą",
+      "src": "Šaltinis",
+      "alt": "Alternatyvus tekstas",
+      "width": "Plotis",
+      "height": "Aukštis"
+    },
+    "link": {
+      "title": "Pridėti/redaguoti nuorodą",
+      "href": "Nuorodos adresas",
+      "href_error": "Netinkamas nuorodos adresas",
+      "target": "Atidaryti...",
+      "target_blank": "Naujame lange",
+      "target_self": "Dabartiniame lange",
+      "rel": "Rel",
+      "class": "CSS klasė"
+    },
+    "preview": {
+      "title": "Peržiūra"
+    },
+    "source": {
+      "title": "Rodyti šaltinio kodą",
+      "prettify": "Gražinti"
+    }
+  },
+  "misc": {
+    "source": "Rodyti šaltinio kodą",
+    "preview": "Peržiūra"
+  },
+  "footer": {
+    "words": "žodžiai",
+    "chars": "simboliai"
+  }
+}

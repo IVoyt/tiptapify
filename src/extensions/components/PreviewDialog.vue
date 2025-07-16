@@ -1,17 +1,15 @@
 <script setup lang="ts">
+import Dialog from "@tiptapify/components/UI/Dialog.vue";
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useI18n } from "vue-i18n";
-import * as mdi from '@mdi/js'
-
-const { t } = useI18n();
 
 const content = ref()
 
-const dialog = ref(false)
+const dialog = ref(null)
 
 const showDialog = (event: CustomEvent) => {
   content.value = event.detail.html
-  dialog.value = true;
+
+  dialog.value.open()
 }
 
 onMounted(() => {
@@ -24,19 +22,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <VDialog v-model="dialog" fullscreen>
-    <VCard>
-      <VToolbar>
-        <VBtn :icon="mdi.mdiClose" @click="dialog = false" />
-
-        <VToolbarTitle>Preview</VToolbarTitle>
-      </VToolbar>
-
+  <Dialog ref="dialog" module="preview" fullscreen>
+    <template #content>
       <VCardItem>
         <div class="tiptap" v-html="content"></div>
       </VCardItem>
-    </VCard>
-  </VDialog>
+    </template>
+  </Dialog>
 </template>
 
 <style lang="scss">

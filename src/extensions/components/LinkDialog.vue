@@ -1,35 +1,38 @@
 <script setup lang="ts">
 
-import * as mdi from '@mdi/js'
 import { Editor } from "@tiptap/vue-3";
 
 import { useI18n } from 'vue-i18n'
-import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
+import { computed, inject, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
 
-import helpers from '@tiptapify/utils/helpers'
+import Dialog from "@tiptapify/components/UI/Dialog.vue"
 
 defineProps({
   variantBtn: { type: String, default() { return 'elevated' }},
-  variantField: { type: String, default() { return 'solo' }}
+  variantField: { type: String, default() { return 'outlined' }}
 })
-
-const { ucFirst } = helpers
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 const { t } = useI18n()
 
 const generateLinkAttrs = () => ({
   href: '',
-  target: '_blank',
+  target: targetAttrs.value[0],
   cssClass: '',
   rel: ''
 })
 
-const relAttrs = ['alternate', 'author', 'bookmark', 'external', 'help', 'license', 'next', 'nofollow', 'noreferrer', 'noopener', 'prev', 'search', 'tag']
+const relAttrs = ['alternate', 'author', 'bookmark', 'external', 'help', 'license', 'me', 'next', 'nofollow', 'noopener', 'noreferrer', 'opener', 'prev', 'privacy-policy', 'search', 'tag', 'terms-of-service']
+
+const targetAttrs = computed(() => [
+  { value: '_blank', title: t('dialog.link.target_blank') },
+  { value: '_self', title: t('dialog.link.target_self') }
+])
 
 const attrs = ref(generateLinkAttrs())
+const hrefInvalid = ref(false)
 
-const dialog = ref<boolean>(false)
+const dialog = ref(null)
 
 const isDisabled = computed(() => {
   const { href } = attrs.value
@@ -38,11 +41,10 @@ const isDisabled = computed(() => {
 
 function apply() {
   let { href, target, rel, cssClass } = attrs.value
-  target = target ? '_blank' : '_self'
-  rel = rel.join(' ')
+  rel = rel?.length ? rel.join(' ') : null
 
   if (href) {
-    editor.value.chain().focus().extendMarkRange('link').setLink({ href, target, rel, class: cssClass }).run()
+    editor.value.chain().focus().extendMarkRange('link').setLink({ href, target: target.value, rel, class: cssClass }).run()
   }
 
   close()
@@ -55,18 +57,18 @@ function clear() {
 }
 
 function close() {
-  dialog.value = false
-
   attrs.value = generateLinkAttrs()
+
+  dialog.value.close()
 }
 
 const showLink = (event: CustomEvent) => {
   attrs.value.href = event.detail.link?.href
-  attrs.value.target = event.detail.link?.target === '_blank'
+  attrs.value.target = targetAttrs.value.find(item => item.value === event.detail.link?.target) ?? targetAttrs[0]
   attrs.value.rel = event.detail.link?.rel?.split(' ')
   attrs.value.cssClass = event.detail.link?.class
 
-  dialog.value = true;
+  dialog.value.open()
 }
 
 onMounted(() => {
@@ -76,67 +78,80 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('tiptapify-show-link', showLink as EventListener)
 })
+
+watch(() => attrs.value.href, () => {
+  const regex = new RegExp(/^((https?|ftps?|sftp):\/\/[a-z0-9]+(\.[a-z0-9]+)+|mailto:\w+@[a-z]+(\.[a-z]+)*|tel:\+?\d+)$/, 'igu')
+
+  hrefInvalid.value = !regex.test(attrs.value.href)
+})
 </script>
 
 <template>
-  <VDialog v-model="dialog" max-width="800" absolute @click:outside="close">
-    <VCard>
-      <VToolbar class="px-6" density="compact">
-        <span class="headline">{{ ucFirst(t('dialog.link.title')) }}</span>
-
-        <VSpacer />
-
-        <VBtn class="mx-0" icon @click="close">
-          <VIcon :icon="mdi.mdiClose" />
-        </VBtn>
-      </VToolbar>
-
+  <Dialog ref="dialog" module="link">
+    <template #content>
       <VCardText>
         <VRow>
-          <VCol cols="12" md="9">
-            <VTextField v-model="attrs.href" :variant="variantField" :label="ucFirst(t('dialog.link.href'))" autofocus />
+          <VCol cols="12">
+            <VTextField
+                v-model="attrs.href"
+                density="compact"
+                variant="outlined"
+                :label="t('dialog.link.href')"
+                :error-messages="hrefInvalid ? t('dialog.link.href_error') : ''"
+                autofocus
+            />
           </VCol>
 
-          <VCol cols="12" md="3">
-            <VCheckbox v-model="attrs.target" color="primary" :label="ucFirst(t('dialog.link.target'))" />
+          <VCol cols="12" md="4">
+            <VSelect
+                v-model="attrs.target"
+                :items="targetAttrs"
+                :label="t('dialog.link.target')"
+                variant="outlined"
+                return-object
+                density="compact"
+            />
+          </VCol>
+
+          <VCol cols="12" md="8">
+            <VTextField v-model="attrs.cssClass" density="compact" variant="outlined" :label="t('dialog.link.class')" />
           </VCol>
 
           <VCol cols="12">
             <VSelect
                 v-model="attrs.rel"
                 :items="relAttrs"
-                :label="ucFirst(t('dialog.link.rel'))"
-                :variant="variantField"
+                :label="t('dialog.link.rel')"
+                variant="outlined"
                 multiple
                 chips
                 closable-chips
                 clearable
+                density="compact"
             />
-          </VCol>
-
-          <VCol cols="12">
-            <VTextField v-model="attrs.cssClass" :variant="variantField" :label="ucFirst(t('dialog.link.class'))" />
           </VCol>
         </VRow>
       </VCardText>
+    </template>
 
+    <template #actions>
       <VCardActions>
         <VRow>
           <VCol class="d-flex justify-start">
             <VBtn color="warning" v-if="editor.isActive('link')" :variant="variantBtn" :disabled="isDisabled" @click="clear">
-              {{ ucFirst(t('dialog.clear')) }}
+              {{ t('dialog.clear') }}
             </VBtn>
           </VCol>
           <VCol class="d-flex justify-end">
             <VBtn :variant="variantBtn" @click="close" class="mr-2">
-              {{ ucFirst(t('dialog.close')) }}
+              {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled" @click="apply">
-              {{ ucFirst(t('dialog.apply')) }}
+              {{ t('dialog.apply') }}
             </VBtn>
           </VCol>
         </VRow>
       </VCardActions>
-    </VCard>
-  </VDialog>
+    </template>
+  </Dialog>
 </template>
