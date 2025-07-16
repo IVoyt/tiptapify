@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
+import Dialog from "@tiptapify/components/UI/Dialog.vue";
 import { ref, onMounted, onUnmounted, watch, inject, Ref } from 'vue'
 import { useI18n } from "vue-i18n";
-
-import helpers from "@tiptapify/utils/helpers";
 
 const props = defineProps({
   indent: { type: Number, default: 2 },
@@ -11,13 +10,11 @@ const props = defineProps({
   variantField: { type: String, default: 'solo' }
 })
 
-const { ucFirst } = helpers;
-
 const { t } = useI18n();
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const dialog = ref(false)
+const dialog = ref(null)
 const formatted = ref(false)
 const sourceCode = ref('')
 
@@ -57,11 +54,12 @@ const unformatHtml = (html: string): string => {
 
 const showDialog = (event: CustomEvent) => {
   sourceCode.value = event.detail.html
-  dialog.value = true;
+
+  dialog.value.open()
 }
 
 const saveChanges = () => {
-  dialog.value = false
+  dialog.value.close()
 
   editor.value.commands.setContent(sourceCode.value, true)
 }
@@ -80,16 +78,14 @@ watch(() => formatted.value, () => {
 </script>
 
 <template>
-  <VDialog v-model="dialog" max-width="1500">
-    <VCard>
-      <VCardTitle>{{ ucFirst(t('dialog.source.title')) }}</VCardTitle>
-
+  <Dialog ref="dialog" module="source" :max-width="1500">
+    <template #content>
       <VCardText>
         <VContainer fluid class="pt-0 pl-0 pr-0">
           <VRow>
             <VCol>
               <VBtn v-model="formatted" :color="`${formatted ? 'primary' : ''}`" @click="formatted = !formatted">
-                {{ ucFirst(t('dialog.source.prettify')) }}
+                {{ t('dialog.source.prettify') }}
               </VBtn>
             </VCol>
           </VRow>
@@ -103,18 +99,20 @@ watch(() => formatted.value, () => {
             class="source-code-area"
         />
       </VCardText>
+    </template>
 
+    <template #actions>
       <VCardActions>
         <VSpacer></VSpacer>
         <VBtn :variant="variantBtn" @click="dialog = false">
-          {{ ucFirst(t('dialog.close')) }}
+          {{ t('dialog.close') }}
         </VBtn>
         <VBtn :variant="variantBtn" color="primary" @click="saveChanges">
-          {{ ucFirst(t('dialog.apply')) }}
+          {{ t('dialog.apply') }}
         </VBtn>
       </VCardActions>
-    </VCard>
-  </VDialog>
+    </template>
+  </Dialog>
 </template>
 
 <style scoped lang="scss">

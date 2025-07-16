@@ -1,14 +1,11 @@
 <script setup lang="ts">
 
 import { Editor } from "@tiptap/vue-3";
-import helpers from '@tiptapify/utils/helpers'
 import { useI18n } from 'vue-i18n'
 
 import { inject, Ref, ref } from 'vue'
 
 const { t } = useI18n()
-
-const { ucFirst } = helpers
 
 defineExpose({ open })
 
@@ -55,7 +52,7 @@ function printSelection() {
         v-model="withHeaderRow"
         density="compact"
         color="primary"
-        :label="ucFirst(t('media.tables.insertWithHeaderRow'))" hide-details
+        :label="t('media.tables.insertWithHeaderRow')" hide-details
     />
 
     <div v-for="rowNum in maxRows" :key="`row-${rowNum}`" class="tiptapify-insert-table-row">
@@ -73,8 +70,8 @@ function printSelection() {
 
     <div class="tiptapify-table-builder-info">
       <span>
-        {{ ucFirst(t('media.tables.rows')) }}: {{ rowHover }}
-        {{ ucFirst(t('media.tables.cols')) }}: {{ colHover }}
+        {{ t('media.tables.rows') }}: {{ rowHover }}
+        {{ t('media.tables.cols') }}: {{ colHover }}
       </span>
       <span>
         {{ printSelection() }}

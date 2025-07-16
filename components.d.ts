@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CodeBlockComponent: typeof import('./src/components/CodeBlockComponent.vue')['default']
+    Dialog: typeof import('./src/components/UI/Dialog.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Group: typeof import('./src/components/Toolbar/Group.vue')['default']
     GroupBtn: typeof import('./src/components/Toolbar/GroupBtn.vue')['default']

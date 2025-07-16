@@ -1,112 +1,118 @@
 {
   "content": {
-    "placeholder": "schreib hier etwas..."
+    "placeholder": "Schreiben Sie hier etwas..."
   },
   "style": {
-    "paragraph": "absatz",
-    "heading": "überschrift",
+    "paragraph": "Absatz",
+    "heading": "Überschrift",
     "headings": {
-      "h1": "überschrift ebene 1",
-      "h2": "überschrift ebene 2",
-      "h3": "überschrift ebene 3",
-      "h4": "überschrift ebene 4",
-      "h5": "überschrift ebene 5",
-      "h6": "überschrift ebene 6"
+      "h1": "Überschrift Ebene 1",
+      "h2": "Überschrift Ebene 2",
+      "h3": "Überschrift Ebene 3",
+      "h4": "Überschrift Ebene 4",
+      "h5": "Überschrift Ebene 5",
+      "h6": "Überschrift Ebene 6"
     },
-    "fontFamily": "schriftart",
-    "fontSize": "schriftgröße",
-    "lineHeight": "zeilenhöhe",
+    "fontFamily": "Schriftart",
+    "fontSize": "Schriftgröße",
+    "lineHeight": "Zeilenhöhe",
     "color": {
-      "highlight": "hervorhebungsfarbe",
-      "text": "textfarbe",
-      "unset": "farbe zurücksetzen",
-      "custom": "benutzerdefinierte farbe"
+      "highlight": "Markierungsfarbe",
+      "text": "Textfarbe",
+      "unset": "Farbe zurücksetzen",
+      "custom": "Benutzerdefinierte Farbe"
     }
   },
   "format": {
-    "bold": "fett",
-    "italic": "kursiv",
-    "strike": "durchgestrichen",
-    "underline": "unterstrichen",
-    "sup": "hochgestellt",
-    "sub": "tiefgestellt",
-    "break": "harter umbruch",
-    "line": "horizontale linie",
-    "blockquote": "zitat",
-    "code": "code",
-    "codeblock": "code block",
-    "formatClear": "formatierung löschen"
+    "bold": "Fett",
+    "italic": "Kursiv",
+    "strike": "Durchgestrichen",
+    "underline": "Unterstrichen",
+    "sup": "Hochgestellt",
+    "sub": "Tiefgestellt",
+    "break": "Harter Umbruch",
+    "line": "Horizontale Linie",
+    "blockquote": "Zitat",
+    "code": "Code",
+    "codeblock": "Code-Block",
+    "formatClear": "Formatierung löschen"
   },
   "media": {
-    "link": "externer link",
-    "image": "bild",
+    "link": "Externer Link",
+    "image": "Bild",
     "tables": {
-      "table": "tabelle",
-      "insertTable": "tabelle einfügen",
-      "deleteTable": "tabelle löschen",
-      "insertWithHeaderRow": "tabelle mit kopfzeile einfügen",
-      "rows": "zeilen",
-      "row": "zeile",
-      "insertRowBefore": "zeile davor einfügen",
-      "insertRowAfter": "zeile danach einfügen",
-      "deleteRow": "zeile löschen",
-      "cols": "spalten",
-      "col": "spalte",
-      "insertColBefore": "spalte davor einfügen",
-      "insertColAfter": "spalte danach einfügen",
-      "deleteCol": "spalte löschen",
-      "mergeCells": "zellen verbinden",
-      "splitCell": "zelle teilen"
+      "table": "Tabelle",
+      "insertTable": "Tabelle einfügen",
+      "deleteTable": "Tabelle löschen",
+      "insertWithHeaderRow": "Tabelle mit Kopfzeile einfügen",
+      "rows": "Zeilen",
+      "row": "Zeile",
+      "insertRowBefore": "Zeile davor einfügen",
+      "insertRowAfter": "Zeile danach einfügen",
+      "deleteRow": "Zeile löschen",
+      "cols": "Spalten",
+      "col": "Spalte",
+      "insertColBefore": "Spalte davor einfügen",
+      "insertColAfter": "Spalte danach einfügen",
+      "deleteCol": "Spalte löschen",
+      "mergeCells": "Zellen zusammenführen",
+      "splitCell": "Zelle teilen"
     }
   },
   "action": {
-    "undo": "rückgängig",
-    "redo": "wiederholen"
+    "undo": "Rückgängig",
+    "redo": "Wiederholen"
   },
-  "alignment": "ausrichtung",
+  "alignment": "Ausrichtung",
   "alignments": {
-    "left": "links ausrichten",
-    "center": "zentriert ausrichten",
-    "right": "rechts ausrichten",
-    "justify": "blocksatz"
+    "left": "Links ausrichten",
+    "center": "Zentriert ausrichten",
+    "right": "Rechts ausrichten",
+    "justify": "Blocksatz"
   },
-  "list": "liste",
+  "list": "Liste",
   "lists": {
-    "bullet": "ungeordnete liste",
-    "numbered": "geordnete liste",
-    "task": "aufgabenliste",
-    "indent": "listenelement einrücken",
-    "outdent": "listenelement ausrücken"
+    "bullet": "Ungeordnete Liste",
+    "numbered": "Nummerierte Liste",
+    "task": "Aufgabenliste",
+    "indent": "Listenelement einrücken",
+    "outdent": "Listenelement ausrücken"
   },
   "dialog": {
-    "apply": "anwenden",
-    "clear": "löschen",
-    "close": "schließen",
+    "apply": "Anwenden",
+    "clear": "Löschen",
+    "close": "Schließen",
     "image": {
-      "title": "bild hinzufügen/bearbeiten",
-      "src": "quelle",
-      "alt": "alt",
-      "width": "breite",
-      "height": "höhe"
+      "title": "Bild hinzufügen/bearbeiten",
+      "src": "Quelle",
+      "alt": "Alt-Text",
+      "width": "Breite",
+      "height": "Höhe"
     },
     "link": {
-      "title": "link hinzufügen/bearbeiten",
-      "href": "link-adresse",
-      "target": "in neuem fenster öffnen",
-      "rel": "rel",
-      "class": "css-klasse"
+      "title": "Link hinzufügen/bearbeiten",
+      "href": "Link-Adresse",
+      "href_error": "Ungültige Link-Adresse",
+      "target": "Öffnen in...",
+      "target_blank": "Neues Fenster",
+      "target_self": "Aktuelles Fenster",
+      "rel": "Rel",
+      "class": "CSS-Klasse"
+    },
+    "preview": {
+      "title": "Vorschau"
     },
     "source": {
-      "title": "quellcode anzeigen",
-      "prettify": "verschönern"
+      "title": "Quellcode anzeigen",
+      "prettify": "Verschönern"
     }
   },
   "misc": {
-    "source": "quellcode anzeigen",
-    "preview": "vorschau"
+    "source": "Quellcode anzeigen",
+    "preview": "Vorschau"
   },
   "footer": {
-    "words": "wörter",
-    "chars": "zeichen"
+    "words": "Wörter",
+    "chars": "Zeichen"
   }
 }

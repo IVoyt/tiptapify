@@ -1,109 +1,115 @@
 {
   "content": {
-    "placeholder": "scrivi qualcosa qui..."
+    "placeholder": "Scrivi qualcosa qui..."
   },
   "style": {
-    "paragraph": "paragrafo",
-    "heading": "intestazione",
+    "paragraph": "Paragrafo",
+    "heading": "Intestazione",
     "headings": {
-      "h1": "intestazione livello 1",
-      "h2": "intestazione livello 2",
-      "h3": "intestazione livello 3",
-      "h4": "intestazione livello 4",
-      "h5": "intestazione livello 5",
-      "h6": "intestazione livello 6"
+      "h1": "Intestazione livello 1",
+      "h2": "Intestazione livello 2",
+      "h3": "Intestazione livello 3",
+      "h4": "Intestazione livello 4",
+      "h5": "Intestazione livello 5",
+      "h6": "Intestazione livello 6"
     },
-    "fontFamily": "famiglia carattere",
-    "fontSize": "dimensione carattere",
-    "lineHeight": "altezza riga",
+    "fontFamily": "Famiglia di caratteri",
+    "fontSize": "Dimensione carattere",
+    "lineHeight": "Altezza della linea",
     "color": {
-      "highlight": "colore evidenziazione",
-      "text": "colore testo",
-      "unset": "rimuovi colore",
-      "custom": "colore personalizzato"
+      "highlight": "Colore evidenziazione",
+      "text": "Colore del testo",
+      "unset": "Rimuovi colore",
+      "custom": "Colore personalizzato"
     }
   },
   "format": {
-    "bold": "grassetto",
-    "italic": "corsivo",
-    "strike": "barrato",
-    "underline": "sottolineato",
-    "sup": "apice",
-    "sub": "pedice",
-    "break": "interruzione riga forzata",
-    "line": "riga orizzontale",
-    "blockquote": "citazione",
-    "code": "codice",
-    "codeblock": "blocco codice",
-    "formatClear": "cancella formattazione"
+    "bold": "Grassetto",
+    "italic": "Corsivo",
+    "strike": "Barrato",
+    "underline": "Sottolineato",
+    "sup": "Apice",
+    "sub": "Pedice",
+    "break": "Interruzione di riga",
+    "line": "Linea orizzontale",
+    "blockquote": "Citazione",
+    "code": "Codice",
+    "codeblock": "Blocco di codice",
+    "formatClear": "Cancella formato"
   },
   "media": {
-    "link": "collegamento esterno",
-    "image": "immagine",
+    "link": "Collegamento esterno",
+    "image": "Immagine",
     "tables": {
-      "table": "tabella",
-      "insertTable": "inserisci tabella",
-      "deleteTable": "elimina tabella",
-      "insertWithHeaderRow": "inserisci tabella con riga intestazione",
-      "rows": "righe",
-      "row": "riga",
-      "insertRowBefore": "inserisci riga prima",
-      "insertRowAfter": "inserisci riga dopo",
-      "deleteRow": "elimina riga",
-      "cols": "colonne",
-      "col": "colonna",
-      "insertColBefore": "inserisci colonna prima",
-      "insertColAfter": "inserisci colonna dopo",
-      "deleteCol": "elimina colonna",
-      "mergeCells": "unisci celle",
-      "splitCell": "dividi cella"
+      "table": "Tabella",
+      "insertTable": "Inserisci tabella",
+      "deleteTable": "Elimina tabella",
+      "insertWithHeaderRow": "Inserisci tabella con intestazione",
+      "rows": "Righe",
+      "row": "Riga",
+      "insertRowBefore": "Inserisci riga prima",
+      "insertRowAfter": "Inserisci riga dopo",
+      "deleteRow": "Elimina riga",
+      "cols": "Colonne",
+      "col": "Colonna",
+      "insertColBefore": "Inserisci colonna prima",
+      "insertColAfter": "Inserisci colonna dopo",
+      "deleteCol": "Elimina colonna",
+      "mergeCells": "Unisci celle",
+      "splitCell": "Dividi cella"
     }
   },
   "action": {
-    "undo": "annulla",
-    "redo": "ripeti"
+    "undo": "Annulla",
+    "redo": "Ripeti"
   },
-  "alignment": "allineamento",
+  "alignment": "Allineamento",
   "alignments": {
-    "left": "allinea a sinistra",
-    "center": "allinea al centro",
-    "right": "allinea a destra",
-    "justify": "giustifica"
+    "left": "Allinea a sinistra",
+    "center": "Allinea al centro",
+    "right": "Allinea a destra",
+    "justify": "Giustifica"
   },
-  "list": "elenco",
+  "list": "Lista",
   "lists": {
-    "bullet": "elenco non ordinato",
-    "numbered": "elenco ordinato",
-    "task": "elenco attività",
-    "indent": "rientra elemento elenco",
-    "outdent": "riduci rientro elemento elenco"
+    "bullet": "Lista puntata",
+    "numbered": "Lista numerata",
+    "task": "Lista delle attività",
+    "indent": "Indenta elemento",
+    "outdent": "Rimuovi indentazione"
   },
   "dialog": {
-    "apply": "applica",
-    "clear": "cancella",
-    "close": "chiudi",
+    "apply": "Applica",
+    "clear": "Cancella",
+    "close": "Chiudi",
     "image": {
-      "title": "aggiungi/modifica immagine",
-      "src": "sorgente",
-      "alt": "alt",
-      "width": "larghezza",
-      "height": "altezza"
+      "title": "Aggiungi/modifica immagine",
+      "src": "Origine",
+      "alt": "Testo alternativo",
+      "width": "Larghezza",
+      "height": "Altezza"
     },
     "link": {
-      "title": "aggiungi/modifica collegamento",
-      "href": "indirizzo collegamento",
-      "target": "apri in nuova finestra",
-      "rel": "rel",
-      "class": "classe CSS"
+      "title": "Aggiungi/modifica collegamento",
+      "href": "Indirizzo del collegamento",
+      "href_error": "Indirizzo del collegamento non valido",
+      "target": "Apri in...",
+      "target_blank": "Nuova finestra",
+      "target_self": "Finestra corrente",
+      "rel": "Rel",
+      "class": "Classe CSS"
+    },
+    "preview": {
+      "title": "Anteprima"
     },
     "source": {
-      "title": "visualizza codice sorgente",
-      "prettify": "abbellisci"
+      "title": "Visualizza codice sorgente",
+      "prettify": "Formatta"
     }
   },
   "misc": {
-    "source": "visualizza codice sorgente",
-    "preview": "anteprima"
+    "source": "Visualizza codice sorgente",
+    "preview": "Anteprima"
   },
   "footer": {
     "words": "parole",

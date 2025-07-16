@@ -1,0 +1,118 @@
+{
+  "content": {
+    "placeholder": "Schriibä Sie öppis da..."
+  },
+  "style": {
+    "paragraph": "Absatz",
+    "heading": "Überschrift",
+    "headings": {
+      "h1": "Überschrift Stufe 1",
+      "h2": "Überschrift Stufe 2",
+      "h3": "Überschrift Stufe 3",
+      "h4": "Überschrift Stufe 4",
+      "h5": "Überschrift Stufe 5",
+      "h6": "Überschrift Stufe 6"
+    },
+    "fontFamily": "Schriftart",
+    "fontSize": "Schriftgrösse",
+    "lineHeight": "Zylähöchi",
+    "color": {
+      "highlight": "Markierigsfäru",
+      "text": "Täxtfäru",
+      "unset": "Färu entfärnä",
+      "custom": "Benutzerdefinierti Färu"
+    }
+  },
+  "format": {
+    "bold": "Fett",
+    "italic": "Kursiv",
+    "strike": "Durchgstrichä",
+    "underline": "Unterstrichä",
+    "sup": "Hochgstellt",
+    "sub": "Tiefgstellt",
+    "break": "Hartä Umbruch",
+    "line": "Horizontali Linie",
+    "blockquote": "Zitat",
+    "code": "Code",
+    "codeblock": "Code-Block",
+    "formatClear": "Formatierig löschä"
+  },
+  "media": {
+    "link": "Äxtärnä Link",
+    "image": "Bild",
+    "tables": {
+      "table": "Tabälle",
+      "insertTable": "Tabälle yfügä",
+      "deleteTable": "Tabälle löschä",
+      "insertWithHeaderRow": "Tabälle mit Chopfzyle yfügä",
+      "rows": "Zylä",
+      "row": "Zyle",
+      "insertRowBefore": "Zyle dervor yfügä",
+      "insertRowAfter": "Zyle dernah yfügä",
+      "deleteRow": "Zyle löschä",
+      "cols": "Spaltä",
+      "col": "Spalte",
+      "insertColBefore": "Spalte dervor yfügä",
+      "insertColAfter": "Spalte dernah yfügä",
+      "deleteCol": "Spalte löschä",
+      "mergeCells": "Zällä zämmäfüärä",
+      "splitCell": "Zälle teilä"
+    }
+  },
+  "action": {
+    "undo": "Rückgängig",
+    "redo": "Wiederholä"
+  },
+  "alignment": "Usrichtig",
+  "alignments": {
+    "left": "Links usrichtä",
+    "center": "Zentriert usrichtä",
+    "right": "Rächts usrichtä",
+    "justify": "Blocksatz"
+  },
+  "list": "Lischtä",
+  "lists": {
+    "bullet": "Ungordneti Lischtä",
+    "numbered": "Nummerierti Lischtä",
+    "task": "Uufgabälischtä",
+    "indent": "Lischtäelemänt yrückä",
+    "outdent": "Lischtäelemänt usrückä"
+  },
+  "dialog": {
+    "apply": "Awändä",
+    "clear": "Löschä",
+    "close": "Schliässä",
+    "image": {
+      "title": "Bild hinzuefügä/bearbyitä",
+      "src": "Quälle",
+      "alt": "Alt-Täxt",
+      "width": "Bryti",
+      "height": "Höchi"
+    },
+    "link": {
+      "title": "Link hinzuefügä/bearbyitä",
+      "href": "Link-Adrässe",
+      "href_error": "Ungültigi Link-Adrässe",
+      "target": "Öffnä i...",
+      "target_blank": "Neus Fänschter",
+      "target_self": "Aktuells Fänschter",
+      "rel": "Rel",
+      "class": "CSS-Klasse"
+    },
+    "preview": {
+      "title": "Vorschau"
+    },
+    "source": {
+      "title": "Quellcode azygä",
+      "prettify": "Verschönärä"
+    }
+  },
+  "misc": {
+    "source": "Quellcode azygä",
+    "preview": "Vorschau"
+  },
+  "footer": {
+    "words": "Wörter",
+    "chars": "Zeichä"
+  }
+}

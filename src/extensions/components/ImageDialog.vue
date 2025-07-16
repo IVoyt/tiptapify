@@ -1,19 +1,15 @@
 <script setup lang="ts">
 
-import * as mdi from '@mdi/js'
 import { Editor } from "@tiptap/vue-3";
+import Dialog from "@tiptapify/components/UI/Dialog.vue";
 
 import { useI18n } from 'vue-i18n'
 import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
-
-import helpers from '@tiptapify/utils/helpers'
 
 defineProps({
   variantBtn: { type: String, default() { return 'elevated' }},
   variantField: { type: String, default() { return 'solo' }}
 })
-
-const { ucFirst } = helpers
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 const { t } = useI18n()
@@ -27,7 +23,7 @@ const generateImageAttrs = () => ({
 
 const attrs = ref(generateImageAttrs())
 
-const dialog = ref<boolean>(false)
+const dialog = ref(null)
 
 const isDisabled = computed(() => {
   const { src } = attrs.value
@@ -64,7 +60,7 @@ function clear() {
 }
 
 function close() {
-  dialog.value = false
+  dialog.value.close()
 
   attrs.value = generateImageAttrs()
 }
@@ -75,7 +71,7 @@ const showTiptapifyImage = (event: CustomEvent) => {
   attrs.value.width = event.detail.image?.width
   attrs.value.height = event.detail.image?.height
 
-  dialog.value = true;
+  dialog.value.open()
 }
 
 onMounted(() => {
@@ -88,55 +84,47 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <VDialog v-model="dialog" max-width="800" absolute @click:outside="close">
-    <VCard>
-      <VToolbar class="px-6" density="compact">
-        <span class="headline">{{ ucFirst(t('dialog.image.title')) }}</span>
-
-        <VSpacer />
-
-        <VBtn class="mx-0" icon @click="close">
-          <VIcon :icon="mdi.mdiClose" />
-        </VBtn>
-      </VToolbar>
-
+  <Dialog ref="dialog" module="image" :max-width="800">
+    <template #content>
       <VCardText>
         <VRow>
           <VCol cols="12">
-            <VTextField v-model="attrs.src" :variant="variantField" :label="ucFirst(t('dialog.image.src'))" />
+            <VTextField v-model="attrs.src" density="compact" variant="outlined" :label="t('dialog.image.src')" />
           </VCol>
 
           <VCol cols="12" md="6">
-            <VTextField v-model="attrs.alt" :variant="variantField" :label="ucFirst(t('dialog.image.alt'))" />
+            <VTextField v-model="attrs.alt" density="compact" variant="outlined" :label="t('dialog.image.alt')" />
           </VCol>
 
           <VCol cols="12" md="3">
-            <VTextField v-model="attrs.width" type="number" :variant="variantField" :precision="0" :min="1" :label="ucFirst(t('dialog.image.width'))" />
+            <VTextField v-model="attrs.width" type="number" density="compact" variant="outlined" :precision="0" :min="1" :label="t('dialog.image.width')" />
           </VCol>
 
           <VCol cols="12" md="3">
-            <VTextField v-model="attrs.height" type="number" :variant="variantField" :precision="0" :min="1" :label="ucFirst(t('dialog.image.height'))" />
+            <VTextField v-model="attrs.height" type="number" density="compact" variant="outlined" :precision="0" :min="1" :label="t('dialog.image.height')" />
           </VCol>
         </VRow>
       </VCardText>
+    </template>
 
+    <template #actions>
       <VCardActions>
         <VRow>
           <VCol class="d-flex justify-start">
             <VBtn color="warning" v-if="editor.isActive('image')" :variant="variantBtn" :disabled="isDisabled" @click="clear">
-              {{ ucFirst(t('dialog.clear')) }}
+              {{ t('dialog.clear') }}
             </VBtn>
           </VCol>
           <VCol class="d-flex justify-end">
             <VBtn :variant="variantBtn" @click="close" class="mr-2">
-              {{ ucFirst(t('dialog.close')) }}
+              {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled" @click="apply">
-              {{ ucFirst(t('dialog.apply')) }}
+              {{ t('dialog.apply') }}
             </VBtn>
           </VCol>
         </VRow>
       </VCardActions>
-    </VCard>
-  </VDialog>
+    </template>
+  </Dialog>
 </template>

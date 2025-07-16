@@ -25,11 +25,11 @@ const props = defineProps({
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const theme = useTheme()
+const appTheme = useTheme()
 
 const items = toolbarItems(
     editor,
-    theme,
+    appTheme,
     computed(() => props.fontMeasure).value,
     { list: computed(() => props.items).value, exclude: computed(() => props.itemsExclude).value },
     computed(() => props.headingLevels).value

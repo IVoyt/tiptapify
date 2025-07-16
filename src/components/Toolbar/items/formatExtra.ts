@@ -62,7 +62,7 @@ export function getFormatExtraItems(editor: Editor) {
       icon: mdi.mdiCommentQuote,
       enabled: true,
       props: {
-        disabled: computed(() => !editor.can().chain().focus().toggleBlockquote().run()),
+        disabled: computed(() => !editor.can().chain().focus().toggleBlockquote().run() || editor.isActive('codeBlock') || editor.isActive('code')),
         color: computed(() => editor.isActive('blockquote') ? 'primary' : ''),
       },
       attrs: {

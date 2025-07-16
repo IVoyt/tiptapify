@@ -73,6 +73,9 @@ export function getStyleItems(editor: Editor, theme: any, fontMeasure: string, c
       icon: mdi.mdiFormatFont,
       modelValue: false,
       enabled: true,
+      props: {
+        disabled: computed(() => !editor.can().chain().focus().unsetFontFamily().run()),
+      },
       attrs: {
         click: () => editor.chain().focus().unsetFontFamily().run()
       },
@@ -99,6 +102,9 @@ export function getStyleItems(editor: Editor, theme: any, fontMeasure: string, c
       icon: mdi.mdiFormatSize,
       modelValue: false,
       enabled: true,
+      props: {
+        disabled: computed(() => !editor.can().chain().focus().unsetFontSize().run()),
+      },
       attrs: {
         click: () => editor.chain().focus().unsetFontSize().run()
       },
@@ -124,6 +130,9 @@ export function getStyleItems(editor: Editor, theme: any, fontMeasure: string, c
       icon: mdi.mdiFormatLineHeight,
       modelValue: null,
       enabled: true,
+      props: {
+        disabled: computed(() => !editor.can().chain().focus().unsetLineHeight().run()),
+      },
       attrs: {
         click: () => editor.chain().focus().unsetLineHeight().run()
       },
@@ -149,7 +158,11 @@ export function getStyleItems(editor: Editor, theme: any, fontMeasure: string, c
       icon: mdi.mdiFormatColorFill,
       icon2: mdi.mdiColorHelper,
       enabled: true,
+      props: {
+        disabled: computed(() => !editor.can().chain().focus().toggleHighlight().run()),
+      },
       icon2Props: {
+        disabled: computed(() => !editor.can().chain().focus().toggleHighlight().run()),
         color: computed(() => {
           const defaultColor = theme.global.current.value.dark ? '#fff' : '#000'
           return editor.getAttributes('highlight').color || defaultColor
@@ -169,7 +182,11 @@ export function getStyleItems(editor: Editor, theme: any, fontMeasure: string, c
       icon: mdi.mdiFormatColorText,
       icon2: mdi.mdiColorHelper,
       enabled: true,
+      props: {
+        disabled: computed(() => !editor.can().chain().focus().toggleHighlight().run()),
+      },
       icon2Props: {
+        disabled: computed(() => !editor.can().chain().focus().toggleHighlight().run()),
         color: computed(() => {
           const defaultColor = theme.global.current.value.dark ? '#fff' : '#000'
           return editor.getAttributes('textStyle').color || defaultColor

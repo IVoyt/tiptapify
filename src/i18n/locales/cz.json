@@ -1,0 +1,118 @@
+{
+  "content": {
+    "placeholder": "Napište něco zde..."
+  },
+  "style": {
+    "paragraph": "Odstavec",
+    "heading": "Nadpis",
+    "headings": {
+      "h1": "Nadpis úroveň 1",
+      "h2": "Nadpis úroveň 2",
+      "h3": "Nadpis úroveň 3",
+      "h4": "Nadpis úroveň 4",
+      "h5": "Nadpis úroveň 5",
+      "h6": "Nadpis úroveň 6"
+    },
+    "fontFamily": "Rodina písma",
+    "fontSize": "Velikost písma",
+    "lineHeight": "Výška řádku",
+    "color": {
+      "highlight": "Barva zvýraznění",
+      "text": "Barva textu",
+      "unset": "Zrušit barvu",
+      "custom": "Vlastní barva"
+    }
+  },
+  "format": {
+    "bold": "Tučné",
+    "italic": "Kurzíva",
+    "strike": "Přeškrtnuté",
+    "underline": "Podtržené",
+    "sup": "Horní index",
+    "sub": "Dolní index",
+    "break": "Tvrdé zalomení",
+    "line": "Vodorovná čára",
+    "blockquote": "Citace",
+    "code": "Kód",
+    "codeblock": "Blok kódu",
+    "formatClear": "Vymazat formátování"
+  },
+  "media": {
+    "link": "Externí odkaz",
+    "image": "Obrázek",
+    "tables": {
+      "table": "Tabulka",
+      "insertTable": "Vložit tabulku",
+      "deleteTable": "Smazat tabulku",
+      "insertWithHeaderRow": "Vložit tabulku s hlavičkou",
+      "rows": "Řádky",
+      "row": "Řádek",
+      "insertRowBefore": "Vložit řádek před",
+      "insertRowAfter": "Vložit řádek za",
+      "deleteRow": "Smazat řádek",
+      "cols": "Sloupce",
+      "col": "Sloupec",
+      "insertColBefore": "Vložit sloupec před",
+      "insertColAfter": "Vložit sloupec za",
+      "deleteCol": "Smazat sloupec",
+      "mergeCells": "Sloučit buňky",
+      "splitCell": "Rozdělit buňku"
+    }
+  },
+  "action": {
+    "undo": "Zpět",
+    "redo": "Znovu"
+  },
+  "alignment": "Zarovnání",
+  "alignments": {
+    "left": "Zarovnat vlevo",
+    "center": "Zarovnat na střed",
+    "right": "Zarovnat vpravo",
+    "justify": "Zarovnat do bloku"
+  },
+  "list": "Seznam",
+  "lists": {
+    "bullet": "Neuspořádaný seznam",
+    "numbered": "Číslovaný seznam",
+    "task": "Seznam úkolů",
+    "indent": "Odsadit položku",
+    "outdent": "Zrušit odsazení"
+  },
+  "dialog": {
+    "apply": "Použít",
+    "clear": "Vymazat",
+    "close": "Zavřít",
+    "image": {
+      "title": "Přidat/upravit obrázek",
+      "src": "Zdroj",
+      "alt": "Alternativní text",
+      "width": "Šířka",
+      "height": "Výška"
+    },
+    "link": {
+      "title": "Přidat/upravit odkaz",
+      "href": "Adresa odkazu",
+      "href_error": "Neplatná adresa odkazu",
+      "target": "Otevřít v...",
+      "target_blank": "Nové okno",
+      "target_self": "Aktuální okno",
+      "rel": "Rel",
+      "class": "CSS třída"
+    },
+    "preview": {
+      "title": "Náhled"
+    },
+    "source": {
+      "title": "Zobrazit zdrojový kód",
+      "prettify": "Formátovat"
+    }
+  },
+  "misc": {
+    "source": "Zobrazit zdrojový kód",
+    "preview": "Náhled"
+  },
+  "footer": {
+    "words": "slova",
+    "chars": "znaky"
+  }
+}

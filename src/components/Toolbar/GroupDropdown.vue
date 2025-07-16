@@ -2,11 +2,7 @@
 import { defineProps, PropType } from 'vue'
 import { useI18n } from "vue-i18n";
 
-import helpers from "@tiptapify/utils/helpers";
-
 import { ToolbarItem } from "@tiptapify/components/Toolbar/items";
-
-const { ucFirst } = helpers;
 
 defineProps({
   variant: { type: String, default () { return 'flat' }},
@@ -22,11 +18,11 @@ const { t } = useI18n();
   <VMenu v-model="toolbarItem.modelValue" v-bind="toolbarItem.props">
     <template v-if="!nested" #activator="{ props: menuProps }">
       <VBtn v-bind="{ ...menuProps, ...toolbarItem.props }" size="32">
-        <VTooltip :text="ucFirst(t(toolbarItem.tooltip))" location="top" activator="parent" />
+        <VTooltip :text="t(toolbarItem.tooltip)" location="top" activator="parent" />
 
         <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="small" />
         <span v-else class="menu-item-title">
-          {{ ucFirst(t(toolbarItem.name)) }}
+          {{ t(toolbarItem.name) }}
         </span>
       </VBtn>
     </template>
@@ -47,7 +43,7 @@ const { t } = useI18n();
             v-bind="item.props ?? {}"
             v-on="item?.attrs ?? {}"
         >
-          <VTooltip v-if="item.tooltip" :text="ucFirst(t(item.tooltip))" location="top" activator="parent" />
+          <VTooltip v-if="item.tooltip" :text="t(item.tooltip)" location="top" activator="parent" />
 
           <VIcon v-if="item.icon" :icon="item.icon" size="small" />
 
@@ -56,7 +52,7 @@ const { t } = useI18n();
               {{ item.name }}
             </template>
             <template v-else>
-              {{ ucFirst(t(item.toggle)) }}
+              {{ t(item.toggle) }}
             </template>
           </span>
 

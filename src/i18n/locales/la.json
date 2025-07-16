@@ -1,0 +1,118 @@
+{
+  "content": {
+    "placeholder": "Scribe aliquid hic..."
+  },
+  "style": {
+    "paragraph": "Paragraphus",
+    "heading": "Titulus",
+    "headings": {
+      "h1": "Titulus gradus 1",
+      "h2": "Titulus gradus 2",
+      "h3": "Titulus gradus 3",
+      "h4": "Titulus gradus 4",
+      "h5": "Titulus gradus 5",
+      "h6": "Titulus gradus 6"
+    },
+    "fontFamily": "Familia litterarum",
+    "fontSize": "Magnitudo litterarum",
+    "lineHeight": "Altitudo lineae",
+    "color": {
+      "highlight": "Color illustrationis",
+      "text": "Color textus",
+      "unset": "Removere colorem",
+      "custom": "Color proprius"
+    }
+  },
+  "format": {
+    "bold": "Crassus",
+    "italic": "Italicus",
+    "strike": "Percussus",
+    "underline": "Sublineatus",
+    "sup": "Superscriptus",
+    "sub": "Subscriptus",
+    "break": "Fractio dura",
+    "line": "Linea horizontalis",
+    "blockquote": "Citatio",
+    "code": "Codex",
+    "codeblock": "Codex blocus",
+    "formatClear": "Forma clara"
+  },
+  "media": {
+    "link": "Nexus externus",
+    "image": "Imago",
+    "tables": {
+      "table": "Tabula",
+      "insertTable": "Inserere tabulam",
+      "deleteTable": "Delere tabulam",
+      "insertWithHeaderRow": "Inserere tabulam cum titulo",
+      "rows": "Ordines",
+      "row": "Ordo",
+      "insertRowBefore": "Inserere ordinem ante",
+      "insertRowAfter": "Inserere ordinem post",
+      "deleteRow": "Delere ordinem",
+      "cols": "Columnae",
+      "col": "Columna",
+      "insertColBefore": "Inserere columnam ante",
+      "insertColAfter": "Inserere columnam post",
+      "deleteCol": "Delere columnam",
+      "mergeCells": "Conjungere cellulas",
+      "splitCell": "Dividere cellulam"
+    }
+  },
+  "action": {
+    "undo": "Infectum facere",
+    "redo": "Iterum facere"
+  },
+  "alignment": "Directio",
+  "alignments": {
+    "left": "Sinistra dirigere",
+    "center": "Centro dirigere",
+    "right": "Dextra dirigere",
+    "justify": "Justificare"
+  },
+  "list": "Catalogus",
+  "lists": {
+    "bullet": "Catalogus non ordinatus",
+    "numbered": "Catalogus numeratus",
+    "task": "Catalogus operum",
+    "indent": "Elementum intendere",
+    "outdent": "Elementum extendere"
+  },
+  "dialog": {
+    "apply": "Applicare",
+    "clear": "Purgare",
+    "close": "Claudere",
+    "image": {
+      "title": "Addere/emendare imaginem",
+      "src": "Fons",
+      "alt": "Alternativus textus",
+      "width": "Latitudo",
+      "height": "Altitudo"
+    },
+    "link": {
+      "title": "Addere/emendare nexum",
+      "href": "Nexus locus",
+      "href_error": "Nexus locus invalidus",
+      "target": "Aperire in...",
+      "target_blank": "Nova fenestra",
+      "target_self": "Praesens fenestra",
+      "rel": "Rel",
+      "class": "CSS classis"
+    },
+    "preview": {
+      "title": "Prospectus"
+    },
+    "source": {
+      "title": "Videre codicem fontem",
+      "prettify": "Ornare"
+    }
+  },
+  "misc": {
+    "source": "Videre codicem fontem",
+    "preview": "Prospectus"
+  },
+  "footer": {
+    "words": "verba",
+    "chars": "characteres"
+  }
+}

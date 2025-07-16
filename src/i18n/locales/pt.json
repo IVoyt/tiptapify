@@ -1,0 +1,118 @@
+{
+  "content": {
+    "placeholder": "Escreva algo aqui..."
+  },
+  "style": {
+    "paragraph": "Parágrafo",
+    "heading": "Cabeçalho",
+    "headings": {
+      "h1": "Cabeçalho nível 1",
+      "h2": "Cabeçalho nível 2",
+      "h3": "Cabeçalho nível 3",
+      "h4": "Cabeçalho nível 4",
+      "h5": "Cabeçalho nível 5",
+      "h6": "Cabeçalho nível 6"
+    },
+    "fontFamily": "Família da fonte",
+    "fontSize": "Tamanho da fonte",
+    "lineHeight": "Altura da linha",
+    "color": {
+      "highlight": "Cor de destaque",
+      "text": "Cor do texto",
+      "unset": "Remover cor",
+      "custom": "Cor personalizada"
+    }
+  },
+  "format": {
+    "bold": "Negrito",
+    "italic": "Itálico",
+    "strike": "Riscado",
+    "underline": "Sublinhado",
+    "sup": "Sobrescrito",
+    "sub": "Subscrito",
+    "break": "Quebra de linha",
+    "line": "Linha horizontal",
+    "blockquote": "Citação",
+    "code": "Código",
+    "codeblock": "Bloco de código",
+    "formatClear": "Limpar formatação"
+  },
+  "media": {
+    "link": "Link externo",
+    "image": "Imagem",
+    "tables": {
+      "table": "Tabela",
+      "insertTable": "Inserir tabela",
+      "deleteTable": "Excluir tabela",
+      "insertWithHeaderRow": "Inserir tabela com cabeçalho",
+      "rows": "Linhas",
+      "row": "Linha",
+      "insertRowBefore": "Inserir linha antes",
+      "insertRowAfter": "Inserir linha depois",
+      "deleteRow": "Excluir linha",
+      "cols": "Colunas",
+      "col": "Coluna",
+      "insertColBefore": "Inserir coluna antes",
+      "insertColAfter": "Inserir coluna depois",
+      "deleteCol": "Excluir coluna",
+      "mergeCells": "Mesclar células",
+      "splitCell": "Dividir célula"
+    }
+  },
+  "action": {
+    "undo": "Desfazer",
+    "redo": "Refazer"
+  },
+  "alignment": "Alinhamento",
+  "alignments": {
+    "left": "Alinhar à esquerda",
+    "center": "Alinhar ao centro",
+    "right": "Alinhar à direita",
+    "justify": "Justificar"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Lista com marcadores",
+    "numbered": "Lista numerada",
+    "task": "Lista de tarefas",
+    "indent": "Recuar item",
+    "outdent": "Avançar item"
+  },
+  "dialog": {
+    "apply": "Aplicar",
+    "clear": "Limpar",
+    "close": "Fechar",
+    "image": {
+      "title": "Adicionar/editar imagem",
+      "src": "Origem",
+      "alt": "Texto alternativo",
+      "width": "Largura",
+      "height": "Altura"
+    },
+    "link": {
+      "title": "Adicionar/editar link",
+      "href": "Endereço do link",
+      "href_error": "Endereço do link inválido",
+      "target": "Abrir em...",
+      "target_blank": "Nova janela",
+      "target_self": "Janela atual",
+      "rel": "Rel",
+      "class": "Classe CSS"
+    },
+    "preview": {
+      "title": "Visualizar"
+    },
+    "source": {
+      "title": "Ver código fonte",
+      "prettify": "Formatar"
+    }
+  },
+  "misc": {
+    "source": "Ver código fonte",
+    "preview": "Visualizar"
+  },
+  "footer": {
+    "words": "palavras",
+    "chars": "caracteres"
+  }
+}
