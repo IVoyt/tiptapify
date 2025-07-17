@@ -1,26 +1,27 @@
 {
+  "defaultValue": "Wartość domyślna",
   "content": {
-    "placeholder": "Napisz coś tutaj..."
+    "placeholder": "Napisz coś..."
   },
   "style": {
-    "paragraph": "Akapit",
+    "paragraph": "akapit",
     "heading": "Nagłówek",
     "headings": {
-      "h1": "Nagłówek poziom 1",
-      "h2": "Nagłówek poziom 2",
-      "h3": "Nagłówek poziom 3",
-      "h4": "Nagłówek poziom 4",
-      "h5": "Nagłówek poziom 5",
-      "h6": "Nagłówek poziom 6"
+      "h1": "Nagłówek 1. poziomu",
+      "h2": "Nagłówek 2. poziomu",
+      "h3": "Nagłówek 3. poziomu",
+      "h4": "Nagłówek 4. poziomu",
+      "h5": "Nagłówek 5. poziomu",
+      "h6": "Nagłówek 6. poziomu"
     },
-    "fontFamily": "Rodzina czcionki",
-    "fontSize": "Rozmiar czcionki",
+    "fontFamily": "Czcionka",
+    "fontSize": "Rozmiar",
     "lineHeight": "Wysokość linii",
     "color": {
       "highlight": "Kolor podświetlenia",
       "text": "Kolor tekstu",
-      "unset": "Usuń kolor",
-      "custom": "Kolor niestandardowy"
+      "unset": "Wyczyść kolor",
+      "custom": "Własny wybór"
     }
   },
   "format": {
@@ -30,7 +31,7 @@
     "underline": "Podkreślenie",
     "sup": "Indeks górny",
     "sub": "Indeks dolny",
-    "break": "Twarde łamanie",
+    "break": "Łamanie linii",
     "line": "Linia pozioma",
     "blockquote": "Cytat",
     "code": "Kod",
@@ -55,7 +56,7 @@
       "insertColBefore": "Wstaw kolumnę przed",
       "insertColAfter": "Wstaw kolumnę po",
       "deleteCol": "Usuń kolumnę",
-      "mergeCells": "Połącz komórki",
+      "mergeCells": "Scal komórki",
       "splitCell": "Podziel komórkę"
     }
   },
@@ -65,38 +66,38 @@
   },
   "alignment": "Wyrównanie",
   "alignments": {
-    "left": "Wyrównaj do lewej",
-    "center": "Wyrównaj do środka",
-    "right": "Wyrównaj do prawej",
-    "justify": "Justuj"
+    "left": "Wyrównanie do lewej",
+    "center": "Wyrównanie do środka",
+    "right": "Wyrównanie do prawej",
+    "justify": "Wyjustowanie"
   },
   "list": "Lista",
   "lists": {
     "bullet": "Lista punktowana",
     "numbered": "Lista numerowana",
     "task": "Lista zadań",
-    "indent": "Wcięcie elementu",
-    "outdent": "Usuń wcięcie"
+    "indent": "Zwiększ wcięcie elementu",
+    "outdent": "Zmniejsz wcięcie elementu"
   },
   "dialog": {
     "apply": "Zastosuj",
     "clear": "Wyczyść",
     "close": "Zamknij",
     "image": {
-      "title": "Dodaj/edytuj obraz",
+      "title": "Dodaj/zmień obraz",
       "src": "Źródło",
-      "alt": "Tekst alternatywny",
+      "alt": "alt",
       "width": "Szerokość",
       "height": "Wysokość"
     },
     "link": {
-      "title": "Dodaj/edytuj link",
-      "href": "Adres linku",
-      "href_error": "Nieprawidłowy adres linku",
+      "title": "Dodaj/zmień link",
+      "href": "Adres linka",
+      "href_error": "Nieprawidłowy adres linka",
       "target": "Otwórz w...",
-      "target_blank": "Nowe okno",
-      "target_self": "Bieżące okno",
-      "rel": "Rel",
+      "target_blank": "Nowym oknie",
+      "target_self": "Bieżącym oknie",
+      "rel": "rel",
       "class": "Klasa CSS"
     },
     "preview": {
@@ -104,7 +105,7 @@
     },
     "source": {
       "title": "Pokaż kod źródłowy",
-      "prettify": "Formatuj"
+      "prettify": "prettify"
     }
   },
   "misc": {

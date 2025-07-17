@@ -1,26 +1,27 @@
 {
+  "defaultValue": "Valor por defecto",
   "content": {
-    "placeholder": "Escriba algo aquí..."
+    "placeholder": "Escribe algo..."
   },
   "style": {
-    "paragraph": "Párrafo",
+    "paragraph": "párrafo",
     "heading": "Encabezado",
     "headings": {
-      "h1": "Encabezado nivel 1",
-      "h2": "Encabezado nivel 2",
-      "h3": "Encabezado nivel 3",
-      "h4": "Encabezado nivel 4",
-      "h5": "Encabezado nivel 5",
-      "h6": "Encabezado nivel 6"
+      "h1": "Encabezado de nivel 1",
+      "h2": "Encabezado de nivel 2",
+      "h3": "Encabezado de nivel 3",
+      "h4": "Encabezado de nivel 4",
+      "h5": "Encabezado de nivel 5",
+      "h6": "Encabezado de nivel 6"
     },
-    "fontFamily": "Familia de fuente",
-    "fontSize": "Tamaño de fuente",
+    "fontFamily": "Fuente",
+    "fontSize": "Tamaño",
     "lineHeight": "Altura de línea",
     "color": {
       "highlight": "Color de resaltado",
       "text": "Color del texto",
-      "unset": "Quitar color",
-      "custom": "Color personalizado"
+      "unset": "Limpiar color",
+      "custom": "Selección personalizada"
     }
   },
   "format": {
@@ -44,7 +45,7 @@
       "table": "Tabla",
       "insertTable": "Insertar tabla",
       "deleteTable": "Eliminar tabla",
-      "insertWithHeaderRow": "Insertar tabla con fila de encabezado",
+      "insertWithHeaderRow": "Insertar tabla con encabezado",
       "rows": "Filas",
       "row": "Fila",
       "insertRowBefore": "Insertar fila antes",
@@ -55,7 +56,7 @@
       "insertColBefore": "Insertar columna antes",
       "insertColAfter": "Insertar columna después",
       "deleteCol": "Eliminar columna",
-      "mergeCells": "Combinar celdas",
+      "mergeCells": "Fusionar celdas",
       "splitCell": "Dividir celda"
     }
   },
@@ -65,38 +66,38 @@
   },
   "alignment": "Alineación",
   "alignments": {
-    "left": "Alinear a la izquierda",
-    "center": "Alinear al centro",
-    "right": "Alinear a la derecha",
-    "justify": "Justificar"
+    "left": "Alineación izquierda",
+    "center": "Alineación centrada",
+    "right": "Alineación derecha",
+    "justify": "Justificado"
   },
   "list": "Lista",
   "lists": {
-    "bullet": "Lista sin orden",
+    "bullet": "Lista con viñetas",
     "numbered": "Lista numerada",
     "task": "Lista de tareas",
-    "indent": "Sangrar elemento",
-    "outdent": "Desangrar elemento"
+    "indent": "Aumentar sangría del elemento",
+    "outdent": "Disminuir sangría del elemento"
   },
   "dialog": {
     "apply": "Aplicar",
     "clear": "Limpiar",
     "close": "Cerrar",
     "image": {
-      "title": "Agregar/editar imagen",
+      "title": "Agregar/modificar imagen",
       "src": "Fuente",
-      "alt": "Texto alternativo",
+      "alt": "alt",
       "width": "Ancho",
       "height": "Alto"
     },
     "link": {
-      "title": "Agregar/editar enlace",
+      "title": "Agregar/modificar enlace",
       "href": "Dirección del enlace",
-      "href_error": "Dirección del enlace inválida",
+      "href_error": "Dirección de enlace incorrecta",
       "target": "Abrir en...",
       "target_blank": "Nueva ventana",
       "target_self": "Ventana actual",
-      "rel": "Rel",
+      "rel": "rel",
       "class": "Clase CSS"
     },
     "preview": {
@@ -104,7 +105,7 @@
     },
     "source": {
       "title": "Ver código fuente",
-      "prettify": "Formatear"
+      "prettify": "prettify"
     }
   },
   "misc": {

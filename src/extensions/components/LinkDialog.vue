@@ -63,7 +63,7 @@ function close() {
 }
 
 const showLink = (event: CustomEvent) => {
-  attrs.value.href = event.detail.link?.href
+  attrs.value.href = event.detail.link?.href ?? ''
   attrs.value.target = targetAttrs.value.find(item => item.value === event.detail.link?.target) ?? targetAttrs[0]
   attrs.value.rel = event.detail.link?.rel?.split(' ')
   attrs.value.cssClass = event.detail.link?.class
@@ -80,9 +80,25 @@ onUnmounted(() => {
 })
 
 watch(() => attrs.value.href, () => {
-  const regex = new RegExp(/^((https?|ftps?|sftp):\/\/[a-z0-9]+(\.[a-z0-9]+)+|mailto:\w+@[a-z]+(\.[a-z]+)*|tel:\+?\d+)$/, 'igu')
+  const azAZ09 = 'a-zA-Z0-9'
 
-  hrefInvalid.value = !regex.test(attrs.value.href)
+  const regexHrefProto = 'https?:\\/\\/'
+  const regexHrefAuth = `([${azAZ09}]+(:[${azAZ09}]+)?@)?`
+  const regexHrefDomain = `[${azAZ09}]+(\\.[${azAZ09}]+(-?[${azAZ09}]+)?)+`
+  const regexHrefPath = `(\\/[${azAZ09}\\-]+)*`
+  const regexHrefFragment = '(#[^\\s]*)?'
+  const regexHrefQueryParam = `(\\?[${azAZ09}\\-_]+((\\[[${azAZ09}]+\\])?=[${azAZ09}\\-_%]+)?)?`
+  const regexHrefQueryParamExtra = `(&[${azAZ09}\\-_]+((\\[[${azAZ09}]+\\])?=[${azAZ09}\\-_%]+)?)*`
+  const regexHref = `${regexHrefProto}${regexHrefAuth}${regexHrefDomain}${regexHrefPath}${regexHrefFragment}${regexHrefQueryParam}${regexHrefQueryParamExtra}`
+
+  const regexMailto = `mailto:\\w+@[${azAZ09}]+(\\.[${azAZ09}]+)*`
+  const regexTel = 'tel:\\+?[0-9]+'
+
+  const regexAll = [regexHref, regexMailto, regexTel].join('|')
+
+  const regex = new RegExp(`^(${regexAll})$`, 'i')
+
+  hrefInvalid.value = attrs.value.href !== '' && !regex.test(attrs.value.href)
 })
 </script>
 
@@ -146,7 +162,7 @@ watch(() => attrs.value.href, () => {
             <VBtn :variant="variantBtn" @click="close" class="mr-2">
               {{ t('dialog.close') }}
             </VBtn>
-            <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled" @click="apply">
+            <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled || hrefInvalid" @click="apply">
               {{ t('dialog.apply') }}
             </VBtn>
           </VCol>

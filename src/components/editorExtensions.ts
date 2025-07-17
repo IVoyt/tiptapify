@@ -25,7 +25,7 @@ import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 
 import { TiptapifyLink } from '@tiptapify/extensions/link'
 import { TiptapifyImage } from '@tiptapify/extensions/image'
-import CodeBlockComponent from '@tiptapify/components/CodeBlockComponent.vue'
+import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
 import { ViewSource } from '@tiptapify/extensions/view-source'
 import { Preview } from '@tiptapify/extensions/preview'
 import SlashCommands from '@tiptapify/extensions/slash-commands'

@@ -19,9 +19,9 @@ const formatted = ref(false)
 const sourceCode = ref('')
 
 const formatHtml = (html: string): string => {
+  const singleTags = ['img', 'hr', 'br', 'input']
   let formatted = html.replace(/>/g, '>\n');
 
-  formatted = formatted.replace(/\n</g, '\n<');
   formatted = formatted.replace(/([^>\n])</g, '$1\n<');
 
   const lines = formatted.split('\n');
@@ -35,7 +35,8 @@ const formatHtml = (html: string): string => {
 
         const indentedLine = ' '.repeat(indentLevel * props.indent) + line;
 
-        if (line.match(/<[^\/][^>]*>/) && !line.match(/<.*\/>/)) {
+        const tag = line.match(/<\/?(\S+).*>/) ?? []
+        if (!singleTags.includes(tag[1] ?? '') && line.match(/<[^\/][^>]*>/) && !line.match(/<.*\/>/)) {
           indentLevel++;
         }
 

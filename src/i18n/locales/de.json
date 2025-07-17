@@ -1,26 +1,27 @@
 {
+  "defaultValue": "Standardwert",
   "content": {
-    "placeholder": "Schreiben Sie hier etwas..."
+    "placeholder": "Schreiben Sie etwas..."
   },
   "style": {
     "paragraph": "Absatz",
     "heading": "Überschrift",
     "headings": {
-      "h1": "Überschrift Ebene 1",
-      "h2": "Überschrift Ebene 2",
-      "h3": "Überschrift Ebene 3",
-      "h4": "Überschrift Ebene 4",
-      "h5": "Überschrift Ebene 5",
-      "h6": "Überschrift Ebene 6"
+      "h1": "Überschrift 1. Ebene",
+      "h2": "Überschrift 2. Ebene",
+      "h3": "Überschrift 3. Ebene",
+      "h4": "Überschrift 4. Ebene",
+      "h5": "Überschrift 5. Ebene",
+      "h6": "Überschrift 6. Ebene"
     },
     "fontFamily": "Schriftart",
-    "fontSize": "Schriftgröße",
+    "fontSize": "Größe",
     "lineHeight": "Zeilenhöhe",
     "color": {
-      "highlight": "Markierungsfarbe",
+      "highlight": "Hervorhebungsfarbe",
       "text": "Textfarbe",
-      "unset": "Farbe zurücksetzen",
-      "custom": "Benutzerdefinierte Farbe"
+      "unset": "Farbe löschen",
+      "custom": "Eigene Auswahl"
     }
   },
   "format": {
@@ -30,7 +31,7 @@
     "underline": "Unterstrichen",
     "sup": "Hochgestellt",
     "sub": "Tiefgestellt",
-    "break": "Harter Umbruch",
+    "break": "Zeilenumbruch",
     "line": "Horizontale Linie",
     "blockquote": "Zitat",
     "code": "Code",
@@ -65,38 +66,38 @@
   },
   "alignment": "Ausrichtung",
   "alignments": {
-    "left": "Links ausrichten",
-    "center": "Zentriert ausrichten",
-    "right": "Rechts ausrichten",
+    "left": "Linksbündig",
+    "center": "Zentriert",
+    "right": "Rechtsbündig",
     "justify": "Blocksatz"
   },
   "list": "Liste",
   "lists": {
-    "bullet": "Ungeordnete Liste",
+    "bullet": "Aufzählung",
     "numbered": "Nummerierte Liste",
     "task": "Aufgabenliste",
-    "indent": "Listenelement einrücken",
-    "outdent": "Listenelement ausrücken"
+    "indent": "Einzug vergrößern",
+    "outdent": "Einzug verkleinern"
   },
   "dialog": {
     "apply": "Anwenden",
     "clear": "Löschen",
     "close": "Schließen",
     "image": {
-      "title": "Bild hinzufügen/bearbeiten",
+      "title": "Bild hinzufügen/ändern",
       "src": "Quelle",
-      "alt": "Alt-Text",
+      "alt": "alt",
       "width": "Breite",
       "height": "Höhe"
     },
     "link": {
-      "title": "Link hinzufügen/bearbeiten",
+      "title": "Link hinzufügen/ändern",
       "href": "Link-Adresse",
       "href_error": "Ungültige Link-Adresse",
       "target": "Öffnen in...",
-      "target_blank": "Neues Fenster",
-      "target_self": "Aktuelles Fenster",
-      "rel": "Rel",
+      "target_blank": "Neuem Fenster",
+      "target_self": "Aktuellem Fenster",
+      "rel": "rel",
       "class": "CSS-Klasse"
     },
     "preview": {
@@ -104,7 +105,7 @@
     },
     "source": {
       "title": "Quellcode anzeigen",
-      "prettify": "Verschönern"
+      "prettify": "prettify"
     }
   },
   "misc": {

@@ -2,6 +2,14 @@ import Link from "@tiptap/extension-link";
 
 const name: string = 'link'
 
+declare module '@tiptap/core' {
+  interface Commands<ReturnType> {
+    link: {
+      showLink: () => ReturnType
+    }
+  }
+}
+
 export const TiptapifyLink = Link.extend({
   name,
 

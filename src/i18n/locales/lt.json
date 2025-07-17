@@ -1,36 +1,37 @@
 {
+  "defaultValue": "Numatytoji reikšmė",
   "content": {
-    "placeholder": "Rašykite ką nors čia..."
+    "placeholder": "Parašykite ką nors..."
   },
   "style": {
-    "paragraph": "Pastraipa",
+    "paragraph": "pastraipa",
     "heading": "Antraštė",
     "headings": {
-      "h1": "Antraštė 1 lygis",
-      "h2": "Antraštė 2 lygis",
-      "h3": "Antraštė 3 lygis",
-      "h4": "Antraštė 4 lygis",
-      "h5": "Antraštė 5 lygis",
-      "h6": "Antraštė 6 lygis"
+      "h1": "1 lygio antraštė",
+      "h2": "2 lygio antraštė",
+      "h3": "3 lygio antraštė",
+      "h4": "4 lygio antraštė",
+      "h5": "5 lygio antraštė",
+      "h6": "6 lygio antraštė"
     },
-    "fontFamily": "Šrifto šeima",
-    "fontSize": "Šrifto dydis",
+    "fontFamily": "Šriftas",
+    "fontSize": "Dydis",
     "lineHeight": "Eilutės aukštis",
     "color": {
       "highlight": "Paryškinimo spalva",
       "text": "Teksto spalva",
-      "unset": "Pašalinti spalvą",
-      "custom": "Pasirinktinė spalva"
+      "unset": "Išvalyti spalvą",
+      "custom": "Savo pasirinkimas"
     }
   },
   "format": {
-    "bold": "Paryškinti",
+    "bold": "Paryškintas",
     "italic": "Kursyvas",
-    "strike": "Perbraukti",
-    "underline": "Pabraukti",
+    "strike": "Perbrauktas",
+    "underline": "Pabrauktas",
     "sup": "Viršutinis indeksas",
     "sub": "Apatinis indeksas",
-    "break": "Kietasis lūžis",
+    "break": "Eilutės lūžis",
     "line": "Horizontali linija",
     "blockquote": "Citata",
     "code": "Kodas",
@@ -38,8 +39,8 @@
     "formatClear": "Išvalyti formatavimą"
   },
   "media": {
-    "link": "Išorinis nuoroda",
-    "image": "Vaizdas",
+    "link": "Išorinė nuoroda",
+    "image": "Paveikslas",
     "tables": {
       "table": "Lentelė",
       "insertTable": "Įterpti lentelę",
@@ -55,8 +56,8 @@
       "insertColBefore": "Įterpti stulpelį prieš",
       "insertColAfter": "Įterpti stulpelį po",
       "deleteCol": "Ištrinti stulpelį",
-      "mergeCells": "Sujungti langelius",
-      "splitCell": "Padalinti langelį"
+      "mergeCells": "Sujungti ląsteles",
+      "splitCell": "Padalinti ląstelę"
     }
   },
   "action": {
@@ -65,50 +66,50 @@
   },
   "alignment": "Lygiavimas",
   "alignments": {
-    "left": "Lygiuoti kairėje",
-    "center": "Lygiuoti centre",
-    "right": "Lygiuoti dešinėje",
-    "justify": "Išlygiuoti"
+    "left": "Lygiavimas kairėje",
+    "center": "Lygiavimas centre",
+    "right": "Lygiavimas dešinėje",
+    "justify": "Lygiavimas pločiu"
   },
   "list": "Sąrašas",
   "lists": {
-    "bullet": "Netvarkingas sąrašas",
+    "bullet": "Ženklelių sąrašas",
     "numbered": "Numeruotas sąrašas",
     "task": "Užduočių sąrašas",
-    "indent": "Įtraukti elementą",
-    "outdent": "Ištraukti elementą"
+    "indent": "Padidinti sąrašo elemento įtrauką",
+    "outdent": "Sumažinti sąrašo elemento įtrauką"
   },
   "dialog": {
     "apply": "Taikyti",
     "clear": "Išvalyti",
     "close": "Uždaryti",
     "image": {
-      "title": "Pridėti/redaguoti vaizdą",
+      "title": "Pridėti/keisti paveikslą",
       "src": "Šaltinis",
-      "alt": "Alternatyvus tekstas",
+      "alt": "alt",
       "width": "Plotis",
       "height": "Aukštis"
     },
     "link": {
-      "title": "Pridėti/redaguoti nuorodą",
+      "title": "Pridėti/keisti nuorodą",
       "href": "Nuorodos adresas",
-      "href_error": "Netinkamas nuorodos adresas",
+      "href_error": "Neteisingas nuorodos adresas",
       "target": "Atidaryti...",
       "target_blank": "Naujame lange",
       "target_self": "Dabartiniame lange",
-      "rel": "Rel",
+      "rel": "rel",
       "class": "CSS klasė"
     },
     "preview": {
       "title": "Peržiūra"
     },
     "source": {
-      "title": "Rodyti šaltinio kodą",
-      "prettify": "Gražinti"
+      "title": "Žiūrėti išeities kodą",
+      "prettify": "prettify"
     }
   },
   "misc": {
-    "source": "Rodyti šaltinio kodą",
+    "source": "Žiūrėti išeities kodą",
     "preview": "Peržiūra"
   },
   "footer": {

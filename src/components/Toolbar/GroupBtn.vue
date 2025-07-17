@@ -14,11 +14,11 @@ const { t } = useI18n();
 
 <template>
   <VBtn v-bind="toolbarItem?.props ?? {}" v-on="toolbarItem?.attrs ?? {}" size="32">
-    <VTooltip :text="t(toolbarItem.tooltip)" location="top" activator="parent" />
+    <VTooltip :text="toolbarItem.tooltip" location="top" activator="parent" />
 
     <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="small" />
     <span v-else class="menu-item-title">
-      {{ t(toolbarItem.name) }}
+      {{ toolbarItem.name }}
     </span>
 
     <VIcon v-if="toolbarItem.icon2" v-bind="toolbarItem?.icon2Props ?? {}" :icon="toolbarItem.icon2" size="small" style="position: absolute;" />

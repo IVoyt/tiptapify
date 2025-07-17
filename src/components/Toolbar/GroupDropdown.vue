@@ -18,11 +18,11 @@ const { t } = useI18n();
   <VMenu v-model="toolbarItem.modelValue" v-bind="toolbarItem.props">
     <template v-if="!nested" #activator="{ props: menuProps }">
       <VBtn v-bind="{ ...menuProps, ...toolbarItem.props }" size="32">
-        <VTooltip :text="t(toolbarItem.tooltip)" location="top" activator="parent" />
+        <VTooltip :text="toolbarItem.tooltip" location="top" activator="parent" />
 
         <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="small" />
         <span v-else class="menu-item-title">
-          {{ t(toolbarItem.name) }}
+          {{ toolbarItem.name }}
         </span>
       </VBtn>
     </template>
@@ -43,7 +43,7 @@ const { t } = useI18n();
             v-bind="item.props ?? {}"
             v-on="item?.attrs ?? {}"
         >
-          <VTooltip v-if="item.tooltip" :text="t(item.tooltip)" location="top" activator="parent" />
+          <VTooltip v-if="item.tooltip" :text="item.tooltip" location="top" activator="parent" />
 
           <VIcon v-if="item.icon" :icon="item.icon" size="small" />
 
@@ -52,7 +52,7 @@ const { t } = useI18n();
               {{ item.name }}
             </template>
             <template v-else>
-              {{ t(item.toggle) }}
+              {{ item.toggle }}
             </template>
           </span>
 

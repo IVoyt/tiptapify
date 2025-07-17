@@ -32,7 +32,7 @@ const props = defineProps({
   defaultFontFamily: { type: String, default () { return 'Inter' } },
   fontMeasure: { type: String, default () { return 'px' } },
   rounded: { type: String, default () { return '0' } },
-  overrideExtensionsComponents: { type: Object as PropType<extensionsComponents>, default() { return {} } },
+  customExtensions: { type: Object as PropType<extensionsComponents>, default() { return {} } },
 })
 
 // console.log('override extension components', computed(() => props.overrideExtensionsComponents).value)
@@ -80,7 +80,7 @@ onBeforeUnmount(() => {
               :items="items"
               :items-exclude="itemsExclude"
               :rounded="rounded"
-              :override-extensions-components="overrideExtensionsComponents"
+              :custom-extensions="customExtensions"
               :theme="currentTheme"
           />
         </template>

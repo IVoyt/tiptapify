@@ -1,3 +1,12 @@
+### v0.0.11
+- fix regex in link extension
+- fix prettifier in source code extension
+- make font family extension interactive
+- make font size extension interactive
+- make line height extension interactive
+- refactor
+- update dependencies
+
 ### v0.0.10
 - update dialogs UI
 - disable style & format buttons when code/codeblock is selected

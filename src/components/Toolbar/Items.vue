@@ -36,11 +36,11 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(computed(() => props.items
           elevation="4"
           rounded="sm"
       >
-        <VTooltip :text="t(toolbarItem.tooltip)" location="top" activator="parent" />
+        <VTooltip :text="toolbarItem.tooltip" location="top" activator="parent" />
 
         <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="16" />
         <span v-else class="menu-item-title">
-          {{ t(toolbarItem.name) }}
+          {{ toolbarItem.name }}
         </span>
       </VBtn>
 
