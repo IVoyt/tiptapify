@@ -1,4 +1,5 @@
 {
+  "defaultValue": "Default value",
   "content": {
     "placeholder": "Write something here..."
   },

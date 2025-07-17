@@ -20,7 +20,7 @@ const props = defineProps({
   theme: { type: String, default() { return 'light' } },
   rounded: { type: String, default() { return '0' } },
   toolbarScrollable: { type: Boolean, default() { return false } },
-  overrideExtensionsComponents: { type: Object as PropType<extensionsComponents>, default() { return {} } },
+  customExtensions: { type: Object as PropType<extensionsComponents>, default() { return {} } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -39,7 +39,7 @@ const defaultComponents: extensionsComponents = getDefaultComponents(props.varia
 
 const extensions: ShallowRef<extensionsComponents> = shallowRef({})
 Object.keys(defaultComponents).forEach(extension => {
-  extensions.value[extension] = props.overrideExtensionsComponents[extension] ?? defaultComponents[extension]
+  extensions.value[extension] = props.customExtensions[extension] ?? defaultComponents[extension]
 })
 
 </script>
@@ -54,6 +54,7 @@ Object.keys(defaultComponents).forEach(extension => {
       <Items v-else :items="items" />
     </VToolbar>
 
+    <!-- mount components mentioned in "items" -->
     <template v-for="extension in extensions">
       <component :is="extension.component" v-bind="extension?.props ?? {}"  />
     </template>

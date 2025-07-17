@@ -1,115 +1,116 @@
 {
+  "defaultValue": "Valor per defectum",
   "content": {
-    "placeholder": "Scribe aliquid hic..."
+    "placeholder": "Scribe aliquid..."
   },
   "style": {
-    "paragraph": "Paragraphus",
+    "paragraph": "paragraphus",
     "heading": "Titulus",
     "headings": {
-      "h1": "Titulus gradus 1",
-      "h2": "Titulus gradus 2",
-      "h3": "Titulus gradus 3",
-      "h4": "Titulus gradus 4",
-      "h5": "Titulus gradus 5",
-      "h6": "Titulus gradus 6"
+      "h1": "Titulus primi gradus",
+      "h2": "Titulus secundi gradus",
+      "h3": "Titulus tertii gradus",
+      "h4": "Titulus quarti gradus",
+      "h5": "Titulus quinti gradus",
+      "h6": "Titulus sexti gradus"
     },
-    "fontFamily": "Familia litterarum",
-    "fontSize": "Magnitudo litterarum",
+    "fontFamily": "Genus litterarum",
+    "fontSize": "Magnitudo",
     "lineHeight": "Altitudo lineae",
     "color": {
-      "highlight": "Color illustrationis",
+      "highlight": "Color illuminationis",
       "text": "Color textus",
-      "unset": "Removere colorem",
-      "custom": "Color proprius"
+      "unset": "Colorem delere",
+      "custom": "Selectio propria"
     }
   },
   "format": {
-    "bold": "Crassus",
-    "italic": "Italicus",
-    "strike": "Percussus",
-    "underline": "Sublineatus",
-    "sup": "Superscriptus",
-    "sub": "Subscriptus",
-    "break": "Fractio dura",
+    "bold": "Crassum",
+    "italic": "Obliquum",
+    "strike": "Deletum",
+    "underline": "Sublineatum",
+    "sup": "Superscriptum",
+    "sub": "Subscriptum",
+    "break": "Fractio lineae",
     "line": "Linea horizontalis",
     "blockquote": "Citatio",
     "code": "Codex",
-    "codeblock": "Codex blocus",
-    "formatClear": "Forma clara"
+    "codeblock": "Blocum codicis",
+    "formatClear": "Formam delere"
   },
   "media": {
     "link": "Nexus externus",
     "image": "Imago",
     "tables": {
       "table": "Tabula",
-      "insertTable": "Inserere tabulam",
-      "deleteTable": "Delere tabulam",
-      "insertWithHeaderRow": "Inserere tabulam cum titulo",
+      "insertTable": "Tabulam inserere",
+      "deleteTable": "Tabulam delere",
+      "insertWithHeaderRow": "Tabulam cum titulo inserere",
       "rows": "Ordines",
       "row": "Ordo",
-      "insertRowBefore": "Inserere ordinem ante",
-      "insertRowAfter": "Inserere ordinem post",
-      "deleteRow": "Delere ordinem",
+      "insertRowBefore": "Ordinem ante inserere",
+      "insertRowAfter": "Ordinem post inserere",
+      "deleteRow": "Ordinem delere",
       "cols": "Columnae",
       "col": "Columna",
-      "insertColBefore": "Inserere columnam ante",
-      "insertColAfter": "Inserere columnam post",
-      "deleteCol": "Delere columnam",
-      "mergeCells": "Conjungere cellulas",
-      "splitCell": "Dividere cellulam"
+      "insertColBefore": "Columnam ante inserere",
+      "insertColAfter": "Columnam post inserere",
+      "deleteCol": "Columnam delere",
+      "mergeCells": "Cellulas iungere",
+      "splitCell": "Cellulam dividere"
     }
   },
   "action": {
-    "undo": "Infectum facere",
-    "redo": "Iterum facere"
+    "undo": "Infectum reddere",
+    "redo": "Iterare"
   },
-  "alignment": "Directio",
+  "alignment": "Ordinatio",
   "alignments": {
-    "left": "Sinistra dirigere",
-    "center": "Centro dirigere",
-    "right": "Dextra dirigere",
-    "justify": "Justificare"
+    "left": "Ordinatio sinistra",
+    "center": "Ordinatio media",
+    "right": "Ordinatio dextra",
+    "justify": "Ordinatio iustificata"
   },
-  "list": "Catalogus",
+  "list": "Index",
   "lists": {
-    "bullet": "Catalogus non ordinatus",
-    "numbered": "Catalogus numeratus",
-    "task": "Catalogus operum",
-    "indent": "Elementum intendere",
-    "outdent": "Elementum extendere"
+    "bullet": "Index punctatus",
+    "numbered": "Index numeratus",
+    "task": "Index officiorum",
+    "indent": "Recessum elementi augere",
+    "outdent": "Recessum elementi minuere"
   },
   "dialog": {
     "apply": "Applicare",
     "clear": "Purgare",
     "close": "Claudere",
     "image": {
-      "title": "Addere/emendare imaginem",
+      "title": "Imaginem addere/mutare",
       "src": "Fons",
-      "alt": "Alternativus textus",
+      "alt": "alt",
       "width": "Latitudo",
       "height": "Altitudo"
     },
     "link": {
-      "title": "Addere/emendare nexum",
-      "href": "Nexus locus",
-      "href_error": "Nexus locus invalidus",
+      "title": "Nexum addere/mutare",
+      "href": "Adressum nexi",
+      "href_error": "Adressum nexi incorrectum",
       "target": "Aperire in...",
       "target_blank": "Nova fenestra",
-      "target_self": "Praesens fenestra",
-      "rel": "Rel",
-      "class": "CSS classis"
+      "target_self": "Fenestra praesens",
+      "rel": "rel",
+      "class": "Classis CSS"
     },
     "preview": {
-      "title": "Prospectus"
+      "title": "Praevisio"
     },
     "source": {
-      "title": "Videre codicem fontem",
-      "prettify": "Ornare"
+      "title": "Codicem fontem videre",
+      "prettify": "prettify"
     }
   },
   "misc": {
-    "source": "Videre codicem fontem",
-    "preview": "Prospectus"
+    "source": "Codicem fontem videre",
+    "preview": "Praevisio"
   },
   "footer": {
     "words": "verba",

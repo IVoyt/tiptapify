@@ -1,11 +1,11 @@
-import { getActionsItems } from "@tiptapify/components/Toolbar/items/actions";
-import { getAlignmentItems } from "@tiptapify/components/Toolbar/items/alignment";
-import { getFormatExtraItems } from "@tiptapify/components/Toolbar/items/formatExtra";
-import { getFormatItems } from "@tiptapify/components/Toolbar/items/format";
-import { getListItems } from "@tiptapify/components/Toolbar/items/list";
-import { getMediaItems } from "@tiptapify/components/Toolbar/items/media";
-import { getMiscItems } from "@tiptapify/components/Toolbar/items/misc";
-import { getStyleItems } from "@tiptapify/components/Toolbar/items/style";
+import { useActionsItems } from "@tiptapify/composables/Toolbar/useActionsItems";
+import { useAlignmentItems } from "@tiptapify/composables/Toolbar/useAlignmentItems";
+import { useFormatExtraItems } from "@tiptapify/composables/Toolbar/useFormatExtraItems";
+import { useFormatItems } from "@tiptapify/composables/Toolbar/useFormatItems";
+import { useListItems } from "@tiptapify/composables/Toolbar/useListItems";
+import { useMediaItems } from "@tiptapify/composables/Toolbar/useMediaItems";
+import { useMiscItems } from "@tiptapify/composables/Toolbar/useMiscItems";
+import { useStyleItems } from "@tiptapify/composables/Toolbar/useStyleItems";
 import { ComputedRef, ref } from "vue";
 
 interface ToolbarItemAttrs {
@@ -17,8 +17,8 @@ interface ToolbarItemProps {
 }
 
 export interface ToolbarItem {
-  name: string|number,
-  tooltip: string,
+  name: string|number|ComputedRef<string>,
+  tooltip: string|ComputedRef<string>,
   icon: string|ComputedRef<string>,
   icon2?: string|ComputedRef<string>,
   noI18n?: boolean,
@@ -55,20 +55,20 @@ export function toolbarItems(
   items: { list: Array<string>, exclude: boolean },
   customHeadingLevels: Array<number>
 ): ToolbarItemSections {
-  const styleItems = ref(getStyleItems(editor.value, theme, fontMeasure, customHeadingLevels))
-  const formatItems = ref(getFormatItems(editor.value))
-  const formatExtraItems = ref(getFormatExtraItems(editor.value))
-  const alignmentItems = ref(getAlignmentItems(editor.value))
-  const listItems = ref(getListItems(editor.value))
-  const actionsItems = ref(getActionsItems(editor.value))
-  const miscItems = ref(getMiscItems(editor.value))
-  const mediaItems = ref(getMediaItems(editor.value))
+  const styleItems = ref(useStyleItems(editor.value, theme, fontMeasure, customHeadingLevels))
+  const formatItems = ref(useFormatItems(editor.value))
+  const formatExtraItems = ref(useFormatExtraItems(editor.value))
+  const alignmentItems = ref(useAlignmentItems(editor.value))
+  const listItems = ref(useListItems(editor.value))
+  const actionsItems = ref(useActionsItems(editor.value))
+  const miscItems = ref(useMiscItems(editor.value))
+  const mediaItems = ref(useMediaItems(editor.value))
 
   const allMenuItems: ToolbarItemSections = {
     /**
      * todo
      *
-     * media (image, video)
+     * media (video)
      */
     style: { group: true, items: styleItems.value },
     format: { group: true, items: formatItems.value },
@@ -95,7 +95,7 @@ export function toolbarItems(
 
   const toolbarItems: ToolbarItemSections = {}
 
-  const sections = {}
+  const sections: { [key: string]: number } = {}
 
   Object.keys(allMenuItems).forEach(sectionName => {
     const section = allMenuItems[sectionName]

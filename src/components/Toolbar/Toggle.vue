@@ -17,11 +17,11 @@ const { t } = useI18n();
   <VBtnToggle :variant="variant" elevation="4">
     <template v-for="(item, key) in toolbarSection.items" :key="key">
       <VBtn v-bind="item.props" v-on="item.attrs" size="32">
-        <VTooltip :text="t(item.name)" location="top" activator="parent" />
+        <VTooltip :text="item.name" location="top" activator="parent" />
 
         <VIcon v-if="item.icon" :icon="item.icon" size="small" />
         <span v-else class="menu-item-title">
-          {{ t(item.name) }}
+          {{ item.name }}
         </span>
       </VBtn>
     </template>

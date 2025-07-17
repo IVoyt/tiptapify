@@ -99,7 +99,7 @@ app.mount('#app')
 - [x] image extension
 - [x] text styling (background & font color)
 - [x] dark theme
-- [ ] print hotkey in tooltip
+- [ ] print hotkey in a tooltip
 - [ ] video extensions
 - [ ] emoji plugin
 - [ ] option to use custom component for link & media extension

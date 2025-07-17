@@ -1,26 +1,27 @@
 {
+  "defaultValue": "Výchozí hodnota",
   "content": {
-    "placeholder": "Napište něco zde..."
+    "placeholder": "Napište něco..."
   },
   "style": {
-    "paragraph": "Odstavec",
+    "paragraph": "odstavec",
     "heading": "Nadpis",
     "headings": {
-      "h1": "Nadpis úroveň 1",
-      "h2": "Nadpis úroveň 2",
-      "h3": "Nadpis úroveň 3",
-      "h4": "Nadpis úroveň 4",
-      "h5": "Nadpis úroveň 5",
-      "h6": "Nadpis úroveň 6"
+      "h1": "Nadpis 1. úrovně",
+      "h2": "Nadpis 2. úrovně",
+      "h3": "Nadpis 3. úrovně",
+      "h4": "Nadpis 4. úrovně",
+      "h5": "Nadpis 5. úrovně",
+      "h6": "Nadpis 6. úrovně"
     },
-    "fontFamily": "Rodina písma",
-    "fontSize": "Velikost písma",
+    "fontFamily": "Písmo",
+    "fontSize": "Velikost",
     "lineHeight": "Výška řádku",
     "color": {
       "highlight": "Barva zvýraznění",
       "text": "Barva textu",
-      "unset": "Zrušit barvu",
-      "custom": "Vlastní barva"
+      "unset": "Vymazat barvu",
+      "custom": "Vlastní výběr"
     }
   },
   "format": {
@@ -30,9 +31,9 @@
     "underline": "Podtržené",
     "sup": "Horní index",
     "sub": "Dolní index",
-    "break": "Tvrdé zalomení",
-    "line": "Vodorovná čára",
-    "blockquote": "Citace",
+    "break": "Zalomení řádku",
+    "line": "Horizontální čára",
+    "blockquote": "Citát",
     "code": "Kód",
     "codeblock": "Blok kódu",
     "formatClear": "Vymazat formátování"
@@ -65,38 +66,38 @@
   },
   "alignment": "Zarovnání",
   "alignments": {
-    "left": "Zarovnat vlevo",
-    "center": "Zarovnat na střed",
-    "right": "Zarovnat vpravo",
-    "justify": "Zarovnat do bloku"
+    "left": "Zarovnání vlevo",
+    "center": "Zarovnání na střed",
+    "right": "Zarovnání vpravo",
+    "justify": "Zarovnání do bloku"
   },
   "list": "Seznam",
   "lists": {
-    "bullet": "Neuspořádaný seznam",
+    "bullet": "Odrážkový seznam",
     "numbered": "Číslovaný seznam",
     "task": "Seznam úkolů",
-    "indent": "Odsadit položku",
-    "outdent": "Zrušit odsazení"
+    "indent": "Zvětšit odsazení položky seznamu",
+    "outdent": "Zmenšit odsazení položky seznamu"
   },
   "dialog": {
     "apply": "Použít",
     "clear": "Vymazat",
     "close": "Zavřít",
     "image": {
-      "title": "Přidat/upravit obrázek",
+      "title": "Přidání/úprava obrázku",
       "src": "Zdroj",
-      "alt": "Alternativní text",
+      "alt": "alt",
       "width": "Šířka",
       "height": "Výška"
     },
     "link": {
-      "title": "Přidat/upravit odkaz",
+      "title": "Přidání/úprava odkazu",
       "href": "Adresa odkazu",
       "href_error": "Neplatná adresa odkazu",
       "target": "Otevřít v...",
-      "target_blank": "Nové okno",
-      "target_self": "Aktuální okno",
-      "rel": "Rel",
+      "target_blank": "Novém okně",
+      "target_self": "Aktuálním okně",
+      "rel": "rel",
       "class": "CSS třída"
     },
     "preview": {
@@ -104,7 +105,7 @@
     },
     "source": {
       "title": "Zobrazit zdrojový kód",
-      "prettify": "Formátovat"
+      "prettify": "prettify"
     }
   },
   "misc": {
