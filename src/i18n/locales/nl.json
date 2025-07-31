@@ -110,7 +110,8 @@
   },
   "misc": {
     "source": "Broncode bekijken",
-    "preview": "Voorvertoning"
+    "preview": "Voorvertoning",
+    "toggleInvisibleCharacters": "Onzichtbare tekens tonen/verbergen"
   },
   "footer": {
     "words": "woorden",

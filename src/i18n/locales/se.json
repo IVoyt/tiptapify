@@ -110,7 +110,8 @@
   },
   "misc": {
     "source": "Visa källkod",
-    "preview": "Förhandsgranskning"
+    "preview": "Förhandsgranskning",
+    "toggleInvisibleCharacters": "Visa/dölj osynliga tecken"
   },
   "footer": {
     "words": "ord",

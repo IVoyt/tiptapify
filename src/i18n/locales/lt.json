@@ -110,7 +110,8 @@
   },
   "misc": {
     "source": "Žiūrėti išeities kodą",
-    "preview": "Peržiūra"
+    "preview": "Peržiūra",
+    "toggleInvisibleCharacters": "Rodyti/slėpti nematomus simbolius"
   },
   "footer": {
     "words": "žodžiai",
