@@ -19,7 +19,8 @@ export const TiptapifyLink = Link.extend({
       showLink: () => ({ editor }) => {
         const event = new CustomEvent(`tiptapify-show-${name}`, {
           detail: {
-            link: editor.getAttributes('link')
+            link: editor.getAttributes('link'),
+            editorId: editor.instanceId
           }
         })
 

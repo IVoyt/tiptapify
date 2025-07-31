@@ -1,12 +1,19 @@
 <script setup lang="ts">
-import Dialog from "@tiptapify/components/UI/Dialog.vue";
-import { ref, onMounted, onUnmounted } from 'vue'
+import { Editor } from "@tiptap/vue-3";
+import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
+import { ref, onMounted, onUnmounted, inject, Ref } from 'vue'
 
 const content = ref()
+
+const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const dialog = ref(null)
 
 const showDialog = (event: CustomEvent) => {
+  if (event.detail.editorId !== editor.value.instanceId) {
+    return
+  }
+
   content.value = event.detail.html
 
   dialog.value.open()
@@ -22,13 +29,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Dialog ref="dialog" module="preview" fullscreen>
+  <TiptapifyDialog ref="dialog" module="preview" fullscreen>
     <template #content>
       <VCardItem>
         <div class="tiptap" v-html="content"></div>
       </VCardItem>
     </template>
-  </Dialog>
+  </TiptapifyDialog>
 </template>
 
 <style lang="scss">

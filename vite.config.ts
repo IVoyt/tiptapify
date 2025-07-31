@@ -78,7 +78,8 @@ export default defineConfig({
     exclude: ['vuetify'],
     include: [
       'vue',
-      '@tiptapify/components/Tiptapify.vue'
+      '@tiptapify/components/Tiptapify.vue',
+      '@tiptapify/components/UI/TiptapifyDialog.vue'
     ],
     entries: [
       './src/**/*.vue',

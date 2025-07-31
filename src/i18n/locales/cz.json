@@ -110,7 +110,8 @@
   },
   "misc": {
     "source": "Zobrazit zdrojový kód",
-    "preview": "Náhled"
+    "preview": "Náhled",
+    "toggleInvisibleCharacters": "Zobrazit/skrýt neviditelné znaky"
   },
   "footer": {
     "words": "slova",

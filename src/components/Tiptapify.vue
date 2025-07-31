@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { extensionsComponents } from "@tiptapify/types/overridable-extensions";
+import { extensionComponents } from "@tiptapify/types/extensionComponents";
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, watch } from "vue";
 import { default as Toolbar } from "@tiptapify/components/Toolbar/Index.vue";
 import { Editor, EditorContent } from '@tiptap/vue-3'
@@ -32,10 +32,8 @@ const props = defineProps({
   defaultFontFamily: { type: String, default () { return 'Inter' } },
   fontMeasure: { type: String, default () { return 'px' } },
   rounded: { type: String, default () { return '0' } },
-  customExtensions: { type: Object as PropType<extensionsComponents>, default() { return {} } },
+  customExtensions: { type: Object as PropType<extensionComponents>, default() { return {} } },
 })
-
-// console.log('override extension components', computed(() => props.overrideExtensionsComponents).value)
 
 const appTheme = useTheme()
 const currentTheme = ref(appTheme.global.name)
@@ -43,7 +41,8 @@ const currentTheme = ref(appTheme.global.name)
 const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
     props.content,
     computed(() => props.placeholder || t('content.placeholder')).value,
-    props.slashCommands
+    props.slashCommands,
+    props.customExtensions
 )
 
 const emit = defineEmits(['update:modelValue', 'editor-ready']);

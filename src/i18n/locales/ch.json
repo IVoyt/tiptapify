@@ -110,7 +110,8 @@
   },
   "misc": {
     "source": "查看源代码",
-    "preview": "预览"
+    "preview": "预览",
+    "toggleInvisibleCharacters": "显示/隐藏不可见字符"
   },
   "footer": {
     "words": "单词",

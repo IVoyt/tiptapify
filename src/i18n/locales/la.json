@@ -110,7 +110,8 @@
   },
   "misc": {
     "source": "Codicem fontem videre",
-    "preview": "Praevisio"
+    "preview": "Praevisio",
+    "toggleInvisibleCharacters": "Ostende/cela characteres invisibiles"
   },
   "footer": {
     "words": "verba",

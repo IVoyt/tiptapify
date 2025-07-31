@@ -11,6 +11,7 @@ let _i18n: any = null
 export const getI18n = (locale: string) => {
   if (_i18n === null) {
     _i18n = createI18n({
+      legacy: false,
       locale: locale,
       fallbackLocale: 'en',
       messages

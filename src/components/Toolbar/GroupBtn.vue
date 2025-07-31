@@ -1,27 +1,30 @@
 <script setup lang="ts">
+import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
 import { defineProps, PropType } from 'vue'
-import { useI18n } from "vue-i18n";
 
-import { ToolbarItem } from "@tiptapify/components/Toolbar/items";
+
+import { ToolbarItem } from '@tiptapify/types/toolbarItems'
 
 defineProps({
   variant: { type: String, default () { return 'flat' }},
   toolbarItem: { type: Object as PropType<ToolbarItem>, default() { return {} }}
 })
 
-const { t } = useI18n();
 </script>
 
 <template>
   <VBtn v-bind="toolbarItem?.props ?? {}" v-on="toolbarItem?.attrs ?? {}" size="32">
     <VTooltip :text="toolbarItem.tooltip" location="top" activator="parent" />
 
-    <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="small" />
-    <span v-else class="menu-item-title">
-      {{ toolbarItem.name }}
-    </span>
+    <BtnIcon :icon="toolbarItem.icon" />
 
-    <VIcon v-if="toolbarItem.icon2" v-bind="toolbarItem?.icon2Props ?? {}" :icon="toolbarItem.icon2" size="small" style="position: absolute;" />
+    <VIcon
+        v-if="toolbarItem.icon2"
+        v-bind="toolbarItem?.icon2Props ?? {}"
+        :icon="toolbarItem.icon2"
+        size="small"
+        style="position: absolute;"
+    />
   </VBtn>
 </template>
 

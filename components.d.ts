@@ -8,7 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Dialog: typeof import('./src/components/UI/Dialog.vue')['default']
+    BtnIcon: typeof import('./src/components/UI/BtnIcon.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Group: typeof import('./src/components/Toolbar/Group.vue')['default']
     GroupBtn: typeof import('./src/components/Toolbar/GroupBtn.vue')['default']
@@ -18,6 +18,7 @@ declare module 'vue' {
     MenuBubble: typeof import('./src/components/MenuBubble.vue')['default']
     MenuFloating: typeof import('./src/components/MenuFloating.vue')['default']
     Tiptapify: typeof import('./src/components/Tiptapify.vue')['default']
+    TiptapifyDialog: typeof import('./src/components/UI/TiptapifyDialog.vue')['default']
     Toggle: typeof import('./src/components/Toolbar/Toggle.vue')['default']
   }
 }

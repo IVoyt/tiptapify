@@ -110,7 +110,8 @@
   },
   "misc": {
     "source": "Visualizza codice sorgente",
-    "preview": "Anteprima"
+    "preview": "Anteprima",
+    "toggleInvisibleCharacters": "Mostra/nascondi caratteri invisibili"
   },
   "footer": {
     "words": "parole",

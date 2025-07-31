@@ -111,7 +111,8 @@
   },
   "misc": {
     "source": "Voir le code source",
-    "preview": "Aperçu"
+    "preview": "Aperçu",
+    "toggleInvisibleCharacters": "Afficher/masquer les caractères invisibles"
   },
   "footer": {
     "words": "mots",
