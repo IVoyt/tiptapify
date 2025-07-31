@@ -1,6 +1,6 @@
 import { Editor } from "@tiptap/vue-3";
 import type { DefineComponent } from 'vue'
-import { extensionsComponents } from "./src/types/overridable-extensions";
+import { extensionComponents } from "./src/types/extensionComponents";
 
 export interface TiptapifyProps {
   content: string|object
@@ -18,7 +18,7 @@ export interface TiptapifyProps {
   defaultFontFamily: string
   fontMeasure: string
   rounded: string
-  overrideExtensionsComponents: extensionsComponents
+  customExtensions: extensionComponents
 }
 
 export interface TiptapifyEmits {

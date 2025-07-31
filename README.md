@@ -2,7 +2,7 @@
 
 ---
 
-[Tiptap](https://tiptap.dev) 3 (beta) editor for Vue3 with [Vuetify](https://vuetifyjs.com) menu implementation
+[Tiptap](https://tiptap.dev) 3 editor for Vue3 with [Vuetify](https://vuetifyjs.com) menu implementation
 
 ## Requirements
 - Vue 3.x
@@ -40,6 +40,7 @@ Should be something like this
 ```typescript
 import { createApp } from "vue";
 import App from "./App.vue";
+import { aliases, mdi as mdiSvg } from 'vuetify/iconsets/mdi-svg'
 
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
@@ -52,7 +53,7 @@ const app = createApp(App)
 const vuetify = createVuetify({
   components,
   directives,
-  icons: { defaultSet: 'mdi', aliases, sets: { mdi } },
+  icons: { defaultSet: 'mdi', aliases, sets: { mdiSvg } },
 })
 
 app.use(vuetify);
@@ -87,6 +88,9 @@ app.mount('#app')
   />
 </template>
 ```
+
+## Feedback
+Found a bug or have ideas on improvement? Feel free to [create a ticket](https://github.com/IVoyt/tiptapify/issues/new).
 
 
 ### TODO

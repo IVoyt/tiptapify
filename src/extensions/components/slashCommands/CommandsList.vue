@@ -77,10 +77,7 @@ defineExpose({
           @click="selectItem(index)"
           size="small"
       >
-        <VIcon v-if="item.icon" :icon="mdi[`mdi${item.icon}`]" size="16" />
-        <span v-else>
-          {{ item.title }}
-        </span>
+        <VIcon :icon="`mdiSvg:${mdi[`mdi${item.icon}`]}` || `mdiSvg:${mdi.mdiImageBrokenVariant}`" size="16" />
       </VBtn>
     </template>
     <div class="item" v-else>No result</div>

@@ -2,16 +2,13 @@
 import Group from "@tiptapify/components/Toolbar/Group.vue";
 import Toggle from "@tiptapify/components/Toolbar/Toggle.vue";
 import { computed, defineProps, PropType, Ref, ref } from 'vue'
-import { useI18n } from "vue-i18n";
 
-import { ToolbarItemSections } from "@tiptapify/components/Toolbar/items";
+import { ToolbarItemSections } from "@tiptapify/types/toolbarItems";
 
 const props = defineProps({
   variantBtn: { type: String, default () { return 'elevated' }},
   items: { type: Object as PropType<ToolbarItemSections>, default() { return {} }},
 })
-
-const { t } = useI18n();
 
 const toolbarItemsRef: Ref<ToolbarItemSections> = ref(computed(() => props.items).value)
 
@@ -29,8 +26,8 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(computed(() => props.items
           v-for="(toolbarItem, itemKey) in toolbarSection.items"
           :key="itemKey"
           :variant="variantBtn"
-          v-bind="toolbarItem.props"
-          v-on="toolbarItem.attrs"
+          v-bind="toolbarItem?.props ?? {}"
+          v-on="toolbarItem?.attrs ?? {}"
           class="menu-button"
           size="32"
           elevation="4"

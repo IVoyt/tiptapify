@@ -2,8 +2,8 @@
 import { Editor } from "@tiptap/vue-3";
 import { getDefaultComponents } from "@tiptapify/components/Toolbar/defaultExtensionComponents";
 import Items from "@tiptapify/components/Toolbar/Items.vue";
-import { computed, defineProps, inject, PropType, ref, Ref, ShallowRef, shallowRef, triggerRef } from 'vue'
-import { extensionsComponents } from '@tiptapify/types/overridable-extensions'
+import { computed, defineProps, inject, PropType, Ref, ShallowRef, shallowRef } from 'vue'
+import { extensionComponents, ToolbarItemType } from '@tiptapify/types/extensionComponents'
 
 import { toolbarItems } from "@tiptapify/components/Toolbar/items";
 import { useTheme } from "vuetify/framework";
@@ -20,7 +20,7 @@ const props = defineProps({
   theme: { type: String, default() { return 'light' } },
   rounded: { type: String, default() { return '0' } },
   toolbarScrollable: { type: Boolean, default() { return false } },
-  customExtensions: { type: Object as PropType<extensionsComponents>, default() { return {} } },
+  customExtensions: { type: Object as PropType<extensionComponents>, default() { return {} } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -28,18 +28,21 @@ const editor = inject('tiptapifyEditor') as Ref<Editor>
 const appTheme = useTheme()
 
 const items = toolbarItems(
-    editor,
     appTheme,
     computed(() => props.fontMeasure).value,
     { list: computed(() => props.items).value, exclude: computed(() => props.itemsExclude).value },
-    computed(() => props.headingLevels).value
+    computed(() => props.headingLevels).value,
+    props.customExtensions
 )
 
-const defaultComponents: extensionsComponents = getDefaultComponents(props.variantField)
+const defaultComponents: extensionComponents = getDefaultComponents(props.variantField)
 
-const extensions: ShallowRef<extensionsComponents> = shallowRef({})
+const extensions: ShallowRef<extensionComponents> = shallowRef({})
 Object.keys(defaultComponents).forEach(extension => {
-  extensions.value[extension] = props.customExtensions[extension] ?? defaultComponents[extension]
+  extensions.value[extension] = defaultComponents[extension]
+})
+Object.keys(props.customExtensions).forEach(extension => {
+  extensions.value[extension] = props.customExtensions[extension]
 })
 
 </script>
@@ -54,9 +57,9 @@ Object.keys(defaultComponents).forEach(extension => {
       <Items v-else :items="items" />
     </VToolbar>
 
-    <!-- mount components mentioned in "items" -->
+    <!-- mount built-in and/or custom components -->
     <template v-for="extension in extensions">
-      <component :is="extension.component" v-bind="extension?.props ?? {}"  />
+      <component v-if="extension.type !== ToolbarItemType.dropdown" :is="extension.component" v-bind="{ ...extension?.props ?? {}, ...extension?.componentProps ?? {} }"  />
     </template>
   </div>
 </template>

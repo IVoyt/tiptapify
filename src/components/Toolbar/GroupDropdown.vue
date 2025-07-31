@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps, PropType } from 'vue'
-import { useI18n } from "vue-i18n";
+import * as mdi from '@mdi/js'
 
 import { ToolbarItem } from "@tiptapify/components/Toolbar/items";
 
@@ -10,8 +10,6 @@ defineProps({
   toolbarItem: { type: Object as PropType<ToolbarItem>, default() { return {} }}
 })
 
-const { t } = useI18n();
-
 </script>
 
 <template>
@@ -20,10 +18,7 @@ const { t } = useI18n();
       <VBtn v-bind="{ ...menuProps, ...toolbarItem.props }" size="32">
         <VTooltip :text="toolbarItem.tooltip" location="top" activator="parent" />
 
-        <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="small" />
-        <span v-else class="menu-item-title">
-          {{ toolbarItem.name }}
-        </span>
+        <VIcon :icon="toolbarItem.icon || `mdiSvg:${mdi.mdiImageBrokenVariant}`" size="small" />
       </VBtn>
     </template>
 
@@ -45,16 +40,7 @@ const { t } = useI18n();
         >
           <VTooltip v-if="item.tooltip" :text="item.tooltip" location="top" activator="parent" />
 
-          <VIcon v-if="item.icon" :icon="item.icon" size="small" />
-
-          <span v-else class="menu-item-title">
-            <template v-if="item.noI18n">
-              {{ item.name }}
-            </template>
-            <template v-else>
-              {{ item.toggle }}
-            </template>
-          </span>
+          <VIcon :icon="item.icon || `mdiSvg:${mdi.mdiImageBrokenVariant}`" size="small" />
 
           <VMenu
               v-if="item.component"

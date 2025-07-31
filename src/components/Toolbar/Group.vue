@@ -3,7 +3,7 @@ import GroupBtn from "@tiptapify/components/Toolbar/GroupBtn.vue";
 import GroupDropdown from "@tiptapify/components/Toolbar/GroupDropdown.vue";
 import { defineProps, PropType } from 'vue'
 
-import { ToolbarItemSection } from "@tiptapify/components/Toolbar/items";
+import { ToolbarItemSection } from "@tiptapify/types/toolbarItems";
 
 defineProps({
   variant: { type: String, default () { return 'flat' }},
@@ -20,7 +20,7 @@ defineProps({
         <GroupDropdown :toolbar-item="toolbarItem" :variant="variant" />
       </template>
 
-      <VMenu v-else-if="toolbarItem?.component" v-model="toolbarItem.modelValue" :close-on-content-click="false">
+      <VMenu v-else-if="toolbarItem?.component" v-model="toolbarItem.modelValue" :close-on-content-click="false" v-bind="toolbarItem.props">
         <template #activator="{ props: menuProps }">
           <GroupBtn v-bind="menuProps" :toolbar-item="toolbarItem" :variant="variant" />
         </template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { Editor } from "@tiptap/vue-3";
-import Dialog from "@tiptapify/components/UI/Dialog.vue";
+import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
 
 import { useI18n } from 'vue-i18n'
 import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
@@ -66,6 +66,10 @@ function close() {
 }
 
 const showTiptapifyImage = (event: CustomEvent) => {
+  if (event.detail.editorId !== editor.value.instanceId) {
+    return
+  }
+
   attrs.value.src = event.detail.image?.src
   attrs.value.alt = event.detail.image?.alt
   attrs.value.width = event.detail.image?.width
@@ -84,7 +88,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Dialog ref="dialog" module="image" :max-width="800">
+  <TiptapifyDialog ref="dialog" module="image" :max-width="800">
     <template #content>
       <VCardText>
         <VRow>
@@ -126,5 +130,5 @@ onUnmounted(() => {
         </VRow>
       </VCardActions>
     </template>
-  </Dialog>
+  </TiptapifyDialog>
 </template>

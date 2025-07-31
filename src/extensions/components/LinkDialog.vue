@@ -5,7 +5,7 @@ import { Editor } from "@tiptap/vue-3";
 import { useI18n } from 'vue-i18n'
 import { computed, inject, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
 
-import Dialog from "@tiptapify/components/UI/Dialog.vue"
+import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue"
 
 defineProps({
   variantBtn: { type: String, default() { return 'elevated' }},
@@ -63,6 +63,10 @@ function close() {
 }
 
 const showLink = (event: CustomEvent) => {
+  if (event.detail.editorId !== editor.value.instanceId) {
+    return
+  }
+
   attrs.value.href = event.detail.link?.href ?? ''
   attrs.value.target = targetAttrs.value.find(item => item.value === event.detail.link?.target) ?? targetAttrs[0]
   attrs.value.rel = event.detail.link?.rel?.split(' ')
@@ -103,7 +107,7 @@ watch(() => attrs.value.href, () => {
 </script>
 
 <template>
-  <Dialog ref="dialog" module="link">
+  <TiptapifyDialog ref="dialog" module="link">
     <template #content>
       <VCardText>
         <VRow>
@@ -169,5 +173,5 @@ watch(() => attrs.value.href, () => {
         </VRow>
       </VCardActions>
     </template>
-  </Dialog>
+  </TiptapifyDialog>
 </template>

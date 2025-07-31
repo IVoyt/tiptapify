@@ -6,6 +6,7 @@ import { useI18n } from "vue-i18n";
 
 const props = defineProps({
   module: String,
+  title: String,
   fullscreen: { type: Boolean, default () { return false } },
   maxWidth: { type: Number, default () { return 800 } },
 })
@@ -103,17 +104,17 @@ watch(() => dialog.value, async () => {
 </script>
 
 <template>
-  <VDialog v-model="dialog" :max-width="maxWidth" :fullscreen="fullscreen" absolute @click:outside="emitClose">
+  <VDialog v-model="dialog" :max-width="maxWidth" :fullscreen="fullscreen" @click:outside="emitClose">
     <VCard>
       <VCardTitle ref="movableHandler" :class="`d-flex ${!fullscreen ? 'tiptapify-movable-handler' : ''}`" style="user-select: none;">
         <VLabel>
-          {{ t(`dialog.${module}.title`) }}
+          {{ title ?? t(`dialog.${module}.title`) }}
         </VLabel>
 
         <VSpacer />
 
         <VBtn density="compact" class="tiptapify-dialog-close" variant="elevated" elevation="4" icon @click="emitClose">
-          <VIcon size="x-small" :icon="mdi.mdiClose" />
+          <VIcon size="x-small" :icon="`mdiSvg:${mdi.mdiClose}`" />
         </VBtn>
       </VCardTitle>
 

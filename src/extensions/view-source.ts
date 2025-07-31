@@ -27,7 +27,8 @@ export const ViewSource = Extension.create<ViewSourceOptions>({
       showSource: () => ({ editor }) => {
         const event = new CustomEvent('tiptapify-show-source', {
           detail: {
-            html: editor.getHTML()
+            html: editor.getHTML(),
+            editorId: editor.instanceId
           }
         })
 

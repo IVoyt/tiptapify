@@ -170,7 +170,7 @@ function isColorActive(color: string): boolean {
 
     <VMenu v-model="colorPicker" :close-on-content-click="false">
       <template #activator="{ props: menuProps }">
-        <VBtn v-bind="menuProps" variant="flat" block>
+        <VBtn v-bind="menuProps" color="default" variant="flat" block>
           <template #prepend>
             <div
                 class="tiptapify-style-color-picker"
@@ -198,7 +198,7 @@ function isColorActive(color: string): boolean {
 
     <VDivider class="mt-2 mb-2" />
 
-    <VBtn @click="unsetColor" block variant="flat">
+    <VBtn @click="unsetColor" color="default" block variant="flat">
       {{ t('style.color.unset') }}
     </VBtn>
   </VSheet>

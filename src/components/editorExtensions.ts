@@ -22,6 +22,7 @@ import { TextAlign } from '@tiptap/extension-text-align'
 import { Underline } from '@tiptap/extension-underline'
 import { TableKit } from '@tiptap/extension-table'
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
+import { InvisibleCharacters } from '@tiptap/extension-invisible-characters'
 
 import { TiptapifyLink } from '@tiptapify/extensions/link'
 import { TiptapifyImage } from '@tiptapify/extensions/image'
@@ -30,6 +31,7 @@ import { ViewSource } from '@tiptapify/extensions/view-source'
 import { Preview } from '@tiptapify/extensions/preview'
 import SlashCommands from '@tiptapify/extensions/slash-commands'
 import suggestion from '@tiptapify/extensions/components/slashCommands/suggestion'
+import { extensionComponents } from "@tiptapify/types/extensionComponents";
 
 // load all languages with "all" or common languages with "common"
 import { common, createLowlight } from 'lowlight'
@@ -47,7 +49,7 @@ const lowlight = createLowlight(common)
 // register language example
 // lowlight.register('ts', ts)
 
-export function editorExtensions (placeholder: string, slashCommands: boolean) {
+export function editorExtensions (placeholder: string, slashCommands: boolean, customExtensions: extensionComponents) {
   const extensions = [
     TextStyleKit,
     Document,
@@ -94,11 +96,24 @@ export function editorExtensions (placeholder: string, slashCommands: boolean) {
     Placeholder.configure({ placeholder }),
     CharacterCount,
     ViewSource,
+    InvisibleCharacters.configure({
+      visible: false,
+    }),
     Preview
   ]
 
   if (slashCommands) {
     extensions.push(SlashCommands.configure({ suggestion }))
+  }
+
+  if (Object.keys(customExtensions).length) {
+    for (const customExtension of Object.values(customExtensions)) {
+      if (typeof customExtension.extensions !== 'undefined') {
+        for (const extension of customExtension.extensions) {
+          extensions.push(extension)
+        }
+      }
+    }
   }
 
   return extensions

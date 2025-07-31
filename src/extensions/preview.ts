@@ -19,7 +19,8 @@ export const Preview = Extension.create({
       showPreview: () => ({ editor }) => {
         const event = new CustomEvent(`tiptapify-show-${name}`, {
           detail: {
-            html: editor.getHTML()
+            html: editor.getHTML(),
+            editorId: editor.instanceId
           }
         })
 

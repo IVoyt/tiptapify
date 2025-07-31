@@ -14,7 +14,7 @@ const editor = inject('tiptapifyEditor') as Ref<Editor>
 const items = ref([
   {
     name: 'bold',
-    icon: mdi.mdiFormatBold,
+    icon: `mdiSvg:${mdi.mdiFormatBold}`,
     props: {
       disabled: computed(() => !editor?.value.can().chain().focus().toggleBold().run()),
       color: computed(() => editor.value.isActive('bold') ? 'primary' : ''),
@@ -23,7 +23,7 @@ const items = ref([
   },
   {
     name: 'italic',
-    icon: mdi.mdiFormatItalic,
+    icon: `mdiSvg:${mdi.mdiFormatItalic}`,
     props: {
       disabled: computed(() => !editor.value.can().chain().focus().toggleItalic().run()),
       color: computed(() => editor.value.isActive('italic') ? 'primary' : ''),
@@ -32,7 +32,7 @@ const items = ref([
   },
   {
     name: 'strike',
-    icon: mdi.mdiFormatStrikethroughVariant,
+    icon: `mdiSvg:${mdi.mdiFormatStrikethroughVariant}`,
     props: {
       disabled: computed(() => !editor.value.can().chain().focus().toggleStrike().run()),
       color: computed(() => editor.value.isActive('strike') ? 'primary' : ''),
@@ -41,7 +41,7 @@ const items = ref([
   },
   {
     name: 'underline',
-    icon: mdi.mdiFormatUnderline,
+    icon: `mdiSvg:${mdi.mdiFormatUnderline}`,
     props: {
       disabled: computed(() => !editor.value.can().chain().focus().toggleUnderline().run()),
       color: computed(() => editor.value.isActive('underline') ? 'primary' : ''),
@@ -50,7 +50,7 @@ const items = ref([
   },
   {
     name: 'highlight',
-    icon: mdi.mdiFormatColorHighlight,
+    icon: `mdiSvg:${mdi.mdiFormatColorHighlight}`,
     props: {
       disabled: computed(() => !editor.value.can().chain().focus().toggleHighlight().run()),
       color: computed(() => editor.value.isActive('highlight') ? 'primary' : ''),
@@ -59,7 +59,7 @@ const items = ref([
   },
   {
     name: 'code',
-    icon: mdi.mdiXml,
+    icon: `mdiSvg:${mdi.mdiXml}`,
     props: {
       disabled: computed(() => !editor.value.can().chain().focus().toggleCode().run()),
       color: computed(() => editor.value.isActive('code') ? 'primary' : ''),
@@ -68,7 +68,7 @@ const items = ref([
   },
   {
     name: 'link',
-    icon: computed(() => editor.value.isActive('link') ? mdi.mdiLinkOff : mdi.mdiLink),
+    icon: computed(() => editor.value.isActive('link') ? `mdiSvg:${mdi.mdiLinkOff}` : `mdiSvg:${mdi.mdiLink}`),
     props: {
       color: computed(() => editor.value.isActive('link') ? 'primary' : ''),
       disabled: computed(() => editor.value.isActive('code') || editor.value.isActive('codeBlock')),
@@ -77,7 +77,7 @@ const items = ref([
   },
   {
     name: 'format clear',
-    icon: mdi.mdiFormatClear,
+    icon: `mdiSvg:${mdi.mdiFormatClear}`,
     click: () => editor.value.chain().focus().unsetAllMarks().clearNodes().run(),
   }
 ])

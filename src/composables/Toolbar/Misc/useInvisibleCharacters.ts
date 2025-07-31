@@ -1,0 +1,23 @@
+import { Editor } from "@tiptap/vue-3";
+import { computed, inject, Ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+export function useInvisibleCharacters() {
+  const { t } = useI18n();
+
+  const editor = inject('tiptapifyEditor') as Ref<Editor>
+
+  return {
+    name: 'show/hide invisible characters',
+    tooltip: computed(() => t('misc.toggleInvisibleCharacters')),
+    svg: true,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M256 64L512 64C529.7 64 544 78.3 544 96C544 113.7 529.7 128 512 128L480 128L480 544C480 561.7 465.7 576 448 576C430.3 576 416 561.7 416 544L416 128L368 128L368 544C368 561.7 353.7 576 336 576C318.3 576 304 561.7 304 544L304 384L256 384C167.6 384 96 312.4 96 224C96 135.6 167.6 64 256 64z"/></svg>`,
+    enabled: true,
+    props: {
+      color: computed(() => editor.value.storage.invisibleCharacters.visibility() ? 'primary' : ''),
+    },
+    attrs: {
+      click: () => editor.value.commands.toggleInvisibleCharacters()
+    }
+  }
+}

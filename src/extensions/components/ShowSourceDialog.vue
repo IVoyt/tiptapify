@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
-import Dialog from "@tiptapify/components/UI/Dialog.vue";
+import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
 import { ref, onMounted, onUnmounted, watch, inject, Ref } from 'vue'
 import { useI18n } from "vue-i18n";
 
@@ -54,6 +54,9 @@ const unformatHtml = (html: string): string => {
 }
 
 const showDialog = (event: CustomEvent) => {
+  if (event.detail.editorId !== editor.value.instanceId) {
+    return
+  }
   sourceCode.value = event.detail.html
 
   dialog.value.open()
@@ -79,7 +82,7 @@ watch(() => formatted.value, () => {
 </script>
 
 <template>
-  <Dialog ref="dialog" module="source" :max-width="1500">
+  <TiptapifyDialog ref="dialog" module="source" :max-width="1500">
     <template #content>
       <VCardText>
         <VContainer fluid class="pt-0 pl-0 pr-0">
@@ -105,7 +108,7 @@ watch(() => formatted.value, () => {
     <template #actions>
       <VCardActions>
         <VSpacer></VSpacer>
-        <VBtn :variant="variantBtn" @click="dialog = false">
+        <VBtn :variant="variantBtn" @click="dialog.close()">
           {{ t('dialog.close') }}
         </VBtn>
         <VBtn :variant="variantBtn" color="primary" @click="saveChanges">
@@ -113,7 +116,7 @@ watch(() => formatted.value, () => {
         </VBtn>
       </VCardActions>
     </template>
-  </Dialog>
+  </TiptapifyDialog>
 </template>
 
 <style scoped lang="scss">

@@ -1,3 +1,12 @@
+### v0.0.12
+- add hidden characters extension
+- support svg for button icons
+- fix source code close modal
+- fix modal positioning
+- fix extension icons
+- fix extensions' modals — open a modal only for that editor instance which triggered opening
+- refactor
+
 ### v0.0.11
 - fix regex in link extension
 - fix prettifier in source code extension
