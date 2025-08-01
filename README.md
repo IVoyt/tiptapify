@@ -103,9 +103,10 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] image extension
 - [x] text styling (background & font color)
 - [x] dark theme
-- [ ] print hotkey in a tooltip
+- [x] emoji extension
 - [ ] video extensions
-- [ ] emoji plugin
+- [ ] search option in emoji extension
+- [ ] print hotkey in a tooltip
 - [ ] option to use custom component for link & media extension
 - [ ] option to provide custom extension
 - [ ] demo

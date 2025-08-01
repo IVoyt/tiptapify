@@ -41,6 +41,18 @@
   "media": {
     "link": "Extern länk",
     "image": "Bild",
+    "emoji": {
+      "activities": "Aktiviteter",
+      "animals_and_nature": "Djur och natur",
+      "component": "Komponent",
+      "flags": "Flaggor",
+      "food_and_drink": "Mat och dryck",
+      "objects": "Objekt",
+      "people_and_body": "Människor och kropp",
+      "smileys_and_emotion": "Smileys och känslor",
+      "symbols": "Symboler",
+      "travel_and_places": "Resor och platser"
+    },
     "tables": {
       "table": "Tabell",
       "insertTable": "Sätt in tabell",

@@ -41,6 +41,18 @@
   "media": {
     "link": "Nexus externus",
     "image": "Imago",
+    "emoji": {
+      "activities": "Activitates",
+      "animals_and_nature": "Animalia et natura",
+      "component": "Componens",
+      "flags": "Vexilla",
+      "food_and_drink": "Cibus et potus",
+      "objects": "Objecta",
+      "people_and_body": "Homines et corpus",
+      "smileys_and_emotion": "Risus et affectus",
+      "symbols": "Symbola",
+      "travel_and_places": "Iter et loca"
+    },
     "tables": {
       "table": "Tabula",
       "insertTable": "Tabulam inserere",

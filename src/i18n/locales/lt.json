@@ -41,6 +41,18 @@
   "media": {
     "link": "Išorinė nuoroda",
     "image": "Paveikslas",
+    "emoji": {
+      "activities": "Veiklos",
+      "animals_and_nature": "Gyvūnai ir gamta",
+      "component": "Komponentas",
+      "flags": "Vėliavos",
+      "food_and_drink": "Maistas ir gėrimai",
+      "objects": "Objektai",
+      "people_and_body": "Žmonės ir kūnas",
+      "smileys_and_emotion": "Šypsenos ir emocijos",
+      "symbols": "Simboliai",
+      "travel_and_places": "Kelionės ir vietos"
+    },
     "tables": {
       "table": "Lentelė",
       "insertTable": "Įterpti lentelę",
