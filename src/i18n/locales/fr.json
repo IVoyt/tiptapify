@@ -42,6 +42,18 @@
   "media": {
     "link": "Lien externe",
     "image": "Image",
+    "emoji": {
+      "activities": "Activités",
+      "animals_and_nature": "Animaux et nature",
+      "component": "Composant",
+      "flags": "Drapeaux",
+      "food_and_drink": "Nourriture et boissons",
+      "objects": "Objets",
+      "people_and_body": "Personnes et corps",
+      "smileys_and_emotion": "Smileys et émotions",
+      "symbols": "Symboles",
+      "travel_and_places": "Voyages et lieux"
+    },
     "tables": {
       "table": "Tableau",
       "insertTable": "Insérer un tableau",

@@ -41,6 +41,18 @@
   "media": {
     "link": "Externí odkaz",
     "image": "Obrázek",
+    "emoji": {
+      "activities": "Aktivity",
+      "animals_and_nature": "Zvířata a příroda",
+      "component": "Komponenta",
+      "flags": "Vlajky",
+      "food_and_drink": "Jídlo a nápoje",
+      "objects": "Objekty",
+      "people_and_body": "Lidé a tělo",
+      "smileys_and_emotion": "Úsměvy a emoce",
+      "symbols": "Symboly",
+      "travel_and_places": "Cestování a místa"
+    },
     "tables": {
       "table": "Tabulka",
       "insertTable": "Vložit tabulku",

@@ -1,3 +1,6 @@
+### v0.0.13
+- add emoji extension
+
 ### v0.0.12
 - add hidden characters extension
 - support svg for button icons

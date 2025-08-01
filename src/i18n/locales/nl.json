@@ -41,6 +41,18 @@
   "media": {
     "link": "Externe link",
     "image": "Afbeelding",
+    "emoji": {
+      "activities": "Activiteiten",
+      "animals_and_nature": "Dieren en natuur",
+      "component": "Component",
+      "flags": "Vlaggen",
+      "food_and_drink": "Eten en drinken",
+      "objects": "Objecten",
+      "people_and_body": "Mensen en lichaam",
+      "smileys_and_emotion": "Smileys en emoties",
+      "symbols": "Symbolen",
+      "travel_and_places": "Reizen en plaatsen"
+    },
     "tables": {
       "table": "Tabel",
       "insertTable": "Tabel invoegen",

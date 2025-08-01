@@ -41,6 +41,18 @@
   "media": {
     "link": "外部链接",
     "image": "图片",
+    "emoji": {
+      "activities": "活动",
+      "animals_and_nature": "动物与自然",
+      "component": "组件",
+      "flags": "旗帜",
+      "food_and_drink": "食物与饮料",
+      "objects": "物品",
+      "people_and_body": "人物与身体",
+      "smileys_and_emotion": "笑脸与情感",
+      "symbols": "符号",
+      "travel_and_places": "旅行与地点"
+    },
     "tables": {
       "table": "表格",
       "insertTable": "插入表格",

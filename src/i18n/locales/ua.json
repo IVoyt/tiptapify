@@ -41,6 +41,18 @@
   "media": {
     "link": "Зовнішнє посилання",
     "image": "Зображення",
+    "emoji": {
+      "activities": "Активності",
+      "animals_and_nature": "Тварини та природа",
+      "component": "Компонент",
+      "flags": "Прапори",
+      "food_and_drink": "Їжа та напої",
+      "objects": "Об'єкти",
+      "people_and_body": "Люди та частини тіла",
+      "smileys_and_emotion": "Смайлики та емоції",
+      "symbols": "Символи",
+      "travel_and_places": "Подорожі та місця"
+    },
     "tables": {
       "table": "Таблиця",
       "insertTable": "Вставити таблицю",

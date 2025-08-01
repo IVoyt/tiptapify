@@ -41,6 +41,18 @@
   "media": {
     "link": "Внешняя ссылка",
     "image": "Изображение",
+    "emoji": {
+      "activities": "Активности",
+      "animals_and_nature": "Животные и природа",
+      "component": "Компонент",
+      "flags": "Флаги",
+      "food_and_drink": "Еда и напитки",
+      "objects": "Объекты",
+      "people_and_body": "Люди и части тела",
+      "smileys_and_emotion": "Смайлики и эмоции",
+      "symbols": "Символы",
+      "travel_and_places": "Путешествия и места"
+    },
     "tables": {
       "table": "Таблица",
       "insertTable": "Вставить таблицу",

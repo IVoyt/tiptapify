@@ -41,6 +41,18 @@
   "media": {
     "link": "External link",
     "image": "Image",
+    "emoji": {
+      "activities": "Activities",
+      "animals_and_nature": "Animals & nature",
+      "component": "Component",
+      "flags": "Flags",
+      "food_and_drink": "Food and drink",
+      "objects": "Objects",
+      "people_and_body": "People & body",
+      "smileys_and_emotion": "Smileys and emotion",
+      "symbols": "Symbols",
+      "travel_and_places": "Travel and places"
+    },
     "tables": {
       "table": "Table",
       "insertTable": "Insert table",
