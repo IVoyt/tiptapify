@@ -119,6 +119,12 @@
     "source": {
       "title": "Voir le code source",
       "prettify": "prettify"
+    },
+    "video": {
+      "title": "Ajouter/modifier une vidéo",
+      "src": "Source",
+      "width": "Largeur",
+      "height": "Hauteur"
     }
   },
   "misc": {

@@ -2,7 +2,6 @@
 import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
 import { defineProps, PropType } from 'vue'
 
-
 import { ToolbarItem } from '@tiptapify/types/toolbarItems'
 
 defineProps({

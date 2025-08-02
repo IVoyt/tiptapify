@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 
 import * as mdi from "@mdi/js";
-import { nextTick, ref, watch } from "vue";
-import { useI18n } from "vue-i18n";
+import { inject, nextTick, ref, watch } from "vue";
 
 const props = defineProps({
   module: String,
@@ -11,7 +10,7 @@ const props = defineProps({
   maxWidth: { type: Number, default () { return 800 } },
 })
 
-const { t } = useI18n();
+const { t } = inject('tiptapifyI18n') as any
 
 defineExpose({ open, close })
 const emits = defineEmits(['closeDialog'])

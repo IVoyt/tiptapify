@@ -118,6 +118,12 @@
     "source": {
       "title": "Broncode bekijken",
       "prettify": "prettify"
+    },
+    "video": {
+      "title": "Video toevoegen/bewerken",
+      "src": "Bron",
+      "width": "Breedte",
+      "height": "Hoogte"
     }
   },
   "misc": {

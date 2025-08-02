@@ -118,6 +118,12 @@
     "source": {
       "title": "查看源代码",
       "prettify": "美化"
+    },
+    "video": {
+      "title": "添加/编辑视频",
+      "src": "来源",
+      "width": "宽度",
+      "height": "高度"
     }
   },
   "misc": {

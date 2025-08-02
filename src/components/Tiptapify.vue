@@ -7,17 +7,19 @@ import { Editor, EditorContent } from '@tiptap/vue-3'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
-import { useI18n } from "vue-i18n";
+import { useLocale } from "@tiptapify/i18n";
 
 import { getTiptapEditor } from "@tiptapify/components/index";
 
 import Footer from '@tiptapify/components/Footer.vue'
 import { useTheme } from "vuetify/framework";
 
-const { t } = useI18n();
+const { t, i18n, setLocale } = useLocale();
 
 const props = defineProps({
+  locale: { type: String, default () { return 'en' } },
   content: String|Object,
+  height: { type: Number, default () { return null } },
   variantBtn: { type: String, default () { return 'elevated' } },
   variantField: { type: String, default () { return 'solo' } },
   toolbar: { type: Boolean, default () { return true } },
@@ -48,6 +50,7 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
 const emit = defineEmits(['update:modelValue', 'editor-ready']);
 
 provide('tiptapifyEditor', editor)
+provide('tiptapifyI18n', { t, setLocale })
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
 
@@ -59,6 +62,10 @@ watch(() => editor.value, (editorInstance) => {
       getJSON: () => editorInstance.getJSON(),
     });
   }
+}, { immediate: true });
+
+watch(() => props.locale, () => {
+  setLocale(props.locale)
 }, { immediate: true });
 
 onBeforeUnmount(() => {
@@ -85,7 +92,7 @@ onBeforeUnmount(() => {
         </template>
 
         <div :class="`border border-t-0 rounded-b-${rounded}`">
-          <div class="pa-2 tiptapify-container">
+          <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
             <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 
             <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
@@ -129,6 +136,11 @@ onBeforeUnmount(() => {
   --red-light: #FFEBE5;
   --shadow: 0px 12px 33px 0px rgba(0, 0, 0, .06), 0px 3.618px 9.949px 0px rgba(0, 0, 0, .04);
   --border: 1px solid var(--gray-2);
+}
+
+.resizable {
+  resize: vertical;
+  overflow: auto;
 }
 
 /* Basic editor styles */

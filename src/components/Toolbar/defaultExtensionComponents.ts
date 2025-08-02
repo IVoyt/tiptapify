@@ -1,11 +1,13 @@
 import { useImage } from "@tiptapify/composables/Toolbar/Media/useImage";
 import { useLink } from "@tiptapify/composables/Toolbar/Media/useLink";
+import { useVideo } from "@tiptapify/composables/Toolbar/Media/useVideo";
 import { usePreview } from "@tiptapify/composables/Toolbar/Misc/usePreview";
 import { useSource } from "@tiptapify/composables/Toolbar/Misc/useSource";
 import ImageDialog from "@tiptapify/extensions/components/ImageDialog.vue";
 import LinkDialog from "@tiptapify/extensions/components/LinkDialog.vue";
 import PreviewDialog from "@tiptapify/extensions/components/PreviewDialog.vue";
 import ShowSourceDialog from "@tiptapify/extensions/components/ShowSourceDialog.vue";
+import VideoDialog from "@tiptapify/extensions/components/VideoDialog.vue";
 import { extensionComponents } from "@tiptapify/types/extensionComponents";
 import { ToolbarSections } from "@tiptapify/types/toolbarSections";
 import { computed, markRaw } from "vue";
@@ -48,6 +50,16 @@ export function getDefaultComponents(variantField: string): extensionComponents 
       name: useSource().name,
       tooltip: useSource().tooltip,
       icon: useSource().icon,
-    }
+    },
+    video: {
+      component: markRaw(VideoDialog),
+      componentProps: {
+        variantField: computed(() => variantField).value,
+      },
+      section: ToolbarSections.media,
+      name: useVideo().name,
+      tooltip: useVideo().tooltip,
+      icon: useVideo().icon,
+    },
   }
 }

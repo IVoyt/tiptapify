@@ -16,6 +16,7 @@ import { HorizontalRule } from '@tiptap/extension-horizontal-rule'
 import { Typography } from '@tiptap/extension-typography'
 import { Highlight } from '@tiptap/extension-highlight'
 import { Image } from '@tiptap/extension-image'
+import { Youtube } from '@tiptap/extension-youtube'
 import { Superscript } from '@tiptap/extension-superscript'
 import { Subscript } from '@tiptap/extension-subscript'
 import { TextAlign } from '@tiptap/extension-text-align'
@@ -77,6 +78,10 @@ export function editorExtensions (placeholder: string, slashCommands: boolean, c
       defaultProtocol: 'https'
     }),
     Image,
+    Youtube.configure({
+      controls: true,
+      nocookie: true,
+    }),
     TiptapifyImage,
     Superscript,
     Subscript,
