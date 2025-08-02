@@ -118,6 +118,12 @@
     "source": {
       "title": "Žiūrėti išeities kodą",
       "prettify": "prettify"
+    },
+    "video": {
+      "title": "Pridėti/redaguoti vaizdo įrašą",
+      "src": "Šaltinis",
+      "width": "Plotis",
+      "height": "Aukštis"
     }
   },
   "misc": {

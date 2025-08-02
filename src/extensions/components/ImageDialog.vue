@@ -3,7 +3,6 @@
 import { Editor } from "@tiptap/vue-3";
 import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
 
-import { useI18n } from 'vue-i18n'
 import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
 
 defineProps({
@@ -12,7 +11,7 @@ defineProps({
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
-const { t } = useI18n()
+const { t } = inject('tiptapifyI18n') as any
 
 const generateImageAttrs = () => ({
   src: '',

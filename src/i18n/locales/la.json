@@ -118,6 +118,12 @@
     "source": {
       "title": "Codicem fontem videre",
       "prettify": "prettify"
+    },
+    "video": {
+      "title": "Addere/mutare video",
+      "src": "Fons",
+      "width": "Latitudo",
+      "height": "Altitudo"
     }
   },
   "misc": {

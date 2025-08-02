@@ -2,7 +2,12 @@
 
 ---
 
-[Tiptap](https://tiptap.dev) 3 editor for Vue3 with [Vuetify](https://vuetifyjs.com) menu implementation
+[Tiptap](https://tiptap.dev) 3 editor for Vue3 with [Vuetify](https://vuetifyjs.com) toolbar implementation
+
+## Status
+*Alpha*
+
+*Not production ready (yet) - may contain bugs and internal logic may change*
 
 ## Requirements
 - Vue 3.x
@@ -12,8 +17,7 @@
 - Vuetify components
 - Markdown support
 - TypeScript support
-- I18n support(`en`, `ru`, `ua`, `pl`, `fr`, `de`, `it`, `es`, more later)
-- Vuetify 3.x and Vue 3.x support
+- i18n
 - Bubble Menu
 - Floating Menu
 - Slash Command
@@ -89,6 +93,9 @@ app.mount('#app')
 </template>
 ```
 
+## L10N (Localisation)
+Found a wrong translation or want to add a new language? Feel free to [send your translation](mailto://ivoyt90@gmail.com) made from the [template](https://raw.githubusercontent.com/IVoyt/tiptapify/refs/heads/main/src/i18n/locales/en.json).
+
 ## Feedback
 Found a bug or have ideas on improvement? Feel free to [create a ticket](https://github.com/IVoyt/tiptapify/issues/new).
 
@@ -104,7 +111,8 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] text styling (background & font color)
 - [x] dark theme
 - [x] emoji extension
-- [ ] video extensions
+- [x] video extensions
+- [ ] extended video extensions
 - [ ] search option in emoji extension
 - [ ] print hotkey in a tooltip
 - [ ] option to use custom component for link & media extension

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { defineProps, PropType } from 'vue'
-import { useI18n } from "vue-i18n";
+import { defineProps, inject, PropType } from 'vue'
 import * as mdi from '@mdi/js'
 
 import { ToolbarItemSection } from "@tiptapify/components/Toolbar/items";
@@ -10,7 +9,7 @@ defineProps({
   toolbarSection: { type: Object as PropType<ToolbarItemSection>, default() { return {} }}
 })
 
-const { t } = useI18n();
+const { t } = inject('tiptapifyI18n') as any
 
 </script>
 

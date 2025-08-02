@@ -1,14 +1,13 @@
 import * as mdi from "@mdi/js";
 import Emoji from "@tiptapify/extensions/components/Emoji.vue";
-import { computed, markRaw } from "vue";
-import { useI18n } from "vue-i18n";
+import { computed, inject, markRaw } from "vue";
 
 export function useEmoji() {
-  const { t } = useI18n();
+  const { t } = inject('tiptapifyI18n') as any
 
   return {
-    name: computed(() => t('media.emoji')),
-    tooltip: computed(() => t('media.emoji')),
+    name: computed(() => t('media.emoji.title')),
+    tooltip: computed(() => t('media.emoji.title')),
     icon: `mdiSvg:${mdi.mdiEmoticon}`,
     enabled: true,
     component: markRaw(Emoji),

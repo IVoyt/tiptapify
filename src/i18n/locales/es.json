@@ -118,6 +118,12 @@
     "source": {
       "title": "Ver código fuente",
       "prettify": "prettify"
+    },
+    "video": {
+      "title": "Agregar/editar video",
+      "src": "Fuente",
+      "width": "Ancho",
+      "height": "Alto"
     }
   },
   "misc": {

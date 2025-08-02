@@ -3,7 +3,6 @@ import { Level } from "@tiptap/extension-heading";
 import { Editor } from "@tiptap/vue-3";
 import { headingLevels, setHeadingLevels } from "@tiptapify/constants/style";
 import { computed, inject, Ref } from "vue";
-import { useI18n } from "vue-i18n";
 
 interface MDIIcons {
   [key: string]: string
@@ -11,7 +10,7 @@ interface MDIIcons {
 const mdiIcons = mdi as MDIIcons
 
 export function useHeading(customHeadingLevels: Array<number> = []) {
-  const { t } = useI18n();
+  const { t } = inject('tiptapifyI18n') as any
 
   setHeadingLevels(customHeadingLevels)
 

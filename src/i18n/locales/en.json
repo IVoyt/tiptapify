@@ -42,6 +42,7 @@
     "link": "External link",
     "image": "Image",
     "emoji": {
+      "title": "Emoji",
       "activities": "Activities",
       "animals_and_nature": "Animals & nature",
       "component": "Component",
@@ -70,7 +71,8 @@
       "deleteCol": "Delete column",
       "mergeCells": "Merge cells",
       "splitCell": "Split cell"
-    }
+    },
+    "video": "Video"
   },
   "action": {
     "undo": "Undo",
@@ -118,6 +120,12 @@
     "source": {
       "title": "View source code",
       "prettify": "Prettify"
+    },
+    "video": {
+      "title": "Add/edit video",
+      "src": "Source",
+      "width": "Width",
+      "height": "Height"
     }
   },
   "misc": {

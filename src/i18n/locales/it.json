@@ -118,6 +118,12 @@
     "source": {
       "title": "Visualizza codice sorgente",
       "prettify": "prettify"
+    },
+    "video": {
+      "title": "Aggiungi/modifica video",
+      "src": "Sorgente",
+      "width": "Larghezza",
+      "height": "Altezza"
     }
   },
   "misc": {

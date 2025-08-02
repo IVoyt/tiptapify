@@ -2,7 +2,6 @@
 import { Editor } from "@tiptap/vue-3";
 import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
 import { ref, onMounted, onUnmounted, watch, inject, Ref } from 'vue'
-import { useI18n } from "vue-i18n";
 
 const props = defineProps({
   indent: { type: Number, default: 2 },
@@ -10,7 +9,7 @@ const props = defineProps({
   variantField: { type: String, default: 'solo' }
 })
 
-const { t } = useI18n();
+const { t } = inject('tiptapifyI18n') as any
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 

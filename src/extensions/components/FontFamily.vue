@@ -3,14 +3,13 @@
 import { Editor } from "@tiptap/vue-3";
 
 import { computed, inject, Ref, ref } from 'vue'
-import { useI18n } from "vue-i18n";
 
 const props = defineProps({
   fonts: { type: Array<{ name: string, fontFamily: string }>, default: [] },
   fontFamily: { type: String, default: '' },
 })
 
-const { t } = useI18n();
+const { t } = inject('tiptapifyI18n') as any
 
 const emit = defineEmits(['close'])
 

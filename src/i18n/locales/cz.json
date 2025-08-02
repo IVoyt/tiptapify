@@ -118,6 +118,12 @@
     "source": {
       "title": "Zobrazit zdrojový kód",
       "prettify": "prettify"
+    },
+    "video": {
+      "title": "Přidat/upravit video",
+      "src": "Zdroj",
+      "width": "Šířka",
+      "height": "Výška"
     }
   },
   "misc": {

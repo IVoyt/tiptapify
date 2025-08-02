@@ -118,6 +118,12 @@
     "source": {
       "title": "Visa källkod",
       "prettify": "prettify"
+    },
+    "video": {
+      "title": "Lägg till/redigera video",
+      "src": "Källa",
+      "width": "Bredd",
+      "height": "Höjd"
     }
   },
   "misc": {

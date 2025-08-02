@@ -1,3 +1,9 @@
+### v0.0.14
+- add youtube extension
+- resizable editor
+- add editor height property
+- init i18n on component level rather than plugin level
+
 ### v0.0.13
 - add emoji extension
 

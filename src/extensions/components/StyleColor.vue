@@ -1,11 +1,10 @@
 <script setup lang="ts">
 
 import { Editor } from "@tiptap/vue-3";
-import { useI18n } from 'vue-i18n'
 
 import { computed, inject, Ref, ref } from 'vue'
 
-const { t } = useI18n()
+const { t } = inject('tiptapifyI18n') as any
 
 defineExpose({ open, close })
 
