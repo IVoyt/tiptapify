@@ -1,3 +1,8 @@
+### v0.0.15
+- fix invisibleCharacters icon color
+- remove unused component Toggle
+- remove VContainer -> VRow -> VCol from main component
+
 ### v0.0.14
 - add youtube extension
 - resizable editor

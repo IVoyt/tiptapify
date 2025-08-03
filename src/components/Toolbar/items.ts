@@ -28,16 +28,11 @@ export function toolbarItems(
   const mediaItems = ref(useMediaItems())
 
   const allMenuItems: ToolbarItemSections = {
-    /**
-     * todo
-     *
-     * media (video)
-     */
     style: { group: true, items: styleItems.value },
     format: { group: true, items: formatItems.value },
     format_extra: { group: true, items: formatExtraItems.value },
     media: { group: true, items: mediaItems.value },
-    alignment: { toggle: true, items: alignmentItems.value },
+    alignment: { group: true, items: alignmentItems.value },
     list: { group: true, items: listItems.value },
     actions: { group: true, items: actionsItems.value },
     misc: { group: true, items: miscItems.value },
