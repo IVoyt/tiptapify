@@ -160,14 +160,6 @@ export default [
     "subgroup": "face-affection"
   },
   {
-    "codes": "263A",
-    "char": "☺",
-    "name": "smiling face",
-    "category": "Smileys & Emotion (face-affection)",
-    "group": "Smileys & Emotion",
-    "subgroup": "face-affection"
-  },
-  {
     "codes": "1F61A",
     "char": "😚",
     "name": "kissing face with closed eyes",
@@ -352,14 +344,6 @@ export default [
     "subgroup": "face-neutral-skeptical"
   },
   {
-    "codes": "1F636 200D 1F32B",
-    "char": "😶‍🌫",
-    "name": "face in clouds",
-    "category": "Smileys & Emotion (face-neutral-skeptical)",
-    "group": "Smileys & Emotion",
-    "subgroup": "face-neutral-skeptical"
-  },
-  {
     "codes": "1F60F",
     "char": "😏",
     "name": "smirking face",
@@ -424,24 +408,8 @@ export default [
     "subgroup": "face-neutral-skeptical"
   },
   {
-    "codes": "1F642 200D 2194",
-    "char": "🙂‍↔",
-    "name": "head shaking horizontally",
-    "category": "Smileys & Emotion (face-neutral-skeptical)",
-    "group": "Smileys & Emotion",
-    "subgroup": "face-neutral-skeptical"
-  },
-  {
     "codes": "1F642 200D 2195 FE0F",
     "char": "🙂‍↕️",
-    "name": "head shaking vertically",
-    "category": "Smileys & Emotion (face-neutral-skeptical)",
-    "group": "Smileys & Emotion",
-    "subgroup": "face-neutral-skeptical"
-  },
-  {
-    "codes": "1F642 200D 2195",
-    "char": "🙂‍↕",
     "name": "head shaking vertically",
     "category": "Smileys & Emotion (face-neutral-skeptical)",
     "group": "Smileys & Emotion",
@@ -680,14 +648,6 @@ export default [
     "subgroup": "face-concerned"
   },
   {
-    "codes": "2639",
-    "char": "☹",
-    "name": "frowning face",
-    "category": "Smileys & Emotion (face-concerned)",
-    "group": "Smileys & Emotion",
-    "subgroup": "face-concerned"
-  },
-  {
     "codes": "1F62E",
     "char": "😮",
     "name": "face with open mouth",
@@ -914,14 +874,6 @@ export default [
   {
     "codes": "2620 FE0F",
     "char": "☠️",
-    "name": "skull and crossbones",
-    "category": "Smileys & Emotion (face-negative)",
-    "group": "Smileys & Emotion",
-    "subgroup": "face-negative"
-  },
-  {
-    "codes": "2620",
-    "char": "☠",
     "name": "skull and crossbones",
     "category": "Smileys & Emotion (face-negative)",
     "group": "Smileys & Emotion",
@@ -1168,14 +1120,6 @@ export default [
     "subgroup": "heart"
   },
   {
-    "codes": "2763",
-    "char": "❣",
-    "name": "heart exclamation",
-    "category": "Smileys & Emotion (heart)",
-    "group": "Smileys & Emotion",
-    "subgroup": "heart"
-  },
-  {
     "codes": "1F494",
     "char": "💔",
     "name": "broken heart",
@@ -1192,14 +1136,6 @@ export default [
     "subgroup": "heart"
   },
   {
-    "codes": "2764 200D 1F525",
-    "char": "❤‍🔥",
-    "name": "heart on fire",
-    "category": "Smileys & Emotion (heart)",
-    "group": "Smileys & Emotion",
-    "subgroup": "heart"
-  },
-  {
     "codes": "2764 FE0F 200D 1FA79",
     "char": "❤️‍🩹",
     "name": "mending heart",
@@ -1208,24 +1144,8 @@ export default [
     "subgroup": "heart"
   },
   {
-    "codes": "2764 200D 1FA79",
-    "char": "❤‍🩹",
-    "name": "mending heart",
-    "category": "Smileys & Emotion (heart)",
-    "group": "Smileys & Emotion",
-    "subgroup": "heart"
-  },
-  {
     "codes": "2764 FE0F",
     "char": "❤️",
-    "name": "red heart",
-    "category": "Smileys & Emotion (heart)",
-    "group": "Smileys & Emotion",
-    "subgroup": "heart"
-  },
-  {
-    "codes": "2764",
-    "char": "❤",
     "name": "red heart",
     "category": "Smileys & Emotion (heart)",
     "group": "Smileys & Emotion",
@@ -1384,14 +1304,6 @@ export default [
     "subgroup": "emotion"
   },
   {
-    "codes": "1F573",
-    "char": "🕳",
-    "name": "hole",
-    "category": "Smileys & Emotion (emotion)",
-    "group": "Smileys & Emotion",
-    "subgroup": "emotion"
-  },
-  {
     "codes": "1F4AC",
     "char": "💬",
     "name": "speech balloon",
@@ -1408,30 +1320,6 @@ export default [
     "subgroup": "emotion"
   },
   {
-    "codes": "1F441 200D 1F5E8 FE0F",
-    "char": "👁‍🗨️",
-    "name": "eye in speech bubble",
-    "category": "Smileys & Emotion (emotion)",
-    "group": "Smileys & Emotion",
-    "subgroup": "emotion"
-  },
-  {
-    "codes": "1F441 FE0F 200D 1F5E8",
-    "char": "👁️‍🗨",
-    "name": "eye in speech bubble",
-    "category": "Smileys & Emotion (emotion)",
-    "group": "Smileys & Emotion",
-    "subgroup": "emotion"
-  },
-  {
-    "codes": "1F441 200D 1F5E8",
-    "char": "👁‍🗨",
-    "name": "eye in speech bubble",
-    "category": "Smileys & Emotion (emotion)",
-    "group": "Smileys & Emotion",
-    "subgroup": "emotion"
-  },
-  {
     "codes": "1F5E8 FE0F",
     "char": "🗨️",
     "name": "left speech bubble",
@@ -1440,24 +1328,8 @@ export default [
     "subgroup": "emotion"
   },
   {
-    "codes": "1F5E8",
-    "char": "🗨",
-    "name": "left speech bubble",
-    "category": "Smileys & Emotion (emotion)",
-    "group": "Smileys & Emotion",
-    "subgroup": "emotion"
-  },
-  {
     "codes": "1F5EF FE0F",
     "char": "🗯️",
-    "name": "right anger bubble",
-    "category": "Smileys & Emotion (emotion)",
-    "group": "Smileys & Emotion",
-    "subgroup": "emotion"
-  },
-  {
-    "codes": "1F5EF",
-    "char": "🗯",
     "name": "right anger bubble",
     "category": "Smileys & Emotion (emotion)",
     "group": "Smileys & Emotion",

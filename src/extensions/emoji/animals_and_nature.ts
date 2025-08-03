@@ -424,14 +424,6 @@ export default [
     "subgroup": "animal-mammal"
   },
   {
-    "codes": "1F43F",
-    "char": "🐿",
-    "name": "chipmunk",
-    "category": "Animals & Nature (animal-mammal)",
-    "group": "Animals & Nature",
-    "subgroup": "animal-mammal"
-  },
-  {
     "codes": "1F9AB",
     "char": "🦫",
     "name": "beaver",
@@ -466,14 +458,6 @@ export default [
   {
     "codes": "1F43B 200D 2744 FE0F",
     "char": "🐻‍❄️",
-    "name": "polar bear",
-    "category": "Animals & Nature (animal-mammal)",
-    "group": "Animals & Nature",
-    "subgroup": "animal-mammal"
-  },
-  {
-    "codes": "1F43B 200D 2744",
-    "char": "🐻‍❄",
     "name": "polar bear",
     "category": "Animals & Nature (animal-mammal)",
     "group": "Animals & Nature",
@@ -610,14 +594,6 @@ export default [
   {
     "codes": "1F54A FE0F",
     "char": "🕊️",
-    "name": "dove",
-    "category": "Animals & Nature (animal-bird)",
-    "group": "Animals & Nature",
-    "subgroup": "animal-bird"
-  },
-  {
-    "codes": "1F54A",
-    "char": "🕊",
     "name": "dove",
     "category": "Animals & Nature (animal-bird)",
     "group": "Animals & Nature",
@@ -1016,24 +992,8 @@ export default [
     "subgroup": "animal-bug"
   },
   {
-    "codes": "1F577",
-    "char": "🕷",
-    "name": "spider",
-    "category": "Animals & Nature (animal-bug)",
-    "group": "Animals & Nature",
-    "subgroup": "animal-bug"
-  },
-  {
     "codes": "1F578 FE0F",
     "char": "🕸️",
-    "name": "spider web",
-    "category": "Animals & Nature (animal-bug)",
-    "group": "Animals & Nature",
-    "subgroup": "animal-bug"
-  },
-  {
-    "codes": "1F578",
-    "char": "🕸",
     "name": "spider web",
     "category": "Animals & Nature (animal-bug)",
     "group": "Animals & Nature",
@@ -1114,14 +1074,6 @@ export default [
   {
     "codes": "1F3F5 FE0F",
     "char": "🏵️",
-    "name": "rosette",
-    "category": "Animals & Nature (plant-flower)",
-    "group": "Animals & Nature",
-    "subgroup": "plant-flower"
-  },
-  {
-    "codes": "1F3F5",
-    "char": "🏵",
     "name": "rosette",
     "category": "Animals & Nature (plant-flower)",
     "group": "Animals & Nature",
@@ -1250,14 +1202,6 @@ export default [
   {
     "codes": "2618 FE0F",
     "char": "☘️",
-    "name": "shamrock",
-    "category": "Animals & Nature (plant-other)",
-    "group": "Animals & Nature",
-    "subgroup": "plant-other"
-  },
-  {
-    "codes": "2618",
-    "char": "☘",
     "name": "shamrock",
     "category": "Animals & Nature (plant-other)",
     "group": "Animals & Nature",

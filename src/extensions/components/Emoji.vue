@@ -1,10 +1,12 @@
 <script setup lang="ts">
 
+import * as mdi from "@mdi/js";
+
 import { Editor } from "@tiptap/vue-3";
 
 import tiptapifyEmojis from "@tiptapify/extensions/emoji"
 
-import { computed, inject, Ref, ref } from 'vue'
+import { computed, inject, Ref, ref, watch } from 'vue'
 
 const { t } = inject('tiptapifyI18n') as any
 
@@ -14,6 +16,7 @@ const emit = defineEmits(['close'])
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
+const filter = ref(null)
 const tab = ref('smileys_and_emotion')
 const sorted = tiptapifyEmojis.sort((previous, current) => {
   if (previous.order < current.order) {
@@ -26,15 +29,45 @@ const sorted = tiptapifyEmojis.sort((previous, current) => {
   return 0
 })
 const emojis = computed(() => sorted.map(item => { return { group: item.name, emojis: item.items } }))
+const emojisRef = ref(JSON.parse(JSON.stringify(emojis.value)))
 
 const handleEmojiClick = (emoji: any) => {
   editor.value.chain().focus().insertContent(emoji.char).run()
   close()
 }
 
+const filterEmoji = (filterValue: string) => {
+  resetFilter()
+  if (!filterValue) {
+    return
+  }
+
+  const filtered: any[] = []
+
+  const groupItems = emojisRef.value.find(item => item.group === tab.value)
+  if (groupItems?.emojis) {
+    groupItems.emojis.forEach(item => {
+      if (item.name.toLowerCase().match(filterValue)) {
+        filtered.push(item)
+      }
+    })
+
+    groupItems.emojis = filtered
+  }
+}
+
+const resetFilter = () => {
+  emojisRef.value = JSON.parse(JSON.stringify(emojis.value))
+}
+
 function close() {
   emit('close')
 }
+
+watch(() => tab.value, () => {
+  resetFilter()
+  filter.value = null
+})
 </script>
 
 <template>
@@ -42,7 +75,7 @@ function close() {
     <div class="d-flex flex-row">
       <VTabs v-model="tab" mandatory direction="vertical" color="primary" density="compact">
         <VTab
-            v-for="item of emojis"
+            v-for="item of emojisRef"
             :text="item.group"
             :value="item.group"
             :key="item.group"
@@ -54,31 +87,51 @@ function close() {
         </VTab>
       </VTabs>
 
-      <VWindow v-model="tab" direction="vertical">
-        <VWindowItem v-for="item of emojis" :value="item.group">
-          <div class="tiptapify-emoji-container">
-            <div v-for="emojiItem in item.emojis" class="tiptapify-emoji-container-item" @click="handleEmojiClick(emojiItem)" :title="emojiItem.name">
-              <div class="tiptapify-emoji-container-item__overlay">
-                <span>
-                  {{ emojiItem.char }}
-                </span>
+      <div>
+        <VTextField
+            v-model="filter"
+            label="Filter emoji"
+            density="compact"
+            variant="solo"
+            :prepend-inner-icon="`mdiSvg:${mdi.mdiMagnify}`"
+            class="mb-2"
+            hide-details
+            clearable
+            @input="filterEmoji($event.target.value)"
+            @click:clear="resetFilter"
+        />
+        <div class="tiptapify-emoji-container">
+          <VWindow v-model="tab" direction="vertical">
+            <VWindowItem v-for="item of emojisRef" :value="item.group">
+              <div
+                  v-for="emojiItem in item.emojis"
+                  class="tiptapify-emoji-container-item"
+                  @click="handleEmojiClick(emojiItem)"
+                  :title="emojiItem.name"
+              >
+                <div class="tiptapify-emoji-container-item__overlay">
+                  <span>
+                    {{ emojiItem.char }}
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
-        </VWindowItem>
-      </VWindow>
+            </VWindowItem>
+          </VWindow>
+        </div>
+      </div>
     </div>
   </VSheet>
 </template>
 
 <style lang="scss" scoped>
 .tiptapify-emoji-container {
-  max-height: 500px;
+  width: 360px;
+  height: 500px;
   overflow-y: auto;
 
-  border: 1px solid #ddd;
+  border: 1px solid rgba(var(--v-theme-on-background), calc(var(--v-border-opacity)));
   border-radius: 8px;
-  filter: drop-shadow(1px 2px 3px #777);
+  box-shadow: 0 0 5px rgba(var(--v-theme-on-background), calc(var(--v-border-opacity))) inset;
 }
 
 .tiptapify-emoji-container-item__overlay {
@@ -99,6 +152,7 @@ function close() {
   cursor: pointer;
   width: 32px;
   height: 32px;
+  filter: drop-shadow(1px 2px 3px #777);
   transition: background-color 0.2s ease-in-out;
 }
 

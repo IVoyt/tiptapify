@@ -40,24 +40,8 @@ export default [
     "subgroup": "flag"
   },
   {
-    "codes": "1F3F3",
-    "char": "🏳",
-    "name": "white flag",
-    "category": "Flags (flag)",
-    "group": "Flags",
-    "subgroup": "flag"
-  },
-  {
     "codes": "1F3F3 FE0F 200D 1F308",
     "char": "🏳️‍🌈",
-    "name": "rainbow flag",
-    "category": "Flags (flag)",
-    "group": "Flags",
-    "subgroup": "flag"
-  },
-  {
-    "codes": "1F3F3 200D 1F308",
-    "char": "🏳‍🌈",
     "name": "rainbow flag",
     "category": "Flags (flag)",
     "group": "Flags",
@@ -72,40 +56,8 @@ export default [
     "subgroup": "flag"
   },
   {
-    "codes": "1F3F3 200D 26A7 FE0F",
-    "char": "🏳‍⚧️",
-    "name": "transgender flag",
-    "category": "Flags (flag)",
-    "group": "Flags",
-    "subgroup": "flag"
-  },
-  {
-    "codes": "1F3F3 FE0F 200D 26A7",
-    "char": "🏳️‍⚧",
-    "name": "transgender flag",
-    "category": "Flags (flag)",
-    "group": "Flags",
-    "subgroup": "flag"
-  },
-  {
-    "codes": "1F3F3 200D 26A7",
-    "char": "🏳‍⚧",
-    "name": "transgender flag",
-    "category": "Flags (flag)",
-    "group": "Flags",
-    "subgroup": "flag"
-  },
-  {
     "codes": "1F3F4 200D 2620 FE0F",
     "char": "🏴‍☠️",
-    "name": "pirate flag",
-    "category": "Flags (flag)",
-    "group": "Flags",
-    "subgroup": "flag"
-  },
-  {
-    "codes": "1F3F4 200D 2620",
-    "char": "🏴‍☠",
     "name": "pirate flag",
     "category": "Flags (flag)",
     "group": "Flags",

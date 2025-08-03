@@ -24,14 +24,6 @@ export default [
     "subgroup": "hand-fingers-open"
   },
   {
-    "codes": "1F590",
-    "char": "🖐",
-    "name": "hand with fingers splayed",
-    "category": "People & Body (hand-fingers-open)",
-    "group": "People & Body",
-    "subgroup": "hand-fingers-open"
-  },
-  {
     "codes": "270B",
     "char": "✋",
     "name": "raised hand",
@@ -128,14 +120,6 @@ export default [
     "subgroup": "hand-fingers-partial"
   },
   {
-    "codes": "270C",
-    "char": "✌",
-    "name": "victory hand",
-    "category": "People & Body (hand-fingers-partial)",
-    "group": "People & Body",
-    "subgroup": "hand-fingers-partial"
-  },
-  {
     "codes": "1F91E",
     "char": "🤞",
     "name": "crossed fingers",
@@ -218,14 +202,6 @@ export default [
   {
     "codes": "261D FE0F",
     "char": "☝️",
-    "name": "index pointing up",
-    "category": "People & Body (hand-single-finger)",
-    "group": "People & Body",
-    "subgroup": "hand-single-finger"
-  },
-  {
-    "codes": "261D",
-    "char": "☝",
     "name": "index pointing up",
     "category": "People & Body (hand-single-finger)",
     "group": "People & Body",
@@ -346,14 +322,6 @@ export default [
   {
     "codes": "270D FE0F",
     "char": "✍️",
-    "name": "writing hand",
-    "category": "People & Body (hand-prop)",
-    "group": "People & Body",
-    "subgroup": "hand-prop"
-  },
-  {
-    "codes": "270D",
-    "char": "✍",
     "name": "writing hand",
     "category": "People & Body (hand-prop)",
     "group": "People & Body",
@@ -496,14 +464,6 @@ export default [
     "subgroup": "body-parts"
   },
   {
-    "codes": "1F441",
-    "char": "👁",
-    "name": "eye",
-    "category": "People & Body (body-parts)",
-    "group": "People & Body",
-    "subgroup": "body-parts"
-  },
-  {
     "codes": "1F445",
     "char": "👅",
     "name": "tongue",
@@ -624,24 +584,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F64D 200D 2642",
-    "char": "🙍‍♂",
-    "name": "man frowning",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F64D 200D 2640 FE0F",
     "char": "🙍‍♀️",
-    "name": "woman frowning",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F64D 200D 2640",
-    "char": "🙍‍♀",
     "name": "woman frowning",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -664,24 +608,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F64E 200D 2642",
-    "char": "🙎‍♂",
-    "name": "man pouting",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F64E 200D 2640 FE0F",
     "char": "🙎‍♀️",
-    "name": "woman pouting",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F64E 200D 2640",
-    "char": "🙎‍♀",
     "name": "woman pouting",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -704,24 +632,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F645 200D 2642",
-    "char": "🙅‍♂",
-    "name": "man gesturing NO",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F645 200D 2640 FE0F",
     "char": "🙅‍♀️",
-    "name": "woman gesturing NO",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F645 200D 2640",
-    "char": "🙅‍♀",
     "name": "woman gesturing NO",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -744,24 +656,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F646 200D 2642",
-    "char": "🙆‍♂",
-    "name": "man gesturing OK",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F646 200D 2640 FE0F",
     "char": "🙆‍♀️",
-    "name": "woman gesturing OK",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F646 200D 2640",
-    "char": "🙆‍♀",
     "name": "woman gesturing OK",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -784,24 +680,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F481 200D 2642",
-    "char": "💁‍♂",
-    "name": "man tipping hand",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F481 200D 2640 FE0F",
     "char": "💁‍♀️",
-    "name": "woman tipping hand",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F481 200D 2640",
-    "char": "💁‍♀",
     "name": "woman tipping hand",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -824,24 +704,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F64B 200D 2642",
-    "char": "🙋‍♂",
-    "name": "man raising hand",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F64B 200D 2640 FE0F",
     "char": "🙋‍♀️",
-    "name": "woman raising hand",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F64B 200D 2640",
-    "char": "🙋‍♀",
     "name": "woman raising hand",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -864,24 +728,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F9CF 200D 2642",
-    "char": "🧏‍♂",
-    "name": "deaf man",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F9CF 200D 2640 FE0F",
     "char": "🧏‍♀️",
-    "name": "deaf woman",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F9CF 200D 2640",
-    "char": "🧏‍♀",
     "name": "deaf woman",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -904,24 +752,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F647 200D 2642",
-    "char": "🙇‍♂",
-    "name": "man bowing",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F647 200D 2640 FE0F",
     "char": "🙇‍♀️",
-    "name": "woman bowing",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F647 200D 2640",
-    "char": "🙇‍♀",
     "name": "woman bowing",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -944,24 +776,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F926 200D 2642",
-    "char": "🤦‍♂",
-    "name": "man facepalming",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F926 200D 2640 FE0F",
     "char": "🤦‍♀️",
-    "name": "woman facepalming",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F926 200D 2640",
-    "char": "🤦‍♀",
     "name": "woman facepalming",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -984,24 +800,8 @@ export default [
     "subgroup": "person-gesture"
   },
   {
-    "codes": "1F937 200D 2642",
-    "char": "🤷‍♂",
-    "name": "man shrugging",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
     "codes": "1F937 200D 2640 FE0F",
     "char": "🤷‍♀️",
-    "name": "woman shrugging",
-    "category": "People & Body (person-gesture)",
-    "group": "People & Body",
-    "subgroup": "person-gesture"
-  },
-  {
-    "codes": "1F937 200D 2640",
-    "char": "🤷‍♀",
     "name": "woman shrugging",
     "category": "People & Body (person-gesture)",
     "group": "People & Body",
@@ -1016,14 +816,6 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F9D1 200D 2695",
-    "char": "🧑‍⚕",
-    "name": "health worker",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F468 200D 2695 FE0F",
     "char": "👨‍⚕️",
     "name": "man health worker",
@@ -1032,24 +824,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F468 200D 2695",
-    "char": "👨‍⚕",
-    "name": "man health worker",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F469 200D 2695 FE0F",
     "char": "👩‍⚕️",
-    "name": "woman health worker",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F469 200D 2695",
-    "char": "👩‍⚕",
     "name": "woman health worker",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1112,14 +888,6 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F9D1 200D 2696",
-    "char": "🧑‍⚖",
-    "name": "judge",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F468 200D 2696 FE0F",
     "char": "👨‍⚖️",
     "name": "man judge",
@@ -1128,24 +896,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F468 200D 2696",
-    "char": "👨‍⚖",
-    "name": "man judge",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F469 200D 2696 FE0F",
     "char": "👩‍⚖️",
-    "name": "woman judge",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F469 200D 2696",
-    "char": "👩‍⚖",
     "name": "woman judge",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1376,14 +1128,6 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F9D1 200D 2708",
-    "char": "🧑‍✈",
-    "name": "pilot",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F468 200D 2708 FE0F",
     "char": "👨‍✈️",
     "name": "man pilot",
@@ -1392,24 +1136,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F468 200D 2708",
-    "char": "👨‍✈",
-    "name": "man pilot",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F469 200D 2708 FE0F",
     "char": "👩‍✈️",
-    "name": "woman pilot",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F469 200D 2708",
-    "char": "👩‍✈",
     "name": "woman pilot",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1480,24 +1208,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F46E 200D 2642",
-    "char": "👮‍♂",
-    "name": "man police officer",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F46E 200D 2640 FE0F",
     "char": "👮‍♀️",
-    "name": "woman police officer",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F46E 200D 2640",
-    "char": "👮‍♀",
     "name": "woman police officer",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1512,14 +1224,6 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F575",
-    "char": "🕵",
-    "name": "detective",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F575 FE0F 200D 2642 FE0F",
     "char": "🕵️‍♂️",
     "name": "man detective",
@@ -1528,56 +1232,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F575 200D 2642 FE0F",
-    "char": "🕵‍♂️",
-    "name": "man detective",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F575 FE0F 200D 2642",
-    "char": "🕵️‍♂",
-    "name": "man detective",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F575 200D 2642",
-    "char": "🕵‍♂",
-    "name": "man detective",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F575 FE0F 200D 2640 FE0F",
     "char": "🕵️‍♀️",
-    "name": "woman detective",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F575 200D 2640 FE0F",
-    "char": "🕵‍♀️",
-    "name": "woman detective",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F575 FE0F 200D 2640",
-    "char": "🕵️‍♀",
-    "name": "woman detective",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F575 200D 2640",
-    "char": "🕵‍♀",
     "name": "woman detective",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1600,24 +1256,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F482 200D 2642",
-    "char": "💂‍♂",
-    "name": "man guard",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F482 200D 2640 FE0F",
     "char": "💂‍♀️",
-    "name": "woman guard",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F482 200D 2640",
-    "char": "💂‍♀",
     "name": "woman guard",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1648,24 +1288,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F477 200D 2642",
-    "char": "👷‍♂",
-    "name": "man construction worker",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F477 200D 2640 FE0F",
     "char": "👷‍♀️",
-    "name": "woman construction worker",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F477 200D 2640",
-    "char": "👷‍♀",
     "name": "woman construction worker",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1712,24 +1336,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F473 200D 2642",
-    "char": "👳‍♂",
-    "name": "man wearing turban",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F473 200D 2640 FE0F",
     "char": "👳‍♀️",
-    "name": "woman wearing turban",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F473 200D 2640",
-    "char": "👳‍♀",
     "name": "woman wearing turban",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1768,24 +1376,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F935 200D 2642",
-    "char": "🤵‍♂",
-    "name": "man in tuxedo",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F935 200D 2640 FE0F",
     "char": "🤵‍♀️",
-    "name": "woman in tuxedo",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F935 200D 2640",
-    "char": "🤵‍♀",
     "name": "woman in tuxedo",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1808,24 +1400,8 @@ export default [
     "subgroup": "person-role"
   },
   {
-    "codes": "1F470 200D 2642",
-    "char": "👰‍♂",
-    "name": "man with veil",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
     "codes": "1F470 200D 2640 FE0F",
     "char": "👰‍♀️",
-    "name": "woman with veil",
-    "category": "People & Body (person-role)",
-    "group": "People & Body",
-    "subgroup": "person-role"
-  },
-  {
-    "codes": "1F470 200D 2640",
-    "char": "👰‍♀",
     "name": "woman with veil",
     "category": "People & Body (person-role)",
     "group": "People & Body",
@@ -1936,24 +1512,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9B8 200D 2642",
-    "char": "🦸‍♂",
-    "name": "man superhero",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9B8 200D 2640 FE0F",
     "char": "🦸‍♀️",
-    "name": "woman superhero",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9B8 200D 2640",
-    "char": "🦸‍♀",
     "name": "woman superhero",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -1976,24 +1536,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9B9 200D 2642",
-    "char": "🦹‍♂",
-    "name": "man supervillain",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9B9 200D 2640 FE0F",
     "char": "🦹‍♀️",
-    "name": "woman supervillain",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9B9 200D 2640",
-    "char": "🦹‍♀",
     "name": "woman supervillain",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -2016,24 +1560,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9D9 200D 2642",
-    "char": "🧙‍♂",
-    "name": "man mage",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9D9 200D 2640 FE0F",
     "char": "🧙‍♀️",
-    "name": "woman mage",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9D9 200D 2640",
-    "char": "🧙‍♀",
     "name": "woman mage",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -2056,24 +1584,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9DA 200D 2642",
-    "char": "🧚‍♂",
-    "name": "man fairy",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9DA 200D 2640 FE0F",
     "char": "🧚‍♀️",
-    "name": "woman fairy",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9DA 200D 2640",
-    "char": "🧚‍♀",
     "name": "woman fairy",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -2096,24 +1608,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9DB 200D 2642",
-    "char": "🧛‍♂",
-    "name": "man vampire",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9DB 200D 2640 FE0F",
     "char": "🧛‍♀️",
-    "name": "woman vampire",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9DB 200D 2640",
-    "char": "🧛‍♀",
     "name": "woman vampire",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -2136,24 +1632,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9DC 200D 2642",
-    "char": "🧜‍♂",
-    "name": "merman",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9DC 200D 2640 FE0F",
     "char": "🧜‍♀️",
-    "name": "mermaid",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9DC 200D 2640",
-    "char": "🧜‍♀",
     "name": "mermaid",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -2176,24 +1656,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9DD 200D 2642",
-    "char": "🧝‍♂",
-    "name": "man elf",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9DD 200D 2640 FE0F",
     "char": "🧝‍♀️",
-    "name": "woman elf",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9DD 200D 2640",
-    "char": "🧝‍♀",
     "name": "woman elf",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -2216,24 +1680,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9DE 200D 2642",
-    "char": "🧞‍♂",
-    "name": "man genie",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9DE 200D 2640 FE0F",
     "char": "🧞‍♀️",
-    "name": "woman genie",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9DE 200D 2640",
-    "char": "🧞‍♀",
     "name": "woman genie",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -2256,24 +1704,8 @@ export default [
     "subgroup": "person-fantasy"
   },
   {
-    "codes": "1F9DF 200D 2642",
-    "char": "🧟‍♂",
-    "name": "man zombie",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
     "codes": "1F9DF 200D 2640 FE0F",
     "char": "🧟‍♀️",
-    "name": "woman zombie",
-    "category": "People & Body (person-fantasy)",
-    "group": "People & Body",
-    "subgroup": "person-fantasy"
-  },
-  {
-    "codes": "1F9DF 200D 2640",
-    "char": "🧟‍♀",
     "name": "woman zombie",
     "category": "People & Body (person-fantasy)",
     "group": "People & Body",
@@ -2304,24 +1736,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F486 200D 2642",
-    "char": "💆‍♂",
-    "name": "man getting massage",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F486 200D 2640 FE0F",
     "char": "💆‍♀️",
-    "name": "woman getting massage",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F486 200D 2640",
-    "char": "💆‍♀",
     "name": "woman getting massage",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2344,24 +1760,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F487 200D 2642",
-    "char": "💇‍♂",
-    "name": "man getting haircut",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F487 200D 2640 FE0F",
     "char": "💇‍♀️",
-    "name": "woman getting haircut",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F487 200D 2640",
-    "char": "💇‍♀",
     "name": "woman getting haircut",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2384,24 +1784,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F6B6 200D 2642",
-    "char": "🚶‍♂",
-    "name": "man walking",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F6B6 200D 2640 FE0F",
     "char": "🚶‍♀️",
-    "name": "woman walking",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F6B6 200D 2640",
-    "char": "🚶‍♀",
     "name": "woman walking",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2416,14 +1800,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F6B6 200D 27A1",
-    "char": "🚶‍➡",
-    "name": "person walking facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F6B6 200D 2640 FE0F 200D 27A1 FE0F",
     "char": "🚶‍♀️‍➡️",
     "name": "woman walking facing right",
@@ -2432,56 +1808,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F6B6 200D 2640 200D 27A1 FE0F",
-    "char": "🚶‍♀‍➡️",
-    "name": "woman walking facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F6B6 200D 2640 FE0F 200D 27A1",
-    "char": "🚶‍♀️‍➡",
-    "name": "woman walking facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F6B6 200D 2640 200D 27A1",
-    "char": "🚶‍♀‍➡",
-    "name": "woman walking facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F6B6 200D 2642 FE0F 200D 27A1 FE0F",
     "char": "🚶‍♂️‍➡️",
-    "name": "man walking facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F6B6 200D 2642 200D 27A1 FE0F",
-    "char": "🚶‍♂‍➡️",
-    "name": "man walking facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F6B6 200D 2642 FE0F 200D 27A1",
-    "char": "🚶‍♂️‍➡",
-    "name": "man walking facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F6B6 200D 2642 200D 27A1",
-    "char": "🚶‍♂‍➡",
     "name": "man walking facing right",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2504,24 +1832,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F9CD 200D 2642",
-    "char": "🧍‍♂",
-    "name": "man standing",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F9CD 200D 2640 FE0F",
     "char": "🧍‍♀️",
-    "name": "woman standing",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9CD 200D 2640",
-    "char": "🧍‍♀",
     "name": "woman standing",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2544,24 +1856,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F9CE 200D 2642",
-    "char": "🧎‍♂",
-    "name": "man kneeling",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F9CE 200D 2640 FE0F",
     "char": "🧎‍♀️",
-    "name": "woman kneeling",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9CE 200D 2640",
-    "char": "🧎‍♀",
     "name": "woman kneeling",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2576,14 +1872,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F9CE 200D 27A1",
-    "char": "🧎‍➡",
-    "name": "person kneeling facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F9CE 200D 2640 FE0F 200D 27A1 FE0F",
     "char": "🧎‍♀️‍➡️",
     "name": "woman kneeling facing right",
@@ -2592,56 +1880,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F9CE 200D 2640 200D 27A1 FE0F",
-    "char": "🧎‍♀‍➡️",
-    "name": "woman kneeling facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9CE 200D 2640 FE0F 200D 27A1",
-    "char": "🧎‍♀️‍➡",
-    "name": "woman kneeling facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9CE 200D 2640 200D 27A1",
-    "char": "🧎‍♀‍➡",
-    "name": "woman kneeling facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F9CE 200D 2642 FE0F 200D 27A1 FE0F",
     "char": "🧎‍♂️‍➡️",
-    "name": "man kneeling facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9CE 200D 2642 200D 27A1 FE0F",
-    "char": "🧎‍♂‍➡️",
-    "name": "man kneeling facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9CE 200D 2642 FE0F 200D 27A1",
-    "char": "🧎‍♂️‍➡",
-    "name": "man kneeling facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9CE 200D 2642 200D 27A1",
-    "char": "🧎‍♂‍➡",
     "name": "man kneeling facing right",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2664,14 +1904,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F9D1 200D 1F9AF 200D 27A1",
-    "char": "🧑‍🦯‍➡",
-    "name": "person with white cane facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F468 200D 1F9AF",
     "char": "👨‍🦯",
     "name": "man with white cane",
@@ -2682,14 +1914,6 @@ export default [
   {
     "codes": "1F468 200D 1F9AF 200D 27A1 FE0F",
     "char": "👨‍🦯‍➡️",
-    "name": "man with white cane facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F468 200D 1F9AF 200D 27A1",
-    "char": "👨‍🦯‍➡",
     "name": "man with white cane facing right",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2712,14 +1936,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F469 200D 1F9AF 200D 27A1",
-    "char": "👩‍🦯‍➡",
-    "name": "woman with white cane facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F9D1 200D 1F9BC",
     "char": "🧑‍🦼",
     "name": "person in motorized wheelchair",
@@ -2730,14 +1946,6 @@ export default [
   {
     "codes": "1F9D1 200D 1F9BC 200D 27A1 FE0F",
     "char": "🧑‍🦼‍➡️",
-    "name": "person in motorized wheelchair facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9D1 200D 1F9BC 200D 27A1",
-    "char": "🧑‍🦼‍➡",
     "name": "person in motorized wheelchair facing right",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2760,14 +1968,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F468 200D 1F9BC 200D 27A1",
-    "char": "👨‍🦼‍➡",
-    "name": "man in motorized wheelchair facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F469 200D 1F9BC",
     "char": "👩‍🦼",
     "name": "woman in motorized wheelchair",
@@ -2778,14 +1978,6 @@ export default [
   {
     "codes": "1F469 200D 1F9BC 200D 27A1 FE0F",
     "char": "👩‍🦼‍➡️",
-    "name": "woman in motorized wheelchair facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F469 200D 1F9BC 200D 27A1",
-    "char": "👩‍🦼‍➡",
     "name": "woman in motorized wheelchair facing right",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2808,14 +2000,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F9D1 200D 1F9BD 200D 27A1",
-    "char": "🧑‍🦽‍➡",
-    "name": "person in manual wheelchair facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F468 200D 1F9BD",
     "char": "👨‍🦽",
     "name": "man in manual wheelchair",
@@ -2826,14 +2010,6 @@ export default [
   {
     "codes": "1F468 200D 1F9BD 200D 27A1 FE0F",
     "char": "👨‍🦽‍➡️",
-    "name": "man in manual wheelchair facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F468 200D 1F9BD 200D 27A1",
-    "char": "👨‍🦽‍➡",
     "name": "man in manual wheelchair facing right",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2856,14 +2032,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F469 200D 1F9BD 200D 27A1",
-    "char": "👩‍🦽‍➡",
-    "name": "woman in manual wheelchair facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F3C3",
     "char": "🏃",
     "name": "person running",
@@ -2880,24 +2048,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F3C3 200D 2642",
-    "char": "🏃‍♂",
-    "name": "man running",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F3C3 200D 2640 FE0F",
     "char": "🏃‍♀️",
-    "name": "woman running",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F3C3 200D 2640",
-    "char": "🏃‍♀",
     "name": "woman running",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -2912,14 +2064,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F3C3 200D 27A1",
-    "char": "🏃‍➡",
-    "name": "person running facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F3C3 200D 2640 FE0F 200D 27A1 FE0F",
     "char": "🏃‍♀️‍➡️",
     "name": "woman running facing right",
@@ -2928,56 +2072,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F3C3 200D 2640 200D 27A1 FE0F",
-    "char": "🏃‍♀‍➡️",
-    "name": "woman running facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F3C3 200D 2640 FE0F 200D 27A1",
-    "char": "🏃‍♀️‍➡",
-    "name": "woman running facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F3C3 200D 2640 200D 27A1",
-    "char": "🏃‍♀‍➡",
-    "name": "woman running facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F3C3 200D 2642 FE0F 200D 27A1 FE0F",
     "char": "🏃‍♂️‍➡️",
-    "name": "man running facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F3C3 200D 2642 200D 27A1 FE0F",
-    "char": "🏃‍♂‍➡️",
-    "name": "man running facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F3C3 200D 2642 FE0F 200D 27A1",
-    "char": "🏃‍♂️‍➡",
-    "name": "man running facing right",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F3C3 200D 2642 200D 27A1",
-    "char": "🏃‍♂‍➡",
     "name": "man running facing right",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -3008,14 +2104,6 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F574",
-    "char": "🕴",
-    "name": "person in suit levitating",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F46F",
     "char": "👯",
     "name": "people with bunny ears",
@@ -3032,24 +2120,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F46F 200D 2642",
-    "char": "👯‍♂",
-    "name": "men with bunny ears",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F46F 200D 2640 FE0F",
     "char": "👯‍♀️",
-    "name": "women with bunny ears",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F46F 200D 2640",
-    "char": "👯‍♀",
     "name": "women with bunny ears",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -3072,24 +2144,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F9D6 200D 2642",
-    "char": "🧖‍♂",
-    "name": "man in steamy room",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F9D6 200D 2640 FE0F",
     "char": "🧖‍♀️",
-    "name": "woman in steamy room",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9D6 200D 2640",
-    "char": "🧖‍♀",
     "name": "woman in steamy room",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -3112,24 +2168,8 @@ export default [
     "subgroup": "person-activity"
   },
   {
-    "codes": "1F9D7 200D 2642",
-    "char": "🧗‍♂",
-    "name": "man climbing",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
     "codes": "1F9D7 200D 2640 FE0F",
     "char": "🧗‍♀️",
-    "name": "woman climbing",
-    "category": "People & Body (person-activity)",
-    "group": "People & Body",
-    "subgroup": "person-activity"
-  },
-  {
-    "codes": "1F9D7 200D 2640",
-    "char": "🧗‍♀",
     "name": "woman climbing",
     "category": "People & Body (person-activity)",
     "group": "People & Body",
@@ -3160,14 +2200,6 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "26F7",
-    "char": "⛷",
-    "name": "skier",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F3C2",
     "char": "🏂",
     "name": "snowboarder",
@@ -3184,14 +2216,6 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F3CC",
-    "char": "🏌",
-    "name": "person golfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F3CC FE0F 200D 2642 FE0F",
     "char": "🏌️‍♂️",
     "name": "man golfing",
@@ -3200,56 +2224,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F3CC 200D 2642 FE0F",
-    "char": "🏌‍♂️",
-    "name": "man golfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CC FE0F 200D 2642",
-    "char": "🏌️‍♂",
-    "name": "man golfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CC 200D 2642",
-    "char": "🏌‍♂",
-    "name": "man golfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F3CC FE0F 200D 2640 FE0F",
     "char": "🏌️‍♀️",
-    "name": "woman golfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CC 200D 2640 FE0F",
-    "char": "🏌‍♀️",
-    "name": "woman golfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CC FE0F 200D 2640",
-    "char": "🏌️‍♀",
-    "name": "woman golfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CC 200D 2640",
-    "char": "🏌‍♀",
     "name": "woman golfing",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3272,24 +2248,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F3C4 200D 2642",
-    "char": "🏄‍♂",
-    "name": "man surfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F3C4 200D 2640 FE0F",
     "char": "🏄‍♀️",
-    "name": "woman surfing",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3C4 200D 2640",
-    "char": "🏄‍♀",
     "name": "woman surfing",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3312,24 +2272,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F6A3 200D 2642",
-    "char": "🚣‍♂",
-    "name": "man rowing boat",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F6A3 200D 2640 FE0F",
     "char": "🚣‍♀️",
-    "name": "woman rowing boat",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F6A3 200D 2640",
-    "char": "🚣‍♀",
     "name": "woman rowing boat",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3352,24 +2296,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F3CA 200D 2642",
-    "char": "🏊‍♂",
-    "name": "man swimming",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F3CA 200D 2640 FE0F",
     "char": "🏊‍♀️",
-    "name": "woman swimming",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CA 200D 2640",
-    "char": "🏊‍♀",
     "name": "woman swimming",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3384,40 +2312,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "26F9",
-    "char": "⛹",
-    "name": "person bouncing ball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "26F9 FE0F 200D 2642 FE0F",
     "char": "⛹️‍♂️",
-    "name": "man bouncing ball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "26F9 200D 2642 FE0F",
-    "char": "⛹‍♂️",
-    "name": "man bouncing ball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "26F9 FE0F 200D 2642",
-    "char": "⛹️‍♂",
-    "name": "man bouncing ball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "26F9 200D 2642",
-    "char": "⛹‍♂",
     "name": "man bouncing ball",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3432,40 +2328,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "26F9 200D 2640 FE0F",
-    "char": "⛹‍♀️",
-    "name": "woman bouncing ball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "26F9 FE0F 200D 2640",
-    "char": "⛹️‍♀",
-    "name": "woman bouncing ball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "26F9 200D 2640",
-    "char": "⛹‍♀",
-    "name": "woman bouncing ball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F3CB FE0F",
     "char": "🏋️",
-    "name": "person lifting weights",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CB",
-    "char": "🏋",
     "name": "person lifting weights",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3480,56 +2344,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F3CB 200D 2642 FE0F",
-    "char": "🏋‍♂️",
-    "name": "man lifting weights",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CB FE0F 200D 2642",
-    "char": "🏋️‍♂",
-    "name": "man lifting weights",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CB 200D 2642",
-    "char": "🏋‍♂",
-    "name": "man lifting weights",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F3CB FE0F 200D 2640 FE0F",
     "char": "🏋️‍♀️",
-    "name": "woman lifting weights",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CB 200D 2640 FE0F",
-    "char": "🏋‍♀️",
-    "name": "woman lifting weights",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CB FE0F 200D 2640",
-    "char": "🏋️‍♀",
-    "name": "woman lifting weights",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F3CB 200D 2640",
-    "char": "🏋‍♀",
     "name": "woman lifting weights",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3552,24 +2368,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F6B4 200D 2642",
-    "char": "🚴‍♂",
-    "name": "man biking",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F6B4 200D 2640 FE0F",
     "char": "🚴‍♀️",
-    "name": "woman biking",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F6B4 200D 2640",
-    "char": "🚴‍♀",
     "name": "woman biking",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3592,24 +2392,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F6B5 200D 2642",
-    "char": "🚵‍♂",
-    "name": "man mountain biking",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F6B5 200D 2640 FE0F",
     "char": "🚵‍♀️",
-    "name": "woman mountain biking",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F6B5 200D 2640",
-    "char": "🚵‍♀",
     "name": "woman mountain biking",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3632,24 +2416,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F938 200D 2642",
-    "char": "🤸‍♂",
-    "name": "man cartwheeling",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F938 200D 2640 FE0F",
     "char": "🤸‍♀️",
-    "name": "woman cartwheeling",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F938 200D 2640",
-    "char": "🤸‍♀",
     "name": "woman cartwheeling",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3672,24 +2440,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F93C 200D 2642",
-    "char": "🤼‍♂",
-    "name": "men wrestling",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F93C 200D 2640 FE0F",
     "char": "🤼‍♀️",
-    "name": "women wrestling",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F93C 200D 2640",
-    "char": "🤼‍♀",
     "name": "women wrestling",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3712,24 +2464,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F93D 200D 2642",
-    "char": "🤽‍♂",
-    "name": "man playing water polo",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F93D 200D 2640 FE0F",
     "char": "🤽‍♀️",
-    "name": "woman playing water polo",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F93D 200D 2640",
-    "char": "🤽‍♀",
     "name": "woman playing water polo",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3752,24 +2488,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F93E 200D 2642",
-    "char": "🤾‍♂",
-    "name": "man playing handball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F93E 200D 2640 FE0F",
     "char": "🤾‍♀️",
-    "name": "woman playing handball",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F93E 200D 2640",
-    "char": "🤾‍♀",
     "name": "woman playing handball",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3792,24 +2512,8 @@ export default [
     "subgroup": "person-sport"
   },
   {
-    "codes": "1F939 200D 2642",
-    "char": "🤹‍♂",
-    "name": "man juggling",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
     "codes": "1F939 200D 2640 FE0F",
     "char": "🤹‍♀️",
-    "name": "woman juggling",
-    "category": "People & Body (person-sport)",
-    "group": "People & Body",
-    "subgroup": "person-sport"
-  },
-  {
-    "codes": "1F939 200D 2640",
-    "char": "🤹‍♀",
     "name": "woman juggling",
     "category": "People & Body (person-sport)",
     "group": "People & Body",
@@ -3832,24 +2536,8 @@ export default [
     "subgroup": "person-resting"
   },
   {
-    "codes": "1F9D8 200D 2642",
-    "char": "🧘‍♂",
-    "name": "man in lotus position",
-    "category": "People & Body (person-resting)",
-    "group": "People & Body",
-    "subgroup": "person-resting"
-  },
-  {
     "codes": "1F9D8 200D 2640 FE0F",
     "char": "🧘‍♀️",
-    "name": "woman in lotus position",
-    "category": "People & Body (person-resting)",
-    "group": "People & Body",
-    "subgroup": "person-resting"
-  },
-  {
-    "codes": "1F9D8 200D 2640",
-    "char": "🧘‍♀",
     "name": "woman in lotus position",
     "category": "People & Body (person-resting)",
     "group": "People & Body",
@@ -3922,14 +2610,6 @@ export default [
   {
     "codes": "1F5E3 FE0F",
     "char": "🗣️",
-    "name": "speaking head",
-    "category": "People & Body (person-symbol)",
-    "group": "People & Body",
-    "subgroup": "person-symbol"
-  },
-  {
-    "codes": "1F5E3",
-    "char": "🗣",
     "name": "speaking head",
     "category": "People & Body (person-symbol)",
     "group": "People & Body",

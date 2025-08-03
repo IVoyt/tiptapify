@@ -40,14 +40,6 @@ export default [
     "subgroup": "place-map"
   },
   {
-    "codes": "1F5FA",
-    "char": "🗺",
-    "name": "world map",
-    "category": "Travel & Places (place-map)",
-    "group": "Travel & Places",
-    "subgroup": "place-map"
-  },
-  {
     "codes": "1F5FE",
     "char": "🗾",
     "name": "map of Japan",
@@ -72,24 +64,8 @@ export default [
     "subgroup": "place-geographic"
   },
   {
-    "codes": "1F3D4",
-    "char": "🏔",
-    "name": "snow-capped mountain",
-    "category": "Travel & Places (place-geographic)",
-    "group": "Travel & Places",
-    "subgroup": "place-geographic"
-  },
-  {
     "codes": "26F0 FE0F",
     "char": "⛰️",
-    "name": "mountain",
-    "category": "Travel & Places (place-geographic)",
-    "group": "Travel & Places",
-    "subgroup": "place-geographic"
-  },
-  {
-    "codes": "26F0",
-    "char": "⛰",
     "name": "mountain",
     "category": "Travel & Places (place-geographic)",
     "group": "Travel & Places",
@@ -120,24 +96,8 @@ export default [
     "subgroup": "place-geographic"
   },
   {
-    "codes": "1F3D5",
-    "char": "🏕",
-    "name": "camping",
-    "category": "Travel & Places (place-geographic)",
-    "group": "Travel & Places",
-    "subgroup": "place-geographic"
-  },
-  {
     "codes": "1F3D6 FE0F",
     "char": "🏖️",
-    "name": "beach with umbrella",
-    "category": "Travel & Places (place-geographic)",
-    "group": "Travel & Places",
-    "subgroup": "place-geographic"
-  },
-  {
-    "codes": "1F3D6",
-    "char": "🏖",
     "name": "beach with umbrella",
     "category": "Travel & Places (place-geographic)",
     "group": "Travel & Places",
@@ -152,24 +112,8 @@ export default [
     "subgroup": "place-geographic"
   },
   {
-    "codes": "1F3DC",
-    "char": "🏜",
-    "name": "desert",
-    "category": "Travel & Places (place-geographic)",
-    "group": "Travel & Places",
-    "subgroup": "place-geographic"
-  },
-  {
     "codes": "1F3DD FE0F",
     "char": "🏝️",
-    "name": "desert island",
-    "category": "Travel & Places (place-geographic)",
-    "group": "Travel & Places",
-    "subgroup": "place-geographic"
-  },
-  {
-    "codes": "1F3DD",
-    "char": "🏝",
     "name": "desert island",
     "category": "Travel & Places (place-geographic)",
     "group": "Travel & Places",
@@ -184,24 +128,8 @@ export default [
     "subgroup": "place-geographic"
   },
   {
-    "codes": "1F3DE",
-    "char": "🏞",
-    "name": "national park",
-    "category": "Travel & Places (place-geographic)",
-    "group": "Travel & Places",
-    "subgroup": "place-geographic"
-  },
-  {
     "codes": "1F3DF FE0F",
     "char": "🏟️",
-    "name": "stadium",
-    "category": "Travel & Places (place-building)",
-    "group": "Travel & Places",
-    "subgroup": "place-building"
-  },
-  {
-    "codes": "1F3DF",
-    "char": "🏟",
     "name": "stadium",
     "category": "Travel & Places (place-building)",
     "group": "Travel & Places",
@@ -216,24 +144,8 @@ export default [
     "subgroup": "place-building"
   },
   {
-    "codes": "1F3DB",
-    "char": "🏛",
-    "name": "classical building",
-    "category": "Travel & Places (place-building)",
-    "group": "Travel & Places",
-    "subgroup": "place-building"
-  },
-  {
     "codes": "1F3D7 FE0F",
     "char": "🏗️",
-    "name": "building construction",
-    "category": "Travel & Places (place-building)",
-    "group": "Travel & Places",
-    "subgroup": "place-building"
-  },
-  {
-    "codes": "1F3D7",
-    "char": "🏗",
     "name": "building construction",
     "category": "Travel & Places (place-building)",
     "group": "Travel & Places",
@@ -280,24 +192,8 @@ export default [
     "subgroup": "place-building"
   },
   {
-    "codes": "1F3D8",
-    "char": "🏘",
-    "name": "houses",
-    "category": "Travel & Places (place-building)",
-    "group": "Travel & Places",
-    "subgroup": "place-building"
-  },
-  {
     "codes": "1F3DA FE0F",
     "char": "🏚️",
-    "name": "derelict house",
-    "category": "Travel & Places (place-building)",
-    "group": "Travel & Places",
-    "subgroup": "place-building"
-  },
-  {
-    "codes": "1F3DA",
-    "char": "🏚",
     "name": "derelict house",
     "category": "Travel & Places (place-building)",
     "group": "Travel & Places",
@@ -488,14 +384,6 @@ export default [
     "subgroup": "place-religious"
   },
   {
-    "codes": "26E9",
-    "char": "⛩",
-    "name": "shinto shrine",
-    "category": "Travel & Places (place-religious)",
-    "group": "Travel & Places",
-    "subgroup": "place-religious"
-  },
-  {
     "codes": "1F54B",
     "char": "🕋",
     "name": "kaaba",
@@ -544,14 +432,6 @@ export default [
     "subgroup": "place-other"
   },
   {
-    "codes": "1F3D9",
-    "char": "🏙",
-    "name": "cityscape",
-    "category": "Travel & Places (place-other)",
-    "group": "Travel & Places",
-    "subgroup": "place-other"
-  },
-  {
     "codes": "1F304",
     "char": "🌄",
     "name": "sunrise over mountains",
@@ -594,14 +474,6 @@ export default [
   {
     "codes": "2668 FE0F",
     "char": "♨️",
-    "name": "hot springs",
-    "category": "Travel & Places (place-other)",
-    "group": "Travel & Places",
-    "subgroup": "place-other"
-  },
-  {
-    "codes": "2668",
-    "char": "♨",
     "name": "hot springs",
     "category": "Travel & Places (place-other)",
     "group": "Travel & Places",
@@ -896,24 +768,8 @@ export default [
     "subgroup": "transport-ground"
   },
   {
-    "codes": "1F3CE",
-    "char": "🏎",
-    "name": "racing car",
-    "category": "Travel & Places (transport-ground)",
-    "group": "Travel & Places",
-    "subgroup": "transport-ground"
-  },
-  {
     "codes": "1F3CD FE0F",
     "char": "🏍️",
-    "name": "motorcycle",
-    "category": "Travel & Places (transport-ground)",
-    "group": "Travel & Places",
-    "subgroup": "transport-ground"
-  },
-  {
-    "codes": "1F3CD",
-    "char": "🏍",
     "name": "motorcycle",
     "category": "Travel & Places (transport-ground)",
     "group": "Travel & Places",
@@ -1000,14 +856,6 @@ export default [
     "subgroup": "transport-ground"
   },
   {
-    "codes": "1F6E3",
-    "char": "🛣",
-    "name": "motorway",
-    "category": "Travel & Places (transport-ground)",
-    "group": "Travel & Places",
-    "subgroup": "transport-ground"
-  },
-  {
     "codes": "1F6E4 FE0F",
     "char": "🛤️",
     "name": "railway track",
@@ -1016,24 +864,8 @@ export default [
     "subgroup": "transport-ground"
   },
   {
-    "codes": "1F6E4",
-    "char": "🛤",
-    "name": "railway track",
-    "category": "Travel & Places (transport-ground)",
-    "group": "Travel & Places",
-    "subgroup": "transport-ground"
-  },
-  {
     "codes": "1F6E2 FE0F",
     "char": "🛢️",
-    "name": "oil drum",
-    "category": "Travel & Places (transport-ground)",
-    "group": "Travel & Places",
-    "subgroup": "transport-ground"
-  },
-  {
-    "codes": "1F6E2",
-    "char": "🛢",
     "name": "oil drum",
     "category": "Travel & Places (transport-ground)",
     "group": "Travel & Places",
@@ -1144,14 +976,6 @@ export default [
     "subgroup": "transport-water"
   },
   {
-    "codes": "1F6F3",
-    "char": "🛳",
-    "name": "passenger ship",
-    "category": "Travel & Places (transport-water)",
-    "group": "Travel & Places",
-    "subgroup": "transport-water"
-  },
-  {
     "codes": "26F4 FE0F",
     "char": "⛴️",
     "name": "ferry",
@@ -1160,24 +984,8 @@ export default [
     "subgroup": "transport-water"
   },
   {
-    "codes": "26F4",
-    "char": "⛴",
-    "name": "ferry",
-    "category": "Travel & Places (transport-water)",
-    "group": "Travel & Places",
-    "subgroup": "transport-water"
-  },
-  {
     "codes": "1F6E5 FE0F",
     "char": "🛥️",
-    "name": "motor boat",
-    "category": "Travel & Places (transport-water)",
-    "group": "Travel & Places",
-    "subgroup": "transport-water"
-  },
-  {
-    "codes": "1F6E5",
-    "char": "🛥",
     "name": "motor boat",
     "category": "Travel & Places (transport-water)",
     "group": "Travel & Places",
@@ -1200,24 +1008,8 @@ export default [
     "subgroup": "transport-air"
   },
   {
-    "codes": "2708",
-    "char": "✈",
-    "name": "airplane",
-    "category": "Travel & Places (transport-air)",
-    "group": "Travel & Places",
-    "subgroup": "transport-air"
-  },
-  {
     "codes": "1F6E9 FE0F",
     "char": "🛩️",
-    "name": "small airplane",
-    "category": "Travel & Places (transport-air)",
-    "group": "Travel & Places",
-    "subgroup": "transport-air"
-  },
-  {
-    "codes": "1F6E9",
-    "char": "🛩",
     "name": "small airplane",
     "category": "Travel & Places (transport-air)",
     "group": "Travel & Places",
@@ -1296,14 +1088,6 @@ export default [
     "subgroup": "transport-air"
   },
   {
-    "codes": "1F6F0",
-    "char": "🛰",
-    "name": "satellite",
-    "category": "Travel & Places (transport-air)",
-    "group": "Travel & Places",
-    "subgroup": "transport-air"
-  },
-  {
     "codes": "1F680",
     "char": "🚀",
     "name": "rocket",
@@ -1322,14 +1106,6 @@ export default [
   {
     "codes": "1F6CE FE0F",
     "char": "🛎️",
-    "name": "bellhop bell",
-    "category": "Travel & Places (hotel)",
-    "group": "Travel & Places",
-    "subgroup": "hotel"
-  },
-  {
-    "codes": "1F6CE",
-    "char": "🛎",
     "name": "bellhop bell",
     "category": "Travel & Places (hotel)",
     "group": "Travel & Places",
@@ -1384,14 +1160,6 @@ export default [
     "subgroup": "time"
   },
   {
-    "codes": "23F1",
-    "char": "⏱",
-    "name": "stopwatch",
-    "category": "Travel & Places (time)",
-    "group": "Travel & Places",
-    "subgroup": "time"
-  },
-  {
     "codes": "23F2 FE0F",
     "char": "⏲️",
     "name": "timer clock",
@@ -1400,24 +1168,8 @@ export default [
     "subgroup": "time"
   },
   {
-    "codes": "23F2",
-    "char": "⏲",
-    "name": "timer clock",
-    "category": "Travel & Places (time)",
-    "group": "Travel & Places",
-    "subgroup": "time"
-  },
-  {
     "codes": "1F570 FE0F",
     "char": "🕰️",
-    "name": "mantelpiece clock",
-    "category": "Travel & Places (time)",
-    "group": "Travel & Places",
-    "subgroup": "time"
-  },
-  {
-    "codes": "1F570",
-    "char": "🕰",
     "name": "mantelpiece clock",
     "category": "Travel & Places (time)",
     "group": "Travel & Places",
@@ -1720,24 +1472,8 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "1F321",
-    "char": "🌡",
-    "name": "thermometer",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "2600 FE0F",
     "char": "☀️",
-    "name": "sun",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "2600",
-    "char": "☀",
     "name": "sun",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",
@@ -1808,14 +1544,6 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "2601",
-    "char": "☁",
-    "name": "cloud",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "26C5",
     "char": "⛅",
     "name": "sun behind cloud",
@@ -1832,24 +1560,8 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "26C8",
-    "char": "⛈",
-    "name": "cloud with lightning and rain",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "1F324 FE0F",
     "char": "🌤️",
-    "name": "sun behind small cloud",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "1F324",
-    "char": "🌤",
     "name": "sun behind small cloud",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",
@@ -1864,24 +1576,8 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "1F325",
-    "char": "🌥",
-    "name": "sun behind large cloud",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "1F326 FE0F",
     "char": "🌦️",
-    "name": "sun behind rain cloud",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "1F326",
-    "char": "🌦",
     "name": "sun behind rain cloud",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",
@@ -1896,24 +1592,8 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "1F327",
-    "char": "🌧",
-    "name": "cloud with rain",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "1F328 FE0F",
     "char": "🌨️",
-    "name": "cloud with snow",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "1F328",
-    "char": "🌨",
     "name": "cloud with snow",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",
@@ -1928,24 +1608,8 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "1F329",
-    "char": "🌩",
-    "name": "cloud with lightning",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "1F32A FE0F",
     "char": "🌪️",
-    "name": "tornado",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "1F32A",
-    "char": "🌪",
     "name": "tornado",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",
@@ -1960,24 +1624,8 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "1F32B",
-    "char": "🌫",
-    "name": "fog",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "1F32C FE0F",
     "char": "🌬️",
-    "name": "wind face",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "1F32C",
-    "char": "🌬",
     "name": "wind face",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",
@@ -2016,14 +1664,6 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "2602",
-    "char": "☂",
-    "name": "umbrella",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "2614",
     "char": "☔",
     "name": "umbrella with rain drops",
@@ -2034,14 +1674,6 @@ export default [
   {
     "codes": "26F1 FE0F",
     "char": "⛱️",
-    "name": "umbrella on ground",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "26F1",
-    "char": "⛱",
     "name": "umbrella on ground",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",
@@ -2064,24 +1696,8 @@ export default [
     "subgroup": "sky & weather"
   },
   {
-    "codes": "2744",
-    "char": "❄",
-    "name": "snowflake",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
     "codes": "2603 FE0F",
     "char": "☃️",
-    "name": "snowman",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "2603",
-    "char": "☃",
     "name": "snowman",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",
@@ -2098,14 +1714,6 @@ export default [
   {
     "codes": "2604 FE0F",
     "char": "☄️",
-    "name": "comet",
-    "category": "Travel & Places (sky & weather)",
-    "group": "Travel & Places",
-    "subgroup": "sky & weather"
-  },
-  {
-    "codes": "2604",
-    "char": "☄",
     "name": "comet",
     "category": "Travel & Places (sky & weather)",
     "group": "Travel & Places",

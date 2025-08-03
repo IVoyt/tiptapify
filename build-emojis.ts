@@ -13,6 +13,9 @@ emojiGroups.forEach(emojiGroup => {
   const emojis = []
   groupEmojis.forEach(emoji => {
     if (!/: \S+/.test(emoji.name) || group_name === 'flags') {
+      if (emojis.find(e => e.name === emoji.name)) {
+        return
+      }
       emojis.push(emoji)
     }
   })
