@@ -74,37 +74,31 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <VContainer>
-    <VRow>
-      <VCol>
-        <template v-if="toolbar">
-          <Toolbar
-              v-if="editor"
-              :variant-btn="variantBtn"
-              :variant-field="variantField"
-              :font-measure="fontMeasure"
-              :items="items"
-              :items-exclude="itemsExclude"
-              :rounded="rounded"
-              :custom-extensions="customExtensions"
-              :theme="currentTheme"
-          />
-        </template>
+  <template v-if="toolbar">
+    <Toolbar
+        v-if="editor"
+        :variant-btn="variantBtn"
+        :variant-field="variantField"
+        :font-measure="fontMeasure"
+        :items="items"
+        :items-exclude="itemsExclude"
+        :rounded="rounded"
+        :custom-extensions="customExtensions"
+        :theme="currentTheme"
+    />
+  </template>
 
-        <div :class="`border border-t-0 rounded-b-${rounded}`">
-          <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
-            <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
+  <div :class="`border border-t-0 rounded-b-${rounded}`">
+    <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
+      <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 
-            <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
+      <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
 
-            <EditorContent :editor="editor" class="tiptapify-editor" />
-          </div>
+      <EditorContent :editor="editor" class="tiptapify-editor" />
+    </div>
 
-          <Footer :show-words-count="showWordsCount" :show-characters-count="showCharactersCount" />
-        </div>
-      </VCol>
-    </VRow>
-  </VContainer>
+    <Footer :show-words-count="showWordsCount" :show-characters-count="showCharactersCount" />
+  </div>
 </template>
 
 <style scoped lang="scss">

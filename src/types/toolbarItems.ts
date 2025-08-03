@@ -20,7 +20,6 @@ export type ToolbarItem = {
   component?: any,
   modelValue?: any,
   group?: boolean,
-  toggle?: boolean,
   icon2Props?: ToolbarItemProps,
   componentProps?: ToolbarItemProps,
   props?: ToolbarItemProps,
@@ -34,7 +33,6 @@ export type ToolbarItems = {
 
 export type ToolbarItemSection = {
   group?: boolean,
-  toggle?: boolean,
   items: ToolbarItems | {},
 }
 

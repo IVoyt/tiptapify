@@ -19,8 +19,6 @@ const toolbarItemsRef: Ref<ToolbarItemSections> = ref(computed(() => props.items
     <template v-for="(toolbarSection, sectionKey) in toolbarItemsRef" :key="sectionKey">
       <Group v-if="toolbarSection.group" :variant="variantBtn" :toolbar-section="toolbarSection" />
 
-      <Toggle v-else-if="toolbarSection.toggle" :variant="variantBtn" :toolbar-section="toolbarSection" />
-
       <VBtn
           v-else
           v-for="(toolbarItem, itemKey) in toolbarSection.items"

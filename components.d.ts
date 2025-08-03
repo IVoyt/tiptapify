@@ -19,6 +19,5 @@ declare module 'vue' {
     MenuFloating: typeof import('./src/components/MenuFloating.vue')['default']
     Tiptapify: typeof import('./src/components/Tiptapify.vue')['default']
     TiptapifyDialog: typeof import('./src/components/UI/TiptapifyDialog.vue')['default']
-    Toggle: typeof import('./src/components/Toolbar/Toggle.vue')['default']
   }
 }
