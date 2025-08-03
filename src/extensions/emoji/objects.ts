@@ -16,14 +16,6 @@ export default [
     "subgroup": "clothing"
   },
   {
-    "codes": "1F576",
-    "char": "🕶",
-    "name": "sunglasses",
-    "category": "Objects (clothing)",
-    "group": "Objects",
-    "subgroup": "clothing"
-  },
-  {
     "codes": "1F97D",
     "char": "🥽",
     "name": "goggles",
@@ -208,14 +200,6 @@ export default [
     "subgroup": "clothing"
   },
   {
-    "codes": "1F6CD",
-    "char": "🛍",
-    "name": "shopping bags",
-    "category": "Objects (clothing)",
-    "group": "Objects",
-    "subgroup": "clothing"
-  },
-  {
     "codes": "1F392",
     "char": "🎒",
     "name": "backpack",
@@ -360,14 +344,6 @@ export default [
     "subgroup": "clothing"
   },
   {
-    "codes": "26D1",
-    "char": "⛑",
-    "name": "rescue worker’s helmet",
-    "category": "Objects (clothing)",
-    "group": "Objects",
-    "subgroup": "clothing"
-  },
-  {
     "codes": "1F4FF",
     "char": "📿",
     "name": "prayer beads",
@@ -504,14 +480,6 @@ export default [
     "subgroup": "music"
   },
   {
-    "codes": "1F399",
-    "char": "🎙",
-    "name": "studio microphone",
-    "category": "Objects (music)",
-    "group": "Objects",
-    "subgroup": "music"
-  },
-  {
     "codes": "1F39A FE0F",
     "char": "🎚️",
     "name": "level slider",
@@ -520,24 +488,8 @@ export default [
     "subgroup": "music"
   },
   {
-    "codes": "1F39A",
-    "char": "🎚",
-    "name": "level slider",
-    "category": "Objects (music)",
-    "group": "Objects",
-    "subgroup": "music"
-  },
-  {
     "codes": "1F39B FE0F",
     "char": "🎛️",
-    "name": "control knobs",
-    "category": "Objects (music)",
-    "group": "Objects",
-    "subgroup": "music"
-  },
-  {
-    "codes": "1F39B",
-    "char": "🎛",
     "name": "control knobs",
     "category": "Objects (music)",
     "group": "Objects",
@@ -688,14 +640,6 @@ export default [
     "subgroup": "phone"
   },
   {
-    "codes": "260E",
-    "char": "☎",
-    "name": "telephone",
-    "category": "Objects (phone)",
-    "group": "Objects",
-    "subgroup": "phone"
-  },
-  {
     "codes": "1F4DE",
     "char": "📞",
     "name": "telephone receiver",
@@ -760,24 +704,8 @@ export default [
     "subgroup": "computer"
   },
   {
-    "codes": "1F5A5",
-    "char": "🖥",
-    "name": "desktop computer",
-    "category": "Objects (computer)",
-    "group": "Objects",
-    "subgroup": "computer"
-  },
-  {
     "codes": "1F5A8 FE0F",
     "char": "🖨️",
-    "name": "printer",
-    "category": "Objects (computer)",
-    "group": "Objects",
-    "subgroup": "computer"
-  },
-  {
-    "codes": "1F5A8",
-    "char": "🖨",
     "name": "printer",
     "category": "Objects (computer)",
     "group": "Objects",
@@ -792,14 +720,6 @@ export default [
     "subgroup": "computer"
   },
   {
-    "codes": "2328",
-    "char": "⌨",
-    "name": "keyboard",
-    "category": "Objects (computer)",
-    "group": "Objects",
-    "subgroup": "computer"
-  },
-  {
     "codes": "1F5B1 FE0F",
     "char": "🖱️",
     "name": "computer mouse",
@@ -808,24 +728,8 @@ export default [
     "subgroup": "computer"
   },
   {
-    "codes": "1F5B1",
-    "char": "🖱",
-    "name": "computer mouse",
-    "category": "Objects (computer)",
-    "group": "Objects",
-    "subgroup": "computer"
-  },
-  {
     "codes": "1F5B2 FE0F",
     "char": "🖲️",
-    "name": "trackball",
-    "category": "Objects (computer)",
-    "group": "Objects",
-    "subgroup": "computer"
-  },
-  {
-    "codes": "1F5B2",
-    "char": "🖲",
     "name": "trackball",
     "category": "Objects (computer)",
     "group": "Objects",
@@ -888,24 +792,8 @@ export default [
     "subgroup": "light & video"
   },
   {
-    "codes": "1F39E",
-    "char": "🎞",
-    "name": "film frames",
-    "category": "Objects (light & video)",
-    "group": "Objects",
-    "subgroup": "light & video"
-  },
-  {
     "codes": "1F4FD FE0F",
     "char": "📽️",
-    "name": "film projector",
-    "category": "Objects (light & video)",
-    "group": "Objects",
-    "subgroup": "light & video"
-  },
-  {
-    "codes": "1F4FD",
-    "char": "📽",
     "name": "film projector",
     "category": "Objects (light & video)",
     "group": "Objects",
@@ -978,14 +866,6 @@ export default [
   {
     "codes": "1F56F FE0F",
     "char": "🕯️",
-    "name": "candle",
-    "category": "Objects (light & video)",
-    "group": "Objects",
-    "subgroup": "light & video"
-  },
-  {
-    "codes": "1F56F",
-    "char": "🕯",
     "name": "candle",
     "category": "Objects (light & video)",
     "group": "Objects",
@@ -1136,14 +1016,6 @@ export default [
     "subgroup": "book-paper"
   },
   {
-    "codes": "1F5DE",
-    "char": "🗞",
-    "name": "rolled-up newspaper",
-    "category": "Objects (book-paper)",
-    "group": "Objects",
-    "subgroup": "book-paper"
-  },
-  {
     "codes": "1F4D1",
     "char": "📑",
     "name": "bookmark tabs",
@@ -1162,14 +1034,6 @@ export default [
   {
     "codes": "1F3F7 FE0F",
     "char": "🏷️",
-    "name": "label",
-    "category": "Objects (book-paper)",
-    "group": "Objects",
-    "subgroup": "book-paper"
-  },
-  {
-    "codes": "1F3F7",
-    "char": "🏷",
     "name": "label",
     "category": "Objects (book-paper)",
     "group": "Objects",
@@ -1258,14 +1122,6 @@ export default [
   {
     "codes": "2709 FE0F",
     "char": "✉️",
-    "name": "envelope",
-    "category": "Objects (mail)",
-    "group": "Objects",
-    "subgroup": "mail"
-  },
-  {
-    "codes": "2709",
-    "char": "✉",
     "name": "envelope",
     "category": "Objects (mail)",
     "group": "Objects",
@@ -1368,24 +1224,8 @@ export default [
     "subgroup": "mail"
   },
   {
-    "codes": "1F5F3",
-    "char": "🗳",
-    "name": "ballot box with ballot",
-    "category": "Objects (mail)",
-    "group": "Objects",
-    "subgroup": "mail"
-  },
-  {
     "codes": "270F FE0F",
     "char": "✏️",
-    "name": "pencil",
-    "category": "Objects (writing)",
-    "group": "Objects",
-    "subgroup": "writing"
-  },
-  {
-    "codes": "270F",
-    "char": "✏",
     "name": "pencil",
     "category": "Objects (writing)",
     "group": "Objects",
@@ -1400,24 +1240,8 @@ export default [
     "subgroup": "writing"
   },
   {
-    "codes": "2712",
-    "char": "✒",
-    "name": "black nib",
-    "category": "Objects (writing)",
-    "group": "Objects",
-    "subgroup": "writing"
-  },
-  {
     "codes": "1F58B FE0F",
     "char": "🖋️",
-    "name": "fountain pen",
-    "category": "Objects (writing)",
-    "group": "Objects",
-    "subgroup": "writing"
-  },
-  {
-    "codes": "1F58B",
-    "char": "🖋",
     "name": "fountain pen",
     "category": "Objects (writing)",
     "group": "Objects",
@@ -1432,14 +1256,6 @@ export default [
     "subgroup": "writing"
   },
   {
-    "codes": "1F58A",
-    "char": "🖊",
-    "name": "pen",
-    "category": "Objects (writing)",
-    "group": "Objects",
-    "subgroup": "writing"
-  },
-  {
     "codes": "1F58C FE0F",
     "char": "🖌️",
     "name": "paintbrush",
@@ -1448,24 +1264,8 @@ export default [
     "subgroup": "writing"
   },
   {
-    "codes": "1F58C",
-    "char": "🖌",
-    "name": "paintbrush",
-    "category": "Objects (writing)",
-    "group": "Objects",
-    "subgroup": "writing"
-  },
-  {
     "codes": "1F58D FE0F",
     "char": "🖍️",
-    "name": "crayon",
-    "category": "Objects (writing)",
-    "group": "Objects",
-    "subgroup": "writing"
-  },
-  {
-    "codes": "1F58D",
-    "char": "🖍",
     "name": "crayon",
     "category": "Objects (writing)",
     "group": "Objects",
@@ -1512,14 +1312,6 @@ export default [
     "subgroup": "office"
   },
   {
-    "codes": "1F5C2",
-    "char": "🗂",
-    "name": "card index dividers",
-    "category": "Objects (office)",
-    "group": "Objects",
-    "subgroup": "office"
-  },
-  {
     "codes": "1F4C5",
     "char": "📅",
     "name": "calendar",
@@ -1544,24 +1336,8 @@ export default [
     "subgroup": "office"
   },
   {
-    "codes": "1F5D2",
-    "char": "🗒",
-    "name": "spiral notepad",
-    "category": "Objects (office)",
-    "group": "Objects",
-    "subgroup": "office"
-  },
-  {
     "codes": "1F5D3 FE0F",
     "char": "🗓️",
-    "name": "spiral calendar",
-    "category": "Objects (office)",
-    "group": "Objects",
-    "subgroup": "office"
-  },
-  {
-    "codes": "1F5D3",
-    "char": "🗓",
     "name": "spiral calendar",
     "category": "Objects (office)",
     "group": "Objects",
@@ -1640,14 +1416,6 @@ export default [
     "subgroup": "office"
   },
   {
-    "codes": "1F587",
-    "char": "🖇",
-    "name": "linked paperclips",
-    "category": "Objects (office)",
-    "group": "Objects",
-    "subgroup": "office"
-  },
-  {
     "codes": "1F4CF",
     "char": "📏",
     "name": "straight ruler",
@@ -1672,24 +1440,8 @@ export default [
     "subgroup": "office"
   },
   {
-    "codes": "2702",
-    "char": "✂",
-    "name": "scissors",
-    "category": "Objects (office)",
-    "group": "Objects",
-    "subgroup": "office"
-  },
-  {
     "codes": "1F5C3 FE0F",
     "char": "🗃️",
-    "name": "card file box",
-    "category": "Objects (office)",
-    "group": "Objects",
-    "subgroup": "office"
-  },
-  {
-    "codes": "1F5C3",
-    "char": "🗃",
     "name": "card file box",
     "category": "Objects (office)",
     "group": "Objects",
@@ -1704,24 +1456,8 @@ export default [
     "subgroup": "office"
   },
   {
-    "codes": "1F5C4",
-    "char": "🗄",
-    "name": "file cabinet",
-    "category": "Objects (office)",
-    "group": "Objects",
-    "subgroup": "office"
-  },
-  {
     "codes": "1F5D1 FE0F",
     "char": "🗑️",
-    "name": "wastebasket",
-    "category": "Objects (office)",
-    "group": "Objects",
-    "subgroup": "office"
-  },
-  {
-    "codes": "1F5D1",
-    "char": "🗑",
     "name": "wastebasket",
     "category": "Objects (office)",
     "group": "Objects",
@@ -1776,14 +1512,6 @@ export default [
     "subgroup": "lock"
   },
   {
-    "codes": "1F5DD",
-    "char": "🗝",
-    "name": "old key",
-    "category": "Objects (lock)",
-    "group": "Objects",
-    "subgroup": "lock"
-  },
-  {
     "codes": "1F528",
     "char": "🔨",
     "name": "hammer",
@@ -1808,24 +1536,8 @@ export default [
     "subgroup": "tool"
   },
   {
-    "codes": "26CF",
-    "char": "⛏",
-    "name": "pick",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
     "codes": "2692 FE0F",
     "char": "⚒️",
-    "name": "hammer and pick",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
-    "codes": "2692",
-    "char": "⚒",
     "name": "hammer and pick",
     "category": "Objects (tool)",
     "group": "Objects",
@@ -1840,14 +1552,6 @@ export default [
     "subgroup": "tool"
   },
   {
-    "codes": "1F6E0",
-    "char": "🛠",
-    "name": "hammer and wrench",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
     "codes": "1F5E1 FE0F",
     "char": "🗡️",
     "name": "dagger",
@@ -1856,24 +1560,8 @@ export default [
     "subgroup": "tool"
   },
   {
-    "codes": "1F5E1",
-    "char": "🗡",
-    "name": "dagger",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
     "codes": "2694 FE0F",
     "char": "⚔️",
-    "name": "crossed swords",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
-    "codes": "2694",
-    "char": "⚔",
     "name": "crossed swords",
     "category": "Objects (tool)",
     "group": "Objects",
@@ -1906,14 +1594,6 @@ export default [
   {
     "codes": "1F6E1 FE0F",
     "char": "🛡️",
-    "name": "shield",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
-    "codes": "1F6E1",
-    "char": "🛡",
     "name": "shield",
     "category": "Objects (tool)",
     "group": "Objects",
@@ -1960,14 +1640,6 @@ export default [
     "subgroup": "tool"
   },
   {
-    "codes": "2699",
-    "char": "⚙",
-    "name": "gear",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
     "codes": "1F5DC FE0F",
     "char": "🗜️",
     "name": "clamp",
@@ -1976,24 +1648,8 @@ export default [
     "subgroup": "tool"
   },
   {
-    "codes": "1F5DC",
-    "char": "🗜",
-    "name": "clamp",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
     "codes": "2696 FE0F",
     "char": "⚖️",
-    "name": "balance scale",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
-    "codes": "2696",
-    "char": "⚖",
     "name": "balance scale",
     "category": "Objects (tool)",
     "group": "Objects",
@@ -2024,24 +1680,8 @@ export default [
     "subgroup": "tool"
   },
   {
-    "codes": "26D3 200D 1F4A5",
-    "char": "⛓‍💥",
-    "name": "broken chain",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
     "codes": "26D3 FE0F",
     "char": "⛓️",
-    "name": "chains",
-    "category": "Objects (tool)",
-    "group": "Objects",
-    "subgroup": "tool"
-  },
-  {
-    "codes": "26D3",
-    "char": "⛓",
     "name": "chains",
     "category": "Objects (tool)",
     "group": "Objects",
@@ -2090,14 +1730,6 @@ export default [
   {
     "codes": "2697 FE0F",
     "char": "⚗️",
-    "name": "alembic",
-    "category": "Objects (science)",
-    "group": "Objects",
-    "subgroup": "science"
-  },
-  {
-    "codes": "2697",
-    "char": "⚗",
     "name": "alembic",
     "category": "Objects (science)",
     "group": "Objects",
@@ -2248,24 +1880,8 @@ export default [
     "subgroup": "household"
   },
   {
-    "codes": "1F6CF",
-    "char": "🛏",
-    "name": "bed",
-    "category": "Objects (household)",
-    "group": "Objects",
-    "subgroup": "household"
-  },
-  {
     "codes": "1F6CB FE0F",
     "char": "🛋️",
-    "name": "couch and lamp",
-    "category": "Objects (household)",
-    "group": "Objects",
-    "subgroup": "household"
-  },
-  {
-    "codes": "1F6CB",
-    "char": "🛋",
     "name": "couch and lamp",
     "category": "Objects (household)",
     "group": "Objects",
@@ -2440,14 +2056,6 @@ export default [
     "subgroup": "other-object"
   },
   {
-    "codes": "26B0",
-    "char": "⚰",
-    "name": "coffin",
-    "category": "Objects (other-object)",
-    "group": "Objects",
-    "subgroup": "other-object"
-  },
-  {
     "codes": "1FAA6",
     "char": "🪦",
     "name": "headstone",
@@ -2458,14 +2066,6 @@ export default [
   {
     "codes": "26B1 FE0F",
     "char": "⚱️",
-    "name": "funeral urn",
-    "category": "Objects (other-object)",
-    "group": "Objects",
-    "subgroup": "other-object"
-  },
-  {
-    "codes": "26B1",
-    "char": "⚱",
     "name": "funeral urn",
     "category": "Objects (other-object)",
     "group": "Objects",

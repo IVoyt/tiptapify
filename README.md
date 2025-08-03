@@ -112,8 +112,8 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] dark theme
 - [x] emoji extension
 - [x] video extensions
+- [x] filter option in emoji extension
 - [ ] extended video extensions
-- [ ] search option in emoji extension
 - [ ] print hotkey in a tooltip
 - [ ] option to use custom component for link & media extension
 - [ ] option to provide custom extension

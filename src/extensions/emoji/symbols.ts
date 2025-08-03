@@ -112,14 +112,6 @@ export default [
     "subgroup": "warning"
   },
   {
-    "codes": "26A0",
-    "char": "⚠",
-    "name": "warning",
-    "category": "Symbols (warning)",
-    "group": "Symbols",
-    "subgroup": "warning"
-  },
-  {
     "codes": "1F6B8",
     "char": "🚸",
     "name": "children crossing",
@@ -208,24 +200,8 @@ export default [
     "subgroup": "warning"
   },
   {
-    "codes": "2622",
-    "char": "☢",
-    "name": "radioactive",
-    "category": "Symbols (warning)",
-    "group": "Symbols",
-    "subgroup": "warning"
-  },
-  {
     "codes": "2623 FE0F",
     "char": "☣️",
-    "name": "biohazard",
-    "category": "Symbols (warning)",
-    "group": "Symbols",
-    "subgroup": "warning"
-  },
-  {
-    "codes": "2623",
-    "char": "☣",
     "name": "biohazard",
     "category": "Symbols (warning)",
     "group": "Symbols",
@@ -240,24 +216,8 @@ export default [
     "subgroup": "arrow"
   },
   {
-    "codes": "2B06",
-    "char": "⬆",
-    "name": "up arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
     "codes": "2197 FE0F",
     "char": "↗️",
-    "name": "up-right arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
-    "codes": "2197",
-    "char": "↗",
     "name": "up-right arrow",
     "category": "Symbols (arrow)",
     "group": "Symbols",
@@ -272,24 +232,8 @@ export default [
     "subgroup": "arrow"
   },
   {
-    "codes": "27A1",
-    "char": "➡",
-    "name": "right arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
     "codes": "2198 FE0F",
     "char": "↘️",
-    "name": "down-right arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
-    "codes": "2198",
-    "char": "↘",
     "name": "down-right arrow",
     "category": "Symbols (arrow)",
     "group": "Symbols",
@@ -304,24 +248,8 @@ export default [
     "subgroup": "arrow"
   },
   {
-    "codes": "2B07",
-    "char": "⬇",
-    "name": "down arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
     "codes": "2199 FE0F",
     "char": "↙️",
-    "name": "down-left arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
-    "codes": "2199",
-    "char": "↙",
     "name": "down-left arrow",
     "category": "Symbols (arrow)",
     "group": "Symbols",
@@ -336,24 +264,8 @@ export default [
     "subgroup": "arrow"
   },
   {
-    "codes": "2B05",
-    "char": "⬅",
-    "name": "left arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
     "codes": "2196 FE0F",
     "char": "↖️",
-    "name": "up-left arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
-    "codes": "2196",
-    "char": "↖",
     "name": "up-left arrow",
     "category": "Symbols (arrow)",
     "group": "Symbols",
@@ -368,24 +280,8 @@ export default [
     "subgroup": "arrow"
   },
   {
-    "codes": "2195",
-    "char": "↕",
-    "name": "up-down arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
     "codes": "2194 FE0F",
     "char": "↔️",
-    "name": "left-right arrow",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
-    "codes": "2194",
-    "char": "↔",
     "name": "left-right arrow",
     "category": "Symbols (arrow)",
     "group": "Symbols",
@@ -400,24 +296,8 @@ export default [
     "subgroup": "arrow"
   },
   {
-    "codes": "21A9",
-    "char": "↩",
-    "name": "right arrow curving left",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
     "codes": "21AA FE0F",
     "char": "↪️",
-    "name": "left arrow curving right",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
-    "codes": "21AA",
-    "char": "↪",
     "name": "left arrow curving right",
     "category": "Symbols (arrow)",
     "group": "Symbols",
@@ -432,24 +312,8 @@ export default [
     "subgroup": "arrow"
   },
   {
-    "codes": "2934",
-    "char": "⤴",
-    "name": "right arrow curving up",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
     "codes": "2935 FE0F",
     "char": "⤵️",
-    "name": "right arrow curving down",
-    "category": "Symbols (arrow)",
-    "group": "Symbols",
-    "subgroup": "arrow"
-  },
-  {
-    "codes": "2935",
-    "char": "⤵",
     "name": "right arrow curving down",
     "category": "Symbols (arrow)",
     "group": "Symbols",
@@ -528,24 +392,8 @@ export default [
     "subgroup": "religion"
   },
   {
-    "codes": "269B",
-    "char": "⚛",
-    "name": "atom symbol",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
     "codes": "1F549 FE0F",
     "char": "🕉️",
-    "name": "om",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
-    "codes": "1F549",
-    "char": "🕉",
     "name": "om",
     "category": "Symbols (religion)",
     "group": "Symbols",
@@ -560,24 +408,8 @@ export default [
     "subgroup": "religion"
   },
   {
-    "codes": "2721",
-    "char": "✡",
-    "name": "star of David",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
     "codes": "2638 FE0F",
     "char": "☸️",
-    "name": "wheel of dharma",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
-    "codes": "2638",
-    "char": "☸",
     "name": "wheel of dharma",
     "category": "Symbols (religion)",
     "group": "Symbols",
@@ -592,24 +424,8 @@ export default [
     "subgroup": "religion"
   },
   {
-    "codes": "262F",
-    "char": "☯",
-    "name": "yin yang",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
     "codes": "271D FE0F",
     "char": "✝️",
-    "name": "latin cross",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
-    "codes": "271D",
-    "char": "✝",
     "name": "latin cross",
     "category": "Symbols (religion)",
     "group": "Symbols",
@@ -624,14 +440,6 @@ export default [
     "subgroup": "religion"
   },
   {
-    "codes": "2626",
-    "char": "☦",
-    "name": "orthodox cross",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
     "codes": "262A FE0F",
     "char": "☪️",
     "name": "star and crescent",
@@ -640,24 +448,8 @@ export default [
     "subgroup": "religion"
   },
   {
-    "codes": "262A",
-    "char": "☪",
-    "name": "star and crescent",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
     "codes": "262E FE0F",
     "char": "☮️",
-    "name": "peace symbol",
-    "category": "Symbols (religion)",
-    "group": "Symbols",
-    "subgroup": "religion"
-  },
-  {
-    "codes": "262E",
-    "char": "☮",
     "name": "peace symbol",
     "category": "Symbols (religion)",
     "group": "Symbols",
@@ -824,14 +616,6 @@ export default [
     "subgroup": "av-symbol"
   },
   {
-    "codes": "25B6",
-    "char": "▶",
-    "name": "play button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
     "codes": "23E9",
     "char": "⏩",
     "name": "fast-forward button",
@@ -848,14 +632,6 @@ export default [
     "subgroup": "av-symbol"
   },
   {
-    "codes": "23ED",
-    "char": "⏭",
-    "name": "next track button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
     "codes": "23EF FE0F",
     "char": "⏯️",
     "name": "play or pause button",
@@ -864,24 +640,8 @@ export default [
     "subgroup": "av-symbol"
   },
   {
-    "codes": "23EF",
-    "char": "⏯",
-    "name": "play or pause button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
     "codes": "25C0 FE0F",
     "char": "◀️",
-    "name": "reverse button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
-    "codes": "25C0",
-    "char": "◀",
     "name": "reverse button",
     "category": "Symbols (av-symbol)",
     "group": "Symbols",
@@ -898,14 +658,6 @@ export default [
   {
     "codes": "23EE FE0F",
     "char": "⏮️",
-    "name": "last track button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
-    "codes": "23EE",
-    "char": "⏮",
     "name": "last track button",
     "category": "Symbols (av-symbol)",
     "group": "Symbols",
@@ -952,24 +704,8 @@ export default [
     "subgroup": "av-symbol"
   },
   {
-    "codes": "23F8",
-    "char": "⏸",
-    "name": "pause button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
     "codes": "23F9 FE0F",
     "char": "⏹️",
-    "name": "stop button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
-    "codes": "23F9",
-    "char": "⏹",
     "name": "stop button",
     "category": "Symbols (av-symbol)",
     "group": "Symbols",
@@ -984,24 +720,8 @@ export default [
     "subgroup": "av-symbol"
   },
   {
-    "codes": "23FA",
-    "char": "⏺",
-    "name": "record button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
     "codes": "23CF FE0F",
     "char": "⏏️",
-    "name": "eject button",
-    "category": "Symbols (av-symbol)",
-    "group": "Symbols",
-    "subgroup": "av-symbol"
-  },
-  {
-    "codes": "23CF",
-    "char": "⏏",
     "name": "eject button",
     "category": "Symbols (av-symbol)",
     "group": "Symbols",
@@ -1072,24 +792,8 @@ export default [
     "subgroup": "gender"
   },
   {
-    "codes": "2640",
-    "char": "♀",
-    "name": "female sign",
-    "category": "Symbols (gender)",
-    "group": "Symbols",
-    "subgroup": "gender"
-  },
-  {
     "codes": "2642 FE0F",
     "char": "♂️",
-    "name": "male sign",
-    "category": "Symbols (gender)",
-    "group": "Symbols",
-    "subgroup": "gender"
-  },
-  {
-    "codes": "2642",
-    "char": "♂",
     "name": "male sign",
     "category": "Symbols (gender)",
     "group": "Symbols",
@@ -1104,24 +808,8 @@ export default [
     "subgroup": "gender"
   },
   {
-    "codes": "26A7",
-    "char": "⚧",
-    "name": "transgender symbol",
-    "category": "Symbols (gender)",
-    "group": "Symbols",
-    "subgroup": "gender"
-  },
-  {
     "codes": "2716 FE0F",
     "char": "✖️",
-    "name": "multiply",
-    "category": "Symbols (math)",
-    "group": "Symbols",
-    "subgroup": "math"
-  },
-  {
-    "codes": "2716",
-    "char": "✖",
     "name": "multiply",
     "category": "Symbols (math)",
     "group": "Symbols",
@@ -1168,14 +856,6 @@ export default [
     "subgroup": "math"
   },
   {
-    "codes": "267E",
-    "char": "♾",
-    "name": "infinity",
-    "category": "Symbols (math)",
-    "group": "Symbols",
-    "subgroup": "math"
-  },
-  {
     "codes": "203C FE0F",
     "char": "‼️",
     "name": "double exclamation mark",
@@ -1184,24 +864,8 @@ export default [
     "subgroup": "punctuation"
   },
   {
-    "codes": "203C",
-    "char": "‼",
-    "name": "double exclamation mark",
-    "category": "Symbols (punctuation)",
-    "group": "Symbols",
-    "subgroup": "punctuation"
-  },
-  {
     "codes": "2049 FE0F",
     "char": "⁉️",
-    "name": "exclamation question mark",
-    "category": "Symbols (punctuation)",
-    "group": "Symbols",
-    "subgroup": "punctuation"
-  },
-  {
-    "codes": "2049",
-    "char": "⁉",
     "name": "exclamation question mark",
     "category": "Symbols (punctuation)",
     "group": "Symbols",
@@ -1248,14 +912,6 @@ export default [
     "subgroup": "punctuation"
   },
   {
-    "codes": "3030",
-    "char": "〰",
-    "name": "wavy dash",
-    "category": "Symbols (punctuation)",
-    "group": "Symbols",
-    "subgroup": "punctuation"
-  },
-  {
     "codes": "1F4B1",
     "char": "💱",
     "name": "currency exchange",
@@ -1280,14 +936,6 @@ export default [
     "subgroup": "other-symbol"
   },
   {
-    "codes": "2695",
-    "char": "⚕",
-    "name": "medical symbol",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
     "codes": "267B FE0F",
     "char": "♻️",
     "name": "recycling symbol",
@@ -1296,24 +944,8 @@ export default [
     "subgroup": "other-symbol"
   },
   {
-    "codes": "267B",
-    "char": "♻",
-    "name": "recycling symbol",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
     "codes": "269C FE0F",
     "char": "⚜️",
-    "name": "fleur-de-lis",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
-    "codes": "269C",
-    "char": "⚜",
     "name": "fleur-de-lis",
     "category": "Symbols (other-symbol)",
     "group": "Symbols",
@@ -1368,24 +1000,8 @@ export default [
     "subgroup": "other-symbol"
   },
   {
-    "codes": "2611",
-    "char": "☑",
-    "name": "check box with check",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
     "codes": "2714 FE0F",
     "char": "✔️",
-    "name": "check mark",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
-    "codes": "2714",
-    "char": "✔",
     "name": "check mark",
     "category": "Symbols (other-symbol)",
     "group": "Symbols",
@@ -1432,24 +1048,8 @@ export default [
     "subgroup": "other-symbol"
   },
   {
-    "codes": "303D",
-    "char": "〽",
-    "name": "part alternation mark",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
     "codes": "2733 FE0F",
     "char": "✳️",
-    "name": "eight-spoked asterisk",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
-    "codes": "2733",
-    "char": "✳",
     "name": "eight-spoked asterisk",
     "category": "Symbols (other-symbol)",
     "group": "Symbols",
@@ -1464,24 +1064,8 @@ export default [
     "subgroup": "other-symbol"
   },
   {
-    "codes": "2734",
-    "char": "✴",
-    "name": "eight-pointed star",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
     "codes": "2747 FE0F",
     "char": "❇️",
-    "name": "sparkle",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
-    "codes": "2747",
-    "char": "❇",
     "name": "sparkle",
     "category": "Symbols (other-symbol)",
     "group": "Symbols",
@@ -1496,14 +1080,6 @@ export default [
     "subgroup": "other-symbol"
   },
   {
-    "codes": "00A9",
-    "char": "©",
-    "name": "copyright",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
     "codes": "00AE FE0F",
     "char": "®️",
     "name": "registered",
@@ -1512,24 +1088,8 @@ export default [
     "subgroup": "other-symbol"
   },
   {
-    "codes": "00AE",
-    "char": "®",
-    "name": "registered",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
     "codes": "2122 FE0F",
     "char": "™️",
-    "name": "trade mark",
-    "category": "Symbols (other-symbol)",
-    "group": "Symbols",
-    "subgroup": "other-symbol"
-  },
-  {
-    "codes": "2122",
-    "char": "™",
     "name": "trade mark",
     "category": "Symbols (other-symbol)",
     "group": "Symbols",
@@ -1592,14 +1152,6 @@ export default [
     "subgroup": "alphanum"
   },
   {
-    "codes": "1F170",
-    "char": "🅰",
-    "name": "A button (blood type)",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
     "codes": "1F18E",
     "char": "🆎",
     "name": "AB button (blood type)",
@@ -1610,14 +1162,6 @@ export default [
   {
     "codes": "1F171 FE0F",
     "char": "🅱️",
-    "name": "B button (blood type)",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
-    "codes": "1F171",
-    "char": "🅱",
     "name": "B button (blood type)",
     "category": "Symbols (alphanum)",
     "group": "Symbols",
@@ -1656,14 +1200,6 @@ export default [
     "subgroup": "alphanum"
   },
   {
-    "codes": "2139",
-    "char": "ℹ",
-    "name": "information",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
     "codes": "1F194",
     "char": "🆔",
     "name": "ID button",
@@ -1674,14 +1210,6 @@ export default [
   {
     "codes": "24C2 FE0F",
     "char": "Ⓜ️",
-    "name": "circled M",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
-    "codes": "24C2",
-    "char": "Ⓜ",
     "name": "circled M",
     "category": "Symbols (alphanum)",
     "group": "Symbols",
@@ -1712,14 +1240,6 @@ export default [
     "subgroup": "alphanum"
   },
   {
-    "codes": "1F17E",
-    "char": "🅾",
-    "name": "O button (blood type)",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
     "codes": "1F197",
     "char": "🆗",
     "name": "OK button",
@@ -1730,14 +1250,6 @@ export default [
   {
     "codes": "1F17F FE0F",
     "char": "🅿️",
-    "name": "P button",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
-    "codes": "1F17F",
-    "char": "🅿",
     "name": "P button",
     "category": "Symbols (alphanum)",
     "group": "Symbols",
@@ -1784,24 +1296,8 @@ export default [
     "subgroup": "alphanum"
   },
   {
-    "codes": "1F202",
-    "char": "🈂",
-    "name": "Japanese “service charge” button",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
     "codes": "1F237 FE0F",
     "char": "🈷️",
-    "name": "Japanese “monthly amount” button",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
-    "codes": "1F237",
-    "char": "🈷",
     "name": "Japanese “monthly amount” button",
     "category": "Symbols (alphanum)",
     "group": "Symbols",
@@ -1896,24 +1392,8 @@ export default [
     "subgroup": "alphanum"
   },
   {
-    "codes": "3297",
-    "char": "㊗",
-    "name": "Japanese “congratulations” button",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
     "codes": "3299 FE0F",
     "char": "㊙️",
-    "name": "Japanese “secret” button",
-    "category": "Symbols (alphanum)",
-    "group": "Symbols",
-    "subgroup": "alphanum"
-  },
-  {
-    "codes": "3299",
-    "char": "㊙",
     "name": "Japanese “secret” button",
     "category": "Symbols (alphanum)",
     "group": "Symbols",
@@ -2088,24 +1568,8 @@ export default [
     "subgroup": "geometric"
   },
   {
-    "codes": "25FC",
-    "char": "◼",
-    "name": "black medium square",
-    "category": "Symbols (geometric)",
-    "group": "Symbols",
-    "subgroup": "geometric"
-  },
-  {
     "codes": "25FB FE0F",
     "char": "◻️",
-    "name": "white medium square",
-    "category": "Symbols (geometric)",
-    "group": "Symbols",
-    "subgroup": "geometric"
-  },
-  {
-    "codes": "25FB",
-    "char": "◻",
     "name": "white medium square",
     "category": "Symbols (geometric)",
     "group": "Symbols",
@@ -2136,24 +1600,8 @@ export default [
     "subgroup": "geometric"
   },
   {
-    "codes": "25AA",
-    "char": "▪",
-    "name": "black small square",
-    "category": "Symbols (geometric)",
-    "group": "Symbols",
-    "subgroup": "geometric"
-  },
-  {
     "codes": "25AB FE0F",
     "char": "▫️",
-    "name": "white small square",
-    "category": "Symbols (geometric)",
-    "group": "Symbols",
-    "subgroup": "geometric"
-  },
-  {
-    "codes": "25AB",
-    "char": "▫",
     "name": "white small square",
     "category": "Symbols (geometric)",
     "group": "Symbols",

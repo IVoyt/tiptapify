@@ -1,3 +1,8 @@
+### v0.0.16
+- update Emoji extension appearance
+- Emoji filter option
+- fix build:emojis command
+
 ### v0.0.15
 - fix invisibleCharacters icon color
 - remove unused component Toggle

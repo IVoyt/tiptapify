@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Group from "@tiptapify/components/Toolbar/Group.vue";
-import Toggle from "@tiptapify/components/Toolbar/Toggle.vue";
 import { computed, defineProps, PropType, Ref, ref } from 'vue'
 
 import { ToolbarItemSections } from "@tiptapify/types/toolbarItems";

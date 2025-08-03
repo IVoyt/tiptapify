@@ -208,14 +208,6 @@ export default [
     "subgroup": "food-vegetable"
   },
   {
-    "codes": "1F336",
-    "char": "🌶",
-    "name": "hot pepper",
-    "category": "Food & Drink (food-vegetable)",
-    "group": "Food & Drink",
-    "subgroup": "food-vegetable"
-  },
-  {
     "codes": "1FAD1",
     "char": "🫑",
     "name": "bell pepper",
@@ -1010,14 +1002,6 @@ export default [
   {
     "codes": "1F37D FE0F",
     "char": "🍽️",
-    "name": "fork and knife with plate",
-    "category": "Food & Drink (dishware)",
-    "group": "Food & Drink",
-    "subgroup": "dishware"
-  },
-  {
-    "codes": "1F37D",
-    "char": "🍽",
     "name": "fork and knife with plate",
     "category": "Food & Drink (dishware)",
     "group": "Food & Drink",

@@ -152,24 +152,8 @@ export default [
     "subgroup": "event"
   },
   {
-    "codes": "1F397",
-    "char": "🎗",
-    "name": "reminder ribbon",
-    "category": "Activities (event)",
-    "group": "Activities",
-    "subgroup": "event"
-  },
-  {
     "codes": "1F39F FE0F",
     "char": "🎟️",
-    "name": "admission tickets",
-    "category": "Activities (event)",
-    "group": "Activities",
-    "subgroup": "event"
-  },
-  {
-    "codes": "1F39F",
-    "char": "🎟",
     "name": "admission tickets",
     "category": "Activities (event)",
     "group": "Activities",
@@ -186,14 +170,6 @@ export default [
   {
     "codes": "1F396 FE0F",
     "char": "🎖️",
-    "name": "military medal",
-    "category": "Activities (award-medal)",
-    "group": "Activities",
-    "subgroup": "award-medal"
-  },
-  {
-    "codes": "1F396",
-    "char": "🎖",
     "name": "military medal",
     "category": "Activities (award-medal)",
     "group": "Activities",
@@ -408,14 +384,6 @@ export default [
     "subgroup": "sport"
   },
   {
-    "codes": "26F8",
-    "char": "⛸",
-    "name": "ice skate",
-    "category": "Activities (sport)",
-    "group": "Activities",
-    "subgroup": "sport"
-  },
-  {
     "codes": "1F3A3",
     "char": "🎣",
     "name": "fishing pole",
@@ -536,14 +504,6 @@ export default [
     "subgroup": "game"
   },
   {
-    "codes": "1F579",
-    "char": "🕹",
-    "name": "joystick",
-    "category": "Activities (game)",
-    "group": "Activities",
-    "subgroup": "game"
-  },
-  {
     "codes": "1F3B0",
     "char": "🎰",
     "name": "slot machine",
@@ -608,24 +568,8 @@ export default [
     "subgroup": "game"
   },
   {
-    "codes": "2660",
-    "char": "♠",
-    "name": "spade suit",
-    "category": "Activities (game)",
-    "group": "Activities",
-    "subgroup": "game"
-  },
-  {
     "codes": "2665 FE0F",
     "char": "♥️",
-    "name": "heart suit",
-    "category": "Activities (game)",
-    "group": "Activities",
-    "subgroup": "game"
-  },
-  {
-    "codes": "2665",
-    "char": "♥",
     "name": "heart suit",
     "category": "Activities (game)",
     "group": "Activities",
@@ -640,14 +584,6 @@ export default [
     "subgroup": "game"
   },
   {
-    "codes": "2666",
-    "char": "♦",
-    "name": "diamond suit",
-    "category": "Activities (game)",
-    "group": "Activities",
-    "subgroup": "game"
-  },
-  {
     "codes": "2663 FE0F",
     "char": "♣️",
     "name": "club suit",
@@ -656,24 +592,8 @@ export default [
     "subgroup": "game"
   },
   {
-    "codes": "2663",
-    "char": "♣",
-    "name": "club suit",
-    "category": "Activities (game)",
-    "group": "Activities",
-    "subgroup": "game"
-  },
-  {
     "codes": "265F FE0F",
     "char": "♟️",
-    "name": "chess pawn",
-    "category": "Activities (game)",
-    "group": "Activities",
-    "subgroup": "game"
-  },
-  {
-    "codes": "265F",
-    "char": "♟",
     "name": "chess pawn",
     "category": "Activities (game)",
     "group": "Activities",
@@ -714,14 +634,6 @@ export default [
   {
     "codes": "1F5BC FE0F",
     "char": "🖼️",
-    "name": "framed picture",
-    "category": "Activities (arts & crafts)",
-    "group": "Activities",
-    "subgroup": "arts & crafts"
-  },
-  {
-    "codes": "1F5BC",
-    "char": "🖼",
     "name": "framed picture",
     "category": "Activities (arts & crafts)",
     "group": "Activities",
