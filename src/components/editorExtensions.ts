@@ -113,10 +113,13 @@ export function editorExtensions (placeholder: string, slashCommands: boolean, c
     extensions.push(SlashCommands.configure({ suggestion }))
   }
 
-  if (Object.keys(customExtensions).length) {
-    for (const customExtension of Object.values(customExtensions)) {
-      if (typeof customExtension.extensions !== 'undefined') {
-        for (const extension of customExtension.extensions) {
+  if (customExtensions.length) {
+    for (const customExtension of customExtensions) {
+      for (const component of customExtension.components) {
+        if (typeof component.extensions === 'undefined') {
+          continue
+        }
+        for (const extension of component.extensions) {
           extensions.push(extension)
         }
       }
