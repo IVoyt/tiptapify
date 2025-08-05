@@ -39,7 +39,7 @@ function getColor() {
 
 <template>
   <VBtn
-      id="tiptapify-line-height-button"
+      :id="`tiptapify-line-height-button-${editor.instanceId}`"
       :disabled="!editor.can().chain().focus().unsetLineHeight().run()"
       :color="getColor()"
       size="32"
@@ -50,7 +50,7 @@ function getColor() {
     <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatLineHeight}`" />
   </VBtn>
 
-  <VMenu activator="#tiptapify-line-height-button">
+  <VMenu :activator="`#tiptapify-line-height-button-${editor.instanceId}`">
     <LineHeight :line-heights="lineHeights" :line-height="activeLineHeight" />
   </VMenu>
 </template>

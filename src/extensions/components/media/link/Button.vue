@@ -3,6 +3,7 @@
 import * as mdi from '@mdi/js'
 import { Editor } from "@tiptap/vue-3";
 import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
+import LinkDialog from "@tiptapify/extensions/components/media/link/LinkDialog.vue";
 import { computed, inject, Ref } from "vue";
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -24,6 +25,8 @@ const icon = computed(() => editor.value.isActive('tiptapifyLink') ? `mdiSvg:${m
     </VTooltip>
     <BtnIcon :icon="icon" />
   </VBtn>
+
+  <LinkDialog />
 </template>
 
 <style lang="scss" scoped>

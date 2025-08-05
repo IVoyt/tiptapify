@@ -25,11 +25,12 @@ import { TableKit } from '@tiptap/extension-table'
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 import { InvisibleCharacters } from '@tiptap/extension-invisible-characters'
 
-import { TiptapifyLink } from '@tiptapify/extensions/components/media/link/link'
-import { TiptapifyImage } from '@tiptapify/extensions/components/media/image/image'
+import { TiptapifyLink } from '@tiptapify/extensions/components/media/link'
+import { TiptapifyImage } from '@tiptapify/extensions/components/media/image'
+import { TiptapifyVideo } from '@tiptapify/extensions/components/media/video'
 import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
-import { ViewSource } from '@tiptapify/extensions/view-source'
-import { Preview } from '@tiptapify/extensions/preview'
+import { ViewSource } from '@tiptapify/extensions/components/misc/source'
+import { Preview } from '@tiptapify/extensions/components/misc/preview'
 import SlashCommands from '@tiptapify/extensions/slash-commands'
 import suggestion from '@tiptapify/extensions/components/slashCommands/suggestion'
 import { toolbarSections } from "@tiptapify/types/toolbarSections";
@@ -83,6 +84,7 @@ export function editorExtensions (placeholder: string, slashCommands: boolean, c
       nocookie: true,
     }),
     TiptapifyImage,
+    TiptapifyVideo,
     Superscript,
     Subscript,
     TableKit,

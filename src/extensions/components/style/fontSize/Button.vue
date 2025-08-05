@@ -43,7 +43,7 @@ function getColor() {
 
 <template>
   <VBtn
-      id="tiptapify-font-size-button"
+      :id="`tiptapify-font-size-button-${editor.instanceId}`"
       :disabled="!editor.can().chain().focus().unsetFontSize().run()"
       :color="getColor()"
       size="32"
@@ -54,7 +54,7 @@ function getColor() {
     <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatSize}`" />
   </VBtn>
 
-  <VMenu activator="#tiptapify-font-size-button">
+  <VMenu :activator="`#tiptapify-font-size-button-${editor.instanceId}`">
     <FontSize :sizes="fontSizes" :measure="fontMeasure" :font-size="activeFontSize" />
   </VMenu>
 </template>
