@@ -10,9 +10,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     BtnIcon: typeof import('./src/components/UI/BtnIcon.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
-    Group: typeof import('./src/components/Toolbar/Group.vue')['default']
-    GroupBtn: typeof import('./src/components/Toolbar/GroupBtn.vue')['default']
-    GroupDropdown: typeof import('./src/components/Toolbar/GroupDropdown.vue')['default']
     Index: typeof import('./src/components/Toolbar/Index.vue')['default']
     Items: typeof import('./src/components/Toolbar/Items.vue')['default']
     MenuBubble: typeof import('./src/components/MenuBubble.vue')['default']
