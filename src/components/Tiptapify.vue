@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { extensionComponents } from "@tiptapify/types/extensionComponents";
+import { toolbarSections } from "@tiptapify/types/toolbarSections";
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, watch } from "vue";
 import { default as Toolbar } from "@tiptapify/components/Toolbar/Index.vue";
 import { Editor, EditorContent } from '@tiptap/vue-3'
@@ -34,7 +34,7 @@ const props = defineProps({
   defaultFontFamily: { type: String, default () { return 'Inter' } },
   fontMeasure: { type: String, default () { return 'px' } },
   rounded: { type: String, default () { return '0' } },
-  customExtensions: { type: Object as PropType<extensionComponents>, default() { return {} } },
+  customExtensions: { type: Array as PropType<toolbarSections>, default() { return [] } },
 })
 
 const appTheme = useTheme()
@@ -88,7 +88,7 @@ onBeforeUnmount(() => {
     />
   </template>
 
-  <div :class="`border border-t-0 rounded-b-${rounded}`">
+  <div :class="`tiptapify-editor border border-t-0 rounded-b-${rounded}`">
     <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
       <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 

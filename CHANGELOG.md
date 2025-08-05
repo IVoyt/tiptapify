@@ -1,3 +1,6 @@
+### v0.0.17
+- refactor
+
 ### v0.0.16
 - update Emoji extension appearance
 - Emoji filter option

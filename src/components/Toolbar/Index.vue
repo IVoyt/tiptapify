@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
-import { getDefaultComponents } from "@tiptapify/components/Toolbar/defaultExtensionComponents";
 import Items from "@tiptapify/components/Toolbar/Items.vue";
-import { computed, defineProps, inject, PropType, Ref, ShallowRef, shallowRef } from 'vue'
-import { extensionComponents, ToolbarItemType } from '@tiptapify/types/extensionComponents'
+import { defineProps, inject, PropType, ref, Ref } from 'vue'
+import { toolbarSections } from '@tiptapify/types/toolbarSections'
 
-import { toolbarItems } from "@tiptapify/components/Toolbar/items";
-import { useTheme } from "vuetify/framework";
+import { default as items } from "@tiptapify/components/Toolbar/items";
 
 const props = defineProps({
   variantBtn: { type: String, default () { return 'elevated' }},
@@ -20,47 +18,28 @@ const props = defineProps({
   theme: { type: String, default() { return 'light' } },
   rounded: { type: String, default() { return '0' } },
   toolbarScrollable: { type: Boolean, default() { return false } },
-  customExtensions: { type: Object as PropType<extensionComponents>, default() { return {} } },
+  customExtensions: { type: Array as PropType<toolbarSections>, default() { return {} } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const appTheme = useTheme()
+const toolbarItems = ref<Ref<toolbarSections>>(items)
 
-const items = toolbarItems(
-    appTheme,
-    computed(() => props.fontMeasure).value,
-    { list: computed(() => props.items).value, exclude: computed(() => props.itemsExclude).value },
-    computed(() => props.headingLevels).value,
-    props.customExtensions
-)
-
-const defaultComponents: extensionComponents = getDefaultComponents(props.variantField)
-
-const extensions: ShallowRef<extensionComponents> = shallowRef({})
-Object.keys(defaultComponents).forEach(extension => {
-  extensions.value[extension] = defaultComponents[extension]
-})
 Object.keys(props.customExtensions).forEach(extension => {
-  extensions.value[extension] = props.customExtensions[extension]
+  toolbarItems.value.push(props.customExtensions[extension])
 })
 
 </script>
 
 <template>
-  <div v-if="editor">
+  <div v-if="editor" class="tiptapify-toolbar">
     <VToolbar elevation="1" :theme="theme" height="auto" :class="`ps-1 pr-1 rounded-t-${rounded}`">
       <VSlideGroup v-if="toolbarScrollable">
-        <Items :items="items" />
+        <Items :items="toolbarItems" />
       </VSlideGroup>
 
-      <Items v-else :items="items" />
+      <Items v-else :items="toolbarItems" />
     </VToolbar>
-
-    <!-- mount built-in and/or custom components -->
-    <template v-for="extension in extensions">
-      <component v-if="extension.type !== ToolbarItemType.dropdown" :is="extension.component" v-bind="{ ...extension?.props ?? {}, ...extension?.componentProps ?? {} }"  />
-    </template>
   </div>
 </template>
 

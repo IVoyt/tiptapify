@@ -25,14 +25,14 @@ import { TableKit } from '@tiptap/extension-table'
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 import { InvisibleCharacters } from '@tiptap/extension-invisible-characters'
 
-import { TiptapifyLink } from '@tiptapify/extensions/link'
-import { TiptapifyImage } from '@tiptapify/extensions/image'
+import { TiptapifyLink } from '@tiptapify/extensions/components/media/link/link'
+import { TiptapifyImage } from '@tiptapify/extensions/components/media/image/image'
 import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
 import { ViewSource } from '@tiptapify/extensions/view-source'
 import { Preview } from '@tiptapify/extensions/preview'
 import SlashCommands from '@tiptapify/extensions/slash-commands'
 import suggestion from '@tiptapify/extensions/components/slashCommands/suggestion'
-import { extensionComponents } from "@tiptapify/types/extensionComponents";
+import { toolbarSections } from "@tiptapify/types/toolbarSections";
 
 // load all languages with "all" or common languages with "common"
 import { common, createLowlight } from 'lowlight'
@@ -50,7 +50,7 @@ const lowlight = createLowlight(common)
 // register language example
 // lowlight.register('ts', ts)
 
-export function editorExtensions (placeholder: string, slashCommands: boolean, customExtensions: extensionComponents) {
+export function editorExtensions (placeholder: string, slashCommands: boolean, customExtensions: toolbarSections) {
   const extensions = [
     TextStyleKit,
     Document,
