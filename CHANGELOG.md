@@ -1,3 +1,6 @@
+### v0.0.19
+- fix overriding default extensions list when custom extensions are passed
+
 ### v0.0.18
 - fixes after refactor
 
