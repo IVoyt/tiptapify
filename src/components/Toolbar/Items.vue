@@ -1,42 +1,27 @@
 <script setup lang="ts">
-import Group from "@tiptapify/components/Toolbar/Group.vue";
-import { computed, defineProps, PropType, Ref, ref } from 'vue'
 
-import { ToolbarItemSections } from "@tiptapify/types/toolbarItems";
+import { defineProps, PropType } from 'vue'
 
-const props = defineProps({
+import { toolbarSections } from "@tiptapify/types/toolbarSections";
+
+defineProps({
   variantBtn: { type: String, default () { return 'elevated' }},
-  items: { type: Object as PropType<ToolbarItemSections>, default() { return {} }},
+  items: { type: Array as PropType<toolbarSections>, default() { return {} }},
 })
-
-const toolbarItemsRef: Ref<ToolbarItemSections> = ref(computed(() => props.items).value)
 
 </script>
 
 <template>
   <VToolbarItems class="py-2">
-    <template v-for="(toolbarSection, sectionKey) in toolbarItemsRef" :key="sectionKey">
-      <Group v-if="toolbarSection.group" :variant="variantBtn" :toolbar-section="toolbarSection" />
-
-      <VBtn
-          v-else
-          v-for="(toolbarItem, itemKey) in toolbarSection.items"
-          :key="itemKey"
-          :variant="variantBtn"
-          v-bind="toolbarItem?.props ?? {}"
-          v-on="toolbarItem?.attrs ?? {}"
-          class="menu-button"
-          size="32"
-          elevation="4"
-          rounded="sm"
-      >
-        <VTooltip :text="toolbarItem.tooltip" location="top" activator="parent" />
-
-        <VIcon v-if="toolbarItem.icon" :icon="toolbarItem.icon" size="16" />
-        <span v-else class="menu-item-title">
-          {{ toolbarItem.name }}
-        </span>
-      </VBtn>
+    <template v-for="(item, key) in items" :key="item.section">
+      <VBtnGroup v-if="item.group" elevation="4">
+        <template v-for="sectionItem in item.components" :key="sectionItem.name">
+          <component :is="sectionItem.component" />
+        </template>
+      </VBtnGroup>
+      <template v-else>
+        <component v-for="sectionItem in item.components" :key="sectionItem.name" :is="sectionItem.component" />
+      </template>
 
       <div class="menu-divider"></div>
     </template>
