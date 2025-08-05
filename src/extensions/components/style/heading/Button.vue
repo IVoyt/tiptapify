@@ -25,7 +25,7 @@ setHeadingLevels(props.customHeadingLevels)
 
 <template>
   <VBtn
-      id="tiptapify-heading-button"
+      :id="`tiptapify-heading-button-${editor.instanceId}`"
       :color="editor.isActive('heading') ? 'primary' : ''"
       @click="editor.chain().focus().redo().run()"
       size="32"
@@ -36,7 +36,7 @@ setHeadingLevels(props.customHeadingLevels)
     <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatHeaderPound}`" />
   </VBtn>
 
-  <VMenu activator="#tiptapify-heading-button">
+  <VMenu :activator="`#tiptapify-heading-button-${editor.instanceId}`">
     <VList density="compact">
       <VListItem link :color="editor.isActive('paragraph') ? 'primary' : ''" @click="editor.chain().focus().setParagraph().run()">
         <VListItemTitle class="d-flex justify-center align-center">

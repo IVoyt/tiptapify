@@ -39,7 +39,7 @@ function getColor() {
 
 <template>
   <VBtn
-      id="tiptapify-font-family-button"
+      :id="`tiptapify-font-family-button-${editor.instanceId}`"
       :disabled="!editor.can().chain().focus().unsetFontFamily().run()"
       :color="getColor()"
       size="32"
@@ -50,7 +50,7 @@ function getColor() {
     <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatFont}`" />
   </VBtn>
 
-  <VMenu activator="#tiptapify-font-family-button">
+  <VMenu :activator="`#tiptapify-font-family-button-${editor.instanceId}`">
     <FontFamily :fonts="fonts" :font-family="activeFontFamily" />
   </VMenu>
 </template>

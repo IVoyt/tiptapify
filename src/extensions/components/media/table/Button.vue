@@ -28,7 +28,7 @@ const columnActionsDisabled = () => {
 
 <template>
   <VBtn
-      id="tiptapify-table-button"
+      :id="`tiptapify-table-button-${editor.instanceId}`"
       :color="editor.isActive('table') ? 'primary' : ''"
       :disabled="!editor.can().chain().focus().insertTable().run()"
       size="32"
@@ -36,7 +36,7 @@ const columnActionsDisabled = () => {
     <BtnIcon :icon="`mdiSvg:${mdi.mdiTable}`" />
   </VBtn>
 
-  <VMenu activator="#tiptapify-table-button" :close-on-content-click="false">
+  <VMenu :activator="`#tiptapify-table-button-${editor.instanceId}`" :close-on-content-click="false">
     <VList density="compact">
       <VListItem link>
         <VTooltip activator="parent">
@@ -49,7 +49,7 @@ const columnActionsDisabled = () => {
         <VMenu
             submenu
             activator="parent"
-            :open-on-hover="false"
+            :open-on-hover="true"
             open-on-click
             :close-on-content-click="false"
             :disabled="!editor.can().chain().focus().insertTable().run()"

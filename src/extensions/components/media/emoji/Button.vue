@@ -37,9 +37,9 @@ const filterEmoji = (filterValue: string) => {
 
   const filtered: any[] = []
 
-  const groupItems = emojisRef.value.find(item => item.group === tab.value)
+  const groupItems = emojisRef.value.find((item: any) => item.group === tab.value)
   if (groupItems?.emojis) {
-    groupItems.emojis.forEach(item => {
+    groupItems.emojis.forEach((item: any) => {
       if (item.name.toLowerCase().match(filterValue)) {
         filtered.push(item)
       }
@@ -62,7 +62,7 @@ watch(() => tab.value, () => {
 
 <template>
   <VBtn
-      id="tiptapify-emoji-button"
+      :id="`tiptapify-emoji-button-${editor.instanceId}`"
       :color="editor.isActive('image') ? 'primary' : ''"
       size="32"
   >
@@ -72,7 +72,7 @@ watch(() => tab.value, () => {
     <BtnIcon :icon="`mdiSvg:${mdi.mdiEmoticon}`" />
   </VBtn>
 
-  <VMenu activator="#tiptapify-emoji-button" :close-on-content-click="false">
+  <VMenu :activator="`#tiptapify-emoji-button-${editor.instanceId}`" :close-on-content-click="false">
     <VSheet class="pa-2" max-width="570">
       <div class="d-flex flex-row">
         <VTabs v-model="tab" mandatory direction="vertical" color="primary" density="compact">

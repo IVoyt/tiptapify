@@ -1,3 +1,6 @@
+### v0.0.18
+- fixes after refactor
+
 ### v0.0.17
 - refactor
 

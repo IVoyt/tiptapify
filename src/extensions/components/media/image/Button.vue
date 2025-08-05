@@ -3,6 +3,7 @@
 import * as mdi from '@mdi/js'
 import { Editor } from "@tiptap/vue-3";
 import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
+import ImageDialog from "@tiptapify/extensions/components/media/image/ImageDialog.vue";
 import { inject, Ref } from "vue";
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -22,6 +23,8 @@ const { t } = inject('tiptapifyI18n') as any
     </VTooltip>
     <BtnIcon :icon="`mdiSvg:${mdi.mdiImage}`" />
   </VBtn>
+
+  <ImageDialog />
 </template>
 
 <style lang="scss" scoped>

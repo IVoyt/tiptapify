@@ -2,6 +2,7 @@
 
 import { Editor } from "@tiptap/vue-3";
 import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
+import VideoDialog from "@tiptapify/extensions/components/media/video/VideoDialog.vue";
 import { inject, Ref } from "vue";
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -22,6 +23,8 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vie
     </VTooltip>
     <BtnIcon :icon="icon" />
   </VBtn>
+
+  <VideoDialog />
 </template>
 
 <style lang="scss" scoped>
