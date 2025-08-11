@@ -7,8 +7,8 @@ import { markRaw } from "vue";
 
 export default {
   section: 'media',
-    group: true,
-    components: [
+  group: true,
+  components: [
     {
       name: 'link',
       component: markRaw(LinkButton),
@@ -21,7 +21,7 @@ export default {
       name: 'video',
       component: markRaw(VideoButton),
     },
-      {
+    {
       name: 'emoji',
       component: markRaw(EmojiButton),
     },
