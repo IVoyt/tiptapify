@@ -115,13 +115,11 @@ export function editorExtensions (placeholder: string, slashCommands: boolean, c
 
   if (customExtensions.length) {
     for (const customExtension of customExtensions) {
-      for (const component of customExtension.components) {
-        if (typeof component.extensions === 'undefined') {
-          continue
-        }
-        for (const extension of component.extensions) {
-          extensions.push(extension)
-        }
+      if (typeof customExtension.extensions === 'undefined') {
+        continue
+      }
+      for (const extension of customExtension.extensions) {
+        extensions.push(extension)
       }
     }
   }

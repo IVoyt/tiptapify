@@ -1,3 +1,6 @@
+### v0.0.21
+- register custom extensions apart from custom components
+
 ### v0.0.20
 - fix register custom extensions
 

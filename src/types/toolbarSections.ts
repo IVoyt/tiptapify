@@ -13,13 +13,13 @@ export enum ToolbarSectionsEnum {
 export type sectionComponent = {
   name: string,
   component: any,
-  extensions?: Array<any>,
 }
 
 export type section = {
   section: string,
   group: boolean,
   components: sectionComponent[],
+  extensions?: Array<any>,
 }
 
 export type toolbarSections = Array<section>
