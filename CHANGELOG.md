@@ -1,3 +1,6 @@
+### v0.0.23
+- add contentChanged event
+
 ### v0.0.21
 - register custom extensions apart from custom components
 
