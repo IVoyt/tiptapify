@@ -40,14 +40,19 @@ const props = defineProps({
 const appTheme = useTheme()
 const currentTheme = ref(appTheme.global.name)
 
+function contentChanged() {
+  emit('content-changed', { html: editor.value?.getHTML(), json: editor.value?.getJSON() })
+}
+
 const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
     props.content,
     computed(() => props.placeholder || t('content.placeholder')).value,
     props.slashCommands,
-    props.customExtensions
+    props.customExtensions,
+    contentChanged
 )
 
-const emit = defineEmits(['update:modelValue', 'editor-ready']);
+const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed']);
 
 provide('tiptapifyEditor', editor)
 provide('tiptapifyI18n', { t, setLocale })
