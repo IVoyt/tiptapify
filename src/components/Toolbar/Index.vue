@@ -61,6 +61,8 @@ function prepareToolbarItems() {
 
       addToolbarItem(_toolbarItems, propsItems.value, propsItem)
     }
+  } else {
+    return
   }
 
   toolbarItems = Object.values(_toolbarItems)
