@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
-import { toolbarSections } from "@tiptapify/types/toolbarSections";
+import defaults from "@tiptapify/constants/defaults";
+import { itemsPropType, toolbarSections } from "@tiptapify/types/toolbarTypes";
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, watch } from "vue";
 import { default as Toolbar } from "@tiptapify/components/Toolbar/Index.vue";
 import { Editor, EditorContent } from '@tiptap/vue-3'
@@ -20,10 +21,10 @@ const props = defineProps({
   locale: { type: String, default () { return 'en' } },
   content: String|Object,
   height: { type: Number, default () { return null } },
-  variantBtn: { type: String, default () { return 'elevated' } },
-  variantField: { type: String, default () { return 'solo' } },
+  variantBtn: { type: String, default () { return defaults.variantBtn } },
+  variantField: { type: String, default () { return defaults.variantField } },
   toolbar: { type: Boolean, default () { return true } },
-  items: { type: Array<string>, default() { return [] }},
+  items: { type: [Array, Object as PropType<itemsPropType>], default() { return [] }},
   itemsExclude: { type: Boolean, default() { return false } },
   bubbleMenu: { type: Boolean, default () { return true } },
   floatingMenu: { type: Boolean, default () { return true } },
@@ -35,10 +36,16 @@ const props = defineProps({
   fontMeasure: { type: String, default () { return 'px' } },
   rounded: { type: String, default () { return '0' } },
   customExtensions: { type: Array as PropType<toolbarSections>, default() { return [] } },
+  interactiveStyles: { type: Boolean, default() { return true } },
 })
 
 const appTheme = useTheme()
 const currentTheme = ref(appTheme.global.name)
+
+const propsItems = computed(() => props.items)
+const propsItemsExclude = computed(() => props.itemsExclude)
+
+const interactiveStyles = computed(() => props.interactiveStyles)
 
 function contentChanged() {
   emit('content-changed', { html: editor.value?.getHTML(), json: editor.value?.getJSON() })
@@ -61,6 +68,7 @@ editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
 
 watch(() => editor.value, (editorInstance) => {
   if (editorInstance instanceof Editor) {
+    editor.value.interactiveStyles = interactiveStyles.value
     emit('editor-ready', {
       editor: editorInstance,
       getHTML: () => editorInstance.getHTML(),
@@ -72,6 +80,12 @@ watch(() => editor.value, (editorInstance) => {
 watch(() => props.locale, () => {
   setLocale(props.locale)
 }, { immediate: true });
+
+watch(() => props.interactiveStyles, (_interactiveStyles) => {
+  if (editor.value instanceof Editor) {
+    editor.value.interactiveStyles = interactiveStyles
+  }
+})
 
 onBeforeUnmount(() => {
   editor.value?.destroy()
@@ -85,8 +99,8 @@ onBeforeUnmount(() => {
         :variant-btn="variantBtn"
         :variant-field="variantField"
         :font-measure="fontMeasure"
-        :items="items"
-        :items-exclude="itemsExclude"
+        :items="propsItems"
+        :items-exclude="propsItemsExclude"
         :rounded="rounded"
         :custom-extensions="customExtensions"
         :theme="currentTheme"

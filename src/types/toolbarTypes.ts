@@ -13,6 +13,7 @@ export enum ToolbarSectionsEnum {
 export type sectionComponent = {
   name: string,
   component: any,
+  props?: { [key: string]: any }
 }
 
 export type section = {
@@ -23,3 +24,5 @@ export type section = {
 }
 
 export type toolbarSections = Array<section>
+
+export type itemsPropType = { [key: string]: Array<string> } | Array<string>

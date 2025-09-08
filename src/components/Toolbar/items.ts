@@ -7,7 +7,7 @@ import list from "@tiptapify/components/Toolbar/list";
 import media from "@tiptapify/components/Toolbar/media";
 import misc from "@tiptapify/components/Toolbar/misc";
 
-export default [
+const items = {
   style,
   format,
   formatExtra,
@@ -16,4 +16,16 @@ export default [
   list,
   actions,
   misc,
-]
+}
+
+const availableItems: { [key: string]: string } = {}
+for (const item of Object.values(items)) {
+  const itemComponents = item.components
+  for (const component of itemComponents) {
+    availableItems[component.name] = item.section
+  }
+}
+
+export default items
+
+export { availableItems }

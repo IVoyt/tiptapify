@@ -7,6 +7,12 @@ import FontFamily from "@tiptapify/extensions/components/style/fontFamily/FontFa
 import { fonts } from "@tiptapify/constants/style";
 import { computed, inject, Ref } from "vue";
 
+import defaults from '@tiptapify/constants/defaults'
+
+defineProps({
+  variantBtn: { type: String, default: defaults.variantBtn }
+})
+
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = inject('tiptapifyI18n') as any
@@ -42,6 +48,7 @@ function getColor() {
       :id="`tiptapify-font-family-button-${editor.instanceId}`"
       :disabled="!editor.can().chain().focus().unsetFontFamily().run()"
       :color="getColor()"
+      :variant="variantBtn"
       size="32"
   >
     <VTooltip activator="parent">

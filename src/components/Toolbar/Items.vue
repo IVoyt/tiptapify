@@ -1,11 +1,12 @@
 <script setup lang="ts">
 
+import defaults from "@tiptapify/constants/defaults";
 import { defineProps, PropType } from 'vue'
 
-import { toolbarSections } from "@tiptapify/types/toolbarSections";
+import { toolbarSections } from "@tiptapify/types/toolbarTypes";
 
 defineProps({
-  variantBtn: { type: String, default () { return 'elevated' }},
+  variantBtn: { type: String, default () { return defaults.variantBtn }},
   items: { type: Array as PropType<toolbarSections>, default() { return {} }},
 })
 
@@ -13,14 +14,19 @@ defineProps({
 
 <template>
   <VToolbarItems class="py-2">
-    <template v-for="(item, key) in items" :key="item.section">
+    <template v-for="item in items" :key="item.section">
       <VBtnGroup v-if="item.group" elevation="4">
         <template v-for="sectionItem in item.components" :key="sectionItem.name">
-          <component :is="sectionItem.component" />
+          <component :is="sectionItem.component" v-bind="{ ...sectionItem.props ?? {} }" />
         </template>
       </VBtnGroup>
       <template v-else>
-        <component v-for="sectionItem in item.components" :key="sectionItem.name" :is="sectionItem.component" />
+        <component
+          v-for="sectionItem in item.components"
+          :key="sectionItem.name"
+          :is="sectionItem.component"
+          v-bind="{ variantBtn, ...sectionItem.props ?? {} }"
+        />
       </template>
 
       <div class="menu-divider"></div>

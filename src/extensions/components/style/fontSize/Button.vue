@@ -7,8 +7,11 @@ import FontSize from "@tiptapify/extensions/components/style/fontSize/FontSize.v
 import { fontSizes } from "@tiptapify/constants/style";
 import { computed, inject, Ref } from "vue";
 
+import defaults from '@tiptapify/constants/defaults'
+
 const props = defineProps({
-  fontMeasure: { type: String, default () { return 'px' }}
+  fontMeasure: { type: String, default () { return 'px' }},
+  variantBtn: { type: String, default: defaults.variantBtn }
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -46,6 +49,7 @@ function getColor() {
       :id="`tiptapify-font-size-button-${editor.instanceId}`"
       :disabled="!editor.can().chain().focus().unsetFontSize().run()"
       :color="getColor()"
+      :variant="variantBtn"
       size="32"
   >
     <VTooltip activator="parent">

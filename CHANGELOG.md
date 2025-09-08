@@ -1,3 +1,8 @@
+### v0.0.24
+- Emoji performance improvement
+- fix broken custom toolbar items
+- option to enable preview style change (font/color/size/highlight)
+
 ### v0.0.23
 - add contentChanged event
 

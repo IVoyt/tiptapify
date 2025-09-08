@@ -93,11 +93,13 @@ function hexToRgb(hex: string): Color {
 function hoverColor(color: string) {
   colorSelected.value = false
 
-  if (props.fontColor) {
+  const interactiveStyles = editor.value.interactiveStyles
+
+  if (props.fontColor && interactiveStyles) {
     editor.value.chain().focus().setColor(color).run()
   }
 
-  if (props.backgroundColor) {
+  if (props.backgroundColor && interactiveStyles) {
     editor.value.chain().focus().setHighlight({ color: color }).run()
   }
 }

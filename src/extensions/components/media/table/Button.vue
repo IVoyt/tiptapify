@@ -8,6 +8,12 @@ import RowActions from "@tiptapify/extensions/components/media/table/RowActions.
 import TableBuilder from "@tiptapify/extensions/components/media/table/TableBuilder.vue";
 import { inject, Ref } from "vue";
 
+import defaults from '@tiptapify/constants/defaults'
+
+defineProps({
+  variantBtn: { type: String, default: defaults.variantBtn }
+})
+
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = inject('tiptapifyI18n') as any
@@ -31,6 +37,7 @@ const columnActionsDisabled = () => {
       :id="`tiptapify-table-button-${editor.instanceId}`"
       :color="editor.isActive('table') ? 'primary' : ''"
       :disabled="!editor.can().chain().focus().insertTable().run()"
+      :variant="variantBtn"
       size="32"
   >
     <BtnIcon :icon="`mdiSvg:${mdi.mdiTable}`" />

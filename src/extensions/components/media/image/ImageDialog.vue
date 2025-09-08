@@ -2,12 +2,13 @@
 
 import { Editor } from "@tiptap/vue-3";
 import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
+import defaults from "@tiptapify/constants/defaults";
 
 import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
 
 defineProps({
-  variantBtn: { type: String, default() { return 'elevated' }},
-  variantField: { type: String, default() { return 'solo' }}
+  variantBtn: { type: String, default() { return defaults.variantBtn }},
+  variantField: { type: String, default() { return defaults.variantField }}
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>

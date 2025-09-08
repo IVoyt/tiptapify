@@ -5,13 +5,15 @@ import { Editor } from "@tiptap/vue-3";
 import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
 import { inject, Ref } from "vue";
 
+import defaults from '@tiptapify/constants/defaults'
+
 const props = defineProps({
-  customHeadingLevels: { type: Array<number>, default: () => [] }
+  customHeadingLevels: { type: Array<number>, default: () => [] },
+  withParagraph: { type: Boolean, default: () => true },
+  variantBtn: { type: String, default: defaults.variantBtn }
 })
 
-interface MDIIcons {
-  [key: string]: string
-}
+interface MDIIcons { [key: string]: string }
 const mdiIcons = mdi as MDIIcons
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -27,6 +29,7 @@ setHeadingLevels(props.customHeadingLevels)
   <VBtn
       :id="`tiptapify-heading-button-${editor.instanceId}`"
       :color="editor.isActive('heading') ? 'primary' : ''"
+      :variant="variantBtn"
       @click="editor.chain().focus().redo().run()"
       size="32"
   >
@@ -38,14 +41,19 @@ setHeadingLevels(props.customHeadingLevels)
 
   <VMenu :activator="`#tiptapify-heading-button-${editor.instanceId}`">
     <VList density="compact">
-      <VListItem link :color="editor.isActive('paragraph') ? 'primary' : ''" @click="editor.chain().focus().setParagraph().run()">
+      <VListItem
+        v-if="withParagraph"
+        link
+        :color="editor.isActive('paragraph') ? 'primary' : ''"
+        @click="editor.chain().focus().setParagraph().run()"
+      >
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="`mdiSvg:${mdiIcons['mdiFormatParagraph']}`" />
         </VListItemTitle>
       </VListItem>
       <VListItem
           v-for="headingLevel in headingLevels" :key="headingLevel"
-          :color="editor.isActive('heading', {level: headingLevel}) ? 'primary' : ''"
+          :color="editor.isActive('heading', { level: headingLevel }) ? 'primary' : ''"
           @click="editor.chain().focus().toggleHeading({ level: headingLevel }).run()"
       >
         <VListItemTitle class="d-flex justify-center align-center">

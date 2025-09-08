@@ -7,7 +7,7 @@ import { default as HighlightButton } from "@tiptapify/extensions/components/sty
 import { markRaw } from "vue";
 
 export default {
-  section: 'actions',
+  section: 'style',
   group: true,
   components: [
     {
