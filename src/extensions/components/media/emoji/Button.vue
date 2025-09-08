@@ -6,6 +6,12 @@ import tiptapifyEmojis from "@tiptapify/extensions/emoji"
 import { computed, inject, Ref, ref, watch } from 'vue'
 import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
 
+import defaults from '@tiptapify/constants/defaults'
+
+defineProps({
+  variantBtn: { type: String, default: defaults.variantBtn }
+})
+
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = inject('tiptapifyI18n') as any
@@ -64,6 +70,7 @@ watch(() => tab.value, () => {
   <VBtn
       :id="`tiptapify-emoji-button-${editor.instanceId}`"
       :color="editor.isActive('image') ? 'primary' : ''"
+      :variant="variantBtn"
       size="32"
   >
     <VTooltip activator="parent">
@@ -104,7 +111,7 @@ watch(() => tab.value, () => {
           />
           <div class="tiptapify-emoji-container">
             <VWindow v-model="tab" direction="vertical">
-              <VWindowItem v-for="item of emojisRef" :value="item.group">
+              <VWindowItem v-for="item of emojisRef" :value="item.group" :transition="false" :reverse-transition="false">
                 <div
                     v-for="emojiItem in item.emojis"
                     class="tiptapify-emoji-container-item"
@@ -155,7 +162,6 @@ watch(() => tab.value, () => {
   cursor: pointer;
   width: 32px;
   height: 32px;
-  filter: drop-shadow(1px 2px 3px #777);
   transition: background-color 0.2s ease-in-out;
 }
 

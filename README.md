@@ -74,7 +74,7 @@ app.mount('#app')
 ## Usage
 
 ```vue
-<script setup>
+<script setup lang="ts">
   const handleEditorReady = (options: { editor: any, getHTML: Function, getJSON: Function, echo: Function }) => {
     console.log('The editor is ready', options.editor);
     console.log('editor html', options.getHTML());
@@ -89,6 +89,43 @@ app.mount('#app')
       :floating-menu="false"
       :slash-commands="true"
       @editor-ready="handleEditorReady"
+  />
+</template>
+```
+
+<br>
+You can choose which toolbar items to display by providing array/object to items prop
+
+```vue
+<script setup lang="ts">
+  // show items in predefined sections
+  const items = ['fontFamily', 'fontSize', 'lineHeight', 'textColor', 'highlightColor', 'code', 'codeBlock', 'pagebreak']
+
+  // show items in custom sections
+  const items = { section1: ['textColor', 'fontFamily', 'fontSize', 'lineHeight', 'code', 'codeBlock'], section2: ['pagebreak'] }
+</script>
+
+<template>
+  <Tiptapify
+      ...
+      :items="items"
+  />
+</template>
+```
+
+<br>
+Also you can choose which toolbar items to ignore by providing prop items-exclude alongside items prop.
+
+```vue
+<script setup lang="ts">
+  const items = ['fontFamily', 'fontSize', 'lineHeight', 'textColor', 'highlightColor', 'code', 'codeBlock', 'pagebreak']
+</script>
+
+<template>
+  <Tiptapify
+      ...
+      :items="items"
+      :items-exclude="true"
   />
 </template>
 ```
@@ -113,10 +150,9 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] emoji extension
 - [x] video extensions
 - [x] filter option in emoji extension
+- [x] option to provide custom extension
 - [ ] extended video extensions
 - [ ] print hotkey in a tooltip
-- [ ] option to use custom component for link & media extension
-- [ ] option to provide custom extension
 - [ ] demo
 - [ ] documentation
 - [ ] AI features

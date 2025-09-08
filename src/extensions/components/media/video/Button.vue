@@ -5,6 +5,12 @@ import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
 import VideoDialog from "@tiptapify/extensions/components/media/video/VideoDialog.vue";
 import { inject, Ref } from "vue";
 
+import defaults from '@tiptapify/constants/defaults'
+
+defineProps({
+  variantBtn: { type: String, default: defaults.variantBtn }
+})
+
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = inject('tiptapifyI18n') as any
@@ -15,6 +21,7 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vie
 <template>
   <VBtn
       :color="editor.isActive('video') ? 'primary' : ''"
+      :variant="variantBtn"
       @click="editor.commands.showTiptapifyVideo()"
       size="32"
   >

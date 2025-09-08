@@ -33,7 +33,7 @@ import { ViewSource } from '@tiptapify/extensions/components/misc/source'
 import { Preview } from '@tiptapify/extensions/components/misc/preview'
 import SlashCommands from '@tiptapify/extensions/slash-commands'
 import suggestion from '@tiptapify/extensions/components/slashCommands/suggestion'
-import { toolbarSections } from "@tiptapify/types/toolbarSections";
+import { toolbarSections } from "@tiptapify/types/toolbarTypes";
 
 // load all languages with "all" or common languages with "common"
 import { common, createLowlight } from 'lowlight'

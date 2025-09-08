@@ -6,6 +6,12 @@ import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
 import LinkDialog from "@tiptapify/extensions/components/media/link/LinkDialog.vue";
 import { computed, inject, Ref } from "vue";
 
+import defaults from '@tiptapify/constants/defaults'
+
+defineProps({
+  variantBtn: { type: String, default: defaults.variantBtn }
+})
+
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = inject('tiptapifyI18n') as any
@@ -17,6 +23,7 @@ const icon = computed(() => editor.value.isActive('tiptapifyLink') ? `mdiSvg:${m
 <template>
   <VBtn
       :color="editor.isActive('link') ? 'primary' : ''"
+      :variant="variantBtn"
       @click="editor.commands.showLink()"
       size="32"
   >

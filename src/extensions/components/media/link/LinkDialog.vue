@@ -1,13 +1,14 @@
 <script setup lang="ts">
 
 import { Editor } from "@tiptap/vue-3";
+import defaults from "@tiptapify/constants/defaults";
 
 import { computed, inject, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
 
 import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue"
 
 defineProps({
-  variantBtn: { type: String, default() { return 'elevated' }},
+  variantBtn: { type: String, default() { return defaults.variantBtn }},
   variantField: { type: String, default() { return 'outlined' }}
 })
 

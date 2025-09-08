@@ -7,6 +7,12 @@ import LineHeight from "@tiptapify/extensions/components/style/lineHeight/LineHe
 import { lineHeights } from "@tiptapify/constants/style";
 import { computed, inject, Ref } from "vue";
 
+import defaults from '@tiptapify/constants/defaults'
+
+defineProps({
+  variantBtn: { type: String, default: defaults.variantBtn }
+})
+
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = inject('tiptapifyI18n') as any
@@ -42,6 +48,7 @@ function getColor() {
       :id="`tiptapify-line-height-button-${editor.instanceId}`"
       :disabled="!editor.can().chain().focus().unsetLineHeight().run()"
       :color="getColor()"
+      :variant="variantBtn"
       size="32"
   >
     <VTooltip activator="parent">

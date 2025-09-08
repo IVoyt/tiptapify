@@ -7,8 +7,10 @@ import StyleColor from "@tiptapify/extensions/components/style/StyleColor.vue";
 import { computed, inject, Ref } from "vue";
 import { useTheme } from "vuetify/framework";
 
+import defaults from '@tiptapify/constants/defaults'
+
 defineProps({
-  customHeadingLevels: { type: Array<number>, default: () => [] }
+  variantBtn: { type: String, default: defaults.variantBtn }
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -30,6 +32,7 @@ const selectedColor = computed(() => editor.value.getAttributes('textStyle').col
   <VBtn
       :id="`tiptapify-color-button-${editor.instanceId}`"
       :disabled="!editor.can().chain().focus().toggleHighlight().run()"
+      :variant="variantBtn"
       @click="editor.chain().focus().redo().run()"
       size="32"
   >

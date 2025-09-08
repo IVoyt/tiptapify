@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
 import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
+import defaults from "@tiptapify/constants/defaults";
 import { ref, watch, inject, Ref } from 'vue'
 
 const props = defineProps({
   indent: { type: Number, default: 2 },
   variantBtn: { type: String, default: 'elevated' },
-  variantField: { type: String, default: 'solo' }
+  variantField: { type: String, default: defaults.variantField }
 })
 
 defineExpose({ showDialog })
