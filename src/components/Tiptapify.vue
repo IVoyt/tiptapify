@@ -93,30 +93,34 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <template v-if="toolbar">
-    <Toolbar
-        v-if="editor"
-        :variant-btn="variantBtn"
-        :variant-field="variantField"
-        :font-measure="fontMeasure"
-        :items="propsItems"
-        :items-exclude="propsItemsExclude"
-        :rounded="rounded"
-        :custom-extensions="customExtensions"
-        :theme="currentTheme"
-    />
-  </template>
+  <div :id="`tiptapify-editor-${editor?.instanceId}`">
+    <div>
+      <template v-if="toolbar">
+        <Toolbar
+            v-if="editor"
+            :variant-btn="variantBtn"
+            :variant-field="variantField"
+            :font-measure="fontMeasure"
+            :items="propsItems"
+            :items-exclude="propsItemsExclude"
+            :rounded="rounded"
+            :custom-extensions="customExtensions"
+            :theme="currentTheme"
+        />
+      </template>
 
-  <div :class="`tiptapify-editor border border-t-0 rounded-b-${rounded}`">
-    <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
-      <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
+      <div :class="`border border-t-0 rounded-b-${rounded}`">
+        <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
+          <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 
-      <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
+          <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
 
-      <EditorContent :editor="editor" class="tiptapify-editor" />
+          <EditorContent :editor="editor" class="tiptapify-editor" />
+        </div>
+
+        <Footer :show-words-count="showWordsCount" :show-characters-count="showCharactersCount" />
+      </div>
     </div>
-
-    <Footer :show-words-count="showWordsCount" :show-characters-count="showCharactersCount" />
   </div>
 </template>
 
@@ -410,5 +414,12 @@ onBeforeUnmount(() => {
     cursor: col-resize;
   }
 
+  ul.list-style-circle {
+    list-style-type: circle !important;
+  }
+
+  ul.list-style-square {
+    list-style-type: square !important;
+  }
 }
 </style>
