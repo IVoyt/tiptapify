@@ -105,7 +105,11 @@ watch(() => dialog.value, async () => {
 <template>
   <VDialog v-model="dialog" :max-width="maxWidth" :fullscreen="fullscreen" @click:outside="emitClose">
     <VCard>
-      <VCardTitle ref="movableHandler" :class="`d-flex ${!fullscreen ? 'tiptapify-movable-handler' : ''}`" style="user-select: none;">
+      <VCardTitle
+        ref="movableHandler"
+        :class="`d-flex ${!fullscreen ? 'tiptapify-movable-handler' : ''}`"
+        style="user-select: none;"
+      >
         <VLabel>
           {{ title ?? t(`dialog.${module}.title`) }}
         </VLabel>

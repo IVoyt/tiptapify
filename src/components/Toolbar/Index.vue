@@ -125,6 +125,20 @@ function addToolbarItem(_toolbarItems: toolbarItemsType, itemsList: any, itemTit
     }
   }
 
+  if (_itemTitle === 'bulletList' && _itemOptions.length > 0) {
+    const paragraphIndex = _itemOptions.findIndex((item: any) => item === 'p')
+    const withParagraph = paragraphIndex > -1
+    if (withParagraph) {
+      _itemOptions.splice(paragraphIndex, 1)
+    }
+
+    component.props = {
+      withDisc: _itemOptions.includes('disc'),
+      withCircle: _itemOptions.includes('circle'),
+      withSquare: _itemOptions.includes('square'),
+    }
+  }
+
   _toolbarItems[itemSection].components.push(component)
 
   return true

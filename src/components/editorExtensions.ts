@@ -25,12 +25,11 @@ import { TableKit } from '@tiptap/extension-table'
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 import { InvisibleCharacters } from '@tiptap/extension-invisible-characters'
 
+import { BulletListCircle, BulletListSquare } from '@tiptapify/extensions/components/list/bullet'
 import { TiptapifyLink } from '@tiptapify/extensions/components/media/link'
 import { TiptapifyImage } from '@tiptapify/extensions/components/media/image'
 import { TiptapifyVideo } from '@tiptapify/extensions/components/media/video'
 import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
-import { ViewSource } from '@tiptapify/extensions/components/misc/source'
-import { Preview } from '@tiptapify/extensions/components/misc/preview'
 import SlashCommands from '@tiptapify/extensions/slash-commands'
 import suggestion from '@tiptapify/extensions/components/slashCommands/suggestion'
 import { toolbarSections } from "@tiptapify/types/toolbarTypes";
@@ -102,11 +101,11 @@ export function editorExtensions (placeholder: string, slashCommands: boolean, c
     TextAlign.configure({ types: ['heading', 'paragraph'] }),
     Placeholder.configure({ placeholder }),
     CharacterCount,
-    ViewSource,
     InvisibleCharacters.configure({
       visible: false,
     }),
-    Preview
+    BulletListCircle,
+    BulletListSquare
   ]
 
   if (slashCommands) {

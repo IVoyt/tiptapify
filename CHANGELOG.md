@@ -1,3 +1,11 @@
+### v0.0.26
+- Fullscreen mode
+- bullet list options
+- make toolbar icons size a bit larger
+
+### v0.0.25
+- fix a broken toolbar
+
 ### v0.0.24
 - Emoji performance improvement
 - fix broken custom toolbar items
