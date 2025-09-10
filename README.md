@@ -142,6 +142,7 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] menu items list customizable
 - [x] extend a built-in font list
 - [x] raw html mode
+- [x] fullscreen mode
 - [x] tables extension
 - [x] preview extension
 - [x] image extension
