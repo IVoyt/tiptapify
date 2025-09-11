@@ -40,6 +40,7 @@
   },
   "media": {
     "link": "External link",
+    "iframe": "iframe",
     "image": "Image",
     "emoji": {
       "title": "Emoji",
@@ -97,6 +98,16 @@
     "apply": "Apply",
     "clear": "Clear",
     "close": "Close",
+    "iframe": {
+      "dialog_title": "Add/edit iframe",
+      "src": "Source",
+      "name": "Name",
+      "title": "Title",
+      "width": "Width",
+      "height": "Height",
+      "frameborder": "iframe border",
+      "src_invalid": "The input is invalid URL"
+    },
     "image": {
       "title": "Add/edit image",
       "src": "Source",
@@ -129,8 +140,9 @@
     }
   },
   "misc": {
-    "source": "View source code",
+    "fullscreen": "Fullscreen mode",
     "preview": "Preview",
+    "source": "View source code",
     "toggleInvisibleCharacters": "Show/hide invisible characters"
   },
   "footer": {

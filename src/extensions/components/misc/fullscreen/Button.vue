@@ -44,7 +44,7 @@ async function changeEditorContainer(source: string, target: string) {
 <template>
   <VBtn @click="dialog ? dialogClose() : dialogOpen()" size="32" :variant="variantBtn">
     <VTooltip activator="parent">
-      {{ t('misc.preview') }}
+      {{ t('misc.fullscreen') }}
     </VTooltip>
     <BtnIcon :icon="dialog ? `mdiSvg:${mdi.mdiFullscreenExit}` : `mdiSvg:${mdi.mdiFullscreen}`" />
   </VBtn>

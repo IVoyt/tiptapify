@@ -95,6 +95,16 @@
     "apply": "应用",
     "clear": "清除",
     "close": "关闭",
+    "iframe": {
+      "dialog_title": "添加/编辑内嵌框架",
+      "src": "源地址",
+      "name": "名称",
+      "title": "标题",
+      "width": "宽度",
+      "height": "高度",
+      "frameborder": "框架边框",
+      "src_invalid": "输入的URL无效"
+    },
     "image": {
       "title": "添加/修改图片",
       "src": "源",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "查看源代码",
+    "fullscreen": "全屏模式",
     "preview": "预览",
+    "source": "查看源代码",
     "toggleInvisibleCharacters": "显示/隐藏不可见字符"
   },
   "footer": {

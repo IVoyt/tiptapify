@@ -152,6 +152,8 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] video extensions
 - [x] filter option in emoji extension
 - [x] option to provide custom extension
+- [x] iframe extension
+- [ ] charmap extension
 - [ ] extended video extensions
 - [ ] print hotkey in a tooltip
 - [ ] demo

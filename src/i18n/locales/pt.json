@@ -95,6 +95,16 @@
     "apply": "Aplicar",
     "clear": "Limpar",
     "close": "Fechar",
+    "iframe": {
+      "dialog_title": "Adicionar/editar iframe",
+      "src": "Fonte",
+      "name": "Nome",
+      "title": "Título",
+      "width": "Largura",
+      "height": "Altura",
+      "frameborder": "Borda do quadro",
+      "src_invalid": "A URL inserida é inválida"
+    },
     "image": {
       "title": "Adicionar/modificar imagem",
       "src": "Fonte",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "Ver código fonte",
+    "fullscreen": "Modo tela cheia",
     "preview": "Visualização",
+    "source": "Ver código fonte",
     "toggleInvisibleCharacters": "Mostrar/ocultar caracteres invisíveis"
   },
   "footer": {

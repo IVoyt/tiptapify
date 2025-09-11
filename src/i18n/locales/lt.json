@@ -95,6 +95,16 @@
     "apply": "Taikyti",
     "clear": "Išvalyti",
     "close": "Uždaryti",
+    "iframe": {
+      "dialog_title": "Pridėti/redaguoti iframe",
+      "src": "Šaltinis",
+      "name": "Pavadinimas",
+      "title": "Antraštė",
+      "width": "Plotis",
+      "height": "Aukštis",
+      "frameborder": "Rėmo kraštas",
+      "src_invalid": "Įvestas URL netinkamas"
+    },
     "image": {
       "title": "Pridėti/keisti paveikslą",
       "src": "Šaltinis",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "Žiūrėti išeities kodą",
+    "fullscreen": "Viso ekrano režimas",
     "preview": "Peržiūra",
+    "source": "Žiūrėti išeities kodą",
     "toggleInvisibleCharacters": "Rodyti/slėpti nematomus simbolius"
   },
   "footer": {

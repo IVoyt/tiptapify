@@ -25,9 +25,10 @@ import { TableKit } from '@tiptap/extension-table'
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 import { InvisibleCharacters } from '@tiptap/extension-invisible-characters'
 
+import { default as Iframe } from '@tiptapify/extensions/components/media/iframe'
 import { BulletListCircle, BulletListSquare } from '@tiptapify/extensions/components/list/bullet'
-import { TiptapifyLink } from '@tiptapify/extensions/components/media/link'
 import { TiptapifyImage } from '@tiptapify/extensions/components/media/image'
+import { TiptapifyLink } from '@tiptapify/extensions/components/media/link'
 import { TiptapifyVideo } from '@tiptapify/extensions/components/media/video'
 import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
 import SlashCommands from '@tiptapify/extensions/slash-commands'
@@ -84,6 +85,7 @@ export function editorExtensions (placeholder: string, slashCommands: boolean, c
     }),
     TiptapifyImage,
     TiptapifyVideo,
+    Iframe,
     Superscript,
     Subscript,
     TableKit,
