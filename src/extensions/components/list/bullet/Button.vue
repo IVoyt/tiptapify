@@ -54,9 +54,9 @@ checkButtonOrMenu()
 
 function toggleList(listType: string) {
   switch(listType) {
-    case 'disc': editor.value.commands.toggleBulletList(); break;
-    case 'circle': editor.value.commands.toggleBulletListCircle(); break;
-    case 'square': editor.value.commands.toggleBulletListSquare(); break;
+    case 'bulletList': editor.value.commands.toggleBulletList(); break;
+    case 'bulletListCircle': editor.value.commands.toggleBulletListCircle(); break;
+    case 'bulletListSquare': editor.value.commands.toggleBulletListSquare(); break;
   }
 }
 
@@ -100,7 +100,7 @@ watch(() => bulletLists.value, () => {
         :key="key"
         link
         :active="editor.isActive(bulletList.name)"
-        @click="toggleList(key)"
+        @click="toggleList(bulletList.name)"
       >
         <VTooltip activator="parent">
           {{ t('lists.bullet') }}
