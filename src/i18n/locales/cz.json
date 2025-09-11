@@ -95,6 +95,16 @@
     "apply": "Použít",
     "clear": "Vymazat",
     "close": "Zavřít",
+    "iframe": {
+      "dialog_title": "Přidat/upravit iframe",
+      "src": "Zdroj",
+      "name": "Název",
+      "title": "Titulek",
+      "width": "Šířka",
+      "height": "Výška",
+      "frameborder": "Okraj rámce",
+      "src_invalid": "Zadaná URL adresa je neplatná"
+    },
     "image": {
       "title": "Přidání/úprava obrázku",
       "src": "Zdroj",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "Zobrazit zdrojový kód",
+    "fullscreen": "Režim celé obrazovky",
     "preview": "Náhled",
+    "source": "Zobrazit zdrojový kód",
     "toggleInvisibleCharacters": "Zobrazit/skrýt neviditelné znaky"
   },
   "footer": {

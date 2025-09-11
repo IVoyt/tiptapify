@@ -95,6 +95,16 @@
     "apply": "Applicare",
     "clear": "Purgare",
     "close": "Claudere",
+    "iframe": {
+      "dialog_title": "Pievienot/rediģēt iframe",
+      "src": "Avots",
+      "name": "Nosaukums",
+      "title": "Virsraksts",
+      "width": "Platums",
+      "height": "Augstums",
+      "frameborder": "Ietvara robeža",
+      "src_invalid": "Ievadītā URL nav derīga"
+    },
     "image": {
       "title": "Imaginem addere/mutare",
       "src": "Fons",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "Codicem fontem videre",
+    "fullscreen": "Pilnekrāna režīms",
     "preview": "Praevisio",
+    "source": "Codicem fontem videre",
     "toggleInvisibleCharacters": "Ostende/cela characteres invisibiles"
   },
   "footer": {

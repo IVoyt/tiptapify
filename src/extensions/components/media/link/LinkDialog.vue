@@ -102,7 +102,7 @@ watch(() => attrs.value.href, () => {
 
   const regex = new RegExp(`^(${regexAll})$`, 'i')
 
-  hrefInvalid.value = attrs.value.href !== '' && !regex.test(attrs.value.href)
+  hrefInvalid.value = (attrs.value.href || '') !== '' && !regex.test(attrs.value.href)
 })
 </script>
 

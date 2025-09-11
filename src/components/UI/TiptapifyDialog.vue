@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import * as mdi from "@mdi/js";
-import { inject, nextTick, ref, watch } from "vue";
+import { inject, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 
 const props = defineProps({
   module: String,
@@ -99,6 +99,42 @@ watch(() => dialog.value, async () => {
   if (dialog.value && !props.fullscreen) {
     dragElement(movableHandler.value.$el as HTMLElement, movableHandler.value.$el.parentNode as HTMLElement)
   }
+})
+
+function resizeListener() {
+  if (!dialog.value) {
+    return
+  }
+
+  const dialogCoordinates = movableHandler.value.$el.parentNode.getBoundingClientRect();
+
+  function checkBoundLeftTop(type) {
+    if (dialogCoordinates[type] < 0) {
+      const dialogOffset = movableHandler.value.$el.parentNode.style[type]
+      const newOffset = parseInt(dialogOffset) - dialogCoordinates[type]
+      movableHandler.value.$el.parentNode.style[type] = `${newOffset}px`
+    }
+  }
+  checkBoundLeftTop('left')
+  checkBoundLeftTop('top')
+
+  function checkBoundRightBottom(type: 'right' | 'bottom') {
+    const data = { side: type === 'right' ? 'left' : 'top', dim: type === 'right' ? 'width' : 'height', windowDim: type === 'right' ? 'innerWidth' : 'innerHeight' }
+    if ((dialogCoordinates[data.side] + dialogCoordinates[data.dim]) > window[data.windowDim]) {
+      const newOffset = ((window[data.windowDim] - dialogCoordinates[data.dim]) / 2).toFixed()
+      movableHandler.value.$el.parentNode.style[data.side] = `${newOffset}px`
+    }
+  }
+  checkBoundRightBottom('right')
+  checkBoundRightBottom('bottom')
+}
+
+onMounted(() => {
+  addEventListener('resize', resizeListener)
+})
+
+onBeforeUnmount(() => {
+  removeEventListener('resize', resizeListener)
 })
 </script>
 

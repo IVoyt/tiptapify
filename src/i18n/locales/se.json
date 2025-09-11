@@ -95,6 +95,16 @@
     "apply": "Tillämpa",
     "clear": "Rensa",
     "close": "Stäng",
+    "iframe": {
+      "dialog_title": "Lägg till/redigera iframe",
+      "src": "Källa",
+      "name": "Namn",
+      "title": "Titel",
+      "width": "Bredd",
+      "height": "Höjd",
+      "frameborder": "Ramkant",
+      "src_invalid": "Den angivna URL:en är ogiltig"
+    },
     "image": {
       "title": "Lägg till/ändra bild",
       "src": "Källa",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "Visa källkod",
+    "fullscreen": "Helskärmsläge",
     "preview": "Förhandsgranskning",
+    "source": "Visa källkod",
     "toggleInvisibleCharacters": "Visa/dölj osynliga tecken"
   },
   "footer": {

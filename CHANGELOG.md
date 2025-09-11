@@ -1,3 +1,11 @@
+### v0.0.30
+- iframe extension
+- prevent movable dialog getting out of bound of the window
+
+### v0.0.29
+- fix broken bulletList
+- do not disable list buttons when the selection is another list type
+
 ### v0.0.26
 - Fullscreen mode
 - bullet list options

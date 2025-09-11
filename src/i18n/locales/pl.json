@@ -95,6 +95,16 @@
     "apply": "Zastosuj",
     "clear": "Wyczyść",
     "close": "Zamknij",
+    "iframe": {
+      "dialog_title": "Dodaj/edytuj iframe",
+      "src": "Źródło",
+      "name": "Nazwa",
+      "title": "Tytuł",
+      "width": "Szerokość",
+      "height": "Wysokość",
+      "frameborder": "Ramka obramowania",
+      "src_invalid": "Wprowadzony URL jest nieprawidłowy"
+    },
     "image": {
       "title": "Dodaj/zmień obraz",
       "src": "Źródło",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "Pokaż kod źródłowy",
+    "fullscreen": "Tryb pełnoekranowy",
     "preview": "Podgląd",
+    "source": "Pokaż kod źródłowy",
     "toggleInvisibleCharacters": "Pokaż/ukryj niewidoczne znaki"
   },
   "footer": {

@@ -95,6 +95,16 @@
     "apply": "Anwenden",
     "clear": "Löschen",
     "close": "Schließen",
+    "iframe": {
+      "dialog_title": "Iframe hinzufügen/bearbeiten",
+      "src": "Quelle",
+      "name": "Name",
+      "title": "Titel",
+      "width": "Breite",
+      "height": "Höhe",
+      "frameborder": "Rahmenrand",
+      "src_invalid": "Die eingegebene URL ist ungültig"
+    },
     "image": {
       "title": "Bild hinzufügen/ändern",
       "src": "Quelle",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "Quellcode anzeigen",
+    "fullscreen": "Vollbildmodus",
     "preview": "Vorschau",
+    "source": "Quellcode anzeigen",
     "toggleInvisibleCharacters": "Unsichtbare Zeichen anzeigen/ausblenden"
   },
   "footer": {

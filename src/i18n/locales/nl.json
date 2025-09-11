@@ -95,6 +95,16 @@
     "apply": "Toepassen",
     "clear": "Wissen",
     "close": "Sluiten",
+    "iframe": {
+      "dialog_title": "Iframe toevoegen/bewerken",
+      "src": "Bron",
+      "name": "Naam",
+      "title": "Titel",
+      "width": "Breedte",
+      "height": "Hoogte",
+      "frameborder": "Framrand",
+      "src_invalid": "De ingevoerde URL is ongeldig"
+    },
     "image": {
       "title": "Afbeelding toevoegen/wijzigen",
       "src": "Bron",
@@ -127,8 +137,9 @@
     }
   },
   "misc": {
-    "source": "Broncode bekijken",
+    "fullscreen": "Volledig scherm modus",
     "preview": "Voorvertoning",
+    "source": "Broncode bekijken",
     "toggleInvisibleCharacters": "Onzichtbare tekens tonen/verbergen"
   },
   "footer": {
