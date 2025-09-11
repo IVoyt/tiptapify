@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import defaults from "@tiptapify/constants/defaults";
-import { defineProps, PropType } from 'vue'
+import { PropType } from 'vue'
 
 import { toolbarSections } from "@tiptapify/types/toolbarTypes";
 

@@ -1,6 +1,6 @@
 import { Editor } from "@tiptap/vue-3";
 import type { DefineComponent } from 'vue'
-import { toolbarTypes } from "./src/types/toolbarTypes";
+import { toolbarSections } from "./src/types/toolbarTypes";
 
 export interface TiptapifyProps {
   content: string|object
@@ -18,7 +18,7 @@ export interface TiptapifyProps {
   defaultFontFamily: string
   fontMeasure: string
   rounded: string
-  customExtensions: toolbarTypes
+  customExtensions: toolbarSections
 }
 
 export interface TiptapifyEmits {
