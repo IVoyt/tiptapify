@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
-import { defineProps, inject, Ref } from "vue";
+import { inject, Ref } from "vue";
 import { FloatingMenu } from '@tiptap/vue-3/menus'
 import * as mdi from '@mdi/js'
 

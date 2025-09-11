@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Editor } from "@tiptap/vue-3";
-import { computed, defineProps, inject, Ref, ref } from "vue";
+import { computed, inject, Ref, ref } from "vue";
 import { BubbleMenu } from '@tiptap/vue-3/menus'
 import * as mdi from '@mdi/js'
 
