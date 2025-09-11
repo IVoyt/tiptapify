@@ -3,7 +3,7 @@
 import * as mdi from '@mdi/js'
 import { Editor } from "@tiptap/vue-3";
 import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { inject, Ref } from "vue";
+import { computed, inject, Ref } from "vue";
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -15,12 +15,19 @@ const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = inject('tiptapifyI18n') as any
 
+const buttonDisabled = computed(() => {
+  return !editor.value.can().chain().focus().toggleBulletList().run() &&
+      !editor.value.can().chain().focus().toggleBulletListCircle().run() &&
+      !editor.value.can().chain().focus().toggleBulletListSquare().run() &&
+      !editor.value.can().chain().focus().toggleOrderedList().run() &&
+      !editor.value.can().chain().focus().toggleTaskList().run()
+})
 </script>
 
 <template>
   <VBtn
       :color="editor.isActive('taskList') ? 'primary' : ''"
-      :disabled="!editor.can().chain().focus().toggleTaskList().run()"
+      :disabled="buttonDisabled"
       :variant="variantBtn"
       @click="editor.commands.toggleTaskList()"
       size="32"
