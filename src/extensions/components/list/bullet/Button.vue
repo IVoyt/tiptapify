@@ -68,8 +68,10 @@ const buttonActive = computed(() => {
 
 const buttonDisabled = computed(() => {
   return !editor.value.can().chain().focus().toggleBulletList().run() &&
-    !editor.value.can().chain().focus().toggleBulletListCircle().run() &&
-    !editor.value.can().chain().focus().toggleBulletListSquare().run()
+      !editor.value.can().chain().focus().toggleBulletListCircle().run() &&
+      !editor.value.can().chain().focus().toggleBulletListSquare().run() &&
+      !editor.value.can().chain().focus().toggleOrderedList().run() &&
+      !editor.value.can().chain().focus().toggleTaskList().run()
 })
 
 watch(() => bulletLists.value, () => {
