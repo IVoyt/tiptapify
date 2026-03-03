@@ -1,3 +1,6 @@
+### v0.0.32
+- add missing dependency "extension-text-style"
+
 ### v0.0.31
 - add support Vuetify 4
 
