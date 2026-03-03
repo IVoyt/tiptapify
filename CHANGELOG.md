@@ -1,3 +1,6 @@
+### v0.0.31
+- add support Vuetify 4
+
 ### v0.0.30
 - iframe extension
 - prevent movable dialog getting out of bound of the window
