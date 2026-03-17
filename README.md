@@ -131,7 +131,9 @@ Also you can choose which toolbar items to ignore by providing prop items-exclud
 ```
 
 ## L10N (Localisation)
-Found a wrong translation or want to add a new language? Feel free to [send your translation](mailto:ivoyt90@gmail.com) made from the [template](https://raw.githubusercontent.com/IVoyt/tiptapify/refs/heads/main/src/i18n/locales/en.json).
+Most translations are AI-generated therefore they might contain mistakes!
+
+If you found a wrong translation or want to add a new language, feel free to [send your translation](mailto:ivoyt90@gmail.com) made from the [template](https://raw.githubusercontent.com/IVoyt/tiptapify/refs/heads/main/src/i18n/locales/en.json).
 
 ## Feedback
 Found a bug or have ideas on improvement? Feel free to [create a ticket](https://github.com/IVoyt/tiptapify/issues/new).

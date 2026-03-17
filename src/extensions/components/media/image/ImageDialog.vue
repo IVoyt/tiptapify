@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import * as mdi from "@mdi/js";
 import { Editor } from "@tiptap/vue-3";
 import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
 import defaults from "@tiptapify/constants/defaults";
@@ -29,6 +30,37 @@ const isDisabled = computed(() => {
   const { src } = attrs.value
   return !src
 })
+
+const keepRatio = ref(true)
+const ratio = ref(null)
+function setRatio(force: boolean = false) {
+  if (!keepRatio.value && !force) {
+    return
+  }
+
+  if ((!ratio.value || force) && attrs.value.width && attrs.value.height) {
+    ratio.value = parseFloat(attrs.value.width / attrs.value.height).toFixed(4)
+  }
+}
+function updateSizeRatio(dim: string) {
+  if (!ratio.value || !attrs.value.width || !attrs.value.height) {
+    return
+  }
+
+  if (!keepRatio.value) {
+    setRatio(true)
+    return
+  }
+
+  const source = dim.toLowerCase()
+  const sizeRatio = source === 'width'
+    ? (attrs.value.width / ratio.value)
+    : (attrs.value.height * ratio.value)
+
+  const target = source === 'width' ? 'height' : 'width'
+
+  attrs.value[target] = parseFloat(sizeRatio).toFixed(0)
+}
 
 function apply() {
   let { src, alt, width, height } = attrs.value
@@ -63,6 +95,7 @@ function close() {
   dialog.value.close()
 
   attrs.value = generateImageAttrs()
+  ratio.value = null
 }
 
 const showTiptapifyImage = (event: CustomEvent) => {
@@ -96,16 +129,45 @@ onUnmounted(() => {
             <VTextField v-model="attrs.src" density="compact" variant="outlined" :label="t('dialog.image.src')" />
           </VCol>
 
-          <VCol cols="12" md="6">
+          <VCol cols="12" md="5">
             <VTextField v-model="attrs.alt" density="compact" variant="outlined" :label="t('dialog.image.alt')" />
           </VCol>
 
-          <VCol cols="12" md="3">
-            <VTextField v-model="attrs.width" type="number" density="compact" variant="outlined" :precision="0" :min="1" :label="t('dialog.image.width')" />
+          <VCol cols="5" md="3">
+            <VTextField
+                v-model="attrs.width"
+                type="number"
+                density="compact"
+                variant="outlined"
+                :precision="0"
+                :min="1"
+                :label="t('dialog.image.width')"
+                @change="setRatio"
+                @update:model-value="updateSizeRatio('width')"
+            />
           </VCol>
 
-          <VCol cols="12" md="3">
-            <VTextField v-model="attrs.height" type="number" density="compact" variant="outlined" :precision="0" :min="1" :label="t('dialog.image.height')" />
+          <VCol cols="5" md="3">
+            <VTextField
+                v-model="attrs.height"
+                type="number"
+                density="compact"
+                variant="outlined"
+                :precision="0"
+                :min="1"
+                :label="t('dialog.image.height')"
+                @change="setRatio"
+                @update:model-value="updateSizeRatio('height')"
+            />
+          </VCol>
+
+          <VCol cols="2" md="1">
+            <VBtn size="40" :variant="variantBtn" v-model="keepRatio" @click="keepRatio = !keepRatio">
+              <VIcon :icon="keepRatio ? `mdiSvg:${mdi.mdiLock}` : `mdiSvg:${mdi.mdiLockOpen}`" />
+              <VTooltip activator="parent">
+                {{ t('dialog.image.keep_ratio') }}
+              </VTooltip>
+            </VBtn>
           </VCol>
         </VRow>
       </VCardText>

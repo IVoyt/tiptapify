@@ -40,8 +40,10 @@
   },
   "media": {
     "link": "外部链接",
+    "iframe": "iframe",
     "image": "图片",
     "emoji": {
+      "title": "表情符号",
       "activities": "活动",
       "animals_and_nature": "动物与自然",
       "component": "组件",
@@ -70,7 +72,8 @@
       "deleteCol": "删除列",
       "mergeCells": "合并单元格",
       "splitCell": "拆分单元格"
-    }
+    },
+    "video": "视频"
   },
   "action": {
     "undo": "撤销",
@@ -108,6 +111,7 @@
     "image": {
       "title": "添加/修改图片",
       "src": "源",
+      "keep_ratio": "保持比例",
       "alt": "替代文本",
       "width": "宽度",
       "height": "高度"

@@ -40,8 +40,10 @@
   },
   "media": {
     "link": "Enlace externo",
+    "iframe": "iframe",
     "image": "Imagen",
     "emoji": {
+      "title": "Emoji",
       "activities": "Actividades",
       "animals_and_nature": "Animales y naturaleza",
       "component": "Componente",
@@ -70,7 +72,8 @@
       "deleteCol": "Eliminar columna",
       "mergeCells": "Fusionar celdas",
       "splitCell": "Dividir celda"
-    }
+    },
+    "video": "Video"
   },
   "action": {
     "undo": "Deshacer",
@@ -108,6 +111,7 @@
     "image": {
       "title": "Agregar/modificar imagen",
       "src": "Fuente",
+      "keep_ratio": "Mantener proporción",
       "alt": "alt",
       "width": "Ancho",
       "height": "Alto"

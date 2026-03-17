@@ -40,8 +40,10 @@
   },
   "media": {
     "link": "Externer Link",
+    "iframe": "iframe",
     "image": "Bild",
     "emoji": {
+      "title": "Emoji",
       "activities": "Aktivitäten",
       "animals_and_nature": "Tiere & Natur",
       "component": "Komponente",
@@ -70,7 +72,8 @@
       "deleteCol": "Spalte löschen",
       "mergeCells": "Zellen zusammenführen",
       "splitCell": "Zelle teilen"
-    }
+    },
+    "video": "Video"
   },
   "action": {
     "undo": "Rückgängig",
@@ -108,6 +111,7 @@
     "image": {
       "title": "Bild hinzufügen/ändern",
       "src": "Quelle",
+      "keep_ratio": "Seitenverhältnis beibehalten",
       "alt": "alt",
       "width": "Breite",
       "height": "Höhe"

@@ -40,8 +40,10 @@
   },
   "media": {
     "link": "Išorinė nuoroda",
+    "iframe": "iframe",
     "image": "Paveikslas",
     "emoji": {
+      "title": "Emoji",
       "activities": "Veiklos",
       "animals_and_nature": "Gyvūnai ir gamta",
       "component": "Komponentas",
@@ -70,7 +72,8 @@
       "deleteCol": "Ištrinti stulpelį",
       "mergeCells": "Sujungti ląsteles",
       "splitCell": "Padalinti ląstelę"
-    }
+    },
+    "video": "Video"
   },
   "action": {
     "undo": "Atšaukti",
@@ -108,6 +111,7 @@
     "image": {
       "title": "Pridėti/keisti paveikslą",
       "src": "Šaltinis",
+      "keep_ratio": "Išlaikyti proporciją",
       "alt": "alt",
       "width": "Plotis",
       "height": "Aukštis"
