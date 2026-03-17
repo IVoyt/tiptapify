@@ -1,0 +1,153 @@
+{
+  "defaultValue": "Alapértelmezett érték",
+  "content": {
+    "placeholder": "Valami..."
+  },
+  "style": {
+    "paragraph": "Bekezdés",
+    "heading": "Cím",
+    "headings": {
+      "h1": "1. szintű cím",
+      "h2": "2. szintű cím",
+      "h3": "3. szintű cím",
+      "h4": "4. szintű cím",
+      "h5": "5. szintű cím",
+      "h6": "6. szintű cím"
+    },
+    "fontFamily": "Betűtípus-család",
+    "fontSize": "Betűméret",
+    "lineHeight": "Sormagasság",
+    "color": {
+      "highlight": "Kiemelés színe",
+      "text": "Szöveg színe",
+      "unset": "Szín eltávolítása",
+      "custom": "Egyéni választás"
+    }
+  },
+  "format": {
+    "bold": "Félkövér",
+    "italic": "Dőlt",
+    "strike": "Áthúzott",
+    "underline": "Aláhúzott",
+    "sup": "Feltett index",
+    "sub": "Alsó index",
+    "break": "Sormetélés",
+    "line": "Vízszintes vonal",
+    "blockquote": "Idézet",
+    "code": "Kód",
+    "codeblock": "Kódblokk",
+    "formatClear": "Formázás törlése"
+  },
+  "media": {
+    "link": "Hivatkozás",
+    "iframe": "keretlap",
+    "image": "Kép",
+    "emoji": {
+      "title": "Emotikon",
+      "activities": "Tevékenység",
+      "animals_and_nature": "Állatok és természet",
+      "component": "Komponens",
+      "flags": "Zászlók",
+      "food_and_drink": "Étel és ital",
+      "objects": "Objektumok",
+      "people_and_body": "Emberek és testrész",
+      "smileys_and_emotion": "Vigyorok és érzelmek",
+      "symbols": "Szimbólumok",
+      "travel_and_places": "Utazás és helyszínek"
+    },
+    "tables": {
+      "table": "Táblázat",
+      "insertTable": "Táblázat beszúrása",
+      "deleteTable": "Táblázat törlése",
+      "insertWithHeaderRow": "Fejléc sorral ellátott táblázat beszúrása",
+      "rows": "Sorok",
+      "row": "Sor",
+      "insertRowBefore": "Sor beszúrása elé",
+      "insertRowAfter": "Sor beszúrása utánra",
+      "deleteRow": "Sor törlése",
+      "cols": "Oszlopok",
+      "col": "Oszlop",
+      "insertColBefore": "Oszlop beszúrása elé",
+      "insertColAfter": "Oszlop beszúrása utánra",
+      "deleteCol": "Oszlop törlése",
+      "mergeCells": "Cellák egyesítése",
+      "splitCell": "Cella felosztása"
+    },
+    "video": "Videó"
+  },
+  "action": {
+    "undo": "Visszavonás",
+    "redo": "Ismétlés"
+  },
+  "alignment": "Igazítás",
+  "alignments": {
+    "left": "Balra igazítva",
+    "center": "Középre igazítva",
+    "right": "Jobbra igazítva",
+    "justify": "Sorkizárás"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Felsorolás",
+    "numbered": "Számjegyzék",
+    "task": "Feladatok listája",
+    "indent": "Behúzás növelése",
+    "outdent": "Behúzás csökkentése"
+  },
+  "dialog": {
+    "apply": "Alkalmazás",
+    "clear": "Törlés",
+    "close": "Bezárás",
+    "iframe": {
+      "dialog_title": "Keretlap hozzáadása/szerkesztése",
+      "src": "Forrás",
+      "name": "Név",
+      "title": "Cím",
+      "width": "Szélesség",
+      "height": "Magasság",
+      "frameborder": "Kerethatár",
+      "src_invalid": "A megadott URL érvénytelen"
+    },
+    "image": {
+      "title": "Kép hozzáadása/szerkesztése",
+      "src": "Forrás",
+      "keep_ratio": "Arány megtartása",
+      "alt": "Alternatív szöveg",
+      "width": "Szélesség",
+      "height": "Magasság"
+    },
+    "link": {
+      "title": "Hivatkozás hozzáadása/szerkesztése",
+      "href": "Hivatkozás címe",
+      "href_error": "Érvénytelen hivatkozáscím",
+      "target": "Megnyitás...",
+      "target_blank": "Új ablakban",
+      "target_self": "Jelenlegi ablakban",
+      "rel": "rel",
+      "class": "CSS osztály"
+    },
+    "preview": {
+      "title": "Előnézet"
+    },
+    "source": {
+      "title": "Forráskód megjelenítése",
+      "prettify": "Szépítés"
+    },
+    "video": {
+      "title": "Videó hozzáadása/szerkesztése",
+      "src": "Forrás",
+      "width": "Szélesség",
+      "height": "Magasság"
+    }
+  },
+  "misc": {
+    "fullscreen": "Teljes képernyős mód",
+    "preview": "Előnézet",
+    "source": "Forráskód megjelenítése",
+    "toggleInvisibleCharacters": "Láthatatlan karakterek megjelenítése/elrejtése"
+  },
+  "footer": {
+    "words": "szavak",
+    "chars": "karakterek"
+  }
+}

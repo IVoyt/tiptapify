@@ -1,0 +1,153 @@
+{
+  "defaultValue": "Giá trị mặc định",
+  "content": {
+    "placeholder": "Viết điều gì đó..."
+  },
+  "style": {
+    "paragraph": "Đoạn văn",
+    "heading": "Tiêu đề",
+    "headings": {
+      "h1": "Tiêu đề cấp 1",
+      "h2": "Tiêu đề cấp 2",
+      "h3": "Tiêu đề cấp 3",
+      "h4": "Tiêu đề cấp 4",
+      "h5": "Tiêu đề cấp 5",
+      "h6": "Tiêu đề cấp 6"
+    },
+    "fontFamily": "Gia phông chữ",
+    "fontSize": "Kích cỡ chữ",
+    "lineHeight": "Khoảng cách dòng",
+    "color": {
+      "highlight": "Màu tô đậm",
+      "text": "Màu văn bản",
+      "unset": "Xóa màu",
+      "custom": "Tùy chọn tùy chỉnh"
+    }
+  },
+  "format": {
+    "bold": "In đậm",
+    "italic": "In nghiêng",
+    "strike": "Gạch ngang",
+    "underline": "Gạch chân",
+    "sup": "Chữ viết trên",
+    "sub": "Chữ viết dưới",
+    "break": "Xuống dòng",
+    "line": "Đường thẳng ngang",
+    "blockquote": "Trích dẫn",
+    "code": "Mã",
+    "codeblock": "Khối mã",
+    "formatClear": "Xóa định dạng"
+  },
+  "media": {
+    "link": "Liên kết ngoài",
+    "iframe": "khung nhúng",
+    "image": "Hình ảnh",
+    "emoji": {
+      "title": "Biểu tượng cảm xúc",
+      "activities": "Hoạt động",
+      "animals_and_nature": "Động vật và thiên nhiên",
+      "component": "Thành phần",
+      "flags": "Cờ",
+      "food_and_drink": "Đồ ăn thức uống",
+      "objects": "Vật thể",
+      "people_and_body": "Con người và cơ thể",
+      "smileys_and_emotion": "Biểu tượng cảm xúc",
+      "symbols": "Ký hiệu",
+      "travel_and_places": "Du lịch và địa điểm"
+    },
+    "tables": {
+      "table": "Bảng",
+      "insertTable": "Chèn bảng",
+      "deleteTable": "Xóa bảng",
+      "insertWithHeaderRow": "Chèn bảng có dòng tiêu đề",
+      "rows": "Hàng",
+      "row": "Hàng",
+      "insertRowBefore": "Chèn hàng trước",
+      "insertRowAfter": "Chèn hàng sau",
+      "deleteRow": "Xóa hàng",
+      "cols": "Cột",
+      "col": "Cột",
+      "insertColBefore": "Chèn cột trước",
+      "insertColAfter": "Chèn cột sau",
+      "deleteCol": "Xóa cột",
+      "mergeCells": "Hợp nhất ô",
+      "splitCell": "Tách ô"
+    },
+    "video": "Video"
+  },
+  "action": {
+    "undo": "Hoàn tác",
+    "redo": "Làm lại"
+  },
+  "alignment": "Căn chỉnh",
+  "alignments": {
+    "left": "Canh trái",
+    "center": "Canh giữa",
+    "right": "Canh phải",
+    "justify": "Canh đều"
+  },
+  "list": "Danh sách",
+  "lists": {
+    "bullet": "Danh sách không đánh số",
+    "numbered": "Danh sách có đánh số",
+    "task": "Danh sách công việc",
+    "indent": "Tăng thụt đầu dòng",
+    "outdent": "Giảm thụt đầu dòng"
+  },
+  "dialog": {
+    "apply": "Áp dụng",
+    "clear": "Xóa",
+    "close": "Đóng",
+    "iframe": {
+      "dialog_title": "Thêm/sửa khung nhúng",
+      "src": "Nguồn",
+      "name": "Tên",
+      "title": "Tiêu đề",
+      "width": "Chiều rộng",
+      "height": "Chiều cao",
+      "frameborder": "Viền khung",
+      "src_invalid": "URL đã nhập không hợp lệ"
+    },
+    "image": {
+      "title": "Thêm/sửa hình ảnh",
+      "src": "Nguồn",
+      "keep_ratio": "Giữ tỷ lệ khung hình",
+      "alt": "Văn bản thay thế",
+      "width": "Chiều rộng",
+      "height": "Chiều cao"
+    },
+    "link": {
+      "title": "Thêm/sửa liên kết",
+      "href": "Địa chỉ liên kết",
+      "href_error": "Địa chỉ liên kết không hợp lệ",
+      "target": "Mở tại...",
+      "target_blank": "Cửa sổ mới",
+      "target_self": "Cửa sổ hiện tại",
+      "rel": "liên hệ",
+      "class": "Lớp CSS"
+    },
+    "preview": {
+      "title": "Xem trước"
+    },
+    "source": {
+      "title": "Xem mã nguồn",
+      "prettify": "Làm đẹp"
+    },
+    "video": {
+      "title": "Thêm/sửa video",
+      "src": "Nguồn",
+      "width": "Chiều rộng",
+      "height": "Chiều cao"
+    }
+  },
+  "misc": {
+    "fullscreen": "Chế độ toàn màn hình",
+    "preview": "Xem trước",
+    "source": "Xem mã nguồn",
+    "toggleInvisibleCharacters": "Hiện/ẩn ký tự vô hình"
+  },
+  "footer": {
+    "words": "từ ngữ",
+    "chars": "ký tự"
+  }
+}

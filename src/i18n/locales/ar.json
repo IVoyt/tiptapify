@@ -1,0 +1,153 @@
+{
+  "defaultValue": "القيمة الافتراضية",
+  "content": {
+    "placeholder": "اكتب شيئاً..."
+  },
+  "style": {
+    "paragraph": "فقرة",
+    "heading": "عنوان رئيسي",
+    "headings": {
+      "h1": "عنوان المستوى الأول",
+      "h2": "عنوان المستوى الثاني",
+      "h3": "عنوان المستوى الثالث",
+      "h4": "عنوان المستوى الرابع",
+      "h5": "عنوان المستوى الخامس",
+      "h6": "عنوان المستوى السادس"
+    },
+    "fontFamily": "عائلة الخطوط",
+    "fontSize": "حجم الخط",
+    "lineHeight": "ارتفاع السطر",
+    "color": {
+      "highlight": "لون التحديد",
+      "text": "لون النص",
+      "unset": "إزالة اللون",
+      "custom": "تحديد مخصص"
+    }
+  },
+  "format": {
+    "bold": "عريض",
+    "italic": "مائل",
+    "strike": "مشطوب",
+    "underline": "تسطير",
+    "sup": "أس فوق السطر",
+    "sub": "أس تحت السطر",
+    "break": "كسر سطر قسري",
+    "line": "خط أفقي",
+    "blockquote": "اقتباس",
+    "code": "شفرة برمجية",
+    "codeblock": "كتلة شفرة",
+    "formatClear": "مسح التنسيق"
+  },
+  "media": {
+    "link": "رابط خارجي",
+    "iframe": "إطار مضمن",
+    "image": "صورة",
+    "emoji": {
+      "title": "رموز تعبيرية",
+      "activities": "أنشطة",
+      "animals_and_nature": "حيوانات وطبيعة",
+      "component": "مكون",
+      "flags": "أعلام",
+      "food_and_drink": "طعام وشراب",
+      "objects": "أشياء",
+      "people_and_body": "أشخاص وجسد",
+      "smileys_and_emotion": "ابتسامات ومشاعر",
+      "symbols": "رموز",
+      "travel_and_places": "سفر وأماكن"
+    },
+    "tables": {
+      "table": "جدول",
+      "insertTable": "إدراج جدول",
+      "deleteTable": "حذف جدول",
+      "insertWithHeaderRow": "إدراج جدول مع صف ترويسة",
+      "rows": "صفوف",
+      "row": "صف",
+      "insertRowBefore": "إدراج صف قبل",
+      "insertRowAfter": "إدراج صف بعد",
+      "deleteRow": "حذف صف",
+      "cols": "أعمدة",
+      "col": "عمود",
+      "insertColBefore": "إدراج عمود قبل",
+      "insertColAfter": "إدراج عمود بعد",
+      "deleteCol": "حذف عمود",
+      "mergeCells": "دمج الخلايا",
+      "splitCell": "تقسيم الخلية"
+    },
+    "video": "فيديو"
+  },
+  "action": {
+    "undo": "تراجع",
+    "redo": "إعادة"
+  },
+  "alignment": "محاذاة",
+  "alignments": {
+    "left": "محاذاة لليسار",
+    "center": "محاذاة إلى المنتصف",
+    "right": "محاذاة لليمين",
+    "justify": "ضبط"
+  },
+  "list": "قائمة",
+  "lists": {
+    "bullet": "قائمة غير مرقمة",
+    "numbered": "قائمة مرقمة",
+    "task": "قائمة مهام",
+    "indent": "زيادة المسافة البادئة",
+    "outdent": "تقليل المسافة البادئة"
+  },
+  "dialog": {
+    "apply": "تطبيق",
+    "clear": "مسح",
+    "close": "إغلاق",
+    "iframe": {
+      "dialog_title": "إضافة/تعديل إطار مضمن",
+      "src": "المصدر",
+      "name": "الاسم",
+      "title": "العنوان",
+      "width": "العرض",
+      "height": "الارتفاع",
+      "frameborder": "حدود الإطار",
+      "src_invalid": "عنوان URL المدخل غير صالح"
+    },
+    "image": {
+      "title": "إضافة/تعديل صورة",
+      "src": "المصدر",
+      "keep_ratio": "الحفاظ على نسبة العرض إلى الارتفاع",
+      "alt": "نص بديل",
+      "width": "العرض",
+      "height": "الارتفاع"
+    },
+    "link": {
+      "title": "إضافة/تعديل رابط",
+      "href": "عنوان الرابط",
+      "href_error": "عنوان رابط غير صالح",
+      "target": "افتح في...",
+      "target_blank": "نافذة جديدة",
+      "target_self": "النافذة الحالية",
+      "rel": "نسبة",
+      "class": "فئة CSS"
+    },
+    "preview": {
+      "title": "معاينة"
+    },
+    "source": {
+      "title": "عرض كود المصدر",
+      "prettify": "تنسيق"
+    },
+    "video": {
+      "title": "إضافة/تعديل فيديو",
+      "src": "المصدر",
+      "width": "العرض",
+      "height": "الارتفاع"
+    }
+  },
+  "misc": {
+    "fullscreen": "وضع ملء الشاشة",
+    "preview": "معاينة",
+    "source": "عرض كود المصدر",
+    "toggleInvisibleCharacters": "إظهار/إخفاء الأحرف غير المرئية"
+  },
+  "footer": {
+    "words": "كلمات",
+    "chars": "حروف"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "defaultValue": "Varsayılan değer",
+  "content": {
+    "placeholder": "Bir şeyler yazın..."
+  },
+  "style": {
+    "paragraph": "Paragraf",
+    "heading": "Başlık",
+    "headings": {
+      "h1": "1 Seviye Başlık",
+      "h2": "2 Seviye Başlık",
+      "h3": "3 Seviye Başlık",
+      "h4": "4 Seviye Başlık",
+      "h5": "5 Seviye Başlık",
+      "h6": "6 Seviye Başlık"
+    },
+    "fontFamily": "Yazı tipi ailesi",
+    "fontSize": "Yazı boyutu",
+    "lineHeight": "Satır yüksekliği",
+    "color": {
+      "highlight": "Vurgu rengi",
+      "text": "Metin rengi",
+      "unset": "Rengi kaldır",
+      "custom": "Özel seçim"
+    }
+  },
+  "format": {
+    "bold": "Kalın",
+    "italic": "İtalik",
+    "strike": "Üstü çizili",
+    "underline": "Altı çizili",
+    "sup": "Üst simge",
+    "sub": "Altsimge",
+    "break": "Satır sonu",
+    "line": "Yatay çizgi",
+    "blockquote": "İntikal",
+    "code": "Kod",
+    "codeblock": "Kod bloğu",
+    "formatClear": "Biçimi temizle"
+  },
+  "media": {
+    "link": "Harici bağlantı",
+    "iframe": "iframe",
+    "image": "Görsel",
+    "emoji": {
+      "title": "Emoji",
+      "activities": "Etkinlikler",
+      "animals_and_nature": "Hayvanlar ve doğa",
+      "component": "Bileşen",
+      "flags": "Bayraklar",
+      "food_and_drink": "Yiyecek ve içecek",
+      "objects": "Nesneler",
+      "people_and_body": "İnsanlar ve beden",
+      "smileys_and_emotion": "Gülücükler ve duygular",
+      "symbols": "Semboller",
+      "travel_and_places": "Seyahat ve yerler"
+    },
+    "tables": {
+      "table": "Tablo",
+      "insertTable": "Tablo ekle",
+      "deleteTable": "Tabloyu sil",
+      "insertWithHeaderRow": "Başlık satırı ile tablo ekle",
+      "rows": "Satırlar",
+      "row": "Satır",
+      "insertRowBefore": "Önce satır ekle",
+      "insertRowAfter": "Sonra satır ekle",
+      "deleteRow": "Satırı sil",
+      "cols": "Sütunlar",
+      "col": "Sütun",
+      "insertColBefore": "Önce sütun ekle",
+      "insertColAfter": "Sonra sütun ekle",
+      "deleteCol": "Sütunu sil",
+      "mergeCells": "Hücreleri birleştir",
+      "splitCell": "Hücreyi böl"
+    },
+    "video": "Video"
+  },
+  "action": {
+    "undo": "Geri al",
+    "redo": "Yinele"
+  },
+  "alignment": "Düzenleme",
+  "alignments": {
+    "left": "Sola hizala",
+    "center": "Ortala",
+    "right": "Sağa hizala",
+    "justify": "Yay"
+  },
+  "list": "Liste",
+  "lists": {
+    "bullet": "Madde imli liste",
+    "numbered": "Numaralı liste",
+    "task": "Görev listesi",
+    "indent": "Girintiyi artır",
+    "outdent": "Girintiyi azalt"
+  },
+  "dialog": {
+    "apply": "Uygula",
+    "clear": "Temizle",
+    "close": "Kapat",
+    "iframe": {
+      "dialog_title": "Iframe ekle/düzenle",
+      "src": "Kaynak",
+      "name": "Ad",
+      "title": "Başlık",
+      "width": "Genişlik",
+      "height": "Yükseklik",
+      "frameborder": "Çerçeve kenarlığı",
+      "src_invalid": "Girilen URL geçersiz"
+    },
+    "image": {
+      "title": "Görsel ekle/düzenle",
+      "src": "Kaynak",
+      "keep_ratio": "En boy oranını koru",
+      "alt": "Alternatif metin",
+      "width": "Genişlik",
+      "height": "Yükseklik"
+    },
+    "link": {
+      "title": "Bağlantı ekle/düzenle",
+      "href": "Bağlantı adresi",
+      "href_error": "Geçersiz bağlantı adresi",
+      "target": "Şurada aç...",
+      "target_blank": "Yeni pencere",
+      "target_self": "Mevcut pencere",
+      "rel": "ilgili",
+      "class": "CSS sınıfı"
+    },
+    "preview": {
+      "title": "Önizleme"
+    },
+    "source": {
+      "title": "Kaynak kodunu görüntüle",
+      "prettify": "Biçimlendir"
+    },
+    "video": {
+      "title": "Video ekle/düzenle",
+      "src": "Kaynak",
+      "width": "Genişlik",
+      "height": "Yükseklik"
+    }
+  },
+  "misc": {
+    "fullscreen": "Tam ekran modu",
+    "preview": "Önizleme",
+    "source": "Kaynak kodunu görüntüle",
+    "toggleInvisibleCharacters": "Görünmez karakterleri göster/gizle"
+  },
+  "footer": {
+    "words": "kelime",
+    "chars": "karakter"
+  }
+}

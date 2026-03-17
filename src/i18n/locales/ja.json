@@ -1,0 +1,153 @@
+{
+  "defaultValue": "デフォルト値",
+  "content": {
+    "placeholder": "何か入力してください..."
+  },
+  "style": {
+    "paragraph": "段落",
+    "heading": "見出し",
+    "headings": {
+      "h1": "見出しレベル1",
+      "h2": "見出しレベル2",
+      "h3": "見出しレベル3",
+      "h4": "見出しレベル4",
+      "h5": "見出しレベル5",
+      "h6": "見出しレベル6"
+    },
+    "fontFamily": "フォントファミリー",
+    "fontSize": "文字サイズ",
+    "lineHeight": "行高",
+    "color": {
+      "highlight": "ハイライト色",
+      "text": "テキスト色",
+      "unset": "色を解除",
+      "custom": "カスタム選択"
+    }
+  },
+  "format": {
+    "bold": "太字",
+    "italic": "イタリック",
+    "strike": "取り消し線",
+    "underline": "下線",
+    "sup": "上付き文字",
+    "sub": "下付き文字",
+    "break": "改行",
+    "line": "水平線",
+    "blockquote": "引用",
+    "code": "コード",
+    "codeblock": "コードブロック",
+    "formatClear": "フォーマットをクリア"
+  },
+  "media": {
+    "link": "外部リンク",
+    "iframe": "iframe",
+    "image": "画像",
+    "emoji": {
+      "title": "絵文字",
+      "activities": "アクティビティ",
+      "animals_and_nature": "動物・自然",
+      "component": "コンポーネント",
+      "flags": "国旗",
+      "food_and_drink": "食べ物・飲み物",
+      "objects": "オブジェクト",
+      "people_and_body": "人物・体",
+      "smileys_and_emotion": "顔文字・感情",
+      "symbols": "記号",
+      "travel_and_places": "旅行・場所"
+    },
+    "tables": {
+      "table": "表",
+      "insertTable": "テーブルを挿入",
+      "deleteTable": "テーブルを削除",
+      "insertWithHeaderRow": "ヘッダー行付きの表を挿入",
+      "rows": "行数",
+      "row": "行",
+      "insertRowBefore": "前に行を挿入",
+      "insertRowAfter": "後に行を挿入",
+      "deleteRow": "行を削除",
+      "cols": "列数",
+      "col": "列",
+      "insertColBefore": "前に列を挿入",
+      "insertColAfter": "後に列を挿入",
+      "deleteCol": "列を削除",
+      "mergeCells": "セルを結合",
+      "splitCell": "セルを分割"
+    },
+    "video": "動画"
+  },
+  "action": {
+    "undo": "取り消し",
+    "redo": "やり直し"
+  },
+  "alignment": "配置",
+  "alignments": {
+    "left": "左揃え",
+    "center": "中央揃え",
+    "right": "右揃え",
+    "justify": "両端揃え"
+  },
+  "list": "リスト",
+  "lists": {
+    "bullet": "箇条書きリスト",
+    "numbered": "番号付きリスト",
+    "task": "タスクリスト",
+    "indent": "インデントを増やす",
+    "outdent": "インデントを減らす"
+  },
+  "dialog": {
+    "apply": "適用",
+    "clear": "クリア",
+    "close": "閉じる",
+    "iframe": {
+      "dialog_title": "iframeを追加/編集",
+      "src": "ソース",
+      "name": "名前",
+      "title": "タイトル",
+      "width": "幅",
+      "height": "高さ",
+      "frameborder": "iframe 境界線",
+      "src_invalid": "入力された URL は無効です"
+    },
+    "image": {
+      "title": "画像を追加/編集",
+      "src": "ソース",
+      "keep_ratio": "アスペクト比を維持",
+      "alt": "代替テキスト",
+      "width": "幅",
+      "height": "高さ"
+    },
+    "link": {
+      "title": "リンクを追加/編集",
+      "href": "リンクアドレス",
+      "href_error": "無効なリンクアドレス",
+      "target": "開く場所...",
+      "target_blank": "新しいウィンドウ",
+      "target_self": "現在のウィンドウ",
+      "rel": "rel",
+      "class": "CSS クラス"
+    },
+    "preview": {
+      "title": "プレビュー"
+    },
+    "source": {
+      "title": "ソースコードを表示",
+      "prettify": "フォーマット"
+    },
+    "video": {
+      "title": "動画を追加/編集",
+      "src": "ソース",
+      "width": "幅",
+      "height": "高さ"
+    }
+  },
+  "misc": {
+    "fullscreen": "全画面モード",
+    "preview": "プレビュー",
+    "source": "ソースコードを表示",
+    "toggleInvisibleCharacters": "不可視文字の表示/非表示切り替え"
+  },
+  "footer": {
+    "words": "単語数",
+    "chars": "文字数"
+  }
+}
