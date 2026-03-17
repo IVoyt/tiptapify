@@ -1,100 +1,103 @@
 {
-  "defaultValue": "Valor per defectum",
+  "defaultValue": "Noklusētā vērtība",
   "content": {
-    "placeholder": "Scribe aliquid..."
+    "placeholder": "Ierakstiet kaut ko..."
   },
   "style": {
-    "paragraph": "paragraphus",
-    "heading": "Titulus",
+    "paragraph": "Absolūts teksts",
+    "heading": "Virsraksts",
     "headings": {
-      "h1": "Titulus primi gradus",
-      "h2": "Titulus secundi gradus",
-      "h3": "Titulus tertii gradus",
-      "h4": "Titulus quarti gradus",
-      "h5": "Titulus quinti gradus",
-      "h6": "Titulus sexti gradus"
+      "h1": "1. līmeņa virsraksts",
+      "h2": "2. līmeņa virsraksts",
+      "h3": "3. līmeņa virsraksts",
+      "h4": "4. līmeņa virsraksts",
+      "h5": "5. līmeņa virsraksts",
+      "h6": "6. līmeņa virsraksts"
     },
-    "fontFamily": "Genus litterarum",
-    "fontSize": "Magnitudo",
-    "lineHeight": "Altitudo lineae",
+    "fontFamily": "Fontu saime",
+    "fontSize": "Fonta izmērs",
+    "lineHeight": "Līnijas augstums",
     "color": {
-      "highlight": "Color illuminationis",
-      "text": "Color textus",
-      "unset": "Colorem delere",
-      "custom": "Selectio propria"
+      "highlight": "Iezīmējuma krāsa",
+      "text": "Teksta krāsa",
+      "unset": "Noņemt krāsu",
+      "custom": "Pielāgota izvēle"
     }
   },
   "format": {
-    "bold": "Crassum",
-    "italic": "Obliquum",
-    "strike": "Deletum",
-    "underline": "Sublineatum",
-    "sup": "Superscriptum",
-    "sub": "Subscriptum",
-    "break": "Fractio lineae",
-    "line": "Linea horizontalis",
-    "blockquote": "Citatio",
-    "code": "Codex",
-    "codeblock": "Blocum codicis",
-    "formatClear": "Formam delere"
+    "bold": "Treknraksts",
+    "italic": "Kursīvs",
+    "strike": "Nosvītrots",
+    "underline": "Pasvītrots",
+    "sup": "Augšraksts",
+    "sub": "Apakšraksts",
+    "break": "Rindas pārraušana",
+    "line": "Horizontāla līnija",
+    "blockquote": "Citāts",
+    "code": "Kods",
+    "codeblock": "Koda bloks",
+    "formatClear": "Notīrīt formatējumu"
   },
   "media": {
-    "link": "Nexus externus",
-    "image": "Imago",
+    "link": "Ārējais saites",
+    "iframe": "iframe",
+    "image": "Attēls",
     "emoji": {
-      "activities": "Activitates",
-      "animals_and_nature": "Animalia et natura",
-      "component": "Componens",
-      "flags": "Vexilla",
-      "food_and_drink": "Cibus et potus",
-      "objects": "Objecta",
-      "people_and_body": "Homines et corpus",
-      "smileys_and_emotion": "Risus et affectus",
-      "symbols": "Symbola",
-      "travel_and_places": "Iter et loca"
+      "title": "Emocijzīmes",
+      "activities": "Aktivitātes",
+      "animals_and_nature": "Dzīvnieki un daba",
+      "component": "Komponents",
+      "flags": "Karogi",
+      "food_and_drink": "Pārtika un dzērieni",
+      "objects": "Objekti",
+      "people_and_body": "Cilvēki un ķermenis",
+      "smileys_and_emotion": "Sejītes un emocijas",
+      "symbols": "Simboli",
+      "travel_and_places": "Ceļojumi un vietas"
     },
     "tables": {
       "table": "Tabula",
-      "insertTable": "Tabulam inserere",
-      "deleteTable": "Tabulam delere",
-      "insertWithHeaderRow": "Tabulam cum titulo inserere",
-      "rows": "Ordines",
-      "row": "Ordo",
-      "insertRowBefore": "Ordinem ante inserere",
-      "insertRowAfter": "Ordinem post inserere",
-      "deleteRow": "Ordinem delere",
-      "cols": "Columnae",
-      "col": "Columna",
-      "insertColBefore": "Columnam ante inserere",
-      "insertColAfter": "Columnam post inserere",
-      "deleteCol": "Columnam delere",
-      "mergeCells": "Cellulas iungere",
-      "splitCell": "Cellulam dividere"
-    }
+      "insertTable": "Ievietot tabulu",
+      "deleteTable": "Dzēst tabulu",
+      "insertWithHeaderRow": "Ievietot tabulu ar galvenes rindu",
+      "rows": "Rindas",
+      "row": "Rinda",
+      "insertRowBefore": "Ievietot rindu pirms",
+      "insertRowAfter": "Ievietot rindu pēc",
+      "deleteRow": "Dzēst rindu",
+      "cols": "Kolonnas",
+      "col": "Kolonna",
+      "insertColBefore": "Ievietot kolonnu pirms",
+      "insertColAfter": "Ievietot kolonnu pēc",
+      "deleteCol": "Dzēst kolonnu",
+      "mergeCells": "Apvienot šūnas",
+      "splitCell": "Sadalīt šūnu"
+    },
+    "video": "Video"
   },
   "action": {
-    "undo": "Infectum reddere",
-    "redo": "Iterare"
+    "undo": "Atsaukt",
+    "redo": "Atcelt atsaukšanu"
   },
-  "alignment": "Ordinatio",
+  "alignment": "Līdzināšana",
   "alignments": {
-    "left": "Ordinatio sinistra",
-    "center": "Ordinatio media",
-    "right": "Ordinatio dextra",
-    "justify": "Ordinatio iustificata"
+    "left": "Līdzināt pa kreisi",
+    "center": "Līdzināt centrā",
+    "right": "Līdzināt pa labi",
+    "justify": "Izlīdzināt"
   },
-  "list": "Index",
+  "list": "Saraksts",
   "lists": {
-    "bullet": "Index punctatus",
-    "numbered": "Index numeratus",
-    "task": "Index officiorum",
-    "indent": "Recessum elementi augere",
-    "outdent": "Recessum elementi minuere"
+    "bullet": "Nenumurēts saraksts",
+    "numbered": "Numurēts saraksts",
+    "task": "Uzdevumu saraksts",
+    "indent": "Palielināt atkāpi",
+    "outdent": "Samazināt atkāpi"
   },
   "dialog": {
-    "apply": "Applicare",
-    "clear": "Purgare",
-    "close": "Claudere",
+    "apply": "Pielietot",
+    "clear": "Notīrīt",
+    "close": "Aizvērt",
     "iframe": {
       "dialog_title": "Pievienot/rediģēt iframe",
       "src": "Avots",
@@ -102,48 +105,49 @@
       "title": "Virsraksts",
       "width": "Platums",
       "height": "Augstums",
-      "frameborder": "Ietvara robeža",
-      "src_invalid": "Ievadītā URL nav derīga"
+      "frameborder": "Rāmja robeža",
+      "src_invalid": "Ievadītais URL nav derīgs"
     },
     "image": {
-      "title": "Imaginem addere/mutare",
-      "src": "Fons",
-      "alt": "alt",
-      "width": "Latitudo",
-      "height": "Altitudo"
+      "title": "Pievienot/mainīt attēlu",
+      "src": "Avots",
+      "keep_ratio": "Saglabāt attiecības",
+      "alt": "Alt",
+      "width": "Platums",
+      "height": "Augstums"
     },
     "link": {
-      "title": "Nexum addere/mutare",
-      "href": "Adressum nexi",
-      "href_error": "Adressum nexi incorrectum",
-      "target": "Aperire in...",
-      "target_blank": "Nova fenestra",
-      "target_self": "Fenestra praesens",
-      "rel": "rel",
-      "class": "Classis CSS"
+      "title": "Pievienot/mainīt saiti",
+      "href": "Saites adrese",
+      "href_error": "Nederīga saites adrese",
+      "target": "Atvērt...",
+      "target_blank": "Jaunā logā",
+      "target_self": "Pašreizējā logā",
+      "rel": "Rel",
+      "class": "CSS klase"
     },
     "preview": {
-      "title": "Praevisio"
+      "title": "Priekšskatījums"
     },
     "source": {
-      "title": "Codicem fontem videre",
-      "prettify": "prettify"
+      "title": "Skatīt avota kodu",
+      "prettify": "Prettify"
     },
     "video": {
-      "title": "Addere/mutare video",
-      "src": "Fons",
-      "width": "Latitudo",
-      "height": "Altitudo"
+      "title": "Pievienot/rediģēt video",
+      "src": "Avots",
+      "width": "Platums",
+      "height": "Augstums"
     }
   },
   "misc": {
     "fullscreen": "Pilnekrāna režīms",
-    "preview": "Praevisio",
-    "source": "Codicem fontem videre",
-    "toggleInvisibleCharacters": "Ostende/cela characteres invisibiles"
+    "preview": "Priekšskatījums",
+    "source": "Skatīt avota kodu",
+    "toggleInvisibleCharacters": "Rādīt/slēpt neredzamās zīmes"
   },
   "footer": {
-    "words": "verba",
-    "chars": "characteres"
+    "words": "vārdi",
+    "chars": "zīmes"
   }
 }

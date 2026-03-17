@@ -145,7 +145,17 @@ function addToolbarItem(_toolbarItems: toolbarItemsType, itemsList: any, itemTit
 }
 
 Object.keys(props.customExtensions).forEach((key: any) => {
-  toolbarItems.push(props.customExtensions[key])
+  const existingSection = toolbarItems.find(item => item.section === props.customExtensions[key].section)
+  if (existingSection) {
+    for (const component of props.customExtensions[key].components) {
+      const existingComponent = existingSection.components.find(_component => _component.name === component.name)
+      if (existingComponent) {
+        existingComponent.component = component.component
+      }
+    }
+  } else {
+    toolbarItems.push(props.customExtensions[key])
+  }
 })
 
 </script>

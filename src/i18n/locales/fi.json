@@ -1,0 +1,153 @@
+{
+  "defaultValue": "Oletusarvo",
+  "content": {
+    "placeholder": "Kirjoita jotain..."
+  },
+  "style": {
+    "paragraph": "Kappale",
+    "heading": "Otsikko",
+    "headings": {
+      "h1": "Otsikon taso 1",
+      "h2": "Otsikon taso 2",
+      "h3": "Otsikon taso 3",
+      "h4": "Otsikon taso 4",
+      "h5": "Otsikon taso 5",
+      "h6": "Otsikon taso 6"
+    },
+    "fontFamily": "Fonttiperhe",
+    "fontSize": "Kirjasinkoko",
+    "lineHeight": "Rivin korkeus",
+    "color": {
+      "highlight": "Korostuksen väri",
+      "text": "Tekstin väri",
+      "unset": "Poista väri",
+      "custom": "Mukautettu valinta"
+    }
+  },
+  "format": {
+    "bold": "Lihavoitu",
+    "italic": "Kursiivi",
+    "strike": "Yliviivattu",
+    "underline": "Alleviivattu",
+    "sup": "Yläindeksi",
+    "sub": "Alikindeksi",
+    "break": "Rivin katkaisu",
+    "line": "Vaakatason viiva",
+    "blockquote": "Lainaus",
+    "code": "Koodi",
+    "codeblock": "Koodilohko",
+    "formatClear": "Poista muotoilu"
+  },
+  "media": {
+    "link": "Ulkoisen linkin",
+    "iframe": "iframe",
+    "image": "Kuva",
+    "emoji": {
+      "title": "Emoji",
+      "activities": "Toiminnot",
+      "animals_and_nature": "Eläimet ja luonto",
+      "component": "Komponentti",
+      "flags": "Liput",
+      "food_and_drink": "Ruoka ja juoma",
+      "objects": "Objektit",
+      "people_and_body": "Ihmiset ja ruumis",
+      "smileys_and_emotion": "Hymyjä ja tunteita",
+      "symbols": "Symbolit",
+      "travel_and_places": "Matkustaminen ja paikat"
+    },
+    "tables": {
+      "table": "Taulukko",
+      "insertTable": "Lisää taulukko",
+      "deleteTable": "Poista taulukko",
+      "insertWithHeaderRow": "Lisää taulukko otsikkorivillä",
+      "rows": "Rivit",
+      "row": "Rivi",
+      "insertRowBefore": "Lisää rivi ennen",
+      "insertRowAfter": "Lisää rivi jälkeen",
+      "deleteRow": "Poista rivi",
+      "cols": "Sarakkeet",
+      "col": "Sarake",
+      "insertColBefore": "Lisää sarake ennen",
+      "insertColAfter": "Lisää sarake jälkeen",
+      "deleteCol": "Poista sarake",
+      "mergeCells": "Yhdistä solut",
+      "splitCell": "Jaa solu"
+    },
+    "video": "Video"
+  },
+  "action": {
+    "undo": "Kumoa",
+    "redo": "Tee uudelleen"
+  },
+  "alignment": "Tasaus",
+  "alignments": {
+    "left": "Vasemmalle tasattu",
+    "center": "Keskitetty",
+    "right": "Oikealle tasattu",
+    "justify": "Tasaa"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Luettelomerkki-luettelo",
+    "numbered": "Numeroiden luettelo",
+    "task": "Tehtävälista",
+    "indent": "Lisää sisennystä",
+    "outdent": "Vähennä sisennystä"
+  },
+  "dialog": {
+    "apply": "Käytä",
+    "clear": "Tyhjennä",
+    "close": "Sulje",
+    "iframe": {
+      "dialog_title": "Lisää/muokkaa iframe",
+      "src": "Lähde",
+      "name": "Nimi",
+      "title": "Otsikko",
+      "width": "Leveys",
+      "height": "Korkeus",
+      "frameborder": "Iframe-reunalinja",
+      "src_invalid": "Syötetty URL ei ole kelvollinen"
+    },
+    "image": {
+      "title": "Lisää/muokkaa kuvaa",
+      "src": "Lähde",
+      "keep_ratio": "Säilytä suhde",
+      "alt": "Vaihtoehtoinen teksti",
+      "width": "Leveys",
+      "height": "Korkeus"
+    },
+    "link": {
+      "title": "Lisää/muokkaa linkkiä",
+      "href": "Linkin osoite",
+      "href_error": "Virheellinen linkin osoite",
+      "target": "Avaa...",
+      "target_blank": "Uuteen ikkunaan",
+      "target_self": "Nykyiseen ikkunaan",
+      "rel": "suhteessa",
+      "class": "CSS-luokka"
+    },
+    "preview": {
+      "title": "Esikatselu"
+    },
+    "source": {
+      "title": "Näytä lähdekoodi",
+      "prettify": "Muotoile"
+    },
+    "video": {
+      "title": "Lisää/muokkaa videoa",
+      "src": "Lähde",
+      "width": "Leveys",
+      "height": "Korkeus"
+    }
+  },
+  "misc": {
+    "fullscreen": "Täysi-ikkuna tila",
+    "preview": "Esikatselu",
+    "source": "Näytä lähdekoodi",
+    "toggleInvisibleCharacters": "Näytä/piilota näkymättömät merkit"
+  },
+  "footer": {
+    "words": "sanaa",
+    "chars": "merkkiä"
+  }
+}

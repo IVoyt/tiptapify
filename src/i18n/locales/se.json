@@ -40,8 +40,10 @@
   },
   "media": {
     "link": "Extern länk",
+    "iframe": "iframe",
     "image": "Bild",
     "emoji": {
+      "title": "Emoji",
       "activities": "Aktiviteter",
       "animals_and_nature": "Djur och natur",
       "component": "Komponent",
@@ -70,7 +72,8 @@
       "deleteCol": "Ta bort kolumn",
       "mergeCells": "Sammanfoga celler",
       "splitCell": "Dela cell"
-    }
+    },
+    "video": "Video"
   },
   "action": {
     "undo": "Ångra",
@@ -108,6 +111,7 @@
     "image": {
       "title": "Lägg till/ändra bild",
       "src": "Källa",
+      "keep_ratio": "Behåll proportioner",
       "alt": "alt",
       "width": "Bredd",
       "height": "Höjd"

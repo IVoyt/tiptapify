@@ -1,3 +1,8 @@
+### v0.0.33
+- add "keep ratio" in the image plugin
+- add translations (ar, fi, hu, ja, ko, th, tr, vi)
+- fix custom extensions – replace built-in plugin with custom extension instead of adding apart
+
 ### v0.0.32
 - add missing dependency "extension-text-style"
 

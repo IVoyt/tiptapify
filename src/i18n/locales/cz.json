@@ -40,8 +40,10 @@
   },
   "media": {
     "link": "Externí odkaz",
+    "iframe": "iframe",
     "image": "Obrázek",
     "emoji": {
+      "title": "Emoji",
       "activities": "Aktivity",
       "animals_and_nature": "Zvířata a příroda",
       "component": "Komponenta",
@@ -70,7 +72,8 @@
       "deleteCol": "Smazat sloupec",
       "mergeCells": "Sloučit buňky",
       "splitCell": "Rozdělit buňku"
-    }
+    },
+    "video": "Video"
   },
   "action": {
     "undo": "Zpět",
@@ -108,6 +111,7 @@
     "image": {
       "title": "Přidání/úprava obrázku",
       "src": "Zdroj",
+      "keep_ratio": "Udržet poměr stran",
       "alt": "alt",
       "width": "Šířka",
       "height": "Výška"

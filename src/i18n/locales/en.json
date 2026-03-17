@@ -111,6 +111,7 @@
     "image": {
       "title": "Add/edit image",
       "src": "Source",
+      "keep_ratio": "Keep ratio",
       "alt": "Alt",
       "width": "Width",
       "height": "Height"

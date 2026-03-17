@@ -1,0 +1,153 @@
+{
+  "defaultValue": "ค่าเริ่มต้น",
+  "content": {
+    "placeholder": "พิมพ์อะไรสักอย่าง..."
+  },
+  "style": {
+    "paragraph": "ย่อหน้า",
+    "heading": "หัวเรื่อง",
+    "headings": {
+      "h1": "หัวข้อระดับ 1",
+      "h2": "หัวข้อระดับ 2",
+      "h3": "หัวข้อระดับ 3",
+      "h4": "หัวข้อระดับ 4",
+      "h5": "หัวข้อระดับ 5",
+      "h6": "หัวข้อระดับ 6"
+    },
+    "fontFamily": "ตระกูลฟอนต์",
+    "fontSize": "ขนาดตัวอักษร",
+    "lineHeight": "ความสูงบรรทัด",
+    "color": {
+      "highlight": "สีเน้น",
+      "text": "สีข้อความ",
+      "unset": "ลบสี",
+      "custom": "เลือกเอง"
+    }
+  },
+  "format": {
+    "bold": "ตัวหนา",
+    "italic": "ตัวเอียง",
+    "strike": "ขีดฆ่า",
+    "underline": "ขีดเส้นใต้",
+    "sup": "ตัวยก",
+    "sub": "ตัวห้อย",
+    "break": "ขึ้นบรรทัดใหม่",
+    "line": "เส้นแนวนอน",
+    "blockquote": "คำ trích",
+    "code": "โค้ด",
+    "codeblock": "บล็อกโค้ด",
+    "formatClear": "ล้างรูปแบบ"
+  },
+  "media": {
+    "link": "ลิงก์ภายนอก",
+    "iframe": "กรอบฝังตัว",
+    "image": "รูปภาพ",
+    "emoji": {
+      "title": "อิโมจิ",
+      "activities": "กิจกรรม",
+      "animals_and_nature": "สัตว์และธรรมชาติ",
+      "component": "คอมโพเนนต์",
+      "flags": "ธง",
+      "food_and_drink": "อาหารและเครื่องดื่ม",
+      "objects": "วัตถุ",
+      "people_and_body": "คนและร่างกาย",
+      "smileys_and_emotion": "อิโมจิและอารมณ์",
+      "symbols": "สัญลักษณ์",
+      "travel_and_places": "การเดินทางและสถานที่"
+    },
+    "tables": {
+      "table": "ตาราง",
+      "insertTable": "แทรกตาราง",
+      "deleteTable": "ลบตาราง",
+      "insertWithHeaderRow": "แทรกตารางที่มีแถวหัวเรื่อง",
+      "rows": "แถว",
+      "row": "แถว",
+      "insertRowBefore": "แทรกแถวก่อนหน้า",
+      "insertRowAfter": "แทรกแถวถัดไป",
+      "deleteRow": "ลบแถว",
+      "cols": "คอลัมน์",
+      "col": "คอลัมน์",
+      "insertColBefore": "แทรกคอลัมน์ก่อนหน้า",
+      "insertColAfter": "แทรกคอลัมน์ถัดไป",
+      "deleteCol": "ลบคอลัมน์",
+      "mergeCells": "รวมเซลล์",
+      "splitCell": "แยกเซลล์"
+    },
+    "video": "วิดีโอ"
+  },
+  "action": {
+    "undo": "ยกเลิก",
+    "redo": "ทำซ้ำ"
+  },
+  "alignment": "การจัดแนว",
+  "alignments": {
+    "left": "จัดชิดซ้าย",
+    "center": "จัดกึ่งกลาง",
+    "right": "จัดชิดขวา",
+    "justify": "จัดเต็มบรรทัด"
+  },
+  "list": "รายการ",
+  "lists": {
+    "bullet": "รายการแบบไม่มีตัวเลข",
+    "numbered": "รายการแบบมีหมายเลข",
+    "task": "รายการงาน",
+    "indent": "เพิ่มการเยื้อง",
+    "outdent": "ลดการเยื้อง"
+  },
+  "dialog": {
+    "apply": "ใช้",
+    "clear": "ล้าง",
+    "close": "ปิด",
+    "iframe": {
+      "dialog_title": "เพิ่ม/แก้ไขกรอบฝังตัว",
+      "src": "แหล่งที่มา",
+      "name": "ชื่อ",
+      "title": "หัวข้อ",
+      "width": "ความกว้าง",
+      "height": "ความสูง",
+      "frameborder": "ขอบกรอบ",
+      "src_invalid": "URL ที่ป้อนไม่ถูกต้อง"
+    },
+    "image": {
+      "title": "เพิ่ม/แก้ไขรูปภาพ",
+      "src": "แหล่งที่มา",
+      "keep_ratio": "รักษาสัดส่วน",
+      "alt": "ข้อความทางเลือก",
+      "width": "ความกว้าง",
+      "height": "ความสูง"
+    },
+    "link": {
+      "title": "เพิ่ม/แก้ไขลิงก์",
+      "href": "ที่อยู่ลิงก์",
+      "href_error": "ที่อยู่ลิงก์ไม่ถูกต้อง",
+      "target": "เปิดที่...",
+      "target_blank": "หน้าต่างใหม่",
+      "target_self": "หน้าต่างปัจจุบัน",
+      "rel": "ความสัมพันธ์",
+      "class": "คลาส CSS"
+    },
+    "preview": {
+      "title": "ดูตัวอย่าง"
+    },
+    "source": {
+      "title": "ดูรหัสแหล่งที่มา",
+      "prettify": "ทำให้สวยงาม"
+    },
+    "video": {
+      "title": "เพิ่ม/แก้ไขวิดีโอ",
+      "src": "แหล่งที่มา",
+      "width": "ความกว้าง",
+      "height": "ความสูง"
+    }
+  },
+  "misc": {
+    "fullscreen": "โหมดเต็มหน้าจอ",
+    "preview": "ดูตัวอย่าง",
+    "source": "ดูรหัสแหล่งที่มา",
+    "toggleInvisibleCharacters": "แสดง/ซ่อนอักขระที่มองไม่เห็น"
+  },
+  "footer": {
+    "words": "คำ",
+    "chars": "ตัวอักษร"
+  }
+}
