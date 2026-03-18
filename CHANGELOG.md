@@ -1,3 +1,9 @@
+### v0.0.35
+- fix an active state for some toolbar items
+
+### v0.0.34
+- update build files
+
 ### v0.0.33
 - add "keep ratio" in the image plugin
 - add translations (ar, fi, hu, ja, ko, th, tr, vi)

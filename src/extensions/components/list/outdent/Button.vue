@@ -21,9 +21,10 @@ const { t } = inject('tiptapifyI18n') as any
   <VBtn
       :active="false"
       :disabled="!editor.can().liftListItem('listItem')"
+      size="32"
+      color=""
       :variant="variantBtn"
       @click="editor.chain().focus().liftListItem('listItem').run()"
-      size="32"
   >
     <VTooltip activator="parent">
       {{ t('lists.outdent') }}

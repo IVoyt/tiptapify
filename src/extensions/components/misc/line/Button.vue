@@ -3,7 +3,7 @@
 import * as mdi from '@mdi/js'
 import { Editor } from "@tiptap/vue-3";
 import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { inject, Ref } from "vue";
+import { inject, onMounted, Ref } from "vue";
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -18,7 +18,12 @@ const { t } = inject('tiptapifyI18n') as any
 </script>
 
 <template>
-  <VBtn @click="editor.chain().focus().setHorizontalRule().run()" size="32" :variant="variantBtn">
+  <VBtn
+      @click="editor.chain().focus().setHorizontalRule().run()"
+      :color="editor.isActive('horizontalRule') ? 'primary' : ''"
+      size="32"
+      :variant="variantBtn"
+  >
     <VTooltip activator="parent">
       {{ t('format.line') }}
     </VTooltip>

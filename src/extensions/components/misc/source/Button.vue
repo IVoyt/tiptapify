@@ -22,7 +22,7 @@ function showDialog() {
 </script>
 
 <template>
-  <VBtn @click="showDialog()" size="32" :variant="variantBtn">
+  <VBtn @click="showDialog()" size="32" color="" :variant="variantBtn">
     <VTooltip activator="parent">
       {{ t('misc.source') }}
     </VTooltip>
