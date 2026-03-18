@@ -21,9 +21,10 @@ const { t } = inject('tiptapifyI18n') as any
   <VBtn
       :active="false"
       :disabled="!editor.can().sinkListItem('listItem')"
+      size="32"
+      color=""
       :variant="variantBtn"
       @click="editor.chain().focus().sinkListItem('listItem').run()"
-      size="32"
   >
     <VTooltip activator="parent">
       {{ t('lists.indent') }}

@@ -42,7 +42,12 @@ async function changeEditorContainer(source: string, target: string) {
 </script>
 
 <template>
-  <VBtn @click="dialog ? dialogClose() : dialogOpen()" size="32" :variant="variantBtn">
+  <VBtn
+      @click="dialog ? dialogClose() : dialogOpen()"
+      size="32"
+      :color="dialog ? 'primary' : ''"
+      :variant="variantBtn"
+  >
     <VTooltip activator="parent">
       {{ t('misc.fullscreen') }}
     </VTooltip>

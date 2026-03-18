@@ -21,8 +21,9 @@ const { t } = inject('tiptapifyI18n') as any
   <VBtn
       :disabled="!editor.can().chain().focus().unsetAllMarks().run()"
       :variant="variantBtn"
-      @click="editor.chain().focus().unsetAllMarks().clearNodes().run()"
       size="32"
+      color=""
+      @click="editor.chain().focus().unsetAllMarks().clearNodes().run()"
   >
     <VTooltip activator="parent">
       {{ t('format.formatClear') }}
