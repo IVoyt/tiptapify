@@ -20,9 +20,10 @@ const { t } = inject('tiptapifyI18n') as any
 <template>
   <VBtn
       :disabled="!editor.can().chain().focus().redo().run()"
+      size="32"
+      color=""
       :variant="variantBtn"
       @click="editor.chain().focus().redo().run()"
-      size="32"
   >
     <VTooltip activator="parent">
       {{ t('action.redo') }}

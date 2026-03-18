@@ -1,3 +1,6 @@
+### v0.0.35
+- fix an active state for some toolbar items
+
 ### v0.0.34
 - update build files
 

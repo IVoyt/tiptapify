@@ -21,7 +21,7 @@ const dialog = ref(null)
 </script>
 
 <template>
-  <VBtn @click="dialog.open()" size="32" :variant="variantBtn">
+  <VBtn @click="dialog.open()" size="32" color="" :variant="variantBtn">
     <VTooltip activator="parent">
       {{ t('misc.preview') }}
     </VTooltip>
