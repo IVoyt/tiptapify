@@ -44,16 +44,19 @@
     "iframe": "iframe",
     "emoji": {
       "title": "Емодзі",
-      "activities": "Активності",
-      "animals_and_nature": "Тварини та природа",
-      "component": "Компонент",
-      "flags": "Прапори",
-      "food_and_drink": "Їжа та напої",
-      "objects": "Об'єкти",
-      "people_and_body": "Люди та частини тіла",
-      "smileys_and_emotion": "Смайлики та емоції",
-      "symbols": "Символи",
-      "travel_and_places": "Подорожі та місця"
+      "search": "Пошук емодзі...",
+      "categories": {
+        "activities": "Активності",
+        "animals_and_nature": "Тварини та природа",
+        "component": "Компонент",
+        "flags": "Прапори",
+        "food_and_drink": "Їжа та напої",
+        "objects": "Об'єкти",
+        "people_and_body": "Люди та частини тіла",
+        "smileys_and_emotion": "Смайлики та емоції",
+        "symbols": "Символи",
+        "travel_and_places": "Подорожі та місця"
+      }
     },
     "tables": {
       "table": "Таблиця",
@@ -73,7 +76,26 @@
       "mergeCells": "Об'єднати клітинки",
       "splitCell": "Розділити клітинки"
     },
-    "video": "Відео"
+    "video": "Відео",
+    "charmap": {
+      "title": "Вставити спеціальний символ",
+      "search": "Пошук символів...",
+      "noResults": "Співпадаючих символів не знайдено",
+      "categories": {
+        "punctuation": "Пунктуація",
+        "symbols": "Символи",
+        "math": "Математика",
+        "currency": "Валюта",
+        "greek": "Грецькі літери",
+        "extended_letters": "Розширені літери",
+        "diacritics": "Діакритичні знаки",
+        "typography": "Типографіка",
+        "cyrillic": "Кирилиця",
+        "hebrew": "Іврит",
+        "arrows": "Стрілки",
+        "box_drawing": "Малювання рамок"
+      }
+    }
   },
   "action": {
     "undo": "Відміна",

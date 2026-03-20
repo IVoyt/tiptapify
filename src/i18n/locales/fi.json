@@ -44,16 +44,19 @@
     "image": "Kuva",
     "emoji": {
       "title": "Emoji",
-      "activities": "Toiminnot",
-      "animals_and_nature": "Eläimet ja luonto",
-      "component": "Komponentti",
-      "flags": "Liput",
-      "food_and_drink": "Ruoka ja juoma",
-      "objects": "Objektit",
-      "people_and_body": "Ihmiset ja ruumis",
-      "smileys_and_emotion": "Hymyjä ja tunteita",
-      "symbols": "Symbolit",
-      "travel_and_places": "Matkustaminen ja paikat"
+      "search": "Hae emoji...",
+      "categories": {
+        "activities": "Toiminnot",
+        "animals_and_nature": "Eläimet ja luonto",
+        "component": "Komponentti",
+        "flags": "Liput",
+        "food_and_drink": "Ruoka ja juoma",
+        "objects": "Objektit",
+        "people_and_body": "Ihmiset ja ruumis",
+        "smileys_and_emotion": "Hymyjä ja tunteita",
+        "symbols": "Symbolit",
+        "travel_and_places": "Matkustaminen ja paikat"
+      }
     },
     "tables": {
       "table": "Taulukko",
@@ -73,7 +76,26 @@
       "mergeCells": "Yhdistä solut",
       "splitCell": "Jaa solu"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Lisää erikoismerkki",
+      "search": "Hae merkkejä...",
+      "noResults": "Ei vastaavia merkkejä löytynyt",
+      "categories": {
+        "punctuation": "Välimerkit",
+        "symbols": "Symbolit",
+        "math": "Matematiikka",
+        "currency": "Valuutta",
+        "greek": "Kreikkalaiset kirjaimet",
+        "extended_letters": "Laajennetut kirjaimet",
+        "diacritics": "Tarkekirjaimet",
+        "typography": "Typografia",
+        "cyrillic": "Kyrillinen",
+        "hebrew": "Heprea",
+        "arrows": "Nuolet",
+        "box_drawing": "Rajojen piirto"
+      }
+    }
   },
   "action": {
     "undo": "Kumoa",

@@ -44,16 +44,19 @@
     "image": "画像",
     "emoji": {
       "title": "絵文字",
-      "activities": "アクティビティ",
-      "animals_and_nature": "動物・自然",
-      "component": "コンポーネント",
-      "flags": "国旗",
-      "food_and_drink": "食べ物・飲み物",
-      "objects": "オブジェクト",
-      "people_and_body": "人物・体",
-      "smileys_and_emotion": "顔文字・感情",
-      "symbols": "記号",
-      "travel_and_places": "旅行・場所"
+      "search": "絵文字を検索...",
+      "categories": {
+        "activities": "アクティビティ",
+        "animals_and_nature": "動物・自然",
+        "component": "コンポーネント",
+        "flags": "国旗",
+        "food_and_drink": "食べ物・飲み物",
+        "objects": "オブジェクト",
+        "people_and_body": "人物・体",
+        "smileys_and_emotion": "顔文字・感情",
+        "symbols": "記号",
+        "travel_and_places": "旅行・場所"
+      }
     },
     "tables": {
       "table": "表",
@@ -73,7 +76,26 @@
       "mergeCells": "セルを結合",
       "splitCell": "セルを分割"
     },
-    "video": "動画"
+    "video": "動画",
+    "charmap": {
+      "title": "特殊文字を挿入",
+      "search": "文字を検索...",
+      "noResults": "一致する文字が見つかりません",
+      "categories": {
+        "punctuation": "句読点",
+        "symbols": "記号",
+        "math": "数学",
+        "currency": "通貨",
+        "greek": "ギリシャ文字",
+        "extended_letters": "拡張文字",
+        "diacritics": "分音記号",
+        "typography": "タイポグラフィ",
+        "cyrillic": "キリル文字",
+        "hebrew": "ヘブライ文字",
+        "arrows": "矢印",
+        "box_drawing": "罫線素片"
+      }
+    }
   },
   "action": {
     "undo": "取り消し",

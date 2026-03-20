@@ -44,16 +44,19 @@
     "image": "Attēls",
     "emoji": {
       "title": "Emocijzīmes",
-      "activities": "Aktivitātes",
-      "animals_and_nature": "Dzīvnieki un daba",
-      "component": "Komponents",
-      "flags": "Karogi",
-      "food_and_drink": "Pārtika un dzērieni",
-      "objects": "Objekti",
-      "people_and_body": "Cilvēki un ķermenis",
-      "smileys_and_emotion": "Sejītes un emocijas",
-      "symbols": "Simboli",
-      "travel_and_places": "Ceļojumi un vietas"
+      "search": "Meklēt emocijzīmes...",
+      "categories": {
+        "activities": "Aktivitātes",
+        "animals_and_nature": "Dzīvnieki un daba",
+        "component": "Komponents",
+        "flags": "Karogi",
+        "food_and_drink": "Pārtika un dzērieni",
+        "objects": "Objekti",
+        "people_and_body": "Cilvēki un ķermenis",
+        "smileys_and_emotion": "Sejītes un emocijas",
+        "symbols": "Simboli",
+        "travel_and_places": "Ceļojumi un vietas"
+      }
     },
     "tables": {
       "table": "Tabula",
@@ -73,7 +76,26 @@
       "mergeCells": "Apvienot šūnas",
       "splitCell": "Sadalīt šūnu"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Ievietot īpašo simbolu",
+      "search": "Meklēt rakstzīmes...",
+      "noResults": "Sakrītamas rakstzīmes nav atrastas",
+      "categories": {
+        "punctuation": "Punktuācija",
+        "symbols": "Simboli",
+        "math": "Matemātika",
+        "currency": "Valūta",
+        "greek": "Grieķu burti",
+        "extended_letters": "Paplašināti burti",
+        "diacritics": "Diakritiskās zīmes",
+        "typography": "Tipogrāfija",
+        "cyrillic": "Kirilica",
+        "hebrew": "Ivrits",
+        "arrows": "Bultiņas",
+        "box_drawing": "Rāmju zīmēšana"
+      }
+    }
   },
   "action": {
     "undo": "Atsaukt",

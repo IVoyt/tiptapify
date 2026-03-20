@@ -44,16 +44,19 @@
     "image": "Bild",
     "emoji": {
       "title": "Emoji",
-      "activities": "Aktiviteter",
-      "animals_and_nature": "Djur och natur",
-      "component": "Komponent",
-      "flags": "Flaggor",
-      "food_and_drink": "Mat och dryck",
-      "objects": "Objekt",
-      "people_and_body": "Människor och kropp",
-      "smileys_and_emotion": "Smileys och känslor",
-      "symbols": "Symboler",
-      "travel_and_places": "Resor och platser"
+      "search": "Sök emoji...",
+      "categories": {
+        "activities": "Aktiviteter",
+        "animals_and_nature": "Djur och natur",
+        "component": "Komponent",
+        "flags": "Flaggor",
+        "food_and_drink": "Mat och dryck",
+        "objects": "Objekt",
+        "people_and_body": "Människor och kropp",
+        "smileys_and_emotion": "Smileys och känslor",
+        "symbols": "Symboler",
+        "travel_and_places": "Resor och platser"
+      }
     },
     "tables": {
       "table": "Tabell",
@@ -73,7 +76,26 @@
       "mergeCells": "Sammanfoga celler",
       "splitCell": "Dela cell"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Infoga specialtecken",
+      "search": "Sök tecken...",
+      "noResults": "Inga matchande tecken hittades",
+      "categories": {
+        "punctuation": "Interpunktion",
+        "symbols": "Symboler",
+        "math": "Matematik",
+        "currency": "Valuta",
+        "greek": "Grekiska bokstäver",
+        "extended_letters": "Utökade bokstäver",
+        "diacritics": "Diakritiska tecken",
+        "typography": "Typografi",
+        "cyrillic": "Kyrilliska",
+        "hebrew": "Hebreiska",
+        "arrows": "Pilar",
+        "box_drawing": "Ramarbete"
+      }
+    }
   },
   "action": {
     "undo": "Ångra",

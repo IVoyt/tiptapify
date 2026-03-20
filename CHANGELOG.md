@@ -1,3 +1,7 @@
+### v0.0.36
+- add charmap extension
+- add missing translations to the emoji extension 
+
 ### v0.0.35
 - fix an active state for some toolbar items
 

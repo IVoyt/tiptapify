@@ -44,16 +44,19 @@
     "image": "Image",
     "emoji": {
       "title": "Emoji",
-      "activities": "Activities",
-      "animals_and_nature": "Animals & nature",
-      "component": "Component",
-      "flags": "Flags",
-      "food_and_drink": "Food and drink",
-      "objects": "Objects",
-      "people_and_body": "People & body",
-      "smileys_and_emotion": "Smileys and emotion",
-      "symbols": "Symbols",
-      "travel_and_places": "Travel and places"
+      "search": "Search emoji...",
+      "categories": {
+        "activities": "Activities",
+        "animals_and_nature": "Animals & nature",
+        "component": "Component",
+        "flags": "Flags",
+        "food_and_drink": "Food and drink",
+        "objects": "Objects",
+        "people_and_body": "People & body",
+        "smileys_and_emotion": "Smileys and emotion",
+        "symbols": "Symbols",
+        "travel_and_places": "Travel and places"
+      }
     },
     "tables": {
       "table": "Table",
@@ -73,7 +76,26 @@
       "mergeCells": "Merge cells",
       "splitCell": "Split cell"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Special characters",
+      "search": "Search characters...",
+      "noResults": "No matching characters found",
+      "categories": {
+        "punctuation": "Punctuation",
+        "symbols": "Symbols",
+        "math": "Math",
+        "currency": "Currency",
+        "greek": "Greek letters",
+        "extended_letters": "Extended letters",
+        "diacritics": "Diacritics",
+        "typography": "Typography",
+        "cyrillic": "Cyrillic",
+        "hebrew": "Hebrew",
+        "arrows": "Arrows",
+        "box_drawing": "Box drawing"
+      }
+    }
   },
   "action": {
     "undo": "Undo",

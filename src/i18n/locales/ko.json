@@ -44,16 +44,19 @@
     "image": "이미지",
     "emoji": {
       "title": "이모지",
-      "activities": "활동",
-      "animals_and_nature": "동물과 자연",
-      "component": "컴포넌트",
-      "flags": "깃발",
-      "food_and_drink": "음식과 음료",
-      "objects": "객체",
-      "people_and_body": "사람과 신체",
-      "smileys_and_emotion": "미소와 감정",
-      "symbols": "기호",
-      "travel_and_places": "여행과 장소"
+      "search": "이모지 검색...",
+      "categories": {
+        "activities": "활동",
+        "animals_and_nature": "동물과 자연",
+        "component": "컴포넌트",
+        "flags": "깃발",
+        "food_and_drink": "음식과 음료",
+        "objects": "객체",
+        "people_and_body": "사람과 신체",
+        "smileys_and_emotion": "미소와 감정",
+        "symbols": "기호",
+        "travel_and_places": "여행과 장소"
+      }
     },
     "tables": {
       "table": "표",
@@ -73,7 +76,26 @@
       "mergeCells": "셀 병합",
       "splitCell": "셀 분할"
     },
-    "video": "동영상"
+    "video": "동영상",
+    "charmap": {
+      "title": "특수 문자 삽입",
+      "search": "문자 검색...",
+      "noResults": "일치하는 문자를 찾지 못했습니다",
+      "categories": {
+        "punctuation": "구두점",
+        "symbols": "기호",
+        "math": "수학",
+        "currency": "통화",
+        "greek": "그리스 문자",
+        "extended_letters": "확장 문자",
+        "diacritics": "분음 부호",
+        "typography": "타이포그래피",
+        "cyrillic": "키릴 문자",
+        "hebrew": "히브리어",
+        "arrows": "화살표",
+        "box_drawing": "상자 그리기"
+      }
+    }
   },
   "action": {
     "undo": "실행 취소",

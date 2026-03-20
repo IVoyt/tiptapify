@@ -44,16 +44,19 @@
     "image": "Hình ảnh",
     "emoji": {
       "title": "Biểu tượng cảm xúc",
-      "activities": "Hoạt động",
-      "animals_and_nature": "Động vật và thiên nhiên",
-      "component": "Thành phần",
-      "flags": "Cờ",
-      "food_and_drink": "Đồ ăn thức uống",
-      "objects": "Vật thể",
-      "people_and_body": "Con người và cơ thể",
-      "smileys_and_emotion": "Biểu tượng cảm xúc",
-      "symbols": "Ký hiệu",
-      "travel_and_places": "Du lịch và địa điểm"
+      "search": "Tìm kiếm biểu tượng cảm xúc...",
+      "categories": {
+        "activities": "Hoạt động",
+        "animals_and_nature": "Động vật và thiên nhiên",
+        "component": "Thành phần",
+        "flags": "Cờ",
+        "food_and_drink": "Đồ ăn thức uống",
+        "objects": "Vật thể",
+        "people_and_body": "Con người và cơ thể",
+        "smileys_and_emotion": "Biểu tượng cảm xúc",
+        "symbols": "Ký hiệu",
+        "travel_and_places": "Du lịch và địa điểm"
+      }
     },
     "tables": {
       "table": "Bảng",
@@ -73,7 +76,26 @@
       "mergeCells": "Hợp nhất ô",
       "splitCell": "Tách ô"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Chèn ký tự đặc biệt",
+      "search": "Tìm kiếm ký tự...",
+      "noResults": "Không tìm thấy ký tự phù hợp",
+      "categories": {
+        "punctuation": "Dấu câu",
+        "symbols": "Ký hiệu",
+        "math": "Toán học",
+        "currency": "Tiền tệ",
+        "greek": "Chữ cái Hy Lạp",
+        "extended_letters": "Chữ cái mở rộng",
+        "diacritics": "Dấu phụ",
+        "typography": "In ấn",
+        "cyrillic": "Chữ Kirin",
+        "hebrew": "Tiếng Do Thái",
+        "arrows": "Mũi tên",
+        "box_drawing": "Vẽ khung"
+      }
+    }
   },
   "action": {
     "undo": "Hoàn tác",

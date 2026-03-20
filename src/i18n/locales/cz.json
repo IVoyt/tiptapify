@@ -44,16 +44,19 @@
     "image": "Obrázek",
     "emoji": {
       "title": "Emoji",
-      "activities": "Aktivity",
-      "animals_and_nature": "Zvířata a příroda",
-      "component": "Komponenta",
-      "flags": "Vlajky",
-      "food_and_drink": "Jídlo a nápoje",
-      "objects": "Objekty",
-      "people_and_body": "Lidé a tělo",
-      "smileys_and_emotion": "Úsměvy a emoce",
-      "symbols": "Symboly",
-      "travel_and_places": "Cestování a místa"
+      "search": "Hledat emoji...",
+      "categories": {
+        "activities": "Aktivity",
+        "animals_and_nature": "Zvířata a příroda",
+        "component": "Komponenta",
+        "flags": "Vlajky",
+        "food_and_drink": "Jídlo a nápoje",
+        "objects": "Objekty",
+        "people_and_body": "Lidé a tělo",
+        "smileys_and_emotion": "Úsměvy a emoce",
+        "symbols": "Symboly",
+        "travel_and_places": "Cestování a místa"
+      }
     },
     "tables": {
       "table": "Tabulka",
@@ -73,7 +76,26 @@
       "mergeCells": "Sloučit buňky",
       "splitCell": "Rozdělit buňku"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Vložit speciální znak",
+      "search": "Hledat znaky...",
+      "noResults": "Nebyly nalezeny žádné odpovídající znaky",
+      "categories": {
+        "punctuation": "Interpunkce",
+        "symbols": "Symboly",
+        "math": "Matematika",
+        "currency": "Měna",
+        "greek": "Řecká písmena",
+        "extended_letters": "Rozšířená písmena",
+        "diacritics": "Diakritika",
+        "typography": "Typografie",
+        "cyrillic": "Azbuky",
+        "hebrew": "Hebrejština",
+        "arrows": "Šipky",
+        "box_drawing": "Kreslení rámečků"
+      }
+    }
   },
   "action": {
     "undo": "Zpět",

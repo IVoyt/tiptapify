@@ -44,16 +44,19 @@
     "image": "Imagem",
     "emoji": {
       "title": "Emoji",
-      "activities": "Atividades",
-      "animals_and_nature": "Animais e natureza",
-      "component": "Componente",
-      "flags": "Bandeiras",
-      "food_and_drink": "Comida e bebida",
-      "objects": "Objetos",
-      "people_and_body": "Pessoas e corpo",
-      "smileys_and_emotion": "Smileys e emoções",
-      "symbols": "Símbolos",
-      "travel_and_places": "Viagens e lugares"
+      "search": "Pesquisar emoji...",
+      "categories": {
+        "activities": "Atividades",
+        "animals_and_nature": "Animais e natureza",
+        "component": "Componente",
+        "flags": "Bandeiras",
+        "food_and_drink": "Comida e bebida",
+        "objects": "Objetos",
+        "people_and_body": "Pessoas e corpo",
+        "smileys_and_emotion": "Smileys e emoções",
+        "symbols": "Símbolos",
+        "travel_and_places": "Viagens e lugares"
+      }
     },
     "tables": {
       "table": "Tabela",
@@ -73,7 +76,26 @@
       "mergeCells": "Mesclar células",
       "splitCell": "Dividir célula"
     },
-    "video": "Vídeo"
+    "video": "Vídeo",
+    "charmap": {
+      "title": "Inserir caractere especial",
+      "search": "Pesquisar caracteres...",
+      "noResults": "Nenhum caractere correspondente encontrado",
+      "categories": {
+        "punctuation": "Pontuação",
+        "symbols": "Símbolos",
+        "math": "Matemática",
+        "currency": "Moeda",
+        "greek": "Letras gregas",
+        "extended_letters": "Letras estendidas",
+        "diacritics": "Diacríticos",
+        "typography": "Tipografia",
+        "cyrillic": "Cirílico",
+        "hebrew": "Hebraico",
+        "arrows": "Setas",
+        "box_drawing": "Desenho de caixas"
+      }
+    }
   },
   "action": {
     "undo": "Desfazer",
