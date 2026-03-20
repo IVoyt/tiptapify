@@ -44,16 +44,19 @@
     "image": "Afbeelding",
     "emoji": {
       "title": "Emoji",
-      "activities": "Activiteiten",
-      "animals_and_nature": "Dieren en natuur",
-      "component": "Component",
-      "flags": "Vlaggen",
-      "food_and_drink": "Eten en drinken",
-      "objects": "Objecten",
-      "people_and_body": "Mensen en lichaam",
-      "smileys_and_emotion": "Smileys en emoties",
-      "symbols": "Symbolen",
-      "travel_and_places": "Reizen en plaatsen"
+      "search": "Zoeken naar emoji...",
+      "categories": {
+        "activities": "Activiteiten",
+        "animals_and_nature": "Dieren en natuur",
+        "component": "Component",
+        "flags": "Vlaggen",
+        "food_and_drink": "Eten en drinken",
+        "objects": "Objecten",
+        "people_and_body": "Mensen en lichaam",
+        "smileys_and_emotion": "Smileys en emoties",
+        "symbols": "Symbolen",
+        "travel_and_places": "Reizen en plaatsen"
+      }
     },
     "tables": {
       "table": "Tabel",
@@ -73,7 +76,26 @@
       "mergeCells": "Cellen samenvoegen",
       "splitCell": "Cel splitsen"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Speciaal teken invoegen",
+      "search": "Tekens zoeken...",
+      "noResults": "Geen overeenkomende tekens gevonden",
+      "categories": {
+        "punctuation": "Leestekens",
+        "symbols": "Symbolen",
+        "math": "Wiskunde",
+        "currency": "Valuta",
+        "greek": "Griekse letters",
+        "extended_letters": "Uitgebreide letters",
+        "diacritics": "Diakritische tekens",
+        "typography": "Typografie",
+        "cyrillic": "Cyrillisch",
+        "hebrew": "Hebreeuws",
+        "arrows": "Pijlen",
+        "box_drawing": "Kaders tekenen"
+      }
+    }
   },
   "action": {
     "undo": "Ongedaan maken",

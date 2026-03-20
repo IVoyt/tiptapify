@@ -44,16 +44,19 @@
     "image": "图片",
     "emoji": {
       "title": "表情符号",
-      "activities": "活动",
-      "animals_and_nature": "动物与自然",
-      "component": "组件",
-      "flags": "旗帜",
-      "food_and_drink": "食物与饮料",
-      "objects": "物品",
-      "people_and_body": "人物与身体",
-      "smileys_and_emotion": "笑脸与情感",
-      "symbols": "符号",
-      "travel_and_places": "旅行与地点"
+      "search": "搜索表情符号...",
+      "categories": {
+        "activities": "活动",
+        "animals_and_nature": "动物与自然",
+        "component": "组件",
+        "flags": "旗帜",
+        "food_and_drink": "食物与饮料",
+        "objects": "物品",
+        "people_and_body": "人物与身体",
+        "smileys_and_emotion": "笑脸与情感",
+        "symbols": "符号",
+        "travel_and_places": "旅行与地点"
+      }
     },
     "tables": {
       "table": "表格",
@@ -73,7 +76,26 @@
       "mergeCells": "合并单元格",
       "splitCell": "拆分单元格"
     },
-    "video": "视频"
+    "video": "视频",
+    "charmap": {
+      "title": "插入特殊字符",
+      "search": "搜索字符...",
+      "noResults": "未找到匹配的字符",
+      "categories": {
+        "punctuation": "标点符号",
+        "symbols": "符号",
+        "math": "数学",
+        "currency": "货币",
+        "greek": "希腊字母",
+        "extended_letters": "扩展字母",
+        "diacritics": "变音符号",
+        "typography": "印刷符号",
+        "cyrillic": "西里尔字母",
+        "hebrew": "希伯来字母",
+        "arrows": "箭头",
+        "box_drawing": "制图符号"
+      }
+    }
   },
   "action": {
     "undo": "撤销",

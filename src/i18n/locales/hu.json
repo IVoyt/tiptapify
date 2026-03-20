@@ -44,16 +44,19 @@
     "image": "Kép",
     "emoji": {
       "title": "Emotikon",
-      "activities": "Tevékenység",
-      "animals_and_nature": "Állatok és természet",
-      "component": "Komponens",
-      "flags": "Zászlók",
-      "food_and_drink": "Étel és ital",
-      "objects": "Objektumok",
-      "people_and_body": "Emberek és testrész",
-      "smileys_and_emotion": "Vigyorok és érzelmek",
-      "symbols": "Szimbólumok",
-      "travel_and_places": "Utazás és helyszínek"
+      "search": "Emoji keresése...",
+      "categories": {
+        "activities": "Tevékenység",
+        "animals_and_nature": "Állatok és természet",
+        "component": "Komponens",
+        "flags": "Zászlók",
+        "food_and_drink": "Étel és ital",
+        "objects": "Objektumok",
+        "people_and_body": "Emberek és testrész",
+        "smileys_and_emotion": "Vigyorok és érzelmek",
+        "symbols": "Szimbólumok",
+        "travel_and_places": "Utazás és helyszínek"
+      }
     },
     "tables": {
       "table": "Táblázat",
@@ -73,7 +76,26 @@
       "mergeCells": "Cellák egyesítése",
       "splitCell": "Cella felosztása"
     },
-    "video": "Videó"
+    "video": "Videó",
+    "charmap": {
+      "title": "Speciális karakter beszúrása",
+      "search": "Karakterek keresése...",
+      "noResults": "Nincs egyező karakter",
+      "categories": {
+        "punctuation": "Központozás",
+        "symbols": "Szimbólumok",
+        "math": "Matematika",
+        "currency": "Pénznem",
+        "greek": "Görög betűk",
+        "extended_letters": "Kiterjesztett betűk",
+        "diacritics": "Diaszematikumok",
+        "typography": "Tipográfia",
+        "cyrillic": "Cirill",
+        "hebrew": "Héber",
+        "arrows": "Nyilak",
+        "box_drawing": "Dobozrajzolás"
+      }
+    }
   },
   "action": {
     "undo": "Visszavonás",

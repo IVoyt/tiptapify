@@ -44,16 +44,19 @@
     "image": "Görsel",
     "emoji": {
       "title": "Emoji",
-      "activities": "Etkinlikler",
-      "animals_and_nature": "Hayvanlar ve doğa",
-      "component": "Bileşen",
-      "flags": "Bayraklar",
-      "food_and_drink": "Yiyecek ve içecek",
-      "objects": "Nesneler",
-      "people_and_body": "İnsanlar ve beden",
-      "smileys_and_emotion": "Gülücükler ve duygular",
-      "symbols": "Semboller",
-      "travel_and_places": "Seyahat ve yerler"
+      "search": "Emoji ara...",
+      "categories": {
+        "activities": "Etkinlikler",
+        "animals_and_nature": "Hayvanlar ve doğa",
+        "component": "Bileşen",
+        "flags": "Bayraklar",
+        "food_and_drink": "Yiyecek ve içecek",
+        "objects": "Nesneler",
+        "people_and_body": "İnsanlar ve beden",
+        "smileys_and_emotion": "Gülücükler ve duygular",
+        "symbols": "Semboller",
+        "travel_and_places": "Seyahat ve yerler"
+      }
     },
     "tables": {
       "table": "Tablo",
@@ -73,7 +76,26 @@
       "mergeCells": "Hücreleri birleştir",
       "splitCell": "Hücreyi böl"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Özel karakter ekle",
+      "search": "Karakter ara...",
+      "noResults": "Eşleşen karakter bulunamadı",
+      "categories": {
+        "punctuation": "Noktalama işaretleri",
+        "symbols": "Simgeler",
+        "math": "Matematik",
+        "currency": "Para birimi",
+        "greek": "Yunan harfleri",
+        "extended_letters": "Genişletilmiş harfler",
+        "diacritics": "Diyakritik işaretler",
+        "typography": "Tipografi",
+        "cyrillic": "Kiril",
+        "hebrew": "İbranice",
+        "arrows": "Oklar",
+        "box_drawing": "Kutu çizimi"
+      }
+    }
   },
   "action": {
     "undo": "Geri al",

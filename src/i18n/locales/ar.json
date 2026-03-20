@@ -44,16 +44,19 @@
     "image": "صورة",
     "emoji": {
       "title": "رموز تعبيرية",
-      "activities": "أنشطة",
-      "animals_and_nature": "حيوانات وطبيعة",
-      "component": "مكون",
-      "flags": "أعلام",
-      "food_and_drink": "طعام وشراب",
-      "objects": "أشياء",
-      "people_and_body": "أشخاص وجسد",
-      "smileys_and_emotion": "ابتسامات ومشاعر",
-      "symbols": "رموز",
-      "travel_and_places": "سفر وأماكن"
+      "search": "البحث عن رموز تعبيرية...",
+      "categories": {
+        "activities": "أنشطة",
+        "animals_and_nature": "حيوانات وطبيعة",
+        "component": "مكون",
+        "flags": "أعلام",
+        "food_and_drink": "طعام وشراب",
+        "objects": "أشياء",
+        "people_and_body": "أشخاص وجسد",
+        "smileys_and_emotion": "ابتسامات ومشاعر",
+        "symbols": "رموز",
+        "travel_and_places": "سفر وأماكن"
+      }
     },
     "tables": {
       "table": "جدول",
@@ -73,7 +76,26 @@
       "mergeCells": "دمج الخلايا",
       "splitCell": "تقسيم الخلية"
     },
-    "video": "فيديو"
+    "video": "فيديو",
+    "charmap": {
+      "title": "إدراج حرف خاص",
+      "search": "بحث عن أحرف...",
+      "noResults": "لم يتم العثور على أحرف مطابقة",
+      "categories": {
+        "punctuation": "ترقيم",
+        "symbols": "رموز",
+        "math": "رياضيات",
+        "currency": "عملة",
+        "greek": "حروف يونانية",
+        "extended_letters": "حروف موسعة",
+        "diacritics": "علامات تشكيلية",
+        "typography": "طباعة",
+        "cyrillic": "سيريلية",
+        "hebrew": "عبرية",
+        "arrows": "أسهم",
+        "box_drawing": "رسم صناديق"
+      }
+    }
   },
   "action": {
     "undo": "تراجع",

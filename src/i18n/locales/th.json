@@ -44,16 +44,19 @@
     "image": "รูปภาพ",
     "emoji": {
       "title": "อิโมจิ",
-      "activities": "กิจกรรม",
-      "animals_and_nature": "สัตว์และธรรมชาติ",
-      "component": "คอมโพเนนต์",
-      "flags": "ธง",
-      "food_and_drink": "อาหารและเครื่องดื่ม",
-      "objects": "วัตถุ",
-      "people_and_body": "คนและร่างกาย",
-      "smileys_and_emotion": "อิโมจิและอารมณ์",
-      "symbols": "สัญลักษณ์",
-      "travel_and_places": "การเดินทางและสถานที่"
+      "search": "ค้นหาอิโมจิ...",
+      "categories": {
+        "activities": "กิจกรรม",
+        "animals_and_nature": "สัตว์และธรรมชาติ",
+        "component": "คอมโพเนนต์",
+        "flags": "ธง",
+        "food_and_drink": "อาหารและเครื่องดื่ม",
+        "objects": "วัตถุ",
+        "people_and_body": "คนและร่างกาย",
+        "smileys_and_emotion": "อิโมจิและอารมณ์",
+        "symbols": "สัญลักษณ์",
+        "travel_and_places": "การเดินทางและสถานที่"
+      }
     },
     "tables": {
       "table": "ตาราง",
@@ -73,7 +76,26 @@
       "mergeCells": "รวมเซลล์",
       "splitCell": "แยกเซลล์"
     },
-    "video": "วิดีโอ"
+    "video": "วิดีโอ",
+    "charmap": {
+      "title": "แทรกอักขระพิเศษ",
+      "search": "ค้นหาอักขระ...",
+      "noResults": "ไม่พบอักขระที่ตรงกัน",
+      "categories": {
+        "punctuation": "เครื่องหมายวรรคตอน",
+        "symbols": "สัญลักษณ์",
+        "math": "คณิตศาสตร์",
+        "currency": "สกุลเงิน",
+        "greek": "ตัวอักษรกรีก",
+        "extended_letters": "ตัวอักษรขยาย",
+        "diacritics": "เครื่องหมายกำกับ",
+        "typography": "การพิมพ์",
+        "cyrillic": "ซีริลลิก",
+        "hebrew": "ฮีบรู",
+        "arrows": "ลูกศร",
+        "box_drawing": "การวาดกรอบ"
+      }
+    }
   },
   "action": {
     "undo": "ยกเลิก",

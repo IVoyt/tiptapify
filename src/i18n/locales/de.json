@@ -44,16 +44,19 @@
     "image": "Bild",
     "emoji": {
       "title": "Emoji",
-      "activities": "Aktivitäten",
-      "animals_and_nature": "Tiere & Natur",
-      "component": "Komponente",
-      "flags": "Flaggen",
-      "food_and_drink": "Essen und Trinken",
-      "objects": "Objekte",
-      "people_and_body": "Menschen & Körper",
-      "smileys_and_emotion": "Smileys und Emotionen",
-      "symbols": "Symbole",
-      "travel_and_places": "Reisen und Orte"
+      "search": "Emoji suchen...",
+      "categories": {
+        "activities": "Aktivitäten",
+        "animals_and_nature": "Tiere & Natur",
+        "component": "Komponente",
+        "flags": "Flaggen",
+        "food_and_drink": "Essen und Trinken",
+        "objects": "Objekte",
+        "people_and_body": "Menschen & Körper",
+        "smileys_and_emotion": "Smileys und Emotionen",
+        "symbols": "Symbole",
+        "travel_and_places": "Reisen und Orte"
+      }
     },
     "tables": {
       "table": "Tabelle",
@@ -73,7 +76,26 @@
       "mergeCells": "Zellen zusammenführen",
       "splitCell": "Zelle teilen"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Sonderzeichen einfügen",
+      "search": "Zeichen suchen...",
+      "noResults": "Keine passenden Zeichen gefunden",
+      "categories": {
+        "punctuation": "Zeichensetzung",
+        "symbols": "Symbole",
+        "math": "Mathematik",
+        "currency": "Währung",
+        "greek": "Griechische Buchstaben",
+        "extended_letters": "Erweiterte Buchstaben",
+        "diacritics": "Diakritika",
+        "typography": "Typografie",
+        "cyrillic": "Kyrillisch",
+        "hebrew": "Hebräisch",
+        "arrows": "Pfeile",
+        "box_drawing": "Rahmenzeichen"
+      }
+    }
   },
   "action": {
     "undo": "Rückgängig",

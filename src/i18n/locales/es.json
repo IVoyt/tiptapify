@@ -44,16 +44,19 @@
     "image": "Imagen",
     "emoji": {
       "title": "Emoji",
-      "activities": "Actividades",
-      "animals_and_nature": "Animales y naturaleza",
-      "component": "Componente",
-      "flags": "Banderas",
-      "food_and_drink": "Comida y bebida",
-      "objects": "Objetos",
-      "people_and_body": "Personas y cuerpo",
-      "smileys_and_emotion": "Caritas y emociones",
-      "symbols": "Símbolos",
-      "travel_and_places": "Viajes y lugares"
+      "search": "Buscar emoji...",
+      "categories": {
+        "activities": "Actividades",
+        "animals_and_nature": "Animales y naturaleza",
+        "component": "Componente",
+        "flags": "Banderas",
+        "food_and_drink": "Comida y bebida",
+        "objects": "Objetos",
+        "people_and_body": "Personas y cuerpo",
+        "smileys_and_emotion": "Caritas y emociones",
+        "symbols": "Símbolos",
+        "travel_and_places": "Viajes y lugares"
+      }
     },
     "tables": {
       "table": "Tabla",
@@ -73,7 +76,26 @@
       "mergeCells": "Fusionar celdas",
       "splitCell": "Dividir celda"
     },
-    "video": "Video"
+    "video": "Video",
+    "charmap": {
+      "title": "Insertar carácter especial",
+      "search": "Buscar caracteres...",
+      "noResults": "No se encontraron caracteres coincidentes",
+      "categories": {
+        "punctuation": "Puntuación",
+        "symbols": "Símbolos",
+        "math": "Matemáticas",
+        "currency": "Divisa",
+        "greek": "Letras griegas",
+        "extended_letters": "Letras extendidas",
+        "diacritics": "Diacríticos",
+        "typography": "Tipografía",
+        "cyrillic": "Cirílico",
+        "hebrew": "Hebreo",
+        "arrows": "Flechas",
+        "box_drawing": "Dibujo de cajas"
+      }
+    }
   },
   "action": {
     "undo": "Deshacer",

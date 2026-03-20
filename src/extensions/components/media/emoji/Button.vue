@@ -67,12 +67,7 @@ watch(() => tab.value, () => {
 </script>
 
 <template>
-  <VBtn
-      :id="`tiptapify-emoji-button-${editor.instanceId}`"
-      :color="editor.isActive('image') ? 'primary' : ''"
-      :variant="variantBtn"
-      size="32"
-  >
+  <VBtn :id="`tiptapify-emoji-button-${editor.instanceId}`" color="" :variant="variantBtn" size="32">
     <VTooltip activator="parent">
       {{ t('media.emoji.title') }}
     </VTooltip>
@@ -92,14 +87,14 @@ watch(() => tab.value, () => {
               rounded
               size="small"
           >
-            {{ t(`media.emoji.${item.group}`) }}
+            {{ t(`media.emoji.categories.${item.group}`) }}
           </VTab>
         </VTabs>
 
         <div>
           <VTextField
               v-model="filter"
-              label="Filter emoji"
+              :label="t('media.emoji.search')"
               density="compact"
               variant="solo"
               :prepend-inner-icon="`mdiSvg:${mdi.mdiMagnify}`"
@@ -119,9 +114,9 @@ watch(() => tab.value, () => {
                     :title="emojiItem.name"
                 >
                   <div class="tiptapify-emoji-container-item__overlay">
-                  <span>
-                    {{ emojiItem.char }}
-                  </span>
+                    <span>
+                      {{ emojiItem.char }}
+                    </span>
                   </div>
                 </div>
               </VWindowItem>

@@ -1,4 +1,5 @@
 import { default as EmojiButton } from "@tiptapify/extensions/components/media/emoji/Button.vue";
+import { default as CharmapButton } from "@tiptapify/extensions/components/media/charmap/Button.vue";
 import { default as LinkButton } from "@tiptapify/extensions/components/media/link/Button.vue";
 import { default as ImageButton } from "@tiptapify/extensions/components/media/image/Button.vue";
 import { default as IframeButton } from "@tiptapify/extensions/components/media/iframe/Button.vue";
@@ -29,6 +30,10 @@ export default {
     {
       name: 'emoji',
       component: markRaw(EmojiButton),
+    },
+    {
+      name: 'charmap',
+      component: markRaw(CharmapButton),
     },
     {
       name: 'table',
