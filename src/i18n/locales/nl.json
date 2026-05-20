@@ -131,12 +131,13 @@
       "src_invalid": "De ingevoerde URL is ongeldig"
     },
     "image": {
-      "title": "Afbeelding toevoegen/wijzigen",
+      "title": "Titel",
       "src": "Bron",
       "keep_ratio": "Verhouding behouden",
       "alt": "alt",
       "width": "Breedte",
-      "height": "Hoogte"
+      "height": "Hoogte",
+      "dialog_title": "Afbeelding toevoegen/wijzigen"
     },
     "link": {
       "title": "Link toevoegen/wijzigen",

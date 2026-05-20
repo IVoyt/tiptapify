@@ -2,6 +2,7 @@
 
 import defaults from "@tiptapify/constants/defaults";
 import { itemsPropType, toolbarSections } from "@tiptapify/types/toolbarTypes";
+import { SlashCommandsConfig } from "@tiptapify/types/slashCommandsTypes";
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, watch } from "vue";
 import { default as Toolbar } from "@tiptapify/components/Toolbar/Index.vue";
 import { Editor, EditorContent } from '@tiptap/vue-3'
@@ -20,7 +21,7 @@ const { t, i18n, setLocale } = useLocale();
 const props = defineProps({
   locale: { type: String, default () { return 'en' } },
   content: String|Object,
-  height: { type: Number, default () { return null } },
+  height: { type: [Number,String], default () { return null } },
   variantBtn: { type: String, default () { return defaults.variantBtn } },
   variantField: { type: String, default () { return defaults.variantField } },
   toolbar: { type: Boolean, default () { return true } },
@@ -28,7 +29,7 @@ const props = defineProps({
   itemsExclude: { type: Boolean, default() { return false } },
   bubbleMenu: { type: Boolean, default () { return true } },
   floatingMenu: { type: Boolean, default () { return true } },
-  slashCommands: { type: Boolean, default () { return true } },
+  slashCommands: { type: [Boolean, Array] as PropType<SlashCommandsConfig>, default () { return true } },
   placeholder: { type: String, default () { return '' } },
   showWordsCount: { type: Boolean, default () { return true } },
   showCharactersCount: { type: Boolean, default () { return true } },
@@ -71,6 +72,7 @@ watch(() => editor.value, (editorInstance) => {
     editor.value.interactiveStyles = interactiveStyles.value
     emit('editor-ready', {
       editor: editorInstance,
+      setLocale,
       getHTML: () => editorInstance.getHTML(),
       getJSON: () => editorInstance.getJSON(),
     });
@@ -420,6 +422,97 @@ onBeforeUnmount(() => {
 
   ul.list-style-square {
     list-style-type: square !important;
+  }
+
+  img {
+    display: block;
+  }
+
+  [data-node="image"].has-focus {
+    [data-resize-handle] {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 2px;
+      z-index: 10;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Corner handles */
+      &[data-resize-handle='top-left'],
+      &[data-resize-handle='top-right'],
+      &[data-resize-handle='bottom-left'],
+      &[data-resize-handle='bottom-right'] {
+        width: 8px;
+        height: 8px;
+      }
+
+      &[data-resize-handle='top-left'] {
+        top: -4px;
+        left: -4px;
+        cursor: nwse-resize;
+      }
+
+      &[data-resize-handle='top-right'] {
+        top: -4px;
+        right: -4px;
+        cursor: nesw-resize;
+      }
+
+      &[data-resize-handle='bottom-left'] {
+        bottom: -4px;
+        left: -4px;
+        cursor: nesw-resize;
+      }
+
+      &[data-resize-handle='bottom-right'] {
+        bottom: -4px;
+        right: -4px;
+        cursor: nwse-resize;
+      }
+
+      /* Edge handles */
+      &[data-resize-handle='top'],
+      &[data-resize-handle='bottom'] {
+        height: 6px;
+        left: 8px;
+        right: 8px;
+      }
+
+      &[data-resize-handle='top'] {
+        top: -3px;
+        cursor: ns-resize;
+      }
+
+      &[data-resize-handle='bottom'] {
+        bottom: -3px;
+        cursor: ns-resize;
+      }
+
+      &[data-resize-handle='left'],
+      &[data-resize-handle='right'] {
+        width: 6px;
+        top: 8px;
+        bottom: 8px;
+      }
+
+      &[data-resize-handle='left'] {
+        left: -3px;
+        cursor: ew-resize;
+      }
+
+      &[data-resize-handle='right'] {
+        right: -3px;
+        cursor: ew-resize;
+      }
+    }
+
+    [data-resize-state='true'] [data-resize-wrapper] {
+      outline: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 0.125rem;
+    }
   }
 }
 </style>

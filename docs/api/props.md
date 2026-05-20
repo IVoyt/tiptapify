@@ -1,0 +1,301 @@
+# Props
+
+## `<Tiptapify>` Props
+
+### `content`
+
+- **Type:** `String | Object`
+- **Default:** `''`
+
+Initial editor content. Accepts HTML string or Tiptap JSON object.
+
+```vue
+<!-- HTML string -->
+<Tiptapify :content="'<p>Hello world</p>'" />
+
+<!-- Tiptap JSON -->
+<Tiptapify :content="{ type: 'doc', content: [{ type: 'paragraph' }] }" />
+```
+
+### `locale`
+
+- **Type:** `String`
+- **Default:** `'en'`
+
+Editor UI language. See [available locales](/guide/i18n#available-locales).
+
+```vue
+<Tiptapify locale="de" />
+```
+
+### `placeholder`
+
+- **Type:** `String`
+- **Default:** `''`
+
+Placeholder text shown when the editor is empty.
+
+```vue
+<Tiptapify placeholder="Start typing..." />
+```
+
+### `height`
+
+- **Type:** `Number`
+- **Default:** `null`
+
+Editor content area minimum height in pixels.
+
+```vue
+<Tiptapify :height="500" />
+```
+
+### `toolbar`
+
+- **Type:** `Boolean`
+- **Default:** `true`
+
+Show or hide the toolbar.
+
+```vue
+<Tiptapify :toolbar="false" />
+```
+
+### `items`
+
+- **Type:** `Array<String> | Object`
+- **Default:** `[]`
+
+Toolbar items to display. Pass an array of item names or an object with named sections. See [Toolbar Items](/api/toolbar-items).
+
+```vue
+<!-- Array -->
+<Tiptapify :items="['bold', 'italic', 'underline', '|', 'undo', 'redo']" />
+
+<!-- Object with sections -->
+<Tiptapify :items="{ format: ['bold', 'italic'], misc: ['undo', 'redo'] }" />
+```
+
+### `itemsExclude`
+
+- **Type:** `Boolean`
+- **Default:** `false`
+
+When `true`, the `items` prop specifies items to **exclude** rather than include.
+
+```vue
+<Tiptapify
+  :items="['source', 'preview', 'fullscreen']"
+  :items-exclude="true"
+/>
+```
+
+### `bubbleMenu`
+
+- **Type:** `Boolean`
+- **Default:** `true`
+
+Show the bubble menu when text is selected.
+
+```vue
+<Tiptapify :bubble-menu="false" />
+```
+
+### `floatingMenu`
+
+- **Type:** `Boolean`
+- **Default:** `true`
+
+Show the floating menu on empty lines.
+
+```vue
+<Tiptapify :floating-menu="false" />
+```
+
+### `slashCommands`
+
+- **Type:** `Boolean`
+- **Default:** `true`
+
+Enable slash command menu (type `/` to trigger).
+
+```vue
+<Tiptapify :slash-commands="false" />
+```
+
+### `showWordsCount`
+
+- **Type:** `Boolean`
+- **Default:** `true`
+
+Show word count in the editor footer.
+
+```vue
+<Tiptapify :show-words-count="false" />
+```
+
+### `showCharactersCount`
+
+- **Type:** `Boolean`
+- **Default:** `true`
+
+Show character count in the editor footer.
+
+```vue
+<Tiptapify :show-characters-count="false" />
+```
+
+### `defaultFontFamily`
+
+- **Type:** `String`
+- **Default:** `'Inter'`
+
+Default font family for editor content.
+
+```vue
+<Tiptapify default-font-family="Georgia" />
+```
+
+### `fontMeasure`
+
+- **Type:** `String`
+- **Default:** `'px'`
+
+Measurement unit for font size values.
+
+```vue
+<Tiptapify font-measure="px" />
+```
+
+### `rounded`
+
+- **Type:** `String`
+- **Default:** `'0'`
+
+Border radius for the editor container. Accepts Vuetify radius values (`sm`, `md`, `lg`, `xl`, `pill`, etc.).
+
+```vue
+<Tiptapify rounded="lg" />
+```
+
+### `variantBtn`
+
+- **Type:** `String`
+- **Default:** `'tonal'`
+
+Vuetify button variant for toolbar buttons. Options: `text`, `flat`, `elevated`, `tonal`, `outlined`, `plain`.
+
+```vue
+<Tiptapify variant-btn="outlined" />
+```
+
+### `variantField`
+
+- **Type:** `String`
+- **Default:** `'outlined'`
+
+Vuetify variant for toolbar dropdown fields (font family, size, color).
+
+```vue
+<Tiptapify variant-field="filled" />
+```
+
+### `customExtensions`
+
+- **Type:** `Array<toolbarSections>`
+- **Default:** `[]`
+
+Provide custom Tiptap extensions to register with the editor. See [Custom Extensions](/examples/custom-toolbar).
+
+```vue
+<Tiptapify :custom-extensions="customExtensions" />
+```
+
+### `interactiveStyles`
+
+- **Type:** `Boolean`
+- **Default:** `true`
+
+Enable interactive style application.
+
+```vue
+<Tiptapify :interactive-styles="false" />
+```
+
+## Events
+
+### `editor-ready`
+
+Fired when the editor instance is ready.
+
+```typescript
+interface EditorReadyPayload {
+  editor: Editor        // Raw Tiptap Editor instance
+  getHTML: () => string  // Get current HTML content
+  getJSON: () => object  // Get current JSON content
+}
+```
+
+```vue
+<script setup lang="ts">
+const onEditorReady = (payload) => {
+  console.log(payload.editor)
+  console.log(payload.getHTML())
+  console.log(payload.getJSON())
+}
+</script>
+
+<template>
+  <Tiptapify @editor-ready="onEditorReady" />
+</template>
+```
+
+### `content-changed`
+
+Fired when the editor content changes.
+
+```typescript
+interface ContentChangedPayload {
+  html: string   // Current HTML content
+  json: object   // Current JSON content
+}
+```
+
+```vue
+<script setup lang="ts">
+const onContentChanged = ({ html, json }) => {
+  console.log('HTML:', html)
+  console.log('JSON:', json)
+}
+</script>
+
+<template>
+  <Tiptapify @content-changed="onContentChanged" />
+</template>
+```
+
+### `update:modelValue`
+
+Supports `v-model` binding.
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+const content = ref('<p>Hello</p>')
+</script>
+
+<template>
+  <Tiptapify v-model="content" />
+</template>
+```
+
+## Provide / Inject
+
+The editor instance and i18n functions are available via Vue's provide/inject:
+
+```typescript
+import { inject } from 'vue'
+
+const editor = inject('tiptapifyEditor')
+const { t, setLocale } = inject('tiptapifyI18n')
+```

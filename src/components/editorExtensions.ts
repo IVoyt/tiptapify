@@ -31,8 +31,8 @@ import { TiptapifyImage } from '@tiptapify/extensions/components/media/image'
 import { TiptapifyLink } from '@tiptapify/extensions/components/media/link'
 import { TiptapifyVideo } from '@tiptapify/extensions/components/media/video'
 import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
-import SlashCommands from '@tiptapify/extensions/slash-commands'
-import suggestion from '@tiptapify/extensions/components/slashCommands/suggestion'
+import SlashCommands, { SlashCommandsExtensionOptions } from '@tiptapify/extensions/slash-commands'
+import { SlashCommandsConfig, SlashCommandId } from '@tiptapify/types/slashCommandsTypes'
 import { toolbarSections } from "@tiptapify/types/toolbarTypes";
 
 // load all languages with "all" or common languages with "common"
@@ -51,7 +51,7 @@ const lowlight = createLowlight(common)
 // register language example
 // lowlight.register('ts', ts)
 
-export function editorExtensions (placeholder: string, slashCommands: boolean, customExtensions: toolbarSections) {
+export function editorExtensions (placeholder: string, slashCommands: SlashCommandsConfig, customExtensions: toolbarSections) {
   const extensions = [
     TextStyleKit,
     Document,
@@ -78,7 +78,12 @@ export function editorExtensions (placeholder: string, slashCommands: boolean, c
       openOnClick: false,
       defaultProtocol: 'https'
     }),
-    Image,
+    Image.configure({
+      resize: {
+        enabled: true,
+        alwaysPreserveAspectRatio: true,
+      },
+    }),
     Youtube.configure({
       controls: true,
       nocookie: true,
@@ -110,8 +115,12 @@ export function editorExtensions (placeholder: string, slashCommands: boolean, c
     BulletListSquare
   ]
 
-  if (slashCommands) {
-    extensions.push(SlashCommands.configure({ suggestion }))
+  if (slashCommands !== false) {
+    const config: SlashCommandsExtensionOptions = {}
+    if (Array.isArray(slashCommands)) {
+      config.suggestion = { allowedCommands: slashCommands }
+    }
+    extensions.push(SlashCommands.configure(config))
   }
 
   if (customExtensions.length) {

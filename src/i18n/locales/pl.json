@@ -131,12 +131,13 @@
       "src_invalid": "Wprowadzony URL jest nieprawidłowy"
     },
     "image": {
-      "title": "Dodaj/zmień obraz",
+      "title": "Tytuł",
       "src": "Źródło",
       "keep_ratio": "Zachowaj proporcję",
       "alt": "alt",
       "width": "Szerokość",
-      "height": "Wysokość"
+      "height": "Wysokość",
+      "dialog_title": "Dodaj/zmień obraz"
     },
     "link": {
       "title": "Dodaj/zmień link",

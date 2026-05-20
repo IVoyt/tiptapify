@@ -54,6 +54,16 @@ function prepareToolbarItems() {
     }
   } else if (propsItems.value.length > 0) {
     for (const propsItem of propsItems.value as string[]) {
+      if (propsItem === '|') {
+        if (typeof _toolbarItems['__separator__'] === 'undefined') {
+          _toolbarItems['__separator__'] = {
+            section: '__separator__',
+            group: false,
+            components: []
+          }
+        }
+        continue
+      }
       const item = propsItem.split(':')
       if (!availableItemsKeys.includes(item[0])) {
         throw new Error(`The ${propsItem} is unknown extension. Please use one of the following: ${availableItemsKeys.join(', ')}`)

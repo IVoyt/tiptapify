@@ -131,12 +131,13 @@
       "src_invalid": "Įvestas URL netinkamas"
     },
     "image": {
-      "title": "Pridėti/keisti paveikslą",
+      "title": "Pavadinimas",
       "src": "Šaltinis",
       "keep_ratio": "Išlaikyti proporciją",
       "alt": "alt",
       "width": "Plotis",
-      "height": "Aukštis"
+      "height": "Aukštis",
+      "dialog_title": "Pridėti/keisti paveikslą"
     },
     "link": {
       "title": "Pridėti/keisti nuorodą",

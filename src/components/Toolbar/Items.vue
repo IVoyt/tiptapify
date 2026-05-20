@@ -15,21 +15,25 @@ defineProps({
 <template>
   <VToolbarItems class="py-2">
     <template v-for="item in items" :key="item.section">
-      <VBtnGroup v-if="item.group" elevation="4">
-        <template v-for="sectionItem in item.components" :key="sectionItem.name">
-          <component :is="sectionItem.component" v-bind="{ ...sectionItem.props ?? {} }" />
-        </template>
-      </VBtnGroup>
-      <template v-else>
-        <component
-          v-for="sectionItem in item.components"
-          :key="sectionItem.name"
-          :is="sectionItem.component"
-          v-bind="{ variantBtn, ...sectionItem.props ?? {} }"
-        />
+      <template v-if="item.section === '__separator__'">
+        <div class="menu-divider"></div>
       </template>
-
-      <div class="menu-divider"></div>
+      <template v-else>
+        <VBtnGroup v-if="item.group" elevation="4">
+          <template v-for="sectionItem in item.components" :key="sectionItem.name">
+            <component :is="sectionItem.component" v-bind="{ ...sectionItem.props ?? {} }" />
+          </template>
+        </VBtnGroup>
+        <template v-else>
+          <component
+            v-for="sectionItem in item.components"
+            :key="sectionItem.name"
+            :is="sectionItem.component"
+            v-bind="{ variantBtn, ...sectionItem.props ?? {} }"
+          />
+        </template>
+        <div class="menu-divider"></div>
+      </template>
     </template>
   </VToolbarItems>
 </template>

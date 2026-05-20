@@ -131,12 +131,13 @@
       "src_invalid": "L'URL inserito non è valido"
     },
     "image": {
-      "title": "Aggiungi/modifica immagine",
+      "title": "Titolo",
       "src": "Origine",
       "keep_ratio": "Mantieni rapporto d'aspetto",
       "alt": "alt",
       "width": "Larghezza",
-      "height": "Altezza"
+      "height": "Altezza",
+      "dialog_title": "Aggiungi/modifica immagine"
     },
     "link": {
       "title": "Aggiungi/modifica collegamento",

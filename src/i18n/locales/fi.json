@@ -131,12 +131,13 @@
       "src_invalid": "Syötetty URL ei ole kelvollinen"
     },
     "image": {
-      "title": "Lisää/muokkaa kuvaa",
+      "title": "Otsikko",
       "src": "Lähde",
       "keep_ratio": "Säilytä suhde",
       "alt": "Vaihtoehtoinen teksti",
       "width": "Leveys",
-      "height": "Korkeus"
+      "height": "Korkeus",
+      "dialog_title": "Lisää/muokkaa kuvaa"
     },
     "link": {
       "title": "Lisää/muokkaa linkkiä",

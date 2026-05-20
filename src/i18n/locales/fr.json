@@ -131,12 +131,13 @@
       "src_invalid": "L'URL saisie est invalide"
     },
     "image": {
-      "title": "Ajouter/modifier l'image",
+      "title": "Titre",
       "src": "Source",
       "keep_ratio": "Conserver le ratio d'aspect",
       "alt": "alt",
       "width": "Largeur",
-      "height": "Hauteur"
+      "height": "Hauteur",
+      "dialog_title": "Ajouter/modifier l'image"
     },
     "link": {
       "title": "Ajouter/modifier le lien",

@@ -131,12 +131,13 @@
       "src_invalid": "Girilen URL geçersiz"
     },
     "image": {
-      "title": "Görsel ekle/düzenle",
+      "title": "Başlık",
       "src": "Kaynak",
       "keep_ratio": "En boy oranını koru",
       "alt": "Alternatif metin",
       "width": "Genişlik",
-      "height": "Yükseklik"
+      "height": "Yükseklik",
+      "dialog_title": "Görsel ekle/düzenle"
     },
     "link": {
       "title": "Bağlantı ekle/düzenle",

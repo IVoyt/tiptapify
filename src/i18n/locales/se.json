@@ -131,12 +131,13 @@
       "src_invalid": "Den angivna URL:en är ogiltig"
     },
     "image": {
-      "title": "Lägg till/ändra bild",
+      "title": "Rubrik",
       "src": "Källa",
       "keep_ratio": "Behåll proportioner",
       "alt": "alt",
       "width": "Bredd",
-      "height": "Höjd"
+      "height": "Höjd",
+      "dialog_title": "Lägg till/ändra bild"
     },
     "link": {
       "title": "Lägg till/ändra länk",

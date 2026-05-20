@@ -1,13 +1,15 @@
 # Tiptapify
 
+[![npm](https://img.shields.io/npm/v/tiptapify.svg)](https://www.npmjs.com/package/tiptapify)
+[![npm](https://img.shields.io/npm/dw/tiptapify.svg)](https://www.npmjs.com/package/tiptapify)
+[![GitHub](https://img.shields.io/github/license/ivoyt/tiptapify)](./LICENSE)
+
 ---
 
-[Tiptap](https://tiptap.dev) 3 editor for Vue3 with [Vuetify](https://vuetifyjs.com) toolbar implementation
+[Tiptap 3 Editor](https://tiptap.dev) [Vuetify](https://vuetifyjs.com) toolbar implementation
 
 ## Status
-*Alpha*
-
-*Not production ready (yet) - may contain bugs and internal logic may change*
+*Beta*
 
 ## Requirements
 - Vue 3.x
@@ -156,10 +158,10 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] option to provide custom extension
 - [x] iframe extension
 - [x] charmap extension
+- [x] demo
+- [x] documentation
 - [ ] extended video extensions
 - [ ] print hotkey in a tooltip
-- [ ] demo
-- [ ] documentation
 - [ ] AI features
 
 ## Licence
