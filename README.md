@@ -11,6 +11,10 @@
 ## Status
 *Beta*
 
+## Live Demo
+
+[View Documentation & Demo](https://ivoyt.github.io/tiptapify)
+
 ## Requirements
 - Vue 3.x
 - Vuetify.js 3.x
