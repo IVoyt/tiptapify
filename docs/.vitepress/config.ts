@@ -1,3 +1,4 @@
+import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from 'vitepress'
 import path from 'node:path'
 
@@ -13,14 +14,15 @@ export default defineConfig({
 
   vite: {
     ssr: {
-      noExternal: ['@vue/repl', 'vuetify', 'tiptapify'],
+      noExternal: ['vuetify'],
     },
     optimizeDeps: {
-      include: ['@vue/repl'],
+      include: ['vuetify'],
     },
     resolve: {
       alias: {
-        '@tiptapify': path.resolve(__dirname, '../../src'),
+        '@tiptapify': fileURLToPath(new URL('../../src', import.meta.url)),
+        '@tiptapifyDist': fileURLToPath(new URL('../../dist', import.meta.url)),
       }
     }
   },

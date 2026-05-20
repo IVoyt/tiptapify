@@ -8,8 +8,8 @@ import { aliases, mdi as mdiSvg } from 'vuetify/iconsets/mdi-svg'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
-import TiptapifyPlugin from 'tiptapify'
-import 'tiptapify/style.css'
+import TiptapifyPlugin from '@tiptapify'
+import '@tiptapifyDist/tiptapify.css'
 
 const vuetify = createVuetify({
   ssr: true,
