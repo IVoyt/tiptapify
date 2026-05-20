@@ -18,6 +18,7 @@ const { t } = inject('tiptapifyI18n') as any
 const generateImageAttrs = () => ({
   src: '',
   alt: '',
+  title: null,
   height: null,
   width: null
 })
@@ -63,11 +64,15 @@ function updateSizeRatio(dim: string) {
 }
 
 function apply() {
-  let { src, alt, width, height } = attrs.value
+  let { src, alt, title, width, height } = attrs.value
 
-  const imageOptions: { src: string, alt: string, width?: number, height?: number} = {
+  const imageOptions: { src: string, alt: string, title?: string, width?: number, height?: number} = {
     src,
     alt
+  }
+
+  if (title) {
+    imageOptions.title = title
   }
 
   if (width) {
@@ -105,6 +110,7 @@ const showTiptapifyImage = (event: CustomEvent) => {
 
   attrs.value.src = event.detail.image?.src
   attrs.value.alt = event.detail.image?.alt
+  attrs.value.title = event.detail.image?.title
   attrs.value.width = event.detail.image?.width
   attrs.value.height = event.detail.image?.height
 
@@ -124,52 +130,68 @@ onUnmounted(() => {
   <TiptapifyDialog ref="dialog" module="image" :max-width="800">
     <template #content>
       <VCardText>
-        <VRow>
-          <VCol cols="12">
-            <VTextField v-model="attrs.src" density="compact" variant="outlined" :label="t('dialog.image.src')" />
-          </VCol>
+        <div class="tiptapify-grid-row">
+          <div>
+            <VTextField v-model="attrs.src" density="comfortable" :label="t('dialog.image.src')" />
+          </div>
+        </div>
 
-          <VCol cols="12" md="5">
-            <VTextField v-model="attrs.alt" density="compact" variant="outlined" :label="t('dialog.image.alt')" />
-          </VCol>
+        <div class="tiptapify-grid-row">
+          <div>
+            <VTextField
+                v-model="attrs.alt"
+                density="comfortable"
+                :label="t('dialog.image.alt')" />
+          </div>
+        </div>
 
-          <VCol cols="5" md="3">
+        <div class="tiptapify-grid-row">
+          <div>
+            <VTextField
+                v-model="attrs.title"
+                density="comfortable"
+                :label="t('dialog.image.title')" />
+          </div>
+        </div>
+
+        <div class="tiptapify-grid-row">
+          <div class="tiptapify-image-inputs-container">
             <VTextField
                 v-model="attrs.width"
                 type="number"
-                density="compact"
-                variant="outlined"
+                density="comfortable"
                 :precision="0"
                 :min="1"
                 :label="t('dialog.image.width')"
                 @change="setRatio"
                 @update:model-value="updateSizeRatio('width')"
             />
-          </VCol>
-
-          <VCol cols="5" md="3">
             <VTextField
                 v-model="attrs.height"
                 type="number"
-                density="compact"
-                variant="outlined"
+                density="comfortable"
                 :precision="0"
                 :min="1"
                 :label="t('dialog.image.height')"
                 @change="setRatio"
                 @update:model-value="updateSizeRatio('height')"
             />
-          </VCol>
-
-          <VCol cols="2" md="1">
-            <VBtn size="40" :variant="variantBtn" v-model="keepRatio" @click="keepRatio = !keepRatio">
-              <VIcon :icon="keepRatio ? `mdiSvg:${mdi.mdiLock}` : `mdiSvg:${mdi.mdiLockOpen}`" />
+          </div>
+          <div>
+            <VBtn
+                v-model="keepRatio"
+                :color="keepRatio ? 'primary' : 'secondary'"
+                size="48"
+                :variant="variantBtn"
+                @click="keepRatio = !keepRatio"
+            >
+              <VIcon :icon="keepRatio ? `mdiSvg:${mdi.mdiLock}` : `mdiSvg:${mdi.mdiLockOpenVariant}`" />
               <VTooltip activator="parent">
                 {{ t('dialog.image.keep_ratio') }}
               </VTooltip>
             </VBtn>
-          </VCol>
-        </VRow>
+          </div>
+        </div>
       </VCardText>
     </template>
 
@@ -194,3 +216,23 @@ onUnmounted(() => {
     </template>
   </TiptapifyDialog>
 </template>
+
+<style lang="scss" scoped>
+.tiptapify-grid-row {
+  margin-top: 8px;
+  gap: 16px;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  justify-items: end;
+
+  :nth-child(1) {
+    width: 100%;
+  }
+
+  .tiptapify-image-inputs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+</style>

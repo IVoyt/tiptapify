@@ -131,12 +131,13 @@
       "src_invalid": "입력한 URL 이 유효하지 않습니다"
     },
     "image": {
-      "title": "이미지 추가/편집",
+      "title": "제목",
       "src": "소스",
       "keep_ratio": "종횡비 유지",
       "alt": "대체 텍스트",
       "width": "너비",
-      "height": "높이"
+      "height": "높이",
+      "dialog_title": "이미지 추가/편집"
     },
     "link": {
       "title": "링크 추가/편집",

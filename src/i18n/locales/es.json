@@ -131,12 +131,13 @@
       "src_invalid": "La URL ingresada es inválida"
     },
     "image": {
-      "title": "Agregar/modificar imagen",
+      "title": "Título",
       "src": "Fuente",
       "keep_ratio": "Mantener proporción",
       "alt": "alt",
       "width": "Ancho",
-      "height": "Alto"
+      "height": "Alto",
+      "dialog_title": "Agregar/modificar imagen"
     },
     "link": {
       "title": "Agregar/modificar enlace",

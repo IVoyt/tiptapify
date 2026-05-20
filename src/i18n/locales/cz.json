@@ -131,12 +131,13 @@
       "src_invalid": "Zadaná URL adresa je neplatná"
     },
     "image": {
-      "title": "Přidání/úprava obrázku",
+      "title": "Název",
       "src": "Zdroj",
       "keep_ratio": "Udržet poměr stran",
       "alt": "alt",
       "width": "Šířka",
-      "height": "Výška"
+      "height": "Výška",
+      "dialog_title": "Přidání/úprava obrázku"
     },
     "link": {
       "title": "Přidání/úprava odkazu",

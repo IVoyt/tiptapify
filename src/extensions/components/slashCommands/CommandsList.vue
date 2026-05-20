@@ -1,17 +1,12 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import * as mdi from '@mdi/js'
+import type { SlashCommand } from '@tiptapify/types/slashCommandsTypes'
 
-const props = defineProps({
-  items: {
-    type: Array,
-    required: true,
-  },
-  command: {
-    type: Function,
-    required: true,
-  },
-})
+const props = defineProps<{
+  items: SlashCommand[]
+  command: (item: SlashCommand) => void
+}>()
 
 const selectedIndex = ref(0)
 
@@ -19,7 +14,7 @@ watch(() => props.items, () => {
   selectedIndex.value = 0
 }, { deep: true })
 
-function onKeyDown({ event }) {
+function onKeyDown({ event }: { event: KeyboardEvent }) {
   if (event.key === 'ArrowUp') {
     upHandler()
     return true
@@ -50,12 +45,17 @@ function enterHandler() {
   selectItem(selectedIndex.value)
 }
 
-function selectItem(index) {
+function selectItem(index: number) {
   const item = props.items[index]
 
   if (item) {
     props.command(item)
   }
+}
+
+function getIcon(iconName: string) {
+  const iconKey = `mdi${iconName}` as keyof typeof mdi
+  return mdi[iconKey] || mdi.mdiImageBrokenVariant
 }
 
 defineExpose({
@@ -70,17 +70,21 @@ defineExpose({
 <template>
   <div class="dropdown-menu">
     <template v-if="items.length">
-      <VBtn
-          variant="text"
-          v-for="(item, index) in items"
-          :key="index"
-          @click="selectItem(index)"
-          size="small"
+      <button
+        v-for="(item, index) in items"
+        :key="index"
+        class="item"
+        :class="{ 'is-selected': index === selectedIndex }"
+        @click="selectItem(index)"
+        @mouseenter="selectedIndex = index"
       >
-        <VIcon :icon="`mdiSvg:${mdi[`mdi${item.icon}`]}` || `mdiSvg:${mdi.mdiImageBrokenVariant}`" size="16" />
-      </VBtn>
+        <span class="item-icon">
+          <VIcon :icon="`mdiSvg:${getIcon(item.icon)}`" size="18" />
+        </span>
+        <span class="item-title">{{ item.title }}</span>
+      </button>
     </template>
-    <div class="item" v-else>No result</div>
+    <div v-else class="no-result">No result</div>
   </div>
 </template>
 
@@ -96,5 +100,44 @@ defineExpose({
   overflow: auto;
   padding: 0.4rem;
   position: relative;
+  max-height: 300px;
+  min-width: 200px;
+}
+
+.item {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  transition: background-color 0.15s ease;
+
+  &:hover,
+  &.is-selected {
+    background: var(--gray-1);
+  }
+}
+
+.item-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 24px;
+}
+
+.item-title {
+  color: var(--black);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.no-result {
+  color: var(--gray-5);
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
 }
 </style>

@@ -1,3 +1,11 @@
+### v0.1.0
+- first Beta
+- add documentation and examples
+- add an image resize option
+- update image extension appearance
+- update emoji and charmap appearance
+- provide `setLocale` plugin option
+
 ### v0.0.36
 - add charmap extension
 - add missing translations to the emoji extension 

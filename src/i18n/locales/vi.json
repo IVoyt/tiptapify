@@ -131,12 +131,13 @@
       "src_invalid": "URL đã nhập không hợp lệ"
     },
     "image": {
-      "title": "Thêm/sửa hình ảnh",
+      "title": "Tiêu đề",
       "src": "Nguồn",
       "keep_ratio": "Giữ tỷ lệ khung hình",
       "alt": "Văn bản thay thế",
       "width": "Chiều rộng",
-      "height": "Chiều cao"
+      "height": "Chiều cao",
+      "dialog_title": "Thêm/sửa hình ảnh"
     },
     "link": {
       "title": "Thêm/sửa liên kết",

@@ -131,12 +131,13 @@
       "src_invalid": "A megadott URL érvénytelen"
     },
     "image": {
-      "title": "Kép hozzáadása/szerkesztése",
+      "title": "Cím",
       "src": "Forrás",
       "keep_ratio": "Arány megtartása",
       "alt": "Alternatív szöveg",
       "width": "Szélesség",
-      "height": "Magasság"
+      "height": "Magasság",
+      "dialog_title": "Kép hozzáadása/szerkesztése"
     },
     "link": {
       "title": "Hivatkozás hozzáadása/szerkesztése",

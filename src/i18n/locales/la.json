@@ -131,12 +131,13 @@
       "src_invalid": "Ievadītais URL nav derīgs"
     },
     "image": {
-      "title": "Pievienot/mainīt attēlu",
+      "title": "Titulus",
       "src": "Avots",
       "keep_ratio": "Saglabāt attiecības",
       "alt": "Alt",
       "width": "Platums",
-      "height": "Augstums"
+      "height": "Augstums",
+      "dialog_title": "Pievienot/mainīt attēlu"
     },
     "link": {
       "title": "Pievienot/mainīt saiti",

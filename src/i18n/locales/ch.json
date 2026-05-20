@@ -131,12 +131,13 @@
       "src_invalid": "输入的URL无效"
     },
     "image": {
-      "title": "添加/修改图片",
+      "title": "标题",
       "src": "源",
       "keep_ratio": "保持比例",
       "alt": "替代文本",
       "width": "宽度",
-      "height": "高度"
+      "height": "高度",
+      "dialog_title": "添加/修改图片"
     },
     "link": {
       "title": "添加/修改链接",

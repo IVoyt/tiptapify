@@ -25,4 +25,4 @@ export type section = {
 
 export type toolbarSections = Array<section>
 
-export type itemsPropType = { [key: string]: Array<string> } | Array<string>
+export type itemsPropType = { [key: string]: string[] } | string[]

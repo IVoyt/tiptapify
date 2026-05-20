@@ -131,12 +131,13 @@
       "src_invalid": "入力された URL は無効です"
     },
     "image": {
-      "title": "画像を追加/編集",
+      "title": "タイトル",
       "src": "ソース",
       "keep_ratio": "アスペクト比を維持",
       "alt": "代替テキスト",
       "width": "幅",
-      "height": "高さ"
+      "height": "高さ",
+      "dialog_title": "画像を追加/編集"
     },
     "link": {
       "title": "リンクを追加/編集",
