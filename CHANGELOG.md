@@ -1,3 +1,13 @@
+### 0.1.2
+- Pass `props.locale` directly to `useLocale()` instead of `immediate` watcher
+- Move `editor-ready` logic to `getTiptapEditor` `onCreate` callback
+- Remove computed refs for props items/exclude/interactiveStyles
+- Add `onCreate` callback param to `getTiptapEditor`
+- Update tiptap deps to ^3.23.5
+- Update TypeScript deps to ^6.0.3
+- Add ESLint flat config with plugins
+- Add stylelint devDependencies
+
 ### v0.1.0
 - first Beta
 - add documentation and examples

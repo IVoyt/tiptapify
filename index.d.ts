@@ -1,4 +1,13 @@
 import { Editor } from "@tiptap/vue-3";
+import {
+  Component,
+  ComponentOptionsMixin, ComponentProvideOptions,
+  ComputedOptions, Directive,
+  EmitsOptions,
+  ExtractDefaultPropTypes,
+  MethodOptions,
+  PublicProps, SlotsType
+} from "@vue/runtime-core";
 import type { DefineComponent } from 'vue'
 import { toolbarSections } from "./src/types/toolbarTypes";
 
@@ -22,6 +31,7 @@ export interface TiptapifyProps {
 }
 
 export interface TiptapifyEmits {
+  [key: string]: ((...args: any[]) => any) | null
   'editor-ready': (options: {
     getHTML: () => string
     getJSON: () => any
@@ -31,7 +41,6 @@ export interface TiptapifyEmits {
 
 export declare const Tiptapify: DefineComponent<TiptapifyProps, {}, {}, {}, {}, {}, {}, TiptapifyEmits>
 
-// Плагин
 export interface TiptapifyOptions {
   locale?: string
 }
