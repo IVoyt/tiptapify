@@ -1,22 +1,20 @@
 <script setup lang="ts">
 
-import defaults from "@tiptapify/constants/defaults";
-import { itemsPropType, toolbarSections } from "@tiptapify/types/toolbarTypes";
-import { SlashCommandsConfig } from "@tiptapify/types/slashCommandsTypes";
-import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, watch } from "vue";
-import { default as Toolbar } from "@tiptapify/components/Toolbar/Index.vue";
+import defaults from '@tiptapify/constants/defaults'
+import { itemsPropType, toolbarSections } from '@tiptapify/types/toolbarTypes'
+import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
+import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, watch } from 'vue'
+import { default as Toolbar } from '@tiptapify/components/Toolbar/Index.vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
-import { useLocale } from "@tiptapify/i18n";
+import { useLocale } from '@tiptapify/i18n'
 
-import { getTiptapEditor } from "@tiptapify/components/index";
+import { getTiptapEditor } from '@tiptapify/components/index'
 
 import Footer from '@tiptapify/components/Footer.vue'
-import { useTheme } from "vuetify/framework";
-
-const { t, i18n, setLocale } = useLocale();
+import { useTheme } from 'vuetify/framework'
 
 const props = defineProps({
   locale: { type: String, default () { return 'en' } },
@@ -25,7 +23,7 @@ const props = defineProps({
   variantBtn: { type: String, default () { return defaults.variantBtn } },
   variantField: { type: String, default () { return defaults.variantField } },
   toolbar: { type: Boolean, default () { return true } },
-  items: { type: [Array, Object as PropType<itemsPropType>], default() { return [] }},
+  items: { type: [Array, Object as PropType<itemsPropType>], default() { return [] } },
   itemsExclude: { type: Boolean, default() { return false } },
   bubbleMenu: { type: Boolean, default () { return true } },
   floatingMenu: { type: Boolean, default () { return true } },
@@ -40,13 +38,10 @@ const props = defineProps({
   interactiveStyles: { type: Boolean, default() { return true } },
 })
 
+const { t, setLocale } = useLocale(props.locale)
+
 const appTheme = useTheme()
 const currentTheme = ref(appTheme.global.name)
-
-const propsItems = computed(() => props.items)
-const propsItemsExclude = computed(() => props.itemsExclude)
-
-const interactiveStyles = computed(() => props.interactiveStyles)
 
 function contentChanged() {
   emit('content-changed', { html: editor.value?.getHTML(), json: editor.value?.getJSON() })
@@ -57,36 +52,27 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
     computed(() => props.placeholder || t('content.placeholder')).value,
     props.slashCommands,
     props.customExtensions,
-    contentChanged
+    contentChanged,
+    (editorInstance) => {
+      editorInstance.interactiveStyles = props.interactiveStyles
+      emit('editor-ready', {
+        editor: editorInstance,
+        setLocale,
+        getHTML: () => editorInstance.getHTML(),
+        getJSON: () => editorInstance.getJSON(),
+      })
+    },
 )
 
-const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed']);
+const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed'])
 
 provide('tiptapifyEditor', editor)
 provide('tiptapifyI18n', { t, setLocale })
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
 
-watch(() => editor.value, (editorInstance) => {
-  if (editorInstance instanceof Editor) {
-    editor.value.interactiveStyles = interactiveStyles.value
-    emit('editor-ready', {
-      editor: editorInstance,
-      setLocale,
-      getHTML: () => editorInstance.getHTML(),
-      getJSON: () => editorInstance.getJSON(),
-    });
-  }
-}, { immediate: true });
-
 watch(() => props.locale, () => {
   setLocale(props.locale)
-}, { immediate: true });
-
-watch(() => props.interactiveStyles, (_interactiveStyles) => {
-  if (editor.value instanceof Editor) {
-    editor.value.interactiveStyles = interactiveStyles
-  }
 })
 
 onBeforeUnmount(() => {
@@ -99,15 +85,15 @@ onBeforeUnmount(() => {
     <div>
       <template v-if="toolbar">
         <Toolbar
-            v-if="editor"
-            :variant-btn="variantBtn"
-            :variant-field="variantField"
-            :font-measure="fontMeasure"
-            :items="propsItems"
-            :items-exclude="propsItemsExclude"
-            :rounded="rounded"
-            :custom-extensions="customExtensions"
-            :theme="currentTheme"
+          v-if="editor"
+          :variant-btn="variantBtn"
+          :variant-field="variantField"
+          :font-measure="fontMeasure"
+          :items="items"
+          :items-exclude="itemsExclude"
+          :rounded="rounded"
+          :custom-extensions="customExtensions"
+          :theme="currentTheme"
         />
       </template>
 
