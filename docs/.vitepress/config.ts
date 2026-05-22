@@ -14,7 +14,10 @@ export default defineConfig({
 
   vite: {
     ssr: {
-      noExternal: ['vuetify'],
+      noExternal: ['vuetify', 'vue-i18n'],
+    },
+    define: {
+      __VUE_PROD_DEVTOOLS__: false,
     },
     optimizeDeps: {
       include: ['vuetify'],

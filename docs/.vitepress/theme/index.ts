@@ -11,6 +11,8 @@ import * as directives from 'vuetify/directives'
 import TiptapifyPlugin from '@tiptapify'
 import '@tiptapifyDist/tiptapify.css'
 
+import { createI18n } from 'vue-i18n'
+
 const vuetify = createVuetify({
   ssr: true,
   components,
@@ -60,8 +62,14 @@ export default {
     })
   },
   enhanceApp({ app }) {
+    const i18n = createI18n({
+      locale: 'en',
+      legacy: false,
+      fallbackLocale: 'en',
+    })
     app.use(vuetify)
-    app.use(TiptapifyPlugin, { locale: 'en' })
+    app.use(i18n)
+    app.use(TiptapifyPlugin, { i18n })
 
     app.component('InteractiveEditor', InteractiveEditor)
   },

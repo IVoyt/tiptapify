@@ -92,12 +92,12 @@ interface ContentChangedPayload {
 }
 ```
 
-## PackageOptions
+## TiptapifyOptions
 
 Options passed when installing the plugin.
 
 ```typescript
-interface PackageOptions {
-  locale?: string  // Default locale (default: 'en')
+interface TiptapifyOptions {
+  i18n: I18n  // vue-i18n instance
 }
 ```

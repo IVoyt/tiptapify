@@ -1,15 +1,6 @@
-import { Editor } from "@tiptap/vue-3";
-import {
-  Component,
-  ComponentOptionsMixin, ComponentProvideOptions,
-  ComputedOptions, Directive,
-  EmitsOptions,
-  ExtractDefaultPropTypes,
-  MethodOptions,
-  PublicProps, SlotsType
-} from "@vue/runtime-core";
+import { Editor as TiptapEditor } from '@tiptap/vue-3'
 import type { DefineComponent } from 'vue'
-import { toolbarSections } from "./src/types/toolbarTypes";
+import { toolbarSections } from './src/types/toolbarTypes'
 
 export interface TiptapifyProps {
   content: string|object
@@ -31,25 +22,36 @@ export interface TiptapifyProps {
 }
 
 export interface TiptapifyEmits {
-  [key: string]: ((...args: any[]) => any) | null
+  [key: string]: ((...args: never[]) => never) | null
   'editor-ready': (options: {
     getHTML: () => string
-    getJSON: () => any
-    editor: Editor
+    getJSON: () => never
+    editor: TiptapEditor
   }) => void
 }
 
-export declare const Tiptapify: DefineComponent<TiptapifyProps, {}, {}, {}, {}, {}, {}, TiptapifyEmits>
+export declare const Tiptapify: DefineComponent<
+  TiptapifyProps,
+  object,
+  object,
+  Record<string, never>,
+  Record<string, never>,
+  object,
+  object,
+  TiptapifyEmits
+>
 
 export interface TiptapifyOptions {
-  locale?: string
+  i18n?: string
 }
 
 declare const TiptapifyPlugin: {
-  install: (app: any, options?: TiptapifyOptions) => void
+  install: (app: never, options?: TiptapifyOptions) => void
 }
 
 export default TiptapifyPlugin
+
+export { TiptapEditor }
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {

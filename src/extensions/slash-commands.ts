@@ -3,7 +3,8 @@ import { Editor } from '@tiptap/core'
 import Suggestion from '@tiptap/suggestion'
 import { VueRenderer, posToDOMRect } from '@tiptap/vue-3'
 import { computePosition, flip, shift } from '@floating-ui/dom'
-import { useLocale } from '@tiptapify/i18n'
+// import { useLocale } from '@tiptapify/i18n'
+import { useI18n } from 'vue-i18n'
 import CommandsList from '@tiptapify/extensions/components/slashCommands/CommandsList.vue'
 import PickerDialog from '@tiptapify/extensions/components/slashCommands/PickerDialog.vue'
 import { PickerEventBus } from '@tiptapify/extensions/PickerEventBus'
@@ -99,7 +100,7 @@ export default Extension.create<SlashCommandsExtensionOptions>(
           editor.chain().focus().deleteRange(range).run()
           closePicker()
 
-          const { t } = useLocale()
+          const { t } = useI18n()
 
           pickerComponent = new VueRenderer(PickerDialog, {
             props: {

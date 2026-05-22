@@ -1,3 +1,7 @@
+### 0.1.3
+- move vue-i18n to peerDependencies
+- refactor
+
 ### 0.1.2
 - Pass `props.locale` directly to `useLocale()` instead of `immediate` watcher
 - Move `editor-ready` logic to `getTiptapEditor` `onCreate` callback

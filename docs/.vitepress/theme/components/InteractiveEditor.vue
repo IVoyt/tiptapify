@@ -45,7 +45,6 @@ onMounted(() => {
   <div class="interactive-editor">
     <Tiptapify
       v-model="content"
-      locale="en"
       :height="height"
       :placeholder="placeholder"
       font-measure="pt"

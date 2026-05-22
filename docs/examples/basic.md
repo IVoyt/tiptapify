@@ -15,8 +15,6 @@ const content = ref('<p>Hello, <strong>world</strong>!</p>')
   <Tiptapify
     v-model="content"
     placeholder="Write something..."
-    locale="en"
-    font-measure="pt"
     :bubble-menu="true"
     :floating-menu="false"
     :slash-commands="true"
@@ -45,8 +43,6 @@ const onContentChanged = ({ html, json }) => {
     <Tiptapify
       :content="'<p>Start writing...</p>'"
       placeholder="Write something..."
-      locale="en"
-      font-measure="pt"
       :bubble-menu="true"
       :floating-menu="false"
       :slash-commands="true"
@@ -82,8 +78,6 @@ const onEditorReady = (options) => {
 <template>
   <Tiptapify
     placeholder="Editor with ready callback..."
-    locale="en"
-    font-measure="pt"
     :bubble-menu="true"
     :floating-menu="false"
     :slash-commands="true"
@@ -102,8 +96,6 @@ Set a minimum height for the editor area:
     :content="'<p>Content area with fixed height...</p>'"
     :height="400"
     placeholder="This editor has a fixed height of 400px..."
-    locale="en"
-    font-measure="pt"
     :bubble-menu="true"
     :floating-menu="false"
     :slash-commands="true"
@@ -121,8 +113,6 @@ Hide the toolbar completely and use only the bubble menu:
     :toolbar="false"
     :bubble-menu="true"
     placeholder="Toolbar hidden, use bubble menu..."
-    locale="en"
-    font-measure="pt"
     :floating-menu="false"
     :slash-commands="true"
   />
@@ -153,8 +143,6 @@ const onEditorReady = (options) => {
     <Tiptapify
       :content="'<p>Try editing this content...</p>'"
       :toolbar="false"
-      locale="en"
-      font-measure="pt"
       :bubble-menu="true"
       :floating-menu="false"
       :slash-commands="true"

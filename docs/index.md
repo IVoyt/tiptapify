@@ -26,7 +26,7 @@ This project is currently in **Beta**. It is feature-complete but may still have
   </div>
   <div class="feature">
     <h3>Internationalization</h3>
-    <p>20+ languages supported with runtime locale switching</p>
+    <p>20+ languages supported via vue-i18n</p>
   </div>
   <div class="feature">
     <h3>Dark Theme</h3>
@@ -63,7 +63,7 @@ const handleEditorReady = (options) => {
 ```
 
 ::: tip Peer Dependencies
-Tiptapify requires **Vue 3.x**, **Vuetify 3.x or 4.x**, and **@mdi/js** as peer dependencies. See the [Installation guide](/guide/installation) for the full setup.
+Tiptapify requires **Vue 3.x**, **Vuetify 3.x or 4.x**, **vue-i18n 11+**, and **@mdi/js** as peer dependencies. See the [Installation guide](/guide/installation) for the full setup.
 :::
 
 ## License

@@ -71,7 +71,6 @@ const handleContentChanged = ({ html, json }) => {
   <v-container>
     <Tiptapify
       :content="'<p>Start typing...</p>'"
-      locale="en"
       :height="400"
       :toolbar="true"
       :items="['bold', 'italic', 'underline', 'strike', '|', 'heading', 'bulletList', 'orderedList', '|', 'link', 'image', '|', 'undo', 'redo']"
@@ -162,6 +161,6 @@ See the [Toolbar Items](/api/toolbar-items) reference for all available items, a
 ## Next Steps
 
 - Learn about [Toolbar Configuration](/examples/custom-toolbar)
-- Set up [Internationalization](/guide/i18n)
+- Set up [Internationalization](/guide/i18n) (requires `vue-i18n`)
 - Explore [Media Embedding](/examples/media)
 - See the full [API Reference](/api/props)
