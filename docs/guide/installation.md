@@ -3,6 +3,7 @@
 ## Requirements
 
 - **Vue 3.5+**
+- **vue-i18n 11+**
 - **Vuetify 3.8+ or Vuetify 4.x**
 - **@mdi/js** (Material Design Icons)
 
@@ -29,7 +30,7 @@ yarn add tiptapify
 Tiptapify requires the following peer dependencies. Make sure they are installed in your project:
 
 ```bash
-npm i @mdi/js vue vuetify
+npm i @mdi/js vue vue-i18n vuetify
 ```
 
 ## Vuetify Setup
@@ -65,10 +66,17 @@ app.mount('#app')
 In your app entry file, import and register the Tiptapify plugin:
 
 ```typescript
+import { createI18n } from 'vue-i18n'
 import TiptapifyPlugin from 'tiptapify'
 import 'tiptapify/style.css'
 
-app.use(TiptapifyPlugin, { locale: 'en' })
+const i18n = createI18n({
+  legacy: false,
+  locale: 'en',
+})
+
+app.use(i18n)
+app.use(TiptapifyPlugin, { i18n })
 ```
 
 ## Full Example
@@ -84,8 +92,14 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+import { createI18n } from 'vue-i18n'
 import TiptapifyPlugin from 'tiptapify'
 import 'tiptapify/style.css'
+
+const i18n = createI18n({
+  legacy: false,
+  locale: 'en',
+})
 
 const vuetify = createVuetify({
   components,
@@ -100,7 +114,8 @@ const vuetify = createVuetify({
 const app = createApp(App)
 
 app.use(vuetify)
-app.use(TiptapifyPlugin, { locale: 'en' })
+app.use(i18n)
+app.use(TiptapifyPlugin, { i18n })
 
 app.mount('#app')
 ```

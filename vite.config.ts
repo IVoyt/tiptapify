@@ -59,16 +59,17 @@ export default defineConfig({
           ]
         })
       ],
-      external: ['vue', 'vuetify'],
+      external: ['vue', 'vue-i18n', 'vuetify'],
       output: {
-        exports: "named",
+        exports: 'named',
         globals: {
           vue: 'Vue',
-          vuetify: 'Vuetify'
+          vuetify: 'Vuetify',
+          'vue-i18n': 'vueI18n'
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'tiptapify.css';
-          return assetInfo.name;
+          if (assetInfo.name === 'style.css') return 'tiptapify.css'
+          return assetInfo.name
         }
       }
     },

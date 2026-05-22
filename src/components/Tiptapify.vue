@@ -3,13 +3,13 @@
 import defaults from '@tiptapify/constants/defaults'
 import { itemsPropType, toolbarSections } from '@tiptapify/types/toolbarTypes'
 import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
-import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, watch } from 'vue'
+import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef } from 'vue'
 import { default as Toolbar } from '@tiptapify/components/Toolbar/Index.vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
-import { useLocale } from '@tiptapify/i18n'
+import { useI18n } from 'vue-i18n'
 
 import { getTiptapEditor } from '@tiptapify/components/index'
 
@@ -38,7 +38,7 @@ const props = defineProps({
   interactiveStyles: { type: Boolean, default() { return true } },
 })
 
-const { t, setLocale } = useLocale(props.locale)
+const { t } = useI18n()
 
 const appTheme = useTheme()
 const currentTheme = ref(appTheme.global.name)
@@ -57,7 +57,6 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
       editorInstance.interactiveStyles = props.interactiveStyles
       emit('editor-ready', {
         editor: editorInstance,
-        setLocale,
         getHTML: () => editorInstance.getHTML(),
         getJSON: () => editorInstance.getJSON(),
       })
@@ -67,13 +66,9 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
 const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed'])
 
 provide('tiptapifyEditor', editor)
-provide('tiptapifyI18n', { t, setLocale })
+provide('tiptapifyI18n', { t })
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
-
-watch(() => props.locale, () => {
-  setLocale(props.locale)
-})
 
 onBeforeUnmount(() => {
   editor.value?.destroy()

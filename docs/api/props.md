@@ -17,16 +17,7 @@ Initial editor content. Accepts HTML string or Tiptap JSON object.
 <Tiptapify :content="{ type: 'doc', content: [{ type: 'paragraph' }] }" />
 ```
 
-### `locale`
 
-- **Type:** `String`
-- **Default:** `'en'`
-
-Editor UI language. See [available locales](/guide/i18n#available-locales).
-
-```vue
-<Tiptapify locale="de" />
-```
 
 ### `placeholder`
 
@@ -230,7 +221,7 @@ Fired when the editor instance is ready.
 
 ```typescript
 interface EditorReadyPayload {
-  editor: Editor        // Raw Tiptap Editor instance
+  editor: TiptapEditor  // Raw Tiptap Editor instance
   getHTML: () => string  // Get current HTML content
   getJSON: () => object  // Get current JSON content
 }
@@ -291,11 +282,11 @@ const content = ref('<p>Hello</p>')
 
 ## Provide / Inject
 
-The editor instance and i18n functions are available via Vue's provide/inject:
+The editor instance and `t` function are available via Vue's provide/inject:
 
 ```typescript
 import { inject } from 'vue'
 
 const editor = inject('tiptapifyEditor')
-const { t, setLocale } = inject('tiptapifyI18n')
+const { t } = inject('tiptapifyI18n')
 ```
