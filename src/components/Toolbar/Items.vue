@@ -1,22 +1,22 @@
 <script setup lang="ts">
 
-import defaults from "@tiptapify/constants/defaults";
+import defaults from '@tiptapify/constants/defaults'
 import { PropType } from 'vue'
 
-import { toolbarSections } from "@tiptapify/types/toolbarTypes";
+import { toolbarSections } from '@tiptapify/types/toolbarTypes'
 
 defineProps({
-  variantBtn: { type: String, default () { return defaults.variantBtn }},
-  items: { type: Array as PropType<toolbarSections>, default() { return {} }},
+  variantBtn: { type: String, default () { return defaults.variantBtn } },
+  items: { type: Array as PropType<toolbarSections>, default() { return {} } },
 })
 
 </script>
 
 <template>
-  <VToolbarItems class="py-2">
+  <VToolbarItems class="px-2 py-3">
     <template v-for="item in items" :key="item.section">
       <template v-if="item.section === '__separator__'">
-        <div class="menu-divider"></div>
+        <div class="menu-divider" />
       </template>
       <template v-else>
         <VBtnGroup v-if="item.group" elevation="4">
@@ -26,13 +26,13 @@ defineProps({
         </VBtnGroup>
         <template v-else>
           <component
+            :is="sectionItem.component"
             v-for="sectionItem in item.components"
             :key="sectionItem.name"
-            :is="sectionItem.component"
             v-bind="{ variantBtn, ...sectionItem.props ?? {} }"
           />
         </template>
-        <div class="menu-divider"></div>
+        <div class="menu-divider" />
       </template>
     </template>
   </VToolbarItems>

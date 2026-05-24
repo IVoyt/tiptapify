@@ -36,7 +36,12 @@ const props = defineProps({
   rounded: { type: String, default () { return '0' } },
   customExtensions: { type: Array as PropType<toolbarSections>, default() { return [] } },
   interactiveStyles: { type: Boolean, default() { return true } },
+  loading: { type: Boolean, default() { return false } },
+  loadingColor: { type: String, default() { return 'default' } },
+  loadingHeight: { type: String, default() { return '1px' } },
 })
+
+const loadingProgress = ref(0)
 
 const { t } = useI18n()
 
@@ -77,7 +82,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div :id="`tiptapify-editor-${editor?.instanceId}`">
-    <div>
+    <div :class="`border border-t-0 rounded-t-${rounded} rounded-b-${rounded}`">
       <template v-if="toolbar">
         <Toolbar
           v-if="editor"
@@ -92,17 +97,17 @@ onBeforeUnmount(() => {
         />
       </template>
 
-      <div :class="`border border-t-0 rounded-b-${rounded}`">
-        <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
-          <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
+      <VProgressLinear v-model="loadingProgress" :color="loadingColor" :height="loadingHeight" :indeterminate="loading" />
 
-          <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
+      <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
+        <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 
-          <EditorContent :editor="editor" class="tiptapify-editor" />
-        </div>
+        <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
 
-        <Footer :show-words-count="showWordsCount" :show-characters-count="showCharactersCount" />
+        <EditorContent :editor="editor" class="tiptapify-editor" />
       </div>
+
+      <Footer :show-words-count="showWordsCount" :show-characters-count="showCharactersCount" />
     </div>
   </div>
 </template>
