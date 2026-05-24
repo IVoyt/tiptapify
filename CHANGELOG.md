@@ -1,3 +1,6 @@
+### 0.1.4
+- add loading, loadingColor and loadingHeight properties
+
 ### 0.1.3
 - move vue-i18n to peerDependencies
 - refactor

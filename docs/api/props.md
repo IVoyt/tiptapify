@@ -213,6 +213,39 @@ Enable interactive style application.
 <Tiptapify :interactive-styles="false" />
 ```
 
+### `loading`
+
+- **Type:** `Boolean`
+- **Default:** `false`
+
+Show an indeterminate progress bar while the editor is loading.
+
+```vue
+<Tiptapify loading />
+```
+
+### `loadingColor`
+
+- **Type:** `String`
+- **Default:** `'default'`
+
+Color of the loading progress bar. Accepts Vuetify theme color values.
+
+```vue
+<Tiptapify loading-color="primary" />
+```
+
+### `loadingHeight`
+
+- **Type:** `String`
+- **Default:** `'1px'`
+
+Height of the loading progress bar.
+
+```vue
+<Tiptapify :loading-height="'4px'" />
+```
+
 ## Events
 
 ### `editor-ready`
