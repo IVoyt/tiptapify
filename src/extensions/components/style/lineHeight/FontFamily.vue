@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { Editor } from "@tiptap/vue-3";
+import { Editor } from '@tiptap/vue-3'
 
 import { computed, inject, Ref, ref } from 'vue'
 

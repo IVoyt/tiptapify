@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Editor } from "@tiptap/vue-3";
-import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
-import defaults from "@tiptapify/constants/defaults";
+import { Editor } from '@tiptap/vue-3'
+import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import defaults from '@tiptapify/constants/defaults'
 import { ref, watch, inject, Ref } from 'vue'
 
 const props = defineProps({
@@ -22,30 +22,30 @@ const sourceCode = ref('')
 
 const formatHtml = (html: string): string => {
   const singleTags = ['img', 'hr', 'br', 'input']
-  let formatted = html.replace(/>/g, '>\n');
+  let formatted = html.replace(/>/g, '>\n')
 
-  formatted = formatted.replace(/([^>\n])</g, '$1\n<');
+  formatted = formatted.replace(/([^>\n])</g, '$1\n<')
 
-  const lines = formatted.split('\n');
-  let indentLevel = 0;
+  const lines = formatted.split('\n')
+  let indentLevel = 0
 
   return lines
       .map(line => {
         if (line.match(/<\//)) {
-          indentLevel = Math.max(0, indentLevel - 1);
+          indentLevel = Math.max(0, indentLevel - 1)
         }
 
-        const indentedLine = ' '.repeat(indentLevel * props.indent) + line;
+        const indentedLine = ' '.repeat(indentLevel * props.indent) + line
 
         const tag = line.match(/<\/?(\S+).*>/) ?? []
         if (!singleTags.includes(tag[1] ?? '') && line.match(/<[^\/][^>]*>/) && !line.match(/<.*\/>/)) {
-          indentLevel++;
+          indentLevel++
         }
 
-        return indentedLine;
+        return indentedLine
       })
       .filter(line => line.trim())
-      .join('\n');
+      .join('\n')
 }
 
 const unformatHtml = (html: string): string => {
@@ -87,18 +87,18 @@ watch(() => formatted.value, () => {
         </VContainer>
 
         <VTextarea
-            v-model="sourceCode"
-            no-resize
-            rows="100"
-            :variant="variantField"
-            class="source-code-area"
+          v-model="sourceCode"
+          no-resize
+          rows="100"
+          :variant="variantField"
+          class="source-code-area"
         />
       </VCardText>
     </template>
 
     <template #actions>
       <VCardActions>
-        <VSpacer></VSpacer>
+        <VSpacer />
         <VBtn :variant="variantBtn" @click="dialog.close()">
           {{ t('dialog.close') }}
         </VBtn>

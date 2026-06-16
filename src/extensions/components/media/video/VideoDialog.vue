@@ -1,14 +1,14 @@
 <script setup lang="ts">
 
-import { Editor } from "@tiptap/vue-3";
-import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
-import defaults from "@tiptapify/constants/defaults";
+import { Editor } from '@tiptap/vue-3'
+import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import defaults from '@tiptapify/constants/defaults'
 
 import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
 
 defineProps({
-  variantBtn: { type: String, default() { return defaults.variantBtn }},
-  variantField: { type: String, default() { return defaults.variantField }}
+  variantBtn: { type: String, default() { return defaults.variantBtn } },
+  variantField: { type: String, default() { return defaults.variantField } }
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -97,20 +97,36 @@ onUnmounted(() => {
     <template #content>
       <VCardText>
         <VRow>
-<!--          <VCol cols="12">-->
-<!--            <VSelect v-model="attrs.type" density="compact" variant="outlined" :label="t('dialog.video.src')" />-->
-<!--          </VCol>-->
+          <!--          <VCol cols="12">-->
+          <!--            <VSelect v-model="attrs.type" density="compact" variant="outlined" :label="t('dialog.video.src')" />-->
+          <!--          </VCol>-->
 
           <VCol cols="12">
             <VTextField v-model="attrs.src" density="compact" variant="outlined" :label="t('dialog.video.src')" />
           </VCol>
 
           <VCol cols="12" md="3">
-            <VTextField v-model="attrs.width" type="number" density="compact" variant="outlined" :precision="0" :min="1" :label="t('dialog.video.width')" />
+            <VTextField
+              v-model="attrs.width"
+              type="number"
+              density="compact"
+              variant="outlined"
+              :precision="0"
+              :min="1"
+              :label="t('dialog.video.width')"
+            />
           </VCol>
 
           <VCol cols="12" md="3">
-            <VTextField v-model="attrs.height" type="number" density="compact" variant="outlined" :precision="0" :min="1" :label="t('dialog.video.height')" />
+            <VTextField
+              v-model="attrs.height"
+              type="number"
+              density="compact"
+              variant="outlined"
+              :precision="0"
+              :min="1"
+              :label="t('dialog.video.height')"
+            />
           </VCol>
         </VRow>
       </VCardText>
@@ -120,12 +136,12 @@ onUnmounted(() => {
       <VCardActions>
         <VRow>
           <VCol class="d-flex justify-start">
-            <VBtn color="warning" v-if="editor.isActive('image')" :variant="variantBtn" :disabled="isDisabled" @click="clear">
+            <VBtn v-if="editor.isActive('image')" color="warning" :variant="variantBtn" :disabled="isDisabled" @click="clear">
               {{ t('dialog.clear') }}
             </VBtn>
           </VCol>
           <VCol class="d-flex justify-end">
-            <VBtn :variant="variantBtn" @click="close" class="mr-2">
+            <VBtn :variant="variantBtn" class="mr-2" @click="close">
               {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled" @click="apply">

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
-import { inject, ref, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import { inject, ref, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -21,7 +21,7 @@ const dialog = ref(null)
 </script>
 
 <template>
-  <VBtn @click="dialog.open()" size="32" color="" :variant="variantBtn">
+  <VBtn size="32" color="" :variant="variantBtn" @click="dialog.open()">
     <VTooltip activator="parent">
       {{ t('misc.preview') }}
     </VTooltip>
@@ -31,7 +31,7 @@ const dialog = ref(null)
   <TiptapifyDialog ref="dialog" module="preview" fullscreen>
     <template #content>
       <VCardItem>
-        <div class="tiptap" v-html="editor.getHTML()"></div>
+        <div class="tiptap" v-html="editor.getHTML()" />
       </VCardItem>
     </template>
   </TiptapifyDialog>

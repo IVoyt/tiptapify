@@ -84,7 +84,9 @@ defineExpose({
         <span class="item-title">{{ item.title }}</span>
       </button>
     </template>
-    <div v-else class="no-result">No result</div>
+    <div v-else class="no-result">
+      No result
+    </div>
   </div>
 </template>
 

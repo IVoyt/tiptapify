@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
-import * as mdi from "@mdi/js";
-import { inject, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import * as mdi from '@mdi/js'
+import { inject, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   module: String,
@@ -53,7 +53,7 @@ function dragElement(trigger: HTMLElement, container: HTMLElement) {
   }
 
   function elementDrag(e: MouseEvent) {
-    e.preventDefault();
+    e.preventDefault()
 
     coordinates.moveX = coordinates.cursorX - e.clientX
     coordinates.moveY = coordinates.cursorY - e.clientY
@@ -106,7 +106,7 @@ function resizeListener() {
     return
   }
 
-  const dialogCoordinates = movableHandler.value.$el.parentNode.getBoundingClientRect();
+  const dialogCoordinates = movableHandler.value.$el.parentNode.getBoundingClientRect()
 
   function checkBoundLeftTop(type) {
     if (dialogCoordinates[type] < 0) {

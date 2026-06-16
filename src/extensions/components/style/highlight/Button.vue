@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import StyleColor from "@tiptapify/extensions/components/style/StyleColor.vue";
-import { computed, inject, Ref } from "vue";
-import { useTheme } from "vuetify/framework";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import StyleColor from '@tiptapify/extensions/components/style/StyleColor.vue'
+import { computed, inject, Ref } from 'vue'
+import { useTheme } from 'vuetify/framework'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -30,11 +30,11 @@ const selectedColor = computed(() => editor.value.getAttributes('highlight').col
 
 <template>
   <VBtn
-      :id="`tiptapify-highlight-button-${editor.instanceId}`"
-      :disabled="!editor.can().chain().focus().toggleHighlight().run()"
-      :variant="variantBtn"
-      @click="editor.chain().focus().redo().run()"
-      size="32"
+    :id="`tiptapify-highlight-button-${editor.instanceId}`"
+    :disabled="!editor.can().chain().focus().toggleHighlight().run()"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.chain().focus().redo().run()"
   >
     <VTooltip activator="parent">
       {{ t('style.color.highlight') }}
@@ -42,11 +42,11 @@ const selectedColor = computed(() => editor.value.getAttributes('highlight').col
 
     <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatColorFill}`" />
     <VIcon
-        :icon="`mdiSvg:${mdi.mdiColorHelper}`"
-        :disabled="!editor.can().chain().focus().toggleHighlight().run()"
-        :color="activeColor"
-        size="small"
-        style="position: absolute; filter: drop-shadow(rgba(0, 0, 0, .75) 1px 1px 2px)"
+      :icon="`mdiSvg:${mdi.mdiColorHelper}`"
+      :disabled="!editor.can().chain().focus().toggleHighlight().run()"
+      :color="activeColor"
+      size="small"
+      style="position: absolute; filter: drop-shadow(rgba(0, 0, 0, .75) 1px 1px 2px)"
     />
   </VBtn>
 

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -19,10 +19,10 @@ const { t } = inject('tiptapifyI18n') as any
 
 <template>
   <VBtn
-      :color="editor.isActive({ textAlign: 'left' }) ? 'primary' : ''"
-      :variant="variantBtn"
-      @click="editor.chain().focus().toggleTextAlign('left').run()"
-      size="32"
+    :color="editor.isActive({ textAlign: 'left' }) ? 'primary' : ''"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.chain().focus().toggleTextAlign('left').run()"
   >
     <VTooltip activator="parent">
       {{ t('alignments.left') }}

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -20,18 +20,18 @@ const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const { t } = inject('tiptapifyI18n') as any
 
-import { headingLevels, setHeadingLevels } from "@tiptapify/constants/style";
+import { headingLevels, setHeadingLevels } from '@tiptapify/constants/style'
 setHeadingLevels(props.customHeadingLevels)
 
 </script>
 
 <template>
   <VBtn
-      :id="`tiptapify-heading-button-${editor.instanceId}`"
-      :color="editor.isActive('heading') ? 'primary' : ''"
-      :variant="variantBtn"
-      @click="editor.chain().focus().redo().run()"
-      size="32"
+    :id="`tiptapify-heading-button-${editor.instanceId}`"
+    :color="editor.isActive('heading') ? 'primary' : ''"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.chain().focus().redo().run()"
   >
     <VTooltip activator="parent">
       {{ t('style.heading') }}
@@ -52,9 +52,10 @@ setHeadingLevels(props.customHeadingLevels)
         </VListItemTitle>
       </VListItem>
       <VListItem
-          v-for="headingLevel in headingLevels" :key="headingLevel"
-          :color="editor.isActive('heading', { level: headingLevel }) ? 'primary' : ''"
-          @click="editor.chain().focus().toggleHeading({ level: headingLevel }).run()"
+        v-for="headingLevel in headingLevels"
+        :key="headingLevel"
+        :color="editor.isActive('heading', { level: headingLevel }) ? 'primary' : ''"
+        @click="editor.chain().focus().toggleHeading({ level: headingLevel }).run()"
       >
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="`mdiSvg:${mdiIcons[`mdiFormatHeader${headingLevel}`]}`" />

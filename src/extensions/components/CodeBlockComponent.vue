@@ -20,14 +20,14 @@ const selectedLanguage = computed({
 
 <template>
   <NodeViewWrapper class="code-block">
-    <select contenteditable="false" v-model="selectedLanguage">
+    <select v-model="selectedLanguage" contenteditable="false">
       <option :value="null">
         auto
       </option>
       <option disabled>
         —
       </option>
-      <option v-for="(language, index) in languages" :value="language" :key="index">
+      <option v-for="(language, index) in languages" :key="index" :value="language">
         {{ language }}
       </option>
     </select>

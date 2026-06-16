@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import ColumnActions from "@tiptapify/extensions/components/media/table/ColumnActions.vue";
-import RowActions from "@tiptapify/extensions/components/media/table/RowActions.vue";
-import TableBuilder from "@tiptapify/extensions/components/media/table/TableBuilder.vue";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import ColumnActions from '@tiptapify/extensions/components/media/table/ColumnActions.vue'
+import RowActions from '@tiptapify/extensions/components/media/table/RowActions.vue'
+import TableBuilder from '@tiptapify/extensions/components/media/table/TableBuilder.vue'
+import { inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -34,11 +34,11 @@ const columnActionsDisabled = () => {
 
 <template>
   <VBtn
-      :id="`tiptapify-table-button-${editor.instanceId}`"
-      :color="editor.isActive('table') ? 'primary' : ''"
-      :disabled="!editor.can().chain().focus().insertTable().run()"
-      :variant="variantBtn"
-      size="32"
+    :id="`tiptapify-table-button-${editor.instanceId}`"
+    :color="editor.isActive('table') ? 'primary' : ''"
+    :disabled="!editor.can().chain().focus().insertTable().run()"
+    :variant="variantBtn"
+    size="32"
   >
     <BtnIcon :icon="`mdiSvg:${mdi.mdiTable}`" />
   </VBtn>
@@ -54,12 +54,12 @@ const columnActionsDisabled = () => {
         </VListItemTitle>
 
         <VMenu
-            submenu
-            activator="parent"
-            :open-on-hover="true"
-            open-on-click
-            :close-on-content-click="false"
-            :disabled="!editor.can().chain().focus().insertTable().run()"
+          submenu
+          activator="parent"
+          :open-on-hover="true"
+          open-on-click
+          :close-on-content-click="false"
+          :disabled="!editor.can().chain().focus().insertTable().run()"
         >
           <TableBuilder />
         </VMenu>

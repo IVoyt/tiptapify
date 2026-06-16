@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import ShowSourceDialog from "@tiptapify/extensions/components/misc/source/ShowSourceDialog.vue";
-import { inject, ref } from "vue";
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import ShowSourceDialog from '@tiptapify/extensions/components/misc/source/ShowSourceDialog.vue'
+import { inject, ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -22,7 +22,7 @@ function showDialog() {
 </script>
 
 <template>
-  <VBtn @click="showDialog()" size="32" color="" :variant="variantBtn">
+  <VBtn size="32" color="" :variant="variantBtn" @click="showDialog()">
     <VTooltip activator="parent">
       {{ t('misc.source') }}
     </VTooltip>

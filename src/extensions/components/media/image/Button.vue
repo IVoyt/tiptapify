@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import ImageDialog from "@tiptapify/extensions/components/media/image/ImageDialog.vue";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import ImageDialog from '@tiptapify/extensions/components/media/image/ImageDialog.vue'
+import { inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -20,10 +20,10 @@ const { t } = inject('tiptapifyI18n') as any
 
 <template>
   <VBtn
-      :color="editor.isActive('image') ? 'primary' : ''"
-      :variant="variantBtn"
-      @click="editor.commands.showTiptapifyImage()"
-      size="32"
+    :color="editor.isActive('image') ? 'primary' : ''"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.commands.showTiptapifyImage()"
   >
     <VTooltip activator="parent">
       {{ t('media.image') }}

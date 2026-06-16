@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -20,10 +20,10 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><pat
 
 <template>
   <VBtn
-      :color="editor.storage.invisibleCharacters.visibility() ? 'primary' : ''"
-      :variant="variantBtn"
-      @click="editor.commands.toggleInvisibleCharacters()"
-      size="32"
+    :color="editor.storage.invisibleCharacters.visibility() ? 'primary' : ''"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.commands.toggleInvisibleCharacters()"
   >
     <VTooltip activator="parent">
       {{ t('misc.toggleInvisibleCharacters') }}

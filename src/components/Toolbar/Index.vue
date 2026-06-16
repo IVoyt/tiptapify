@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Editor } from "@tiptap/vue-3";
-import Items from "@tiptapify/components/Toolbar/Items.vue";
-import defaults from "@tiptapify/constants/defaults";
+import { Editor } from '@tiptap/vue-3'
+import Items from '@tiptapify/components/Toolbar/Items.vue'
+import defaults from '@tiptapify/constants/defaults'
 import { computed, inject, PropType, Ref } from 'vue'
 import { itemsPropType, toolbarSections } from '@tiptapify/types/toolbarTypes'
 
-import { default as items, availableItems } from "@tiptapify/components/Toolbar/items";
+import { default as items, availableItems } from '@tiptapify/components/Toolbar/items'
 
 const props = defineProps({
   variantBtn: { type: String, default () { return defaults.variantBtn } },

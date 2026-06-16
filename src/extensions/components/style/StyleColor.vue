@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { Editor } from "@tiptap/vue-3";
+import { Editor } from '@tiptap/vue-3'
 
 import { computed, inject, Ref, ref } from 'vue'
 
@@ -77,17 +77,17 @@ function calculateShadowColor(color: string): string {
 }
 
 function hexToRgb(hex: string): Color {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
   hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-    return r + r + g + g + b + b;
-  });
+    return r + r + g + g + b + b
+  })
 
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
   return {
     r: result ? parseInt(result[1], 16) : 0,
     g: result ? parseInt(result[2], 16) : 0,
     b: result ? parseInt(result[3], 16) : 0
-  };
+  }
 }
 
 function hoverColor(color: string) {
@@ -150,16 +150,16 @@ function isColorActive(color: string): boolean {
     <div class="tiptapify-style-color-container">
       <template v-for="colorCode in colors">
         <div
-            class="tiptapify-style-color-item"
-            :class="isColorActive(colorCode) ? 'tiptapify-style-color-item-active' : ''"
-            @mouseenter="hoverColor(colorCode)"
-            @mouseleave="resetColor()"
-            @click="setColor"
+          class="tiptapify-style-color-item"
+          :class="isColorActive(colorCode) ? 'tiptapify-style-color-item-active' : ''"
+          @mouseenter="hoverColor(colorCode)"
+          @mouseleave="resetColor()"
+          @click="setColor"
         >
           <div
-              class="tiptapify-style-color-picker"
-              :style="`background-color: ${colorCode}; box-shadow: 1px 1px 4px rgb(${calculateShadowColor(colorCode)});`"
-          ></div>
+            class="tiptapify-style-color-picker"
+            :style="`background-color: ${colorCode}; box-shadow: 1px 1px 4px rgb(${calculateShadowColor(colorCode)});`"
+          />
         </div>
       </template>
     </div>
@@ -171,10 +171,9 @@ function isColorActive(color: string): boolean {
         <VBtn v-bind="menuProps" color="default" variant="flat" block>
           <template #prepend>
             <div
-                class="tiptapify-style-color-picker"
-                :style="`background-color: ${customColor}; box-shadow: 1px 1px 4px rgb(0, 0, 0, .35);`"
-            >
-            </div>
+              class="tiptapify-style-color-picker"
+              :style="`background-color: ${customColor}; box-shadow: 1px 1px 4px rgb(0, 0, 0, .35);`"
+            />
           </template>
           <template #default>
             {{ t('style.color.custom') }}
@@ -188,15 +187,19 @@ function isColorActive(color: string): boolean {
         </VCardItem>
 
         <VCardActions>
-          <VBtn variant="flat" color="primary" @click="setColor">OK</VBtn>
-          <VBtn variant="flat" color="grey-400" @click="colorPicker = !colorPicker; customColor = initialColor; resetColor()">Cancel</VBtn>
+          <VBtn variant="flat" color="primary" @click="setColor">
+            OK
+          </VBtn>
+          <VBtn variant="flat" color="grey-400" @click="colorPicker = !colorPicker; customColor = initialColor; resetColor()">
+            Cancel
+          </VBtn>
         </VCardActions>
       </VCard>
     </VMenu>
 
     <VDivider class="mt-2 mb-2" />
 
-    <VBtn @click="unsetColor" color="default" block variant="flat">
+    <VBtn color="default" block variant="flat" @click="unsetColor">
       {{ t('style.color.unset') }}
     </VBtn>
   </VSheet>

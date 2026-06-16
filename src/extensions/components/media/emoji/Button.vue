@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import * as mdi from '@mdi/js'
 import { inject, Ref } from 'vue'
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import EmojiPicker from './Picker.vue';
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import EmojiPicker from './Picker.vue'
 import defaults from '@tiptapify/constants/defaults'
 
 defineProps({

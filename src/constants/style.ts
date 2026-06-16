@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref } from 'vue'
 
 export const defaultFontSize = 12
 export const fontSizes = [6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 32, 48, 64, 96]

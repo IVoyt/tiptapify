@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { inject, nextTick, ref, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { inject, nextTick, ref, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -32,21 +32,21 @@ async function dialogClose() {
 async function changeEditorContainer(source: string, target: string) {
   await nextTick()
 
-  const sourceElm = document.querySelector(`#${source}-${editor.value.instanceId} > div`);
+  const sourceElm = document.querySelector(`#${source}-${editor.value.instanceId} > div`)
 
-  const targetElm = document.querySelector(`#${target}-${editor.value.instanceId}`);
+  const targetElm = document.querySelector(`#${target}-${editor.value.instanceId}`)
 
-  targetElm.appendChild(sourceElm);
+  targetElm.appendChild(sourceElm)
 }
 
 </script>
 
 <template>
   <VBtn
-      @click="dialog ? dialogClose() : dialogOpen()"
-      size="32"
-      :color="dialog ? 'primary' : ''"
-      :variant="variantBtn"
+    size="32"
+    :color="dialog ? 'primary' : ''"
+    :variant="variantBtn"
+    @click="dialog ? dialogClose() : dialogOpen()"
   >
     <VTooltip activator="parent">
       {{ t('misc.fullscreen') }}
@@ -54,9 +54,9 @@ async function changeEditorContainer(source: string, target: string) {
     <BtnIcon :icon="dialog ? `mdiSvg:${mdi.mdiFullscreenExit}` : `mdiSvg:${mdi.mdiFullscreen}`" />
   </VBtn>
 
-  <VDialog v-model="dialog" fullscreen @close="dialogClose()" @update:modelValue="!dialog ? dialogClose() : ''">
+  <VDialog v-model="dialog" fullscreen @close="dialogClose()" @update:model-value="!dialog ? dialogClose() : ''">
     <VCard>
-      <div :id="`tiptapify-editor-fullscreen-${editor?.instanceId}`"></div>
+      <div :id="`tiptapify-editor-fullscreen-${editor?.instanceId}`" />
     </VCard>
   </VDialog>
 </template>

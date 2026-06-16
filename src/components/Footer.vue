@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Editor } from "@tiptap/vue-3";
-import { computed, inject, ref, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import { computed, inject, ref, Ref } from 'vue'
 
 const props = defineProps({
   showWordsCount: { type: Boolean, default: true },

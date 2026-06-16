@@ -1,5 +1,5 @@
 export default {
-  ucFirst: (string: String, snakeCaseToWords: Boolean = false, kebabCaseToWords: Boolean = false): String|any => {
+  ucFirst: (string: string, snakeCaseToWords: boolean = false, kebabCaseToWords: boolean = false): string|any => {
     if (!string) {
       return string
     }

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Editor } from "@tiptap/vue-3";
-import { computed, inject, Ref, ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import { computed, inject, Ref, ref } from 'vue'
 import { BubbleMenu } from '@tiptap/vue-3/menus'
 import * as mdi from '@mdi/js'
 
 defineProps({
-  variant: { type: String, default () { return 'flat' }},
-  theme: { type: String, default () { return 'light' }},
+  variant: { type: String, default () { return 'flat' } },
+  theme: { type: String, default () { return 'light' } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -85,19 +85,19 @@ const items = ref([
 
 <template>
   <BubbleMenu
-      v-if="editor"
-      :editor="editor"
-      :options="{ placement: 'bottom' }"
-      :shouldShow="({ editor, view, state, from, to }) => {
-        if (editor.isActive('image') || editor.isActive('code') || editor.isActive('codeBlock')) {
-          return false
-        }
+    v-if="editor"
+    :editor="editor"
+    :options="{ placement: 'bottom' }"
+    :should-show="({ editor, view, state, from, to }) => {
+      if (editor.isActive('image') || editor.isActive('code') || editor.isActive('codeBlock')) {
+        return false
+      }
 
-        const docSize = editor.state.doc.content.size
-        const isAllSelected = from === 0 && to === docSize
+      const docSize = editor.state.doc.content.size
+      const isAllSelected = from === 0 && to === docSize
 
-        return (from !== to) && !isAllSelected
-      }"
+      return (from !== to) && !isAllSelected
+    }"
   >
     <div class="bubble-menu">
       <VCard>
@@ -105,7 +105,7 @@ const items = ref([
           <VToolbar :theme="theme" density="compact" height="auto" class="p-0">
             <VToolbarItems>
               <VBtnGroup divided density="compact">
-                <VBtn v-for="(item, key) in items" :key="key" v-bind="item.props" @click="item.click" size="x-small">
+                <VBtn v-for="(item, key) in items" :key="key" v-bind="item.props" size="x-small" @click="item.click">
                   <VIcon :icon="item.icon" size="20" />
                 </VBtn>
               </VBtnGroup>

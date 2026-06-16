@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -19,11 +19,11 @@ const { t } = inject('tiptapifyI18n') as any
 
 <template>
   <VBtn
-      :color="editor.isActive('code') ? 'primary' : ''"
-      :disabled="!editor.can().chain().focus().toggleCode().run()"
-      :variant="variantBtn"
-      @click="editor.commands.toggleCode()"
-      size="32"
+    :color="editor.isActive('code') ? 'primary' : ''"
+    :disabled="!editor.can().chain().focus().toggleCode().run()"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.commands.toggleCode()"
   >
     <VTooltip activator="parent">
       {{ t('format.code') }}

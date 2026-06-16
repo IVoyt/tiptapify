@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { computed, inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { computed, inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -26,11 +26,11 @@ const buttonDisabled = computed(() => {
 
 <template>
   <VBtn
-      :color="editor.isActive('taskList') ? 'primary' : ''"
-      :disabled="buttonDisabled"
-      :variant="variantBtn"
-      @click="editor.commands.toggleTaskList()"
-      size="32"
+    :color="editor.isActive('taskList') ? 'primary' : ''"
+    :disabled="buttonDisabled"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.commands.toggleTaskList()"
   >
     <VTooltip activator="parent">
       {{ t('lists.task') }}

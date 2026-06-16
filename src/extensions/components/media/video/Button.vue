@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import VideoDialog from "@tiptapify/extensions/components/media/video/VideoDialog.vue";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import VideoDialog from '@tiptapify/extensions/components/media/video/VideoDialog.vue'
+import { inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -20,10 +20,10 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vie
 
 <template>
   <VBtn
-      :color="editor.isActive('video') ? 'primary' : ''"
-      :variant="variantBtn"
-      @click="editor.commands.showTiptapifyVideo()"
-      size="32"
+    :color="editor.isActive('video') ? 'primary' : ''"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.commands.showTiptapifyVideo()"
   >
     <VTooltip activator="parent">
       {{ t('media.video') }}

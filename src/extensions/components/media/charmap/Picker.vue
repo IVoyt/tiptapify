@@ -66,10 +66,10 @@ watch(filter, filterChars)
   <div class="tiptapify-slash-picker">
     <div class="tiptapify-slash-picker__sidebar">
       <button
-          v-for="item in filteredChars"
-          :key="item.group"
-          :class="['tiptapify-slash-picker__tab', { 'tiptapify-slash-picker__tab--active': activeTab === item.group }]"
-          @click="activeTab = item.group"
+        v-for="item in filteredChars"
+        :key="item.group"
+        :class="['tiptapify-slash-picker__tab', { 'tiptapify-slash-picker__tab--active': activeTab === item.group }]"
+        @click="activeTab = item.group"
       >
         <VTooltip activator="parent">
           {{ t(`media.charmap.categories.${item.group}`) }}
@@ -81,27 +81,29 @@ watch(filter, filterChars)
     <div class="tiptapify-slash-picker__content">
       <div class="tiptapify-slash-picker__search">
         <input
-            v-model="filter"
-            type="text"
-            placeholder="Search characters..."
-            class="tiptapify-slash-picker__search-input"
-        />
-        <button v-if="filter" class="tiptapify-slash-picker__clear" @click="resetFilter">&times;</button>
+          v-model="filter"
+          type="text"
+          placeholder="Search characters..."
+          class="tiptapify-slash-picker__search-input"
+        >
+        <button v-if="filter" class="tiptapify-slash-picker__clear" @click="resetFilter">
+          &times;
+        </button>
       </div>
 
       <div class="tiptapify-slash-picker__grid-container">
         <div
-            v-for="item in filteredChars"
-            :key="item.group"
-            class="tiptapify-slash-picker__group"
+          v-for="item in filteredChars"
+          :key="item.group"
+          class="tiptapify-slash-picker__group"
         >
           <div v-show="activeTab === item.group" class="tiptapify-slash-picker__grid">
             <button
-                v-for="charItem in item.items"
-                :key="charItem.char"
-                class="tiptapify-slash-picker__item"
-                :title="charItem.name"
-                @click="handleCharacterClick(charItem)"
+              v-for="charItem in item.items"
+              :key="charItem.char"
+              class="tiptapify-slash-picker__item"
+              :title="charItem.name"
+              @click="handleCharacterClick(charItem)"
             >
               {{ charItem.char }}
             </button>
