@@ -1,8 +1,8 @@
-import { Editor, useEditor } from "@tiptap/vue-3";
-import { editorExtensions } from "@tiptapify/components/editorExtensions";
-import { toolbarSections } from "@tiptapify/types/toolbarTypes";
-import { SlashCommandsConfig } from "@tiptapify/types/slashCommandsTypes";
-import { ShallowRef } from "vue";
+import { Editor, useEditor } from '@tiptap/vue-3'
+import { editorExtensions } from '@tiptapify/components/editorExtensions'
+import { toolbarSections } from '@tiptapify/types/toolbarTypes'
+import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
+import { ShallowRef } from 'vue'
 
 export function getTiptapEditor (
   content: any,

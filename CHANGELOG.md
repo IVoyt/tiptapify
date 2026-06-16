@@ -1,3 +1,7 @@
+### 0.1.5
+- export TipTap `Mark`
+- reformat
+
 ### 0.1.4
 - add loading, loadingColor and loadingHeight properties
 

@@ -62,10 +62,10 @@ watch(filter, filterEmoji)
   <div class="tiptapify-slash-picker">
     <div class="tiptapify-slash-picker__sidebar">
       <button
-          v-for="item in filteredEmojis"
-          :key="item.group"
-          :class="['tiptapify-slash-picker__tab', { 'tiptapify-slash-picker__tab--active': activeTab === item.group }]"
-          @click="activeTab = item.group"
+        v-for="item in filteredEmojis"
+        :key="item.group"
+        :class="['tiptapify-slash-picker__tab', { 'tiptapify-slash-picker__tab--active': activeTab === item.group }]"
+        @click="activeTab = item.group"
       >
         <VTooltip activator="parent">
           {{ t(`media.emoji.categories.${item.group}`) }}
@@ -77,27 +77,29 @@ watch(filter, filterEmoji)
     <div class="tiptapify-slash-picker__content">
       <div class="tiptapify-slash-picker__search">
         <input
-            v-model="filter"
-            type="text"
-            placeholder="Search emoji..."
-            class="tiptapify-slash-picker__search-input"
-        />
-        <button v-if="filter" class="tiptapify-slash-picker__clear" @click="resetFilter">&times;</button>
+          v-model="filter"
+          type="text"
+          placeholder="Search emoji..."
+          class="tiptapify-slash-picker__search-input"
+        >
+        <button v-if="filter" class="tiptapify-slash-picker__clear" @click="resetFilter">
+          &times;
+        </button>
       </div>
 
       <div class="tiptapify-slash-picker__grid-container">
         <div
-            v-for="item in filteredEmojis"
-            :key="item.group"
-            class="tiptapify-slash-picker__group"
+          v-for="item in filteredEmojis"
+          :key="item.group"
+          class="tiptapify-slash-picker__group"
         >
           <div v-show="activeTab === item.group" class="tiptapify-slash-picker__grid">
             <button
-                v-for="emojiItem in item.emojis"
-                :key="emojiItem.char"
-                class="tiptapify-slash-picker__item"
-                :title="emojiItem.name"
-                @click="handleEmojiClick(emojiItem)"
+              v-for="emojiItem in item.emojis"
+              :key="emojiItem.char"
+              class="tiptapify-slash-picker__item"
+              :title="emojiItem.name"
+              @click="handleEmojiClick(emojiItem)"
             >
               {{ emojiItem.char }}
             </button>

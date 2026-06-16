@@ -1,6 +1,6 @@
-import { default as UndoButton } from "@tiptapify/extensions/components/actions/undo/Button.vue";
-import { default as RedoButton } from "@tiptapify/extensions/components/actions/redo/Button.vue";
-import { markRaw } from "vue";
+import { default as UndoButton } from '@tiptapify/extensions/components/actions/undo/Button.vue'
+import { default as RedoButton } from '@tiptapify/extensions/components/actions/redo/Button.vue'
+import { markRaw } from 'vue'
 
 export default {
   section: 'actions',

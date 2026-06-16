@@ -9,7 +9,7 @@ export type SlashCommand = {
   isPicker?: boolean
 }
 
-export type SlashCommandId = 
+export type SlashCommandId =
   | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   | 'bulletList' | 'numberedList' | 'taskList'
   | 'code' | 'codeBlock' | 'quote'

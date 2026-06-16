@@ -1,15 +1,15 @@
 <script setup lang="ts">
 
-import { Editor } from "@tiptap/vue-3";
-import defaults from "@tiptapify/constants/defaults";
+import { Editor } from '@tiptap/vue-3'
+import defaults from '@tiptapify/constants/defaults'
 
 import { computed, inject, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
 
-import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue"
+import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 
 defineProps({
-  variantBtn: { type: String, default() { return defaults.variantBtn }},
-  variantField: { type: String, default() { return 'outlined' }}
+  variantBtn: { type: String, default() { return defaults.variantBtn } },
+  variantField: { type: String, default() { return 'outlined' } }
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -68,7 +68,7 @@ const showLink = (event: CustomEvent) => {
   }
 
   attrs.value.href = event.detail.link?.href ?? ''
-  attrs.value.target = targetAttrs.value.find(item => item.value === event.detail.link?.target) ?? targetAttrs[0]
+  attrs.value.target = targetAttrs.value.find(item => item.value === event.detail.link?.target) ?? targetAttrs.value[0]
   attrs.value.rel = event.detail.link?.rel?.split(' ')
   attrs.value.cssClass = event.detail.link?.class
 
@@ -113,23 +113,23 @@ watch(() => attrs.value.href, () => {
         <VRow>
           <VCol cols="12">
             <VTextField
-                v-model="attrs.href"
-                density="compact"
-                variant="outlined"
-                :label="t('dialog.link.href')"
-                :error-messages="hrefInvalid ? t('dialog.link.href_error') : ''"
-                autofocus
+              v-model="attrs.href"
+              density="compact"
+              variant="outlined"
+              :label="t('dialog.link.href')"
+              :error-messages="hrefInvalid ? t('dialog.link.href_error') : ''"
+              autofocus
             />
           </VCol>
 
           <VCol cols="12" md="4">
             <VSelect
-                v-model="attrs.target"
-                :items="targetAttrs"
-                :label="t('dialog.link.target')"
-                variant="outlined"
-                return-object
-                density="compact"
+              v-model="attrs.target"
+              :items="targetAttrs"
+              :label="t('dialog.link.target')"
+              variant="outlined"
+              return-object
+              density="compact"
             />
           </VCol>
 
@@ -139,15 +139,15 @@ watch(() => attrs.value.href, () => {
 
           <VCol cols="12">
             <VSelect
-                v-model="attrs.rel"
-                :items="relAttrs"
-                :label="t('dialog.link.rel')"
-                variant="outlined"
-                multiple
-                chips
-                closable-chips
-                clearable
-                density="compact"
+              v-model="attrs.rel"
+              :items="relAttrs"
+              :label="t('dialog.link.rel')"
+              variant="outlined"
+              multiple
+              chips
+              closable-chips
+              clearable
+              density="compact"
             />
           </VCol>
         </VRow>
@@ -158,12 +158,12 @@ watch(() => attrs.value.href, () => {
       <VCardActions>
         <VRow>
           <VCol class="d-flex justify-start">
-            <VBtn color="warning" v-if="editor.isActive('link')" :variant="variantBtn" :disabled="isDisabled" @click="clear">
+            <VBtn v-if="editor.isActive('link')" color="warning" :variant="variantBtn" :disabled="isDisabled" @click="clear">
               {{ t('dialog.clear') }}
             </VBtn>
           </VCol>
           <VCol class="d-flex justify-end">
-            <VBtn :variant="variantBtn" @click="close" class="mr-2">
+            <VBtn :variant="variantBtn" class="mr-2" @click="close">
               {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled || hrefInvalid" @click="apply">

@@ -1,4 +1,4 @@
-import { BulletList } from "@tiptap/extension-list"
+import { BulletList } from '@tiptap/extension-list'
 
 export const BulletListCircle = BulletList.extend({
   name: 'bulletListCircle',

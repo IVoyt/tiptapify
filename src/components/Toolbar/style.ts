@@ -1,10 +1,10 @@
-import { default as HeadingButton } from "@tiptapify/extensions/components/style/heading/Button.vue";
-import { default as FontFamilyButton } from "@tiptapify/extensions/components/style/fontFamily/Button.vue";
-import { default as FontSizeButton } from "@tiptapify/extensions/components/style/fontSize/Button.vue";
-import { default as LineHeightButton } from "@tiptapify/extensions/components/style/lineHeight/Button.vue";
-import { default as ColorButton } from "@tiptapify/extensions/components/style/color/Button.vue";
-import { default as HighlightButton } from "@tiptapify/extensions/components/style/highlight/Button.vue";
-import { markRaw } from "vue";
+import { default as HeadingButton } from '@tiptapify/extensions/components/style/heading/Button.vue'
+import { default as FontFamilyButton } from '@tiptapify/extensions/components/style/fontFamily/Button.vue'
+import { default as FontSizeButton } from '@tiptapify/extensions/components/style/fontSize/Button.vue'
+import { default as LineHeightButton } from '@tiptapify/extensions/components/style/lineHeight/Button.vue'
+import { default as ColorButton } from '@tiptapify/extensions/components/style/color/Button.vue'
+import { default as HighlightButton } from '@tiptapify/extensions/components/style/highlight/Button.vue'
+import { markRaw } from 'vue'
 
 export default {
   section: 'style',

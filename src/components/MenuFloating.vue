@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Editor } from "@tiptap/vue-3";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import { inject, Ref } from 'vue'
 import { FloatingMenu } from '@tiptap/vue-3/menus'
 import * as mdi from '@mdi/js'
 
 defineProps({
-  variant: { type: String, default () { return '' }},
-  theme: { type: String, default () { return 'light' }},
+  variant: { type: String, default () { return '' } },
+  theme: { type: String, default () { return 'light' } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -21,23 +21,23 @@ const editor = inject('tiptapifyEditor') as Ref<Editor>
             <VToolbarItems>
               <VBtnGroup divided density="compact">
                 <VBtn
-                    @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
-                    :color="`${editor.isActive('heading', { level: 1 }) ? 'primary' : ''}`"
-                    size="small"
+                  :color="`${editor.isActive('heading', { level: 1 }) ? 'primary' : ''}`"
+                  size="small"
+                  @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
                 >
                   <VIcon :icon="mdi['mdiFormatHeader1']" size="16" />
                 </VBtn>
                 <VBtn
-                    @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
-                    :color="`${editor.isActive('heading', { level: 2 }) ? 'primary' : ''}`"
-                    size="small"
+                  :color="`${editor.isActive('heading', { level: 2 }) ? 'primary' : ''}`"
+                  size="small"
+                  @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
                 >
                   <VIcon :icon="mdi['mdiFormatHeader2']" size="16" />
                 </VBtn>
                 <VBtn
-                    @click="editor.chain().focus().toggleBulletList().run()"
-                    :color="`${editor.isActive('bulletList') ? 'primary' : ''}`"
-                    size="small"
+                  :color="`${editor.isActive('bulletList') ? 'primary' : ''}`"
+                  size="small"
+                  @click="editor.chain().focus().toggleBulletList().run()"
                 >
                   <VIcon :icon="mdi['mdiFormatListBulleted']" size="16" />
                 </VBtn>

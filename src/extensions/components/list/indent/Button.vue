@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -19,12 +19,12 @@ const { t } = inject('tiptapifyI18n') as any
 
 <template>
   <VBtn
-      :active="false"
-      :disabled="!editor.can().sinkListItem('listItem')"
-      size="32"
-      color=""
-      :variant="variantBtn"
-      @click="editor.chain().focus().sinkListItem('listItem').run()"
+    :active="false"
+    :disabled="!editor.can().sinkListItem('listItem')"
+    size="32"
+    color=""
+    :variant="variantBtn"
+    @click="editor.chain().focus().sinkListItem('listItem').run()"
   >
     <VTooltip activator="parent">
       {{ t('lists.indent') }}

@@ -8,12 +8,12 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "@mdi/js": "^7.4.47",
     "vue": "^3.5.14",
     "vuetify": "^3.12.3",
     "vue-i18n": "^11.4.4"
   },
   "devDependencies": {
-    "@mdi/js": "^7.4.47",
     "sass-embedded": "^1.98.0",
     "vitepress": "^2.0.0-alpha.17"
   }

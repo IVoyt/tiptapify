@@ -1,15 +1,15 @@
 <script setup lang="ts">
 
-import * as mdi from "@mdi/js";
-import { Editor } from "@tiptap/vue-3";
-import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
-import defaults from "@tiptapify/constants/defaults";
+import * as mdi from '@mdi/js'
+import { Editor } from '@tiptap/vue-3'
+import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import defaults from '@tiptapify/constants/defaults'
 
 import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
 
 defineProps({
-  variantBtn: { type: String, default() { return defaults.variantBtn }},
-  variantField: { type: String, default() { return defaults.variantField }}
+  variantBtn: { type: String, default() { return defaults.variantBtn } },
+  variantField: { type: String, default() { return defaults.variantField } }
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -139,51 +139,53 @@ onUnmounted(() => {
         <div class="tiptapify-grid-row">
           <div>
             <VTextField
-                v-model="attrs.alt"
-                density="comfortable"
-                :label="t('dialog.image.alt')" />
+              v-model="attrs.alt"
+              density="comfortable"
+              :label="t('dialog.image.alt')"
+            />
           </div>
         </div>
 
         <div class="tiptapify-grid-row">
           <div>
             <VTextField
-                v-model="attrs.title"
-                density="comfortable"
-                :label="t('dialog.image.title')" />
+              v-model="attrs.title"
+              density="comfortable"
+              :label="t('dialog.image.title')"
+            />
           </div>
         </div>
 
         <div class="tiptapify-grid-row">
           <div class="tiptapify-image-inputs-container">
             <VTextField
-                v-model="attrs.width"
-                type="number"
-                density="comfortable"
-                :precision="0"
-                :min="1"
-                :label="t('dialog.image.width')"
-                @change="setRatio"
-                @update:model-value="updateSizeRatio('width')"
+              v-model="attrs.width"
+              type="number"
+              density="comfortable"
+              :precision="0"
+              :min="1"
+              :label="t('dialog.image.width')"
+              @change="setRatio"
+              @update:model-value="updateSizeRatio('width')"
             />
             <VTextField
-                v-model="attrs.height"
-                type="number"
-                density="comfortable"
-                :precision="0"
-                :min="1"
-                :label="t('dialog.image.height')"
-                @change="setRatio"
-                @update:model-value="updateSizeRatio('height')"
+              v-model="attrs.height"
+              type="number"
+              density="comfortable"
+              :precision="0"
+              :min="1"
+              :label="t('dialog.image.height')"
+              @change="setRatio"
+              @update:model-value="updateSizeRatio('height')"
             />
           </div>
           <div>
             <VBtn
-                v-model="keepRatio"
-                :color="keepRatio ? 'primary' : 'secondary'"
-                size="48"
-                :variant="variantBtn"
-                @click="keepRatio = !keepRatio"
+              v-model="keepRatio"
+              :color="keepRatio ? 'primary' : 'secondary'"
+              size="48"
+              :variant="variantBtn"
+              @click="keepRatio = !keepRatio"
             >
               <VIcon :icon="keepRatio ? `mdiSvg:${mdi.mdiLock}` : `mdiSvg:${mdi.mdiLockOpenVariant}`" />
               <VTooltip activator="parent">
@@ -199,12 +201,12 @@ onUnmounted(() => {
       <VCardActions>
         <VRow>
           <VCol class="d-flex justify-start">
-            <VBtn color="warning" v-if="editor.isActive('image')" :variant="variantBtn" :disabled="isDisabled" @click="clear">
+            <VBtn v-if="editor.isActive('image')" color="warning" :variant="variantBtn" :disabled="isDisabled" @click="clear">
               {{ t('dialog.clear') }}
             </VBtn>
           </VCol>
           <VCol class="d-flex justify-end">
-            <VBtn :variant="variantBtn" @click="close" class="mr-2">
+            <VBtn :variant="variantBtn" class="mr-2" @click="close">
               {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled" @click="apply">

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import FontFamily from "@tiptapify/extensions/components/style/fontFamily/FontFamily.vue";
-import { fonts } from "@tiptapify/constants/style";
-import { computed, inject, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import FontFamily from '@tiptapify/extensions/components/style/fontFamily/FontFamily.vue'
+import { fonts } from '@tiptapify/constants/style'
+import { computed, inject, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -22,7 +22,7 @@ const activeFontFamily = computed(() => {
   for (const font in fonts) {
     if (editor.value.isActive('textStyle', { fontFamily: fonts[font].fontFamily })) {
       fontFamily = fonts[font].fontFamily
-      break;
+      break
     }
   }
 
@@ -34,7 +34,7 @@ function getColor() {
   for (const font in fonts) {
     if (editor.value.isActive('textStyle', { fontFamily: fonts[font].fontFamily })) {
       color = 'primary'
-      break;
+      break
     }
   }
 
@@ -45,11 +45,11 @@ function getColor() {
 
 <template>
   <VBtn
-      :id="`tiptapify-font-family-button-${editor.instanceId}`"
-      :disabled="!editor.can().chain().focus().unsetFontFamily().run()"
-      :color="getColor()"
-      :variant="variantBtn"
-      size="32"
+    :id="`tiptapify-font-family-button-${editor.instanceId}`"
+    :disabled="!editor.can().chain().focus().unsetFontFamily().run()"
+    :color="getColor()"
+    :variant="variantBtn"
+    size="32"
   >
     <VTooltip activator="parent">
       {{ t('style.fontFamily') }}

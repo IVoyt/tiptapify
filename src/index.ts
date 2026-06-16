@@ -3,7 +3,7 @@ import Tiptapify from '@tiptapify/components/Tiptapify.vue'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 
 import { Editor as TipTapEditor } from '@tiptap/vue-3'
-import { Node, mergeAttributes } from '@tiptap/core'
+import { Node, Mark, mergeAttributes } from '@tiptap/core'
 
 import * as mdi from '@mdi/js'
 
@@ -30,4 +30,4 @@ export default TiptapifyPlugin
 
 export { mdi }
 export { TipTapEditor }
-export { Node, mergeAttributes }
+export { Node, Mark, mergeAttributes }

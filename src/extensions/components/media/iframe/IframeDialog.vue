@@ -1,16 +1,16 @@
 <script setup lang="ts">
 
-import { Editor } from "@tiptap/vue-3";
-import TiptapifyDialog from "@tiptapify/components/UI/TiptapifyDialog.vue";
-import defaults from "@tiptapify/constants/defaults";
+import { Editor } from '@tiptap/vue-3'
+import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import defaults from '@tiptapify/constants/defaults'
 
 import type { iframeOptions } from '@tiptapify/types/iframe'
 
 import { computed, inject, Ref, ref, watch } from 'vue'
 
 defineProps({
-  variantBtn: { type: String, default() { return defaults.variantBtn }},
-  variantField: { type: String, default() { return defaults.variantField }}
+  variantBtn: { type: String, default() { return defaults.variantBtn } },
+  variantField: { type: String, default() { return defaults.variantField } }
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
@@ -138,30 +138,30 @@ watch(() => attrs.value.src, () => {
             <VRow>
               <VCol cols="12" md="6">
                 <VTextField
-                    v-model="attrs.width"
-                    type="number"
-                    density="compact"
-                    variant="outlined"
-                    :precision="0"
-                    :min="1"
-                    :label="t('dialog.iframe.width')"
+                  v-model="attrs.width"
+                  type="number"
+                  density="compact"
+                  variant="outlined"
+                  :precision="0"
+                  :min="1"
+                  :label="t('dialog.iframe.width')"
                 />
               </VCol>
 
               <VCol cols="12" md="6">
                 <VTextField
-                    v-model="attrs.height"
-                    type="number"
-                    density="compact"
-                    variant="outlined"
-                    :precision="0"
-                    :min="1"
-                    :label="t('dialog.iframe.height')"
+                  v-model="attrs.height"
+                  type="number"
+                  density="compact"
+                  variant="outlined"
+                  :precision="0"
+                  :min="1"
+                  :label="t('dialog.iframe.height')"
                 />
               </VCol>
 
               <VCol cols="12" class="ml-2">
-                <VSwitch v-model="attrs.frameborder" density="compact" :hideDetails="true" :label="t('dialog.iframe.frameborder')" />
+                <VSwitch v-model="attrs.frameborder" density="compact" :hide-details="true" :label="t('dialog.iframe.frameborder')" />
               </VCol>
             </VRow>
           </VCol>
@@ -173,12 +173,12 @@ watch(() => attrs.value.src, () => {
       <VCardActions>
         <VRow>
           <VCol class="d-flex justify-start">
-            <VBtn color="warning" v-if="editor.isActive('image')" :variant="variantBtn" :disabled="isDisabled" @click="clear">
+            <VBtn v-if="editor.isActive('image')" color="warning" :variant="variantBtn" :disabled="isDisabled" @click="clear">
               {{ t('dialog.clear') }}
             </VBtn>
           </VCol>
           <VCol class="d-flex justify-end">
-            <VBtn :variant="variantBtn" @click="close" class="mr-2">
+            <VBtn :variant="variantBtn" class="mr-2" @click="close">
               {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled" @click="apply">

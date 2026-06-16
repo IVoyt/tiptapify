@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import { computed, inject, ref, Ref, watch } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { computed, inject, ref, Ref, watch } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -54,9 +54,9 @@ checkButtonOrMenu()
 
 function toggleList(listType: string) {
   switch(listType) {
-    case 'bulletList': editor.value.commands.toggleBulletList(); break;
-    case 'bulletListCircle': editor.value.commands.toggleBulletListCircle(); break;
-    case 'bulletListSquare': editor.value.commands.toggleBulletListSquare(); break;
+    case 'bulletList': editor.value.commands.toggleBulletList(); break
+    case 'bulletListCircle': editor.value.commands.toggleBulletListCircle(); break
+    case 'bulletListSquare': editor.value.commands.toggleBulletListSquare(); break
   }
 }
 
@@ -83,11 +83,11 @@ watch(() => bulletLists.value, () => {
   <VMenu v-if="isMenu">
     <template #activator="{ props: menuProps }">
       <VBtn
-          :color="buttonActive ? 'primary' : ''"
-          :disabled="buttonDisabled"
-          :variant="variantBtn"
-          v-bind="menuProps"
-          size="32"
+        :color="buttonActive ? 'primary' : ''"
+        :disabled="buttonDisabled"
+        :variant="variantBtn"
+        v-bind="menuProps"
+        size="32"
       >
         <VTooltip activator="parent">
           {{ t('lists.bullet') }}
@@ -115,12 +115,12 @@ watch(() => bulletLists.value, () => {
   </VMenu>
 
   <VBtn
-      v-else
-      :color="editor.isActive('bulletList') ? 'primary' : ''"
-      :disabled="!editor.can().chain().focus().toggleBulletList().run()"
-      :variant="variantBtn"
-      @click="editor.commands.toggleBulletList()"
-      size="32"
+    v-else
+    :color="editor.isActive('bulletList') ? 'primary' : ''"
+    :disabled="!editor.can().chain().focus().toggleBulletList().run()"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.commands.toggleBulletList()"
   >
     <VTooltip activator="parent">
       {{ t('lists.bullet') }}

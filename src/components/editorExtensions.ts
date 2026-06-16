@@ -32,8 +32,8 @@ import { TiptapifyLink } from '@tiptapify/extensions/components/media/link'
 import { TiptapifyVideo } from '@tiptapify/extensions/components/media/video'
 import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
 import SlashCommands, { SlashCommandsExtensionOptions } from '@tiptapify/extensions/slash-commands'
-import { SlashCommandsConfig, SlashCommandId } from '@tiptapify/types/slashCommandsTypes'
-import { toolbarSections } from "@tiptapify/types/toolbarTypes";
+import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
+import { toolbarSections } from '@tiptapify/types/toolbarTypes'
 
 // load all languages with "all" or common languages with "common"
 import { common, createLowlight } from 'lowlight'

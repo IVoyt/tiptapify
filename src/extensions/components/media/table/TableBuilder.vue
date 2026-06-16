@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { Editor } from "@tiptap/vue-3";
+import { Editor } from '@tiptap/vue-3'
 
 import { inject, Ref, ref } from 'vue'
 
@@ -48,22 +48,23 @@ function printSelection() {
 <template>
   <VSheet class="pa-2">
     <VCheckbox
-        v-model="withHeaderRow"
-        density="compact"
-        color="primary"
-        :label="t('media.tables.insertWithHeaderRow')" hide-details
+      v-model="withHeaderRow"
+      density="compact"
+      color="primary"
+      :label="t('media.tables.insertWithHeaderRow')"
+      hide-details
     />
 
     <div v-for="rowNum in maxRows" :key="`row-${rowNum}`" class="tiptapify-insert-table-row">
       <div
-          v-for="colNum in maxCols"
-          class="tiptapify-insert-table-col"
-          :class="{'tiptapify-insert-table-col-hovered': rowNum <= rowHover && colNum <= colHover}"
-          @click="insertTable(rowNum, colNum)"
-          @mouseover="hoverCell($el.querySelector('.tiptapify-insert-table-col'), rowNum, colNum)"
-          @mouseout="leaveCell($el.querySelector('.tiptapify-insert-table-col'))"
+        v-for="colNum in maxCols"
+        class="tiptapify-insert-table-col"
+        :class="{'tiptapify-insert-table-col-hovered': rowNum <= rowHover && colNum <= colHover}"
+        @click="insertTable(rowNum, colNum)"
+        @mouseover="hoverCell($el.querySelector('.tiptapify-insert-table-col'), rowNum, colNum)"
+        @mouseout="leaveCell($el.querySelector('.tiptapify-insert-table-col'))"
       >
-        <div class="tiptapify-insert-table-col-button"></div>
+        <div class="tiptapify-insert-table-col-button" />
       </div>
     </div>
 

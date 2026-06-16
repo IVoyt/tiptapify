@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import * as mdi from '@mdi/js'
 import { inject, Ref } from 'vue'
-import CharmapPicker from './Picker.vue';
+import CharmapPicker from './Picker.vue'
 
 defineProps({
   variantBtn: { type: String, default: 'flat' },

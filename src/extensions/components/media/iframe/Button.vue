@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 
-import { Editor } from "@tiptap/vue-3";
-import BtnIcon from "@tiptapify/components/UI/BtnIcon.vue";
-import IframeDialog from "@tiptapify/extensions/components/media/iframe/IframeDialog.vue";
-import { inject, ref, Ref } from "vue";
+import { Editor } from '@tiptap/vue-3'
+import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import IframeDialog from '@tiptapify/extensions/components/media/iframe/IframeDialog.vue'
+import { inject, ref, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
@@ -22,10 +22,10 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vie
 
 <template>
   <VBtn
-      :color="editor.isActive('iframe') ? 'primary' : ''"
-      :variant="variantBtn"
-      @click="dialog?.open()"
-      size="32"
+    :color="editor.isActive('iframe') ? 'primary' : ''"
+    :variant="variantBtn"
+    size="32"
+    @click="dialog?.open()"
   >
     <VTooltip activator="parent">
       {{ t('media.iframe') }}
