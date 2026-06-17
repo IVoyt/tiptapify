@@ -25,17 +25,22 @@ jobs:
           version: 11.7.0
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
       - name: Install package dependencies
         run: |
           rm -rf node_modules node_modules
           pnpm install
+      - name: Dist approve-builds
+        run: pnpm approve-builds
       - name: Dist Build
         run: pnpm build
       - name: Install docs dependencies
         run: |
           rm -rf node_modules node_modules .vitepress/cache
           pnpm install
+        working-directory: docs
+      - name: Docs approve-builds
+        run: pnpm approve-builds
         working-directory: docs
       - name: Docs Build
         run: pnpm docs:build
