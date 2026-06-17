@@ -117,7 +117,6 @@
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "^11.2.3",
-    "@rollup/plugin-alias": "^6.0.0",
     "@types/node": "^25.9.3",
     "@vitejs/plugin-vue": "^6.0.7",
     "@vitejs/plugin-vue-jsx": "^5.1.5",
@@ -128,9 +127,8 @@
     "eslint-plugin-promise": "^7.3.0",
     "eslint-plugin-regexp": "3.1.0",
     "eslint-plugin-sonarjs": "2.0.4",
-    "eslint-plugin-unicorn": "^66.0.0",
+    "eslint-plugin-unicorn": "^67.0.0",
     "eslint-plugin-vue": "^10.9.2",
-    "rollup-plugin-tsconfig-paths": "^1.5.2",
     "sass-embedded": "^1.100.0",
     "stylelint": "^17.13.0",
     "stylelint-config-standard-scss": "17.0.0",
