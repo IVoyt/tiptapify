@@ -62,7 +62,7 @@
   "author": "Igor Voytovich",
   "license": "MIT",
   "repository": "https://github.com/IVoyt/tiptapify",
-  "packageManager": "pnpm@11.7.0",
+  "packageManager": "pnpm@11.8.0",
   "dependencies": {
     "@floating-ui/dom": "^1.7.6",
     "@tiptap/core": "^3.26.1",
