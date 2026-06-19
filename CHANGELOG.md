@@ -1,6 +1,6 @@
 ### 0.1.5
-- export TipTap `Mark`
-- reformat
+- reexport TipTap modules
+- refactor
 
 ### 0.1.4
 - add loading, loadingColor and loadingHeight properties

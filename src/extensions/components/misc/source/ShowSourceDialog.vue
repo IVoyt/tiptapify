@@ -2,21 +2,23 @@
 import { Editor } from '@tiptap/vue-3'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 import defaults from '@tiptapify/constants/defaults'
-import { ref, watch, inject, Ref } from 'vue'
+import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
+import { ref, watch, inject, Ref, PropType, useTemplateRef } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 const props = defineProps({
   indent: { type: Number, default: 2 },
-  variantBtn: { type: String, default: 'elevated' },
-  variantField: { type: String, default: defaults.variantField }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return 'elevated' } },
+  variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
 })
 
 defineExpose({ showDialog })
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const dialog = ref(null)
+const dialog = useTemplateRef('dialog')
 const formatted = ref(false)
 const sourceCode = ref('')
 
@@ -58,11 +60,11 @@ const unformatHtml = (html: string): string => {
 function showDialog () {
   sourceCode.value = editor.value.getHTML()
 
-  dialog.value.open()
+  dialog.value?.open()
 }
 
 const saveChanges = () => {
-  dialog.value.close()
+  dialog.value?.close()
 
   editor.value.commands.setContent(sourceCode.value, true)
 }

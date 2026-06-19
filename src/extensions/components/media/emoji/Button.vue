@@ -1,17 +1,19 @@
 <script lang="ts" setup>
 import * as mdi from '@mdi/js'
-import { inject, Ref } from 'vue'
+import { TiptapifyEditor, variantBtnTypes } from '@tiptapify/types/editor'
+import { inject, PropType, Ref } from 'vue'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import { ComposerTranslation } from 'vue-i18n'
 import EmojiPicker from './Picker.vue'
 import defaults from '@tiptapify/constants/defaults'
 
 defineProps({
-  variantBtn: { type: String, default: defaults.variantBtn }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
 })
 
-const editor = inject('tiptapifyEditor') as Ref<any>
+const editor = inject('tiptapifyEditor') as Ref<TiptapifyEditor>
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 </script>
 
 <template>

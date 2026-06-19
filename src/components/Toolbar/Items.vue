@@ -1,12 +1,13 @@
 <script setup lang="ts">
 
 import defaults from '@tiptapify/constants/defaults'
+import { variantBtnTypes } from '@tiptapify/types/editor'
 import { PropType } from 'vue'
 
 import { toolbarSections } from '@tiptapify/types/toolbarTypes'
 
 defineProps({
-  variantBtn: { type: String, default () { return defaults.variantBtn } },
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
   items: { type: Array as PropType<toolbarSections>, default() { return {} } },
 })
 

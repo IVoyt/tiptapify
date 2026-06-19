@@ -2,14 +2,15 @@
 import { Editor } from '@tiptap/vue-3'
 import Items from '@tiptapify/components/Toolbar/Items.vue'
 import defaults from '@tiptapify/constants/defaults'
+import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 import { computed, inject, PropType, Ref } from 'vue'
 import { itemsPropType, toolbarSections } from '@tiptapify/types/toolbarTypes'
 
 import { default as items, availableItems } from '@tiptapify/components/Toolbar/items'
 
 const props = defineProps({
-  variantBtn: { type: String, default () { return defaults.variantBtn } },
-  variantField: { type: String, default () { return defaults.variantField } },
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
+  variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
   items: { type: [Array, Object as PropType<itemsPropType>], default() { return [] } },
   itemsExclude: { type: Boolean, default() { return false } },
   fontMeasure: { type: String, default () { return 'px' } },

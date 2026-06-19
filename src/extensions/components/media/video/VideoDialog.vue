@@ -3,16 +3,18 @@
 import { Editor } from '@tiptap/vue-3'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 import defaults from '@tiptapify/constants/defaults'
+import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 
-import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
+import { computed, inject, onMounted, onUnmounted, PropType, Ref, ref, useTemplateRef } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 defineProps({
-  variantBtn: { type: String, default() { return defaults.variantBtn } },
-  variantField: { type: String, default() { return defaults.variantField } }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
+  variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 type videoAttrs = {
   src: string,
@@ -27,7 +29,7 @@ const generateVideoAttrs = () => ({
 
 const attrs = ref(generateVideoAttrs())
 
-const dialog = ref(null)
+const dialog = useTemplateRef('dialog')
 
 const isDisabled = computed(() => {
   const { src } = attrs.value

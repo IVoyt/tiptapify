@@ -3,12 +3,14 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
-import { computed, inject, ref, Ref, watch } from 'vue'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { computed, inject, PropType, ref, Ref, watch } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
+import { ComposerTranslation } from 'vue-i18n'
 
 const props = defineProps({
-  variantBtn: { type: String, default: defaults.variantBtn },
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
   withDisc: { type: Boolean, default: true },
   withCircle: { type: Boolean, default: true },
   withSquare: { type: Boolean, default: true }
@@ -16,7 +18,7 @@ const props = defineProps({
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const disc = computed(() => props.withDisc)
 const circle = computed(() => props.withCircle)

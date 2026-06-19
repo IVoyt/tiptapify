@@ -1,45 +1,66 @@
 import { Editor as TiptapEditor } from '@tiptap/vue-3'
-import type { DefineComponent } from 'vue'
-import { toolbarSections } from './src/types/toolbarTypes'
+import {
+  Extension,
+  ExtendableConfig,
+  InputRule,
+  PasteRule,
+  Node,
+  Mark,
+  markInputRule,
+  markPasteRule,
+  mergeAttributes
+} from '@tiptap/core'
+import type {
+  AnyExtension,
+  CanCommands,
+  ChainedCommands,
+  Command,
+  CommandProps,
+  Commands,
+  Content,
+  EditorOptions,
+  EditorEvents,
+  Extensions,
+  ExtensionConfig,
+  InputRuleMatch,
+  JSONContent,
+  MarkConfig,
+  NodeConfig,
+  PasteRuleMatch,
+  Range,
+  RawCommands,
+  SingleCommands,
+} from '@tiptap/core'
 
-export interface TiptapifyProps {
-  content: string|object
-  variantBtn: string
-  variantField: string
-  toolbar: boolean
-  items: [string]
-  itemsExclude: boolean
-  bubbleMenu: boolean
-  floatingMenu: boolean
-  slashCommands: boolean
-  placeholder: string
-  showWordsCount: boolean
-  showCharactersCount: boolean
-  defaultFontFamily: string
-  fontMeasure: string
-  rounded: string
-  customExtensions: toolbarSections
-}
+import '@tiptap/extension-text-style'
+import '@tiptap/extension-list'
+import '@tiptap/extensions'
+import '@tiptap/extension-document'
+import '@tiptap/extension-text'
+import '@tiptap/extension-paragraph'
+import '@tiptap/extension-heading'
+import '@tiptap/extension-bold'
+import '@tiptap/extension-italic'
+import '@tiptap/extension-strike'
+import '@tiptap/extension-code'
+import '@tiptap/extension-blockquote'
+import '@tiptap/extension-hard-break'
+import '@tiptap/extension-horizontal-rule'
+import '@tiptap/extension-typography'
+import '@tiptap/extension-highlight'
+import '@tiptap/extension-image'
+import '@tiptap/extension-youtube'
+import '@tiptap/extension-superscript'
+import '@tiptap/extension-subscript'
+import '@tiptap/extension-text-align'
+import '@tiptap/extension-underline'
+import '@tiptap/extension-table'
+import '@tiptap/extension-code-block-lowlight'
+import '@tiptap/extension-invisible-characters'
 
-export interface TiptapifyEmits {
-  [key: string]: ((...args: never[]) => never) | null
-  'editor-ready': (options: {
-    getHTML: () => string
-    getJSON: () => never
-    editor: TiptapEditor
-  }) => void
-}
-
-export declare const Tiptapify: DefineComponent<
-  TiptapifyProps,
-  object,
-  object,
-  Record<string, never>,
-  Record<string, never>,
-  object,
-  object,
-  TiptapifyEmits
->
+import Tiptapify from './src/components/Tiptapify.vue'
+import TiptapifyDialog from './src/components/UI/TiptapifyDialog.vue'
+import * as mdi from '@mdi/js'
 
 export interface TiptapifyOptions {
   i18n?: string
@@ -51,7 +72,43 @@ declare const TiptapifyPlugin: {
 
 export default TiptapifyPlugin
 
-export { TiptapEditor }
+export {
+  mdi,
+  Tiptapify,
+  TiptapifyDialog,
+  TiptapEditor,
+  Extension,
+  ExtendableConfig,
+  InputRule,
+  Mark,
+  mergeAttributes,
+  markInputRule,
+  markPasteRule,
+  Node,
+  PasteRule,
+}
+
+export type {
+  AnyExtension,
+  CanCommands,
+  ChainedCommands,
+  Command,
+  CommandProps,
+  Commands,
+  Content,
+  EditorOptions,
+  EditorEvents,
+  Extensions,
+  ExtensionConfig,
+  InputRuleMatch,
+  JSONContent,
+  MarkConfig,
+  NodeConfig,
+  PasteRuleMatch,
+  Range,
+  RawCommands,
+  SingleCommands,
+}
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {

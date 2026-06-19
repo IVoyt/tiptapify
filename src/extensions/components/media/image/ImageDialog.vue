@@ -4,16 +4,18 @@ import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 import defaults from '@tiptapify/constants/defaults'
+import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 
-import { computed, inject, onMounted, onUnmounted, Ref, ref } from 'vue'
+import { computed, inject, onMounted, onUnmounted, PropType, Ref, ref, useTemplateRef } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 defineProps({
-  variantBtn: { type: String, default() { return defaults.variantBtn } },
-  variantField: { type: String, default() { return defaults.variantField } }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
+  variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const generateImageAttrs = () => ({
   src: '',
@@ -25,7 +27,7 @@ const generateImageAttrs = () => ({
 
 const attrs = ref(generateImageAttrs())
 
-const dialog = ref(null)
+const dialog = useTemplateRef('dialog')
 
 const isDisabled = computed(() => {
   const { src } = attrs.value
@@ -33,7 +35,7 @@ const isDisabled = computed(() => {
 })
 
 const keepRatio = ref(true)
-const ratio = ref(null)
+const ratio: Ref<string> = ref('')
 function setRatio(force: boolean = false) {
   if (!keepRatio.value && !force) {
     return
@@ -60,7 +62,7 @@ function updateSizeRatio(dim: string) {
 
   const target = source === 'width' ? 'height' : 'width'
 
-  attrs.value[target] = parseFloat(sizeRatio).toFixed(0)
+  attrs.value[target] = parseFloat(String(sizeRatio)).toFixed(0)
 }
 
 function apply() {
@@ -97,7 +99,7 @@ function clear() {
 }
 
 function close() {
-  dialog.value.close()
+  dialog.value?.close()
 
   attrs.value = generateImageAttrs()
   ratio.value = null
@@ -114,7 +116,7 @@ const showTiptapifyImage = (event: CustomEvent) => {
   attrs.value.width = event.detail.image?.width
   attrs.value.height = event.detail.image?.height
 
-  dialog.value.open()
+  dialog.value?.open()
 }
 
 onMounted(() => {

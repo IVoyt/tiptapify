@@ -3,13 +3,14 @@
 import { Editor } from '@tiptap/vue-3'
 
 import { computed, inject, Ref, ref } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 const props = defineProps({
   lineHeights: { type: Array<number>, default () { return [] } },
   lineHeight: { type: Number, default () { return null } },
 })
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 

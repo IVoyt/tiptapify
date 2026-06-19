@@ -1,23 +1,22 @@
+import { CommandProps } from '@tiptap/core'
 import Link from '@tiptap/extension-link'
-
-const name: string = 'link'
 
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
-    link: {
+    tiptapify_link: {
       showLink: () => ReturnType
     }
   }
 }
 
 export const TiptapifyLink = Link.extend({
-  name,
+  name: 'tiptapify_link',
 
   addCommands() {
     return {
       ...this.parent?.(),
-      showLink: () => ({ editor }) => {
-        const event = new CustomEvent(`tiptapify-show-${name}`, {
+      showLink: () => ({ editor }: CommandProps) => {
+        const event = new CustomEvent('tiptapify-show-link', {
           detail: {
             link: editor.getAttributes('link'),
             editorId: editor.instanceId

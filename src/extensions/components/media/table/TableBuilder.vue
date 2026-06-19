@@ -3,8 +3,9 @@
 import { Editor } from '@tiptap/vue-3'
 
 import { inject, Ref, ref } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 defineExpose({ open })
 

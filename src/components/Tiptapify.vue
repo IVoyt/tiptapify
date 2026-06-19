@@ -6,6 +6,7 @@ import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef } from 'vue'
 import { default as Toolbar } from '@tiptapify/components/Toolbar/Index.vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
+import { TiptapifyEditor, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
@@ -18,12 +19,12 @@ import { useTheme } from 'vuetify/framework'
 
 const props = defineProps({
   locale: { type: String, default () { return 'en' } },
-  content: String|Object,
-  height: { type: [Number,String], default () { return null } },
-  variantBtn: { type: String, default () { return defaults.variantBtn } },
-  variantField: { type: String, default () { return defaults.variantField } },
+  content: { type: [String, Object] as PropType<string | Record<string, never>>, required: true },
+  height: { type: [Number, String], default () { return null } },
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
+  variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
   toolbar: { type: Boolean, default () { return true } },
-  items: { type: [Array, Object as PropType<itemsPropType>], default() { return [] } },
+  items: { type: [Array, Object] as PropType<itemsPropType>, default() { return [] } },
   itemsExclude: { type: Boolean, default() { return false } },
   bubbleMenu: { type: Boolean, default () { return true } },
   floatingMenu: { type: Boolean, default () { return true } },
@@ -58,8 +59,8 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
     props.slashCommands,
     props.customExtensions,
     contentChanged,
-    (editorInstance) => {
-      editorInstance.interactiveStyles = props.interactiveStyles
+    (editorInstance: Editor) => {
+      (<TiptapifyEditor>editorInstance).interactiveStyles = props.interactiveStyles
       emit('editor-ready', {
         editor: editorInstance,
         getHTML: () => editorInstance.getHTML(),
@@ -74,6 +75,15 @@ provide('tiptapifyEditor', editor)
 provide('tiptapifyI18n', { t })
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
+
+const computeResizableHeight = computed(() => {
+  let height = props.height
+  if (typeof height === 'string') {
+    height = parseInt(height)
+  }
+
+  return height > 0 ? `height: ${height}px` : ''
+})
 
 onBeforeUnmount(() => {
   editor.value?.destroy()
@@ -99,7 +109,7 @@ onBeforeUnmount(() => {
 
       <VProgressLinear v-model="loadingProgress" :color="loadingColor" :height="loadingHeight" :indeterminate="loading" />
 
-      <div class="pa-2 tiptapify-container resizable" :style="`${height > 0 ? `height: ${height}px` : ''}`">
+      <div class="pa-2 tiptapify-container resizable" :style="computeResizableHeight">
         <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 
         <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />

@@ -3,28 +3,30 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
-import { inject, nextTick, ref, Ref } from 'vue'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { inject, nextTick, PropType, ref, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
+import { ComposerTranslation } from 'vue-i18n'
 
 defineProps({
-  variantBtn: { type: String, default: defaults.variantBtn }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
-const dialog = ref(false)
+const showDialog = ref(false)
 
 async function dialogOpen() {
-  dialog.value = true
+  showDialog.value = true
 
   await changeEditorContainer('tiptapify-editor', 'tiptapify-editor-fullscreen')
 }
 
 async function dialogClose() {
-  dialog.value = false
+  showDialog.value = false
 
   await changeEditorContainer('tiptapify-editor-fullscreen', 'tiptapify-editor')
 }
@@ -44,17 +46,17 @@ async function changeEditorContainer(source: string, target: string) {
 <template>
   <VBtn
     size="32"
-    :color="dialog ? 'primary' : ''"
+    :color="showDialog ? 'primary' : ''"
     :variant="variantBtn"
-    @click="dialog ? dialogClose() : dialogOpen()"
+    @click="showDialog ? dialogClose() : dialogOpen()"
   >
     <VTooltip activator="parent">
       {{ t('misc.fullscreen') }}
     </VTooltip>
-    <BtnIcon :icon="dialog ? `mdiSvg:${mdi.mdiFullscreenExit}` : `mdiSvg:${mdi.mdiFullscreen}`" />
+    <BtnIcon :icon="showDialog ? `mdiSvg:${mdi.mdiFullscreenExit}` : `mdiSvg:${mdi.mdiFullscreen}`" />
   </VBtn>
 
-  <VDialog v-model="dialog" fullscreen @close="dialogClose()" @update:model-value="!dialog ? dialogClose() : ''">
+  <VDialog v-model="showDialog" fullscreen @close="dialogClose()" @update:model-value="!showDialog ? dialogClose() : ''">
     <VCard>
       <div :id="`tiptapify-editor-fullscreen-${editor?.instanceId}`" />
     </VCard>

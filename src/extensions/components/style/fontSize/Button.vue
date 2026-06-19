@@ -5,18 +5,20 @@ import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
 import FontSize from '@tiptapify/extensions/components/style/fontSize/FontSize.vue'
 import { fontSizes } from '@tiptapify/constants/style'
-import { computed, inject, Ref } from 'vue'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { computed, inject, PropType, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
+import { ComposerTranslation } from 'vue-i18n'
 
 const props = defineProps({
   fontMeasure: { type: String, default () { return 'px' } },
-  variantBtn: { type: String, default: defaults.variantBtn }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const activeFontSize = computed(() => {
   let fontSize = null

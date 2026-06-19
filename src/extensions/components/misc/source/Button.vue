@@ -3,17 +3,19 @@
 import * as mdi from '@mdi/js'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
 import ShowSourceDialog from '@tiptapify/extensions/components/misc/source/ShowSourceDialog.vue'
-import { inject, ref } from 'vue'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { inject, PropType, ref, useTemplateRef } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
+import { ComposerTranslation } from 'vue-i18n'
 
 defineProps({
-  variantBtn: { type: String, default: defaults.variantBtn }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
 })
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
-const dialog = ref(null)
+const dialog = useTemplateRef('dialog')
 
 function showDialog() {
   dialog.value.showDialog()

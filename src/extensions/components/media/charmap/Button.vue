@@ -1,14 +1,17 @@
 <script lang="ts" setup>
 import * as mdi from '@mdi/js'
-import { inject, Ref } from 'vue'
+import { Editor } from '@tiptap/core'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { inject, PropType, Ref } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 import CharmapPicker from './Picker.vue'
 
 defineProps({
-  variantBtn: { type: String, default: 'flat' },
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return 'flat' } },
 })
 
-const editor = inject('tiptapifyEditor') as Ref<any>
-const { t } = inject('tiptapifyI18n') as any
+const editor = inject('tiptapifyEditor') as Ref<Editor>
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 </script>
 
 <template>
