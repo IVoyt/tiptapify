@@ -1,16 +1,18 @@
 <script lang="ts" setup>
 
 import * as mdi from '@mdi/js'
+import { Level } from '@tiptap/extension-heading'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
-import { inject, Ref } from 'vue'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { inject, PropType, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
 
 const props = defineProps({
-  customHeadingLevels: { type: Array<number>, default: () => [] },
+  customHeadingLevels: { type: Array<Level>, default: () => [] },
   withParagraph: { type: Boolean, default: () => true },
-  variantBtn: { type: String, default: defaults.variantBtn }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
 })
 
 interface MDIIcons { [key: string]: string }
@@ -18,11 +20,11 @@ const mdiIcons = mdi as MDIIcons
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 import { headingLevels, setHeadingLevels } from '@tiptapify/constants/style'
+import { ComposerTranslation } from 'vue-i18n'
 setHeadingLevels(props.customHeadingLevels)
-
 </script>
 
 <template>

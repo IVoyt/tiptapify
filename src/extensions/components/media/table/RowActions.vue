@@ -4,10 +4,11 @@ import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
 import { inject, Ref } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const rowCanAddBefore = () => {
   return editor.value.can().chain().focus().addRowBefore().run()

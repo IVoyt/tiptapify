@@ -6,17 +6,19 @@ import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
 import ColumnActions from '@tiptapify/extensions/components/media/table/ColumnActions.vue'
 import RowActions from '@tiptapify/extensions/components/media/table/RowActions.vue'
 import TableBuilder from '@tiptapify/extensions/components/media/table/TableBuilder.vue'
-import { inject, Ref } from 'vue'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { inject, PropType, Ref } from 'vue'
 
 import defaults from '@tiptapify/constants/defaults'
+import { ComposerTranslation } from 'vue-i18n'
 
 defineProps({
-  variantBtn: { type: String, default: defaults.variantBtn }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 
 const rowActionsDisabled = () => {

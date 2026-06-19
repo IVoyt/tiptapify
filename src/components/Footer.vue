@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { Editor } from '@tiptap/vue-3'
 import { computed, inject, ref, Ref } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 const props = defineProps({
   showWordsCount: { type: Boolean, default: true },
   showCharactersCount: { type: Boolean, default: true },
 })
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 

@@ -2,18 +2,20 @@
 
 import { Editor } from '@tiptap/vue-3'
 import defaults from '@tiptapify/constants/defaults'
+import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 
-import { computed, inject, onMounted, onUnmounted, Ref, ref, watch } from 'vue'
+import { computed, inject, onMounted, onUnmounted, PropType, Ref, ref, useTemplateRef, watch } from 'vue'
 
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 defineProps({
-  variantBtn: { type: String, default() { return defaults.variantBtn } },
-  variantField: { type: String, default() { return 'outlined' } }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
+  variantField: { type: String as PropType<variantFieldTypes>, default() { return 'outlined' } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const generateLinkAttrs = () => ({
   href: '',
@@ -32,7 +34,7 @@ const targetAttrs = computed(() => [
 const attrs = ref(generateLinkAttrs())
 const hrefInvalid = ref(false)
 
-const dialog = ref(null)
+const dialog = useTemplateRef('dialog')
 
 const isDisabled = computed(() => {
   const { href } = attrs.value

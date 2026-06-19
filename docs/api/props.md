@@ -171,10 +171,10 @@ Border radius for the editor container. Accepts Vuetify radius values (`sm`, `md
 
 ### `variantBtn`
 
-- **Type:** `String`
+- **Type:** `variantBtnTypes`
 - **Default:** `'tonal'`
 
-Vuetify button variant for toolbar buttons. Options: `text`, `flat`, `elevated`, `tonal`, `outlined`, `plain`.
+Vuetify button variant for toolbar buttons. See [`variantBtnTypes`](/api/types#variantbtntypes).
 
 ```vue
 <Tiptapify variant-btn="outlined" />
@@ -182,10 +182,10 @@ Vuetify button variant for toolbar buttons. Options: `text`, `flat`, `elevated`,
 
 ### `variantField`
 
-- **Type:** `String`
+- **Type:** `variantFieldTypes`
 - **Default:** `'outlined'`
 
-Vuetify variant for toolbar dropdown fields (font family, size, color).
+Vuetify variant for toolbar dropdown fields. See [`variantFieldTypes`](/api/types#variantfieldtypes).
 
 ```vue
 <Tiptapify variant-field="filled" />
@@ -254,7 +254,7 @@ Fired when the editor instance is ready.
 
 ```typescript
 interface EditorReadyPayload {
-  editor: TiptapEditor  // Raw Tiptap Editor instance
+  editor: TiptapifyEditor  // Tiptapify Editor instance
   getHTML: () => string  // Get current HTML content
   getJSON: () => object  // Get current JSON content
 }

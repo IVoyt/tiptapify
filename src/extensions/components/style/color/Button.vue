@@ -4,18 +4,20 @@ import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
 import StyleColor from '@tiptapify/extensions/components/style/StyleColor.vue'
-import { computed, inject, Ref } from 'vue'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { computed, inject, PropType, Ref } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 import { useTheme } from 'vuetify/framework'
 
 import defaults from '@tiptapify/constants/defaults'
 
 defineProps({
-  variantBtn: { type: String, default: defaults.variantBtn }
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const appTheme = useTheme()
 

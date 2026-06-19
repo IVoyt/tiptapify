@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { variantBtnTypes } from '@tiptapify/types/editor'
+import { ref, onMounted, onUnmounted, PropType } from 'vue'
 import { useTheme } from 'vuetify'
 
-const props = defineProps({
-  height: { type: [Number,String], default() { return 400 }},
-  items: { type: Array<string>, default() { return [] }},
-  itemsExclude: { type: Boolean, default() { return false }},
-  toolbar: { type: Boolean, default() { return true }},
-  bubbleMenu: { type: Boolean, default() { return false }},
-  floatingMenu: { type: Boolean, default() { return false }},
-  slashCommands: { type: [Boolean,Array<string>], default() { return true }},
-  placeholder: { type: String, default() { return "Start typing..." }},
-  variantBtn: { type: String, default() { return "solo" }},
+defineProps({
+  height: { type: [Number,String], default() { return 400 } },
+  items: { type: Array<string>, default() { return [] } },
+  itemsExclude: { type: Boolean, default() { return false } },
+  toolbar: { type: Boolean, default() { return true } },
+  bubbleMenu: { type: Boolean, default() { return false } },
+  floatingMenu: { type: Boolean, default() { return false } },
+  slashCommands: { type: [Boolean,Array<string>], default() { return true } },
+  placeholder: { type: String, default() { return 'Start typing...' } },
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return 'solo' } },
 })
 
 const content = ref('')

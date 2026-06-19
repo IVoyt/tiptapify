@@ -3,13 +3,14 @@
 import { Editor } from '@tiptap/vue-3'
 
 import { computed, inject, Ref, ref } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 const props = defineProps({
   fonts: { type: Array<{ name: string, fontFamily: string }>, default: [] },
   fontFamily: { type: String, default: '' },
 })
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const emit = defineEmits(['close'])
 

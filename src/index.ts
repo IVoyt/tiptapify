@@ -3,7 +3,8 @@ import Tiptapify from '@tiptapify/components/Tiptapify.vue'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 
 import { Editor as TipTapEditor } from '@tiptap/vue-3'
-import { Node, Mark, mergeAttributes } from '@tiptap/core'
+import { Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
+import type { CommandProps, InputRuleMatch, PasteRuleMatch } from '@tiptap/core'
 
 import * as mdi from '@mdi/js'
 
@@ -25,9 +26,18 @@ const TiptapifyPlugin: Plugin = {
   }
 }
 
-export { Tiptapify, TiptapifyDialog }
 export default TiptapifyPlugin
 
-export { mdi }
-export { TipTapEditor }
-export { Node, Mark, mergeAttributes }
+export {
+  mdi,
+  TipTapEditor,
+  Tiptapify,
+  TiptapifyDialog,
+  Node,
+  Mark,
+  markInputRule,
+  markPasteRule,
+  mergeAttributes,
+}
+
+export type { CommandProps, InputRuleMatch, PasteRuleMatch }

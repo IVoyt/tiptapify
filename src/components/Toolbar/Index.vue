@@ -2,15 +2,16 @@
 import { Editor } from '@tiptap/vue-3'
 import Items from '@tiptapify/components/Toolbar/Items.vue'
 import defaults from '@tiptapify/constants/defaults'
+import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 import { computed, inject, PropType, Ref } from 'vue'
 import { itemsPropType, toolbarSections } from '@tiptapify/types/toolbarTypes'
 
-import { default as items, availableItems } from '@tiptapify/components/Toolbar/items'
+import { default as toolbarItemsGroups, availableItems } from '@tiptapify/components/Toolbar/items'
 
 const props = defineProps({
-  variantBtn: { type: String, default () { return defaults.variantBtn } },
-  variantField: { type: String, default () { return defaults.variantField } },
-  items: { type: [Array, Object as PropType<itemsPropType>], default() { return [] } },
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
+  variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
+  items: { type: [Array, Object] as PropType<itemsPropType>, default() { return [] } },
   itemsExclude: { type: Boolean, default() { return false } },
   fontMeasure: { type: String, default () { return 'px' } },
   customFonts: { type: Array<string>, default () { return [] } },
@@ -24,20 +25,23 @@ const props = defineProps({
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
 const propsItems = computed(() => props.items)
-const propsItemsIsList = computed(() => Array.isArray(propsItems.value))
 const propsItemsExclude = computed(() => props.itemsExclude)
 
 // this prevents from overriding the default items
-let toolbarItems = [...Object.values(items)]
+let toolbarItems = [...Object.values(toolbarItemsGroups)]
 const availableItemsKeys = Object.keys(availableItems)
 
 type toolbarItemsType = { [key: string]: { section: string, group: boolean, components: any[] } }
-propsItemsExclude.value ? prepareExcludeToolbarItems() : prepareToolbarItems()
+if (propsItemsExclude.value) {
+  prepareExcludeToolbarItems()
+} else {
+  prepareToolbarItems()
+}
 
 function prepareToolbarItems() {
   const _toolbarItems: toolbarItemsType = {}
 
-  if (!propsItemsIsList.value) {
+  if (!Array.isArray(propsItems.value)) {
     for (const propsItemSection in propsItems.value as itemsPropType) {
       if (propsItems.value[propsItemSection].length === 0) {
         continue
@@ -94,15 +98,15 @@ function prepareExcludeToolbarItems() {
   toolbarItems = Object.values(_toolbarItems)
 }
 
-function addToolbarItem(_toolbarItems: toolbarItemsType, itemsList: any, itemTitle: string, group: boolean|null = null): boolean {
+function addToolbarItem(_toolbarItems: toolbarItemsType, itemsList: Array<any>, itemTitle: string, group: boolean|null = null): boolean {
   const item = itemTitle.split(':')
   const _itemTitle = item[0]
   const _itemOptions = item[1] ? item[1].split(',') : []
 
   const itemSection = availableItems[_itemTitle]
-  const section = items[itemSection]
+  const section = toolbarItemsGroups[itemSection]
 
-  const component = section?.components.find((component: any) => component.name === _itemTitle)
+  const component = section?.components.find((component: { name: string }) => component.name === _itemTitle)
 
   let itemExists = itemsList.includes(itemTitle)
   itemExists = propsItemsExclude.value ? itemExists : !itemExists
@@ -111,7 +115,7 @@ function addToolbarItem(_toolbarItems: toolbarItemsType, itemsList: any, itemTit
   }
 
   if (group === null) {
-    group = section.group
+    group = section.group ?? true
   }
 
   if (typeof _toolbarItems[itemSection] === 'undefined') {
@@ -123,7 +127,7 @@ function addToolbarItem(_toolbarItems: toolbarItemsType, itemsList: any, itemTit
   }
 
   if (_itemTitle === 'heading' && _itemOptions.length > 0) {
-    const paragraphIndex = _itemOptions.findIndex((item: any) => item === 'p')
+    const paragraphIndex = _itemOptions.findIndex((item: string) => item === 'p')
     const withParagraph = paragraphIndex > -1
     if (withParagraph) {
       _itemOptions.splice(paragraphIndex, 1)
@@ -131,7 +135,7 @@ function addToolbarItem(_toolbarItems: toolbarItemsType, itemsList: any, itemTit
 
     component.props = {
       withParagraph,
-      customHeadingLevels: _itemOptions,
+      customHeadingLevels: _itemOptions.map((item: string) => parseInt(item)),
     }
   }
 

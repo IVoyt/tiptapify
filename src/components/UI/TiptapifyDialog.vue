@@ -2,6 +2,7 @@
 
 import * as mdi from '@mdi/js'
 import { inject, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 const props = defineProps({
   module: String,
@@ -10,20 +11,20 @@ const props = defineProps({
   maxWidth: { type: Number, default () { return 800 } },
 })
 
-const { t } = inject('tiptapifyI18n') as any
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 defineExpose({ open, close })
 const emits = defineEmits(['closeDialog'])
 
-const dialog = ref<boolean>(false)
+const showDialog = ref<boolean>(false)
 const movableHandler = ref(null)
 
 function open() {
-  dialog.value = true
+  showDialog.value = true
 }
 
 function close() {
-  dialog.value = false
+  showDialog.value = false
 }
 
 function emitClose() {
@@ -89,26 +90,26 @@ function dragElement(trigger: HTMLElement, container: HTMLElement) {
   }
 }
 
-watch(() => dialog.value, async () => {
+watch(() => showDialog.value, async () => {
   await nextTick()
 
   if (!movableHandler.value) {
     return
   }
 
-  if (dialog.value && !props.fullscreen) {
+  if (showDialog.value && !props.fullscreen) {
     dragElement(movableHandler.value.$el as HTMLElement, movableHandler.value.$el.parentNode as HTMLElement)
   }
 })
 
 function resizeListener() {
-  if (!dialog.value) {
+  if (!showDialog.value) {
     return
   }
 
   const dialogCoordinates = movableHandler.value.$el.parentNode.getBoundingClientRect()
 
-  function checkBoundLeftTop(type) {
+  function checkBoundLeftTop(type: string) {
     if (dialogCoordinates[type] < 0) {
       const dialogOffset = movableHandler.value.$el.parentNode.style[type]
       const newOffset = parseInt(dialogOffset) - dialogCoordinates[type]
@@ -139,7 +140,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <VDialog v-model="dialog" :max-width="maxWidth" :fullscreen="fullscreen" @click:outside="emitClose">
+  <VDialog v-model="showDialog" :max-width="maxWidth" :fullscreen="fullscreen" @click:outside="emitClose">
     <VCard>
       <VCardTitle
         ref="movableHandler"

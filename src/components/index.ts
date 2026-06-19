@@ -5,7 +5,7 @@ import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
 import { ShallowRef } from 'vue'
 
 export function getTiptapEditor (
-  content: any,
+  content: string|object,
   placeholder: string,
   slashCommands: SlashCommandsConfig = true,
   customExtensions: toolbarSections,
