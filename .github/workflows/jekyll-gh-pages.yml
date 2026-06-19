@@ -34,13 +34,8 @@ jobs:
         run: pnpm approve-builds
       - name: Dist Build
         run: pnpm build
-      - name: Install docs dependencies
-        run: |
-          cd ./docs
-          rm -rf node_modules .vitepress/cache
-          pnpm install
       - name: Docs Build
-        run: cd ./docs && pnpm docs:build
+        run: pnpm docs:build
       - id: pages
         uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
