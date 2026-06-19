@@ -1,5 +1,31 @@
 # Types
 
+## TiptapifyEditor
+
+Extended Tiptap Editor class with additional properties.
+
+```typescript
+declare class TiptapifyEditor extends Editor {
+  interactiveStyles: boolean | undefined
+}
+```
+
+## variantBtnTypes
+
+Defines valid values for the `variantBtn` prop across all toolbar button components.
+
+```typescript
+type variantBtnTypes = 'outlined' | 'plain' | 'flat' | 'text' | 'elevated' | 'tonal' | undefined
+```
+
+## variantFieldTypes
+
+Defines valid values for the `variantField` prop across toolbar dropdown fields.
+
+```typescript
+type variantFieldTypes = 'outlined' | 'plain' | 'filled' | 'solo' | 'solo-filled' | 'solo-inverted' | 'underlined' | undefined
+```
+
 ## ToolbarSectionsEnum
 
 ```typescript
@@ -75,9 +101,9 @@ Emitted via the `editor-ready` event.
 
 ```typescript
 interface EditorReadyPayload {
-  editor: Editor        // Tiptap Editor instance
-  getHTML: () => string  // Returns current HTML
-  getJSON: () => object  // Returns current JSON
+  editor: TiptapifyEditor  // Tiptapify Editor instance
+  getHTML: () => string     // Returns current HTML
+  getJSON: () => object     // Returns current JSON
 }
 ```
 
@@ -100,4 +126,48 @@ Options passed when installing the plugin.
 interface TiptapifyOptions {
   i18n: I18n  // vue-i18n instance
 }
+```
+
+## Re-exports
+
+The following utilities are re-exported from `@tiptap/core` for convenience when building custom extensions:
+
+| Export            | Kind     | Source          |
+|-------------------|----------|-----------------|
+| `Node`            | Class    | `@tiptap/core`  |
+| `Mark`            | Class    | `@tiptap/core`  |
+| `mergeAttributes` | Function | `@tiptap/core`  |
+| `markInputRule`   | Function | `@tiptap/core`  |
+| `markPasteRule`   | Function | `@tiptap/core`  |
+| `CommandProps`    | Type     | `@tiptap/core`  |
+| `InputRuleMatch`  | Type     | `@tiptap/core`  |
+| `PasteRuleMatch`  | Type     | `@tiptap/core`  |
+
+```typescript
+import { Node, Mark, mergeAttributes, markInputRule, markPasteRule } from 'tiptapify'
+import type { CommandProps, InputRuleMatch, PasteRuleMatch } from 'tiptapify'
+```
+
+### `mdi`
+
+Material Design Icons from `@mdi/js` are re-exported for toolbar icon customization.
+
+```typescript
+import { mdi } from 'tiptapify'
+```
+
+### `TipTapEditor`
+
+The underlying `@tiptap/vue-3` Editor class.
+
+```typescript
+import { TipTapEditor } from 'tiptapify'
+```
+
+### `Tiptapify` / `TiptapifyDialog`
+
+The editor and dialog components are available as named exports for direct use.
+
+```typescript
+import { Tiptapify, TiptapifyDialog } from 'tiptapify'
 ```
