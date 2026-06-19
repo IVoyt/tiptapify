@@ -1,3 +1,5 @@
+import { Component } from 'vue'
+
 export enum ToolbarSectionsEnum {
   actions = 'actions',
   alignment = 'alignment',
@@ -12,7 +14,7 @@ export enum ToolbarSectionsEnum {
 
 export type sectionComponent = {
   name: string,
-  component: any,
+  component: Component,
   props?: { [key: string]: any }
 }
 

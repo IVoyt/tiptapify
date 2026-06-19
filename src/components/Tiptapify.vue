@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
     font-size: .875rem;
     font-weight: 500;
     line-height: 1.15;
-    margin: none;
+    margin: unset;
     padding: .375rem .625rem;
     transition: all .2s cubic-bezier(.65,.05,.36,1);
   }

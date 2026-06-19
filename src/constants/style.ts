@@ -1,4 +1,5 @@
-import { ref } from 'vue'
+import { Level } from '@tiptap/extension-heading'
+import { Ref, ref } from 'vue'
 
 export const defaultFontSize = 12
 export const fontSizes = [6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 32, 48, 64, 96]
@@ -6,8 +7,8 @@ export const fontSizes = [6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 32, 48, 64, 96]
 export const defaultLineHeight = 1
 export const lineHeights = [1, 1.5, 2, 3, 4]
 
-export const headingLevels = ref([1, 2, 3, 4, 5, 6])
-export function setHeadingLevels(customHeadingLevels: number[]) {
+export const headingLevels: Ref<Level[]> = ref([1, 2, 3, 4, 5, 6])
+export function setHeadingLevels(customHeadingLevels: Level[]) {
   if (customHeadingLevels.length) {
     customHeadingLevels.forEach(level => {
       if (level < 1 || level > 6) {
