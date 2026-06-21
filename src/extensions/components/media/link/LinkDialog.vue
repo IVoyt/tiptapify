@@ -21,7 +21,7 @@ const generateLinkAttrs = () => ({
   href: '',
   target: targetAttrs.value[0],
   cssClass: '',
-  rel: ''
+  rel: []
 })
 
 const relAttrs = ['alternate', 'author', 'bookmark', 'external', 'help', 'license', 'me', 'next', 'nofollow', 'noopener', 'noreferrer', 'opener', 'prev', 'privacy-policy', 'search', 'tag', 'terms-of-service']
@@ -43,10 +43,10 @@ const isDisabled = computed(() => {
 
 function apply() {
   let { href, target, rel, cssClass } = attrs.value
-  rel = rel?.length ? rel.join(' ') : null
+  const relStr = rel?.length ? rel.join(' ') : null
 
   if (href) {
-    editor.value.chain().focus().extendMarkRange('link').setLink({ href, target: target.value, rel, class: cssClass }).run()
+    editor.value.chain().focus().extendMarkRange('link').setLink({ href, target: target.value, rel: relStr, class: cssClass }).run()
   }
 
   close()
@@ -61,7 +61,7 @@ function clear() {
 function close() {
   attrs.value = generateLinkAttrs()
 
-  dialog.value.close()
+  dialog.value?.close()
 }
 
 const showLink = (event: CustomEvent) => {
@@ -74,7 +74,7 @@ const showLink = (event: CustomEvent) => {
   attrs.value.rel = event.detail.link?.rel?.split(' ')
   attrs.value.cssClass = event.detail.link?.class
 
-  dialog.value.open()
+  dialog.value?.open()
 }
 
 onMounted(() => {

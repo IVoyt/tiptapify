@@ -1,3 +1,7 @@
+### 0.1.6
+- add missing Link extension
+- add some tests
+
 ### 0.1.5
 - reexport TipTap modules
 - refactor
