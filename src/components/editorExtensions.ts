@@ -9,6 +9,7 @@ import { Heading } from '@tiptap/extension-heading'
 import { Bold } from '@tiptap/extension-bold'
 import { Italic } from '@tiptap/extension-italic'
 import { Strike } from '@tiptap/extension-strike'
+import { Link } from '@tiptap/extension-link'
 import { Code } from '@tiptap/extension-code'
 import { Blockquote } from '@tiptap/extension-blockquote'
 import { HardBreak } from '@tiptap/extension-hard-break'
@@ -61,6 +62,7 @@ export function editorExtensions (placeholder: string, slashCommands: SlashComma
     Bold,
     Italic,
     Strike,
+    Link,
     Blockquote,
     OrderedList,
     BulletList,

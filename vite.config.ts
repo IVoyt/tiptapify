@@ -8,6 +8,8 @@ import svgLoader from 'vite-svg-loader'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import path from 'path'
 
+/// <reference types="vitest" />
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -67,6 +69,10 @@ export default defineConfig({
       }
     },
     chunkSizeWarningLimit: 5000,
+  },
+  test: {
+    environment: 'jsdom',
+    include: ['src/**/*.{test,spec}.{ts,js}'],
   },
   optimizeDeps: {
     exclude: ['vuetify', '@tiptap/pm'],
