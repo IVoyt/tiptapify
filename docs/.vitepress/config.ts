@@ -1,6 +1,9 @@
 import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from 'vitepress'
-import path from 'node:path'
+import { readFileSync } from 'node:fs'
+
+const packageJson = JSON.parse(readFileSync(fileURLToPath(new URL('../../package.json', import.meta.url)), 'utf-8'))
+const currentVersion = `v${packageJson.version}`
 
 export default defineConfig({
   title: 'Tiptapify',
@@ -38,7 +41,7 @@ export default defineConfig({
       { text: 'Examples', link: '/examples/basic' },
       { text: 'API', link: '/api/props' },
       {
-        text: 'v0.1.0',
+        text: currentVersion,
         items: [
           { text: 'Changelog', link: 'https://github.com/IVoyt/tiptapify/blob/main/CHANGELOG.md' },
           { text: 'npm', link: 'https://www.npmjs.com/package/tiptapify' },
@@ -65,6 +68,7 @@ export default defineConfig({
             { text: 'Custom Toolbar', link: '/examples/custom-toolbar' },
             { text: 'Media', link: '/examples/media' },
             { text: 'Slash Commands', link: '/examples/slash-commands' },
+            { text: 'AI', link: '/examples/ai' },
             { text: 'i18n', link: '/examples/i18n' },
           ],
         },

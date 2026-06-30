@@ -9,6 +9,12 @@ All available toolbar items organized by section.
 | `undo`   | Undo the last change        |
 | `redo`   | Redo the last undone change |
 
+## AI
+
+| Item | Description                              |
+|------|------------------------------------------|
+| `ai` | Open the AI prompt dialog if configured  |
+
 ## Format
 
 | Item        | Description          |
@@ -113,6 +119,8 @@ Use `|` as a separator between button groups in array-style `items` prop:
       'link', 'image', 'video', 'iframe',
       '|',
       'emoji', 'charmap', 'table',
+      '|',
+      'ai',
       '|',
       'line', 'pagebreak', 'formatClear',
       '|',

@@ -1,3 +1,8 @@
+### 0.2.0
+- add CharacterCount `limit` property
+- add `GapCursor` extension
+- add a basic AI prompt dialog with `ai` toolbar section
+
 ### 0.1.6
 - add missing Link extension
 - add some tests

@@ -41,3 +41,17 @@ export {
 }
 
 export type { CommandProps, InputRuleMatch, PasteRuleMatch }
+export type {
+  TiptapifyAiMode,
+  TiptapifyAiOptions,
+  TiptapifyAiChatMessage,
+  TiptapifyAiChatRole,
+  TiptapifyAiEditorContext,
+  TiptapifyAiOpenAiResponse,
+  TiptapifyAiPromptExample,
+  TiptapifyAiProvider,
+  TiptapifyAiRequest,
+  TiptapifyAiResponse,
+  TiptapifyAiStorage,
+  TiptapifyAiTokenProvider,
+} from '@tiptapify/types/editor'

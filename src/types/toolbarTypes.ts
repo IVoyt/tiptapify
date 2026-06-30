@@ -2,6 +2,7 @@ import { Component } from 'vue'
 
 export enum ToolbarSectionsEnum {
   actions = 'actions',
+  ai = 'ai',
   alignment = 'alignment',
   extra = 'extra',
   formatExtra = 'formatExtra',

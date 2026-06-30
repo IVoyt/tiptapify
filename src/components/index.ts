@@ -9,15 +9,16 @@ export function getTiptapEditor (
   placeholder: string,
   slashCommands: SlashCommandsConfig = true,
   customExtensions: toolbarSections,
+  limit: number | null = null,
   onUpdate: Function = () => {},
   onCreate?: (editor: Editor) => void,
 ): ShallowRef<Editor | undefined> {
-  const extensions = editorExtensions(placeholder, slashCommands, customExtensions)
+  const extensions = editorExtensions(placeholder, slashCommands, customExtensions, limit)
 
   return useEditor({
     content,
     extensions,
     onUpdate: ({ editor }) => onUpdate(),
-    onCreate: onCreate ? ({ editor }) => onCreate(editor) : undefined,
+    onCreate: onCreate ? ({ editor }) => onCreate(editor as Editor) : undefined,
   })
 }

@@ -1,4 +1,5 @@
 import actions from '@tiptapify/components/Toolbar/actions'
+import ai from '@tiptapify/components/Toolbar/ai'
 import alignment from '@tiptapify/components/Toolbar/alignment'
 import format from '@tiptapify/components/Toolbar/format'
 import formatExtra from '@tiptapify/components/Toolbar/formatExtra'
@@ -15,6 +16,7 @@ const items = {
   alignment,
   list,
   actions,
+  ai,
   misc,
 }
 

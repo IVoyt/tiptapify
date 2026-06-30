@@ -31,6 +31,7 @@ type variantFieldTypes = 'outlined' | 'plain' | 'filled' | 'solo' | 'solo-filled
 ```typescript
 enum ToolbarSectionsEnum {
   actions = 'actions',
+  ai = 'ai',
   alignment = 'alignment',
   extra = 'extra',
   formatExtra = 'formatExtra',
@@ -39,6 +40,75 @@ enum ToolbarSectionsEnum {
   media = 'media',
   misc = 'misc',
   style = 'style',
+}
+```
+
+## AI Types
+
+```typescript
+type TiptapifyAiProvider = (
+  request: TiptapifyAiRequest,
+  context: TiptapifyAiEditorContext,
+) => Promise<TiptapifyAiResponse | TiptapifyAiOpenAiResponse | string>
+
+type TiptapifyAiChatRole = 'system' | 'user' | 'assistant' | 'developer' | 'tool'
+
+interface TiptapifyAiChatMessage {
+  role: TiptapifyAiChatRole
+  content: string
+}
+
+interface TiptapifyAiRequest {
+  model?: string
+  messages: TiptapifyAiChatMessage[]
+  temperature?: number
+  stream?: false
+  [key: string]: unknown
+}
+
+interface TiptapifyAiEditorContext {
+  prompt: string
+  selectedText: string
+  text: string
+  html: string
+  json: object
+  mode: 'insert' | 'replace' | 'append'
+}
+
+interface TiptapifyAiResponse {
+  content: string
+}
+
+interface TiptapifyAiOpenAiResponse {
+  choices?: Array<{
+    message?: {
+      content?: string
+    }
+    text?: string
+  }>
+}
+
+interface TiptapifyAiPromptExample {
+  title: string
+  prompt: string
+}
+
+interface TiptapifyAiOptions {
+  aiProvider?: TiptapifyAiProvider
+  model?: string
+  promptExamples?: TiptapifyAiPromptExample[]
+  mode?: 'insert' | 'replace' | 'append'
+  defaultPrompt?: string
+  systemPrompt?: string
+  temperature?: number
+  chatCompletionOptions?: Record<string, unknown>
+  createMessages?: (context: TiptapifyAiEditorContext) => TiptapifyAiChatMessage[]
+  tokenProvider?: () => Promise<string | null> | string | null
+  storage?: {
+    getItem: (key: string) => string | null | Promise<string | null>
+    setItem: (key: string, value: string) => void | Promise<void>
+    removeItem: (key: string) => void | Promise<void>
+  }
 }
 ```
 

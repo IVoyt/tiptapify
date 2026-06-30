@@ -164,9 +164,9 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] charmap extension
 - [x] demo
 - [x] documentation
+- [x] basic AI prompt dialog
 - [ ] extended video extensions
 - [ ] print hotkey in a tooltip
-- [ ] AI features
 
 ## Licence
 [MIT](./LICENSE)

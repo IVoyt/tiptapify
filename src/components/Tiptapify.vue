@@ -6,7 +6,7 @@ import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef } from 'vue'
 import { default as Toolbar } from '@tiptapify/components/Toolbar/Index.vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
-import { TiptapifyEditor, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
+import { TiptapifyAiOptions, TiptapifyEditor, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
@@ -32,10 +32,12 @@ const props = defineProps({
   placeholder: { type: String, default () { return '' } },
   showWordsCount: { type: Boolean, default () { return true } },
   showCharactersCount: { type: Boolean, default () { return true } },
+  limit: { type: Number as PropType<number | null>, default () { return null } },
   defaultFontFamily: { type: String, default () { return 'Inter' } },
   fontMeasure: { type: String, default () { return 'px' } },
   rounded: { type: String, default () { return '0' } },
   customExtensions: { type: Array as PropType<toolbarSections>, default() { return [] } },
+  ai: { type: [Boolean, Object] as PropType<boolean | TiptapifyAiOptions>, default() { return false } },
   interactiveStyles: { type: Boolean, default() { return true } },
   loading: { type: Boolean, default() { return false } },
   loadingColor: { type: String, default() { return 'default' } },
@@ -49,6 +51,39 @@ const { t } = useI18n()
 const appTheme = useTheme()
 const currentTheme = ref(appTheme.global.name)
 
+const defaultAiPromptExamples = computed(() => [
+  {
+    title: t('ai.defaultExamples.improve.title'),
+    prompt: t('ai.defaultExamples.improve.prompt'),
+  },
+  {
+    title: t('ai.defaultExamples.proofReading.title'),
+    prompt: t('ai.defaultExamples.proofReading.prompt'),
+  },
+  {
+    title: t('ai.defaultExamples.summarize.title'),
+    prompt: t('ai.defaultExamples.summarize.prompt'),
+  },
+  {
+    title: t('ai.defaultExamples.expand.title'),
+    prompt: t('ai.defaultExamples.expand.prompt'),
+  },
+])
+
+const tiptapifyAi = computed(() => {
+  if (props.ai === false) {
+    return false
+  }
+
+  const options = props.ai === true ? {} : props.ai
+
+  return {
+    ...options,
+    enabled: true,
+    promptExamples: options.promptExamples?.length ? options.promptExamples : defaultAiPromptExamples.value,
+  }
+})
+
 function contentChanged() {
   emit('content-changed', { html: editor.value?.getHTML(), json: editor.value?.getJSON() })
 }
@@ -58,6 +93,7 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
     computed(() => props.placeholder || t('content.placeholder')).value,
     props.slashCommands,
     props.customExtensions,
+    props.limit,
     contentChanged,
     (editorInstance: Editor) => {
       (<TiptapifyEditor>editorInstance).interactiveStyles = props.interactiveStyles
@@ -73,6 +109,7 @@ const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed'
 
 provide('tiptapifyEditor', editor)
 provide('tiptapifyI18n', { t })
+provide('tiptapifyAi', tiptapifyAi)
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
 

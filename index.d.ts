@@ -32,6 +32,7 @@ import type {
   SingleCommands,
 } from '@tiptap/core'
 
+import '@tiptap/extensions'
 import '@tiptap/extension-text-style'
 import '@tiptap/extension-list'
 import '@tiptap/extensions'
@@ -65,6 +66,74 @@ import * as mdi from '@mdi/js'
 
 export interface TiptapifyOptions {
   i18n?: string
+}
+
+export type TiptapifyAiMode = 'insert' | 'replace' | 'append'
+
+export interface TiptapifyAiPromptExample {
+  title: string
+  prompt: string
+}
+
+export type TiptapifyAiChatRole = 'system' | 'user' | 'assistant' | 'developer' | 'tool'
+
+export interface TiptapifyAiChatMessage {
+  role: TiptapifyAiChatRole
+  content: string
+}
+
+export interface TiptapifyAiEditorContext {
+  prompt: string
+  selectedText: string
+  text: string
+  html: string
+  json: object
+  mode: TiptapifyAiMode
+}
+
+export interface TiptapifyAiRequest {
+  model?: string
+  messages: TiptapifyAiChatMessage[]
+  temperature?: number
+  stream?: false
+  [key: string]: unknown
+}
+
+export interface TiptapifyAiResponse {
+  content: string
+}
+
+export interface TiptapifyAiOpenAiResponse {
+  choices?: Array<{
+    message?: {
+      content?: string
+    }
+    text?: string
+  }>
+}
+
+export type TiptapifyAiProvider = (request: TiptapifyAiRequest, context: TiptapifyAiEditorContext) => Promise<TiptapifyAiResponse | TiptapifyAiOpenAiResponse | string>
+
+export type TiptapifyAiTokenProvider = () => Promise<string | null> | string | null
+
+export interface TiptapifyAiStorage {
+  getItem: (key: string) => string | null | Promise<string | null>
+  setItem: (key: string, value: string) => void | Promise<void>
+  removeItem: (key: string) => void | Promise<void>
+}
+
+export interface TiptapifyAiOptions {
+  aiProvider?: TiptapifyAiProvider
+  model?: string
+  promptExamples?: TiptapifyAiPromptExample[]
+  mode?: TiptapifyAiMode
+  defaultPrompt?: string
+  systemPrompt?: string
+  temperature?: number
+  chatCompletionOptions?: Record<string, unknown>
+  createMessages?: (context: TiptapifyAiEditorContext) => TiptapifyAiChatMessage[]
+  tokenProvider?: TiptapifyAiTokenProvider
+  storage?: TiptapifyAiStorage
 }
 
 declare const TiptapifyPlugin: {
