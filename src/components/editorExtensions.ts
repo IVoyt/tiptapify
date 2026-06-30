@@ -1,4 +1,5 @@
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
+import { Gapcursor } from '@tiptap/extensions'
 import { TextStyleKit } from '@tiptap/extension-text-style'
 import { BulletList, OrderedList, ListItem, ListKeymap, TaskList, TaskItem } from '@tiptap/extension-list'
 import { Selection, Focus, Placeholder, UndoRedo, Dropcursor, CharacterCount } from '@tiptap/extensions'
@@ -52,8 +53,11 @@ const lowlight = createLowlight(common)
 // register language example
 // lowlight.register('ts', ts)
 
-export function editorExtensions (placeholder: string, slashCommands: SlashCommandsConfig, customExtensions: toolbarSections) {
+export function editorExtensions (placeholder: string, slashCommands: SlashCommandsConfig, customExtensions: toolbarSections, limit: number | null = null) {
+  const characterCount = limit && limit > 0 ? CharacterCount.configure({ limit }) : CharacterCount
+
   const extensions = [
+    Gapcursor,
     TextStyleKit,
     Document,
     Text,
@@ -109,7 +113,7 @@ export function editorExtensions (placeholder: string, slashCommands: SlashComma
     Selection.configure({ className: 'selection' }),
     TextAlign.configure({ types: ['heading', 'paragraph'] }),
     Placeholder.configure({ placeholder }),
-    CharacterCount,
+    characterCount,
     InvisibleCharacters.configure({
       visible: false,
     }),

@@ -56,7 +56,7 @@ export default {
         h('p', { style: 'text-align:center;color:var(--vp-c-text-2);margin-bottom:1.5rem;max-width:600px;margin-left:auto;margin-right:auto' },
           'Try Tiptapify right here in your browser — no installation needed'),
         h('div', { style: 'max-width:900px;margin:0 auto' },
-          h(InteractiveEditor)
+          h(InteractiveEditor, { aiDemo: true })
         ),
       ]),
     })

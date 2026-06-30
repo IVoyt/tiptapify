@@ -171,5 +171,34 @@
   "footer": {
     "words": "words",
     "chars": "characters"
+  },
+  "ai": {
+    "title": "AI assistant",
+    "prompt": "Prompt",
+    "examples": "Examples",
+    "generate": "Generate",
+    "apply": "Apply",
+    "result": "Result",
+    "loading": "Generating...",
+    "unavailable": "Configure an AI provider to use this action",
+    "error": "AI generation failed",
+    "defaultExamples": {
+      "improve": {
+        "title": "Improve writing",
+        "prompt": "Improve the clarity and tone of this text."
+      },
+      "proofReading": {
+        "title": "Proof-reading",
+        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
+      },
+      "summarize": {
+        "title": "Summarize",
+        "prompt": "Summarize this text in a concise paragraph."
+      },
+      "expand": {
+        "title": "Expand",
+        "prompt": "Expand this into a more detailed version."
+      }
+    }
   }
 }

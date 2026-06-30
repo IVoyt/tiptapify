@@ -136,6 +136,92 @@ Show character count in the editor footer.
 <Tiptapify :show-characters-count="false" />
 ```
 
+### `limit`
+
+- **Type:** `Number | null`
+- **Default:** `null`
+
+Maximum number of characters allowed by the Tiptap `CharacterCount` extension. Set `null` or omit the prop to keep unlimited editing.
+
+```vue
+<Tiptapify :limit="1000" />
+```
+
+### `ai`
+
+- **Type:** `Boolean | TiptapifyAiOptions`
+- **Default:** `false`
+
+Enables the `ai` toolbar item. The editor builds an OpenAI-compatible `/v1/chat/completions` request and passes it to `aiProvider`. Use the provider callback to call your backend, BFF, OAuth-protected endpoint, LM Studio, or SDK wrapper.
+
+```vue
+<script setup lang="ts">
+const ai = {
+  async aiProvider(request) {
+    const response = await fetch('/api/chat/endpoint', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(request),
+    })
+
+    if (!response.ok) {
+      throw new Error('AI request failed')
+    }
+
+    return response.json()
+  },
+}
+</script>
+
+<template>
+  <Tiptapify :content="content" :ai="ai" :items="['ai']" />
+</template>
+```
+
+Local LLM LM Studio example:
+
+```ts
+const ai = {
+  model: 'google/gemma-4-12b-qat',
+  async aiProvider(request) {
+    const response = await fetch('http://127.0.0.1:1234/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(request),
+    })
+
+    if (!response.ok) {
+      throw new Error(await response.text())
+    }
+
+    return response.json()
+  },
+}
+```
+
+Custom prompt examples replace the localized defaults:
+
+```vue
+<Tiptapify
+  :content="content"
+  :ai="{
+    aiProvider,
+    model: 'gpt-4.1-mini',
+    promptExamples: [
+      { title: 'Rewrite', prompt: 'Rewrite this in a direct tone.' },
+      { title: 'Shorten', prompt: 'Make this shorter.' },
+      { title: 'Explain', prompt: 'Explain this for a beginner.' },
+    ],
+  }"
+/>
+```
+
+`tokenProvider` and `storage` are optional consumer-owned hooks for direct browser integrations. API keys or provider tokens placed in browser code or browser storage are visible to users and must not be treated as secrets. Prefer the backend adapter pattern above for production secrets.
+
+Use `mode: 'insert' | 'replace' | 'append'` to override the default apply behavior. By default, AI output replaces the captured selection when text was selected and inserts at the cursor otherwise.
+
+Use `systemPrompt`, `temperature`, `chatCompletionOptions`, or `createMessages(context)` to customize the OpenAI-compatible chat-completions request. `context` contains `{ prompt, selectedText, text, html, json, mode }`.
+
 ### `defaultFontFamily`
 
 - **Type:** `String`
