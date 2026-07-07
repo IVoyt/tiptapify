@@ -94,14 +94,28 @@ function hexToRgb(hex: string): Color {
 function hoverColor(color: string) {
   colorSelected.value = false
 
-  const interactiveStyles = editor.value.interactiveStyles
-
-  if (props.fontColor && interactiveStyles) {
-    editor.value.chain().focus().setColor(color).run()
+  if (props.fontColor) {
+    editor.value
+      .chain()
+      .focus()
+      .setColor(color)
+      .command(({ tr }) => {
+        tr.setMeta('addToHistory', false)
+        return true
+      })
+      .run()
   }
 
-  if (props.backgroundColor && interactiveStyles) {
-    editor.value.chain().focus().setHighlight({ color: color }).run()
+  if (props.backgroundColor) {
+    editor.value
+      .chain()
+      .focus()
+      .setHighlight({ color })
+      .command(({ tr }) => {
+        tr.setMeta('addToHistory', false)
+        return true
+      })
+      .run()
   }
 }
 
@@ -115,20 +129,52 @@ function resetColor() {
   }
 
   if (props.fontColor) {
-    editor.value.chain().focus().setColor(initialColor.value).run()
+    editor.value
+      .chain()
+      .focus()
+      .setColor(initialColor.value)
+      .command(({ tr }) => {
+        tr.setMeta('addToHistory', false)
+        return true
+      })
+      .run()
   }
 
   if (props.backgroundColor) {
     if (initialColor.value) {
-      editor.value.chain().focus().setHighlight({ color: initialColor.value }).run()
+      editor.value
+        .chain()
+        .focus()
+        .setHighlight({ color: initialColor.value })
+        .command(({ tr }) => {
+          tr.setMeta('addToHistory', false)
+          return true
+        })
+        .run()
     } else {
-      editor.value.chain().focus().unsetHighlight().run()
+      editor.value
+        .chain()
+        .focus()
+        .unsetHighlight()
+        .command(({ tr }) => {
+          tr.setMeta('addToHistory', false)
+          return true
+        })
+        .run()
     }
   }
 }
 
-function setColor() {
+function setColor(color: string) {
   colorSelected.value = true
+
+  if (props.fontColor) {
+    editor.value.chain().focus().setColor(color).run()
+  }
+
+  if (props.backgroundColor) {
+    editor.value.chain().focus().setHighlight({ color }).run()
+  }
 }
 
 function unsetColor() {
@@ -155,7 +201,7 @@ function isColorActive(color: string): boolean {
           :class="isColorActive(colorCode) ? 'tiptapify-style-color-item-active' : ''"
           @mouseenter="hoverColor(colorCode)"
           @mouseleave="resetColor()"
-          @click="setColor"
+          @click="setColor(colorCode)"
         >
           <div
             class="tiptapify-style-color-picker"
@@ -188,7 +234,7 @@ function isColorActive(color: string): boolean {
         </VCardItem>
 
         <VCardActions>
-          <VBtn variant="flat" color="primary" @click="setColor">
+          <VBtn variant="flat" color="primary" @click="setColor(customColor)">
             OK
           </VBtn>
           <VBtn variant="flat" color="grey-400" @click="colorPicker = !colorPicker; customColor = initialColor; resetColor()">

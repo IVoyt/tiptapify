@@ -36,7 +36,6 @@ const selectedColor = computed(() => editor.value.getAttributes('highlight').col
     :disabled="!editor.can().chain().focus().toggleHighlight().run()"
     :variant="variantBtn"
     size="32"
-    @click="editor.chain().focus().redo().run()"
   >
     <VTooltip activator="parent">
       {{ t('style.color.highlight') }}

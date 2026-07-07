@@ -33,10 +33,8 @@ const selectedColor = computed(() => editor.value.getAttributes('textStyle').col
 <template>
   <VBtn
     :id="`tiptapify-color-button-${editor.instanceId}`"
-    :disabled="!editor.can().chain().focus().toggleHighlight().run()"
     :variant="variantBtn"
     size="32"
-    @click="editor.chain().focus().redo().run()"
   >
     <VTooltip activator="parent">
       {{ t('style.color.text') }}
@@ -45,7 +43,6 @@ const selectedColor = computed(() => editor.value.getAttributes('textStyle').col
     <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatColorText}`" />
     <VIcon
       :icon="`mdiSvg:${mdi.mdiColorHelper}`"
-      :disabled="!editor.can().chain().focus().toggleHighlight().run()"
       :color="activeColor"
       size="small"
       style="position: absolute; filter: drop-shadow(rgba(0, 0, 0, .75) 1px 1px 2px)"

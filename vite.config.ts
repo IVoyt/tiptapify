@@ -24,6 +24,7 @@ export default defineConfig({
     }),
     vuetify({
       autoImport: { labs: true },
+      styles: 'none'
     }),
     Components({
       dirs: ['src/components'],
