@@ -1,4 +1,4 @@
-import { Editor as TiptapEditor } from '@tiptap/vue-3'
+import { Editor as TiptapEditor, VueNodeViewRenderer } from '@tiptap/vue-3'
 import {
   Extension,
   ExtendableConfig,
@@ -147,6 +147,7 @@ export {
   Tiptapify,
   TiptapifyDialog,
   TiptapEditor,
+  VueNodeViewRenderer,
   Extension,
   ExtendableConfig,
   InputRule,
