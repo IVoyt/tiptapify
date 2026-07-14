@@ -2,7 +2,7 @@ import { Plugin } from 'vue'
 import Tiptapify from '@tiptapify/components/Tiptapify.vue'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 
-import { Editor as TipTapEditor, VueNodeViewRenderer } from '@tiptap/vue-3'
+import { Editor as TipTapEditor, nodeViewProps, NodeViewWrapper, VueNodeViewRenderer } from '@tiptap/vue-3'
 import { Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
 import type { CommandProps, InputRuleMatch, PasteRuleMatch } from '@tiptap/core'
 
@@ -31,6 +31,8 @@ export default TiptapifyPlugin
 export {
   mdi,
   TipTapEditor,
+  nodeViewProps,
+  NodeViewWrapper,
   VueNodeViewRenderer,
   Tiptapify,
   TiptapifyDialog,
