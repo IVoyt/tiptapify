@@ -1,3 +1,10 @@
+### 0.2.2
+- re-export VueNodeViewRenderer
+
+### 0.2.1
+- fix highlight and font color extensions
+- exclude styles from build
+
 ### 0.2.0
 - add CharacterCount `limit` property
 - add `GapCursor` extension
