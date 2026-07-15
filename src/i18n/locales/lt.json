@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "žodžiai",
-    "chars": "simboliai"
+    "chars": "simboliai",
+    "limit": "simbolių limitas"
   },
   "ai": {
     "title": "AI assistant",

@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "palavras",
-    "chars": "caracteres"
+    "chars": "caracteres",
+    "limit": "limite de caracteres"
   },
   "ai": {
     "title": "AI assistant",

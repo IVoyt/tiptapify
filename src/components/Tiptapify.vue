@@ -6,7 +6,7 @@ import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef } from 'vue'
 import { default as Toolbar } from '@tiptapify/components/Toolbar/Index.vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
-import { TiptapifyAiOptions, TiptapifyEditor, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
+import { TiptapifyAiOptions, TiptapifyEditor, TiptapifyFooterAlignment, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
@@ -33,6 +33,10 @@ const props = defineProps({
   showWordsCount: { type: Boolean, default () { return true } },
   showCharactersCount: { type: Boolean, default () { return true } },
   limit: { type: Number as PropType<number | null>, default () { return null } },
+  limitDefaultColor: { type: String, default () { return 'purple' } },
+  limitAlertColor: { type: String, default () { return 'orange' } },
+  limitWarningColor: { type: String, default () { return 'red' } },
+  footerAlignment: { type: String as PropType<TiptapifyFooterAlignment>, default () { return 'end' } },
   defaultFontFamily: { type: String, default () { return 'Inter' } },
   fontMeasure: { type: String, default () { return 'px' } },
   rounded: { type: String, default () { return '0' } },
@@ -154,7 +158,15 @@ onBeforeUnmount(() => {
         <EditorContent :editor="editor" class="tiptapify-editor" />
       </div>
 
-      <Footer :show-words-count="showWordsCount" :show-characters-count="showCharactersCount" />
+      <Footer
+        :show-words-count="showWordsCount"
+        :show-characters-count="showCharactersCount"
+        :limit="limit ?? 0"
+        :limit-default-color="limitDefaultColor"
+        :limit-alert-color="limitAlertColor"
+        :limit-warning-color="limitWarningColor"
+        :alignment="footerAlignment"
+      />
     </div>
   </div>
 </template>

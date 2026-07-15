@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "단어",
-    "chars": "글자"
+    "chars": "글자",
+    "limit": "글자 제한"
   },
   "ai": {
     "title": "AI assistant",

@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "слова",
-    "chars": "символы"
+    "chars": "символы",
+    "limit": "лимит символов"
   },
   "ai": {
     "title": "AI assistant",

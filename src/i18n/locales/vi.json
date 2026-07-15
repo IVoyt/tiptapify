@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "từ ngữ",
-    "chars": "ký tự"
+    "chars": "ký tự",
+    "limit": "giới hạn ký tự"
   },
   "ai": {
     "title": "AI assistant",

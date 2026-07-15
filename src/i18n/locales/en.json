@@ -170,7 +170,8 @@
   },
   "footer": {
     "words": "words",
-    "chars": "characters"
+    "chars": "characters",
+    "limit": "characters limit"
   },
   "ai": {
     "title": "AI assistant",

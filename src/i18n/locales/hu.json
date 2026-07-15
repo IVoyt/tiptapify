@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "szavak",
-    "chars": "karakterek"
+    "chars": "karakterek",
+    "limit": "karakterkorlát"
   },
   "ai": {
     "title": "AI assistant",

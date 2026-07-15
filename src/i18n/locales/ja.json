@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "単語数",
-    "chars": "文字数"
+    "chars": "文字数",
+    "limit": "文字制限"
   },
   "ai": {
     "title": "AI assistant",

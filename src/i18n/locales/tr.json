@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "kelime",
-    "chars": "karakter"
+    "chars": "karakter",
+    "limit": "karakter sınırı"
   },
   "ai": {
     "title": "AI assistant",

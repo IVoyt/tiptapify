@@ -9,6 +9,8 @@ export { TiptapifyEditor }
 export type variantBtnTypes = 'outlined' | 'plain' | 'flat' | 'text' | 'elevated' | 'tonal' | undefined
 export type variantFieldTypes = 'outlined' | 'plain' | 'filled' | 'solo' | 'solo-filled' | 'solo-inverted' | 'underlined' | undefined
 
+export type TiptapifyFooterAlignment = 'start' | 'center' | 'end'
+
 export type TiptapifyAiMode = 'insert' | 'replace' | 'append'
 
 export type TiptapifyAiPromptExample = {
