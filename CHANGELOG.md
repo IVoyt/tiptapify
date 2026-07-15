@@ -1,5 +1,10 @@
+### 0.2.3
+- Add SVG circular progress indicator with color-coded thresholds
+- Introduce limit, limitDefaultColor, limitAlertColor, limitWarningColor, and footerAlignment props
+- Add TiptapifyFooterAlignment type and footer.limit i18n key
+
 ### 0.2.2
-- re-export VueNodeViewRenderer
+- re-export nodeViewProps, NodeViewWrapper, VueNodeViewRenderer
 
 ### 0.2.1
 - fix highlight and font color extensions

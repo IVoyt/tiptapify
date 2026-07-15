@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "ord",
-    "chars": "tecken"
+    "chars": "tecken",
+    "limit": "teckengräns"
   },
   "ai": {
     "title": "AI assistant",

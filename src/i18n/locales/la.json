@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "vārdi",
-    "chars": "zīmes"
+    "chars": "zīmes",
+    "limit": "zīmju ierobežojums"
   },
   "ai": {
     "title": "AI assistant",

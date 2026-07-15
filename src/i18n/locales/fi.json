@@ -171,7 +171,8 @@
   },
   "footer": {
     "words": "sanaa",
-    "chars": "merkkiä"
+    "chars": "merkkiä",
+    "limit": "merkkien enimmäismäärä"
   },
   "ai": {
     "title": "AI assistant",

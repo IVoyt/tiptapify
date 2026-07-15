@@ -39,7 +39,6 @@ import { toolbarSections } from '@tiptapify/types/toolbarTypes'
 
 // load all languages with "all" or common languages with "common"
 import { common, createLowlight } from 'lowlight'
-
 // create a lowlight instance
 // using all available languages
 const lowlight = createLowlight(common)
