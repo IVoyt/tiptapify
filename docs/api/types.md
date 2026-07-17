@@ -26,6 +26,18 @@ Defines valid values for the `variantField` prop across toolbar dropdown fields.
 type variantFieldTypes = 'outlined' | 'plain' | 'filled' | 'solo' | 'solo-filled' | 'solo-inverted' | 'underlined' | undefined
 ```
 
+## TiptapifyFooterAlignment
+
+Defines valid values for the `footerAlignment` prop on the `<Tiptapify>` component.
+
+```typescript
+type TiptapifyFooterAlignment = 'start' | 'center' | 'end'
+```
+
+```vue
+<Tiptapify footer-alignment="center" />
+```
+
 ## ToolbarSectionsEnum
 
 ```typescript

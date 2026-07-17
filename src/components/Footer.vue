@@ -38,8 +38,9 @@ const percentage = computed(() => {
   return Math.round((100 / props.limit) * editor.value.storage.characterCount.characters())
 })
 const limitText = computed(() => {
-  const current = editor.value.storage.characterCount.characters()
-  return `${t('footer.limit')}<br>${current} / ${props.limit}`
+  const current = editor.value.storage.characterCount.characters().toLocaleString('en-US').replace(/,/g, ' ')
+  const limit = props.limit.toLocaleString('en-US').replace(/,/g, ' ')
+  return `${t('footer.limit')}<br>${current} / ${limit}`
 })
 
 function printStatusItemText(text: string): string {
@@ -69,7 +70,7 @@ function showFooter() {
                 :class="{
                   'character-count': true,
                   'character-count--alert': percentage > 75,
-                  'character-count--warning': editor.storage.characterCount.characters() === limit,
+                  'character-count--warning': editor.storage.characterCount.characters() >= limit,
                 }"
               >
                 <circle r="8" cx="10" cy="10" fill="#e9ecef" />
@@ -92,7 +93,7 @@ function showFooter() {
         </template>
         <template v-for="statusItem in statusItems" :key="statusItem.text">
           <span v-if="statusItem.enabled" class="tiptapify-footer--status-item">
-            {{ printStatusItemText(statusItem.text) }}: {{ statusItem.value }}
+            {{ printStatusItemText(statusItem.text) }}: {{ statusItem.value.toLocaleString('en-US').replace(/,/g, ' ') }}
           </span>
 
           <VDivider class="tiptapify-footer--divider" vertical />

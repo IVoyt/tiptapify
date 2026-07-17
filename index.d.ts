@@ -64,6 +64,8 @@ import Tiptapify from './src/components/Tiptapify.vue'
 import TiptapifyDialog from './src/components/UI/TiptapifyDialog.vue'
 import * as mdi from '@mdi/js'
 
+export type TiptapifyFooterAlignment = 'start' | 'center' | 'end'
+
 export interface TiptapifyOptions {
   i18n?: string
 }

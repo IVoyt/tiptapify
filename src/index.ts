@@ -1,6 +1,7 @@
 import { Plugin } from 'vue'
 import Tiptapify from '@tiptapify/components/Tiptapify.vue'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import { TiptapifyFooterAlignment } from '@tiptapify/types/editor'
 
 import { Editor as TipTapEditor, nodeViewProps, NodeViewWrapper, VueNodeViewRenderer } from '@tiptap/vue-3'
 import { Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
@@ -43,6 +44,7 @@ export {
   mergeAttributes,
 }
 
+export type { TiptapifyFooterAlignment }
 export type { CommandProps, InputRuleMatch, PasteRuleMatch }
 export type {
   TiptapifyAiMode,
