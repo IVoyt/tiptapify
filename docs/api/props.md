@@ -141,10 +141,54 @@ Show character count in the editor footer.
 - **Type:** `Number | null`
 - **Default:** `null`
 
-Maximum number of characters allowed by the Tiptap `CharacterCount` extension. Set `null` or omit the prop to keep unlimited editing.
+Maximum number of characters allowed by the Tiptap `CharacterCount` extension. Set `null` or omit the prop to keep unlimited editing. When set to a value greater than `0`, the footer shows an SVG circular progress indicator with color-coded thresholds.
 
 ```vue
 <Tiptapify :limit="1000" />
+```
+
+### `limitDefaultColor`
+
+- **Type:** `String`
+- **Default:** `'purple'`
+
+Default color of the circular progress indicator shown in the footer when `limit` is set.
+
+```vue
+<Tiptapify :limit="1000" limit-default-color="primary" />
+```
+
+### `limitAlertColor`
+
+- **Type:** `String`
+- **Default:** `'orange'`
+
+Color of the progress indicator when usage exceeds 75% of the limit.
+
+```vue
+<Tiptapify :limit="1000" limit-alert-color="warning" />
+```
+
+### `limitWarningColor`
+
+- **Type:** `String`
+- **Default:** `'red'`
+
+Color of the progress indicator when the character limit has been reached.
+
+```vue
+<Tiptapify :limit="1000" limit-warning-color="error" />
+```
+
+### `footerAlignment`
+
+- **Type:** `TiptapifyFooterAlignment`
+- **Default:** `'end'`
+
+Alignment of the footer status items. Accepts `'start'`, `'center'`, or `'end'`.
+
+```vue
+<Tiptapify footer-alignment="center" />
 ```
 
 ### `ai`

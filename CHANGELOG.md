@@ -1,3 +1,8 @@
+### 0.2.4
+- fix character-count warning threshold
+- export TiptapifyFooterAlignment
+- update docs
+
 ### 0.2.3
 - Add SVG circular progress indicator with color-coded thresholds
 - Introduce limit, limitDefaultColor, limitAlertColor, limitWarningColor, and footerAlignment props
