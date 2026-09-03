@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "Ponovi",
+    "undo": "Razveljavi"
+  },
+  "ai": {
+    "append": "Dodaj na konec",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Razširite to besedilo v podrobnejšo različico.",
+        "title": "Razširi"
+      },
+      "improve": {
+        "prompt": "Izboljšajte jasnost in ton tega besedila.",
+        "title": "Izboljšanje pisanja"
+      },
+      "proofReading": {
+        "prompt": "Popravite gramatiko, pravopis in interpunkcijo, ne da bi spremenili pomen.",
+        "title": "Dokazovanje"
+      },
+      "summarize": {
+        "prompt": "Povzemite to besedilo v kratek odlomek.",
+        "title": "Povzetek"
+      }
+    },
+    "error": "Generiranje AI ni uspelo",
+    "generate": "Generiraj",
+    "insert": "Vstavi",
+    "limit_exceeded": "Rezultat presega omejitev znakov urejevalnika. Skrajšajte besedilo in uporabite znova.",
+    "loading": "Generiranje...",
+    "prompt": "Navodilo",
+    "quick_prompts": "Hitra navodila",
+    "reasoning_effort": "Trud razmišljanja",
+    "replace": "Zamenjaj",
+    "result": "Rezultat",
+    "stop": "Ustavi",
+    "thinking": "Razmišljanje",
+    "title": "AI pisanje",
+    "unavailable": "Konfigurirajte ponudnika AI za uporabo tega dejanja"
+  },
+  "alignment": "Poravnava",
+  "alignments": {
+    "center": "Poravnaj v sredino",
+    "justify": "Poravnaj v bloku",
+    "left": "Poravnaj levo",
+    "right": "Poravnaj desno"
+  },
+  "content": {
+    "placeholder": "Sem nekaj zapišite..."
+  },
+  "defaultValue": "Privzeta vrednost",
+  "dialog": {
+    "apply": "Uporabi",
+    "clear": "Izbriši",
+    "close": "Zapri",
+    "iframe": {
+      "dialog_title": "Dodaj/uredi iframe",
+      "frameborder": "Okvir iframe",
+      "height": "Višina",
+      "name": "Ime",
+      "src": "Vir",
+      "src_invalid": "Vnos ni veljaven naslov URL",
+      "title": "Naslov",
+      "width": "Širina"
+    },
+    "image": {
+      "alt": "Alternativni opis",
+      "dialog_title": "Dodaj/uredi sliko",
+      "height": "Višina",
+      "keep_ratio": "Ohrani razmerje",
+      "src": "Vir",
+      "title": "Dodaj/uredi sliko",
+      "width": "Širina"
+    },
+    "link": {
+      "class": "CSS razred",
+      "href": "Naslov povezave",
+      "href_error": "Neveljaven naslov povezave",
+      "rel": "Rel",
+      "target": "Odpri v...",
+      "target_blank": "Novo okno",
+      "target_self": "Trenutno okno",
+      "title": "Dodaj/uredi povezavo"
+    },
+    "preview": {
+      "title": "Predogled"
+    },
+    "source": {
+      "prettify": "Oblikuj",
+      "title": "Prikaži izvorno kodo"
+    },
+    "video": {
+      "height": "Višina",
+      "src": "Vir",
+      "title": "Dodaj/uredi video",
+      "width": "Širina"
+    }
+  },
+  "footer": {
+    "chars": "znakov",
+    "limit": "omejitev znakov",
+    "words": "besed"
+  },
+  "format": {
+    "blockquote": "Citat",
+    "bold": "Krepko",
+    "break": "Trdi prelom",
+    "code": "Koda",
+    "codeblock": "Blok kode",
+    "formatClear": "Počisti obliko",
+    "italic": "Poškosi",
+    "line": "Vodoravna črta",
+    "strike": "Prečrtano",
+    "sub": "Spodnji indeks",
+    "sup": "Zgornji indeks",
+    "underline": "Podčrtano"
+  },
+  "list": "Seznam",
+  "lists": {
+    "bullet": "Označeni seznam",
+    "indent": "Povečanje odmika elementa seznama",
+    "numbered": "Oštevilčeni seznam",
+    "outdent": "Pomanjšanje odmika elementa seznama",
+    "task": "Seznam nalog"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "Puščice",
+        "box_drawing": "Crtanje okvirov",
+        "currency": "Valuta",
+        "cyrillic": "Kirilica",
+        "diacritics": "Diacritični znaki",
+        "extended_letters": "Razširjena črka",
+        "greek": "Grški črke",
+        "hebrew": "Hebrejščina",
+        "math": "Matematika",
+        "punctuation": "Interpunkcija",
+        "symbols": "Simboli",
+        "typography": "Tipografija"
+      },
+      "noResults": "Ni najdenih ustreznih znakov",
+      "search": "Išči znake...",
+      "title": "Posebni znaki"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "Aktivnosti",
+        "animals_and_nature": "Živali in narava",
+        "component": "Komponenta",
+        "flags": "Zastave",
+        "food_and_drink": "Hrana in pijača",
+        "objects": "Predmeti",
+        "people_and_body": "Ljudje in telo",
+        "smileys_and_emotion": "Smajliki in čustva",
+        "symbols": "Simboli",
+        "travel_and_places": "Popotovanje in kraji"
+      },
+      "search": "Išči emojije...",
+      "title": "Emoji"
+    },
+    "iframe": "iframe",
+    "image": "Slika",
+    "link": "Zunanja povezava",
+    "tables": {
+      "col": "Stolpec",
+      "cols": "Stolpci",
+      "deleteCol": "Izbriši stolpec",
+      "deleteRow": "Izbriši vrstico",
+      "deleteTable": "Izbriši tabelo",
+      "insertColAfter": "Vstavi stolpec za",
+      "insertColBefore": "Vstavi stolpec pred",
+      "insertRowAfter": "Vstavi vrstico za",
+      "insertRowBefore": "Vstavi vrstico pred",
+      "insertTable": "Vstavi tabelo",
+      "insertWithHeaderRow": "Vstavi tabelo z glavo",
+      "mergeCells": "Združi celice",
+      "row": "Vrstica",
+      "rows": "Vrstice",
+      "splitCell": "Razdeli celico",
+      "table": "Tabela"
+    },
+    "video": "Video"
+  },
+  "misc": {
+    "fullscreen": "Celozaslonski način",
+    "preview": "Predogled",
+    "source": "Prikaži izvorno kodo",
+    "toggleInvisibleCharacters": "Prikaži/skrij nevidni znaki"
+  },
+  "style": {
+    "color": {
+      "custom": "Lastna barva",
+      "highlight": "Barva poudarjanja",
+      "text": "Barva besedila",
+      "unset": "Razveljavi barvo"
+    },
+    "fontFamily": "Družina pisave",
+    "fontSize": "Velikost pisave",
+    "heading": "Naslov",
+    "headings": {
+      "h1": "Naslov ravni 1",
+      "h2": "Naslov ravni 2",
+      "h3": "Naslov ravni 3",
+      "h4": "Naslov ravni 4",
+      "h5": "Naslov ravni 5",
+      "h6": "Naslov ravni 6"
+    },
+    "lineHeight": "Višina vrstice",
+    "paragraph": "Odlomek"
+  }
+}

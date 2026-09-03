@@ -54,9 +54,12 @@ export type {
   TiptapifyAiEditorContext,
   TiptapifyAiOpenAiResponse,
   TiptapifyAiPromptExample,
+  TiptapifyAiReasoningEffort,
+  TiptapifyAiReasoningEffortOptions,
   TiptapifyAiProvider,
   TiptapifyAiRequest,
   TiptapifyAiResponse,
   TiptapifyAiStorage,
+  TiptapifyAiStream,
   TiptapifyAiTokenProvider,
 } from '@tiptapify/types/editor'

@@ -34,7 +34,7 @@ const icon = computed(() => editor.value.isActive('tiptapifyLink') ? `mdiSvg:${m
     <BtnIcon :icon="icon" />
   </VBtn>
 
-  <LinkDialog />
+  <LinkDialog :variant-btn="variantBtn" />
 </template>
 
 <style lang="scss" scoped>

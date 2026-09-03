@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Standaardwaarde",
+  "action": {
+    "redo": "Opnieuw",
+    "undo": "Ongedaan maken"
+  },
+  "ai": {
+    "append": "Aan het einde toevoegen",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Breid deze tekst uit tot een gedetailleerdere versie.",
+        "title": "Uitbreiden"
+      },
+      "improve": {
+        "prompt": "Verbeter de helderheid en toon van deze tekst.",
+        "title": "Schrijfsel verbeteren"
+      },
+      "proofReading": {
+        "prompt": "Verbeter grammatica, spelling en interpunctie zonder de betekenis te veranderen.",
+        "title": "Correcties"
+      },
+      "summarize": {
+        "prompt": "Vat deze tekst samen in een beknopte alinea.",
+        "title": "Samenvatten"
+      }
+    },
+    "error": "AI-genereren mislukt",
+    "generate": "Genereren",
+    "insert": "Invoegen",
+    "limit_exceeded": "Het resultaat gaat voorbij aan het tekenslimiet van de editor. Verkort de tekst en pas deze opnieuw toe.",
+    "loading": "Bezig met genereren...",
+    "prompt": "Verzoek",
+    "quick_prompts": "Snelle verzoeken",
+    "reasoning_effort": "Denk-inspanning",
+    "replace": "Vervangen",
+    "result": "Resultaat",
+    "stop": "Stoppen",
+    "thinking": "Nadenken",
+    "title": "Schrijven met AI",
+    "unavailable": "Configureer een AI-aanbieder om deze actie te gebruiken"
+  },
+  "alignment": "Uitlijning",
+  "alignments": {
+    "center": "Centreren",
+    "justify": "Uitvullen",
+    "left": "Links uitlijnen",
+    "right": "Rechts uitlijnen"
+  },
   "content": {
     "placeholder": "Schrijf iets..."
   },
-  "style": {
-    "paragraph": "paragraaf",
-    "heading": "Kop",
-    "headings": {
-      "h1": "Kop niveau 1",
-      "h2": "Kop niveau 2",
-      "h3": "Kop niveau 3",
-      "h4": "Kop niveau 4",
-      "h5": "Kop niveau 5",
-      "h6": "Kop niveau 6"
+  "defaultValue": "Standaardwaarde",
+  "dialog": {
+    "apply": "Toepassen",
+    "clear": "Wissen",
+    "close": "Sluiten",
+    "iframe": {
+      "dialog_title": "Iframe toevoegen/bewerken",
+      "frameborder": "Framrand",
+      "height": "Hoogte",
+      "name": "Naam",
+      "src": "Bron",
+      "src_invalid": "De ingevoerde URL is ongeldig",
+      "title": "Titel",
+      "width": "Breedte"
     },
-    "fontFamily": "Lettertype",
-    "fontSize": "Grootte",
-    "lineHeight": "Regelhoogte",
-    "color": {
-      "highlight": "Markeringskleur",
-      "text": "Tekstkleur",
-      "unset": "Kleur wissen",
-      "custom": "Eigen keuze"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Afbeelding toevoegen/wijzigen",
+      "height": "Hoogte",
+      "keep_ratio": "Verhouding behouden",
+      "src": "Bron",
+      "title": "Titel",
+      "width": "Breedte"
+    },
+    "link": {
+      "class": "CSS klasse",
+      "href": "Linkadres",
+      "href_error": "Ongeldig linkadres",
+      "rel": "rel",
+      "target": "Openen in...",
+      "target_blank": "Nieuw venster",
+      "target_self": "Huidig venster",
+      "title": "Link toevoegen/wijzigen"
+    },
+    "preview": {
+      "title": "Voorvertoning"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Broncode bekijken"
+    },
+    "video": {
+      "height": "Hoogte",
+      "src": "Bron",
+      "title": "Video toevoegen/bewerken",
+      "width": "Breedte"
     }
   },
+  "footer": {
+    "chars": "tekens",
+    "limit": "tekens limiet",
+    "words": "woorden"
+  },
   "format": {
-    "bold": "Vet",
-    "italic": "Cursief",
-    "strike": "Doorhalen",
-    "underline": "Onderstrepen",
-    "sup": "Superscript",
-    "sub": "Subscript",
-    "break": "Regeleinde",
-    "line": "Horizontale lijn",
     "blockquote": "Citaat",
+    "bold": "Vet",
+    "break": "Regeleinde",
     "code": "Code",
     "codeblock": "Codeblok",
-    "formatClear": "Opmaak wissen"
+    "formatClear": "Opmaak wissen",
+    "italic": "Cursief",
+    "line": "Horizontale lijn",
+    "strike": "Doorhalen",
+    "sub": "Subscript",
+    "sup": "Superscript",
+    "underline": "Onderstrepen"
+  },
+  "list": "Lijst",
+  "lists": {
+    "bullet": "Ongenummerde lijst",
+    "indent": "Inspringing verhogen",
+    "numbered": "Genummerde lijst",
+    "outdent": "Inspringing verlagen",
+    "task": "Takenlijst"
   },
   "media": {
-    "link": "Externe link",
-    "iframe": "iframe",
-    "image": "Afbeelding",
+    "charmap": {
+      "categories": {
+        "arrows": "Pijlen",
+        "box_drawing": "Kaders tekenen",
+        "currency": "Valuta",
+        "cyrillic": "Cyrillisch",
+        "diacritics": "Diakritische tekens",
+        "extended_letters": "Uitgebreide letters",
+        "greek": "Griekse letters",
+        "hebrew": "Hebreeuws",
+        "math": "Wiskunde",
+        "punctuation": "Leestekens",
+        "symbols": "Symbolen",
+        "typography": "Typografie"
+      },
+      "noResults": "Geen overeenkomende tekens gevonden",
+      "search": "Tekens zoeken...",
+      "title": "Speciaal teken invoegen"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Zoeken naar emoji...",
       "categories": {
         "activities": "Activiteiten",
         "animals_and_nature": "Dieren en natuur",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Smileys en emoties",
         "symbols": "Symbolen",
         "travel_and_places": "Reizen en plaatsen"
-      }
+      },
+      "search": "Zoeken naar emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Afbeelding",
+    "link": "Externe link",
     "tables": {
-      "table": "Tabel",
-      "insertTable": "Tabel invoegen",
-      "deleteTable": "Tabel verwijderen",
-      "insertWithHeaderRow": "Tabel met kop invoegen",
-      "rows": "Rijen",
-      "row": "Rij",
-      "insertRowBefore": "Rij ervoor invoegen",
-      "insertRowAfter": "Rij erna invoegen",
-      "deleteRow": "Rij verwijderen",
-      "cols": "Kolommen",
       "col": "Kolom",
-      "insertColBefore": "Kolom ervoor invoegen",
-      "insertColAfter": "Kolom erna invoegen",
+      "cols": "Kolommen",
       "deleteCol": "Kolom verwijderen",
+      "deleteRow": "Rij verwijderen",
+      "deleteTable": "Tabel verwijderen",
+      "insertColAfter": "Kolom erna invoegen",
+      "insertColBefore": "Kolom ervoor invoegen",
+      "insertRowAfter": "Rij erna invoegen",
+      "insertRowBefore": "Rij ervoor invoegen",
+      "insertTable": "Tabel invoegen",
+      "insertWithHeaderRow": "Tabel met kop invoegen",
       "mergeCells": "Cellen samenvoegen",
-      "splitCell": "Cel splitsen"
+      "row": "Rij",
+      "rows": "Rijen",
+      "splitCell": "Cel splitsen",
+      "table": "Tabel"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Speciaal teken invoegen",
-      "search": "Tekens zoeken...",
-      "noResults": "Geen overeenkomende tekens gevonden",
-      "categories": {
-        "punctuation": "Leestekens",
-        "symbols": "Symbolen",
-        "math": "Wiskunde",
-        "currency": "Valuta",
-        "greek": "Griekse letters",
-        "extended_letters": "Uitgebreide letters",
-        "diacritics": "Diakritische tekens",
-        "typography": "Typografie",
-        "cyrillic": "Cyrillisch",
-        "hebrew": "Hebreeuws",
-        "arrows": "Pijlen",
-        "box_drawing": "Kaders tekenen"
-      }
-    }
-  },
-  "action": {
-    "undo": "Ongedaan maken",
-    "redo": "Opnieuw"
-  },
-  "alignment": "Uitlijning",
-  "alignments": {
-    "left": "Links uitlijnen",
-    "center": "Centreren",
-    "right": "Rechts uitlijnen",
-    "justify": "Uitvullen"
-  },
-  "list": "Lijst",
-  "lists": {
-    "bullet": "Ongenummerde lijst",
-    "numbered": "Genummerde lijst",
-    "task": "Takenlijst",
-    "indent": "Inspringing verhogen",
-    "outdent": "Inspringing verlagen"
-  },
-  "dialog": {
-    "apply": "Toepassen",
-    "clear": "Wissen",
-    "close": "Sluiten",
-    "iframe": {
-      "dialog_title": "Iframe toevoegen/bewerken",
-      "src": "Bron",
-      "name": "Naam",
-      "title": "Titel",
-      "width": "Breedte",
-      "height": "Hoogte",
-      "frameborder": "Framrand",
-      "src_invalid": "De ingevoerde URL is ongeldig"
-    },
-    "image": {
-      "title": "Titel",
-      "src": "Bron",
-      "keep_ratio": "Verhouding behouden",
-      "alt": "alt",
-      "width": "Breedte",
-      "height": "Hoogte",
-      "dialog_title": "Afbeelding toevoegen/wijzigen"
-    },
-    "link": {
-      "title": "Link toevoegen/wijzigen",
-      "href": "Linkadres",
-      "href_error": "Ongeldig linkadres",
-      "target": "Openen in...",
-      "target_blank": "Nieuw venster",
-      "target_self": "Huidig venster",
-      "rel": "rel",
-      "class": "CSS klasse"
-    },
-    "preview": {
-      "title": "Voorvertoning"
-    },
-    "source": {
-      "title": "Broncode bekijken",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Video toevoegen/bewerken",
-      "src": "Bron",
-      "width": "Breedte",
-      "height": "Hoogte"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Volledig scherm modus",
@@ -169,38 +188,25 @@
     "source": "Broncode bekijken",
     "toggleInvisibleCharacters": "Onzichtbare tekens tonen/verbergen"
   },
-  "footer": {
-    "words": "woorden",
-    "chars": "tekens",
-    "limit": "tekens limiet"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Eigen keuze",
+      "highlight": "Markeringskleur",
+      "text": "Tekstkleur",
+      "unset": "Kleur wissen"
+    },
+    "fontFamily": "Lettertype",
+    "fontSize": "Grootte",
+    "heading": "Kop",
+    "headings": {
+      "h1": "Kop niveau 1",
+      "h2": "Kop niveau 2",
+      "h3": "Kop niveau 3",
+      "h4": "Kop niveau 4",
+      "h5": "Kop niveau 5",
+      "h6": "Kop niveau 6"
+    },
+    "lineHeight": "Regelhoogte",
+    "paragraph": "paragraaf"
   }
 }

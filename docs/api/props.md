@@ -243,6 +243,119 @@ const ai = {
 }
 ```
 
+Streaming output is supported by setting `stream: true` and pushing tokens through the `stream` argument of `aiProvider`. The result field in the AI dialog updates live while chunks arrive, and a **Stop** button cancels the in-flight request:
+
+```ts
+const ai = {
+  stream: true,
+  async aiProvider(request, context, stream) {
+    const response = await fetch('/api/chat/endpoint', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(request),
+      signal: stream?.signal,
+    })
+
+    if (!response.ok || !response.body) {
+      throw new Error('AI request failed')
+    }
+
+    let content = ''
+    let buffer = ''
+    const reader = response.body.getReader()
+    const decoder = new TextDecoder()
+
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) {
+        break
+      }
+
+      buffer += decoder.decode(value, { stream: true })
+      const lines = buffer.split('\n')
+      buffer = lines.pop() ?? ''
+
+      for (const line of lines) {
+        if (!line.startsWith('data: ') || line === 'data: [DONE]') {
+          continue
+        }
+
+        const { choices } = JSON.parse(line.slice(6))
+        const delta = choices?.[0]?.delta ?? {}
+
+        if (delta.reasoning_content) {
+          stream?.onReasoning(delta.reasoning_content)
+        }
+
+        const chunk = delta.content ?? ''
+
+        if (chunk) {
+          content += chunk
+          stream?.onChunk(chunk)
+        }
+      }
+    }
+
+    return { content }
+  },
+}
+```
+
+Pass `stream.signal` to `fetch` (or your SDK call) so the request is cancelled when the user clicks **Stop** or closes the dialog. Partially streamed content stays in the result field and can be applied or discarded. Providers that do not stream can ignore the `stream` argument entirely — it is optional and backward compatible.
+
+Reasoning models (Qwen thinking, DeepSeek, o-series) stream their "thoughts" in a separate `reasoning_content` delta. Forward those chunks through `stream.onReasoning()` — when `showReasoning: true`, the dialog renders them in a collapsible **Thinking** panel above the result field (the panel is hidden by default). Reasoning output is display-only and is never inserted into the editor.
+
+To let the user switch the model's thinking mode per request, set `thinking: true` in the AI options. The dialog then shows a **Thinking** toggle (on by default, reset on each open); the plugin writes the toggle value into the request as `enable_thinking: true | false`, so you no longer need to (or should) set `enable_thinking` yourself in `chatCompletionOptions`:
+
+```vue
+<Tiptapify
+  :content="content"
+  :ai="{
+    aiProvider,
+    model: 'qwen3.8-27b',
+    stream: true,
+    thinking: true,
+  }"
+/>
+```
+
+When `thinking` is `false` or omitted, the toggle is not shown and the plugin sends `enable_thinking: false`, so models that think by default (Qwen3, DeepSeek, …) do not think.
+
+To let the user pick the reasoning effort per request, set `reasoningEffort` in the AI options. The dialog then shows a **Reasoning effort** dropdown filled from `options` — custom effort levels (`'low' | 'medium' | 'high'`).
+The extension always adds a `default` item to the dropdown itself (the thinking-mode baseline), so you never list `default` in your config; the `default` field of the option preselects one of your custom levels when the dialog opens (otherwise `default` is preselected), and the value resets on each open.
+The selected value decides what the plugin writes into the request: `default` keeps the thinking mode — the **Thinking** toggle stays active and controls `enable_thinking`; any other value is sent as `reasoning_effort` instead, and the Thinking toggle is disabled while that value is selected (providers reject `enable_thinking` and `reasoning_effort` in a single request).
+The dropdown is only shown when `thinking` is enabled and the Thinking toggle is on — turning thinking off hides it and `reasoning_effort` is not sent (the request falls back to `enable_thinking: false`). When `options` is missing or empty the dropdown is not rendered at all:
+
+```vue
+<Tiptapify
+  :content="content"
+  :ai="{
+    aiProvider,
+    model: 'qwen3.8-27b',
+    stream: true,
+    thinking: true,
+    reasoningEffort: {
+      options: ['low', 'medium', 'high'],
+    },
+  }"
+/>
+```
+
+The **Thinking** panel is hidden by default (`showReasoning` defaults to `false`). Set `showReasoning: true` to show a collapsible panel that streams the model's reasoning process (`reasoning_content` delta) while keeping thinking on — the model still reasons and the result is applied the same way, only the step-by-step reasoning is additionally displayed:
+
+```vue
+<Tiptapify
+  :content="content"
+  :ai="{
+    aiProvider,
+    model: 'qwen3.8-27b',
+    stream: true,
+    thinking: true,
+    showReasoning: true,
+  }"
+/>
+```
+
 Custom prompt examples replace the localized defaults:
 
 ```vue
@@ -262,7 +375,23 @@ Custom prompt examples replace the localized defaults:
 
 `tokenProvider` and `storage` are optional consumer-owned hooks for direct browser integrations. API keys or provider tokens placed in browser code or browser storage are visible to users and must not be treated as secrets. Prefer the backend adapter pattern above for production secrets.
 
-Use `mode: 'insert' | 'replace' | 'append'` to override the default apply behavior. By default, AI output replaces the captured selection when text was selected and inserts at the cursor otherwise.
+Use `mode: 'insert' | 'replace' | 'append'` to preselect the insert mode on the dialog's action button (**Insert** / **Replace** / **Append**). Without `mode`, the button defaults to **Replace** when text is selected when the dialog is opened and to **Insert** otherwise. The action button is a split button: the main part applies the result in the preselected mode, and a small "more" (⋮) section on its right opens a menu listing the other modes — clicking one applies the result in that mode immediately.
+
+When the editor has a `limit` (character count limit), a `generated / limit` character counter is shown below the result field as soon as a result is generated (it updates live while streaming and turns a soft red when the limit would be exceeded).
+The dialog also shows the `ai.limit_exceeded` warning right after generation if the AI output would exceed the limit.
+In that state the **Insert** button and its alternative-mode menu are disabled — the `CharacterCount` extension rejects any insert that would grow the document past the limit, so the result is applied all-or-nothing: it is inserted fully when it fits, or not inserted at all when it exceeds the limit.
+Shorten the result to re-enable the action:
+
+```vue
+<Tiptapify
+  :content="content"
+  :limit="300"
+  :ai="{
+    aiProvider,
+    model: 'gpt-4.1-mini',
+  }"
+/>
+```
 
 Use `systemPrompt`, `temperature`, `chatCompletionOptions`, or `createMessages(context)` to customize the OpenAI-compatible chat-completions request. `context` contains `{ prompt, selectedText, text, html, json, mode }`.
 

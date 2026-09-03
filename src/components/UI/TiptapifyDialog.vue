@@ -144,7 +144,8 @@ onBeforeUnmount(() => {
     <VCard>
       <VCardTitle
         ref="movableHandler"
-        :class="`d-flex ${!fullscreen ? 'tiptapify-movable-handler' : ''}`"
+        class="tiptapify-dialog-header"
+        :class="!fullscreen ? 'tiptapify-movable-handler' : ''"
         style="user-select: none;"
       >
         <VLabel>
@@ -168,6 +169,11 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
+  .tiptapify-dialog-header {
+    align-items: center;
+    display: flex;
+  }
+
   :deep(.v-overlay__content) {
     position: fixed;
   }

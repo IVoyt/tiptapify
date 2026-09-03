@@ -38,5 +38,5 @@ function showDialog() {
     <BtnIcon :icon="icon" />
   </VBtn>
 
-  <AiDialog ref="dialog" />
+  <AiDialog ref="dialog" :variant-btn="variantBtn" />
 </template>

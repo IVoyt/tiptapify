@@ -3,6 +3,7 @@
 import { Editor } from '@tiptap/vue-3'
 import defaults from '@tiptapify/constants/defaults'
 import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
+import { isValidHref } from '@tiptapify/utils/validateHref'
 
 import { computed, inject, onMounted, onUnmounted, PropType, Ref, ref, useTemplateRef, watch } from 'vue'
 
@@ -86,25 +87,7 @@ onUnmounted(() => {
 })
 
 watch(() => attrs.value.href, () => {
-  const azAZ09 = 'a-zA-Z0-9'
-
-  const regexHrefProto = 'https?:\\/\\/'
-  const regexHrefAuth = `([${azAZ09}]+(:[${azAZ09}]+)?@)?`
-  const regexHrefDomain = `[${azAZ09}]+(\\.[${azAZ09}]+(-?[${azAZ09}]+)?)+`
-  const regexHrefPath = `(\\/[${azAZ09}\\-]+)*`
-  const regexHrefFragment = '(#[^\\s]*)?'
-  const regexHrefQueryParam = `(\\?[${azAZ09}\\-_]+((\\[[${azAZ09}]+\\])?=[${azAZ09}\\-_%]+)?)?`
-  const regexHrefQueryParamExtra = `(&[${azAZ09}\\-_]+((\\[[${azAZ09}]+\\])?=[${azAZ09}\\-_%]+)?)*`
-  const regexHref = `${regexHrefProto}${regexHrefAuth}${regexHrefDomain}${regexHrefPath}${regexHrefFragment}${regexHrefQueryParam}${regexHrefQueryParamExtra}`
-
-  const regexMailto = `mailto:\\w+@[${azAZ09}]+(\\.[${azAZ09}]+)*`
-  const regexTel = 'tel:\\+?[0-9]+'
-
-  const regexAll = [regexHref, regexMailto, regexTel].join('|')
-
-  const regex = new RegExp(`^(${regexAll})$`, 'i')
-
-  hrefInvalid.value = (attrs.value.href || '') !== '' && !regex.test(attrs.value.href)
+  hrefInvalid.value = (attrs.value.href || '') !== '' && !isValidHref(attrs.value.href)
 })
 </script>
 
@@ -112,8 +95,8 @@ watch(() => attrs.value.href, () => {
   <TiptapifyDialog ref="dialog" module="link">
     <template #content>
       <VCardText>
-        <VRow>
-          <VCol cols="12">
+        <div class="tiptapify-dialog-grid">
+          <div class="tiptapify-dialog-col">
             <VTextField
               v-model="attrs.href"
               density="compact"
@@ -122,9 +105,9 @@ watch(() => attrs.value.href, () => {
               :error-messages="hrefInvalid ? t('dialog.link.href_error') : ''"
               autofocus
             />
-          </VCol>
+          </div>
 
-          <VCol cols="12" md="4">
+          <div class="tiptapify-dialog-col tiptapify-dialog-col--4">
             <VSelect
               v-model="attrs.target"
               :items="targetAttrs"
@@ -133,13 +116,13 @@ watch(() => attrs.value.href, () => {
               return-object
               density="compact"
             />
-          </VCol>
+          </div>
 
-          <VCol cols="12" md="8">
+          <div class="tiptapify-dialog-col tiptapify-dialog-col--8">
             <VTextField v-model="attrs.cssClass" density="compact" variant="outlined" :label="t('dialog.link.class')" />
-          </VCol>
+          </div>
 
-          <VCol cols="12">
+          <div class="tiptapify-dialog-col">
             <VSelect
               v-model="attrs.rel"
               :items="relAttrs"
@@ -151,28 +134,28 @@ watch(() => attrs.value.href, () => {
               clearable
               density="compact"
             />
-          </VCol>
-        </VRow>
+          </div>
+        </div>
       </VCardText>
     </template>
 
     <template #actions>
       <VCardActions>
-        <VRow>
-          <VCol class="d-flex justify-start">
+        <div class="tiptapify-dialog-actions">
+          <div class="tiptapify-dialog-actions__start">
             <VBtn v-if="editor.isActive('link')" color="warning" :variant="variantBtn" :disabled="isDisabled" @click="clear">
               {{ t('dialog.clear') }}
             </VBtn>
-          </VCol>
-          <VCol class="d-flex justify-end">
-            <VBtn :variant="variantBtn" class="mr-2" @click="close">
+          </div>
+          <div class="tiptapify-dialog-actions__end">
+            <VBtn :variant="variantBtn" @click="close">
               {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled || hrefInvalid" @click="apply">
               {{ t('dialog.apply') }}
             </VBtn>
-          </VCol>
-        </VRow>
+          </div>
+        </div>
       </VCardActions>
     </template>
   </TiptapifyDialog>

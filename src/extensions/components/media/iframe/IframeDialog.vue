@@ -113,8 +113,8 @@ watch(() => attrs.value.src, () => {
   <TiptapifyDialog ref="dialog" module="iframe" :title="t('dialog.iframe.dialog_title')" :max-width="800">
     <template #content>
       <VCardText>
-        <VRow>
-          <VCol cols="12">
+        <div class="tiptapify-dialog-grid">
+          <div class="tiptapify-dialog-col">
             <VTextField
               v-model="attrs.src"
               density="compact"
@@ -122,23 +122,23 @@ watch(() => attrs.value.src, () => {
               :label="t('dialog.iframe.src')"
               :error-messages="srcInvalid ? t('dialog.iframe.src_invalid') : ''"
             />
-          </VCol>
+          </div>
 
-          <VCol cols="12" md="6">
-            <VRow>
-              <VCol cols="12">
+          <div class="tiptapify-dialog-col tiptapify-dialog-col--6">
+            <div class="tiptapify-dialog-grid">
+              <div class="tiptapify-dialog-col">
                 <VTextField v-model="attrs.name" density="compact" variant="outlined" :label="t('dialog.iframe.name')" />
-              </VCol>
+              </div>
 
-              <VCol cols="12">
+              <div class="tiptapify-dialog-col">
                 <VTextField v-model="attrs.title" density="compact" variant="outlined" :label="t('dialog.iframe.title')" />
-              </VCol>
-            </VRow>
-          </VCol>
+              </div>
+            </div>
+          </div>
 
-          <VCol cols="12" md="6">
-            <VRow>
-              <VCol cols="12" md="6">
+          <div class="tiptapify-dialog-col tiptapify-dialog-col--6">
+            <div class="tiptapify-dialog-grid">
+              <div class="tiptapify-dialog-col tiptapify-dialog-col--6">
                 <VTextField
                   v-model="attrs.width"
                   type="number"
@@ -148,9 +148,9 @@ watch(() => attrs.value.src, () => {
                   :min="1"
                   :label="t('dialog.iframe.width')"
                 />
-              </VCol>
+              </div>
 
-              <VCol cols="12" md="6">
+              <div class="tiptapify-dialog-col tiptapify-dialog-col--6">
                 <VTextField
                   v-model="attrs.height"
                   type="number"
@@ -160,34 +160,39 @@ watch(() => attrs.value.src, () => {
                   :min="1"
                   :label="t('dialog.iframe.height')"
                 />
-              </VCol>
+              </div>
 
-              <VCol cols="12" class="ml-2">
-                <VSwitch v-model="attrs.frameborder" density="compact" :hide-details="true" :label="t('dialog.iframe.frameborder')" />
-              </VCol>
-            </VRow>
-          </VCol>
-        </VRow>
+              <div class="tiptapify-dialog-col">
+                <VSwitch
+                  v-model="attrs.frameborder"
+                  density="compact"
+                  :hide-details="true"
+                  :label="t('dialog.iframe.frameborder')"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </VCardText>
     </template>
 
     <template #actions>
       <VCardActions>
-        <VRow>
-          <VCol class="d-flex justify-start">
+        <div class="tiptapify-dialog-actions">
+          <div class="tiptapify-dialog-actions__start">
             <VBtn v-if="editor.isActive('image')" color="warning" :variant="variantBtn" :disabled="isDisabled" @click="clear">
               {{ t('dialog.clear') }}
             </VBtn>
-          </VCol>
-          <VCol class="d-flex justify-end">
-            <VBtn :variant="variantBtn" class="mr-2" @click="close">
+          </div>
+          <div class="tiptapify-dialog-actions__end">
+            <VBtn :variant="variantBtn" @click="close">
               {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled" @click="apply">
               {{ t('dialog.apply') }}
             </VBtn>
-          </VCol>
-        </VRow>
+          </div>
+        </div>
       </VCardActions>
     </template>
   </TiptapifyDialog>

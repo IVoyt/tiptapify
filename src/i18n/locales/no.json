@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "Gjør om",
+    "undo": "Angre"
+  },
+  "ai": {
+    "append": "Legg til i slutten",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Utvid denne teksten til en mer detaljert versjon.",
+        "title": "Utvid"
+      },
+      "improve": {
+        "prompt": "Forbedr tydeligheten og tonen i denne teksten.",
+        "title": "Forbedre skriving"
+      },
+      "proofReading": {
+        "prompt": "Rett opp på grammatikk, stavefeil og tegnføring uten å endre meningen.",
+        "title": "Staverevisjon"
+      },
+      "summarize": {
+        "prompt": "Oppsummer denne teksten i en konsis paragraf.",
+        "title": "Oppsummer"
+      }
+    },
+    "error": "AI-genereringen feilet",
+    "generate": "Generer",
+    "insert": "Sett inn",
+    "limit_exceeded": "Resultatet overskrider redigeringsverktøgets tegnlimit. Forkort teksten og bruk igjen.",
+    "loading": "Genererer...",
+    "prompt": "Prompt",
+    "quick_prompts": "Hurtigprompts",
+    "reasoning_effort": "Resonnementsevne",
+    "replace": "Erstatt",
+    "result": "Resultat",
+    "stop": "Stopp",
+    "thinking": "Tenker",
+    "title": "AI-skriving",
+    "unavailable": "Konfigurer en AI-leverandør for å bruke denne handlingen"
+  },
+  "alignment": "Justering",
+  "alignments": {
+    "center": "Midtstill",
+    "justify": "Fulljuster",
+    "left": "Venstrestill",
+    "right": "Høyrestill"
+  },
+  "content": {
+    "placeholder": "Skriv noe her..."
+  },
+  "defaultValue": "Standardverdi",
+  "dialog": {
+    "apply": "Bruk",
+    "clear": "Tøm",
+    "close": "Lukk",
+    "iframe": {
+      "dialog_title": "Legg til/rediger iframe",
+      "frameborder": "Iframe-ramme",
+      "height": "Høyde",
+      "name": "Navn",
+      "src": "Kilde",
+      "src_invalid": "Inndataen er ikke en gyldig URL",
+      "title": "Tittel",
+      "width": "Bredd"
+    },
+    "image": {
+      "alt": "Alternativ tekst",
+      "dialog_title": "Legg til/rediger bilde",
+      "height": "Høyde",
+      "keep_ratio": "Behold proporsjon",
+      "src": "Kilde",
+      "title": "Legg til/rediger bilde",
+      "width": "Bredd"
+    },
+    "link": {
+      "class": "CSS-klasse",
+      "href": "Lenkeadresse",
+      "href_error": "Ugyldig lenkeadresse",
+      "rel": "Rel",
+      "target": "Åpne i...",
+      "target_blank": "Nytt vindu",
+      "target_self": "Gjeldende vindu",
+      "title": "Legg til/rediger lenke"
+    },
+    "preview": {
+      "title": "Forhåndsvisning"
+    },
+    "source": {
+      "prettify": "Formater",
+      "title": "Vis kildekode"
+    },
+    "video": {
+      "height": "Høyde",
+      "src": "Kilde",
+      "title": "Legg til/rediger video",
+      "width": "Bredd"
+    }
+  },
+  "footer": {
+    "chars": "tegn",
+    "limit": "tegnlimit",
+    "words": "ord"
+  },
+  "format": {
+    "blockquote": "Siter",
+    "bold": "Fet",
+    "break": "Tvangsbrudd",
+    "code": "Kode",
+    "codeblock": "Kodeblokk",
+    "formatClear": "Fjern formatering",
+    "italic": "Kursiv",
+    "line": "Vannrett linje",
+    "strike": "Gjennomstreking",
+    "sub": "Sunket skrift",
+    "sup": "Hevet skrift",
+    "underline": "Understreking"
+  },
+  "list": "Liste",
+  "lists": {
+    "bullet": "Punktliste",
+    "indent": "Innrykk i listepunkt",
+    "numbered": "Nummerert liste",
+    "outdent": "Utrrykk i listepunkt",
+    "task": "Oppgaveliste"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "Piler",
+        "box_drawing": "Bokstrekning",
+        "currency": "Valuta",
+        "cyrillic": "Kyrillisk",
+        "diacritics": "Diacritiske tegn",
+        "extended_letters": "Utvidede bokstaver",
+        "greek": "Greske bokstaver",
+        "hebrew": "Hebraisk",
+        "math": "Matematikk",
+        "punctuation": "Tegnføring",
+        "symbols": "Symboler",
+        "typography": "Typografi"
+      },
+      "noResults": "Ingen tilsvarende tegn funnet",
+      "search": "Søk tegn...",
+      "title": "Spesialtegn"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "Aktiviteter",
+        "animals_and_nature": "Dyr og natur",
+        "component": "Komponent",
+        "flags": "Flagg",
+        "food_and_drink": "Mat og drikke",
+        "objects": "Gjenstander",
+        "people_and_body": "Folk og kropp",
+        "smileys_and_emotion": "Smileys og følelser",
+        "symbols": "Symboler",
+        "travel_and_places": "Reiser og steder"
+      },
+      "search": "Søk emojier...",
+      "title": "Emoji"
+    },
+    "iframe": "iframe",
+    "image": "Bilde",
+    "link": "Eksterne lenke",
+    "tables": {
+      "col": "Kolonne",
+      "cols": "Kolonner",
+      "deleteCol": "Slett kolonne",
+      "deleteRow": "Slett rad",
+      "deleteTable": "Slett tabell",
+      "insertColAfter": "Sett inn kolonne etter",
+      "insertColBefore": "Sett inn kolonne før",
+      "insertRowAfter": "Sett inn rad etter",
+      "insertRowBefore": "Sett inn rad før",
+      "insertTable": "Sett inn tabell",
+      "insertWithHeaderRow": "Sett inn tabell med headerrad",
+      "mergeCells": "Slå sammen celler",
+      "row": "Rad",
+      "rows": "Rader",
+      "splitCell": "Del celle",
+      "table": "Tabell"
+    },
+    "video": "Video"
+  },
+  "misc": {
+    "fullscreen": "Fullskjermmodus",
+    "preview": "Forhåndsvisning",
+    "source": "Vis kildekode",
+    "toggleInvisibleCharacters": "Vis/skjul usynlige tegn"
+  },
+  "style": {
+    "color": {
+      "custom": "Tilpasset farge",
+      "highlight": "Markeringsfarge",
+      "text": "Tekstfarge",
+      "unset": "Fjern farge"
+    },
+    "fontFamily": "Skriftfamilie",
+    "fontSize": "Skriftstørrelse",
+    "heading": "Overskrift",
+    "headings": {
+      "h1": "Overskrift nivå 1",
+      "h2": "Overskrift nivå 2",
+      "h3": "Overskrift nivå 3",
+      "h4": "Overskrift nivå 4",
+      "h5": "Overskrift nivå 5",
+      "h6": "Overskrift nivå 6"
+    },
+    "lineHeight": "Linjehøyde",
+    "paragraph": "Avsnitt"
+  }
+}

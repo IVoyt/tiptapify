@@ -12,7 +12,7 @@ const props = defineProps({
   floatingMenu: { type: Boolean, default() { return false } },
   slashCommands: { type: [Boolean,Array<string>], default() { return true } },
   placeholder: { type: String, default() { return 'Start typing...' } },
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return 'solo' } },
+  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return 'elevated' } },
   aiDemo: { type: Boolean, default() { return false } },
 })
 

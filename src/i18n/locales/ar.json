@@ -1,50 +1,149 @@
 {
-  "defaultValue": "القيمة الافتراضية",
+  "action": {
+    "redo": "إعادة",
+    "undo": "تراجع"
+  },
+  "ai": {
+    "append": "أضف في النهاية",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "وسّع هذا النص إلى إصدار أكثر تفصيلاً.",
+        "title": "توسيع"
+      },
+      "improve": {
+        "prompt": "حسّن وضوح ونبرة هذا النص.",
+        "title": "تحسين الكتابة"
+      },
+      "proofReading": {
+        "prompt": "صحّح القواعد والإملاء والترقيم دون تغيير المعنى.",
+        "title": "دقة القراءة"
+      },
+      "summarize": {
+        "prompt": "لخّص هذا النص في فقرة موجزة.",
+        "title": "تلخيص"
+      }
+    },
+    "error": "فشل توليد الذكاء الاصطناعي",
+    "generate": "توليد",
+    "insert": "إدراج",
+    "limit_exceeded": "يتجاوز الناتج حد الأحرف في المحرر. قصّر النص وطبّقه مرة أخرى.",
+    "loading": "جارٍ التوليد...",
+    "prompt": "الطلب",
+    "quick_prompts": "طلبات سريعة",
+    "reasoning_effort": "مستوى التفكير",
+    "replace": "استبدال",
+    "result": "النتيجة",
+    "stop": "إيقاف",
+    "thinking": "التفكير",
+    "title": "الكتابة بالذكاء الاصطناعي",
+    "unavailable": "قم بتكوين مزوّد ذكاء اصطناعي لاستخدام هذا الإجراء"
+  },
+  "alignment": "محاذاة",
+  "alignments": {
+    "center": "محاذاة إلى المنتصف",
+    "justify": "ضبط",
+    "left": "محاذاة لليسار",
+    "right": "محاذاة لليمين"
+  },
   "content": {
     "placeholder": "اكتب شيئاً..."
   },
-  "style": {
-    "paragraph": "فقرة",
-    "heading": "عنوان رئيسي",
-    "headings": {
-      "h1": "عنوان المستوى الأول",
-      "h2": "عنوان المستوى الثاني",
-      "h3": "عنوان المستوى الثالث",
-      "h4": "عنوان المستوى الرابع",
-      "h5": "عنوان المستوى الخامس",
-      "h6": "عنوان المستوى السادس"
+  "defaultValue": "القيمة الافتراضية",
+  "dialog": {
+    "apply": "تطبيق",
+    "clear": "مسح",
+    "close": "إغلاق",
+    "iframe": {
+      "dialog_title": "إضافة/تعديل إطار مضمن",
+      "frameborder": "حدود الإطار",
+      "height": "الارتفاع",
+      "name": "الاسم",
+      "src": "المصدر",
+      "src_invalid": "عنوان URL المدخل غير صالح",
+      "title": "العنوان",
+      "width": "العرض"
     },
-    "fontFamily": "عائلة الخطوط",
-    "fontSize": "حجم الخط",
-    "lineHeight": "ارتفاع السطر",
-    "color": {
-      "highlight": "لون التحديد",
-      "text": "لون النص",
-      "unset": "إزالة اللون",
-      "custom": "تحديد مخصص"
+    "image": {
+      "alt": "نص بديل",
+      "dialog_title": "إضافة/تعديل صورة",
+      "height": "الارتفاع",
+      "keep_ratio": "الحفاظ على نسبة العرض إلى الارتفاع",
+      "src": "المصدر",
+      "title": "العنوان",
+      "width": "العرض"
+    },
+    "link": {
+      "class": "فئة CSS",
+      "href": "عنوان الرابط",
+      "href_error": "عنوان رابط غير صالح",
+      "rel": "نسبة",
+      "target": "افتح في...",
+      "target_blank": "نافذة جديدة",
+      "target_self": "النافذة الحالية",
+      "title": "إضافة/تعديل رابط"
+    },
+    "preview": {
+      "title": "معاينة"
+    },
+    "source": {
+      "prettify": "تنسيق",
+      "title": "عرض كود المصدر"
+    },
+    "video": {
+      "height": "الارتفاع",
+      "src": "المصدر",
+      "title": "إضافة/تعديل فيديو",
+      "width": "العرض"
     }
   },
+  "footer": {
+    "chars": "حروف",
+    "limit": "حد الأحرف",
+    "words": "كلمات"
+  },
   "format": {
-    "bold": "عريض",
-    "italic": "مائل",
-    "strike": "مشطوب",
-    "underline": "تسطير",
-    "sup": "أس فوق السطر",
-    "sub": "أس تحت السطر",
-    "break": "كسر سطر قسري",
-    "line": "خط أفقي",
     "blockquote": "اقتباس",
+    "bold": "عريض",
+    "break": "كسر سطر قسري",
     "code": "شفرة برمجية",
     "codeblock": "كتلة شفرة",
-    "formatClear": "مسح التنسيق"
+    "formatClear": "مسح التنسيق",
+    "italic": "مائل",
+    "line": "خط أفقي",
+    "strike": "مشطوب",
+    "sub": "أس تحت السطر",
+    "sup": "أس فوق السطر",
+    "underline": "تسطير"
+  },
+  "list": "قائمة",
+  "lists": {
+    "bullet": "قائمة غير مرقمة",
+    "indent": "زيادة المسافة البادئة",
+    "numbered": "قائمة مرقمة",
+    "outdent": "تقليل المسافة البادئة",
+    "task": "قائمة مهام"
   },
   "media": {
-    "link": "رابط خارجي",
-    "iframe": "إطار مضمن",
-    "image": "صورة",
+    "charmap": {
+      "categories": {
+        "arrows": "أسهم",
+        "box_drawing": "رسم صناديق",
+        "currency": "عملة",
+        "cyrillic": "سيريلية",
+        "diacritics": "علامات تشكيلية",
+        "extended_letters": "حروف موسعة",
+        "greek": "حروف يونانية",
+        "hebrew": "عبرية",
+        "math": "رياضيات",
+        "punctuation": "ترقيم",
+        "symbols": "رموز",
+        "typography": "طباعة"
+      },
+      "noResults": "لم يتم العثور على أحرف مطابقة",
+      "search": "بحث عن أحرف...",
+      "title": "إدراج حرف خاص"
+    },
     "emoji": {
-      "title": "رموز تعبيرية",
-      "search": "البحث عن رموز تعبيرية...",
       "categories": {
         "activities": "أنشطة",
         "animals_and_nature": "حيوانات وطبيعة",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "ابتسامات ومشاعر",
         "symbols": "رموز",
         "travel_and_places": "سفر وأماكن"
-      }
+      },
+      "search": "البحث عن رموز تعبيرية...",
+      "title": "رموز تعبيرية"
     },
+    "iframe": "إطار مضمن",
+    "image": "صورة",
+    "link": "رابط خارجي",
     "tables": {
-      "table": "جدول",
-      "insertTable": "إدراج جدول",
-      "deleteTable": "حذف جدول",
-      "insertWithHeaderRow": "إدراج جدول مع صف ترويسة",
-      "rows": "صفوف",
-      "row": "صف",
-      "insertRowBefore": "إدراج صف قبل",
-      "insertRowAfter": "إدراج صف بعد",
-      "deleteRow": "حذف صف",
-      "cols": "أعمدة",
       "col": "عمود",
-      "insertColBefore": "إدراج عمود قبل",
-      "insertColAfter": "إدراج عمود بعد",
+      "cols": "أعمدة",
       "deleteCol": "حذف عمود",
+      "deleteRow": "حذف صف",
+      "deleteTable": "حذف جدول",
+      "insertColAfter": "إدراج عمود بعد",
+      "insertColBefore": "إدراج عمود قبل",
+      "insertRowAfter": "إدراج صف بعد",
+      "insertRowBefore": "إدراج صف قبل",
+      "insertTable": "إدراج جدول",
+      "insertWithHeaderRow": "إدراج جدول مع صف ترويسة",
       "mergeCells": "دمج الخلايا",
-      "splitCell": "تقسيم الخلية"
+      "row": "صف",
+      "rows": "صفوف",
+      "splitCell": "تقسيم الخلية",
+      "table": "جدول"
     },
-    "video": "فيديو",
-    "charmap": {
-      "title": "إدراج حرف خاص",
-      "search": "بحث عن أحرف...",
-      "noResults": "لم يتم العثور على أحرف مطابقة",
-      "categories": {
-        "punctuation": "ترقيم",
-        "symbols": "رموز",
-        "math": "رياضيات",
-        "currency": "عملة",
-        "greek": "حروف يونانية",
-        "extended_letters": "حروف موسعة",
-        "diacritics": "علامات تشكيلية",
-        "typography": "طباعة",
-        "cyrillic": "سيريلية",
-        "hebrew": "عبرية",
-        "arrows": "أسهم",
-        "box_drawing": "رسم صناديق"
-      }
-    }
-  },
-  "action": {
-    "undo": "تراجع",
-    "redo": "إعادة"
-  },
-  "alignment": "محاذاة",
-  "alignments": {
-    "left": "محاذاة لليسار",
-    "center": "محاذاة إلى المنتصف",
-    "right": "محاذاة لليمين",
-    "justify": "ضبط"
-  },
-  "list": "قائمة",
-  "lists": {
-    "bullet": "قائمة غير مرقمة",
-    "numbered": "قائمة مرقمة",
-    "task": "قائمة مهام",
-    "indent": "زيادة المسافة البادئة",
-    "outdent": "تقليل المسافة البادئة"
-  },
-  "dialog": {
-    "apply": "تطبيق",
-    "clear": "مسح",
-    "close": "إغلاق",
-    "iframe": {
-      "dialog_title": "إضافة/تعديل إطار مضمن",
-      "src": "المصدر",
-      "name": "الاسم",
-      "title": "العنوان",
-      "width": "العرض",
-      "height": "الارتفاع",
-      "frameborder": "حدود الإطار",
-      "src_invalid": "عنوان URL المدخل غير صالح"
-    },
-    "image": {
-      "title": "العنوان",
-      "src": "المصدر",
-      "keep_ratio": "الحفاظ على نسبة العرض إلى الارتفاع",
-      "alt": "نص بديل",
-      "width": "العرض",
-      "height": "الارتفاع",
-      "dialog_title": "إضافة/تعديل صورة"
-    },
-    "link": {
-      "title": "إضافة/تعديل رابط",
-      "href": "عنوان الرابط",
-      "href_error": "عنوان رابط غير صالح",
-      "target": "افتح في...",
-      "target_blank": "نافذة جديدة",
-      "target_self": "النافذة الحالية",
-      "rel": "نسبة",
-      "class": "فئة CSS"
-    },
-    "preview": {
-      "title": "معاينة"
-    },
-    "source": {
-      "title": "عرض كود المصدر",
-      "prettify": "تنسيق"
-    },
-    "video": {
-      "title": "إضافة/تعديل فيديو",
-      "src": "المصدر",
-      "width": "العرض",
-      "height": "الارتفاع"
-    }
+    "video": "فيديو"
   },
   "misc": {
     "fullscreen": "وضع ملء الشاشة",
@@ -169,38 +188,25 @@
     "source": "عرض كود المصدر",
     "toggleInvisibleCharacters": "إظهار/إخفاء الأحرف غير المرئية"
   },
-  "footer": {
-    "words": "كلمات",
-    "chars": "حروف",
-    "limit": "حد الأحرف"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "تحديد مخصص",
+      "highlight": "لون التحديد",
+      "text": "لون النص",
+      "unset": "إزالة اللون"
+    },
+    "fontFamily": "عائلة الخطوط",
+    "fontSize": "حجم الخط",
+    "heading": "عنوان رئيسي",
+    "headings": {
+      "h1": "عنوان المستوى الأول",
+      "h2": "عنوان المستوى الثاني",
+      "h3": "عنوان المستوى الثالث",
+      "h4": "عنوان المستوى الرابع",
+      "h5": "عنوان المستوى الخامس",
+      "h6": "عنوان المستوى السادس"
+    },
+    "lineHeight": "ارتفاع السطر",
+    "paragraph": "فقرة"
   }
 }

@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "ביצוע מחדש",
+    "undo": "ביטול"
+  },
+  "ai": {
+    "append": "הוסף לסוף",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "הרחב את הטקסט הזה לגרסה מפורטת יותר.",
+        "title": "הרחבה"
+      },
+      "improve": {
+        "prompt": "שפר את בהירות הטקסט ואת הטון שלו.",
+        "title": "שיפור כתיבה"
+      },
+      "proofReading": {
+        "prompt": "תקן דקדוק, איות וניקוד ללא שינוי המשמעות.",
+        "title": "בדיקת ניסוח"
+      },
+      "summarize": {
+        "prompt": "לחבר תקציר של הטקסט הזה.",
+        "title": "סיכום"
+      }
+    },
+    "error": "הפקת ה־AI נכשלה",
+    "generate": "ייצור",
+    "insert": "הכנסה",
+    "limit_exceeded": "התוצאה עוקפת את מגבלת התווים של העורך. קצר את הטקסט והפעל שוב.",
+    "loading": "מייצר...",
+    "prompt": "הנעה",
+    "quick_prompts": "הנעות מהירות",
+    "reasoning_effort": "מאמץ חשיבה",
+    "replace": "החלף",
+    "result": "תוצאה",
+    "stop": "עצור",
+    "thinking": "מחשב",
+    "title": "כתיבה AI",
+    "unavailable": "הגדר ספק AI כדי להשתמש בפעולה זו"
+  },
+  "alignment": "יישור",
+  "alignments": {
+    "center": "מרכז",
+    "justify": "יישור משני הצדדים",
+    "left": "לשמאל",
+    "right": "לימין"
+  },
+  "content": {
+    "placeholder": "כתוב משהו כאן..."
+  },
+  "defaultValue": "ערך ברירת מחדל",
+  "dialog": {
+    "apply": "יישום",
+    "clear": "נקה",
+    "close": "סגור",
+    "iframe": {
+      "dialog_title": "הוסף/ערוך iframe",
+      "frameborder": "גבול iframe",
+      "height": "גובה",
+      "name": "שם",
+      "src": "מקור",
+      "src_invalid": "הקלט אינו כתובת אינטרנט חוקית",
+      "title": "כותרת",
+      "width": "רוחב"
+    },
+    "image": {
+      "alt": "טקסט חלופי",
+      "dialog_title": "הוסף/ערוך תמונה",
+      "height": "גובה",
+      "keep_ratio": "שמור על יחס",
+      "src": "מקור",
+      "title": "הוסף/ערוך תמונה",
+      "width": "רוחב"
+    },
+    "link": {
+      "class": "מחלקת CSS",
+      "href": "כתובת קישור",
+      "href_error": "כתובת קישור לא תקינה",
+      "rel": "Rel",
+      "target": "פתח ב...",
+      "target_blank": "חלון חדש",
+      "target_self": "חלון נוכחי",
+      "title": "הוסף/ערוך קישור"
+    },
+    "preview": {
+      "title": "תצוגה מקדימה"
+    },
+    "source": {
+      "prettify": "סידור פורמט",
+      "title": "הצגת קוד מקור"
+    },
+    "video": {
+      "height": "גובה",
+      "src": "מקור",
+      "title": "הוסף/ערוך סרטון",
+      "width": "רוחב"
+    }
+  },
+  "footer": {
+    "chars": "תווים",
+    "limit": "מגבלת תווים",
+    "words": "מילים"
+  },
+  "format": {
+    "blockquote": "ציטוט",
+    "bold": "מודגש",
+    "break": "שבירת שורה",
+    "code": "קוד",
+    "codeblock": "בלוק קוד",
+    "formatClear": "ניקוי פורמט",
+    "italic": "מורשת",
+    "line": "קו אופקי",
+    "strike": "קו דרך",
+    "sub": "תואר תחתון",
+    "sup": "תואר עליון",
+    "underline": "קו תחתון"
+  },
+  "list": "רשימה",
+  "lists": {
+    "bullet": "רשימת נקודות",
+    "indent": "העמקה בפריט הרשימה",
+    "numbered": "רשימה ממוספרת",
+    "outdent": "הדקת פריט הרשימה",
+    "task": "רשימת משימות"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "חצים",
+        "box_drawing": "ציור קופסאות",
+        "currency": "מטבעות",
+        "cyrillic": "קירילית",
+        "diacritics": "סימני דיאקריטיקה",
+        "extended_letters": "אותיות מורחבות",
+        "greek": "אותיות יווניות",
+        "hebrew": "עברית",
+        "math": "מתמטיקה",
+        "punctuation": "סימני ניקוד",
+        "symbols": "סמלים",
+        "typography": "טיפוגרפיה"
+      },
+      "noResults": "לא נמצאו תווים תואמים",
+      "search": "חפש תווים...",
+      "title": "תווים מיוחדים"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "פעילויות",
+        "animals_and_nature": "בעלי חיים וטבע",
+        "component": "רכיב",
+        "flags": "דגלים",
+        "food_and_drink": "אוכל ושתייה",
+        "objects": "פריטים",
+        "people_and_body": "אנשים וגוף",
+        "smileys_and_emotion": "חיוכים ורגשות",
+        "symbols": "סמלים",
+        "travel_and_places": "נסיעות ומקומות"
+      },
+      "search": "חפש אימוג'י...",
+      "title": "אימוג'י"
+    },
+    "iframe": "iframe",
+    "image": "תמונה",
+    "link": "קישור חיצוני",
+    "tables": {
+      "col": "עמודה",
+      "cols": "עמודות",
+      "deleteCol": "מחיקת עמודה",
+      "deleteRow": "מחיקת שורה",
+      "deleteTable": "מחיקת טבלה",
+      "insertColAfter": "הוספת עמודה אחרי",
+      "insertColBefore": "הוספת עמודה לפני",
+      "insertRowAfter": "הוספת שורה אחרי",
+      "insertRowBefore": "הוספת שורה לפני",
+      "insertTable": "הוספת טבלה",
+      "insertWithHeaderRow": "הוספת טבלה עם שורת כותרת",
+      "mergeCells": "מיזוג תאים",
+      "row": "שורה",
+      "rows": "שורות",
+      "splitCell": "פיצול תא",
+      "table": "טבלה"
+    },
+    "video": "סרטון"
+  },
+  "misc": {
+    "fullscreen": "מצב מסך מלא",
+    "preview": "תצוגה מקדימה",
+    "source": "הצגת קוד מקור",
+    "toggleInvisibleCharacters": "הצג/הסתר תווים לא נראים"
+  },
+  "style": {
+    "color": {
+      "custom": "צבע מותאם",
+      "highlight": "צבע הדגשה",
+      "text": "צבע טקסט",
+      "unset": "ביטול צבע"
+    },
+    "fontFamily": "משפחת גופן",
+    "fontSize": "גודל גופן",
+    "heading": "כותרת",
+    "headings": {
+      "h1": "כותרת רמה 1",
+      "h2": "כותרת רמה 2",
+      "h3": "כותרת רמה 3",
+      "h4": "כותרת רמה 4",
+      "h5": "כותרת רמה 5",
+      "h6": "כותרת רמה 6"
+    },
+    "lineHeight": "גובה שורה",
+    "paragraph": "פסקה"
+  }
+}

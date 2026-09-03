@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Alapértelmezett érték",
+  "action": {
+    "redo": "Ismétlés",
+    "undo": "Visszavonás"
+  },
+  "ai": {
+    "append": "Hozzáadás a végéhez",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Bővítse ezt a szöveget egy részletesebb változattá.",
+        "title": "Bővítés"
+      },
+      "improve": {
+        "prompt": "Javítsa ennek a szövegnek a világosságát és hangulatát.",
+        "title": "Írás javítása"
+      },
+      "proofReading": {
+        "prompt": "Javítsa a nyelvtant, a helyesírást és az írásjeleket a szöveg jelentésének megváltoztatása nélkül.",
+        "title": "Hibajavítás"
+      },
+      "summarize": {
+        "prompt": "Fogalmazza össze ezt a szöveget egy tömör bekezdésbe.",
+        "title": "Összefoglalás"
+      }
+    },
+    "error": "Az MI generálás sikertelen volt",
+    "generate": "Generálás",
+    "insert": "Beillesztés",
+    "limit_exceeded": "Az eredmény meghaladja a szerkesztő karakterlimitjét. Rövidítsd a szöveget és alkalmazd újra.",
+    "loading": "Generálás folyamatban...",
+    "prompt": "Kérés",
+    "quick_prompts": "Gyors kérések",
+    "reasoning_effort": "Gondolkodási mérték",
+    "replace": "Csere",
+    "result": "Eredmény",
+    "stop": "Leállítás",
+    "thinking": "Gondolkodás",
+    "title": "AI írás",
+    "unavailable": "Állítson be egy MI-szolgáltatót a művelet használatához"
+  },
+  "alignment": "Igazítás",
+  "alignments": {
+    "center": "Középre igazítva",
+    "justify": "Sorkizárás",
+    "left": "Balra igazítva",
+    "right": "Jobbra igazítva"
+  },
   "content": {
     "placeholder": "Valami..."
   },
-  "style": {
-    "paragraph": "Bekezdés",
-    "heading": "Cím",
-    "headings": {
-      "h1": "1. szintű cím",
-      "h2": "2. szintű cím",
-      "h3": "3. szintű cím",
-      "h4": "4. szintű cím",
-      "h5": "5. szintű cím",
-      "h6": "6. szintű cím"
+  "defaultValue": "Alapértelmezett érték",
+  "dialog": {
+    "apply": "Alkalmazás",
+    "clear": "Törlés",
+    "close": "Bezárás",
+    "iframe": {
+      "dialog_title": "Keretlap hozzáadása/szerkesztése",
+      "frameborder": "Kerethatár",
+      "height": "Magasság",
+      "name": "Név",
+      "src": "Forrás",
+      "src_invalid": "A megadott URL érvénytelen",
+      "title": "Cím",
+      "width": "Szélesség"
     },
-    "fontFamily": "Betűtípus-család",
-    "fontSize": "Betűméret",
-    "lineHeight": "Sormagasság",
-    "color": {
-      "highlight": "Kiemelés színe",
-      "text": "Szöveg színe",
-      "unset": "Szín eltávolítása",
-      "custom": "Egyéni választás"
+    "image": {
+      "alt": "Alternatív szöveg",
+      "dialog_title": "Kép hozzáadása/szerkesztése",
+      "height": "Magasság",
+      "keep_ratio": "Arány megtartása",
+      "src": "Forrás",
+      "title": "Cím",
+      "width": "Szélesség"
+    },
+    "link": {
+      "class": "CSS osztály",
+      "href": "Hivatkozás címe",
+      "href_error": "Érvénytelen hivatkozáscím",
+      "rel": "rel",
+      "target": "Megnyitás...",
+      "target_blank": "Új ablakban",
+      "target_self": "Jelenlegi ablakban",
+      "title": "Hivatkozás hozzáadása/szerkesztése"
+    },
+    "preview": {
+      "title": "Előnézet"
+    },
+    "source": {
+      "prettify": "Szépítés",
+      "title": "Forráskód megjelenítése"
+    },
+    "video": {
+      "height": "Magasság",
+      "src": "Forrás",
+      "title": "Videó hozzáadása/szerkesztése",
+      "width": "Szélesség"
     }
   },
+  "footer": {
+    "chars": "karakterek",
+    "limit": "karakterkorlát",
+    "words": "szavak"
+  },
   "format": {
-    "bold": "Félkövér",
-    "italic": "Dőlt",
-    "strike": "Áthúzott",
-    "underline": "Aláhúzott",
-    "sup": "Feltett index",
-    "sub": "Alsó index",
-    "break": "Sormetélés",
-    "line": "Vízszintes vonal",
     "blockquote": "Idézet",
+    "bold": "Félkövér",
+    "break": "Sormetélés",
     "code": "Kód",
     "codeblock": "Kódblokk",
-    "formatClear": "Formázás törlése"
+    "formatClear": "Formázás törlése",
+    "italic": "Dőlt",
+    "line": "Vízszintes vonal",
+    "strike": "Áthúzott",
+    "sub": "Alsó index",
+    "sup": "Feltett index",
+    "underline": "Aláhúzott"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Felsorolás",
+    "indent": "Behúzás növelése",
+    "numbered": "Számjegyzék",
+    "outdent": "Behúzás csökkentése",
+    "task": "Feladatok listája"
   },
   "media": {
-    "link": "Hivatkozás",
-    "iframe": "keretlap",
-    "image": "Kép",
+    "charmap": {
+      "categories": {
+        "arrows": "Nyilak",
+        "box_drawing": "Dobozrajzolás",
+        "currency": "Pénznem",
+        "cyrillic": "Cirill",
+        "diacritics": "Diaszematikumok",
+        "extended_letters": "Kiterjesztett betűk",
+        "greek": "Görög betűk",
+        "hebrew": "Héber",
+        "math": "Matematika",
+        "punctuation": "Központozás",
+        "symbols": "Szimbólumok",
+        "typography": "Tipográfia"
+      },
+      "noResults": "Nincs egyező karakter",
+      "search": "Karakterek keresése...",
+      "title": "Speciális karakter beszúrása"
+    },
     "emoji": {
-      "title": "Emotikon",
-      "search": "Emoji keresése...",
       "categories": {
         "activities": "Tevékenység",
         "animals_and_nature": "Állatok és természet",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Vigyorok és érzelmek",
         "symbols": "Szimbólumok",
         "travel_and_places": "Utazás és helyszínek"
-      }
+      },
+      "search": "Emoji keresése...",
+      "title": "Emotikon"
     },
+    "iframe": "keretlap",
+    "image": "Kép",
+    "link": "Hivatkozás",
     "tables": {
-      "table": "Táblázat",
-      "insertTable": "Táblázat beszúrása",
-      "deleteTable": "Táblázat törlése",
-      "insertWithHeaderRow": "Fejléc sorral ellátott táblázat beszúrása",
-      "rows": "Sorok",
-      "row": "Sor",
-      "insertRowBefore": "Sor beszúrása elé",
-      "insertRowAfter": "Sor beszúrása utánra",
-      "deleteRow": "Sor törlése",
-      "cols": "Oszlopok",
       "col": "Oszlop",
-      "insertColBefore": "Oszlop beszúrása elé",
-      "insertColAfter": "Oszlop beszúrása utánra",
+      "cols": "Oszlopok",
       "deleteCol": "Oszlop törlése",
+      "deleteRow": "Sor törlése",
+      "deleteTable": "Táblázat törlése",
+      "insertColAfter": "Oszlop beszúrása utánra",
+      "insertColBefore": "Oszlop beszúrása elé",
+      "insertRowAfter": "Sor beszúrása utánra",
+      "insertRowBefore": "Sor beszúrása elé",
+      "insertTable": "Táblázat beszúrása",
+      "insertWithHeaderRow": "Fejléc sorral ellátott táblázat beszúrása",
       "mergeCells": "Cellák egyesítése",
-      "splitCell": "Cella felosztása"
+      "row": "Sor",
+      "rows": "Sorok",
+      "splitCell": "Cella felosztása",
+      "table": "Táblázat"
     },
-    "video": "Videó",
-    "charmap": {
-      "title": "Speciális karakter beszúrása",
-      "search": "Karakterek keresése...",
-      "noResults": "Nincs egyező karakter",
-      "categories": {
-        "punctuation": "Központozás",
-        "symbols": "Szimbólumok",
-        "math": "Matematika",
-        "currency": "Pénznem",
-        "greek": "Görög betűk",
-        "extended_letters": "Kiterjesztett betűk",
-        "diacritics": "Diaszematikumok",
-        "typography": "Tipográfia",
-        "cyrillic": "Cirill",
-        "hebrew": "Héber",
-        "arrows": "Nyilak",
-        "box_drawing": "Dobozrajzolás"
-      }
-    }
-  },
-  "action": {
-    "undo": "Visszavonás",
-    "redo": "Ismétlés"
-  },
-  "alignment": "Igazítás",
-  "alignments": {
-    "left": "Balra igazítva",
-    "center": "Középre igazítva",
-    "right": "Jobbra igazítva",
-    "justify": "Sorkizárás"
-  },
-  "list": "Lista",
-  "lists": {
-    "bullet": "Felsorolás",
-    "numbered": "Számjegyzék",
-    "task": "Feladatok listája",
-    "indent": "Behúzás növelése",
-    "outdent": "Behúzás csökkentése"
-  },
-  "dialog": {
-    "apply": "Alkalmazás",
-    "clear": "Törlés",
-    "close": "Bezárás",
-    "iframe": {
-      "dialog_title": "Keretlap hozzáadása/szerkesztése",
-      "src": "Forrás",
-      "name": "Név",
-      "title": "Cím",
-      "width": "Szélesség",
-      "height": "Magasság",
-      "frameborder": "Kerethatár",
-      "src_invalid": "A megadott URL érvénytelen"
-    },
-    "image": {
-      "title": "Cím",
-      "src": "Forrás",
-      "keep_ratio": "Arány megtartása",
-      "alt": "Alternatív szöveg",
-      "width": "Szélesség",
-      "height": "Magasság",
-      "dialog_title": "Kép hozzáadása/szerkesztése"
-    },
-    "link": {
-      "title": "Hivatkozás hozzáadása/szerkesztése",
-      "href": "Hivatkozás címe",
-      "href_error": "Érvénytelen hivatkozáscím",
-      "target": "Megnyitás...",
-      "target_blank": "Új ablakban",
-      "target_self": "Jelenlegi ablakban",
-      "rel": "rel",
-      "class": "CSS osztály"
-    },
-    "preview": {
-      "title": "Előnézet"
-    },
-    "source": {
-      "title": "Forráskód megjelenítése",
-      "prettify": "Szépítés"
-    },
-    "video": {
-      "title": "Videó hozzáadása/szerkesztése",
-      "src": "Forrás",
-      "width": "Szélesség",
-      "height": "Magasság"
-    }
+    "video": "Videó"
   },
   "misc": {
     "fullscreen": "Teljes képernyős mód",
@@ -169,38 +188,25 @@
     "source": "Forráskód megjelenítése",
     "toggleInvisibleCharacters": "Láthatatlan karakterek megjelenítése/elrejtése"
   },
-  "footer": {
-    "words": "szavak",
-    "chars": "karakterek",
-    "limit": "karakterkorlát"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Egyéni választás",
+      "highlight": "Kiemelés színe",
+      "text": "Szöveg színe",
+      "unset": "Szín eltávolítása"
+    },
+    "fontFamily": "Betűtípus-család",
+    "fontSize": "Betűméret",
+    "heading": "Cím",
+    "headings": {
+      "h1": "1. szintű cím",
+      "h2": "2. szintű cím",
+      "h3": "3. szintű cím",
+      "h4": "4. szintű cím",
+      "h5": "5. szintű cím",
+      "h6": "6. szintű cím"
+    },
+    "lineHeight": "Sormagasság",
+    "paragraph": "Bekezdés"
   }
 }

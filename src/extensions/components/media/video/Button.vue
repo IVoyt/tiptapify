@@ -33,7 +33,7 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vie
     <BtnIcon :icon="icon" />
   </VBtn>
 
-  <VideoDialog />
+  <VideoDialog :variant-btn="variantBtn" />
 </template>
 
 <style lang="scss" scoped>

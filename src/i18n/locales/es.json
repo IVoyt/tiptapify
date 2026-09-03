@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Valor por defecto",
+  "action": {
+    "redo": "Rehacer",
+    "undo": "Deshacer"
+  },
+  "ai": {
+    "append": "Agregar al final",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Amplía este texto a una versión más detallada.",
+        "title": "Ampliar"
+      },
+      "improve": {
+        "prompt": "Mejora la claridad y el tono de este texto.",
+        "title": "Mejorar la redacción"
+      },
+      "proofReading": {
+        "prompt": "Corrige la gramática, la ortografía y la puntuación sin cambiar el significado.",
+        "title": "Revisión"
+      },
+      "summarize": {
+        "prompt": "Resume este texto en un párrafo conciso.",
+        "title": "Resumir"
+      }
+    },
+    "error": "Error al generar con IA",
+    "generate": "Generar",
+    "insert": "Insertar",
+    "limit_exceeded": "El resultado supera el límite de caracteres del editor. Acorta el texto y aplícalo de nuevo.",
+    "loading": "Generando...",
+    "prompt": "Solicitud",
+    "quick_prompts": "Solicitudes rápidas",
+    "reasoning_effort": "Esfuerzo de razonamiento",
+    "replace": "Reemplazar",
+    "result": "Resultado",
+    "stop": "Detener",
+    "thinking": "Pensamiento",
+    "title": "Escritura con IA",
+    "unavailable": "Configura un proveedor de IA para usar esta acción"
+  },
+  "alignment": "Alineación",
+  "alignments": {
+    "center": "Alineación centrada",
+    "justify": "Justificado",
+    "left": "Alineación izquierda",
+    "right": "Alineación derecha"
+  },
   "content": {
     "placeholder": "Escribe algo..."
   },
-  "style": {
-    "paragraph": "párrafo",
-    "heading": "Encabezado",
-    "headings": {
-      "h1": "Encabezado de nivel 1",
-      "h2": "Encabezado de nivel 2",
-      "h3": "Encabezado de nivel 3",
-      "h4": "Encabezado de nivel 4",
-      "h5": "Encabezado de nivel 5",
-      "h6": "Encabezado de nivel 6"
+  "defaultValue": "Valor por defecto",
+  "dialog": {
+    "apply": "Aplicar",
+    "clear": "Limpiar",
+    "close": "Cerrar",
+    "iframe": {
+      "dialog_title": "Agregar/editar iframe",
+      "frameborder": "Borde del marco",
+      "height": "Alto",
+      "name": "Nombre",
+      "src": "Fuente",
+      "src_invalid": "La URL ingresada es inválida",
+      "title": "Título",
+      "width": "Ancho"
     },
-    "fontFamily": "Fuente",
-    "fontSize": "Tamaño",
-    "lineHeight": "Altura de línea",
-    "color": {
-      "highlight": "Color de resaltado",
-      "text": "Color del texto",
-      "unset": "Limpiar color",
-      "custom": "Selección personalizada"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Agregar/modificar imagen",
+      "height": "Alto",
+      "keep_ratio": "Mantener proporción",
+      "src": "Fuente",
+      "title": "Título",
+      "width": "Ancho"
+    },
+    "link": {
+      "class": "Clase CSS",
+      "href": "Dirección del enlace",
+      "href_error": "Dirección de enlace incorrecta",
+      "rel": "rel",
+      "target": "Abrir en...",
+      "target_blank": "Nueva ventana",
+      "target_self": "Ventana actual",
+      "title": "Agregar/modificar enlace"
+    },
+    "preview": {
+      "title": "Vista previa"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Ver código fuente"
+    },
+    "video": {
+      "height": "Alto",
+      "src": "Fuente",
+      "title": "Agregar/editar video",
+      "width": "Ancho"
     }
   },
+  "footer": {
+    "chars": "caracteres",
+    "limit": "límite de caracteres",
+    "words": "palabras"
+  },
   "format": {
-    "bold": "Negrita",
-    "italic": "Cursiva",
-    "strike": "Tachado",
-    "underline": "Subrayado",
-    "sup": "Superíndice",
-    "sub": "Subíndice",
-    "break": "Salto de línea",
-    "line": "Línea horizontal",
     "blockquote": "Cita",
+    "bold": "Negrita",
+    "break": "Salto de línea",
     "code": "Código",
     "codeblock": "Bloque de código",
-    "formatClear": "Limpiar formato"
+    "formatClear": "Limpiar formato",
+    "italic": "Cursiva",
+    "line": "Línea horizontal",
+    "strike": "Tachado",
+    "sub": "Subíndice",
+    "sup": "Superíndice",
+    "underline": "Subrayado"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Lista con viñetas",
+    "indent": "Aumentar sangría del elemento",
+    "numbered": "Lista numerada",
+    "outdent": "Disminuir sangría del elemento",
+    "task": "Lista de tareas"
   },
   "media": {
-    "link": "Enlace externo",
-    "iframe": "iframe",
-    "image": "Imagen",
+    "charmap": {
+      "categories": {
+        "arrows": "Flechas",
+        "box_drawing": "Dibujo de cajas",
+        "currency": "Divisa",
+        "cyrillic": "Cirílico",
+        "diacritics": "Diacríticos",
+        "extended_letters": "Letras extendidas",
+        "greek": "Letras griegas",
+        "hebrew": "Hebreo",
+        "math": "Matemáticas",
+        "punctuation": "Puntuación",
+        "symbols": "Símbolos",
+        "typography": "Tipografía"
+      },
+      "noResults": "No se encontraron caracteres coincidentes",
+      "search": "Buscar caracteres...",
+      "title": "Insertar carácter especial"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Buscar emoji...",
       "categories": {
         "activities": "Actividades",
         "animals_and_nature": "Animales y naturaleza",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Caritas y emociones",
         "symbols": "Símbolos",
         "travel_and_places": "Viajes y lugares"
-      }
+      },
+      "search": "Buscar emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Imagen",
+    "link": "Enlace externo",
     "tables": {
-      "table": "Tabla",
-      "insertTable": "Insertar tabla",
-      "deleteTable": "Eliminar tabla",
-      "insertWithHeaderRow": "Insertar tabla con encabezado",
-      "rows": "Filas",
-      "row": "Fila",
-      "insertRowBefore": "Insertar fila antes",
-      "insertRowAfter": "Insertar fila después",
-      "deleteRow": "Eliminar fila",
-      "cols": "Columnas",
       "col": "Columna",
-      "insertColBefore": "Insertar columna antes",
-      "insertColAfter": "Insertar columna después",
+      "cols": "Columnas",
       "deleteCol": "Eliminar columna",
+      "deleteRow": "Eliminar fila",
+      "deleteTable": "Eliminar tabla",
+      "insertColAfter": "Insertar columna después",
+      "insertColBefore": "Insertar columna antes",
+      "insertRowAfter": "Insertar fila después",
+      "insertRowBefore": "Insertar fila antes",
+      "insertTable": "Insertar tabla",
+      "insertWithHeaderRow": "Insertar tabla con encabezado",
       "mergeCells": "Fusionar celdas",
-      "splitCell": "Dividir celda"
+      "row": "Fila",
+      "rows": "Filas",
+      "splitCell": "Dividir celda",
+      "table": "Tabla"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Insertar carácter especial",
-      "search": "Buscar caracteres...",
-      "noResults": "No se encontraron caracteres coincidentes",
-      "categories": {
-        "punctuation": "Puntuación",
-        "symbols": "Símbolos",
-        "math": "Matemáticas",
-        "currency": "Divisa",
-        "greek": "Letras griegas",
-        "extended_letters": "Letras extendidas",
-        "diacritics": "Diacríticos",
-        "typography": "Tipografía",
-        "cyrillic": "Cirílico",
-        "hebrew": "Hebreo",
-        "arrows": "Flechas",
-        "box_drawing": "Dibujo de cajas"
-      }
-    }
-  },
-  "action": {
-    "undo": "Deshacer",
-    "redo": "Rehacer"
-  },
-  "alignment": "Alineación",
-  "alignments": {
-    "left": "Alineación izquierda",
-    "center": "Alineación centrada",
-    "right": "Alineación derecha",
-    "justify": "Justificado"
-  },
-  "list": "Lista",
-  "lists": {
-    "bullet": "Lista con viñetas",
-    "numbered": "Lista numerada",
-    "task": "Lista de tareas",
-    "indent": "Aumentar sangría del elemento",
-    "outdent": "Disminuir sangría del elemento"
-  },
-  "dialog": {
-    "apply": "Aplicar",
-    "clear": "Limpiar",
-    "close": "Cerrar",
-    "iframe": {
-      "dialog_title": "Agregar/editar iframe",
-      "src": "Fuente",
-      "name": "Nombre",
-      "title": "Título",
-      "width": "Ancho",
-      "height": "Alto",
-      "frameborder": "Borde del marco",
-      "src_invalid": "La URL ingresada es inválida"
-    },
-    "image": {
-      "title": "Título",
-      "src": "Fuente",
-      "keep_ratio": "Mantener proporción",
-      "alt": "alt",
-      "width": "Ancho",
-      "height": "Alto",
-      "dialog_title": "Agregar/modificar imagen"
-    },
-    "link": {
-      "title": "Agregar/modificar enlace",
-      "href": "Dirección del enlace",
-      "href_error": "Dirección de enlace incorrecta",
-      "target": "Abrir en...",
-      "target_blank": "Nueva ventana",
-      "target_self": "Ventana actual",
-      "rel": "rel",
-      "class": "Clase CSS"
-    },
-    "preview": {
-      "title": "Vista previa"
-    },
-    "source": {
-      "title": "Ver código fuente",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Agregar/editar video",
-      "src": "Fuente",
-      "width": "Ancho",
-      "height": "Alto"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Modo pantalla completa",
@@ -169,38 +188,25 @@
     "source": "Ver código fuente",
     "toggleInvisibleCharacters": "Mostrar/ocultar caracteres invisibles"
   },
-  "footer": {
-    "words": "palabras",
-    "chars": "caracteres",
-    "limit": "límite de caracteres"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Selección personalizada",
+      "highlight": "Color de resaltado",
+      "text": "Color del texto",
+      "unset": "Limpiar color"
+    },
+    "fontFamily": "Fuente",
+    "fontSize": "Tamaño",
+    "heading": "Encabezado",
+    "headings": {
+      "h1": "Encabezado de nivel 1",
+      "h2": "Encabezado de nivel 2",
+      "h3": "Encabezado de nivel 3",
+      "h4": "Encabezado de nivel 4",
+      "h5": "Encabezado de nivel 5",
+      "h6": "Encabezado de nivel 6"
+    },
+    "lineHeight": "Altura de línea",
+    "paragraph": "párrafo"
   }
 }

@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Varsayılan değer",
+  "action": {
+    "redo": "Yinele",
+    "undo": "Geri al"
+  },
+  "ai": {
+    "append": "Sona ekle",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Bu metni daha ayrıntılı bir hâle getirin.",
+        "title": "Genişlet"
+      },
+      "improve": {
+        "prompt": "Bu metnin açıklığını ve tonunu geliştirin.",
+        "title": "Yazıyı geliştir"
+      },
+      "proofReading": {
+        "prompt": "Anlamı değiştirmeden dilbilgisi, yazım ve noktalama hatalarını düzeltin.",
+        "title": "İmla denetimi"
+      },
+      "summarize": {
+        "prompt": "Bu metni kısa bir paragrafa özetleyin.",
+        "title": "Özetle"
+      }
+    },
+    "error": "YZ üretimi başarısız oldu",
+    "generate": "Oluştur",
+    "insert": "Ekle",
+    "limit_exceeded": "Sonuç, editörün karakter sınırını aşıyor. Metni kısaltıp yeniden uygulayın.",
+    "loading": "Oluşturuluyor...",
+    "prompt": "İstek",
+    "quick_prompts": "Hızlı istekler",
+    "reasoning_effort": "Düşünme düzeyi",
+    "replace": "Değiştir",
+    "result": "Sonuç",
+    "stop": "Durdur",
+    "thinking": "Düşünme",
+    "title": "AI Yazma",
+    "unavailable": "Bu işlemi kullanmak için bir yapay zeka sağlayıcı yapılandırın"
+  },
+  "alignment": "Düzenleme",
+  "alignments": {
+    "center": "Ortala",
+    "justify": "Yay",
+    "left": "Sola hizala",
+    "right": "Sağa hizala"
+  },
   "content": {
     "placeholder": "Bir şeyler yazın..."
   },
-  "style": {
-    "paragraph": "Paragraf",
-    "heading": "Başlık",
-    "headings": {
-      "h1": "1 Seviye Başlık",
-      "h2": "2 Seviye Başlık",
-      "h3": "3 Seviye Başlık",
-      "h4": "4 Seviye Başlık",
-      "h5": "5 Seviye Başlık",
-      "h6": "6 Seviye Başlık"
+  "defaultValue": "Varsayılan değer",
+  "dialog": {
+    "apply": "Uygula",
+    "clear": "Temizle",
+    "close": "Kapat",
+    "iframe": {
+      "dialog_title": "Iframe ekle/düzenle",
+      "frameborder": "Çerçeve kenarlığı",
+      "height": "Yükseklik",
+      "name": "Ad",
+      "src": "Kaynak",
+      "src_invalid": "Girilen URL geçersiz",
+      "title": "Başlık",
+      "width": "Genişlik"
     },
-    "fontFamily": "Yazı tipi ailesi",
-    "fontSize": "Yazı boyutu",
-    "lineHeight": "Satır yüksekliği",
-    "color": {
-      "highlight": "Vurgu rengi",
-      "text": "Metin rengi",
-      "unset": "Rengi kaldır",
-      "custom": "Özel seçim"
+    "image": {
+      "alt": "Alternatif metin",
+      "dialog_title": "Görsel ekle/düzenle",
+      "height": "Yükseklik",
+      "keep_ratio": "En boy oranını koru",
+      "src": "Kaynak",
+      "title": "Başlık",
+      "width": "Genişlik"
+    },
+    "link": {
+      "class": "CSS sınıfı",
+      "href": "Bağlantı adresi",
+      "href_error": "Geçersiz bağlantı adresi",
+      "rel": "ilgili",
+      "target": "Şurada aç...",
+      "target_blank": "Yeni pencere",
+      "target_self": "Mevcut pencere",
+      "title": "Bağlantı ekle/düzenle"
+    },
+    "preview": {
+      "title": "Önizleme"
+    },
+    "source": {
+      "prettify": "Biçimlendir",
+      "title": "Kaynak kodunu görüntüle"
+    },
+    "video": {
+      "height": "Yükseklik",
+      "src": "Kaynak",
+      "title": "Video ekle/düzenle",
+      "width": "Genişlik"
     }
   },
+  "footer": {
+    "chars": "karakter",
+    "limit": "karakter sınırı",
+    "words": "kelime"
+  },
   "format": {
-    "bold": "Kalın",
-    "italic": "İtalik",
-    "strike": "Üstü çizili",
-    "underline": "Altı çizili",
-    "sup": "Üst simge",
-    "sub": "Altsimge",
-    "break": "Satır sonu",
-    "line": "Yatay çizgi",
     "blockquote": "İntikal",
+    "bold": "Kalın",
+    "break": "Satır sonu",
     "code": "Kod",
     "codeblock": "Kod bloğu",
-    "formatClear": "Biçimi temizle"
+    "formatClear": "Biçimi temizle",
+    "italic": "İtalik",
+    "line": "Yatay çizgi",
+    "strike": "Üstü çizili",
+    "sub": "Altsimge",
+    "sup": "Üst simge",
+    "underline": "Altı çizili"
+  },
+  "list": "Liste",
+  "lists": {
+    "bullet": "Madde imli liste",
+    "indent": "Girintiyi artır",
+    "numbered": "Numaralı liste",
+    "outdent": "Girintiyi azalt",
+    "task": "Görev listesi"
   },
   "media": {
-    "link": "Harici bağlantı",
-    "iframe": "iframe",
-    "image": "Görsel",
+    "charmap": {
+      "categories": {
+        "arrows": "Oklar",
+        "box_drawing": "Kutu çizimi",
+        "currency": "Para birimi",
+        "cyrillic": "Kiril",
+        "diacritics": "Diyakritik işaretler",
+        "extended_letters": "Genişletilmiş harfler",
+        "greek": "Yunan harfleri",
+        "hebrew": "İbranice",
+        "math": "Matematik",
+        "punctuation": "Noktalama işaretleri",
+        "symbols": "Simgeler",
+        "typography": "Tipografi"
+      },
+      "noResults": "Eşleşen karakter bulunamadı",
+      "search": "Karakter ara...",
+      "title": "Özel karakter ekle"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Emoji ara...",
       "categories": {
         "activities": "Etkinlikler",
         "animals_and_nature": "Hayvanlar ve doğa",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Gülücükler ve duygular",
         "symbols": "Semboller",
         "travel_and_places": "Seyahat ve yerler"
-      }
+      },
+      "search": "Emoji ara...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Görsel",
+    "link": "Harici bağlantı",
     "tables": {
-      "table": "Tablo",
-      "insertTable": "Tablo ekle",
-      "deleteTable": "Tabloyu sil",
-      "insertWithHeaderRow": "Başlık satırı ile tablo ekle",
-      "rows": "Satırlar",
-      "row": "Satır",
-      "insertRowBefore": "Önce satır ekle",
-      "insertRowAfter": "Sonra satır ekle",
-      "deleteRow": "Satırı sil",
-      "cols": "Sütunlar",
       "col": "Sütun",
-      "insertColBefore": "Önce sütun ekle",
-      "insertColAfter": "Sonra sütun ekle",
+      "cols": "Sütunlar",
       "deleteCol": "Sütunu sil",
+      "deleteRow": "Satırı sil",
+      "deleteTable": "Tabloyu sil",
+      "insertColAfter": "Sonra sütun ekle",
+      "insertColBefore": "Önce sütun ekle",
+      "insertRowAfter": "Sonra satır ekle",
+      "insertRowBefore": "Önce satır ekle",
+      "insertTable": "Tablo ekle",
+      "insertWithHeaderRow": "Başlık satırı ile tablo ekle",
       "mergeCells": "Hücreleri birleştir",
-      "splitCell": "Hücreyi böl"
+      "row": "Satır",
+      "rows": "Satırlar",
+      "splitCell": "Hücreyi böl",
+      "table": "Tablo"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Özel karakter ekle",
-      "search": "Karakter ara...",
-      "noResults": "Eşleşen karakter bulunamadı",
-      "categories": {
-        "punctuation": "Noktalama işaretleri",
-        "symbols": "Simgeler",
-        "math": "Matematik",
-        "currency": "Para birimi",
-        "greek": "Yunan harfleri",
-        "extended_letters": "Genişletilmiş harfler",
-        "diacritics": "Diyakritik işaretler",
-        "typography": "Tipografi",
-        "cyrillic": "Kiril",
-        "hebrew": "İbranice",
-        "arrows": "Oklar",
-        "box_drawing": "Kutu çizimi"
-      }
-    }
-  },
-  "action": {
-    "undo": "Geri al",
-    "redo": "Yinele"
-  },
-  "alignment": "Düzenleme",
-  "alignments": {
-    "left": "Sola hizala",
-    "center": "Ortala",
-    "right": "Sağa hizala",
-    "justify": "Yay"
-  },
-  "list": "Liste",
-  "lists": {
-    "bullet": "Madde imli liste",
-    "numbered": "Numaralı liste",
-    "task": "Görev listesi",
-    "indent": "Girintiyi artır",
-    "outdent": "Girintiyi azalt"
-  },
-  "dialog": {
-    "apply": "Uygula",
-    "clear": "Temizle",
-    "close": "Kapat",
-    "iframe": {
-      "dialog_title": "Iframe ekle/düzenle",
-      "src": "Kaynak",
-      "name": "Ad",
-      "title": "Başlık",
-      "width": "Genişlik",
-      "height": "Yükseklik",
-      "frameborder": "Çerçeve kenarlığı",
-      "src_invalid": "Girilen URL geçersiz"
-    },
-    "image": {
-      "title": "Başlık",
-      "src": "Kaynak",
-      "keep_ratio": "En boy oranını koru",
-      "alt": "Alternatif metin",
-      "width": "Genişlik",
-      "height": "Yükseklik",
-      "dialog_title": "Görsel ekle/düzenle"
-    },
-    "link": {
-      "title": "Bağlantı ekle/düzenle",
-      "href": "Bağlantı adresi",
-      "href_error": "Geçersiz bağlantı adresi",
-      "target": "Şurada aç...",
-      "target_blank": "Yeni pencere",
-      "target_self": "Mevcut pencere",
-      "rel": "ilgili",
-      "class": "CSS sınıfı"
-    },
-    "preview": {
-      "title": "Önizleme"
-    },
-    "source": {
-      "title": "Kaynak kodunu görüntüle",
-      "prettify": "Biçimlendir"
-    },
-    "video": {
-      "title": "Video ekle/düzenle",
-      "src": "Kaynak",
-      "width": "Genişlik",
-      "height": "Yükseklik"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Tam ekran modu",
@@ -169,38 +188,25 @@
     "source": "Kaynak kodunu görüntüle",
     "toggleInvisibleCharacters": "Görünmez karakterleri göster/gizle"
   },
-  "footer": {
-    "words": "kelime",
-    "chars": "karakter",
-    "limit": "karakter sınırı"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Özel seçim",
+      "highlight": "Vurgu rengi",
+      "text": "Metin rengi",
+      "unset": "Rengi kaldır"
+    },
+    "fontFamily": "Yazı tipi ailesi",
+    "fontSize": "Yazı boyutu",
+    "heading": "Başlık",
+    "headings": {
+      "h1": "1 Seviye Başlık",
+      "h2": "2 Seviye Başlık",
+      "h3": "3 Seviye Başlık",
+      "h4": "4 Seviye Başlık",
+      "h5": "5 Seviye Başlık",
+      "h6": "6 Seviye Başlık"
+    },
+    "lineHeight": "Satır yüksekliği",
+    "paragraph": "Paragraf"
   }
 }

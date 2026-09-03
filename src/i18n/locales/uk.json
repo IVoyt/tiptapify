@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Значення за замовчуванням",
+  "action": {
+    "redo": "Повтор",
+    "undo": "Відміна"
+  },
+  "ai": {
+    "append": "Додати в кінець",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Розширте цей текст у більш детальну версію.",
+        "title": "Розширити"
+      },
+      "improve": {
+        "prompt": "Покращіть ясність і тон цього тексту.",
+        "title": "Покращити текст"
+      },
+      "proofReading": {
+        "prompt": "Виправте граматику, орфографію та пунктуацію, не змінюючи змісту.",
+        "title": "Коректура"
+      },
+      "summarize": {
+        "prompt": "Підсумуйте цей текст у короткий абзац.",
+        "title": "Підсумувати"
+      }
+    },
+    "error": "Помилка генерації ШІ",
+    "generate": "Згенерувати",
+    "insert": "Вставити",
+    "limit_exceeded": "Результат перевищує ліміт символів редактора. Скоротіть текст і застосуйте знову.",
+    "loading": "Генерація...",
+    "prompt": "Запит",
+    "quick_prompts": "Швидкі запити",
+    "reasoning_effort": "Рівень роздумів",
+    "replace": "Замінити",
+    "result": "Результат",
+    "stop": "Зупинити",
+    "thinking": "Роздумування",
+    "title": "Написання з ШІ",
+    "unavailable": "Налаштуйте провайдера ШІ, щоб скористатися цією дією"
+  },
+  "alignment": "Вирівнювання",
+  "alignments": {
+    "center": "Вирівнювання по центру",
+    "justify": "Вирівнювання по ширині",
+    "left": "Вирівнювання по лівому краю",
+    "right": "Вирівнювання по правому краю"
+  },
   "content": {
     "placeholder": "Напишіть щонебудь..."
   },
-  "style": {
-    "paragraph": "Абзац",
-    "heading": "Заголовок",
-    "headings": {
-      "h1": "Заголовок 1-го рівня",
-      "h2": "Заголовок 2-го рівня",
-      "h3": "Заголовок 3-го рівня",
-      "h4": "Заголовок 4-го рівня",
-      "h5": "Заголовок 5-го рівня",
-      "h6": "Заголовок 6-го рівня"
+  "defaultValue": "Значення за замовчуванням",
+  "dialog": {
+    "apply": "Застосувати",
+    "clear": "Очистити",
+    "close": "Закрити",
+    "iframe": {
+      "dialog_title": "Додавання/зміна iframe",
+      "frameborder": "рамка iframe",
+      "height": "Висота",
+      "name": "Назва",
+      "src": "Джерело",
+      "src_invalid": "Введений некоректний URL",
+      "title": "Заголовок",
+      "width": "Ширина"
     },
-    "fontFamily": "Шрифт",
-    "fontSize": "Розмір",
-    "lineHeight": "Висота строки",
-    "color": {
-      "highlight": "Колір виділення",
-      "text": "Колір тексту",
-      "unset": "Очистити колір",
-      "custom": "Власний вибір"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Додавання/зміна зображення",
+      "height": "Висота",
+      "keep_ratio": "Зберігати пропорції",
+      "src": "Джерело",
+      "title": "Заголовок",
+      "width": "Ширина"
+    },
+    "link": {
+      "class": "CSS клас",
+      "href": "Адреса посилання",
+      "href_error": "Некоректна адреса посилання",
+      "rel": "rel",
+      "target": "Відкривати у...",
+      "target_blank": "Новому вікні",
+      "target_self": "Поточному вікні",
+      "title": "Додавання/зміна посилання"
+    },
+    "preview": {
+      "title": "Попередній перегляд"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Перегляд вихідного коду"
+    },
+    "video": {
+      "height": "Висота",
+      "src": "Джерело",
+      "title": "Добавление/изменение відео",
+      "width": "Ширина"
     }
   },
+  "footer": {
+    "chars": "символи",
+    "limit": "ліміт символів",
+    "words": "слова"
+  },
   "format": {
-    "bold": "Жирний",
-    "italic": "Курсив",
-    "strike": "Закреслення",
-    "underline": "Підкреслення",
-    "sup": "Верхній індекс",
-    "sub": "Нижній індекс",
-    "break": "Розрив строки",
-    "line": "Горизонтальна лінія",
     "blockquote": "Цитата",
+    "bold": "Жирний",
+    "break": "Розрив строки",
     "code": "Код",
     "codeblock": "Блок коду",
-    "formatClear": "Очистити форматування"
+    "formatClear": "Очистити форматування",
+    "italic": "Курсив",
+    "line": "Горизонтальна лінія",
+    "strike": "Закреслення",
+    "sub": "Нижній індекс",
+    "sup": "Верхній індекс",
+    "underline": "Підкреслення"
+  },
+  "list": "Список",
+  "lists": {
+    "bullet": "Ненумерований список",
+    "indent": "Збільшити відступ елемента списку",
+    "numbered": "Нумерований список",
+    "outdent": "Зменшити відступ елемента списку",
+    "task": "Список задач"
   },
   "media": {
-    "link": "Зовнішнє посилання",
-    "image": "Зображення",
-    "iframe": "iframe",
+    "charmap": {
+      "categories": {
+        "arrows": "Стрілки",
+        "box_drawing": "Малювання рамок",
+        "currency": "Валюта",
+        "cyrillic": "Кирилиця",
+        "diacritics": "Діакритичні знаки",
+        "extended_letters": "Розширені літери",
+        "greek": "Грецькі літери",
+        "hebrew": "Іврит",
+        "math": "Математика",
+        "punctuation": "Пунктуація",
+        "symbols": "Символи",
+        "typography": "Типографіка"
+      },
+      "noResults": "Співпадаючих символів не знайдено",
+      "search": "Пошук символів...",
+      "title": "Вставити спеціальний символ"
+    },
     "emoji": {
-      "title": "Емодзі",
-      "search": "Пошук емодзі...",
       "categories": {
         "activities": "Активності",
         "animals_and_nature": "Тварини та природа",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Смайлики та емоції",
         "symbols": "Символи",
         "travel_and_places": "Подорожі та місця"
-      }
+      },
+      "search": "Пошук емодзі...",
+      "title": "Емодзі"
     },
+    "iframe": "iframe",
+    "image": "Зображення",
+    "link": "Зовнішнє посилання",
     "tables": {
-      "table": "Таблиця",
-      "insertTable": "Вставити таблицю",
-      "deleteTable": "Видалити таблицю",
-      "insertWithHeaderRow": "Вставити таблицю із заголовком",
-      "rows": "Строки",
-      "row": "Строка",
-      "insertRowBefore": "Вставити строку перед",
-      "insertRowAfter": "Вставити строку після",
-      "deleteRow": "Видалити строку",
-      "cols": "Стовпчики",
       "col": "Стовпчик",
-      "insertColBefore": "Вставити колонку перед",
-      "insertColAfter": "Вставити колонку після",
+      "cols": "Стовпчики",
       "deleteCol": "Видалити колонку",
+      "deleteRow": "Видалити строку",
+      "deleteTable": "Видалити таблицю",
+      "insertColAfter": "Вставити колонку після",
+      "insertColBefore": "Вставити колонку перед",
+      "insertRowAfter": "Вставити строку після",
+      "insertRowBefore": "Вставити строку перед",
+      "insertTable": "Вставити таблицю",
+      "insertWithHeaderRow": "Вставити таблицю із заголовком",
       "mergeCells": "Об'єднати клітинки",
-      "splitCell": "Розділити клітинки"
+      "row": "Строка",
+      "rows": "Строки",
+      "splitCell": "Розділити клітинки",
+      "table": "Таблиця"
     },
-    "video": "Відео",
-    "charmap": {
-      "title": "Вставити спеціальний символ",
-      "search": "Пошук символів...",
-      "noResults": "Співпадаючих символів не знайдено",
-      "categories": {
-        "punctuation": "Пунктуація",
-        "symbols": "Символи",
-        "math": "Математика",
-        "currency": "Валюта",
-        "greek": "Грецькі літери",
-        "extended_letters": "Розширені літери",
-        "diacritics": "Діакритичні знаки",
-        "typography": "Типографіка",
-        "cyrillic": "Кирилиця",
-        "hebrew": "Іврит",
-        "arrows": "Стрілки",
-        "box_drawing": "Малювання рамок"
-      }
-    }
-  },
-  "action": {
-    "undo": "Відміна",
-    "redo": "Повтор"
-  },
-  "alignment": "Вирівнювання",
-  "alignments": {
-    "left": "Вирівнювання по лівому краю",
-    "center": "Вирівнювання по центру",
-    "right": "Вирівнювання по правому краю",
-    "justify": "Вирівнювання по ширині"
-  },
-  "list": "Список",
-  "lists": {
-    "bullet": "Ненумерований список",
-    "numbered": "Нумерований список",
-    "task": "Список задач",
-    "indent": "Збільшити відступ елемента списку",
-    "outdent": "Зменшити відступ елемента списку"
-  },
-  "dialog": {
-    "apply": "Застосувати",
-    "clear": "Очистити",
-    "close": "Закрити",
-    "iframe": {
-      "dialog_title": "Додавання/зміна iframe",
-      "src": "Джерело",
-      "name": "Назва",
-      "title": "Заголовок",
-      "width": "Ширина",
-      "height": "Висота",
-      "frameborder": "рамка iframe",
-      "src_invalid": "Введений некоректний URL"
-    },
-    "image": {
-      "title": "Заголовок",
-      "src": "Джерело",
-      "keep_ratio": "Зберігати пропорції",
-      "alt": "alt",
-      "width": "Ширина",
-      "height": "Висота",
-      "dialog_title": "Додавання/зміна зображення"
-    },
-    "link": {
-      "title": "Додавання/зміна посилання",
-      "href": "Адреса посилання",
-      "href_error": "Некоректна адреса посилання",
-      "target": "Відкривати у...",
-      "target_blank": "Новому вікні",
-      "target_self": "Поточному вікні",
-      "rel": "rel",
-      "class": "CSS клас"
-    },
-    "preview": {
-      "title": "Попередній перегляд"
-    },
-    "source": {
-      "title": "Перегляд вихідного коду",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Добавление/изменение відео",
-      "src": "Джерело",
-      "width": "Ширина",
-      "height": "Висота"
-    }
+    "video": "Відео"
   },
   "misc": {
     "fullscreen": "Повноекранний режим",
@@ -169,38 +188,25 @@
     "source": "Перегляд вихідного коду",
     "toggleInvisibleCharacters": "Показати/приховати невидимі символи"
   },
-  "footer": {
-    "words": "слова",
-    "chars": "символи",
-    "limit": "ліміт символів"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Власний вибір",
+      "highlight": "Колір виділення",
+      "text": "Колір тексту",
+      "unset": "Очистити колір"
+    },
+    "fontFamily": "Шрифт",
+    "fontSize": "Розмір",
+    "heading": "Заголовок",
+    "headings": {
+      "h1": "Заголовок 1-го рівня",
+      "h2": "Заголовок 2-го рівня",
+      "h3": "Заголовок 3-го рівня",
+      "h4": "Заголовок 4-го рівня",
+      "h5": "Заголовок 5-го рівня",
+      "h6": "Заголовок 6-го рівня"
+    },
+    "lineHeight": "Висота строки",
+    "paragraph": "Абзац"
   }
 }

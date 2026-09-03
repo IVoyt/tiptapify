@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "Refăce",
+    "undo": "Anulează"
+  },
+  "ai": {
+    "append": "Adaugă la final",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Extinde acest text într-o versiune mai detaliată.",
+        "title": "Extindere"
+      },
+      "improve": {
+        "prompt": "Îmbunătățește claritatea și tonul acestui text.",
+        "title": "Îmbunătățirea scrierii"
+      },
+      "proofReading": {
+        "prompt": "Corectează gramatica, ortografia și punctuația, fără a schimba sensul.",
+        "title": "Corectură"
+      },
+      "summarize": {
+        "prompt": "Rezumă acest text într-un paragraf concis.",
+        "title": "Rezumat"
+      }
+    },
+    "error": "Generarea AI a eșuat",
+    "generate": "Generează",
+    "insert": "Inserează",
+    "limit_exceeded": "Rezultatul depășește limita de caractere a editorului. Scurtează textul și aplică din nou.",
+    "loading": "Se generează...",
+    "prompt": "Prompt",
+    "quick_prompts": "Prompts rapide",
+    "reasoning_effort": "Efort de raționament",
+    "replace": "Înlocuiește",
+    "result": "Rezultat",
+    "stop": "Oprește",
+    "thinking": "Gândire",
+    "title": "Scriere cu AI",
+    "unavailable": "Configurează un furnizor AI pentru a folosi această acțiune"
+  },
+  "alignment": "Aliniere",
+  "alignments": {
+    "center": "Aliniere pe centru",
+    "justify": "Justificare",
+    "left": "Aliniere la stânga",
+    "right": "Aliniere la dreapta"
+  },
+  "content": {
+    "placeholder": "Scrie ceva aici..."
+  },
+  "defaultValue": "Valoare implicită",
+  "dialog": {
+    "apply": "Aplică",
+    "clear": "Curăță",
+    "close": "Închide",
+    "iframe": {
+      "dialog_title": "Adaugă/editează iframe",
+      "frameborder": "Marginea iframe",
+      "height": "Înălțime",
+      "name": "Nume",
+      "src": "Sursă",
+      "src_invalid": "Datele introduse nu sunt o URL validă",
+      "title": "Titlu",
+      "width": "Lățime"
+    },
+    "image": {
+      "alt": "Alt",
+      "dialog_title": "Adaugă/editează imagine",
+      "height": "Înălțime",
+      "keep_ratio": "Păstrează proporția",
+      "src": "Sursă",
+      "title": "Adaugă/editează imagine",
+      "width": "Lățime"
+    },
+    "link": {
+      "class": "Clasă CSS",
+      "href": "Adresa linkului",
+      "href_error": "Adresa linkului este invalidă",
+      "rel": "Rel",
+      "target": "Deschide în...",
+      "target_blank": "Fereastră nouă",
+      "target_self": "Fereastra curentă",
+      "title": "Adaugă/editează link"
+    },
+    "preview": {
+      "title": "Previzualizare"
+    },
+    "source": {
+      "prettify": "Formatează",
+      "title": "Vezi codul sursă"
+    },
+    "video": {
+      "height": "Înălțime",
+      "src": "Sursă",
+      "title": "Adaugă/editează video",
+      "width": "Lățime"
+    }
+  },
+  "footer": {
+    "chars": "caractere",
+    "limit": "limită de caractere",
+    "words": "cuvinte"
+  },
+  "format": {
+    "blockquote": "Citează",
+    "bold": "Îngroșat",
+    "break": "Întrerupere forțată",
+    "code": "Cod",
+    "codeblock": "Bloc de cod",
+    "formatClear": "Șterge formatarea",
+    "italic": "Cursiv",
+    "line": "Linie orizontală",
+    "strike": "Tăiat",
+    "sub": "Indice",
+    "sup": "Exponent",
+    "underline": "Subliniat"
+  },
+  "list": "Listă",
+  "lists": {
+    "bullet": "Listă neordonată",
+    "indent": "Indentare element de listă",
+    "numbered": "Listă ordonată",
+    "outdent": "Scoatere din indentare a elementului de listă",
+    "task": "Listă de sarcini"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "Săgeți",
+        "box_drawing": "Trasarea casetelor",
+        "currency": "Monedă",
+        "cyrillic": "Cirillică",
+        "diacritics": "Diacritice",
+        "extended_letters": "Litere extinse",
+        "greek": "Litere grecești",
+        "hebrew": "Ebraică",
+        "math": "Matematică",
+        "punctuation": "Punctuație",
+        "symbols": "Simboluri",
+        "typography": "Tipografie"
+      },
+      "noResults": "Nu s-au găsit caractere potrivite",
+      "search": "Caută caractere...",
+      "title": "Caractere speciale"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "Activități",
+        "animals_and_nature": "Animale și natură",
+        "component": "Componentă",
+        "flags": "Steaguri",
+        "food_and_drink": "Mâncare și băuturi",
+        "objects": "Obiecte",
+        "people_and_body": "Oameni și corp",
+        "smileys_and_emotion": "Smiley-uri și emoții",
+        "symbols": "Simboluri",
+        "travel_and_places": "Călătorii și locuri"
+      },
+      "search": "Caută emoji...",
+      "title": "Emoji"
+    },
+    "iframe": "iframe",
+    "image": "Imagine",
+    "link": "Link extern",
+    "tables": {
+      "col": "Coloană",
+      "cols": "Coloane",
+      "deleteCol": "Șterge coloana",
+      "deleteRow": "Șterge rândul",
+      "deleteTable": "Șterge tabelul",
+      "insertColAfter": "Inserează coloană după",
+      "insertColBefore": "Inserează coloană înainte",
+      "insertRowAfter": "Inserează rând după",
+      "insertRowBefore": "Inserează rând înainte",
+      "insertTable": "Inserează tabel",
+      "insertWithHeaderRow": "Inserează tabel cu rând de antet",
+      "mergeCells": "Îmbină celulele",
+      "row": "Rând",
+      "rows": "Rânduri",
+      "splitCell": "Împarte celula",
+      "table": "Tabel"
+    },
+    "video": "Video"
+  },
+  "misc": {
+    "fullscreen": "Mod ecran complet",
+    "preview": "Previzualizare",
+    "source": "Vezi codul sursă",
+    "toggleInvisibleCharacters": "Arată/ascunde caracterele invizibile"
+  },
+  "style": {
+    "color": {
+      "custom": "Culoare personalizată",
+      "highlight": "Culoare de evidențiere",
+      "text": "Culoare text",
+      "unset": "Resetează culoarea"
+    },
+    "fontFamily": "Familia fontului",
+    "fontSize": "Dimensiunea fontului",
+    "heading": "Titlu",
+    "headings": {
+      "h1": "Titlu nivel 1",
+      "h2": "Titlu nivel 2",
+      "h3": "Titlu nivel 3",
+      "h4": "Titlu nivel 4",
+      "h5": "Titlu nivel 5",
+      "h6": "Titlu nivel 6"
+    },
+    "lineHeight": "Înălțimea liniei",
+    "paragraph": "Paragraf"
+  }
+}

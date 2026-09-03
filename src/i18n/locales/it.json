@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Valore predefinito",
+  "action": {
+    "redo": "Ripeti",
+    "undo": "Annulla"
+  },
+  "ai": {
+    "append": "Aggiungi alla fine",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Espandi questo testo in una versione più dettagliata.",
+        "title": "Espandi"
+      },
+      "improve": {
+        "prompt": "Migliora la chiarezza e il tono di questo testo.",
+        "title": "Migliora la scrittura"
+      },
+      "proofReading": {
+        "prompt": "Correggi grammatica, ortografia e punteggiatura senza cambiare il significato.",
+        "title": "Revisione"
+      },
+      "summarize": {
+        "prompt": "Riassumi questo testo in un paragrafo conciso.",
+        "title": "Riassumi"
+      }
+    },
+    "error": "Generazione IA non riuscita",
+    "generate": "Genera",
+    "insert": "Inserisci",
+    "limit_exceeded": "Il risultato supera il limite di caratteri dell'editor. Accorcia il testo e applicalo di nuovo.",
+    "loading": "Generazione in corso...",
+    "prompt": "Richiesta",
+    "quick_prompts": "Richieste rapide",
+    "reasoning_effort": "Livello di ragionamento",
+    "replace": "Sostituisci",
+    "result": "Risultato",
+    "stop": "Ferma",
+    "thinking": "Riflessione",
+    "title": "Scrittura IA",
+    "unavailable": "Configura un provider di IA per utilizzare questa azione"
+  },
+  "alignment": "Allineamento",
+  "alignments": {
+    "center": "Allineamento centrato",
+    "justify": "Giustificato",
+    "left": "Allineamento a sinistra",
+    "right": "Allineamento a destra"
+  },
   "content": {
     "placeholder": "Scrivi qualcosa..."
   },
-  "style": {
-    "paragraph": "paragrafo",
-    "heading": "Intestazione",
-    "headings": {
-      "h1": "Intestazione di livello 1",
-      "h2": "Intestazione di livello 2",
-      "h3": "Intestazione di livello 3",
-      "h4": "Intestazione di livello 4",
-      "h5": "Intestazione di livello 5",
-      "h6": "Intestazione di livello 6"
+  "defaultValue": "Valore predefinito",
+  "dialog": {
+    "apply": "Applica",
+    "clear": "Cancella",
+    "close": "Chiudi",
+    "iframe": {
+      "dialog_title": "Aggiungi/modifica iframe",
+      "frameborder": "Bordo del frame",
+      "height": "Altezza",
+      "name": "Nome",
+      "src": "Sorgente",
+      "src_invalid": "L'URL inserito non è valido",
+      "title": "Titolo",
+      "width": "Larghezza"
     },
-    "fontFamily": "Carattere",
-    "fontSize": "Dimensione",
-    "lineHeight": "Altezza riga",
-    "color": {
-      "highlight": "Colore evidenziazione",
-      "text": "Colore testo",
-      "unset": "Cancella colore",
-      "custom": "Selezione personalizzata"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Aggiungi/modifica immagine",
+      "height": "Altezza",
+      "keep_ratio": "Mantieni rapporto d'aspetto",
+      "src": "Origine",
+      "title": "Titolo",
+      "width": "Larghezza"
+    },
+    "link": {
+      "class": "Classe CSS",
+      "href": "Indirizzo collegamento",
+      "href_error": "Indirizzo collegamento incorretto",
+      "rel": "rel",
+      "target": "Apri in...",
+      "target_blank": "Nuova finestra",
+      "target_self": "Finestra corrente",
+      "title": "Aggiungi/modifica collegamento"
+    },
+    "preview": {
+      "title": "Anteprima"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Visualizza codice sorgente"
+    },
+    "video": {
+      "height": "Altezza",
+      "src": "Sorgente",
+      "title": "Aggiungi/modifica video",
+      "width": "Larghezza"
     }
   },
+  "footer": {
+    "chars": "caratteri",
+    "limit": "limite caratteri",
+    "words": "parole"
+  },
   "format": {
-    "bold": "Grassetto",
-    "italic": "Corsivo",
-    "strike": "Barrato",
-    "underline": "Sottolineato",
-    "sup": "Apice",
-    "sub": "Pedice",
-    "break": "Interruzione riga",
-    "line": "Linea orizzontale",
     "blockquote": "Citazione",
+    "bold": "Grassetto",
+    "break": "Interruzione riga",
     "code": "Codice",
     "codeblock": "Blocco codice",
-    "formatClear": "Cancella formattazione"
+    "formatClear": "Cancella formattazione",
+    "italic": "Corsivo",
+    "line": "Linea orizzontale",
+    "strike": "Barrato",
+    "sub": "Pedice",
+    "sup": "Apice",
+    "underline": "Sottolineato"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Lista puntata",
+    "indent": "Aumenta rientro elemento",
+    "numbered": "Lista numerata",
+    "outdent": "Diminuisci rientro elemento",
+    "task": "Lista attività"
   },
   "media": {
-    "link": "Collegamento esterno",
-    "iframe": "iframe",
-    "image": "Immagine",
+    "charmap": {
+      "categories": {
+        "arrows": "Frecce",
+        "box_drawing": "Disegno cassette",
+        "currency": "Valuta",
+        "cyrillic": "Cirillico",
+        "diacritics": "Diacritici",
+        "extended_letters": "Lettere estese",
+        "greek": "Lettere greche",
+        "hebrew": "Ebraico",
+        "math": "Matematica",
+        "punctuation": "Punteggiatura",
+        "symbols": "Simboli",
+        "typography": "Tipografia"
+      },
+      "noResults": "Nessun carattere corrispondente trovato",
+      "search": "Cerca caratteri...",
+      "title": "Inserisci carattere speciale"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Cerca emoji...",
       "categories": {
         "activities": "Attività",
         "animals_and_nature": "Animali e natura",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Faccine ed emozioni",
         "symbols": "Simboli",
         "travel_and_places": "Viaggi e luoghi"
-      }
+      },
+      "search": "Cerca emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Immagine",
+    "link": "Collegamento esterno",
     "tables": {
-      "table": "Tabella",
-      "insertTable": "Inserisci tabella",
-      "deleteTable": "Elimina tabella",
-      "insertWithHeaderRow": "Inserisci tabella con intestazione",
-      "rows": "Righe",
-      "row": "Riga",
-      "insertRowBefore": "Inserisci riga prima",
-      "insertRowAfter": "Inserisci riga dopo",
-      "deleteRow": "Elimina riga",
-      "cols": "Colonne",
       "col": "Colonna",
-      "insertColBefore": "Inserisci colonna prima",
-      "insertColAfter": "Inserisci colonna dopo",
+      "cols": "Colonne",
       "deleteCol": "Elimina colonna",
+      "deleteRow": "Elimina riga",
+      "deleteTable": "Elimina tabella",
+      "insertColAfter": "Inserisci colonna dopo",
+      "insertColBefore": "Inserisci colonna prima",
+      "insertRowAfter": "Inserisci riga dopo",
+      "insertRowBefore": "Inserisci riga prima",
+      "insertTable": "Inserisci tabella",
+      "insertWithHeaderRow": "Inserisci tabella con intestazione",
       "mergeCells": "Unisci celle",
-      "splitCell": "Dividi cella"
+      "row": "Riga",
+      "rows": "Righe",
+      "splitCell": "Dividi cella",
+      "table": "Tabella"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Inserisci carattere speciale",
-      "search": "Cerca caratteri...",
-      "noResults": "Nessun carattere corrispondente trovato",
-      "categories": {
-        "punctuation": "Punteggiatura",
-        "symbols": "Simboli",
-        "math": "Matematica",
-        "currency": "Valuta",
-        "greek": "Lettere greche",
-        "extended_letters": "Lettere estese",
-        "diacritics": "Diacritici",
-        "typography": "Tipografia",
-        "cyrillic": "Cirillico",
-        "hebrew": "Ebraico",
-        "arrows": "Frecce",
-        "box_drawing": "Disegno cassette"
-      }
-    }
-  },
-  "action": {
-    "undo": "Annulla",
-    "redo": "Ripeti"
-  },
-  "alignment": "Allineamento",
-  "alignments": {
-    "left": "Allineamento a sinistra",
-    "center": "Allineamento centrato",
-    "right": "Allineamento a destra",
-    "justify": "Giustificato"
-  },
-  "list": "Lista",
-  "lists": {
-    "bullet": "Lista puntata",
-    "numbered": "Lista numerata",
-    "task": "Lista attività",
-    "indent": "Aumenta rientro elemento",
-    "outdent": "Diminuisci rientro elemento"
-  },
-  "dialog": {
-    "apply": "Applica",
-    "clear": "Cancella",
-    "close": "Chiudi",
-    "iframe": {
-      "dialog_title": "Aggiungi/modifica iframe",
-      "src": "Sorgente",
-      "name": "Nome",
-      "title": "Titolo",
-      "width": "Larghezza",
-      "height": "Altezza",
-      "frameborder": "Bordo del frame",
-      "src_invalid": "L'URL inserito non è valido"
-    },
-    "image": {
-      "title": "Titolo",
-      "src": "Origine",
-      "keep_ratio": "Mantieni rapporto d'aspetto",
-      "alt": "alt",
-      "width": "Larghezza",
-      "height": "Altezza",
-      "dialog_title": "Aggiungi/modifica immagine"
-    },
-    "link": {
-      "title": "Aggiungi/modifica collegamento",
-      "href": "Indirizzo collegamento",
-      "href_error": "Indirizzo collegamento incorretto",
-      "target": "Apri in...",
-      "target_blank": "Nuova finestra",
-      "target_self": "Finestra corrente",
-      "rel": "rel",
-      "class": "Classe CSS"
-    },
-    "preview": {
-      "title": "Anteprima"
-    },
-    "source": {
-      "title": "Visualizza codice sorgente",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Aggiungi/modifica video",
-      "src": "Sorgente",
-      "width": "Larghezza",
-      "height": "Altezza"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Modalità schermo intero",
@@ -169,38 +188,25 @@
     "source": "Visualizza codice sorgente",
     "toggleInvisibleCharacters": "Mostra/nascondi caratteri invisibili"
   },
-  "footer": {
-    "words": "parole",
-    "chars": "caratteri",
-    "limit": "limite caratteri"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Selezione personalizzata",
+      "highlight": "Colore evidenziazione",
+      "text": "Colore testo",
+      "unset": "Cancella colore"
+    },
+    "fontFamily": "Carattere",
+    "fontSize": "Dimensione",
+    "heading": "Intestazione",
+    "headings": {
+      "h1": "Intestazione di livello 1",
+      "h2": "Intestazione di livello 2",
+      "h3": "Intestazione di livello 3",
+      "h4": "Intestazione di livello 4",
+      "h5": "Intestazione di livello 5",
+      "h6": "Intestazione di livello 6"
+    },
+    "lineHeight": "Altezza riga",
+    "paragraph": "paragrafo"
   }
 }

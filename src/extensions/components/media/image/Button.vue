@@ -33,7 +33,7 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
     <BtnIcon :icon="`mdiSvg:${mdi.mdiImage}`" />
   </VBtn>
 
-  <ImageDialog />
+  <ImageDialog :variant-btn="variantBtn" />
 </template>
 
 <style lang="scss" scoped>

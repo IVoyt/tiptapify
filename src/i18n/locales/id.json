@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "Ulang",
+    "undo": "Urungkan"
+  },
+  "ai": {
+    "append": "Tambahkan di akhir",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Perluas teks ini menjadi versi yang lebih detail.",
+        "title": "Perluas"
+      },
+      "improve": {
+        "prompt": "Perjelas dan perbaiki nada teks ini.",
+        "title": "Perbaiki penulisan"
+      },
+      "proofReading": {
+        "prompt": "Perbaiki tata bahasa, ejaan, dan tanda baca tanpa mengubah makna.",
+        "title": "Bukti baca"
+      },
+      "summarize": {
+        "prompt": "Rangkum teks ini dalam satu paragraf ringkas.",
+        "title": "Ringkas"
+      }
+    },
+    "error": "Pembuatan AI gagal",
+    "generate": "Hasilkan",
+    "insert": "Sisipkan",
+    "limit_exceeded": "Hasil melebihi batas karakter editor. Singkatkan teks dan terapkan kembali.",
+    "loading": "Membuat...",
+    "prompt": "Prompt",
+    "quick_prompts": "Prompt cepat",
+    "reasoning_effort": "Usaha penalaran",
+    "replace": "Ganti",
+    "result": "Hasil",
+    "stop": "Hentikan",
+    "thinking": "Berpikir",
+    "title": "Penulisan AI",
+    "unavailable": "Konfigurasikan penyedia AI untuk menggunakan tindakan ini"
+  },
+  "alignment": "Perataan",
+  "alignments": {
+    "center": "Rata tengah",
+    "justify": "Rata kiri-kanan",
+    "left": "Rata kiri",
+    "right": "Rata kanan"
+  },
+  "content": {
+    "placeholder": "Tulis sesuatu di sini..."
+  },
+  "defaultValue": "Nilai bawaan",
+  "dialog": {
+    "apply": "Terapkan",
+    "clear": "Bersihkan",
+    "close": "Tutup",
+    "iframe": {
+      "dialog_title": "Tambah/sunting iframe",
+      "frameborder": "Bingkai iframe",
+      "height": "Tinggi",
+      "name": "Nama",
+      "src": "Sumber",
+      "src_invalid": "Masukan bukan URL yang valid",
+      "title": "Judul",
+      "width": "Lebar"
+    },
+    "image": {
+      "alt": "Alt",
+      "dialog_title": "Tambah/sunting gambar",
+      "height": "Tinggi",
+      "keep_ratio": "Pertahankan rasio",
+      "src": "Sumber",
+      "title": "Tambah/sunting gambar",
+      "width": "Lebar"
+    },
+    "link": {
+      "class": "Kelas CSS",
+      "href": "Alamat tautan",
+      "href_error": "Alamat tautan tidak valid",
+      "rel": "Rel",
+      "target": "Buka di...",
+      "target_blank": "Jendela baru",
+      "target_self": "Jendela saat ini",
+      "title": "Tambah/sunting tautan"
+    },
+    "preview": {
+      "title": "Pratinjau"
+    },
+    "source": {
+      "prettify": "Rapihkan",
+      "title": "Lihat kode sumber"
+    },
+    "video": {
+      "height": "Tinggi",
+      "src": "Sumber",
+      "title": "Tambah/sunting video",
+      "width": "Lebar"
+    }
+  },
+  "footer": {
+    "chars": "karakter",
+    "limit": "batas karakter",
+    "words": "kata"
+  },
+  "format": {
+    "blockquote": "Kutip",
+    "bold": "Tebal",
+    "break": "Pergantian baris paksa",
+    "code": "Kode",
+    "codeblock": "Blok kode",
+    "formatClear": "Hapus format",
+    "italic": "Miring",
+    "line": "Garis horizontal",
+    "strike": "Coret",
+    "sub": "Indeks bawah",
+    "sup": "Indeks atas",
+    "underline": "Garis bawah"
+  },
+  "list": "Daftar",
+  "lists": {
+    "bullet": "Daftar tidak berurutan",
+    "indent": "Tambahkan indentasi item daftar",
+    "numbered": "Daftar berurutan",
+    "outdent": "Kurangi indentasi item daftar",
+    "task": "Daftar tugas"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "Panah",
+        "box_drawing": "Gambar kotak",
+        "currency": "Mata uang",
+        "cyrillic": "Sirilik",
+        "diacritics": "Diacritik",
+        "extended_letters": "Huruf tambahan",
+        "greek": "Huruf Yunani",
+        "hebrew": "Ibrani",
+        "math": "Matematika",
+        "punctuation": "Tanda baca",
+        "symbols": "Simbol",
+        "typography": "Tipografi"
+      },
+      "noResults": "Tidak ada karakter yang cocok",
+      "search": "Cari karakter...",
+      "title": "Karakter khusus"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "Aktivitas",
+        "animals_and_nature": "Hewan & alam",
+        "component": "Komponen",
+        "flags": "Bendera",
+        "food_and_drink": "Makanan & minuman",
+        "objects": "Objek",
+        "people_and_body": "Orang & tubuh",
+        "smileys_and_emotion": "Smiley & emosi",
+        "symbols": "Simbol",
+        "travel_and_places": "Bepergian & tempat"
+      },
+      "search": "Cari emoji...",
+      "title": "Emoji"
+    },
+    "iframe": "iframe",
+    "image": "Gambar",
+    "link": "Tautan eksternal",
+    "tables": {
+      "col": "Kolom",
+      "cols": "Kolom",
+      "deleteCol": "Hapus kolom",
+      "deleteRow": "Hapus baris",
+      "deleteTable": "Hapus tabel",
+      "insertColAfter": "Sisipkan kolom setelah",
+      "insertColBefore": "Sisipkan kolom sebelum",
+      "insertRowAfter": "Sisipkan baris setelah",
+      "insertRowBefore": "Sisipkan baris sebelum",
+      "insertTable": "Sisipkan tabel",
+      "insertWithHeaderRow": "Sisipkan tabel dengan baris judul",
+      "mergeCells": "Gabungkan sel",
+      "row": "Baris",
+      "rows": "Baris",
+      "splitCell": "Pecah sel",
+      "table": "Tabel"
+    },
+    "video": "Video"
+  },
+  "misc": {
+    "fullscreen": "Mode layar penuh",
+    "preview": "Pratinjau",
+    "source": "Lihat kode sumber",
+    "toggleInvisibleCharacters": "Tampilkan/sembunyikan karakter tak terlihat"
+  },
+  "style": {
+    "color": {
+      "custom": "Warna kustom",
+      "highlight": "Warna sorotan",
+      "text": "Warna teks",
+      "unset": "Hapus warna"
+    },
+    "fontFamily": "Keluarga font",
+    "fontSize": "Ukuran font",
+    "heading": "Judul",
+    "headings": {
+      "h1": "Judul tingkat 1",
+      "h2": "Judul tingkat 2",
+      "h3": "Judul tingkat 3",
+      "h4": "Judul tingkat 4",
+      "h5": "Judul tingkat 5",
+      "h6": "Judul tingkat 6"
+    },
+    "lineHeight": "Tinggi baris",
+    "paragraph": "Paragraf"
+  }
+}

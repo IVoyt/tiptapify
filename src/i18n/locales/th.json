@@ -1,50 +1,149 @@
 {
-  "defaultValue": "ค่าเริ่มต้น",
+  "action": {
+    "redo": "ทำซ้ำ",
+    "undo": "ยกเลิก"
+  },
+  "ai": {
+    "append": "เพิ่มที่ท้าย",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "ขยายข้อความนี้ให้เป็นเวอร์ชันที่ละเอียดขึ้น",
+        "title": "ขยาย"
+      },
+      "improve": {
+        "prompt": "ปรับปรุงความชัดเจนและน้ำเสียงของข้อความนี้",
+        "title": "ปรับปรุงการเขียน"
+      },
+      "proofReading": {
+        "prompt": "แก้ไขไวยากรณ์ ตัวสะกด และเครื่องหมายวรรคตอน โดยไม่เปลี่ยนความหมาย",
+        "title": "ตรวจทาน"
+      },
+      "summarize": {
+        "prompt": "สรุปข้อความนี้ในย่อหน้าสั้นกระชับ",
+        "title": "สรุป"
+      }
+    },
+    "error": "การสร้างด้วย AI ล้มเหลว",
+    "generate": "สร้าง",
+    "insert": "แทรก",
+    "limit_exceeded": "ผลลัพธ์เกินขีดจำกัดอักขระของเอดิเตอร์ ให้ลดความยาวข้อความแล้วลองใหม่",
+    "loading": "กำลังสร้าง...",
+    "prompt": "คำสั่ง",
+    "quick_prompts": "คำสั่งด่วน",
+    "reasoning_effort": "ระดับการให้เหตุผล",
+    "replace": "แทนที่",
+    "result": "ผลลัพธ์",
+    "stop": "หยุด",
+    "thinking": "การคิด",
+    "title": "การเขียนด้วย AI",
+    "unavailable": "ตั้งค่าผู้ให้บริการ AI เพื่อใช้การนี้"
+  },
+  "alignment": "การจัดแนว",
+  "alignments": {
+    "center": "จัดกึ่งกลาง",
+    "justify": "จัดเต็มบรรทัด",
+    "left": "จัดชิดซ้าย",
+    "right": "จัดชิดขวา"
+  },
   "content": {
     "placeholder": "พิมพ์อะไรสักอย่าง..."
   },
-  "style": {
-    "paragraph": "ย่อหน้า",
-    "heading": "หัวเรื่อง",
-    "headings": {
-      "h1": "หัวข้อระดับ 1",
-      "h2": "หัวข้อระดับ 2",
-      "h3": "หัวข้อระดับ 3",
-      "h4": "หัวข้อระดับ 4",
-      "h5": "หัวข้อระดับ 5",
-      "h6": "หัวข้อระดับ 6"
+  "defaultValue": "ค่าเริ่มต้น",
+  "dialog": {
+    "apply": "ใช้",
+    "clear": "ล้าง",
+    "close": "ปิด",
+    "iframe": {
+      "dialog_title": "เพิ่ม/แก้ไขกรอบฝังตัว",
+      "frameborder": "ขอบกรอบ",
+      "height": "ความสูง",
+      "name": "ชื่อ",
+      "src": "แหล่งที่มา",
+      "src_invalid": "URL ที่ป้อนไม่ถูกต้อง",
+      "title": "หัวข้อ",
+      "width": "ความกว้าง"
     },
-    "fontFamily": "ตระกูลฟอนต์",
-    "fontSize": "ขนาดตัวอักษร",
-    "lineHeight": "ความสูงบรรทัด",
-    "color": {
-      "highlight": "สีเน้น",
-      "text": "สีข้อความ",
-      "unset": "ลบสี",
-      "custom": "เลือกเอง"
+    "image": {
+      "alt": "ข้อความทางเลือก",
+      "dialog_title": "เพิ่ม/แก้ไขรูปภาพ",
+      "height": "ความสูง",
+      "keep_ratio": "รักษาสัดส่วน",
+      "src": "แหล่งที่มา",
+      "title": "หัวข้อ",
+      "width": "ความกว้าง"
+    },
+    "link": {
+      "class": "คลาส CSS",
+      "href": "ที่อยู่ลิงก์",
+      "href_error": "ที่อยู่ลิงก์ไม่ถูกต้อง",
+      "rel": "ความสัมพันธ์",
+      "target": "เปิดที่...",
+      "target_blank": "หน้าต่างใหม่",
+      "target_self": "หน้าต่างปัจจุบัน",
+      "title": "เพิ่ม/แก้ไขลิงก์"
+    },
+    "preview": {
+      "title": "ดูตัวอย่าง"
+    },
+    "source": {
+      "prettify": "ทำให้สวยงาม",
+      "title": "ดูรหัสแหล่งที่มา"
+    },
+    "video": {
+      "height": "ความสูง",
+      "src": "แหล่งที่มา",
+      "title": "เพิ่ม/แก้ไขวิดีโอ",
+      "width": "ความกว้าง"
     }
   },
+  "footer": {
+    "chars": "ตัวอักษร",
+    "limit": "ขีดจำกัดตัวอักษร",
+    "words": "คำ"
+  },
   "format": {
-    "bold": "ตัวหนา",
-    "italic": "ตัวเอียง",
-    "strike": "ขีดฆ่า",
-    "underline": "ขีดเส้นใต้",
-    "sup": "ตัวยก",
-    "sub": "ตัวห้อย",
-    "break": "ขึ้นบรรทัดใหม่",
-    "line": "เส้นแนวนอน",
     "blockquote": "คำ trích",
+    "bold": "ตัวหนา",
+    "break": "ขึ้นบรรทัดใหม่",
     "code": "โค้ด",
     "codeblock": "บล็อกโค้ด",
-    "formatClear": "ล้างรูปแบบ"
+    "formatClear": "ล้างรูปแบบ",
+    "italic": "ตัวเอียง",
+    "line": "เส้นแนวนอน",
+    "strike": "ขีดฆ่า",
+    "sub": "ตัวห้อย",
+    "sup": "ตัวยก",
+    "underline": "ขีดเส้นใต้"
+  },
+  "list": "รายการ",
+  "lists": {
+    "bullet": "รายการแบบไม่มีตัวเลข",
+    "indent": "เพิ่มการเยื้อง",
+    "numbered": "รายการแบบมีหมายเลข",
+    "outdent": "ลดการเยื้อง",
+    "task": "รายการงาน"
   },
   "media": {
-    "link": "ลิงก์ภายนอก",
-    "iframe": "กรอบฝังตัว",
-    "image": "รูปภาพ",
+    "charmap": {
+      "categories": {
+        "arrows": "ลูกศร",
+        "box_drawing": "การวาดกรอบ",
+        "currency": "สกุลเงิน",
+        "cyrillic": "ซีริลลิก",
+        "diacritics": "เครื่องหมายกำกับ",
+        "extended_letters": "ตัวอักษรขยาย",
+        "greek": "ตัวอักษรกรีก",
+        "hebrew": "ฮีบรู",
+        "math": "คณิตศาสตร์",
+        "punctuation": "เครื่องหมายวรรคตอน",
+        "symbols": "สัญลักษณ์",
+        "typography": "การพิมพ์"
+      },
+      "noResults": "ไม่พบอักขระที่ตรงกัน",
+      "search": "ค้นหาอักขระ...",
+      "title": "แทรกอักขระพิเศษ"
+    },
     "emoji": {
-      "title": "อิโมจิ",
-      "search": "ค้นหาอิโมจิ...",
       "categories": {
         "activities": "กิจกรรม",
         "animals_and_nature": "สัตว์และธรรมชาติ",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "อิโมจิและอารมณ์",
         "symbols": "สัญลักษณ์",
         "travel_and_places": "การเดินทางและสถานที่"
-      }
+      },
+      "search": "ค้นหาอิโมจิ...",
+      "title": "อิโมจิ"
     },
+    "iframe": "กรอบฝังตัว",
+    "image": "รูปภาพ",
+    "link": "ลิงก์ภายนอก",
     "tables": {
-      "table": "ตาราง",
-      "insertTable": "แทรกตาราง",
-      "deleteTable": "ลบตาราง",
-      "insertWithHeaderRow": "แทรกตารางที่มีแถวหัวเรื่อง",
-      "rows": "แถว",
-      "row": "แถว",
-      "insertRowBefore": "แทรกแถวก่อนหน้า",
-      "insertRowAfter": "แทรกแถวถัดไป",
-      "deleteRow": "ลบแถว",
-      "cols": "คอลัมน์",
       "col": "คอลัมน์",
-      "insertColBefore": "แทรกคอลัมน์ก่อนหน้า",
-      "insertColAfter": "แทรกคอลัมน์ถัดไป",
+      "cols": "คอลัมน์",
       "deleteCol": "ลบคอลัมน์",
+      "deleteRow": "ลบแถว",
+      "deleteTable": "ลบตาราง",
+      "insertColAfter": "แทรกคอลัมน์ถัดไป",
+      "insertColBefore": "แทรกคอลัมน์ก่อนหน้า",
+      "insertRowAfter": "แทรกแถวถัดไป",
+      "insertRowBefore": "แทรกแถวก่อนหน้า",
+      "insertTable": "แทรกตาราง",
+      "insertWithHeaderRow": "แทรกตารางที่มีแถวหัวเรื่อง",
       "mergeCells": "รวมเซลล์",
-      "splitCell": "แยกเซลล์"
+      "row": "แถว",
+      "rows": "แถว",
+      "splitCell": "แยกเซลล์",
+      "table": "ตาราง"
     },
-    "video": "วิดีโอ",
-    "charmap": {
-      "title": "แทรกอักขระพิเศษ",
-      "search": "ค้นหาอักขระ...",
-      "noResults": "ไม่พบอักขระที่ตรงกัน",
-      "categories": {
-        "punctuation": "เครื่องหมายวรรคตอน",
-        "symbols": "สัญลักษณ์",
-        "math": "คณิตศาสตร์",
-        "currency": "สกุลเงิน",
-        "greek": "ตัวอักษรกรีก",
-        "extended_letters": "ตัวอักษรขยาย",
-        "diacritics": "เครื่องหมายกำกับ",
-        "typography": "การพิมพ์",
-        "cyrillic": "ซีริลลิก",
-        "hebrew": "ฮีบรู",
-        "arrows": "ลูกศร",
-        "box_drawing": "การวาดกรอบ"
-      }
-    }
-  },
-  "action": {
-    "undo": "ยกเลิก",
-    "redo": "ทำซ้ำ"
-  },
-  "alignment": "การจัดแนว",
-  "alignments": {
-    "left": "จัดชิดซ้าย",
-    "center": "จัดกึ่งกลาง",
-    "right": "จัดชิดขวา",
-    "justify": "จัดเต็มบรรทัด"
-  },
-  "list": "รายการ",
-  "lists": {
-    "bullet": "รายการแบบไม่มีตัวเลข",
-    "numbered": "รายการแบบมีหมายเลข",
-    "task": "รายการงาน",
-    "indent": "เพิ่มการเยื้อง",
-    "outdent": "ลดการเยื้อง"
-  },
-  "dialog": {
-    "apply": "ใช้",
-    "clear": "ล้าง",
-    "close": "ปิด",
-    "iframe": {
-      "dialog_title": "เพิ่ม/แก้ไขกรอบฝังตัว",
-      "src": "แหล่งที่มา",
-      "name": "ชื่อ",
-      "title": "หัวข้อ",
-      "width": "ความกว้าง",
-      "height": "ความสูง",
-      "frameborder": "ขอบกรอบ",
-      "src_invalid": "URL ที่ป้อนไม่ถูกต้อง"
-    },
-    "image": {
-      "title": "หัวข้อ",
-      "src": "แหล่งที่มา",
-      "keep_ratio": "รักษาสัดส่วน",
-      "alt": "ข้อความทางเลือก",
-      "width": "ความกว้าง",
-      "height": "ความสูง",
-      "dialog_title": "เพิ่ม/แก้ไขรูปภาพ"
-    },
-    "link": {
-      "title": "เพิ่ม/แก้ไขลิงก์",
-      "href": "ที่อยู่ลิงก์",
-      "href_error": "ที่อยู่ลิงก์ไม่ถูกต้อง",
-      "target": "เปิดที่...",
-      "target_blank": "หน้าต่างใหม่",
-      "target_self": "หน้าต่างปัจจุบัน",
-      "rel": "ความสัมพันธ์",
-      "class": "คลาส CSS"
-    },
-    "preview": {
-      "title": "ดูตัวอย่าง"
-    },
-    "source": {
-      "title": "ดูรหัสแหล่งที่มา",
-      "prettify": "ทำให้สวยงาม"
-    },
-    "video": {
-      "title": "เพิ่ม/แก้ไขวิดีโอ",
-      "src": "แหล่งที่มา",
-      "width": "ความกว้าง",
-      "height": "ความสูง"
-    }
+    "video": "วิดีโอ"
   },
   "misc": {
     "fullscreen": "โหมดเต็มหน้าจอ",
@@ -169,38 +188,25 @@
     "source": "ดูรหัสแหล่งที่มา",
     "toggleInvisibleCharacters": "แสดง/ซ่อนอักขระที่มองไม่เห็น"
   },
-  "footer": {
-    "words": "คำ",
-    "chars": "ตัวอักษร",
-    "limit": "ขีดจำกัดตัวอักษร"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "เลือกเอง",
+      "highlight": "สีเน้น",
+      "text": "สีข้อความ",
+      "unset": "ลบสี"
+    },
+    "fontFamily": "ตระกูลฟอนต์",
+    "fontSize": "ขนาดตัวอักษร",
+    "heading": "หัวเรื่อง",
+    "headings": {
+      "h1": "หัวข้อระดับ 1",
+      "h2": "หัวข้อระดับ 2",
+      "h3": "หัวข้อระดับ 3",
+      "h4": "หัวข้อระดับ 4",
+      "h5": "หัวข้อระดับ 5",
+      "h6": "หัวข้อระดับ 6"
+    },
+    "lineHeight": "ความสูงบรรทัด",
+    "paragraph": "ย่อหน้า"
   }
 }

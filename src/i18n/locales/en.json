@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Default value",
+  "action": {
+    "redo": "Redo",
+    "undo": "Undo"
+  },
+  "ai": {
+    "append": "Append",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Expand this into a more detailed version.",
+        "title": "Expand"
+      },
+      "improve": {
+        "prompt": "Improve the clarity and tone of this text.",
+        "title": "Improve writing"
+      },
+      "proofReading": {
+        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning.",
+        "title": "Proof-reading"
+      },
+      "summarize": {
+        "prompt": "Summarize this text in a concise paragraph.",
+        "title": "Summarize"
+      }
+    },
+    "error": "AI generation failed",
+    "generate": "Generate",
+    "insert": "Insert",
+    "limit_exceeded": "Result exceeds the editor's character limit. Shorten the text and apply again.",
+    "loading": "Generating...",
+    "prompt": "Prompt",
+    "quick_prompts": "Quick Prompts",
+    "reasoning_effort": "Reasoning effort",
+    "replace": "Replace",
+    "result": "Result",
+    "stop": "Stop",
+    "thinking": "Thinking",
+    "title": "AI Writing",
+    "unavailable": "Configure an AI provider to use this action"
+  },
+  "alignment": "Alignment",
+  "alignments": {
+    "center": "Align center",
+    "justify": "Justify",
+    "left": "Align left",
+    "right": "Align right"
+  },
   "content": {
     "placeholder": "Write something here..."
   },
-  "style": {
-    "paragraph": "Paragraph",
-    "heading": "Heading",
-    "headings": {
-      "h1": "Heading level 1",
-      "h2": "Heading level 2",
-      "h3": "Heading level 3",
-      "h4": "Heading level 4",
-      "h5": "Heading level 5",
-      "h6": "Heading level 6"
+  "defaultValue": "Default value",
+  "dialog": {
+    "apply": "Apply",
+    "clear": "Clear",
+    "close": "Close",
+    "iframe": {
+      "dialog_title": "Add/edit iframe",
+      "frameborder": "iframe border",
+      "height": "Height",
+      "name": "Name",
+      "src": "Source",
+      "src_invalid": "The input is invalid URL",
+      "title": "Title",
+      "width": "Width"
     },
-    "fontFamily": "Font family",
-    "fontSize": "Font size",
-    "lineHeight": "Line height",
-    "color": {
-      "highlight": "Highlight color",
-      "text": "Text color",
-      "unset": "Unset color",
-      "custom": "Custom color"
+    "image": {
+      "alt": "Alt",
+      "dialog_title": "Add/edit image",
+      "height": "Height",
+      "keep_ratio": "Keep ratio",
+      "src": "Source",
+      "title": "Add/edit image",
+      "width": "Width"
+    },
+    "link": {
+      "class": "CSS class",
+      "href": "Link address",
+      "href_error": "Invalid link address",
+      "rel": "Rel",
+      "target": "Open in...",
+      "target_blank": "New window",
+      "target_self": "Current window",
+      "title": "Add/edit link"
+    },
+    "preview": {
+      "title": "Preview"
+    },
+    "source": {
+      "prettify": "Prettify",
+      "title": "View source code"
+    },
+    "video": {
+      "height": "Height",
+      "src": "Source",
+      "title": "Add/edit video",
+      "width": "Width"
     }
   },
+  "footer": {
+    "chars": "characters",
+    "limit": "characters limit",
+    "words": "words"
+  },
   "format": {
-    "bold": "Bold",
-    "italic": "Italic",
-    "strike": "Strikethrough",
-    "underline": "Underline",
-    "sup": "Superscript",
-    "sub": "Subscript",
-    "break": "Hard break",
-    "line": "Horizontal line",
     "blockquote": "Cite",
+    "bold": "Bold",
+    "break": "Hard break",
     "code": "Code",
     "codeblock": "Code block",
-    "formatClear": "Format clear"
+    "formatClear": "Format clear",
+    "italic": "Italic",
+    "line": "Horizontal line",
+    "strike": "Strikethrough",
+    "sub": "Subscript",
+    "sup": "Superscript",
+    "underline": "Underline"
+  },
+  "list": "List",
+  "lists": {
+    "bullet": "Unordered list",
+    "indent": "List item indent",
+    "numbered": "Ordered list",
+    "outdent": "List item outdent",
+    "task": "Task list"
   },
   "media": {
-    "link": "External link",
-    "iframe": "iframe",
-    "image": "Image",
+    "charmap": {
+      "categories": {
+        "arrows": "Arrows",
+        "box_drawing": "Box drawing",
+        "currency": "Currency",
+        "cyrillic": "Cyrillic",
+        "diacritics": "Diacritics",
+        "extended_letters": "Extended letters",
+        "greek": "Greek letters",
+        "hebrew": "Hebrew",
+        "math": "Math",
+        "punctuation": "Punctuation",
+        "symbols": "Symbols",
+        "typography": "Typography"
+      },
+      "noResults": "No matching characters found",
+      "search": "Search characters...",
+      "title": "Special characters"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Search emoji...",
       "categories": {
         "activities": "Activities",
         "animals_and_nature": "Animals & nature",
@@ -56,111 +155,32 @@
         "smileys_and_emotion": "Smileys and emotion",
         "symbols": "Symbols",
         "travel_and_places": "Travel and places"
-      }
+      },
+      "search": "Search emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Image",
+    "link": "External link",
     "tables": {
-      "table": "Table",
-      "insertTable": "Insert table",
-      "deleteTable": "Delete table",
-      "insertWithHeaderRow": "Insert table with header row",
-      "rows": "Rows",
-      "row": "Row",
-      "insertRowBefore": "Insert row before",
-      "insertRowAfter": "Insert row after",
-      "deleteRow": "Delete row",
-      "cols": "Columns",
       "col": "Column",
-      "insertColBefore": "Insert column before",
-      "insertColAfter": "Insert column after",
+      "cols": "Columns",
       "deleteCol": "Delete column",
+      "deleteRow": "Delete row",
+      "deleteTable": "Delete table",
+      "insertColAfter": "Insert column after",
+      "insertColBefore": "Insert column before",
+      "insertRowAfter": "Insert row after",
+      "insertRowBefore": "Insert row before",
+      "insertTable": "Insert table",
+      "insertWithHeaderRow": "Insert table with header row",
       "mergeCells": "Merge cells",
-      "splitCell": "Split cell"
+      "row": "Row",
+      "rows": "Rows",
+      "splitCell": "Split cell",
+      "table": "Table"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Special characters",
-      "search": "Search characters...",
-      "noResults": "No matching characters found",
-      "categories": {
-        "punctuation": "Punctuation",
-        "symbols": "Symbols",
-        "math": "Math",
-        "currency": "Currency",
-        "greek": "Greek letters",
-        "extended_letters": "Extended letters",
-        "diacritics": "Diacritics",
-        "typography": "Typography",
-        "cyrillic": "Cyrillic",
-        "hebrew": "Hebrew",
-        "arrows": "Arrows",
-        "box_drawing": "Box drawing"
-      }
-    }
-  },
-  "action": {
-    "undo": "Undo",
-    "redo": "Redo"
-  },
-  "alignment": "Alignment",
-  "alignments": {
-    "left": "Align left",
-    "center": "Align center",
-    "right": "Align right",
-    "justify": "Justify"
-  },
-  "list": "List",
-  "lists": {
-    "bullet": "Unordered list",
-    "numbered": "Ordered list",
-    "task": "Task list",
-    "indent": "List item indent",
-    "outdent": "List item outdent"
-  },
-  "dialog": {
-    "apply": "Apply",
-    "clear": "Clear",
-    "close": "Close",
-    "iframe": {
-      "dialog_title": "Add/edit iframe",
-      "src": "Source",
-      "name": "Name",
-      "title": "Title",
-      "width": "Width",
-      "height": "Height",
-      "frameborder": "iframe border",
-      "src_invalid": "The input is invalid URL"
-    },
-    "image": {
-      "title": "Add/edit image",
-      "src": "Source",
-      "keep_ratio": "Keep ratio",
-      "alt": "Alt",
-      "width": "Width",
-      "height": "Height"
-    },
-    "link": {
-      "title": "Add/edit link",
-      "href": "Link address",
-      "href_error": "Invalid link address",
-      "target": "Open in...",
-      "target_blank": "New window",
-      "target_self": "Current window",
-      "rel": "Rel",
-      "class": "CSS class"
-    },
-    "preview": {
-      "title": "Preview"
-    },
-    "source": {
-      "title": "View source code",
-      "prettify": "Prettify"
-    },
-    "video": {
-      "title": "Add/edit video",
-      "src": "Source",
-      "width": "Width",
-      "height": "Height"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Fullscreen mode",
@@ -168,38 +188,25 @@
     "source": "View source code",
     "toggleInvisibleCharacters": "Show/hide invisible characters"
   },
-  "footer": {
-    "words": "words",
-    "chars": "characters",
-    "limit": "characters limit"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Custom color",
+      "highlight": "Highlight color",
+      "text": "Text color",
+      "unset": "Unset color"
+    },
+    "fontFamily": "Font family",
+    "fontSize": "Font size",
+    "heading": "Heading",
+    "headings": {
+      "h1": "Heading level 1",
+      "h2": "Heading level 2",
+      "h3": "Heading level 3",
+      "h4": "Heading level 4",
+      "h5": "Heading level 5",
+      "h6": "Heading level 6"
+    },
+    "lineHeight": "Line height",
+    "paragraph": "Paragraph"
   }
 }

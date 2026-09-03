@@ -6,15 +6,19 @@ import {
   TiptapifyAiEditorContext,
   TiptapifyAiMode,
   TiptapifyAiOpenAiResponse,
+  TiptapifyAiReasoningEffort,
   TiptapifyAiRequest,
   TiptapifyAiResponse,
   TiptapifyAiResolvedOptions,
+  TiptapifyAiStream,
   TiptapifyEditor,
   variantBtnTypes,
   variantFieldTypes
 } from '@tiptapify/types/editor'
-import { computed, ComputedRef, inject, PropType, Ref, ref, useTemplateRef } from 'vue'
+import { computed, ComputedRef, inject, nextTick, PropType, Ref, ref, useTemplateRef, watch } from 'vue'
+import * as mdi from '@mdi/js'
 import { ComposerTranslation } from 'vue-i18n'
+import { exceedsLimit } from './charLimit'
 
 defineProps({
   variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
@@ -28,36 +32,137 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 const dialog = useTemplateRef('dialog')
 const prompt = ref('')
 const result = ref('')
+const reasoning = ref('')
+const reasoningPanel = ref<number[]>([])
+const reasoningTextEl = ref<HTMLElement | null>(null)
 const error = ref('')
 const loading = ref(false)
+const requestController = ref<AbortController | null>(null)
 const requestRange = ref<{ from: number, to: number } | null>(null)
 const requestMode = ref<TiptapifyAiMode>('insert')
+const thinkingEnabled = ref(false)
+const reasoningEffort = ref<'default' | TiptapifyAiReasoningEffort | null>(null)
+
+watch(loading, (value) => {
+  if (value) {
+    reasoningPanel.value = [0]
+  }
+})
+
+watch(reasoning, () => {
+  nextTick(() => {
+    const element = reasoningTextEl.value
+    if (element) {
+      element.scrollTop = element.scrollHeight
+    }
+  })
+})
 
 const aiProvider = computed(() => ai?.value ? ai.value.aiProvider : undefined)
 const promptExamples = computed(() => ai?.value ? ai.value.promptExamples : [])
+const reasoningEffortOptions = computed<TiptapifyAiReasoningEffort[]>(() => {
+  const configured = ai?.value?.reasoningEffort
+  if (!configured || !Array.isArray(configured.options)) {
+    return []
+  }
+
+  return configured.options.filter(option => option !== 'default')
+})
+const reasoningEffortItems = computed<Array<'default' | TiptapifyAiReasoningEffort>>(() => {
+  return ['default', ...reasoningEffortOptions.value]
+})
+const reasoningEffortSupported = computed(() => reasoningEffortOptions.value.length > 0)
+const thinkingSupported = computed(() => ai?.value?.thinking === true)
+const showReasoning = computed(() => ai?.value?.showReasoning === true)
+const showReasoningEffort = computed(() => thinkingSupported.value && reasoningEffortSupported.value && thinkingEnabled.value)
+const useReasoningEffort = computed(() => {
+  return thinkingSupported.value
+    && thinkingEnabled.value
+    && reasoningEffortSupported.value
+    && reasoningEffort.value !== null
+    && reasoningEffort.value !== 'default'
+})
 const isGenerateDisabled = computed(() => !aiProvider.value || !prompt.value.trim() || loading.value)
-const isApplyDisabled = computed(() => !result.value.trim() || loading.value)
+const characterCountLimit = computed(() => {
+  const limit = getCharacterCountExtension()?.options?.limit
+  return typeof limit === 'number' ? limit : null
+})
+const limitExceeded = computed(() => {
+  const limit = characterCountLimit.value
+  if (limit === null || !result.value) {
+    return false
+  }
+
+  return exceedsLimit(result.value, {
+    doc: editor.value.state.doc,
+    limit,
+    mode: requestMode.value,
+    range: requestRange.value,
+  })
+})
+// A result that exceeds the character limit cannot be inserted (the
+// CharacterCount extension rejects it), so the apply action (and its
+// alternative modes) is disabled until the result is shortened.
+const isApplyDisabled = computed(() => !result.value.trim() || loading.value || limitExceeded.value)
+const actionLabel = computed(() => t(`ai.${requestMode.value}`))
+const modeOptions: TiptapifyAiMode[] = ['insert', 'replace', 'append']
+const alternativeModes = computed(() => modeOptions.filter(mode => mode !== requestMode.value))
+
+function applyInMode(mode: TiptapifyAiMode) {
+  if (isApplyDisabled.value) {
+    return
+  }
+
+  requestMode.value = mode
+  apply()
+}
 
 defineExpose({ showDialog })
+
+function resetReasoningEffort() {
+  const configured = ai?.value?.reasoningEffort
+  const options = reasoningEffortOptions.value
+
+  if (options.length === 0) {
+    reasoningEffort.value = null
+    return
+  }
+
+  reasoningEffort.value = configured?.default && options.includes(configured.default)
+    ? configured.default
+    : 'default'
+}
 
 function showDialog() {
   prompt.value = ai?.value && ai.value.defaultPrompt ? ai.value.defaultPrompt : ''
   result.value = ''
+  reasoning.value = ''
   error.value = ''
   requestRange.value = null
-  requestMode.value = 'insert'
+  const { from, to } = editor.value.state.selection
+  requestMode.value = ai.value?.mode ?? (getSelectedText(from, to) ? 'replace' : 'insert')
+  thinkingEnabled.value = true
+  resetReasoningEffort()
 
   dialog.value?.open()
 }
 
 function close() {
+  requestController.value?.abort()
+  requestController.value = null
+
   prompt.value = ''
   result.value = ''
+  reasoning.value = ''
   error.value = ''
   requestRange.value = null
   requestMode.value = 'insert'
 
   dialog.value?.close()
+}
+
+function stop() {
+  requestController.value?.abort()
 }
 
 function applyExample(examplePrompt: string) {
@@ -75,7 +180,7 @@ function getSelectedText(from: number, to: number) {
 function buildDefaultMessages(context: TiptapifyAiEditorContext) {
   const systemPrompt = ai.value && ai.value.systemPrompt
     ? ai.value.systemPrompt
-    : 'You are an assistant inside a rich text editor. Return only the final text to insert.'
+    : 'You are an AI writing assistant inside a rich text editor. Return only the final text to insert.'
   const contextText = context.selectedText || context.text
   const contextLabel = context.selectedText ? 'Selected text' : 'Editor text'
 
@@ -95,10 +200,12 @@ function buildDefaultMessages(context: TiptapifyAiEditorContext) {
 
 function buildOpenAiRequest(context: TiptapifyAiEditorContext): TiptapifyAiRequest {
   const options = ai.value || {}
+  const chatCompletionOptions = options.chatCompletionOptions ?? {}
+  const defaultStream = typeof chatCompletionOptions.stream === 'boolean' ? chatCompletionOptions.stream : false
   const request: TiptapifyAiRequest = {
-    ...options.chatCompletionOptions,
+    ...chatCompletionOptions,
     messages: options.createMessages ? options.createMessages(context) : buildDefaultMessages(context),
-    stream: false,
+    stream: options.stream ?? defaultStream,
   }
 
   if (options.model) {
@@ -107,6 +214,15 @@ function buildOpenAiRequest(context: TiptapifyAiEditorContext): TiptapifyAiReque
 
   if (typeof options.temperature === 'number') {
     request.temperature = options.temperature
+  }
+
+  if (useReasoningEffort.value) {
+    delete request.enable_thinking
+    request.reasoning_effort = reasoningEffort.value
+  } else {
+    delete request.reasoning_effort
+
+    request.enable_thinking = thinkingSupported.value && thinkingEnabled.value
   }
 
   return request
@@ -141,12 +257,15 @@ async function generate() {
 
   error.value = ''
   result.value = ''
+  reasoning.value = ''
   loading.value = true
+
+  const controller = new AbortController()
+  requestController.value = controller
 
   const { from, to } = editor.value.state.selection
   const selectedText = getSelectedText(from, to)
   requestRange.value = selectedText ? { from, to } : null
-  requestMode.value = ai.value ? ai.value.mode ?? (selectedText ? 'replace' : 'insert') : 'insert'
 
   const context: TiptapifyAiEditorContext = {
     prompt: prompt.value.trim(),
@@ -158,14 +277,38 @@ async function generate() {
   }
   const request = buildOpenAiRequest(context)
 
+  const stream: TiptapifyAiStream = {
+    signal: controller.signal,
+    onChunk: (chunk: string) => {
+      if (chunk && !controller.signal.aborted) {
+        result.value += chunk
+      }
+    },
+    onReasoning: (chunk: string) => {
+      if (chunk && !controller.signal.aborted) {
+        reasoning.value += chunk
+      }
+    },
+  }
+
   try {
-    const response = await aiProvider.value(request, context)
-    result.value = getResponseContent(response)
+    const response = await aiProvider.value(request, context, stream)
+    const content = getResponseContent(response)
+
+    if (!controller.signal.aborted && content) {
+      result.value = content
+    }
   } catch (err) {
-    error.value = err instanceof Error ? err.message : t('ai.error')
+    if (!controller.signal.aborted) {
+      error.value = err instanceof Error ? err.message : t('ai.error')
+    }
   } finally {
     loading.value = false
   }
+}
+
+function getCharacterCountExtension() {
+  return editor.value.options.extensions?.find(item => item.name === 'characterCount')
 }
 
 function apply() {
@@ -174,11 +317,11 @@ function apply() {
   }
 
   const chain = editor.value.chain().focus()
-  if (requestRange.value) {
+  if (requestMode.value === 'replace' && requestRange.value) {
     chain.deleteRange(requestRange.value)
   }
 
-  if (!requestRange.value && requestMode.value === 'append') {
+  if (requestMode.value === 'append') {
     chain.insertContentAt(editor.value.state.doc.content.size, result.value).run()
   } else {
     chain.insertContent(result.value).run()
@@ -197,19 +340,9 @@ function apply() {
           {{ t('ai.unavailable') }}
         </VAlert>
 
-        <VTextarea
-          v-model="prompt"
-          :label="t('ai.prompt')"
-          :variant="variantField"
-          :disabled="loading || !aiProvider"
-          rows="4"
-          auto-grow
-          autofocus
-        />
-
         <div v-if="promptExamples.length" class="mb-4">
           <VLabel class="mb-2 d-block">
-            {{ t('ai.examples') }}
+            {{ t('ai.quick_prompts') }}
           </VLabel>
           <div class="d-flex flex-wrap ga-2">
             <VChip
@@ -225,14 +358,81 @@ function apply() {
         </div>
 
         <VTextarea
+          v-model="prompt"
+          :label="t('ai.prompt')"
+          :variant="variantField"
+          :disabled="loading || !aiProvider"
+          rows="4"
+          auto-grow
+          autofocus
+        />
+
+        <div v-if="thinkingSupported" class="ai-thinking-toggle d-flex align-center mb-4">
+          <VIcon size="x-small" class="mr-2" :icon="`mdiSvg:${mdi.mdiBrain}`" />
+          <VLabel>{{ t('ai.thinking') }}</VLabel>
+          <VSwitch
+            v-model="thinkingEnabled"
+            :disabled="loading || useReasoningEffort"
+            density="compact"
+            hide-details
+            color="primary"
+            class="ai-thinking-toggle__switch"
+          />
+        </div>
+
+        <div v-if="showReasoningEffort" class="ai-reasoning-effort d-flex align-center mb-4">
+          <VIcon size="x-small" class="mr-2" :icon="`mdiSvg:${mdi.mdiGauge}`" />
+          <VLabel>{{ t('ai.reasoning_effort') }}</VLabel>
+          <VSelect
+            v-model="reasoningEffort"
+            :items="reasoningEffortItems"
+            :disabled="loading"
+            :variant="variantField"
+            density="compact"
+            hide-details
+            class="ai-reasoning-effort__select"
+          />
+        </div>
+
+        <VExpansionPanels v-if="showReasoning && reasoning" v-model="reasoningPanel" variant="default" class="ai-reasoning mb-4">
+          <VExpansionPanel :value="0">
+            <template #title>
+              <VIcon size="x-small" :icon="`mdiSvg:${mdi.mdiBrain}`" />
+              <span class="ml-2">{{ t('ai.thinking') }}</span>
+            </template>
+            <template #text>
+              <pre ref="reasoningTextEl" class="ai-reasoning__text">{{ reasoning }}</pre>
+            </template>
+          </VExpansionPanel>
+        </VExpansionPanels>
+
+        <VTextarea
           v-model="result"
           :label="t('ai.result')"
           :variant="variantField"
-          :loading="loading"
-          :disabled="loading"
+          :loading="loading && !result"
+          :readonly="loading"
           rows="5"
           auto-grow
         />
+
+        <VLabel
+          v-if="characterCountLimit !== null && result"
+          class="ai-char-count d-block"
+          :class="{ 'ai-char-count--exceeded': limitExceeded }"
+        >
+          {{ result.length }} / {{ characterCountLimit }}
+        </VLabel>
+
+        <VAlert
+          v-if="limitExceeded"
+          type="error"
+          variant="tonal"
+          density="compact"
+          class="ai-limit-alert mt-4"
+        >
+          {{ t('ai.limit_exceeded') }}
+        </VAlert>
 
         <VAlert v-if="loading" type="info" variant="tonal" density="compact" class="mt-4">
           {{ t('ai.loading') }}
@@ -253,10 +453,120 @@ function apply() {
         <VBtn color="primary" :variant="variantBtn" :disabled="isGenerateDisabled" :loading="loading" @click="generate">
           {{ t('ai.generate') }}
         </VBtn>
-        <VBtn color="primary" :variant="variantBtn" :disabled="isApplyDisabled" @click="apply">
-          {{ t('ai.apply') }}
+        <VBtn v-if="loading" color="warning" :variant="variantBtn" @click="stop">
+          {{ t('ai.stop') }}
         </VBtn>
+
+        <VBtnGroup
+          :class="{ 'tiptapify-btn-group--elevated': variantBtn === 'elevated' && !isApplyDisabled }"
+          density="compact"
+          :variant="variantBtn"
+          divided
+        >
+          <VBtn
+            color="primary"
+            :variant="variantBtn"
+            :disabled="isApplyDisabled"
+            @click="apply"
+          >
+            {{ t('ai.insert') }}
+          </VBtn>
+
+          <VMenu>
+            <template #activator="{ props }">
+              <VBtn
+                v-bind="{ ...props, minWidth: 30 }"
+                color="primary"
+                :disabled="isApplyDisabled"
+                :variant="variantBtn"
+              >
+                <VIcon :icon="`mdiSvg:${mdi.mdiDotsVertical}`" />
+              </VBtn>
+            </template>
+            <VList>
+              <VListItem
+                v-for="mode in alternativeModes"
+                :key="mode"
+                @click="applyInMode(mode)"
+              >
+                <VListItemTitle>{{ t(`ai.${mode}`) }}</VListItemTitle>
+              </VListItem>
+            </VList>
+          </VMenu>
+        </VBtnGroup>
       </VCardActions>
     </template>
   </TiptapifyDialog>
 </template>
+
+<style lang="scss" scoped>
+.tiptapify-btn-group--elevated {
+  box-shadow:
+    0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)),
+    0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)),
+    0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
+}
+
+.ai-thinking-toggle {
+  &__switch {
+    flex: 0 0 auto;
+    margin-left: auto;
+
+    --v-switch-scale: 1;
+    --v-switch-track-height: 14px;
+    --v-switch-thumb-height: 20px;
+    --v-switch-thumb-width: 20px;
+  }
+}
+
+.ai-reasoning-effort {
+  &__select {
+    flex: 0 0 auto;
+    margin-left: auto;
+
+    :deep(.v-input) {
+      width: 140px;
+    }
+  }
+}
+
+.ai-reasoning {
+  :deep(.v-expansion-panel-title) {
+    color: var(--gray-5);
+    font-size: .8125rem;
+    font-weight: 500;
+    padding: .625rem .75rem;
+  }
+
+  :deep(.v-expansion-panel-title__icon) {
+    color: var(--gray-4);
+  }
+}
+
+.ai-reasoning__text {
+  color: var(--gray-5);
+  font-family: 'JetBrainsMono', monospace;
+  font-size: .75rem;
+  line-height: 1.4;
+  margin: 0;
+  max-height: 200px;
+  overflow: auto;
+  padding: .25rem .75rem .625rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ai-char-count {
+  font-size: .75rem;
+  margin-top: .25rem;
+  text-align: right;
+
+  &--exceeded {
+    color: var(--red-soft);
+  }
+}
+
+.ai-limit-alert {
+  color: var(--red-soft, #B24A40) !important;
+}
+</style>

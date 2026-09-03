@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Noklusētā vērtība",
+  "action": {
+    "redo": "Atcelt atsaukšanu",
+    "undo": "Atsaukt"
+  },
+  "ai": {
+    "append": "Adde in fine",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Padari šo tekstu par detalizētāku versiju.",
+        "title": "Paplašināt"
+      },
+      "improve": {
+        "prompt": "Uzlabo šī teksta skaidrību un toni.",
+        "title": "Rakstības uzlabošana"
+      },
+      "proofReading": {
+        "prompt": "Labo gramatiku, rakstzīmes un interpunkciju, nemainot nozīmi.",
+        "title": "Korektūra"
+      },
+      "summarize": {
+        "prompt": "Kopsavāc šo tekstu īsā abzacā.",
+        "title": "Kopsavilkums"
+      }
+    },
+    "error": "MI ģenerēšana neizdevās",
+    "generate": "Ģenerēt",
+    "insert": "Insertio",
+    "limit_exceeded": "Rezultāts pārsniedz redaktora simbolu limitu. Saīsini tekstu un piemēro vēlreiz.",
+    "loading": "Ģenerē...",
+    "prompt": "Pieprasījums",
+    "quick_prompts": "Ātrie pieprasījumi",
+    "reasoning_effort": "Domāšanas līmenis",
+    "replace": "Substitue",
+    "result": "Rezultāts",
+    "stop": "Apturēt",
+    "thinking": "Domāšana",
+    "title": "Scriptura MI",
+    "unavailable": "Lai izmantotu šo darbību, konfigurē MI piegādātāju"
+  },
+  "alignment": "Līdzināšana",
+  "alignments": {
+    "center": "Līdzināt centrā",
+    "justify": "Izlīdzināt",
+    "left": "Līdzināt pa kreisi",
+    "right": "Līdzināt pa labi"
+  },
   "content": {
     "placeholder": "Ierakstiet kaut ko..."
   },
-  "style": {
-    "paragraph": "Absolūts teksts",
-    "heading": "Virsraksts",
-    "headings": {
-      "h1": "1. līmeņa virsraksts",
-      "h2": "2. līmeņa virsraksts",
-      "h3": "3. līmeņa virsraksts",
-      "h4": "4. līmeņa virsraksts",
-      "h5": "5. līmeņa virsraksts",
-      "h6": "6. līmeņa virsraksts"
+  "defaultValue": "Noklusētā vērtība",
+  "dialog": {
+    "apply": "Pielietot",
+    "clear": "Notīrīt",
+    "close": "Aizvērt",
+    "iframe": {
+      "dialog_title": "Pievienot/rediģēt iframe",
+      "frameborder": "Rāmja robeža",
+      "height": "Augstums",
+      "name": "Nosaukums",
+      "src": "Avots",
+      "src_invalid": "Ievadītais URL nav derīgs",
+      "title": "Virsraksts",
+      "width": "Platums"
     },
-    "fontFamily": "Fontu saime",
-    "fontSize": "Fonta izmērs",
-    "lineHeight": "Līnijas augstums",
-    "color": {
-      "highlight": "Iezīmējuma krāsa",
-      "text": "Teksta krāsa",
-      "unset": "Noņemt krāsu",
-      "custom": "Pielāgota izvēle"
+    "image": {
+      "alt": "Alt",
+      "dialog_title": "Pievienot/mainīt attēlu",
+      "height": "Augstums",
+      "keep_ratio": "Saglabāt attiecības",
+      "src": "Avots",
+      "title": "Titulus",
+      "width": "Platums"
+    },
+    "link": {
+      "class": "CSS klase",
+      "href": "Saites adrese",
+      "href_error": "Nederīga saites adrese",
+      "rel": "Rel",
+      "target": "Atvērt...",
+      "target_blank": "Jaunā logā",
+      "target_self": "Pašreizējā logā",
+      "title": "Pievienot/mainīt saiti"
+    },
+    "preview": {
+      "title": "Priekšskatījums"
+    },
+    "source": {
+      "prettify": "Prettify",
+      "title": "Skatīt avota kodu"
+    },
+    "video": {
+      "height": "Augstums",
+      "src": "Avots",
+      "title": "Pievienot/rediģēt video",
+      "width": "Platums"
     }
   },
+  "footer": {
+    "chars": "zīmes",
+    "limit": "zīmju ierobežojums",
+    "words": "vārdi"
+  },
   "format": {
-    "bold": "Treknraksts",
-    "italic": "Kursīvs",
-    "strike": "Nosvītrots",
-    "underline": "Pasvītrots",
-    "sup": "Augšraksts",
-    "sub": "Apakšraksts",
-    "break": "Rindas pārraušana",
-    "line": "Horizontāla līnija",
     "blockquote": "Citāts",
+    "bold": "Treknraksts",
+    "break": "Rindas pārraušana",
     "code": "Kods",
     "codeblock": "Koda bloks",
-    "formatClear": "Notīrīt formatējumu"
+    "formatClear": "Notīrīt formatējumu",
+    "italic": "Kursīvs",
+    "line": "Horizontāla līnija",
+    "strike": "Nosvītrots",
+    "sub": "Apakšraksts",
+    "sup": "Augšraksts",
+    "underline": "Pasvītrots"
+  },
+  "list": "Saraksts",
+  "lists": {
+    "bullet": "Nenumurēts saraksts",
+    "indent": "Palielināt atkāpi",
+    "numbered": "Numurēts saraksts",
+    "outdent": "Samazināt atkāpi",
+    "task": "Uzdevumu saraksts"
   },
   "media": {
-    "link": "Ārējais saites",
-    "iframe": "iframe",
-    "image": "Attēls",
+    "charmap": {
+      "categories": {
+        "arrows": "Bultiņas",
+        "box_drawing": "Rāmju zīmēšana",
+        "currency": "Valūta",
+        "cyrillic": "Kirilica",
+        "diacritics": "Diakritiskās zīmes",
+        "extended_letters": "Paplašināti burti",
+        "greek": "Grieķu burti",
+        "hebrew": "Ivrits",
+        "math": "Matemātika",
+        "punctuation": "Punktuācija",
+        "symbols": "Simboli",
+        "typography": "Tipogrāfija"
+      },
+      "noResults": "Sakrītamas rakstzīmes nav atrastas",
+      "search": "Meklēt rakstzīmes...",
+      "title": "Ievietot īpašo simbolu"
+    },
     "emoji": {
-      "title": "Emocijzīmes",
-      "search": "Meklēt emocijzīmes...",
       "categories": {
         "activities": "Aktivitātes",
         "animals_and_nature": "Dzīvnieki un daba",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Sejītes un emocijas",
         "symbols": "Simboli",
         "travel_and_places": "Ceļojumi un vietas"
-      }
+      },
+      "search": "Meklēt emocijzīmes...",
+      "title": "Emocijzīmes"
     },
+    "iframe": "iframe",
+    "image": "Attēls",
+    "link": "Ārējais saites",
     "tables": {
-      "table": "Tabula",
-      "insertTable": "Ievietot tabulu",
-      "deleteTable": "Dzēst tabulu",
-      "insertWithHeaderRow": "Ievietot tabulu ar galvenes rindu",
-      "rows": "Rindas",
-      "row": "Rinda",
-      "insertRowBefore": "Ievietot rindu pirms",
-      "insertRowAfter": "Ievietot rindu pēc",
-      "deleteRow": "Dzēst rindu",
-      "cols": "Kolonnas",
       "col": "Kolonna",
-      "insertColBefore": "Ievietot kolonnu pirms",
-      "insertColAfter": "Ievietot kolonnu pēc",
+      "cols": "Kolonnas",
       "deleteCol": "Dzēst kolonnu",
+      "deleteRow": "Dzēst rindu",
+      "deleteTable": "Dzēst tabulu",
+      "insertColAfter": "Ievietot kolonnu pēc",
+      "insertColBefore": "Ievietot kolonnu pirms",
+      "insertRowAfter": "Ievietot rindu pēc",
+      "insertRowBefore": "Ievietot rindu pirms",
+      "insertTable": "Ievietot tabulu",
+      "insertWithHeaderRow": "Ievietot tabulu ar galvenes rindu",
       "mergeCells": "Apvienot šūnas",
-      "splitCell": "Sadalīt šūnu"
+      "row": "Rinda",
+      "rows": "Rindas",
+      "splitCell": "Sadalīt šūnu",
+      "table": "Tabula"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Ievietot īpašo simbolu",
-      "search": "Meklēt rakstzīmes...",
-      "noResults": "Sakrītamas rakstzīmes nav atrastas",
-      "categories": {
-        "punctuation": "Punktuācija",
-        "symbols": "Simboli",
-        "math": "Matemātika",
-        "currency": "Valūta",
-        "greek": "Grieķu burti",
-        "extended_letters": "Paplašināti burti",
-        "diacritics": "Diakritiskās zīmes",
-        "typography": "Tipogrāfija",
-        "cyrillic": "Kirilica",
-        "hebrew": "Ivrits",
-        "arrows": "Bultiņas",
-        "box_drawing": "Rāmju zīmēšana"
-      }
-    }
-  },
-  "action": {
-    "undo": "Atsaukt",
-    "redo": "Atcelt atsaukšanu"
-  },
-  "alignment": "Līdzināšana",
-  "alignments": {
-    "left": "Līdzināt pa kreisi",
-    "center": "Līdzināt centrā",
-    "right": "Līdzināt pa labi",
-    "justify": "Izlīdzināt"
-  },
-  "list": "Saraksts",
-  "lists": {
-    "bullet": "Nenumurēts saraksts",
-    "numbered": "Numurēts saraksts",
-    "task": "Uzdevumu saraksts",
-    "indent": "Palielināt atkāpi",
-    "outdent": "Samazināt atkāpi"
-  },
-  "dialog": {
-    "apply": "Pielietot",
-    "clear": "Notīrīt",
-    "close": "Aizvērt",
-    "iframe": {
-      "dialog_title": "Pievienot/rediģēt iframe",
-      "src": "Avots",
-      "name": "Nosaukums",
-      "title": "Virsraksts",
-      "width": "Platums",
-      "height": "Augstums",
-      "frameborder": "Rāmja robeža",
-      "src_invalid": "Ievadītais URL nav derīgs"
-    },
-    "image": {
-      "title": "Titulus",
-      "src": "Avots",
-      "keep_ratio": "Saglabāt attiecības",
-      "alt": "Alt",
-      "width": "Platums",
-      "height": "Augstums",
-      "dialog_title": "Pievienot/mainīt attēlu"
-    },
-    "link": {
-      "title": "Pievienot/mainīt saiti",
-      "href": "Saites adrese",
-      "href_error": "Nederīga saites adrese",
-      "target": "Atvērt...",
-      "target_blank": "Jaunā logā",
-      "target_self": "Pašreizējā logā",
-      "rel": "Rel",
-      "class": "CSS klase"
-    },
-    "preview": {
-      "title": "Priekšskatījums"
-    },
-    "source": {
-      "title": "Skatīt avota kodu",
-      "prettify": "Prettify"
-    },
-    "video": {
-      "title": "Pievienot/rediģēt video",
-      "src": "Avots",
-      "width": "Platums",
-      "height": "Augstums"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Pilnekrāna režīms",
@@ -169,38 +188,25 @@
     "source": "Skatīt avota kodu",
     "toggleInvisibleCharacters": "Rādīt/slēpt neredzamās zīmes"
   },
-  "footer": {
-    "words": "vārdi",
-    "chars": "zīmes",
-    "limit": "zīmju ierobežojums"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Pielāgota izvēle",
+      "highlight": "Iezīmējuma krāsa",
+      "text": "Teksta krāsa",
+      "unset": "Noņemt krāsu"
+    },
+    "fontFamily": "Fontu saime",
+    "fontSize": "Fonta izmērs",
+    "heading": "Virsraksts",
+    "headings": {
+      "h1": "1. līmeņa virsraksts",
+      "h2": "2. līmeņa virsraksts",
+      "h3": "3. līmeņa virsraksts",
+      "h4": "4. līmeņa virsraksts",
+      "h5": "5. līmeņa virsraksts",
+      "h6": "6. līmeņa virsraksts"
+    },
+    "lineHeight": "Līnijas augstums",
+    "paragraph": "Absolūts teksts"
   }
 }

@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "Ponovo",
+    "undo": "Poništi"
+  },
+  "ai": {
+    "append": "Dodaj na kraj",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Proširi ovaj tekst u detaljniju verziju.",
+        "title": "Proširi"
+      },
+      "improve": {
+        "prompt": "Poboljšaj jasnoću i ton ovog teksta.",
+        "title": "Poboljšanje pisanja"
+      },
+      "proofReading": {
+        "prompt": "Ispravi gramatiku, pravopis i interpunkciju bez menjanja značenja.",
+        "title": "Dokazivanje"
+      },
+      "summarize": {
+        "prompt": "Sažmi ovaj tekst u kratak odlomak.",
+        "title": "Sažmi"
+      }
+    },
+    "error": "Generisanje AI nije uspelo",
+    "generate": "Generiši",
+    "insert": "Umetni",
+    "limit_exceeded": "Rezultat premašuje limit znakova u uređivaču. Skratite tekst i ponovo primenite.",
+    "loading": "Generisanje...",
+    "prompt": "Uputstvo",
+    "quick_prompts": "Brza uputstva",
+    "reasoning_effort": "Napori razmišljanja",
+    "replace": "Zameni",
+    "result": "Rezultat",
+    "stop": "Zaustavi",
+    "thinking": "Razmišljanje",
+    "title": "AI pisanje",
+    "unavailable": "Podesite AI pružaoca da biste koristili ovu akciju"
+  },
+  "alignment": "Poravnanje",
+  "alignments": {
+    "center": "Centriraj",
+    "justify": "Poravnaj u bloku",
+    "left": "Poravnaj levo",
+    "right": "Poravnaj desno"
+  },
+  "content": {
+    "placeholder": "Napiši nešto ovde..."
+  },
+  "defaultValue": "Podrazumevana vrednost",
+  "dialog": {
+    "apply": "Primeni",
+    "clear": "Očisti",
+    "close": "Zatvori",
+    "iframe": {
+      "dialog_title": "Dodaj/uredi iframe",
+      "frameborder": "Okvir iframe",
+      "height": "Visina",
+      "name": "Ime",
+      "src": "Izvor",
+      "src_invalid": "Ulaz nije ispravan URL",
+      "title": "Naslov",
+      "width": "Širina"
+    },
+    "image": {
+      "alt": "Alternativni opis",
+      "dialog_title": "Dodaj/uredi sliku",
+      "height": "Visina",
+      "keep_ratio": "Očuvaj odnos",
+      "src": "Izvor",
+      "title": "Dodaj/uredi sliku",
+      "width": "Širina"
+    },
+    "link": {
+      "class": "CSS klasa",
+      "href": "Adresa veze",
+      "href_error": "Neispravna adresa veze",
+      "rel": "Rel",
+      "target": "Otvori u...",
+      "target_blank": "Novi prozor",
+      "target_self": "Trenutni prozor",
+      "title": "Dodaj/uredi vezu"
+    },
+    "preview": {
+      "title": "Pregled"
+    },
+    "source": {
+      "prettify": "Oblikuj",
+      "title": "Pogledaj izvorni kod"
+    },
+    "video": {
+      "height": "Visina",
+      "src": "Izvor",
+      "title": "Dodaj/uredi video",
+      "width": "Širina"
+    }
+  },
+  "footer": {
+    "chars": "znakova",
+    "limit": "limit znakova",
+    "words": "reči"
+  },
+  "format": {
+    "blockquote": "Citiraj",
+    "bold": "Podebljano",
+    "break": "Tvrdi prelom",
+    "code": "Kod",
+    "codeblock": "Blok koda",
+    "formatClear": "Ukloni formatiranje",
+    "italic": "Kurzivno",
+    "line": "Vodoravna linija",
+    "strike": "Precrtano",
+    "sub": "Donji indeks",
+    "sup": "Gornji indeks",
+    "underline": "Podvučeno"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Nesortirana lista",
+    "indent": "Udubljenje stavke liste",
+    "numbered": "Numerisana lista",
+    "outdent": "Izbacivanje stavke liste",
+    "task": "Lista zadataka"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "Strelice",
+        "box_drawing": "Crtanje okvira",
+        "currency": "Valuta",
+        "cyrillic": "Ćirilica",
+        "diacritics": "Dijakritički znakovi",
+        "extended_letters": "Proširena slova",
+        "greek": "Grčka slova",
+        "hebrew": "Hebrejski",
+        "math": "Matematika",
+        "punctuation": "Interpunkcija",
+        "symbols": "Simboli",
+        "typography": "Tipografija"
+      },
+      "noResults": "Nisu pronađeni odgovarajući znakovi",
+      "search": "Pretraži znakove...",
+      "title": "Posebni znakovi"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "Aktivnosti",
+        "animals_and_nature": "Životinje i priroda",
+        "component": "Komponenta",
+        "flags": "Zastave",
+        "food_and_drink": "Hrana i piće",
+        "objects": "Predmeti",
+        "people_and_body": "Ljudi i telo",
+        "smileys_and_emotion": "Smajliji i emocije",
+        "symbols": "Simboli",
+        "travel_and_places": "Putovanja i mesta"
+      },
+      "search": "Pretraži emojije...",
+      "title": "Emoji"
+    },
+    "iframe": "iframe",
+    "image": "Slika",
+    "link": "Vanjska veza",
+    "tables": {
+      "col": "Kolona",
+      "cols": "Kolone",
+      "deleteCol": "Izbriši kolonu",
+      "deleteRow": "Izbriši red",
+      "deleteTable": "Izbriši tabelu",
+      "insertColAfter": "Umetni kolonu nakon",
+      "insertColBefore": "Umetni kolonu pre",
+      "insertRowAfter": "Umetni red nakon",
+      "insertRowBefore": "Umetni red pre",
+      "insertTable": "Umetni tabelu",
+      "insertWithHeaderRow": "Umetni tabelu sa zaglavljem",
+      "mergeCells": "Spoji ćelije",
+      "row": "Red",
+      "rows": "Redovi",
+      "splitCell": "Razdvoji ćeliju",
+      "table": "Tabela"
+    },
+    "video": "Video"
+  },
+  "misc": {
+    "fullscreen": "Prikaz celog ekrana",
+    "preview": "Pregled",
+    "source": "Pogledaj izvorni kod",
+    "toggleInvisibleCharacters": "Prikaži/sakrij nevidljive znakove"
+  },
+  "style": {
+    "color": {
+      "custom": "Prilagođena boja",
+      "highlight": "Boja istaknutog",
+      "text": "Boja teksta",
+      "unset": "Poništi boju"
+    },
+    "fontFamily": "Porodica fonta",
+    "fontSize": "Veličina fonta",
+    "heading": "Naslov",
+    "headings": {
+      "h1": "Naslov nivoa 1",
+      "h2": "Naslov nivoa 2",
+      "h3": "Naslov nivoa 3",
+      "h4": "Naslov nivoa 4",
+      "h5": "Naslov nivoa 5",
+      "h6": "Naslov nivoa 6"
+    },
+    "lineHeight": "Visina reda",
+    "paragraph": "Odlomak"
+  }
+}
