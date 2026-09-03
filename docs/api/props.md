@@ -17,6 +17,27 @@ Initial editor content. Accepts HTML string or Tiptap JSON object.
 <Tiptapify :content="{ type: 'doc', content: [{ type: 'paragraph' }] }" />
 ```
 
+`content` is the **initial** content only; for two-way binding use `v-model` (see `modelValue`).
+
+### `modelValue`
+
+- **Type:** `String | Object`
+- **Default:** `''`
+
+Two-way binding value for `v-model`. Use `v-model` to keep a reactive value in sync with the editor. On every edit the component emits `update:modelValue` with the latest HTML, which `v-model` writes back to your ref. When only `v-model` is used (no `:content`), the bound value is the editor's initial content.
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const content = ref('<p>Hello, world!</p>')
+</script>
+
+<template>
+  <Tiptapify v-model="content" placeholder="Write something..." />
+</template>
+```
+
 
 
 ### `placeholder`
@@ -321,7 +342,7 @@ To let the user switch the model's thinking mode per request, set `thinking: tru
 
 When `thinking` is `false` or omitted, the toggle is not shown and the plugin sends `enable_thinking: false`, so models that think by default (Qwen3, DeepSeek, …) do not think.
 
-To let the user pick the reasoning effort per request, set `reasoningEffort` in the AI options. The dialog then shows a **Reasoning effort** dropdown filled from `options` — custom effort levels (`'low' | 'medium' | 'high'`).
+To let the user pick the reasoning effort per request, set `reasoningEffort` in the AI options. The dialog then shows a **Reasoning effort** dropdown filled from `options` — custom effort levels (`'low' | 'medium' | 'high' | 'xhigh' | 'max'`).
 The extension always adds a `default` item to the dropdown itself (the thinking-mode baseline), so you never list `default` in your config; the `default` field of the option preselects one of your custom levels when the dialog opens (otherwise `default` is preselected), and the value resets on each open.
 The selected value decides what the plugin writes into the request: `default` keeps the thinking mode — the **Thinking** toggle stays active and controls `enable_thinking`; any other value is sent as `reasoning_effort` instead, and the Thinking toggle is disabled while that value is selected (providers reject `enable_thinking` and `reasoning_effort` in a single request).
 The dropdown is only shown when `thinking` is enabled and the Thinking toggle is on — turning thinking off hides it and `reasoning_effort` is not sent (the request falls back to `enable_thinking: false`). When `options` is missing or empty the dropdown is not rendered at all:
@@ -335,7 +356,7 @@ The dropdown is only shown when `thinking` is enabled and the Thinking toggle is
     stream: true,
     thinking: true,
     reasoningEffort: {
-      options: ['low', 'medium', 'high'],
+      options: ['low', 'medium', 'high', 'xhigh', 'max'],
     },
   }"
 />
@@ -394,6 +415,53 @@ Shorten the result to re-enable the action:
 ```
 
 Use `systemPrompt`, `temperature`, `chatCompletionOptions`, or `createMessages(context)` to customize the OpenAI-compatible chat-completions request. `context` contains `{ prompt, selectedText, text, html, json, mode }`.
+
+### `ai.aiEndpoint`
+
+- **Type:** `String`
+- **Default:** `undefined`
+
+Alternative to a custom `aiProvider`: point the AI feature at a backend LLM endpoint and tiptapify builds and sends the request itself. The backend receives a minimal JSON payload:
+
+- **Always:** `prompt` (the request typed in the dialog) and `instruction` (your `systemPrompt`, the system message of a custom `createMessages`, or the built-in default).
+- **Optional, sent only when set:** `stream` (`true` only), `thinking` (the dialog's **Thinking** toggle, `true` only), `reasoning_effort` (the selected effort level), and `model`.
+
+The response is accepted leniently: a plain string, a `{ content }` object, or an OpenAI-compatible `choices` payload. When the request has `stream: true`, the response body is read as an SSE stream (`data:` lines, terminated by `data: [DONE]`): OpenAI-style deltas (`choices[0].delta.content` / `.reasoning_content`), a simple `{ type: 'content' | 'reasoning', data }` chunk, a flat `{ content, reasoning_content }` chunk, and plain-text `data` lines are all accepted. If the backend ignores `stream` and answers with a plain body, that body is used instead. A non-OK response surfaces the backend's error message (JSON `{ error }` / `{ message }` or the raw body) in the dialog. A **Stop** button and closing the dialog abort the in-flight request; partially streamed content is kept in the result field.
+
+If both `aiProvider` and `aiEndpoint` are set, `aiProvider` wins.
+
+```vue
+<script setup lang="ts">
+const ai = {
+  aiEndpoint: '/api/ai/generate',
+  model: 'gpt-4.1-mini',
+  stream: true,
+  thinking: true,
+}
+</script>
+
+<template>
+  <Tiptapify :content="content" :ai="ai" :items="['ai']" />
+</template>
+```
+
+### `ai.aiHeaders`
+
+- **Type:** `Record<string, string>`
+- **Default:** `undefined`
+
+Extra headers sent with the `aiEndpoint` request, merged over `Content-Type: application/json`. An `Authorization` header set here is kept as-is; otherwise a token from `tokenProvider` (when set) is sent as `Authorization: Bearer <token>`.
+
+```vue
+<Tiptapify
+  :content="content"
+  :ai="{
+    aiEndpoint: '/api/ai/generate',
+    aiHeaders: { 'X-Api-Key': '…' },
+  }"
+  :items="['ai']"
+/>
+```
 
 ### `defaultFontFamily`
 

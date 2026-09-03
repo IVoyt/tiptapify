@@ -135,6 +135,23 @@ export type TiptapifyAiProvider = (
 
 export type TiptapifyAiTokenProvider = () => Promise<string | null> | string | null
 
+export interface TiptapifyAiBackendRequest {
+  prompt: string
+  instruction: string
+  stream?: boolean
+  thinking?: boolean
+  reasoning_effort?: TiptapifyAiReasoningEffort
+  model?: string
+}
+
+export interface TiptapifyAiBackendProviderOptions {
+  endpoint: string
+  headers?: Record<string, string>
+  tokenProvider?: TiptapifyAiTokenProvider
+}
+
+export declare function createAiBackendProvider(options: TiptapifyAiBackendProviderOptions): TiptapifyAiProvider
+
 export interface TiptapifyAiStorage {
   getItem: (key: string) => string | null | Promise<string | null>
   setItem: (key: string, value: string) => void | Promise<void>
@@ -143,6 +160,8 @@ export interface TiptapifyAiStorage {
 
 export interface TiptapifyAiOptions {
   aiProvider?: TiptapifyAiProvider
+  aiEndpoint?: string
+  aiHeaders?: Record<string, string>
   model?: string
   promptExamples?: TiptapifyAiPromptExample[]
   mode?: TiptapifyAiMode

@@ -2,6 +2,7 @@ import { Plugin } from 'vue'
 import Tiptapify from '@tiptapify/components/Tiptapify.vue'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 import { TiptapifyFooterAlignment } from '@tiptapify/types/editor'
+import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
 
 import { Editor as TipTapEditor, nodeViewProps, NodeViewWrapper, VueNodeViewRenderer } from '@tiptap/vue-3'
 import { Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
@@ -37,6 +38,7 @@ export {
   VueNodeViewRenderer,
   Tiptapify,
   TiptapifyDialog,
+  createAiBackendProvider,
   Node,
   Mark,
   markInputRule,
@@ -47,6 +49,8 @@ export {
 export type { TiptapifyFooterAlignment }
 export type { CommandProps, InputRuleMatch, PasteRuleMatch }
 export type {
+  TiptapifyAiBackendProviderOptions,
+  TiptapifyAiBackendRequest,
   TiptapifyAiMode,
   TiptapifyAiOptions,
   TiptapifyAiChatMessage,

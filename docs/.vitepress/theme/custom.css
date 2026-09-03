@@ -1,3 +1,14 @@
+/* Vuetify base :root variables. The demo loads Vuetify's component CSS (via the
+   built tiptapify.css in dev) but not Vuetify's base stylesheet, which defines
+   these on :root. Without --v-theme-overlay-multiplier, Vuetify's hover/active/
+   selected overlays — which render currentColor at calc(n * var(--v-theme-overlay-multiplier))
+   — fall back to a fully-opaque currentColor block, showing as a solid inverted bar
+   (white on the dark theme, black on the light theme). */
+:root {
+  --v-theme-overlay-multiplier: 1;
+  --v-scrollbar-offset: 0px;
+}
+
 .VPRepl {
   border-radius: 12px !important;
   overflow: hidden;

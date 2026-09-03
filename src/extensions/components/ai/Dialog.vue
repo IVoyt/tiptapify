@@ -19,6 +19,7 @@ import { computed, ComputedRef, inject, nextTick, PropType, Ref, ref, useTemplat
 import * as mdi from '@mdi/js'
 import { ComposerTranslation } from 'vue-i18n'
 import { exceedsLimit } from './charLimit'
+import { DEFAULT_AI_INSTRUCTION } from './backend'
 
 defineProps({
   variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
@@ -180,7 +181,7 @@ function getSelectedText(from: number, to: number) {
 function buildDefaultMessages(context: TiptapifyAiEditorContext) {
   const systemPrompt = ai.value && ai.value.systemPrompt
     ? ai.value.systemPrompt
-    : 'You are an AI writing assistant inside a rich text editor. Return only the final text to insert.'
+    : DEFAULT_AI_INSTRUCTION
   const contextText = context.selectedText || context.text
   const contextLabel = context.selectedText ? 'Selected text' : 'Editor text'
 
@@ -532,19 +533,19 @@ function apply() {
 
 .ai-reasoning {
   :deep(.v-expansion-panel-title) {
-    color: var(--gray-5);
+    color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
     font-size: .8125rem;
     font-weight: 500;
     padding: .625rem .75rem;
   }
 
   :deep(.v-expansion-panel-title__icon) {
-    color: var(--gray-4);
+    color: rgba(var(--v-theme-on-surface), var(--v-disabled-opacity));
   }
 }
 
 .ai-reasoning__text {
-  color: var(--gray-5);
+  color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
   font-family: 'JetBrainsMono', monospace;
   font-size: .75rem;
   line-height: 1.4;

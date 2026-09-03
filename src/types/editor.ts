@@ -42,7 +42,7 @@ export type TiptapifyAiRequest = {
   [key: string]: unknown,
 }
 
-export type TiptapifyAiReasoningEffort = 'low' | 'medium' | 'high'
+export type TiptapifyAiReasoningEffort = 'low' | 'medium' | 'high' | 'xhigh' | 'max'
 
 export type TiptapifyAiReasoningEffortOptions = {
   options: TiptapifyAiReasoningEffort[],
@@ -76,6 +76,21 @@ export type TiptapifyAiProvider = (
 
 export type TiptapifyAiTokenProvider = () => Promise<string | null> | string | null
 
+export type TiptapifyAiBackendRequest = {
+  prompt: string,
+  instruction: string,
+  stream?: boolean,
+  thinking?: boolean,
+  reasoning_effort?: TiptapifyAiReasoningEffort,
+  model?: string,
+}
+
+export type TiptapifyAiBackendProviderOptions = {
+  endpoint: string,
+  headers?: Record<string, string>,
+  tokenProvider?: TiptapifyAiTokenProvider,
+}
+
 export type TiptapifyAiStorage = {
   getItem: (key: string) => string | null | Promise<string | null>,
   setItem: (key: string, value: string) => void | Promise<void>,
@@ -84,6 +99,8 @@ export type TiptapifyAiStorage = {
 
 export type TiptapifyAiOptions = {
   aiProvider?: TiptapifyAiProvider,
+  aiEndpoint?: string,
+  aiHeaders?: Record<string, string>,
   model?: string,
   promptExamples?: TiptapifyAiPromptExample[],
   mode?: TiptapifyAiMode,
