@@ -178,10 +178,10 @@ Object.keys(props.customExtensions).forEach((key: any) => {
   <div v-if="editor" class="tiptapify-toolbar">
     <VToolbar elevation="1" :theme="theme" height="auto" :class="`ps-1 pr-1 rounded-t-${rounded}`">
       <VSlideGroup v-if="toolbarScrollable">
-        <Items :items="toolbarItems" />
+        <Items :items="toolbarItems" :variant-btn="variantBtn" />
       </VSlideGroup>
 
-      <Items v-else :items="toolbarItems" />
+      <Items v-else :items="toolbarItems" :variant-btn="variantBtn" />
     </VToolbar>
   </div>
 </template>

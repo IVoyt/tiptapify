@@ -20,9 +20,9 @@ defineProps({
         <div class="menu-divider" />
       </template>
       <template v-else>
-        <VBtnGroup v-if="item.group" elevation="4">
+        <VBtnGroup v-if="item.group" elevation="4" :class="{ 'tiptapify-btn-group--elevated': variantBtn === 'elevated' }">
           <template v-for="sectionItem in item.components" :key="sectionItem.name">
-            <component :is="sectionItem.component" v-bind="{ ...sectionItem.props ?? {} }" />
+            <component :is="sectionItem.component" v-bind="{ variantBtn, ...sectionItem.props ?? {} }" />
           </template>
         </VBtnGroup>
         <template v-else>
@@ -40,6 +40,13 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
+.tiptapify-btn-group--elevated {
+  box-shadow:
+      0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)),
+      0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)),
+      0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
+}
+
 :deep(.v-btn-group) {
   height: 32px !important;
 }

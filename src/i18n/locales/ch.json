@@ -1,50 +1,149 @@
 {
-  "defaultValue": "默认值",
+  "action": {
+    "redo": "重做",
+    "undo": "撤销"
+  },
+  "ai": {
+    "append": "追加",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "将这段文本扩展为更详细的版本。",
+        "title": "扩展"
+      },
+      "improve": {
+        "prompt": "改进这段文本的清晰度和语气。",
+        "title": "改进写作"
+      },
+      "proofReading": {
+        "prompt": "在不改变含义的情况下，修正语法、拼写和标点。",
+        "title": "校对"
+      },
+      "summarize": {
+        "prompt": "用一段简洁的话总结这段文本。",
+        "title": "总结"
+      }
+    },
+    "error": "AI 生成失败",
+    "generate": "生成",
+    "insert": "插入",
+    "limit_exceeded": "结果超出了编辑器的字符限制。请缩短文本后重新应用。",
+    "loading": "正在生成...",
+    "prompt": "提示词",
+    "quick_prompts": "快捷提示词",
+    "reasoning_effort": "推理强度",
+    "replace": "替换",
+    "result": "结果",
+    "stop": "停止",
+    "thinking": "思考",
+    "title": "AI 写作",
+    "unavailable": "请配置 AI 提供商以使用此操作"
+  },
+  "alignment": "对齐",
+  "alignments": {
+    "center": "居中对齐",
+    "justify": "两端对齐",
+    "left": "左对齐",
+    "right": "右对齐"
+  },
   "content": {
     "placeholder": "写点什么..."
   },
-  "style": {
-    "paragraph": "段落",
-    "heading": "标题",
-    "headings": {
-      "h1": "1级标题",
-      "h2": "2级标题",
-      "h3": "3级标题",
-      "h4": "4级标题",
-      "h5": "5级标题",
-      "h6": "6级标题"
+  "defaultValue": "默认值",
+  "dialog": {
+    "apply": "应用",
+    "clear": "清除",
+    "close": "关闭",
+    "iframe": {
+      "dialog_title": "添加/编辑内嵌框架",
+      "frameborder": "框架边框",
+      "height": "高度",
+      "name": "名称",
+      "src": "源地址",
+      "src_invalid": "输入的URL无效",
+      "title": "标题",
+      "width": "宽度"
     },
-    "fontFamily": "字体",
-    "fontSize": "大小",
-    "lineHeight": "行高",
-    "color": {
-      "highlight": "高亮颜色",
-      "text": "文本颜色",
-      "unset": "清除颜色",
-      "custom": "自定义选择"
+    "image": {
+      "alt": "替代文本",
+      "dialog_title": "添加/修改图片",
+      "height": "高度",
+      "keep_ratio": "保持比例",
+      "src": "源",
+      "title": "标题",
+      "width": "宽度"
+    },
+    "link": {
+      "class": "CSS类",
+      "href": "链接地址",
+      "href_error": "无效的链接地址",
+      "rel": "rel",
+      "target": "打开方式...",
+      "target_blank": "新窗口",
+      "target_self": "当前窗口",
+      "title": "添加/修改链接"
+    },
+    "preview": {
+      "title": "预览"
+    },
+    "source": {
+      "prettify": "美化",
+      "title": "查看源代码"
+    },
+    "video": {
+      "height": "高度",
+      "src": "来源",
+      "title": "添加/编辑视频",
+      "width": "宽度"
     }
   },
+  "footer": {
+    "chars": "字符",
+    "limit": "字数限制",
+    "words": "单词"
+  },
   "format": {
-    "bold": "粗体",
-    "italic": "斜体",
-    "strike": "删除线",
-    "underline": "下划线",
-    "sup": "上标",
-    "sub": "下标",
-    "break": "换行",
-    "line": "水平线",
     "blockquote": "引用",
+    "bold": "粗体",
+    "break": "换行",
     "code": "代码",
     "codeblock": "代码块",
-    "formatClear": "清除格式"
+    "formatClear": "清除格式",
+    "italic": "斜体",
+    "line": "水平线",
+    "strike": "删除线",
+    "sub": "下标",
+    "sup": "上标",
+    "underline": "下划线"
+  },
+  "list": "列表",
+  "lists": {
+    "bullet": "无序列表",
+    "indent": "增加列表项缩进",
+    "numbered": "有序列表",
+    "outdent": "减少列表项缩进",
+    "task": "任务列表"
   },
   "media": {
-    "link": "外部链接",
-    "iframe": "iframe",
-    "image": "图片",
+    "charmap": {
+      "categories": {
+        "arrows": "箭头",
+        "box_drawing": "制图符号",
+        "currency": "货币",
+        "cyrillic": "西里尔字母",
+        "diacritics": "变音符号",
+        "extended_letters": "扩展字母",
+        "greek": "希腊字母",
+        "hebrew": "希伯来字母",
+        "math": "数学",
+        "punctuation": "标点符号",
+        "symbols": "符号",
+        "typography": "印刷符号"
+      },
+      "noResults": "未找到匹配的字符",
+      "search": "搜索字符...",
+      "title": "插入特殊字符"
+    },
     "emoji": {
-      "title": "表情符号",
-      "search": "搜索表情符号...",
       "categories": {
         "activities": "活动",
         "animals_and_nature": "动物与自然",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "笑脸与情感",
         "symbols": "符号",
         "travel_and_places": "旅行与地点"
-      }
+      },
+      "search": "搜索表情符号...",
+      "title": "表情符号"
     },
+    "iframe": "iframe",
+    "image": "图片",
+    "link": "外部链接",
     "tables": {
-      "table": "表格",
-      "insertTable": "插入表格",
-      "deleteTable": "删除表格",
-      "insertWithHeaderRow": "插入带标题的表格",
-      "rows": "行",
-      "row": "行",
-      "insertRowBefore": "在前面插入行",
-      "insertRowAfter": "在后面插入行",
-      "deleteRow": "删除行",
-      "cols": "列",
       "col": "列",
-      "insertColBefore": "在前面插入列",
-      "insertColAfter": "在后面插入列",
+      "cols": "列",
       "deleteCol": "删除列",
+      "deleteRow": "删除行",
+      "deleteTable": "删除表格",
+      "insertColAfter": "在后面插入列",
+      "insertColBefore": "在前面插入列",
+      "insertRowAfter": "在后面插入行",
+      "insertRowBefore": "在前面插入行",
+      "insertTable": "插入表格",
+      "insertWithHeaderRow": "插入带标题的表格",
       "mergeCells": "合并单元格",
-      "splitCell": "拆分单元格"
+      "row": "行",
+      "rows": "行",
+      "splitCell": "拆分单元格",
+      "table": "表格"
     },
-    "video": "视频",
-    "charmap": {
-      "title": "插入特殊字符",
-      "search": "搜索字符...",
-      "noResults": "未找到匹配的字符",
-      "categories": {
-        "punctuation": "标点符号",
-        "symbols": "符号",
-        "math": "数学",
-        "currency": "货币",
-        "greek": "希腊字母",
-        "extended_letters": "扩展字母",
-        "diacritics": "变音符号",
-        "typography": "印刷符号",
-        "cyrillic": "西里尔字母",
-        "hebrew": "希伯来字母",
-        "arrows": "箭头",
-        "box_drawing": "制图符号"
-      }
-    }
-  },
-  "action": {
-    "undo": "撤销",
-    "redo": "重做"
-  },
-  "alignment": "对齐",
-  "alignments": {
-    "left": "左对齐",
-    "center": "居中对齐",
-    "right": "右对齐",
-    "justify": "两端对齐"
-  },
-  "list": "列表",
-  "lists": {
-    "bullet": "无序列表",
-    "numbered": "有序列表",
-    "task": "任务列表",
-    "indent": "增加列表项缩进",
-    "outdent": "减少列表项缩进"
-  },
-  "dialog": {
-    "apply": "应用",
-    "clear": "清除",
-    "close": "关闭",
-    "iframe": {
-      "dialog_title": "添加/编辑内嵌框架",
-      "src": "源地址",
-      "name": "名称",
-      "title": "标题",
-      "width": "宽度",
-      "height": "高度",
-      "frameborder": "框架边框",
-      "src_invalid": "输入的URL无效"
-    },
-    "image": {
-      "title": "标题",
-      "src": "源",
-      "keep_ratio": "保持比例",
-      "alt": "替代文本",
-      "width": "宽度",
-      "height": "高度",
-      "dialog_title": "添加/修改图片"
-    },
-    "link": {
-      "title": "添加/修改链接",
-      "href": "链接地址",
-      "href_error": "无效的链接地址",
-      "target": "打开方式...",
-      "target_blank": "新窗口",
-      "target_self": "当前窗口",
-      "rel": "rel",
-      "class": "CSS类"
-    },
-    "preview": {
-      "title": "预览"
-    },
-    "source": {
-      "title": "查看源代码",
-      "prettify": "美化"
-    },
-    "video": {
-      "title": "添加/编辑视频",
-      "src": "来源",
-      "width": "宽度",
-      "height": "高度"
-    }
+    "video": "视频"
   },
   "misc": {
     "fullscreen": "全屏模式",
@@ -169,38 +188,25 @@
     "source": "查看源代码",
     "toggleInvisibleCharacters": "显示/隐藏不可见字符"
   },
-  "footer": {
-    "words": "单词",
-    "chars": "字符",
-    "limit": "字数限制"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "自定义选择",
+      "highlight": "高亮颜色",
+      "text": "文本颜色",
+      "unset": "清除颜色"
+    },
+    "fontFamily": "字体",
+    "fontSize": "大小",
+    "heading": "标题",
+    "headings": {
+      "h1": "1级标题",
+      "h2": "2级标题",
+      "h3": "3级标题",
+      "h4": "4级标题",
+      "h5": "5级标题",
+      "h6": "6级标题"
+    },
+    "lineHeight": "行高",
+    "paragraph": "段落"
   }
 }

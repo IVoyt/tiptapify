@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Oletusarvo",
+  "action": {
+    "redo": "Tee uudelleen",
+    "undo": "Kumoa"
+  },
+  "ai": {
+    "append": "Lisää loppuun",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Laajenna tätä tekstiä yksityiskohtaisemmaksi versioksi.",
+        "title": "Laajenna"
+      },
+      "improve": {
+        "prompt": "Paranna tämän tekstin selkeyttä ja sävyä.",
+        "title": "Kirjoittamisen parantaminen"
+      },
+      "proofReading": {
+        "prompt": "Korjaa kielioppi, kirjoitusvirheet ja pistemerkit muuttamatta merkitystä.",
+        "title": "Oikolukeminen"
+      },
+      "summarize": {
+        "prompt": "Tiivistä tämä teksti lyhyeen kappaleeseen.",
+        "title": "Tiivistä"
+      }
+    },
+    "error": "Tekoälyn generointi epäonnistui",
+    "generate": "Generoi",
+    "insert": "Lisää",
+    "limit_exceeded": "Tulos ylittää editorin merkkirajaman. Lyhennä tekstiä ja sovelle uudelleen.",
+    "loading": "Generoidaan...",
+    "prompt": "Pyyntö",
+    "quick_prompts": "Nopeat pyynnöt",
+    "reasoning_effort": "Pohdinnan taso",
+    "replace": "Korvaa",
+    "result": "Tulos",
+    "stop": "Pysäytä",
+    "thinking": "Pohdinta",
+    "title": "Tekoälykirjoitus",
+    "unavailable": "Määritä tekoälyn tarjoaja voidaksesi käyttää tätä toimintoa"
+  },
+  "alignment": "Tasaus",
+  "alignments": {
+    "center": "Keskitetty",
+    "justify": "Tasaa",
+    "left": "Vasemmalle tasattu",
+    "right": "Oikealle tasattu"
+  },
   "content": {
     "placeholder": "Kirjoita jotain..."
   },
-  "style": {
-    "paragraph": "Kappale",
-    "heading": "Otsikko",
-    "headings": {
-      "h1": "Otsikon taso 1",
-      "h2": "Otsikon taso 2",
-      "h3": "Otsikon taso 3",
-      "h4": "Otsikon taso 4",
-      "h5": "Otsikon taso 5",
-      "h6": "Otsikon taso 6"
+  "defaultValue": "Oletusarvo",
+  "dialog": {
+    "apply": "Käytä",
+    "clear": "Tyhjennä",
+    "close": "Sulje",
+    "iframe": {
+      "dialog_title": "Lisää/muokkaa iframe",
+      "frameborder": "Iframe-reunalinja",
+      "height": "Korkeus",
+      "name": "Nimi",
+      "src": "Lähde",
+      "src_invalid": "Syötetty URL ei ole kelvollinen",
+      "title": "Otsikko",
+      "width": "Leveys"
     },
-    "fontFamily": "Fonttiperhe",
-    "fontSize": "Kirjasinkoko",
-    "lineHeight": "Rivin korkeus",
-    "color": {
-      "highlight": "Korostuksen väri",
-      "text": "Tekstin väri",
-      "unset": "Poista väri",
-      "custom": "Mukautettu valinta"
+    "image": {
+      "alt": "Vaihtoehtoinen teksti",
+      "dialog_title": "Lisää/muokkaa kuvaa",
+      "height": "Korkeus",
+      "keep_ratio": "Säilytä suhde",
+      "src": "Lähde",
+      "title": "Otsikko",
+      "width": "Leveys"
+    },
+    "link": {
+      "class": "CSS-luokka",
+      "href": "Linkin osoite",
+      "href_error": "Virheellinen linkin osoite",
+      "rel": "suhteessa",
+      "target": "Avaa...",
+      "target_blank": "Uuteen ikkunaan",
+      "target_self": "Nykyiseen ikkunaan",
+      "title": "Lisää/muokkaa linkkiä"
+    },
+    "preview": {
+      "title": "Esikatselu"
+    },
+    "source": {
+      "prettify": "Muotoile",
+      "title": "Näytä lähdekoodi"
+    },
+    "video": {
+      "height": "Korkeus",
+      "src": "Lähde",
+      "title": "Lisää/muokkaa videoa",
+      "width": "Leveys"
     }
   },
+  "footer": {
+    "chars": "merkkiä",
+    "limit": "merkkien enimmäismäärä",
+    "words": "sanaa"
+  },
   "format": {
-    "bold": "Lihavoitu",
-    "italic": "Kursiivi",
-    "strike": "Yliviivattu",
-    "underline": "Alleviivattu",
-    "sup": "Yläindeksi",
-    "sub": "Alikindeksi",
-    "break": "Rivin katkaisu",
-    "line": "Vaakatason viiva",
     "blockquote": "Lainaus",
+    "bold": "Lihavoitu",
+    "break": "Rivin katkaisu",
     "code": "Koodi",
     "codeblock": "Koodilohko",
-    "formatClear": "Poista muotoilu"
+    "formatClear": "Poista muotoilu",
+    "italic": "Kursiivi",
+    "line": "Vaakatason viiva",
+    "strike": "Yliviivattu",
+    "sub": "Alikindeksi",
+    "sup": "Yläindeksi",
+    "underline": "Alleviivattu"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Luettelomerkki-luettelo",
+    "indent": "Lisää sisennystä",
+    "numbered": "Numeroiden luettelo",
+    "outdent": "Vähennä sisennystä",
+    "task": "Tehtävälista"
   },
   "media": {
-    "link": "Ulkoisen linkin",
-    "iframe": "iframe",
-    "image": "Kuva",
+    "charmap": {
+      "categories": {
+        "arrows": "Nuolet",
+        "box_drawing": "Rajojen piirto",
+        "currency": "Valuutta",
+        "cyrillic": "Kyrillinen",
+        "diacritics": "Tarkekirjaimet",
+        "extended_letters": "Laajennetut kirjaimet",
+        "greek": "Kreikkalaiset kirjaimet",
+        "hebrew": "Heprea",
+        "math": "Matematiikka",
+        "punctuation": "Välimerkit",
+        "symbols": "Symbolit",
+        "typography": "Typografia"
+      },
+      "noResults": "Ei vastaavia merkkejä löytynyt",
+      "search": "Hae merkkejä...",
+      "title": "Lisää erikoismerkki"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Hae emoji...",
       "categories": {
         "activities": "Toiminnot",
         "animals_and_nature": "Eläimet ja luonto",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Hymyjä ja tunteita",
         "symbols": "Symbolit",
         "travel_and_places": "Matkustaminen ja paikat"
-      }
+      },
+      "search": "Hae emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Kuva",
+    "link": "Ulkoisen linkin",
     "tables": {
-      "table": "Taulukko",
-      "insertTable": "Lisää taulukko",
-      "deleteTable": "Poista taulukko",
-      "insertWithHeaderRow": "Lisää taulukko otsikkorivillä",
-      "rows": "Rivit",
-      "row": "Rivi",
-      "insertRowBefore": "Lisää rivi ennen",
-      "insertRowAfter": "Lisää rivi jälkeen",
-      "deleteRow": "Poista rivi",
-      "cols": "Sarakkeet",
       "col": "Sarake",
-      "insertColBefore": "Lisää sarake ennen",
-      "insertColAfter": "Lisää sarake jälkeen",
+      "cols": "Sarakkeet",
       "deleteCol": "Poista sarake",
+      "deleteRow": "Poista rivi",
+      "deleteTable": "Poista taulukko",
+      "insertColAfter": "Lisää sarake jälkeen",
+      "insertColBefore": "Lisää sarake ennen",
+      "insertRowAfter": "Lisää rivi jälkeen",
+      "insertRowBefore": "Lisää rivi ennen",
+      "insertTable": "Lisää taulukko",
+      "insertWithHeaderRow": "Lisää taulukko otsikkorivillä",
       "mergeCells": "Yhdistä solut",
-      "splitCell": "Jaa solu"
+      "row": "Rivi",
+      "rows": "Rivit",
+      "splitCell": "Jaa solu",
+      "table": "Taulukko"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Lisää erikoismerkki",
-      "search": "Hae merkkejä...",
-      "noResults": "Ei vastaavia merkkejä löytynyt",
-      "categories": {
-        "punctuation": "Välimerkit",
-        "symbols": "Symbolit",
-        "math": "Matematiikka",
-        "currency": "Valuutta",
-        "greek": "Kreikkalaiset kirjaimet",
-        "extended_letters": "Laajennetut kirjaimet",
-        "diacritics": "Tarkekirjaimet",
-        "typography": "Typografia",
-        "cyrillic": "Kyrillinen",
-        "hebrew": "Heprea",
-        "arrows": "Nuolet",
-        "box_drawing": "Rajojen piirto"
-      }
-    }
-  },
-  "action": {
-    "undo": "Kumoa",
-    "redo": "Tee uudelleen"
-  },
-  "alignment": "Tasaus",
-  "alignments": {
-    "left": "Vasemmalle tasattu",
-    "center": "Keskitetty",
-    "right": "Oikealle tasattu",
-    "justify": "Tasaa"
-  },
-  "list": "Lista",
-  "lists": {
-    "bullet": "Luettelomerkki-luettelo",
-    "numbered": "Numeroiden luettelo",
-    "task": "Tehtävälista",
-    "indent": "Lisää sisennystä",
-    "outdent": "Vähennä sisennystä"
-  },
-  "dialog": {
-    "apply": "Käytä",
-    "clear": "Tyhjennä",
-    "close": "Sulje",
-    "iframe": {
-      "dialog_title": "Lisää/muokkaa iframe",
-      "src": "Lähde",
-      "name": "Nimi",
-      "title": "Otsikko",
-      "width": "Leveys",
-      "height": "Korkeus",
-      "frameborder": "Iframe-reunalinja",
-      "src_invalid": "Syötetty URL ei ole kelvollinen"
-    },
-    "image": {
-      "title": "Otsikko",
-      "src": "Lähde",
-      "keep_ratio": "Säilytä suhde",
-      "alt": "Vaihtoehtoinen teksti",
-      "width": "Leveys",
-      "height": "Korkeus",
-      "dialog_title": "Lisää/muokkaa kuvaa"
-    },
-    "link": {
-      "title": "Lisää/muokkaa linkkiä",
-      "href": "Linkin osoite",
-      "href_error": "Virheellinen linkin osoite",
-      "target": "Avaa...",
-      "target_blank": "Uuteen ikkunaan",
-      "target_self": "Nykyiseen ikkunaan",
-      "rel": "suhteessa",
-      "class": "CSS-luokka"
-    },
-    "preview": {
-      "title": "Esikatselu"
-    },
-    "source": {
-      "title": "Näytä lähdekoodi",
-      "prettify": "Muotoile"
-    },
-    "video": {
-      "title": "Lisää/muokkaa videoa",
-      "src": "Lähde",
-      "width": "Leveys",
-      "height": "Korkeus"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Täysi-ikkuna tila",
@@ -169,38 +188,25 @@
     "source": "Näytä lähdekoodi",
     "toggleInvisibleCharacters": "Näytä/piilota näkymättömät merkit"
   },
-  "footer": {
-    "words": "sanaa",
-    "chars": "merkkiä",
-    "limit": "merkkien enimmäismäärä"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Mukautettu valinta",
+      "highlight": "Korostuksen väri",
+      "text": "Tekstin väri",
+      "unset": "Poista väri"
+    },
+    "fontFamily": "Fonttiperhe",
+    "fontSize": "Kirjasinkoko",
+    "heading": "Otsikko",
+    "headings": {
+      "h1": "Otsikon taso 1",
+      "h2": "Otsikon taso 2",
+      "h3": "Otsikon taso 3",
+      "h4": "Otsikon taso 4",
+      "h5": "Otsikon taso 5",
+      "h6": "Otsikon taso 6"
+    },
+    "lineHeight": "Rivin korkeus",
+    "paragraph": "Kappale"
   }
 }

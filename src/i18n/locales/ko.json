@@ -1,50 +1,149 @@
 {
-  "defaultValue": "기본값",
+  "action": {
+    "redo": "다시 실행",
+    "undo": "실행 취소"
+  },
+  "ai": {
+    "append": "끝에 추가",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "이 텍스트를 더 자세한 버전으로 확장하세요.",
+        "title": "확장"
+      },
+      "improve": {
+        "prompt": "이 텍스트의 명확함과 톤을 개선하세요.",
+        "title": "글쓰기 개선"
+      },
+      "proofReading": {
+        "prompt": "의미를 바꾸지 않고 문법, 철자, 구두점을 수정하세요.",
+        "title": "교정"
+      },
+      "summarize": {
+        "prompt": "이 텍스트를 간결한 한 단락으로 요약하세요.",
+        "title": "요약"
+      }
+    },
+    "error": "AI 생성에 실패했습니다",
+    "generate": "생성",
+    "insert": "삽입",
+    "limit_exceeded": "결과가 편집기의 글자 제한을 초과했습니다. 텍스트를 짧게 한 뒤 다시 적용하세요.",
+    "loading": "생성 중...",
+    "prompt": "프롬프트",
+    "quick_prompts": "빠른 프롬프트",
+    "reasoning_effort": "추론 레벨",
+    "replace": "교체",
+    "result": "결과",
+    "stop": "중지",
+    "thinking": "사고",
+    "title": "AI 작성",
+    "unavailable": "이 작업을 사용하려면 AI 제공자를 설정하세요"
+  },
+  "alignment": "정렬",
+  "alignments": {
+    "center": "가운데 정렬",
+    "justify": "양쪽 정렬",
+    "left": "왼쪽 정렬",
+    "right": "오른쪽 정렬"
+  },
   "content": {
     "placeholder": "무엇을 입력하세요..."
   },
-  "style": {
-    "paragraph": "단락",
-    "heading": "제목",
-    "headings": {
-      "h1": "제목 레벨 1",
-      "h2": "제목 레벨 2",
-      "h3": "제목 레벨 3",
-      "h4": "제목 레벨 4",
-      "h5": "제목 레벨 5",
-      "h6": "제목 레벨 6"
+  "defaultValue": "기본값",
+  "dialog": {
+    "apply": "적용",
+    "clear": "지우기",
+    "close": "닫기",
+    "iframe": {
+      "dialog_title": "iframe 추가/편집",
+      "frameborder": "iframe 테두리",
+      "height": "높이",
+      "name": "이름",
+      "src": "소스",
+      "src_invalid": "입력한 URL 이 유효하지 않습니다",
+      "title": "제목",
+      "width": "너비"
     },
-    "fontFamily": "글꼴 패밀리",
-    "fontSize": "글꼴 크기",
-    "lineHeight": "줄 높이",
-    "color": {
-      "highlight": "하이라이트 색상",
-      "text": "텍스트 색상",
-      "unset": "색상 해제",
-      "custom": "사용자 선택"
+    "image": {
+      "alt": "대체 텍스트",
+      "dialog_title": "이미지 추가/편집",
+      "height": "높이",
+      "keep_ratio": "종횡비 유지",
+      "src": "소스",
+      "title": "제목",
+      "width": "너비"
+    },
+    "link": {
+      "class": "CSS 클래스",
+      "href": "링크 주소",
+      "href_error": "유효하지 않은 링크 주소",
+      "rel": "rel",
+      "target": "여기서 열기...",
+      "target_blank": "새 창",
+      "target_self": "현재 창",
+      "title": "링크 추가/편집"
+    },
+    "preview": {
+      "title": "미리보기"
+    },
+    "source": {
+      "prettify": "예쁘게 정리",
+      "title": "소스 코드 보기"
+    },
+    "video": {
+      "height": "높이",
+      "src": "소스",
+      "title": "동영상 추가/편집",
+      "width": "너비"
     }
   },
+  "footer": {
+    "chars": "글자",
+    "limit": "글자 제한",
+    "words": "단어"
+  },
   "format": {
-    "bold": "굵게",
-    "italic": "기울임꼴",
-    "strike": "취소선",
-    "underline": "밑줄",
-    "sup": "위 첨자",
-    "sub": "아래 첨자",
-    "break": "강제 줄바꿈",
-    "line": "수평선",
     "blockquote": "인용구",
+    "bold": "굵게",
+    "break": "강제 줄바꿈",
     "code": "코드",
     "codeblock": "코드 블록",
-    "formatClear": "포맷 제거"
+    "formatClear": "포맷 제거",
+    "italic": "기울임꼴",
+    "line": "수평선",
+    "strike": "취소선",
+    "sub": "아래 첨자",
+    "sup": "위 첨자",
+    "underline": "밑줄"
+  },
+  "list": "목록",
+  "lists": {
+    "bullet": "글머리 기호 목록",
+    "indent": "들여쓰기 증가",
+    "numbered": "번호 매기기 목록",
+    "outdent": "들여쓰기 감소",
+    "task": "작업 목록"
   },
   "media": {
-    "link": "외부 링크",
-    "iframe": "iframe",
-    "image": "이미지",
+    "charmap": {
+      "categories": {
+        "arrows": "화살표",
+        "box_drawing": "상자 그리기",
+        "currency": "통화",
+        "cyrillic": "키릴 문자",
+        "diacritics": "분음 부호",
+        "extended_letters": "확장 문자",
+        "greek": "그리스 문자",
+        "hebrew": "히브리어",
+        "math": "수학",
+        "punctuation": "구두점",
+        "symbols": "기호",
+        "typography": "타이포그래피"
+      },
+      "noResults": "일치하는 문자를 찾지 못했습니다",
+      "search": "문자 검색...",
+      "title": "특수 문자 삽입"
+    },
     "emoji": {
-      "title": "이모지",
-      "search": "이모지 검색...",
       "categories": {
         "activities": "활동",
         "animals_and_nature": "동물과 자연",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "미소와 감정",
         "symbols": "기호",
         "travel_and_places": "여행과 장소"
-      }
+      },
+      "search": "이모지 검색...",
+      "title": "이모지"
     },
+    "iframe": "iframe",
+    "image": "이미지",
+    "link": "외부 링크",
     "tables": {
-      "table": "표",
-      "insertTable": "표 삽입",
-      "deleteTable": "표 삭제",
-      "insertWithHeaderRow": "헤더 행이 포함된 표 삽입",
-      "rows": "행",
-      "row": "행",
-      "insertRowBefore": "앞에 행 삽입",
-      "insertRowAfter": "뒤에 행 삽입",
-      "deleteRow": "행 삭제",
-      "cols": "열",
       "col": "열",
-      "insertColBefore": "앞에 열 삽입",
-      "insertColAfter": "뒤에 열 삽입",
+      "cols": "열",
       "deleteCol": "열 삭제",
+      "deleteRow": "행 삭제",
+      "deleteTable": "표 삭제",
+      "insertColAfter": "뒤에 열 삽입",
+      "insertColBefore": "앞에 열 삽입",
+      "insertRowAfter": "뒤에 행 삽입",
+      "insertRowBefore": "앞에 행 삽입",
+      "insertTable": "표 삽입",
+      "insertWithHeaderRow": "헤더 행이 포함된 표 삽입",
       "mergeCells": "셀 병합",
-      "splitCell": "셀 분할"
+      "row": "행",
+      "rows": "행",
+      "splitCell": "셀 분할",
+      "table": "표"
     },
-    "video": "동영상",
-    "charmap": {
-      "title": "특수 문자 삽입",
-      "search": "문자 검색...",
-      "noResults": "일치하는 문자를 찾지 못했습니다",
-      "categories": {
-        "punctuation": "구두점",
-        "symbols": "기호",
-        "math": "수학",
-        "currency": "통화",
-        "greek": "그리스 문자",
-        "extended_letters": "확장 문자",
-        "diacritics": "분음 부호",
-        "typography": "타이포그래피",
-        "cyrillic": "키릴 문자",
-        "hebrew": "히브리어",
-        "arrows": "화살표",
-        "box_drawing": "상자 그리기"
-      }
-    }
-  },
-  "action": {
-    "undo": "실행 취소",
-    "redo": "다시 실행"
-  },
-  "alignment": "정렬",
-  "alignments": {
-    "left": "왼쪽 정렬",
-    "center": "가운데 정렬",
-    "right": "오른쪽 정렬",
-    "justify": "양쪽 정렬"
-  },
-  "list": "목록",
-  "lists": {
-    "bullet": "글머리 기호 목록",
-    "numbered": "번호 매기기 목록",
-    "task": "작업 목록",
-    "indent": "들여쓰기 증가",
-    "outdent": "들여쓰기 감소"
-  },
-  "dialog": {
-    "apply": "적용",
-    "clear": "지우기",
-    "close": "닫기",
-    "iframe": {
-      "dialog_title": "iframe 추가/편집",
-      "src": "소스",
-      "name": "이름",
-      "title": "제목",
-      "width": "너비",
-      "height": "높이",
-      "frameborder": "iframe 테두리",
-      "src_invalid": "입력한 URL 이 유효하지 않습니다"
-    },
-    "image": {
-      "title": "제목",
-      "src": "소스",
-      "keep_ratio": "종횡비 유지",
-      "alt": "대체 텍스트",
-      "width": "너비",
-      "height": "높이",
-      "dialog_title": "이미지 추가/편집"
-    },
-    "link": {
-      "title": "링크 추가/편집",
-      "href": "링크 주소",
-      "href_error": "유효하지 않은 링크 주소",
-      "target": "여기서 열기...",
-      "target_blank": "새 창",
-      "target_self": "현재 창",
-      "rel": "rel",
-      "class": "CSS 클래스"
-    },
-    "preview": {
-      "title": "미리보기"
-    },
-    "source": {
-      "title": "소스 코드 보기",
-      "prettify": "예쁘게 정리"
-    },
-    "video": {
-      "title": "동영상 추가/편집",
-      "src": "소스",
-      "width": "너비",
-      "height": "높이"
-    }
+    "video": "동영상"
   },
   "misc": {
     "fullscreen": "전체 화면 모드",
@@ -169,38 +188,25 @@
     "source": "소스 코드 보기",
     "toggleInvisibleCharacters": "보이지 않는 문자 표시/숨기기"
   },
-  "footer": {
-    "words": "단어",
-    "chars": "글자",
-    "limit": "글자 제한"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "사용자 선택",
+      "highlight": "하이라이트 색상",
+      "text": "텍스트 색상",
+      "unset": "색상 해제"
+    },
+    "fontFamily": "글꼴 패밀리",
+    "fontSize": "글꼴 크기",
+    "heading": "제목",
+    "headings": {
+      "h1": "제목 레벨 1",
+      "h2": "제목 레벨 2",
+      "h3": "제목 레벨 3",
+      "h4": "제목 레벨 4",
+      "h5": "제목 레벨 5",
+      "h6": "제목 레벨 6"
+    },
+    "lineHeight": "줄 높이",
+    "paragraph": "단락"
   }
 }

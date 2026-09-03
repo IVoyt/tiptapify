@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Wartość domyślna",
+  "action": {
+    "redo": "Ponów",
+    "undo": "Cofnij"
+  },
+  "ai": {
+    "append": "Dodaj na końcu",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Rozwiń ten tekst w bardziej szczegółową wersję.",
+        "title": "Rozbudowanie"
+      },
+      "improve": {
+        "prompt": "Popraw jasność i ton tego tekstu.",
+        "title": "Poprawianie pisania"
+      },
+      "proofReading": {
+        "prompt": "Popraw gramatykę, ortografię i interpunkcję, nie zmieniając znaczenia.",
+        "title": "Korekta"
+      },
+      "summarize": {
+        "prompt": "Podsumuj ten tekst w zwięzłym akapicie.",
+        "title": "Podsumowanie"
+      }
+    },
+    "error": "Generowanie AI nie powiodło się",
+    "generate": "Generuj",
+    "insert": "Wstaw",
+    "limit_exceeded": "Wynik przekracza limit znaków edytora. Skróć tekst i zastosuj ponownie.",
+    "loading": "Generowanie...",
+    "prompt": "Zapytanie",
+    "quick_prompts": "Szybkie zapytania",
+    "reasoning_effort": "Stopień rozumowania",
+    "replace": "Zamień",
+    "result": "Wynik",
+    "stop": "Zatrzymaj",
+    "thinking": "Rozmyślanie",
+    "title": "Pisanie z AI",
+    "unavailable": "Skonfiguruj dostawcę AI, aby użyć tej akcji"
+  },
+  "alignment": "Wyrównanie",
+  "alignments": {
+    "center": "Wyrównanie do środka",
+    "justify": "Wyjustowanie",
+    "left": "Wyrównanie do lewej",
+    "right": "Wyrównanie do prawej"
+  },
   "content": {
     "placeholder": "Napisz coś..."
   },
-  "style": {
-    "paragraph": "akapit",
-    "heading": "Nagłówek",
-    "headings": {
-      "h1": "Nagłówek 1. poziomu",
-      "h2": "Nagłówek 2. poziomu",
-      "h3": "Nagłówek 3. poziomu",
-      "h4": "Nagłówek 4. poziomu",
-      "h5": "Nagłówek 5. poziomu",
-      "h6": "Nagłówek 6. poziomu"
+  "defaultValue": "Wartość domyślna",
+  "dialog": {
+    "apply": "Zastosuj",
+    "clear": "Wyczyść",
+    "close": "Zamknij",
+    "iframe": {
+      "dialog_title": "Dodaj/edytuj iframe",
+      "frameborder": "Ramka obramowania",
+      "height": "Wysokość",
+      "name": "Nazwa",
+      "src": "Źródło",
+      "src_invalid": "Wprowadzony URL jest nieprawidłowy",
+      "title": "Tytuł",
+      "width": "Szerokość"
     },
-    "fontFamily": "Czcionka",
-    "fontSize": "Rozmiar",
-    "lineHeight": "Wysokość linii",
-    "color": {
-      "highlight": "Kolor podświetlenia",
-      "text": "Kolor tekstu",
-      "unset": "Wyczyść kolor",
-      "custom": "Własny wybór"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Dodaj/zmień obraz",
+      "height": "Wysokość",
+      "keep_ratio": "Zachowaj proporcję",
+      "src": "Źródło",
+      "title": "Tytuł",
+      "width": "Szerokość"
+    },
+    "link": {
+      "class": "Klasa CSS",
+      "href": "Adres linka",
+      "href_error": "Nieprawidłowy adres linka",
+      "rel": "rel",
+      "target": "Otwórz w...",
+      "target_blank": "Nowym oknie",
+      "target_self": "Bieżącym oknie",
+      "title": "Dodaj/zmień link"
+    },
+    "preview": {
+      "title": "Podgląd"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Pokaż kod źródłowy"
+    },
+    "video": {
+      "height": "Wysokość",
+      "src": "Źródło",
+      "title": "Dodaj/edytuj wideo",
+      "width": "Szerokość"
     }
   },
+  "footer": {
+    "chars": "znaki",
+    "limit": "limit znaków",
+    "words": "słowa"
+  },
   "format": {
-    "bold": "Pogrubienie",
-    "italic": "Kursywa",
-    "strike": "Przekreślenie",
-    "underline": "Podkreślenie",
-    "sup": "Indeks górny",
-    "sub": "Indeks dolny",
-    "break": "Łamanie linii",
-    "line": "Linia pozioma",
     "blockquote": "Cytat",
+    "bold": "Pogrubienie",
+    "break": "Łamanie linii",
     "code": "Kod",
     "codeblock": "Blok kodu",
-    "formatClear": "Wyczyść formatowanie"
+    "formatClear": "Wyczyść formatowanie",
+    "italic": "Kursywa",
+    "line": "Linia pozioma",
+    "strike": "Przekreślenie",
+    "sub": "Indeks dolny",
+    "sup": "Indeks górny",
+    "underline": "Podkreślenie"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Lista punktowana",
+    "indent": "Zwiększ wcięcie elementu",
+    "numbered": "Lista numerowana",
+    "outdent": "Zmniejsz wcięcie elementu",
+    "task": "Lista zadań"
   },
   "media": {
-    "link": "Link zewnętrzny",
-    "iframe": "iframe",
-    "image": "Obraz",
+    "charmap": {
+      "categories": {
+        "arrows": "Strzałki",
+        "box_drawing": "Rysowanie ramek",
+        "currency": "Waluta",
+        "cyrillic": "Cyrylica",
+        "diacritics": "Dytekrytyki",
+        "extended_letters": "Rozszerzone litery",
+        "greek": "Litery greckie",
+        "hebrew": "Hebrajski",
+        "math": "Matematyka",
+        "punctuation": "Interpunkcja",
+        "symbols": "Symbole",
+        "typography": "Typografia"
+      },
+      "noResults": "Nie znaleziono pasujących znaków",
+      "search": "Szukaj znaków...",
+      "title": "Wstaw specjalny znak"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Szukaj emoji...",
       "categories": {
         "activities": "Aktywności",
         "animals_and_nature": "Zwierzęta i natura",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Buźki i emocje",
         "symbols": "Symbole",
         "travel_and_places": "Podróże i miejsca"
-      }
+      },
+      "search": "Szukaj emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Obraz",
+    "link": "Link zewnętrzny",
     "tables": {
-      "table": "Tabela",
-      "insertTable": "Wstaw tabelę",
-      "deleteTable": "Usuń tabelę",
-      "insertWithHeaderRow": "Wstaw tabelę z nagłówkiem",
-      "rows": "Wiersze",
-      "row": "Wiersz",
-      "insertRowBefore": "Wstaw wiersz przed",
-      "insertRowAfter": "Wstaw wiersz po",
-      "deleteRow": "Usuń wiersz",
-      "cols": "Kolumny",
       "col": "Kolumna",
-      "insertColBefore": "Wstaw kolumnę przed",
-      "insertColAfter": "Wstaw kolumnę po",
+      "cols": "Kolumny",
       "deleteCol": "Usuń kolumnę",
+      "deleteRow": "Usuń wiersz",
+      "deleteTable": "Usuń tabelę",
+      "insertColAfter": "Wstaw kolumnę po",
+      "insertColBefore": "Wstaw kolumnę przed",
+      "insertRowAfter": "Wstaw wiersz po",
+      "insertRowBefore": "Wstaw wiersz przed",
+      "insertTable": "Wstaw tabelę",
+      "insertWithHeaderRow": "Wstaw tabelę z nagłówkiem",
       "mergeCells": "Scal komórki",
-      "splitCell": "Podziel komórkę"
+      "row": "Wiersz",
+      "rows": "Wiersze",
+      "splitCell": "Podziel komórkę",
+      "table": "Tabela"
     },
-    "video": "Wideo",
-    "charmap": {
-      "title": "Wstaw specjalny znak",
-      "search": "Szukaj znaków...",
-      "noResults": "Nie znaleziono pasujących znaków",
-      "categories": {
-        "punctuation": "Interpunkcja",
-        "symbols": "Symbole",
-        "math": "Matematyka",
-        "currency": "Waluta",
-        "greek": "Litery greckie",
-        "extended_letters": "Rozszerzone litery",
-        "diacritics": "Dytekrytyki",
-        "typography": "Typografia",
-        "cyrillic": "Cyrylica",
-        "hebrew": "Hebrajski",
-        "arrows": "Strzałki",
-        "box_drawing": "Rysowanie ramek"
-      }
-    }
-  },
-  "action": {
-    "undo": "Cofnij",
-    "redo": "Ponów"
-  },
-  "alignment": "Wyrównanie",
-  "alignments": {
-    "left": "Wyrównanie do lewej",
-    "center": "Wyrównanie do środka",
-    "right": "Wyrównanie do prawej",
-    "justify": "Wyjustowanie"
-  },
-  "list": "Lista",
-  "lists": {
-    "bullet": "Lista punktowana",
-    "numbered": "Lista numerowana",
-    "task": "Lista zadań",
-    "indent": "Zwiększ wcięcie elementu",
-    "outdent": "Zmniejsz wcięcie elementu"
-  },
-  "dialog": {
-    "apply": "Zastosuj",
-    "clear": "Wyczyść",
-    "close": "Zamknij",
-    "iframe": {
-      "dialog_title": "Dodaj/edytuj iframe",
-      "src": "Źródło",
-      "name": "Nazwa",
-      "title": "Tytuł",
-      "width": "Szerokość",
-      "height": "Wysokość",
-      "frameborder": "Ramka obramowania",
-      "src_invalid": "Wprowadzony URL jest nieprawidłowy"
-    },
-    "image": {
-      "title": "Tytuł",
-      "src": "Źródło",
-      "keep_ratio": "Zachowaj proporcję",
-      "alt": "alt",
-      "width": "Szerokość",
-      "height": "Wysokość",
-      "dialog_title": "Dodaj/zmień obraz"
-    },
-    "link": {
-      "title": "Dodaj/zmień link",
-      "href": "Adres linka",
-      "href_error": "Nieprawidłowy adres linka",
-      "target": "Otwórz w...",
-      "target_blank": "Nowym oknie",
-      "target_self": "Bieżącym oknie",
-      "rel": "rel",
-      "class": "Klasa CSS"
-    },
-    "preview": {
-      "title": "Podgląd"
-    },
-    "source": {
-      "title": "Pokaż kod źródłowy",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Dodaj/edytuj wideo",
-      "src": "Źródło",
-      "width": "Szerokość",
-      "height": "Wysokość"
-    }
+    "video": "Wideo"
   },
   "misc": {
     "fullscreen": "Tryb pełnoekranowy",
@@ -169,38 +188,25 @@
     "source": "Pokaż kod źródłowy",
     "toggleInvisibleCharacters": "Pokaż/ukryj niewidoczne znaki"
   },
-  "footer": {
-    "words": "słowa",
-    "chars": "znaki",
-    "limit": "limit znaków"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Własny wybór",
+      "highlight": "Kolor podświetlenia",
+      "text": "Kolor tekstu",
+      "unset": "Wyczyść kolor"
+    },
+    "fontFamily": "Czcionka",
+    "fontSize": "Rozmiar",
+    "heading": "Nagłówek",
+    "headings": {
+      "h1": "Nagłówek 1. poziomu",
+      "h2": "Nagłówek 2. poziomu",
+      "h3": "Nagłówek 3. poziomu",
+      "h4": "Nagłówek 4. poziomu",
+      "h5": "Nagłówek 5. poziomu",
+      "h6": "Nagłówek 6. poziomu"
+    },
+    "lineHeight": "Wysokość linii",
+    "paragraph": "akapit"
   }
 }

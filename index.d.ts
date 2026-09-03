@@ -97,8 +97,15 @@ export interface TiptapifyAiRequest {
   model?: string
   messages: TiptapifyAiChatMessage[]
   temperature?: number
-  stream?: false
+  stream?: boolean
   [key: string]: unknown
+}
+
+export type TiptapifyAiReasoningEffort = 'low' | 'medium' | 'high' | 'xhigh' | 'max'
+
+export interface TiptapifyAiReasoningEffortOptions {
+  options: TiptapifyAiReasoningEffort[]
+  default?: TiptapifyAiReasoningEffort
 }
 
 export interface TiptapifyAiResponse {
@@ -114,7 +121,17 @@ export interface TiptapifyAiOpenAiResponse {
   }>
 }
 
-export type TiptapifyAiProvider = (request: TiptapifyAiRequest, context: TiptapifyAiEditorContext) => Promise<TiptapifyAiResponse | TiptapifyAiOpenAiResponse | string>
+export interface TiptapifyAiStream {
+  signal: AbortSignal
+  onChunk: (chunk: string) => void
+  onReasoning: (chunk: string) => void
+}
+
+export type TiptapifyAiProvider = (
+  request: TiptapifyAiRequest,
+  context: TiptapifyAiEditorContext,
+  stream?: TiptapifyAiStream,
+) => Promise<TiptapifyAiResponse | TiptapifyAiOpenAiResponse | string>
 
 export type TiptapifyAiTokenProvider = () => Promise<string | null> | string | null
 
@@ -132,6 +149,10 @@ export interface TiptapifyAiOptions {
   defaultPrompt?: string
   systemPrompt?: string
   temperature?: number
+  stream?: boolean
+  thinking?: boolean
+  reasoningEffort?: TiptapifyAiReasoningEffortOptions
+  showReasoning?: boolean
   chatCompletionOptions?: Record<string, unknown>
   createMessages?: (context: TiptapifyAiEditorContext) => TiptapifyAiChatMessage[]
   tokenProvider?: TiptapifyAiTokenProvider

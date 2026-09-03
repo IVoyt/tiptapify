@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Giá trị mặc định",
+  "action": {
+    "redo": "Làm lại",
+    "undo": "Hoàn tác"
+  },
+  "ai": {
+    "append": "Thêm vào cuối",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Mở rộng đoạn văn này thành phiên bản chi tiết hơn.",
+        "title": "Mở rộng"
+      },
+      "improve": {
+        "prompt": "Hãy cải thiện sự rõ ràng và giọng văn của đoạn văn này.",
+        "title": "Cải thiện bài viết"
+      },
+      "proofReading": {
+        "prompt": "Sửa ngữ pháp, chính tả và dấu câu mà không thay đổi ý nghĩa.",
+        "title": "Soạn thảo"
+      },
+      "summarize": {
+        "prompt": "Tóm tắt đoạn văn này thành một đoạn ngắn gọn.",
+        "title": "Tóm tắt"
+      }
+    },
+    "error": "Tạo nội dung AI thất bại",
+    "generate": "Tạo",
+    "insert": "Chèn",
+    "limit_exceeded": "Kết quả vượt quá giới hạn ký tự của trình soạn thảo. Hãy rút ngắn văn bản và áp dụng lại.",
+    "loading": "Đang tạo...",
+    "prompt": "Lệnh",
+    "quick_prompts": "Lệnh nhanh",
+    "reasoning_effort": "Mức độ suy luận",
+    "replace": "Thay thế",
+    "result": "Kết quả",
+    "stop": "Dừng",
+    "thinking": "Tư duy",
+    "title": "Viết bằng AI",
+    "unavailable": "Hãy cấu hình nhà cung cấp AI để sử dụng thao tác này"
+  },
+  "alignment": "Căn chỉnh",
+  "alignments": {
+    "center": "Canh giữa",
+    "justify": "Canh đều",
+    "left": "Canh trái",
+    "right": "Canh phải"
+  },
   "content": {
     "placeholder": "Viết điều gì đó..."
   },
-  "style": {
-    "paragraph": "Đoạn văn",
-    "heading": "Tiêu đề",
-    "headings": {
-      "h1": "Tiêu đề cấp 1",
-      "h2": "Tiêu đề cấp 2",
-      "h3": "Tiêu đề cấp 3",
-      "h4": "Tiêu đề cấp 4",
-      "h5": "Tiêu đề cấp 5",
-      "h6": "Tiêu đề cấp 6"
+  "defaultValue": "Giá trị mặc định",
+  "dialog": {
+    "apply": "Áp dụng",
+    "clear": "Xóa",
+    "close": "Đóng",
+    "iframe": {
+      "dialog_title": "Thêm/sửa khung nhúng",
+      "frameborder": "Viền khung",
+      "height": "Chiều cao",
+      "name": "Tên",
+      "src": "Nguồn",
+      "src_invalid": "URL đã nhập không hợp lệ",
+      "title": "Tiêu đề",
+      "width": "Chiều rộng"
     },
-    "fontFamily": "Gia phông chữ",
-    "fontSize": "Kích cỡ chữ",
-    "lineHeight": "Khoảng cách dòng",
-    "color": {
-      "highlight": "Màu tô đậm",
-      "text": "Màu văn bản",
-      "unset": "Xóa màu",
-      "custom": "Tùy chọn tùy chỉnh"
+    "image": {
+      "alt": "Văn bản thay thế",
+      "dialog_title": "Thêm/sửa hình ảnh",
+      "height": "Chiều cao",
+      "keep_ratio": "Giữ tỷ lệ khung hình",
+      "src": "Nguồn",
+      "title": "Tiêu đề",
+      "width": "Chiều rộng"
+    },
+    "link": {
+      "class": "Lớp CSS",
+      "href": "Địa chỉ liên kết",
+      "href_error": "Địa chỉ liên kết không hợp lệ",
+      "rel": "liên hệ",
+      "target": "Mở tại...",
+      "target_blank": "Cửa sổ mới",
+      "target_self": "Cửa sổ hiện tại",
+      "title": "Thêm/sửa liên kết"
+    },
+    "preview": {
+      "title": "Xem trước"
+    },
+    "source": {
+      "prettify": "Làm đẹp",
+      "title": "Xem mã nguồn"
+    },
+    "video": {
+      "height": "Chiều cao",
+      "src": "Nguồn",
+      "title": "Thêm/sửa video",
+      "width": "Chiều rộng"
     }
   },
+  "footer": {
+    "chars": "ký tự",
+    "limit": "giới hạn ký tự",
+    "words": "từ ngữ"
+  },
   "format": {
-    "bold": "In đậm",
-    "italic": "In nghiêng",
-    "strike": "Gạch ngang",
-    "underline": "Gạch chân",
-    "sup": "Chữ viết trên",
-    "sub": "Chữ viết dưới",
-    "break": "Xuống dòng",
-    "line": "Đường thẳng ngang",
     "blockquote": "Trích dẫn",
+    "bold": "In đậm",
+    "break": "Xuống dòng",
     "code": "Mã",
     "codeblock": "Khối mã",
-    "formatClear": "Xóa định dạng"
+    "formatClear": "Xóa định dạng",
+    "italic": "In nghiêng",
+    "line": "Đường thẳng ngang",
+    "strike": "Gạch ngang",
+    "sub": "Chữ viết dưới",
+    "sup": "Chữ viết trên",
+    "underline": "Gạch chân"
+  },
+  "list": "Danh sách",
+  "lists": {
+    "bullet": "Danh sách không đánh số",
+    "indent": "Tăng thụt đầu dòng",
+    "numbered": "Danh sách có đánh số",
+    "outdent": "Giảm thụt đầu dòng",
+    "task": "Danh sách công việc"
   },
   "media": {
-    "link": "Liên kết ngoài",
-    "iframe": "khung nhúng",
-    "image": "Hình ảnh",
+    "charmap": {
+      "categories": {
+        "arrows": "Mũi tên",
+        "box_drawing": "Vẽ khung",
+        "currency": "Tiền tệ",
+        "cyrillic": "Chữ Kirin",
+        "diacritics": "Dấu phụ",
+        "extended_letters": "Chữ cái mở rộng",
+        "greek": "Chữ cái Hy Lạp",
+        "hebrew": "Tiếng Do Thái",
+        "math": "Toán học",
+        "punctuation": "Dấu câu",
+        "symbols": "Ký hiệu",
+        "typography": "In ấn"
+      },
+      "noResults": "Không tìm thấy ký tự phù hợp",
+      "search": "Tìm kiếm ký tự...",
+      "title": "Chèn ký tự đặc biệt"
+    },
     "emoji": {
-      "title": "Biểu tượng cảm xúc",
-      "search": "Tìm kiếm biểu tượng cảm xúc...",
       "categories": {
         "activities": "Hoạt động",
         "animals_and_nature": "Động vật và thiên nhiên",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Biểu tượng cảm xúc",
         "symbols": "Ký hiệu",
         "travel_and_places": "Du lịch và địa điểm"
-      }
+      },
+      "search": "Tìm kiếm biểu tượng cảm xúc...",
+      "title": "Biểu tượng cảm xúc"
     },
+    "iframe": "khung nhúng",
+    "image": "Hình ảnh",
+    "link": "Liên kết ngoài",
     "tables": {
-      "table": "Bảng",
-      "insertTable": "Chèn bảng",
-      "deleteTable": "Xóa bảng",
-      "insertWithHeaderRow": "Chèn bảng có dòng tiêu đề",
-      "rows": "Hàng",
-      "row": "Hàng",
-      "insertRowBefore": "Chèn hàng trước",
-      "insertRowAfter": "Chèn hàng sau",
-      "deleteRow": "Xóa hàng",
-      "cols": "Cột",
       "col": "Cột",
-      "insertColBefore": "Chèn cột trước",
-      "insertColAfter": "Chèn cột sau",
+      "cols": "Cột",
       "deleteCol": "Xóa cột",
+      "deleteRow": "Xóa hàng",
+      "deleteTable": "Xóa bảng",
+      "insertColAfter": "Chèn cột sau",
+      "insertColBefore": "Chèn cột trước",
+      "insertRowAfter": "Chèn hàng sau",
+      "insertRowBefore": "Chèn hàng trước",
+      "insertTable": "Chèn bảng",
+      "insertWithHeaderRow": "Chèn bảng có dòng tiêu đề",
       "mergeCells": "Hợp nhất ô",
-      "splitCell": "Tách ô"
+      "row": "Hàng",
+      "rows": "Hàng",
+      "splitCell": "Tách ô",
+      "table": "Bảng"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Chèn ký tự đặc biệt",
-      "search": "Tìm kiếm ký tự...",
-      "noResults": "Không tìm thấy ký tự phù hợp",
-      "categories": {
-        "punctuation": "Dấu câu",
-        "symbols": "Ký hiệu",
-        "math": "Toán học",
-        "currency": "Tiền tệ",
-        "greek": "Chữ cái Hy Lạp",
-        "extended_letters": "Chữ cái mở rộng",
-        "diacritics": "Dấu phụ",
-        "typography": "In ấn",
-        "cyrillic": "Chữ Kirin",
-        "hebrew": "Tiếng Do Thái",
-        "arrows": "Mũi tên",
-        "box_drawing": "Vẽ khung"
-      }
-    }
-  },
-  "action": {
-    "undo": "Hoàn tác",
-    "redo": "Làm lại"
-  },
-  "alignment": "Căn chỉnh",
-  "alignments": {
-    "left": "Canh trái",
-    "center": "Canh giữa",
-    "right": "Canh phải",
-    "justify": "Canh đều"
-  },
-  "list": "Danh sách",
-  "lists": {
-    "bullet": "Danh sách không đánh số",
-    "numbered": "Danh sách có đánh số",
-    "task": "Danh sách công việc",
-    "indent": "Tăng thụt đầu dòng",
-    "outdent": "Giảm thụt đầu dòng"
-  },
-  "dialog": {
-    "apply": "Áp dụng",
-    "clear": "Xóa",
-    "close": "Đóng",
-    "iframe": {
-      "dialog_title": "Thêm/sửa khung nhúng",
-      "src": "Nguồn",
-      "name": "Tên",
-      "title": "Tiêu đề",
-      "width": "Chiều rộng",
-      "height": "Chiều cao",
-      "frameborder": "Viền khung",
-      "src_invalid": "URL đã nhập không hợp lệ"
-    },
-    "image": {
-      "title": "Tiêu đề",
-      "src": "Nguồn",
-      "keep_ratio": "Giữ tỷ lệ khung hình",
-      "alt": "Văn bản thay thế",
-      "width": "Chiều rộng",
-      "height": "Chiều cao",
-      "dialog_title": "Thêm/sửa hình ảnh"
-    },
-    "link": {
-      "title": "Thêm/sửa liên kết",
-      "href": "Địa chỉ liên kết",
-      "href_error": "Địa chỉ liên kết không hợp lệ",
-      "target": "Mở tại...",
-      "target_blank": "Cửa sổ mới",
-      "target_self": "Cửa sổ hiện tại",
-      "rel": "liên hệ",
-      "class": "Lớp CSS"
-    },
-    "preview": {
-      "title": "Xem trước"
-    },
-    "source": {
-      "title": "Xem mã nguồn",
-      "prettify": "Làm đẹp"
-    },
-    "video": {
-      "title": "Thêm/sửa video",
-      "src": "Nguồn",
-      "width": "Chiều rộng",
-      "height": "Chiều cao"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Chế độ toàn màn hình",
@@ -169,38 +188,25 @@
     "source": "Xem mã nguồn",
     "toggleInvisibleCharacters": "Hiện/ẩn ký tự vô hình"
   },
-  "footer": {
-    "words": "từ ngữ",
-    "chars": "ký tự",
-    "limit": "giới hạn ký tự"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Tùy chọn tùy chỉnh",
+      "highlight": "Màu tô đậm",
+      "text": "Màu văn bản",
+      "unset": "Xóa màu"
+    },
+    "fontFamily": "Gia phông chữ",
+    "fontSize": "Kích cỡ chữ",
+    "heading": "Tiêu đề",
+    "headings": {
+      "h1": "Tiêu đề cấp 1",
+      "h2": "Tiêu đề cấp 2",
+      "h3": "Tiêu đề cấp 3",
+      "h4": "Tiêu đề cấp 4",
+      "h5": "Tiêu đề cấp 5",
+      "h6": "Tiêu đề cấp 6"
+    },
+    "lineHeight": "Khoảng cách dòng",
+    "paragraph": "Đoạn văn"
   }
 }

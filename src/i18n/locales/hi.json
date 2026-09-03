@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "फिर से करें",
+    "undo": "पूर्ववत् करें"
+  },
+  "ai": {
+    "append": "अंत में जोड़ें",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "इस टेक्स्ट को एक अधिक विस्तृत संस्करण में विस्तारित करें।",
+        "title": "विस्तार"
+      },
+      "improve": {
+        "prompt": "इस टेक्स्ट की स्पष्टता और लहज़े को बेहतर बनाएँ।",
+        "title": "लेखन में सुधार"
+      },
+      "proofReading": {
+        "prompt": "बिना अर्थ बदले, व्याकरण, वर्तनी और अक्षरचिह्न सुधारें।",
+        "title": "प्रूफरीडिंग"
+      },
+      "summarize": {
+        "prompt": "इस टेक्स्ट को एक संक्षिप्त अंश में सारांशित करें।",
+        "title": "सारांश"
+      }
+    },
+    "error": "AI उत्पादन विफल रहा",
+    "generate": "उत्पादित करें",
+    "insert": "Insrt करें",
+    "limit_exceeded": "परिणाम एडिटर की अक्षर सीमा से अधिक है। टेक्स्ट छोटा करें और पुनः लागू करें।",
+    "loading": "उत्पादित हो रहा है...",
+    "prompt": "प्रॉम्प्ट",
+    "quick_prompts": "त्वरित प्रॉम्प्ट",
+    "reasoning_effort": "तर्क प्रयास",
+    "replace": "बदलें",
+    "result": "परिणाम",
+    "stop": "रोकें",
+    "thinking": "सोच रहा है",
+    "title": "AI लेखन",
+    "unavailable": "इस क्रिया का उपयोग करने के लिए एक AI प्रदाता कॉन्फ़िगर करें"
+  },
+  "alignment": "संरेखण",
+  "alignments": {
+    "center": "केंद्र में संरेखित करें",
+    "justify": "समायोजित करें",
+    "left": "बाएँ संरेखित करें",
+    "right": "दाएँ संरेखित करें"
+  },
+  "content": {
+    "placeholder": "यहाँ कुछ लिखें..."
+  },
+  "defaultValue": "निर्दिष्ट मान",
+  "dialog": {
+    "apply": "लागू करें",
+    "clear": "साफ़ करें",
+    "close": "बंद करें",
+    "iframe": {
+      "dialog_title": "iframe जोड़ें/संपादित करें",
+      "frameborder": "iframe बॉर्डर",
+      "height": "ऊँचाई",
+      "name": "नाम",
+      "src": "स्रोत",
+      "src_invalid": "इनपुट एक अमान्य URL है",
+      "title": "शीर्षक",
+      "width": "चौड़ाई"
+    },
+    "image": {
+      "alt": "वैकल्पिक",
+      "dialog_title": "चित्र जोड़ें/संपादित करें",
+      "height": "ऊँचाई",
+      "keep_ratio": "अनुपात बनाए रखें",
+      "src": "स्रोत",
+      "title": "चित्र जोड़ें/संपादित करें",
+      "width": "चौड़ाई"
+    },
+    "link": {
+      "class": "CSS क्लास",
+      "href": "लिंक पता",
+      "href_error": "अमान्य लिंक पता",
+      "rel": "Rel",
+      "target": "कहाँ खोलें...",
+      "target_blank": "नई विंडो",
+      "target_self": "वर्तमान विंडो",
+      "title": "लिंक जोड़ें/संपादित करें"
+    },
+    "preview": {
+      "title": "पूर्वदृश्य"
+    },
+    "source": {
+      "prettify": "सजाएँ",
+      "title": "स्रोत कोड देखें"
+    },
+    "video": {
+      "height": "ऊँचाई",
+      "src": "स्रोत",
+      "title": "वीडियो जोड़ें/संपादित करें",
+      "width": "चौड़ाई"
+    }
+  },
+  "footer": {
+    "chars": "अक्षर",
+    "limit": "अक्षर सीमा",
+    "words": "शब्द"
+  },
+  "format": {
+    "blockquote": "उद्धरण",
+    "bold": "मोटा",
+    "break": "कठोर टूट",
+    "code": "कोड",
+    "codeblock": "कोड ब्लॉक",
+    "formatClear": "प्रारूप हटाएँ",
+    "italic": "तिरछा",
+    "line": "क्षैतिज रेखा",
+    "strike": "स्ट्राइकथ्रू",
+    "sub": "सबस्क्रिप्ट",
+    "sup": "सुपरस्क्रिप्ट",
+    "underline": "रेखांकन"
+  },
+  "list": "सूची",
+  "lists": {
+    "bullet": "बिना क्रम सूची",
+    "indent": "सूची आइटम का अंतर्वेशन",
+    "numbered": "क्रमबद्ध सूची",
+    "outdent": "सूची आइटम का बहिर्वेशन",
+    "task": "कार्य सूची"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "तीर",
+        "box_drawing": "बॉक्स आकृतियाँ",
+        "currency": "मुद्रा",
+        "cyrillic": "सिरिलिक",
+        "diacritics": "संदीपक चिह्न",
+        "extended_letters": "विस्तारित अक्षर",
+        "greek": "ग्रीक अक्षर",
+        "hebrew": "हिब्रू",
+        "math": "गणित",
+        "punctuation": "अक्षरचिह्न",
+        "symbols": "प्रतीक",
+        "typography": "प्रारूपण"
+      },
+      "noResults": "कोई मेल करने वाला अक्षर नहीं मिला",
+      "search": "अक्षर खोजें...",
+      "title": "विशेष अक्षर"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "गतिविधियाँ",
+        "animals_and_nature": "प्राणी और प्रकृति",
+        "component": "घटक",
+        "flags": "पताके",
+        "food_and_drink": "भोजन और पेय",
+        "objects": "वस्तुएँ",
+        "people_and_body": "लोग और शरीर",
+        "smileys_and_emotion": "स्माइली और भावनाएँ",
+        "symbols": "प्रतीक",
+        "travel_and_places": "यात्रा और स्थान"
+      },
+      "search": "इमोजी खोजें...",
+      "title": "इमोजी"
+    },
+    "iframe": "iframe",
+    "image": "चित्र",
+    "link": "बाहरी लिंक",
+    "tables": {
+      "col": "कॉलम",
+      "cols": "कॉलम",
+      "deleteCol": "कॉलम हटाएँ",
+      "deleteRow": "पंक्ति हटाएँ",
+      "deleteTable": "तालिका हटाएँ",
+      "insertColAfter": "कॉलम बाद में दर्ज करें",
+      "insertColBefore": "कॉलम पहले दर्ज करें",
+      "insertRowAfter": "पंक्ति बाद में दर्ज करें",
+      "insertRowBefore": "पंक्ति पहले दर्ज करें",
+      "insertTable": "तालिका दर्ज करें",
+      "insertWithHeaderRow": "हेडर पंक्ति के साथ तालिका दर्ज करें",
+      "mergeCells": "कॉल मर्ज करें",
+      "row": "पंक्ति",
+      "rows": "पंक्तियाँ",
+      "splitCell": "कॉल बंटेँ",
+      "table": "तालिका"
+    },
+    "video": "वीडियो"
+  },
+  "misc": {
+    "fullscreen": "फुलस्क्रीन मोड",
+    "preview": "पूर्वदर्शन",
+    "source": "स्रोत कोड देखें",
+    "toggleInvisibleCharacters": "अदृश्य अक्षर दिखाएँ/छुपाएँ"
+  },
+  "style": {
+    "color": {
+      "custom": "कस्टम रंग",
+      "highlight": "हाईलाइट रंग",
+      "text": "टेक्स्ट रंग",
+      "unset": "रंग हटाएँ"
+    },
+    "fontFamily": "फ़ॉन्ट परिवार",
+    "fontSize": "फ़ॉन्ट आकार",
+    "heading": "शीर्षक",
+    "headings": {
+      "h1": "शीर्षक स्तर 1",
+      "h2": "शीर्षक स्तर 2",
+      "h3": "शीर्षक स्तर 3",
+      "h4": "शीर्षक स्तर 4",
+      "h5": "शीर्षक स्तर 5",
+      "h6": "शीर्षक स्तर 6"
+    },
+    "lineHeight": "पंक्ति ऊँचाई",
+    "paragraph": "अनुच्छेद"
+  }
+}

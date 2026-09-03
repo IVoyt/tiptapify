@@ -1,5 +1,12 @@
+### 0.2.5
+- fix link extension href validation
+- refine the AI plugin UI
+- activate the editor by clicking on the editable area
+- fix styles
+- update docs
+
 ### 0.2.4
-- fix character-count warning threshold
+- fix the character-count warning threshold
 - export TiptapifyFooterAlignment
 - update docs
 

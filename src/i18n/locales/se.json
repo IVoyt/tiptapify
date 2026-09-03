@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Standardvärde",
+  "action": {
+    "redo": "Gör om",
+    "undo": "Ångra"
+  },
+  "ai": {
+    "append": "Lägg till i slutet",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Utveckla denna text till en mer detaljerad version.",
+        "title": "Utöka"
+      },
+      "improve": {
+        "prompt": "Förbättra tydligheten och tonen i denna text.",
+        "title": "Förbättra skrivandet"
+      },
+      "proofReading": {
+        "prompt": "Rätta grammatik, stavning och skiljetecken utan att ändra meningen.",
+        "title": "Korrekturläsning"
+      },
+      "summarize": {
+        "prompt": "Sammanfatta denna text i en kort paragraph.",
+        "title": "Sammanfatta"
+      }
+    },
+    "error": "AI-generering misslyckades",
+    "generate": "Generera",
+    "insert": "Infoga",
+    "limit_exceeded": "Resultatet överskrider redigerarens teckenlimit. Förkorta texten och tillämpa den igen.",
+    "loading": "Genererar...",
+    "prompt": "Begäran",
+    "quick_prompts": "Snabba begäran",
+    "reasoning_effort": "Resoneringsnivå",
+    "replace": "Ersätt",
+    "result": "Resultat",
+    "stop": "Stoppa",
+    "thinking": "Resonemang",
+    "title": "AI-skrivande",
+    "unavailable": "Konfigurera en AI-leverantör för att använda den här funktionen"
+  },
+  "alignment": "Justering",
+  "alignments": {
+    "center": "Centrerjustering",
+    "justify": "Marginaljustering",
+    "left": "Vänsterjustering",
+    "right": "Högerjustering"
+  },
   "content": {
     "placeholder": "Skriv något..."
   },
-  "style": {
-    "paragraph": "stycke",
-    "heading": "Rubrik",
-    "headings": {
-      "h1": "Rubrik nivå 1",
-      "h2": "Rubrik nivå 2",
-      "h3": "Rubrik nivå 3",
-      "h4": "Rubrik nivå 4",
-      "h5": "Rubrik nivå 5",
-      "h6": "Rubrik nivå 6"
+  "defaultValue": "Standardvärde",
+  "dialog": {
+    "apply": "Tillämpa",
+    "clear": "Rensa",
+    "close": "Stäng",
+    "iframe": {
+      "dialog_title": "Lägg till/redigera iframe",
+      "frameborder": "Ramkant",
+      "height": "Höjd",
+      "name": "Namn",
+      "src": "Källa",
+      "src_invalid": "Den angivna URL:en är ogiltig",
+      "title": "Titel",
+      "width": "Bredd"
     },
-    "fontFamily": "Typsnitt",
-    "fontSize": "Storlek",
-    "lineHeight": "Radhöjd",
-    "color": {
-      "highlight": "Markeringsfärg",
-      "text": "Textfärg",
-      "unset": "Rensa färg",
-      "custom": "Eget val"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Lägg till/ändra bild",
+      "height": "Höjd",
+      "keep_ratio": "Behåll proportioner",
+      "src": "Källa",
+      "title": "Rubrik",
+      "width": "Bredd"
+    },
+    "link": {
+      "class": "CSS-klass",
+      "href": "Länkadress",
+      "href_error": "Felaktig länkadress",
+      "rel": "rel",
+      "target": "Öppna i...",
+      "target_blank": "Nytt fönster",
+      "target_self": "Aktuellt fönster",
+      "title": "Lägg till/ändra länk"
+    },
+    "preview": {
+      "title": "Förhandsgranskning"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Visa källkod"
+    },
+    "video": {
+      "height": "Höjd",
+      "src": "Källa",
+      "title": "Lägg till/redigera video",
+      "width": "Bredd"
     }
   },
+  "footer": {
+    "chars": "tecken",
+    "limit": "teckengräns",
+    "words": "ord"
+  },
   "format": {
-    "bold": "Fet",
-    "italic": "Kursiv",
-    "strike": "Genomstruken",
-    "underline": "Understruken",
-    "sup": "Upphöjt",
-    "sub": "Nedsänkt",
-    "break": "Radbrytning",
-    "line": "Horisontell linje",
     "blockquote": "Citat",
+    "bold": "Fet",
+    "break": "Radbrytning",
     "code": "Kod",
     "codeblock": "Kodblock",
-    "formatClear": "Rensa formatering"
+    "formatClear": "Rensa formatering",
+    "italic": "Kursiv",
+    "line": "Horisontell linje",
+    "strike": "Genomstruken",
+    "sub": "Nedsänkt",
+    "sup": "Upphöjt",
+    "underline": "Understruken"
+  },
+  "list": "Lista",
+  "lists": {
+    "bullet": "Punktlista",
+    "indent": "Öka indrag för element",
+    "numbered": "Numrerad lista",
+    "outdent": "Minska indrag för element",
+    "task": "Uppgiftslista"
   },
   "media": {
-    "link": "Extern länk",
-    "iframe": "iframe",
-    "image": "Bild",
+    "charmap": {
+      "categories": {
+        "arrows": "Pilar",
+        "box_drawing": "Ramarbete",
+        "currency": "Valuta",
+        "cyrillic": "Kyrilliska",
+        "diacritics": "Diakritiska tecken",
+        "extended_letters": "Utökade bokstäver",
+        "greek": "Grekiska bokstäver",
+        "hebrew": "Hebreiska",
+        "math": "Matematik",
+        "punctuation": "Interpunktion",
+        "symbols": "Symboler",
+        "typography": "Typografi"
+      },
+      "noResults": "Inga matchande tecken hittades",
+      "search": "Sök tecken...",
+      "title": "Infoga specialtecken"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Sök emoji...",
       "categories": {
         "activities": "Aktiviteter",
         "animals_and_nature": "Djur och natur",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Smileys och känslor",
         "symbols": "Symboler",
         "travel_and_places": "Resor och platser"
-      }
+      },
+      "search": "Sök emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Bild",
+    "link": "Extern länk",
     "tables": {
-      "table": "Tabell",
-      "insertTable": "Sätt in tabell",
-      "deleteTable": "Ta bort tabell",
-      "insertWithHeaderRow": "Sätt in tabell med rubrik",
-      "rows": "Rader",
-      "row": "Rad",
-      "insertRowBefore": "Sätt in rad före",
-      "insertRowAfter": "Sätt in rad efter",
-      "deleteRow": "Ta bort rad",
-      "cols": "Kolumner",
       "col": "Kolumn",
-      "insertColBefore": "Sätt in kolumn före",
-      "insertColAfter": "Sätt in kolumn efter",
+      "cols": "Kolumner",
       "deleteCol": "Ta bort kolumn",
+      "deleteRow": "Ta bort rad",
+      "deleteTable": "Ta bort tabell",
+      "insertColAfter": "Sätt in kolumn efter",
+      "insertColBefore": "Sätt in kolumn före",
+      "insertRowAfter": "Sätt in rad efter",
+      "insertRowBefore": "Sätt in rad före",
+      "insertTable": "Sätt in tabell",
+      "insertWithHeaderRow": "Sätt in tabell med rubrik",
       "mergeCells": "Sammanfoga celler",
-      "splitCell": "Dela cell"
+      "row": "Rad",
+      "rows": "Rader",
+      "splitCell": "Dela cell",
+      "table": "Tabell"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Infoga specialtecken",
-      "search": "Sök tecken...",
-      "noResults": "Inga matchande tecken hittades",
-      "categories": {
-        "punctuation": "Interpunktion",
-        "symbols": "Symboler",
-        "math": "Matematik",
-        "currency": "Valuta",
-        "greek": "Grekiska bokstäver",
-        "extended_letters": "Utökade bokstäver",
-        "diacritics": "Diakritiska tecken",
-        "typography": "Typografi",
-        "cyrillic": "Kyrilliska",
-        "hebrew": "Hebreiska",
-        "arrows": "Pilar",
-        "box_drawing": "Ramarbete"
-      }
-    }
-  },
-  "action": {
-    "undo": "Ångra",
-    "redo": "Gör om"
-  },
-  "alignment": "Justering",
-  "alignments": {
-    "left": "Vänsterjustering",
-    "center": "Centrerjustering",
-    "right": "Högerjustering",
-    "justify": "Marginaljustering"
-  },
-  "list": "Lista",
-  "lists": {
-    "bullet": "Punktlista",
-    "numbered": "Numrerad lista",
-    "task": "Uppgiftslista",
-    "indent": "Öka indrag för element",
-    "outdent": "Minska indrag för element"
-  },
-  "dialog": {
-    "apply": "Tillämpa",
-    "clear": "Rensa",
-    "close": "Stäng",
-    "iframe": {
-      "dialog_title": "Lägg till/redigera iframe",
-      "src": "Källa",
-      "name": "Namn",
-      "title": "Titel",
-      "width": "Bredd",
-      "height": "Höjd",
-      "frameborder": "Ramkant",
-      "src_invalid": "Den angivna URL:en är ogiltig"
-    },
-    "image": {
-      "title": "Rubrik",
-      "src": "Källa",
-      "keep_ratio": "Behåll proportioner",
-      "alt": "alt",
-      "width": "Bredd",
-      "height": "Höjd",
-      "dialog_title": "Lägg till/ändra bild"
-    },
-    "link": {
-      "title": "Lägg till/ändra länk",
-      "href": "Länkadress",
-      "href_error": "Felaktig länkadress",
-      "target": "Öppna i...",
-      "target_blank": "Nytt fönster",
-      "target_self": "Aktuellt fönster",
-      "rel": "rel",
-      "class": "CSS-klass"
-    },
-    "preview": {
-      "title": "Förhandsgranskning"
-    },
-    "source": {
-      "title": "Visa källkod",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Lägg till/redigera video",
-      "src": "Källa",
-      "width": "Bredd",
-      "height": "Höjd"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Helskärmsläge",
@@ -169,38 +188,25 @@
     "source": "Visa källkod",
     "toggleInvisibleCharacters": "Visa/dölj osynliga tecken"
   },
-  "footer": {
-    "words": "ord",
-    "chars": "tecken",
-    "limit": "teckengräns"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Eget val",
+      "highlight": "Markeringsfärg",
+      "text": "Textfärg",
+      "unset": "Rensa färg"
+    },
+    "fontFamily": "Typsnitt",
+    "fontSize": "Storlek",
+    "heading": "Rubrik",
+    "headings": {
+      "h1": "Rubrik nivå 1",
+      "h2": "Rubrik nivå 2",
+      "h3": "Rubrik nivå 3",
+      "h4": "Rubrik nivå 4",
+      "h5": "Rubrik nivå 5",
+      "h6": "Rubrik nivå 6"
+    },
+    "lineHeight": "Radhöjd",
+    "paragraph": "stycke"
   }
 }

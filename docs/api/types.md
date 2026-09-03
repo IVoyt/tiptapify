@@ -61,7 +61,14 @@ enum ToolbarSectionsEnum {
 type TiptapifyAiProvider = (
   request: TiptapifyAiRequest,
   context: TiptapifyAiEditorContext,
+  stream?: TiptapifyAiStream,
 ) => Promise<TiptapifyAiResponse | TiptapifyAiOpenAiResponse | string>
+
+interface TiptapifyAiStream {
+  signal: AbortSignal
+  onChunk: (chunk: string) => void
+  onReasoning: (chunk: string) => void
+}
 
 type TiptapifyAiChatRole = 'system' | 'user' | 'assistant' | 'developer' | 'tool'
 
@@ -74,8 +81,15 @@ interface TiptapifyAiRequest {
   model?: string
   messages: TiptapifyAiChatMessage[]
   temperature?: number
-  stream?: false
+  stream?: boolean
   [key: string]: unknown
+}
+
+type TiptapifyAiReasoningEffort = 'low' | 'medium' | 'high'
+
+interface TiptapifyAiReasoningEffortOptions {
+  options: TiptapifyAiReasoningEffort[]
+  default?: TiptapifyAiReasoningEffort
 }
 
 interface TiptapifyAiEditorContext {
@@ -113,6 +127,10 @@ interface TiptapifyAiOptions {
   defaultPrompt?: string
   systemPrompt?: string
   temperature?: number
+  stream?: boolean
+  thinking?: boolean
+  reasoningEffort?: TiptapifyAiReasoningEffortOptions
+  showReasoning?: boolean
   chatCompletionOptions?: Record<string, unknown>
   createMessages?: (context: TiptapifyAiEditorContext) => TiptapifyAiChatMessage[]
   tokenProvider?: () => Promise<string | null> | string | null

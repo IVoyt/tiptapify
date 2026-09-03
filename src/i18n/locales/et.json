@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "Tee uuesti",
+    "undo": "Tühista"
+  },
+  "ai": {
+    "append": "Lõpule lisamine",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Laienda see tekst detailsemaks versiooniks.",
+        "title": "Laienda"
+      },
+      "improve": {
+        "prompt": "Paranda selle teksti selgust ja tooni.",
+        "title": "Kirjutamise parandamine"
+      },
+      "proofReading": {
+        "prompt": "Paranda grammatikat, ortograafiat ja punktuatsiooni, muutmata tähendust.",
+        "title": "Tõestamine"
+      },
+      "summarize": {
+        "prompt": "Kokkuvõta see tekst lühikeseks lõuks.",
+        "title": "Kokkuvõte"
+      }
+    },
+    "error": "AI genereerimine ebaõnnestus",
+    "generate": "Genereeri",
+    "insert": "Sisestamine",
+    "limit_exceeded": "Tulemus ületab redaktori märkide piirangu. Lühenda teksti ja rakenda uuesti.",
+    "loading": "Genereerimine...",
+    "prompt": "Prompt",
+    "quick_prompts": "Kiired promptid",
+    "reasoning_effort": "Mõtlemisnõue",
+    "replace": "Asenda",
+    "result": "Tulemus",
+    "stop": "Peata",
+    "thinking": "Mõtlemine",
+    "title": "AI kirjutamine",
+    "unavailable": "Konfigureerige AI pakkuja selle toimingu kasutamiseks"
+  },
+  "alignment": "Joondus",
+  "alignments": {
+    "center": "Keskjoondus",
+    "justify": "Rajatsoonis",
+    "left": "Vasakjoondus",
+    "right": "Paremjoondus"
+  },
+  "content": {
+    "placeholder": "Kirjuta siia midagi..."
+  },
+  "defaultValue": "Vaikimisi väärtus",
+  "dialog": {
+    "apply": "Rakenda",
+    "clear": "Puhasta",
+    "close": "Sulge",
+    "iframe": {
+      "dialog_title": "Lisa/redigeeri iframe",
+      "frameborder": "Iframe piirjoon",
+      "height": "Kõrgus",
+      "name": "Nimi",
+      "src": "Allikas",
+      "src_invalid": "Sisestus pole kehtiv URL",
+      "title": "Pealkiri",
+      "width": "Laius"
+    },
+    "image": {
+      "alt": "Alternatiivne tekst",
+      "dialog_title": "Lisa/redigeeri pilt",
+      "height": "Kõrgus",
+      "keep_ratio": "Säilita suhe",
+      "src": "Allikas",
+      "title": "Lisa/redigeeri pilt",
+      "width": "Laius"
+    },
+    "link": {
+      "class": "CSS klass",
+      "href": "Lingi aadress",
+      "href_error": "Kehtetu lingi aadress",
+      "rel": "Rel",
+      "target": "Ava...",
+      "target_blank": "Uus aken",
+      "target_self": "Praegune aken",
+      "title": "Lisa/redigeeri link"
+    },
+    "preview": {
+      "title": "Eelvaade"
+    },
+    "source": {
+      "prettify": "Vorminda",
+      "title": "Vaata lähtekoodi"
+    },
+    "video": {
+      "height": "Kõrgus",
+      "src": "Allikas",
+      "title": "Lisa/redigeeri video",
+      "width": "Laius"
+    }
+  },
+  "footer": {
+    "chars": "märke",
+    "limit": "märkide piirang",
+    "words": "sõna"
+  },
+  "format": {
+    "blockquote": "Tsitaat",
+    "bold": "Rasvane",
+    "break": "Jäik lõik",
+    "code": "Kood",
+    "codeblock": "Koodiblokk",
+    "formatClear": "Kustuta vorming",
+    "italic": "Kaldkiri",
+    "line": "Horisontaalne joon",
+    "strike": "Läbilõik",
+    "sub": "Alaindeks",
+    "sup": "Üleindeks",
+    "underline": "Allajooneline"
+  },
+  "list": "Nimekiri",
+  "lists": {
+    "bullet": "Punktistatud nimekiri",
+    "indent": "Nimekirja elemendi sammu lisamine",
+    "numbered": "Numbreeritud nimekiri",
+    "outdent": "Nimekirja elemendi sammu eemaldamine",
+    "task": "Ülesannete nimekiri"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "Nooled",
+        "box_drawing": "Kastide joonistamine",
+        "currency": "Valuuta",
+        "cyrillic": "Kirillitsa",
+        "diacritics": "Diakriitilised märgid",
+        "extended_letters": "Laiendatud tähed",
+        "greek": "Kreeka tähed",
+        "hebrew": "Hebrea",
+        "math": "Matemaatika",
+        "punctuation": "Punktuatsioon",
+        "symbols": "Sümboolid",
+        "typography": "Tüpograafia"
+      },
+      "noResults": "Ühtivaid märke ei leitud",
+      "search": "Otsi märke...",
+      "title": "Erimärgid"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "Tegevused",
+        "animals_and_nature": "Loomad ja loodus",
+        "component": "Komponent",
+        "flags": "Lipud",
+        "food_and_drink": "Toidud ja joogid",
+        "objects": "Esemed",
+        "people_and_body": "Inimesed ja keha",
+        "smileys_and_emotion": "Smileyd ja tunded",
+        "symbols": "Sümboolid",
+        "travel_and_places": "Reisimine ja kohad"
+      },
+      "search": "Otsi emojisid...",
+      "title": "Emoji"
+    },
+    "iframe": "iframe",
+    "image": "Pilt",
+    "link": "Väline link",
+    "tables": {
+      "col": "Veerg",
+      "cols": "Veerud",
+      "deleteCol": "Kustuta veerg",
+      "deleteRow": "Kustuta rida",
+      "deleteTable": "Kustuta tabel",
+      "insertColAfter": "Sisesta veerg pärast",
+      "insertColBefore": "Sisesta veerg enne",
+      "insertRowAfter": "Sisesta rida pärast",
+      "insertRowBefore": "Sisesta rida enne",
+      "insertTable": "Sisesta tabel",
+      "insertWithHeaderRow": "Sisesta tabel pealkirja reaga",
+      "mergeCells": "Liida ruudud",
+      "row": "Rida",
+      "rows": "Ridad",
+      "splitCell": "Jagatud ruutu",
+      "table": "Tabel"
+    },
+    "video": "Video"
+  },
+  "misc": {
+    "fullscreen": "Kogu ekraani režiim",
+    "preview": "Eelvaade",
+    "source": "Vaata lähtekoodi",
+    "toggleInvisibleCharacters": "Näita/peida nähtamata märgid"
+  },
+  "style": {
+    "color": {
+      "custom": "Kohandatud värv",
+      "highlight": "Esiletõstuvärv",
+      "text": "Tekstivärv",
+      "unset": "Tühista värv"
+    },
+    "fontFamily": "Fondi perekond",
+    "fontSize": "Fondi suurus",
+    "heading": "Pealkiri",
+    "headings": {
+      "h1": "Pealkiri 1",
+      "h2": "Pealkiri 2",
+      "h3": "Pealkiri 3",
+      "h4": "Pealkiri 4",
+      "h5": "Pealkiri 5",
+      "h6": "Pealkiri 6"
+    },
+    "lineHeight": "Rida kõrgus",
+    "paragraph": "Lõik"
+  }
+}

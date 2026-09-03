@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Numatytoji reikšmė",
+  "action": {
+    "redo": "Pakartoti",
+    "undo": "Atšaukti"
+  },
+  "ai": {
+    "append": "Pridėti pabaigoje",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Išplėskite šį tekstą į detalesnę versiją.",
+        "title": "Plėsti"
+      },
+      "improve": {
+        "prompt": "Pagerinkite šio teksto aiškumą ir toną.",
+        "title": "Rašymo gerinimas"
+      },
+      "proofReading": {
+        "prompt": "Ištaisykite gramatiką, rašybą ir skyrybą, be prasmės keitimo.",
+        "title": "Koregavimas"
+      },
+      "summarize": {
+        "prompt": "Sutrumpinkite šį tekstą iki glaustos pastraipos.",
+        "title": "Sutrumpinti"
+      }
+    },
+    "error": "DI generavimas nepavyko",
+    "generate": "Generuoti",
+    "insert": "Įterpimas",
+    "limit_exceeded": "Rezultatas viršija redaktoriaus simbolių limitą. Trumpinkite tekstą ir taikykite iš naujo.",
+    "loading": "Generuojama...",
+    "prompt": "Užklausa",
+    "quick_prompts": "Greitos užklausos",
+    "reasoning_effort": "Mąstymo lygis",
+    "replace": "Pakeisti",
+    "result": "Rezultatas",
+    "stop": "Sustabdyti",
+    "thinking": "Mąstymas",
+    "title": "AI rašymas",
+    "unavailable": "Norėdami naudoti šį veiksmą, sukonfigūruokite DI tiekėją"
+  },
+  "alignment": "Lygiavimas",
+  "alignments": {
+    "center": "Lygiavimas centre",
+    "justify": "Lygiavimas pločiu",
+    "left": "Lygiavimas kairėje",
+    "right": "Lygiavimas dešinėje"
+  },
   "content": {
     "placeholder": "Parašykite ką nors..."
   },
-  "style": {
-    "paragraph": "pastraipa",
-    "heading": "Antraštė",
-    "headings": {
-      "h1": "1 lygio antraštė",
-      "h2": "2 lygio antraštė",
-      "h3": "3 lygio antraštė",
-      "h4": "4 lygio antraštė",
-      "h5": "5 lygio antraštė",
-      "h6": "6 lygio antraštė"
+  "defaultValue": "Numatytoji reikšmė",
+  "dialog": {
+    "apply": "Taikyti",
+    "clear": "Išvalyti",
+    "close": "Uždaryti",
+    "iframe": {
+      "dialog_title": "Pridėti/redaguoti iframe",
+      "frameborder": "Rėmo kraštas",
+      "height": "Aukštis",
+      "name": "Pavadinimas",
+      "src": "Šaltinis",
+      "src_invalid": "Įvestas URL netinkamas",
+      "title": "Antraštė",
+      "width": "Plotis"
     },
-    "fontFamily": "Šriftas",
-    "fontSize": "Dydis",
-    "lineHeight": "Eilutės aukštis",
-    "color": {
-      "highlight": "Paryškinimo spalva",
-      "text": "Teksto spalva",
-      "unset": "Išvalyti spalvą",
-      "custom": "Savo pasirinkimas"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Pridėti/keisti paveikslą",
+      "height": "Aukštis",
+      "keep_ratio": "Išlaikyti proporciją",
+      "src": "Šaltinis",
+      "title": "Pavadinimas",
+      "width": "Plotis"
+    },
+    "link": {
+      "class": "CSS klasė",
+      "href": "Nuorodos adresas",
+      "href_error": "Neteisingas nuorodos adresas",
+      "rel": "rel",
+      "target": "Atidaryti...",
+      "target_blank": "Naujame lange",
+      "target_self": "Dabartiniame lange",
+      "title": "Pridėti/keisti nuorodą"
+    },
+    "preview": {
+      "title": "Peržiūra"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Žiūrėti išeities kodą"
+    },
+    "video": {
+      "height": "Aukštis",
+      "src": "Šaltinis",
+      "title": "Pridėti/redaguoti vaizdo įrašą",
+      "width": "Plotis"
     }
   },
+  "footer": {
+    "chars": "simboliai",
+    "limit": "simbolių limitas",
+    "words": "žodžiai"
+  },
   "format": {
-    "bold": "Paryškintas",
-    "italic": "Kursyvas",
-    "strike": "Perbrauktas",
-    "underline": "Pabrauktas",
-    "sup": "Viršutinis indeksas",
-    "sub": "Apatinis indeksas",
-    "break": "Eilutės lūžis",
-    "line": "Horizontali linija",
     "blockquote": "Citata",
+    "bold": "Paryškintas",
+    "break": "Eilutės lūžis",
     "code": "Kodas",
     "codeblock": "Kodo blokas",
-    "formatClear": "Išvalyti formatavimą"
+    "formatClear": "Išvalyti formatavimą",
+    "italic": "Kursyvas",
+    "line": "Horizontali linija",
+    "strike": "Perbrauktas",
+    "sub": "Apatinis indeksas",
+    "sup": "Viršutinis indeksas",
+    "underline": "Pabrauktas"
+  },
+  "list": "Sąrašas",
+  "lists": {
+    "bullet": "Ženklelių sąrašas",
+    "indent": "Padidinti sąrašo elemento įtrauką",
+    "numbered": "Numeruotas sąrašas",
+    "outdent": "Sumažinti sąrašo elemento įtrauką",
+    "task": "Užduočių sąrašas"
   },
   "media": {
-    "link": "Išorinė nuoroda",
-    "iframe": "iframe",
-    "image": "Paveikslas",
+    "charmap": {
+      "categories": {
+        "arrows": "Rodyklės",
+        "box_drawing": "Rėmelių braižymas",
+        "currency": "Valiuta",
+        "cyrillic": "Kirilica",
+        "diacritics": "Diakritiniai ženklai",
+        "extended_letters": "Išplėstinės raidės",
+        "greek": "Graikiškos raidės",
+        "hebrew": "Hebrajų",
+        "math": "Matematika",
+        "punctuation": "Skyryba",
+        "symbols": "Simboliai",
+        "typography": "Tipografija"
+      },
+      "noResults": "Atitinkančių simbolių nerasta",
+      "search": "Ieškoti simbolių...",
+      "title": "Įterpti specialųjį simbolį"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Ieškoti emoji...",
       "categories": {
         "activities": "Veiklos",
         "animals_and_nature": "Gyvūnai ir gamta",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Šypsenos ir emocijos",
         "symbols": "Simboliai",
         "travel_and_places": "Kelionės ir vietos"
-      }
+      },
+      "search": "Ieškoti emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Paveikslas",
+    "link": "Išorinė nuoroda",
     "tables": {
-      "table": "Lentelė",
-      "insertTable": "Įterpti lentelę",
-      "deleteTable": "Ištrinti lentelę",
-      "insertWithHeaderRow": "Įterpti lentelę su antrašte",
-      "rows": "Eilutės",
-      "row": "Eilutė",
-      "insertRowBefore": "Įterpti eilutę prieš",
-      "insertRowAfter": "Įterpti eilutę po",
-      "deleteRow": "Ištrinti eilutę",
-      "cols": "Stulpeliai",
       "col": "Stulpelis",
-      "insertColBefore": "Įterpti stulpelį prieš",
-      "insertColAfter": "Įterpti stulpelį po",
+      "cols": "Stulpeliai",
       "deleteCol": "Ištrinti stulpelį",
+      "deleteRow": "Ištrinti eilutę",
+      "deleteTable": "Ištrinti lentelę",
+      "insertColAfter": "Įterpti stulpelį po",
+      "insertColBefore": "Įterpti stulpelį prieš",
+      "insertRowAfter": "Įterpti eilutę po",
+      "insertRowBefore": "Įterpti eilutę prieš",
+      "insertTable": "Įterpti lentelę",
+      "insertWithHeaderRow": "Įterpti lentelę su antrašte",
       "mergeCells": "Sujungti ląsteles",
-      "splitCell": "Padalinti ląstelę"
+      "row": "Eilutė",
+      "rows": "Eilutės",
+      "splitCell": "Padalinti ląstelę",
+      "table": "Lentelė"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Įterpti specialųjį simbolį",
-      "search": "Ieškoti simbolių...",
-      "noResults": "Atitinkančių simbolių nerasta",
-      "categories": {
-        "punctuation": "Skyryba",
-        "symbols": "Simboliai",
-        "math": "Matematika",
-        "currency": "Valiuta",
-        "greek": "Graikiškos raidės",
-        "extended_letters": "Išplėstinės raidės",
-        "diacritics": "Diakritiniai ženklai",
-        "typography": "Tipografija",
-        "cyrillic": "Kirilica",
-        "hebrew": "Hebrajų",
-        "arrows": "Rodyklės",
-        "box_drawing": "Rėmelių braižymas"
-      }
-    }
-  },
-  "action": {
-    "undo": "Atšaukti",
-    "redo": "Pakartoti"
-  },
-  "alignment": "Lygiavimas",
-  "alignments": {
-    "left": "Lygiavimas kairėje",
-    "center": "Lygiavimas centre",
-    "right": "Lygiavimas dešinėje",
-    "justify": "Lygiavimas pločiu"
-  },
-  "list": "Sąrašas",
-  "lists": {
-    "bullet": "Ženklelių sąrašas",
-    "numbered": "Numeruotas sąrašas",
-    "task": "Užduočių sąrašas",
-    "indent": "Padidinti sąrašo elemento įtrauką",
-    "outdent": "Sumažinti sąrašo elemento įtrauką"
-  },
-  "dialog": {
-    "apply": "Taikyti",
-    "clear": "Išvalyti",
-    "close": "Uždaryti",
-    "iframe": {
-      "dialog_title": "Pridėti/redaguoti iframe",
-      "src": "Šaltinis",
-      "name": "Pavadinimas",
-      "title": "Antraštė",
-      "width": "Plotis",
-      "height": "Aukštis",
-      "frameborder": "Rėmo kraštas",
-      "src_invalid": "Įvestas URL netinkamas"
-    },
-    "image": {
-      "title": "Pavadinimas",
-      "src": "Šaltinis",
-      "keep_ratio": "Išlaikyti proporciją",
-      "alt": "alt",
-      "width": "Plotis",
-      "height": "Aukštis",
-      "dialog_title": "Pridėti/keisti paveikslą"
-    },
-    "link": {
-      "title": "Pridėti/keisti nuorodą",
-      "href": "Nuorodos adresas",
-      "href_error": "Neteisingas nuorodos adresas",
-      "target": "Atidaryti...",
-      "target_blank": "Naujame lange",
-      "target_self": "Dabartiniame lange",
-      "rel": "rel",
-      "class": "CSS klasė"
-    },
-    "preview": {
-      "title": "Peržiūra"
-    },
-    "source": {
-      "title": "Žiūrėti išeities kodą",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Pridėti/redaguoti vaizdo įrašą",
-      "src": "Šaltinis",
-      "width": "Plotis",
-      "height": "Aukštis"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Viso ekrano režimas",
@@ -169,38 +188,25 @@
     "source": "Žiūrėti išeities kodą",
     "toggleInvisibleCharacters": "Rodyti/slėpti nematomus simbolius"
   },
-  "footer": {
-    "words": "žodžiai",
-    "chars": "simboliai",
-    "limit": "simbolių limitas"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Savo pasirinkimas",
+      "highlight": "Paryškinimo spalva",
+      "text": "Teksto spalva",
+      "unset": "Išvalyti spalvą"
+    },
+    "fontFamily": "Šriftas",
+    "fontSize": "Dydis",
+    "heading": "Antraštė",
+    "headings": {
+      "h1": "1 lygio antraštė",
+      "h2": "2 lygio antraštė",
+      "h3": "3 lygio antraštė",
+      "h4": "4 lygio antraštė",
+      "h5": "5 lygio antraštė",
+      "h6": "6 lygio antraštė"
+    },
+    "lineHeight": "Eilutės aukštis",
+    "paragraph": "pastraipa"
   }
 }

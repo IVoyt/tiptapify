@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Výchozí hodnota",
+  "action": {
+    "redo": "Znovu",
+    "undo": "Zpět"
+  },
+  "ai": {
+    "append": "Přidat na konec",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Rozviňte tento text do podrobnější verze.",
+        "title": "Rozšířit"
+      },
+      "improve": {
+        "prompt": "Zlepšete jasnost a tón tohoto textu.",
+        "title": "Zlepšit psaní"
+      },
+      "proofReading": {
+        "prompt": "Opravte gramatiku, překlepy a interpunkci, aniž byste změnili význam.",
+        "title": "Korektura"
+      },
+      "summarize": {
+        "prompt": "Shrňte tento text do stručného odstavce.",
+        "title": "Shrnutí"
+      }
+    },
+    "error": "Generování AI selhalo",
+    "generate": "Generovat",
+    "insert": "Vložit",
+    "limit_exceeded": "Výsledek přesahuje limit znaků v editoru. Zkraťte text a použijte ho znovu.",
+    "loading": "Generování...",
+    "prompt": "Příkaz",
+    "quick_prompts": "Rychlé příkazy",
+    "reasoning_effort": "Úsilí přemýšlení",
+    "replace": "Nahradit",
+    "result": "Výsledek",
+    "stop": "Zastavit",
+    "thinking": "Přemýšlení",
+    "title": "AI psaní",
+    "unavailable": "Pro použití tohoto kroku nakonfigurujte poskytovatele AI"
+  },
+  "alignment": "Zarovnání",
+  "alignments": {
+    "center": "Zarovnání na střed",
+    "justify": "Zarovnání do bloku",
+    "left": "Zarovnání vlevo",
+    "right": "Zarovnání vpravo"
+  },
   "content": {
     "placeholder": "Napište něco..."
   },
-  "style": {
-    "paragraph": "odstavec",
-    "heading": "Nadpis",
-    "headings": {
-      "h1": "Nadpis 1. úrovně",
-      "h2": "Nadpis 2. úrovně",
-      "h3": "Nadpis 3. úrovně",
-      "h4": "Nadpis 4. úrovně",
-      "h5": "Nadpis 5. úrovně",
-      "h6": "Nadpis 6. úrovně"
+  "defaultValue": "Výchozí hodnota",
+  "dialog": {
+    "apply": "Použít",
+    "clear": "Vymazat",
+    "close": "Zavřít",
+    "iframe": {
+      "dialog_title": "Přidat/upravit iframe",
+      "frameborder": "Okraj rámce",
+      "height": "Výška",
+      "name": "Název",
+      "src": "Zdroj",
+      "src_invalid": "Zadaná URL adresa je neplatná",
+      "title": "Titulek",
+      "width": "Šířka"
     },
-    "fontFamily": "Písmo",
-    "fontSize": "Velikost",
-    "lineHeight": "Výška řádku",
-    "color": {
-      "highlight": "Barva zvýraznění",
-      "text": "Barva textu",
-      "unset": "Vymazat barvu",
-      "custom": "Vlastní výběr"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Přidání/úprava obrázku",
+      "height": "Výška",
+      "keep_ratio": "Udržet poměr stran",
+      "src": "Zdroj",
+      "title": "Název",
+      "width": "Šířka"
+    },
+    "link": {
+      "class": "CSS třída",
+      "href": "Adresa odkazu",
+      "href_error": "Neplatná adresa odkazu",
+      "rel": "rel",
+      "target": "Otevřít v...",
+      "target_blank": "Novém okně",
+      "target_self": "Aktuálním okně",
+      "title": "Přidání/úprava odkazu"
+    },
+    "preview": {
+      "title": "Náhled"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Zobrazit zdrojový kód"
+    },
+    "video": {
+      "height": "Výška",
+      "src": "Zdroj",
+      "title": "Přidat/upravit video",
+      "width": "Šířka"
     }
   },
+  "footer": {
+    "chars": "znaky",
+    "limit": "limit znaků",
+    "words": "slova"
+  },
   "format": {
-    "bold": "Tučné",
-    "italic": "Kurzíva",
-    "strike": "Přeškrtnuté",
-    "underline": "Podtržené",
-    "sup": "Horní index",
-    "sub": "Dolní index",
-    "break": "Zalomení řádku",
-    "line": "Horizontální čára",
     "blockquote": "Citát",
+    "bold": "Tučné",
+    "break": "Zalomení řádku",
     "code": "Kód",
     "codeblock": "Blok kódu",
-    "formatClear": "Vymazat formátování"
+    "formatClear": "Vymazat formátování",
+    "italic": "Kurzíva",
+    "line": "Horizontální čára",
+    "strike": "Přeškrtnuté",
+    "sub": "Dolní index",
+    "sup": "Horní index",
+    "underline": "Podtržené"
+  },
+  "list": "Seznam",
+  "lists": {
+    "bullet": "Odrážkový seznam",
+    "indent": "Zvětšit odsazení položky seznamu",
+    "numbered": "Číslovaný seznam",
+    "outdent": "Zmenšit odsazení položky seznamu",
+    "task": "Seznam úkolů"
   },
   "media": {
-    "link": "Externí odkaz",
-    "iframe": "iframe",
-    "image": "Obrázek",
+    "charmap": {
+      "categories": {
+        "arrows": "Šipky",
+        "box_drawing": "Kreslení rámečků",
+        "currency": "Měna",
+        "cyrillic": "Azbuky",
+        "diacritics": "Diakritika",
+        "extended_letters": "Rozšířená písmena",
+        "greek": "Řecká písmena",
+        "hebrew": "Hebrejština",
+        "math": "Matematika",
+        "punctuation": "Interpunkce",
+        "symbols": "Symboly",
+        "typography": "Typografie"
+      },
+      "noResults": "Nebyly nalezeny žádné odpovídající znaky",
+      "search": "Hledat znaky...",
+      "title": "Vložit speciální znak"
+    },
     "emoji": {
-      "title": "Emoji",
-      "search": "Hledat emoji...",
       "categories": {
         "activities": "Aktivity",
         "animals_and_nature": "Zvířata a příroda",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Úsměvy a emoce",
         "symbols": "Symboly",
         "travel_and_places": "Cestování a místa"
-      }
+      },
+      "search": "Hledat emoji...",
+      "title": "Emoji"
     },
+    "iframe": "iframe",
+    "image": "Obrázek",
+    "link": "Externí odkaz",
     "tables": {
-      "table": "Tabulka",
-      "insertTable": "Vložit tabulku",
-      "deleteTable": "Smazat tabulku",
-      "insertWithHeaderRow": "Vložit tabulku s hlavičkou",
-      "rows": "Řádky",
-      "row": "Řádek",
-      "insertRowBefore": "Vložit řádek před",
-      "insertRowAfter": "Vložit řádek za",
-      "deleteRow": "Smazat řádek",
-      "cols": "Sloupce",
       "col": "Sloupec",
-      "insertColBefore": "Vložit sloupec před",
-      "insertColAfter": "Vložit sloupec za",
+      "cols": "Sloupce",
       "deleteCol": "Smazat sloupec",
+      "deleteRow": "Smazat řádek",
+      "deleteTable": "Smazat tabulku",
+      "insertColAfter": "Vložit sloupec za",
+      "insertColBefore": "Vložit sloupec před",
+      "insertRowAfter": "Vložit řádek za",
+      "insertRowBefore": "Vložit řádek před",
+      "insertTable": "Vložit tabulku",
+      "insertWithHeaderRow": "Vložit tabulku s hlavičkou",
       "mergeCells": "Sloučit buňky",
-      "splitCell": "Rozdělit buňku"
+      "row": "Řádek",
+      "rows": "Řádky",
+      "splitCell": "Rozdělit buňku",
+      "table": "Tabulka"
     },
-    "video": "Video",
-    "charmap": {
-      "title": "Vložit speciální znak",
-      "search": "Hledat znaky...",
-      "noResults": "Nebyly nalezeny žádné odpovídající znaky",
-      "categories": {
-        "punctuation": "Interpunkce",
-        "symbols": "Symboly",
-        "math": "Matematika",
-        "currency": "Měna",
-        "greek": "Řecká písmena",
-        "extended_letters": "Rozšířená písmena",
-        "diacritics": "Diakritika",
-        "typography": "Typografie",
-        "cyrillic": "Azbuky",
-        "hebrew": "Hebrejština",
-        "arrows": "Šipky",
-        "box_drawing": "Kreslení rámečků"
-      }
-    }
-  },
-  "action": {
-    "undo": "Zpět",
-    "redo": "Znovu"
-  },
-  "alignment": "Zarovnání",
-  "alignments": {
-    "left": "Zarovnání vlevo",
-    "center": "Zarovnání na střed",
-    "right": "Zarovnání vpravo",
-    "justify": "Zarovnání do bloku"
-  },
-  "list": "Seznam",
-  "lists": {
-    "bullet": "Odrážkový seznam",
-    "numbered": "Číslovaný seznam",
-    "task": "Seznam úkolů",
-    "indent": "Zvětšit odsazení položky seznamu",
-    "outdent": "Zmenšit odsazení položky seznamu"
-  },
-  "dialog": {
-    "apply": "Použít",
-    "clear": "Vymazat",
-    "close": "Zavřít",
-    "iframe": {
-      "dialog_title": "Přidat/upravit iframe",
-      "src": "Zdroj",
-      "name": "Název",
-      "title": "Titulek",
-      "width": "Šířka",
-      "height": "Výška",
-      "frameborder": "Okraj rámce",
-      "src_invalid": "Zadaná URL adresa je neplatná"
-    },
-    "image": {
-      "title": "Název",
-      "src": "Zdroj",
-      "keep_ratio": "Udržet poměr stran",
-      "alt": "alt",
-      "width": "Šířka",
-      "height": "Výška",
-      "dialog_title": "Přidání/úprava obrázku"
-    },
-    "link": {
-      "title": "Přidání/úprava odkazu",
-      "href": "Adresa odkazu",
-      "href_error": "Neplatná adresa odkazu",
-      "target": "Otevřít v...",
-      "target_blank": "Novém okně",
-      "target_self": "Aktuálním okně",
-      "rel": "rel",
-      "class": "CSS třída"
-    },
-    "preview": {
-      "title": "Náhled"
-    },
-    "source": {
-      "title": "Zobrazit zdrojový kód",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Přidat/upravit video",
-      "src": "Zdroj",
-      "width": "Šířka",
-      "height": "Výška"
-    }
+    "video": "Video"
   },
   "misc": {
     "fullscreen": "Režim celé obrazovky",
@@ -169,38 +188,25 @@
     "source": "Zobrazit zdrojový kód",
     "toggleInvisibleCharacters": "Zobrazit/skrýt neviditelné znaky"
   },
-  "footer": {
-    "words": "slova",
-    "chars": "znaky",
-    "limit": "limit znaků"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Vlastní výběr",
+      "highlight": "Barva zvýraznění",
+      "text": "Barva textu",
+      "unset": "Vymazat barvu"
+    },
+    "fontFamily": "Písmo",
+    "fontSize": "Velikost",
+    "heading": "Nadpis",
+    "headings": {
+      "h1": "Nadpis 1. úrovně",
+      "h2": "Nadpis 2. úrovně",
+      "h3": "Nadpis 3. úrovně",
+      "h4": "Nadpis 4. úrovně",
+      "h5": "Nadpis 5. úrovně",
+      "h6": "Nadpis 6. úrovně"
+    },
+    "lineHeight": "Výška řádku",
+    "paragraph": "odstavec"
   }
 }

@@ -31,7 +31,7 @@ function showDialog() {
     <BtnIcon :icon="`mdiSvg:${mdi.mdiCodeTags}`" />
   </VBtn>
 
-  <ShowSourceDialog ref="dialog" />
+  <ShowSourceDialog ref="dialog" :variant-btn="variantBtn" />
 </template>
 
 <style lang="scss" scoped>

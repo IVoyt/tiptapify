@@ -1,0 +1,212 @@
+{
+  "action": {
+    "redo": "Znova",
+    "undo": "Späť"
+  },
+  "ai": {
+    "append": "Pridať na koniec",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Rozšírte tento text do podrobnejšej verzie.",
+        "title": "Rozšíriť"
+      },
+      "improve": {
+        "prompt": "Zlepšujte jasnosť a tón tohto textu.",
+        "title": "Zlepšiť zápis"
+      },
+      "proofReading": {
+        "prompt": "Oprávte gramatiku, pravopis a interpunkciu bez zmeny významu.",
+        "title": "Korektúra"
+      },
+      "summarize": {
+        "prompt": "Zhrňte tento text do stručného odseku.",
+        "title": "Zhrnúť"
+      }
+    },
+    "error": "Generovanie AI zlyhalo",
+    "generate": "Vygenerovať",
+    "insert": "Vložiť",
+    "limit_exceeded": "Výsledok presahuje limit znakov editora. Skráťte text a použite znova.",
+    "loading": "Generuje sa...",
+    "prompt": "Príkaz",
+    "quick_prompts": "Rýchle príkazy",
+    "reasoning_effort": "Úsilie uvažovania",
+    "replace": "Nahradíť",
+    "result": "Výsledok",
+    "stop": "Zastaviť",
+    "thinking": "Uvažuje",
+    "title": "AI písanie",
+    "unavailable": "Konfigurujte AI poskytovateľa pre použitie tejto akcie."
+  },
+  "alignment": "Zarovnanie",
+  "alignments": {
+    "center": "Zarovnať na stred",
+    "justify": "Zarovnať do bloku",
+    "left": "Zarovnať doľava",
+    "right": "Zarovnať doprava"
+  },
+  "content": {
+    "placeholder": "Najprv sem niečo napíšte..."
+  },
+  "defaultValue": "Predvolená hodnota",
+  "dialog": {
+    "apply": "Použiť",
+    "clear": "Vymazať",
+    "close": "Zavrieť",
+    "iframe": {
+      "dialog_title": "Pridať/upraviť iframe",
+      "frameborder": "Okraj iframe",
+      "height": "Výška",
+      "name": "Meno",
+      "src": "Zdroj",
+      "src_invalid": "Vstup nie je platná URL",
+      "title": "Názov",
+      "width": "Šírka"
+    },
+    "image": {
+      "alt": "Alternatívny text",
+      "dialog_title": "Pridať/upraviť obrázok",
+      "height": "Výška",
+      "keep_ratio": "Použiť pomer",
+      "src": "Zdroj",
+      "title": "Pridať/upraviť obrázok",
+      "width": "Šírka"
+    },
+    "link": {
+      "class": "CSS trieda",
+      "href": "Adresa odkazu",
+      "href_error": "Neplatná adresa odkazu",
+      "rel": "Rel",
+      "target": "Otvoriť v...",
+      "target_blank": "Nové okno",
+      "target_self": "Aktuálne okno",
+      "title": "Pridať/upraviť odkaz"
+    },
+    "preview": {
+      "title": "Náhľad"
+    },
+    "source": {
+      "prettify": "Formatovať",
+      "title": "Zobraziť zdrojový kód"
+    },
+    "video": {
+      "height": "Výška",
+      "src": "Zdroj",
+      "title": "Pridať/upraviť video",
+      "width": "Šírka"
+    }
+  },
+  "footer": {
+    "chars": "znakov",
+    "limit": "limit znakov",
+    "words": "slov"
+  },
+  "format": {
+    "blockquote": "Citovať",
+    "bold": "Tučné",
+    "break": "Vynútený lom",
+    "code": "Kód",
+    "codeblock": "Kódový blok",
+    "formatClear": "Zmazať formátovanie",
+    "italic": "Kurzíva",
+    "line": "Vodorovná čiara",
+    "strike": "Prečiarknuté",
+    "sub": "Dolný index",
+    "sup": "Horný index",
+    "underline": "Podčiarknuté"
+  },
+  "list": "Zoznam",
+  "lists": {
+    "bullet": "Odrážkový zoznam",
+    "indent": "Zvýšiť odsadenie položky zoznamu",
+    "numbered": "Číslovaný zoznam",
+    "outdent": "Znížiť odsadenie položky zoznamu",
+    "task": "Úlohový zoznam"
+  },
+  "media": {
+    "charmap": {
+      "categories": {
+        "arrows": "Šipky",
+        "box_drawing": "Kreslenie boxov",
+        "currency": "Meny",
+        "cyrillic": "Cyrilika",
+        "diacritics": "Diacritické znaky",
+        "extended_letters": "Rozšírené písmená",
+        "greek": "Grécke písmená",
+        "hebrew": "Hebrejčina",
+        "math": "Matematika",
+        "punctuation": "Interpunkcia",
+        "symbols": "Symboly",
+        "typography": "Typografia"
+      },
+      "noResults": "Neboli nájdené žiadne zodpovedajúce znaky",
+      "search": "Hľadať znaky...",
+      "title": "Špeciálne znaky"
+    },
+    "emoji": {
+      "categories": {
+        "activities": "Aktivity",
+        "animals_and_nature": "Zvieratá a príroda",
+        "component": "Komponent",
+        "flags": "Vlajky",
+        "food_and_drink": "Jedlo a nápoje",
+        "objects": "Predmety",
+        "people_and_body": "Ľudia a telo",
+        "smileys_and_emotion": "Smajlíky a emócie",
+        "symbols": "Symboly",
+        "travel_and_places": "Cestovanie a miesta"
+      },
+      "search": "Hľadať emojiky...",
+      "title": "Emoji"
+    },
+    "iframe": "iframe",
+    "image": "Obrázok",
+    "link": "Externý odkaz",
+    "tables": {
+      "col": "Stĺpec",
+      "cols": "Stĺpce",
+      "deleteCol": "Vymazať stĺpec",
+      "deleteRow": "Vymazať riadok",
+      "deleteTable": "Vymazať tabuľku",
+      "insertColAfter": "Vložiť stĺpec za",
+      "insertColBefore": "Vložiť stĺpec pred",
+      "insertRowAfter": "Vložiť riadok za",
+      "insertRowBefore": "Vložiť riadok pred",
+      "insertTable": "Vložiť tabuľku",
+      "insertWithHeaderRow": "Vložiť tabuľku s hlavičkovým riadkom",
+      "mergeCells": "Zlúčiť bunky",
+      "row": "Riadok",
+      "rows": "Riadky",
+      "splitCell": "Rozdeliť bunku",
+      "table": "Tabuľka"
+    },
+    "video": "Video"
+  },
+  "misc": {
+    "fullscreen": "Režim celej obrazovky",
+    "preview": "Náhľad",
+    "source": "Zobraziť zdrojový kód",
+    "toggleInvisibleCharacters": "Zobraziť/skrýť neviditeľné znaky"
+  },
+  "style": {
+    "color": {
+      "custom": "Vlastná farba",
+      "highlight": "Farba zvýraznenia",
+      "text": "Farba textu",
+      "unset": "Zrušiť farbu"
+    },
+    "fontFamily": "Rodina písma",
+    "fontSize": "Veľkosť písma",
+    "heading": "Nadpis",
+    "headings": {
+      "h1": "Nadpis úrovne 1",
+      "h2": "Nadpis úrovne 2",
+      "h3": "Nadpis úrovne 3",
+      "h4": "Nadpis úrovne 4",
+      "h5": "Nadpis úrovne 5",
+      "h6": "Nadpis úrovne 6"
+    },
+    "lineHeight": "Výška riadka",
+    "paragraph": "Odstavec"
+  }
+}

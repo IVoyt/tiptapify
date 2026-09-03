@@ -98,16 +98,16 @@ onUnmounted(() => {
   <TiptapifyDialog ref="dialog" module="video" :max-width="800">
     <template #content>
       <VCardText>
-        <VRow>
-          <!--          <VCol cols="12">-->
+        <div class="tiptapify-dialog-grid">
+          <!--          <div class="tiptapify-dialog-col">-->
           <!--            <VSelect v-model="attrs.type" density="compact" variant="outlined" :label="t('dialog.video.src')" />-->
-          <!--          </VCol>-->
+          <!--          </div>-->
 
-          <VCol cols="12">
+          <div class="tiptapify-dialog-col">
             <VTextField v-model="attrs.src" density="compact" variant="outlined" :label="t('dialog.video.src')" />
-          </VCol>
+          </div>
 
-          <VCol cols="12" md="3">
+          <div class="tiptapify-dialog-col tiptapify-dialog-col--3">
             <VTextField
               v-model="attrs.width"
               type="number"
@@ -117,9 +117,9 @@ onUnmounted(() => {
               :min="1"
               :label="t('dialog.video.width')"
             />
-          </VCol>
+          </div>
 
-          <VCol cols="12" md="3">
+          <div class="tiptapify-dialog-col tiptapify-dialog-col--3">
             <VTextField
               v-model="attrs.height"
               type="number"
@@ -129,28 +129,28 @@ onUnmounted(() => {
               :min="1"
               :label="t('dialog.video.height')"
             />
-          </VCol>
-        </VRow>
+          </div>
+        </div>
       </VCardText>
     </template>
 
     <template #actions>
       <VCardActions>
-        <VRow>
-          <VCol class="d-flex justify-start">
+        <div class="tiptapify-dialog-actions">
+          <div class="tiptapify-dialog-actions__start">
             <VBtn v-if="editor.isActive('image')" color="warning" :variant="variantBtn" :disabled="isDisabled" @click="clear">
               {{ t('dialog.clear') }}
             </VBtn>
-          </VCol>
-          <VCol class="d-flex justify-end">
-            <VBtn :variant="variantBtn" class="mr-2" @click="close">
+          </div>
+          <div class="tiptapify-dialog-actions__end">
+            <VBtn :variant="variantBtn" @click="close">
               {{ t('dialog.close') }}
             </VBtn>
             <VBtn color="primary" :variant="variantBtn" :disabled="isDisabled" @click="apply">
               {{ t('dialog.apply') }}
             </VBtn>
-          </VCol>
-        </VRow>
+          </div>
+        </div>
       </VCardActions>
     </template>
   </TiptapifyDialog>

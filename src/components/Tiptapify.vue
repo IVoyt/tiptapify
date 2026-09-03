@@ -92,6 +92,14 @@ function contentChanged() {
   emit('content-changed', { html: editor.value?.getHTML(), json: editor.value?.getJSON() })
 }
 
+function onContainerClick(event: MouseEvent) {
+  if ((event.target as Element).closest('.ProseMirror')) {
+    return
+  }
+
+  editor.value?.chain().focus().run()
+}
+
 const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
     props.content,
     computed(() => props.placeholder || t('content.placeholder')).value,
@@ -150,7 +158,7 @@ onBeforeUnmount(() => {
 
       <VProgressLinear v-model="loadingProgress" :color="loadingColor" :height="loadingHeight" :indeterminate="loading" />
 
-      <div class="pa-2 tiptapify-container resizable" :style="computeResizableHeight">
+      <div class="pa-2 tiptapify-container resizable" :style="computeResizableHeight" @click="onContainerClick">
         <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 
         <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
@@ -197,6 +205,7 @@ onBeforeUnmount(() => {
   --yellow: rgba(250, 204, 21, .4);
   --yellow-light: #FFFAE5;
   --red: #FF5C33;
+  --red-soft: #B24A40;
   --red-light: #FFEBE5;
   --shadow: 0px 12px 33px 0px rgba(0, 0, 0, .06), 0px 3.618px 9.949px 0px rgba(0, 0, 0, .04);
   --border: 1px solid var(--gray-2);
@@ -205,6 +214,21 @@ onBeforeUnmount(() => {
 .resizable {
   resize: vertical;
   overflow: auto;
+}
+
+.tiptapify-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tiptapify-container .tiptapify-editor {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.tiptapify-container .tiptapify-editor > .ProseMirror {
+  flex: 1;
 }
 
 /* Basic editor styles */
@@ -558,6 +582,64 @@ onBeforeUnmount(() => {
       outline: 1px solid rgba(0, 0, 0, 0.25);
       border-radius: 0.125rem;
     }
+  }
+}
+
+/*
+ * Dialog layout primitives.
+ *
+ * Dialogs lay their fields out with a self-contained 12-column grid instead
+ * of VRow/VCol. The bundled Vuetify 3 components emit v3 grid classes
+ * (.v-col-*, .v-col-md-*), but Vuetify 4 renamed them (.v-col--cols-*), so
+ * the consumer's Vuetify stylesheet does not size the columns and every
+ * field collapses onto a single row. Keeping the layout inside tiptapify
+ * makes it work with Vuetify 3 and 4 alike, regardless of the CSS the
+ * consumer loads.
+ *
+ * The 960px breakpoint preserves the Vuetify 3 "md" threshold
+ * (Vuetify 4 lowered it to 840px).
+ */
+.tiptapify-dialog-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  > .tiptapify-dialog-col {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+
+  @media (min-width: 960px) {
+    > .tiptapify-dialog-col--3 {
+      grid-column: span 3;
+    }
+
+    > .tiptapify-dialog-col--4 {
+      grid-column: span 4;
+    }
+
+    > .tiptapify-dialog-col--6 {
+      grid-column: span 6;
+    }
+
+    > .tiptapify-dialog-col--8 {
+      grid-column: span 8;
+    }
+  }
+}
+
+.tiptapify-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+
+  > .tiptapify-dialog-actions__start,
+  > .tiptapify-dialog-actions__end {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 }
 </style>

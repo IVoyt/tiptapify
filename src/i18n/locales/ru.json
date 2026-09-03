@@ -1,50 +1,149 @@
 {
-  "defaultValue": "Значение по-умолчанию",
+  "action": {
+    "redo": "Повтор",
+    "undo": "Отмена"
+  },
+  "ai": {
+    "append": "Добавить в конец",
+    "defaultExamples": {
+      "expand": {
+        "prompt": "Расширьте этот текст в более подробную версию.",
+        "title": "Расширить"
+      },
+      "improve": {
+        "prompt": "Улучшите ясность и тон этого текста.",
+        "title": "Улучшить текст"
+      },
+      "proofReading": {
+        "prompt": "Исправьте грамматику, орфографию и пунктуацию, не меняя смысла.",
+        "title": "Корректура"
+      },
+      "summarize": {
+        "prompt": "Суммируйте этот текст в краткий абзац.",
+        "title": "Суммировать"
+      }
+    },
+    "error": "Ошибка генерации ИИ",
+    "generate": "Сгенерировать",
+    "insert": "Вставить",
+    "limit_exceeded": "Результат превышает лимит символов редактора. Сократите текст и примените снова.",
+    "loading": "Генерация...",
+    "prompt": "Запрос",
+    "quick_prompts": "Быстрые запросы",
+    "reasoning_effort": "Уровень размышления",
+    "replace": "Заменить",
+    "result": "Результат",
+    "stop": "Остановить",
+    "thinking": "Размышление",
+    "title": "Написание с ИИ",
+    "unavailable": "Настройте провайдера ИИ, чтобы использовать это действие"
+  },
+  "alignment": "Выравнивание",
+  "alignments": {
+    "center": "Выравнивание по центру",
+    "justify": "Выравнивание по ширине",
+    "left": "Выравнивание по левому краю",
+    "right": "Выравнивание по правому краю"
+  },
   "content": {
     "placeholder": "Напишите что-нибудь..."
   },
-  "style": {
-    "paragraph": "абзац",
-    "heading": "Заголовок",
-    "headings": {
-      "h1": "Заголовок 1-го уровня",
-      "h2": "Заголовок 2-го уровня",
-      "h3": "Заголовок 3-го уровня",
-      "h4": "Заголовок 4-го уровня",
-      "h5": "Заголовок 5-го уровня",
-      "h6": "Заголовок 6-го уровня"
+  "defaultValue": "Значение по-умолчанию",
+  "dialog": {
+    "apply": "Применить",
+    "clear": "Очистить",
+    "close": "Закрыть",
+    "iframe": {
+      "dialog_title": "Добавление/изменение iframe",
+      "frameborder": "рамка iframe",
+      "height": "Высота",
+      "name": "Название",
+      "src": "Источник",
+      "src_invalid": "Введён некорректный URL",
+      "title": "Заголовок",
+      "width": "Ширина"
     },
-    "fontFamily": "Шрифт",
-    "fontSize": "Размер",
-    "lineHeight": "Высота строки",
-    "color": {
-      "highlight": "Цвет выделения",
-      "text": "Цвет текста",
-      "unset": "Очистить цвет",
-      "custom": "Свой выбор"
+    "image": {
+      "alt": "alt",
+      "dialog_title": "Добавление/изменение изображения",
+      "height": "Высота",
+      "keep_ratio": "Сохранять пропорции",
+      "src": "Источник",
+      "title": "Заголовок",
+      "width": "Ширина"
+    },
+    "link": {
+      "class": "CSS класс",
+      "href": "Адрес ссылки",
+      "href_error": "Некорректный адрес ссылки",
+      "rel": "rel",
+      "target": "Открывать в...",
+      "target_blank": "Новом окне",
+      "target_self": "Текущем окне",
+      "title": "Добавление/изменение ссылки"
+    },
+    "preview": {
+      "title": "Предпросмотр"
+    },
+    "source": {
+      "prettify": "prettify",
+      "title": "Просмотр исходного кода"
+    },
+    "video": {
+      "height": "Высота",
+      "src": "Источник",
+      "title": "Добавление/изменение видео",
+      "width": "Ширина"
     }
   },
+  "footer": {
+    "chars": "символы",
+    "limit": "лимит символов",
+    "words": "слова"
+  },
   "format": {
-    "bold": "Жирный",
-    "italic": "Курсив",
-    "strike": "Зачеркивание",
-    "underline": "Подчеркивание",
-    "sup": "Верхний индекс",
-    "sub": "Нижний индекс",
-    "break": "Разрыв строки",
-    "line": "Горизонтальная линия",
     "blockquote": "Цитата",
+    "bold": "Жирный",
+    "break": "Разрыв строки",
     "code": "Код",
     "codeblock": "Блок кода",
-    "formatClear": "Очистить форматирование"
+    "formatClear": "Очистить форматирование",
+    "italic": "Курсив",
+    "line": "Горизонтальная линия",
+    "strike": "Зачеркивание",
+    "sub": "Нижний индекс",
+    "sup": "Верхний индекс",
+    "underline": "Подчеркивание"
+  },
+  "list": "Список",
+  "lists": {
+    "bullet": "Ненумерованный список",
+    "indent": "Увеличить отступ элемента списка",
+    "numbered": "Нумерованный список",
+    "outdent": "Уменьшить отступ элемента списка",
+    "task": "Список задач"
   },
   "media": {
-    "link": "Внешняя ссылка",
-    "image": "Изображение",
-    "iframe": "iframe",
+    "charmap": {
+      "categories": {
+        "arrows": "Стрелки",
+        "box_drawing": "Рисование рамок",
+        "currency": "Валюта",
+        "cyrillic": "Кириллица",
+        "diacritics": "Диакритические знаки",
+        "extended_letters": "Расширенные буквы",
+        "greek": "Греческие буквы",
+        "hebrew": "Иврит",
+        "math": "Математика",
+        "punctuation": "Пунктуация",
+        "symbols": "Символы",
+        "typography": "Типографика"
+      },
+      "noResults": "Совпадающих символов не найдено",
+      "search": "Поиск символов...",
+      "title": "Вставить специальный символ"
+    },
     "emoji": {
-      "title": "Эмодзи",
-      "search": "Поиск эмодзи...",
       "categories": {
         "activities": "Активности",
         "animals_and_nature": "Животные и природа",
@@ -56,112 +155,32 @@
         "smileys_and_emotion": "Смайлики и эмоции",
         "symbols": "Символы",
         "travel_and_places": "Путешествия и места"
-      }
+      },
+      "search": "Поиск эмодзи...",
+      "title": "Эмодзи"
     },
+    "iframe": "iframe",
+    "image": "Изображение",
+    "link": "Внешняя ссылка",
     "tables": {
-      "table": "Таблица",
-      "insertTable": "Вставить таблицу",
-      "deleteTable": "Удалить таблицу",
-      "insertWithHeaderRow": "Вставить таблицу с заголовком",
-      "rows": "Строки",
-      "row": "Строка",
-      "insertRowBefore": "Вставить строку перед",
-      "insertRowAfter": "Вставить строку после",
-      "deleteRow": "Удалить строку",
-      "cols": "Столбцы",
       "col": "Столбец",
-      "insertColBefore": "Вставить колонку перед",
-      "insertColAfter": "Вставить колонку после",
+      "cols": "Столбцы",
       "deleteCol": "Удалить колонку",
+      "deleteRow": "Удалить строку",
+      "deleteTable": "Удалить таблицу",
+      "insertColAfter": "Вставить колонку после",
+      "insertColBefore": "Вставить колонку перед",
+      "insertRowAfter": "Вставить строку после",
+      "insertRowBefore": "Вставить строку перед",
+      "insertTable": "Вставить таблицу",
+      "insertWithHeaderRow": "Вставить таблицу с заголовком",
       "mergeCells": "Объединить ячейки",
-      "splitCell": "Разделить ячейку"
+      "row": "Строка",
+      "rows": "Строки",
+      "splitCell": "Разделить ячейку",
+      "table": "Таблица"
     },
-    "video": "Видео",
-    "charmap": {
-      "title": "Вставить специальный символ",
-      "search": "Поиск символов...",
-      "noResults": "Совпадающих символов не найдено",
-      "categories": {
-        "punctuation": "Пунктуация",
-        "symbols": "Символы",
-        "math": "Математика",
-        "currency": "Валюта",
-        "greek": "Греческие буквы",
-        "extended_letters": "Расширенные буквы",
-        "diacritics": "Диакритические знаки",
-        "typography": "Типографика",
-        "cyrillic": "Кириллица",
-        "hebrew": "Иврит",
-        "arrows": "Стрелки",
-        "box_drawing": "Рисование рамок"
-      }
-    }
-  },
-  "action": {
-    "undo": "Отмена",
-    "redo": "Повтор"
-  },
-  "alignment": "Выравнивание",
-  "alignments": {
-    "left": "Выравнивание по левому краю",
-    "center": "Выравнивание по центру",
-    "right": "Выравнивание по правому краю",
-    "justify": "Выравнивание по ширине"
-  },
-  "list": "Список",
-  "lists": {
-    "bullet": "Ненумерованный список",
-    "numbered": "Нумерованный список",
-    "task": "Список задач",
-    "indent": "Увеличить отступ элемента списка",
-    "outdent": "Уменьшить отступ элемента списка"
-  },
-  "dialog": {
-    "apply": "Применить",
-    "clear": "Очистить",
-    "close": "Закрыть",
-    "iframe": {
-      "dialog_title": "Добавление/изменение iframe",
-      "src": "Источник",
-      "name": "Название",
-      "title": "Заголовок",
-      "width": "Ширина",
-      "height": "Высота",
-      "frameborder": "рамка iframe",
-      "src_invalid": "Введён некорректный URL"
-    },
-    "image": {
-      "title": "Заголовок",
-      "src": "Источник",
-      "keep_ratio": "Сохранять пропорции",
-      "alt": "alt",
-      "width": "Ширина",
-      "height": "Высота",
-      "dialog_title": "Добавление/изменение изображения"
-    },
-    "link": {
-      "title": "Добавление/изменение ссылки",
-      "href": "Адрес ссылки",
-      "href_error": "Некорректный адрес ссылки",
-      "target": "Открывать в...",
-      "target_blank": "Новом окне",
-      "target_self": "Текущем окне",
-      "rel": "rel",
-      "class": "CSS класс"
-    },
-    "preview": {
-      "title": "Предпросмотр"
-    },
-    "source": {
-      "title": "Просмотр исходного кода",
-      "prettify": "prettify"
-    },
-    "video": {
-      "title": "Добавление/изменение видео",
-      "src": "Источник",
-      "width": "Ширина",
-      "height": "Высота"
-    }
+    "video": "Видео"
   },
   "misc": {
     "fullscreen": "Полноэкранный режим",
@@ -169,38 +188,25 @@
     "source": "Просмотр исходного кода",
     "toggleInvisibleCharacters": "Показать/скрыть невидимые символы"
   },
-  "footer": {
-    "words": "слова",
-    "chars": "символы",
-    "limit": "лимит символов"
-  },
-  "ai": {
-    "title": "AI assistant",
-    "prompt": "Prompt",
-    "examples": "Examples",
-    "generate": "Generate",
-    "apply": "Apply",
-    "result": "Result",
-    "loading": "Generating...",
-    "unavailable": "Configure an AI provider to use this action",
-    "error": "AI generation failed",
-    "defaultExamples": {
-      "improve": {
-        "title": "Improve writing",
-        "prompt": "Improve the clarity and tone of this text."
-      },
-      "proofReading": {
-        "title": "Proof-reading",
-        "prompt": "Correct grammar, spelling, and punctuation without changing the meaning."
-      },
-      "summarize": {
-        "title": "Summarize",
-        "prompt": "Summarize this text in a concise paragraph."
-      },
-      "expand": {
-        "title": "Expand",
-        "prompt": "Expand this into a more detailed version."
-      }
-    }
+  "style": {
+    "color": {
+      "custom": "Свой выбор",
+      "highlight": "Цвет выделения",
+      "text": "Цвет текста",
+      "unset": "Очистить цвет"
+    },
+    "fontFamily": "Шрифт",
+    "fontSize": "Размер",
+    "heading": "Заголовок",
+    "headings": {
+      "h1": "Заголовок 1-го уровня",
+      "h2": "Заголовок 2-го уровня",
+      "h3": "Заголовок 3-го уровня",
+      "h4": "Заголовок 4-го уровня",
+      "h5": "Заголовок 5-го уровня",
+      "h6": "Заголовок 6-го уровня"
+    },
+    "lineHeight": "Высота строки",
+    "paragraph": "абзац"
   }
 }

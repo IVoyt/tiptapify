@@ -57,6 +57,7 @@ export default defineConfig({
             { text: 'Installation', link: '/guide/installation' },
             { text: 'Quick Start', link: '/guide/quick-start' },
             { text: 'Internationalization', link: '/guide/i18n' },
+            { text: 'AI Extension', link: '/guide/ai' },
           ],
         },
       ],
