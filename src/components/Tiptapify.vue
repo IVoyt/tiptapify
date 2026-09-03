@@ -6,20 +6,22 @@ import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef } from 'vue'
 import { default as Toolbar } from '@tiptapify/components/Toolbar/Index.vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
-import { TiptapifyAiOptions, TiptapifyEditor, TiptapifyFooterAlignment, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
+import { TiptapifyAiOptions, TiptapifyAiResolvedOptions, TiptapifyEditor, TiptapifyFooterAlignment, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 
 import { useI18n } from 'vue-i18n'
 
 import { getTiptapEditor } from '@tiptapify/components/index'
+import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
 
 import Footer from '@tiptapify/components/Footer.vue'
 import { useTheme } from 'vuetify/framework'
 
 const props = defineProps({
   locale: { type: String, default () { return 'en' } },
-  content: { type: [String, Object] as PropType<string | Record<string, never>>, required: true },
+  content: { type: [String, Object] as PropType<string | Record<string, never>>, default () { return '' } },
+  modelValue: { type: [String, Object] as PropType<string | Record<string, never>>, default () { return '' } },
   height: { type: [Number, String], default () { return null } },
   variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
   variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
@@ -48,12 +50,14 @@ const props = defineProps({
   loadingHeight: { type: String, default() { return '1px' } },
 })
 
+const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed'])
+
 const loadingProgress = ref(0)
 
 const { t } = useI18n()
 
 const appTheme = useTheme()
-const currentTheme = ref(appTheme.global.name)
+const currentTheme = computed(() => appTheme.name.value)
 
 const defaultAiPromptExamples = computed(() => [
   {
@@ -81,15 +85,30 @@ const tiptapifyAi = computed(() => {
 
   const options = props.ai === true ? {} : props.ai
 
-  return {
+  const resolved: TiptapifyAiResolvedOptions = {
     ...options,
     enabled: true,
     promptExamples: options.promptExamples?.length ? options.promptExamples : defaultAiPromptExamples.value,
   }
+
+  // Backend generation: when no `aiProvider` is given but an `aiEndpoint`
+  // is set, synthesize a provider that posts the request to the endpoint.
+  // An explicit `aiProvider` always wins.
+  if (!resolved.aiProvider && resolved.aiEndpoint) {
+    resolved.aiProvider = createAiBackendProvider({
+      endpoint: resolved.aiEndpoint,
+      headers: resolved.aiHeaders,
+      tokenProvider: resolved.tokenProvider,
+    })
+  }
+
+  return resolved
 })
 
 function contentChanged() {
-  emit('content-changed', { html: editor.value?.getHTML(), json: editor.value?.getJSON() })
+  const html = editor.value?.getHTML() ?? ''
+  emit('update:modelValue', html)
+  emit('content-changed', { html, json: editor.value?.getJSON() })
 }
 
 function onContainerClick(event: MouseEvent) {
@@ -101,7 +120,7 @@ function onContainerClick(event: MouseEvent) {
 }
 
 const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
-    props.content,
+    props.content || props.modelValue,
     computed(() => props.placeholder || t('content.placeholder')).value,
     props.slashCommands,
     props.customExtensions,
@@ -116,8 +135,6 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
       })
     },
 )
-
-const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed'])
 
 provide('tiptapifyEditor', editor)
 provide('tiptapifyI18n', { t })

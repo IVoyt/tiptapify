@@ -1,3 +1,7 @@
+### 0.2.6
+- AI plugin backend endpoint support
+- fix vitepress themes
+
 ### 0.2.5
 - fix link extension href validation
 - refine the AI plugin UI

@@ -114,6 +114,23 @@ interface TiptapifyAiOpenAiResponse {
   }>
 }
 
+interface TiptapifyAiBackendRequest {
+  prompt: string
+  instruction: string
+  stream?: boolean
+  thinking?: boolean
+  reasoning_effort?: TiptapifyAiReasoningEffort
+  model?: string
+}
+
+interface TiptapifyAiBackendProviderOptions {
+  endpoint: string
+  headers?: Record<string, string>
+  tokenProvider?: TiptapifyAiTokenProvider
+}
+
+function createAiBackendProvider(options: TiptapifyAiBackendProviderOptions): TiptapifyAiProvider
+
 interface TiptapifyAiPromptExample {
   title: string
   prompt: string
@@ -121,6 +138,8 @@ interface TiptapifyAiPromptExample {
 
 interface TiptapifyAiOptions {
   aiProvider?: TiptapifyAiProvider
+  aiEndpoint?: string
+  aiHeaders?: Record<string, string>
   model?: string
   promptExamples?: TiptapifyAiPromptExample[]
   mode?: 'insert' | 'replace' | 'append'

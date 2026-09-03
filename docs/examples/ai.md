@@ -8,6 +8,10 @@ Use this demo with any OpenAI-compatible `/v1/chat/completions` provider. The en
   placeholder="Write or paste text, then use the AI toolbar button..."
 />
 
+## Backend endpoint mode
+
+Switch the **Mode** field to **Backend endpoint** to let tiptapify talk to your backend directly, without a custom `aiProvider`. It posts a minimal payload (`prompt`, `instruction`, and the optional `stream`, `thinking`, `reasoning_effort`, `model` fields) to the endpoint and accepts a plain JSON, `{ content }`, or SSE streaming response — see the [AI guide](/guide/ai#backend-generation-aiendpoint) for the full contract.
+
 ## Local LM Studio
 
 For LM Studio, use an endpoint like:

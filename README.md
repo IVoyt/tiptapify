@@ -164,7 +164,7 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] charmap extension
 - [x] demo
 - [x] documentation
-- [x] AI prompt dialog with thinging/reasoning effort and streaming output
+- [x] AI prompt dialog with thinking/reasoning effort, streaming output, and backend generation
 - [ ] extended video extensions
 - [ ] print hotkey in a tooltip
 

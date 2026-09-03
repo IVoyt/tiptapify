@@ -43,7 +43,7 @@ type TiptapifyAiProvider = (
 ) => Promise<TiptapifyAiResponse | TiptapifyAiOpenAiResponse | string>
 ```
 
-The provider is a plain async function you implement. tiptapify does not call any API itself — anything that can consume an OpenAI-compatible `request` object works (fetch, an SDK, a backend adapter).
+The provider is a plain async function you implement. tiptapify does not call any API itself — anything that can consume an OpenAI-compatible `request` object works (fetch, an SDK, a backend adapter). The exception is the `aiEndpoint` backend mode (see [Backend generation](#backend-generation-aiendpoint)), where tiptapify sends the request to your endpoint.
 
 **Request** (`TiptapifyAiRequest`) is spread from your `chatCompletionOptions`, then augmented by the plugin:
 
@@ -58,6 +58,47 @@ The provider is a plain async function you implement. tiptapify does not call an
 **Context** (`TiptapifyAiEditorContext`) gives the provider full editor state: `prompt`, `selectedText`, `text`, `html`, `json`, and `mode` (`insert` / `replace` / `append`).
 
 **Response**: the provider may return the content as a plain `string`, as `{ content }` (`TiptapifyAiResponse`), or as an OpenAI-compatible `choices` payload (`TiptapifyAiOpenAiResponse`). The dialog extracts the content in that order and trims leading whitespace. On rejection the error message is shown in the dialog (or `ai.error` when the error is not an `Error` instance) and the dialog stays open.
+
+## Backend generation (`aiEndpoint`)
+
+Instead of implementing an `aiProvider`, point the AI feature at a backend LLM endpoint:
+
+```ts
+// example
+const ai = {
+  aiEndpoint: '/api/ai/generate',
+  model: 'gpt-4.1-mini',
+  stream: true,
+}
+```
+
+tiptapify then builds the request and posts it to the endpoint itself. An explicit `aiProvider` always wins when both are set.
+
+**Request** — a minimal JSON payload (`TiptapifyAiBackendRequest`):
+
+| Field | Sent |
+| --- | --- |
+| `prompt` | always — the request typed in the dialog |
+| `instruction` | always — your `systemPrompt`, the system message of a custom `createMessages`, or the built-in default |
+| `stream` | only when `stream: true` |
+| `thinking` | only when the dialog's **Thinking** toggle is on |
+| `reasoning_effort` | only when the user picked a level (not `default`) |
+| `model` | only when the `model` option is set |
+
+**Response** — accepted leniently: a plain string, a `{ content }` object, or an OpenAI-compatible `choices` payload.
+
+**Streaming** — when the request has `stream: true`, the response body is read as an SSE stream (`data:` lines, terminated by `data: [DONE]`). Accepted chunk formats:
+
+- OpenAI-style — `data: {"choices":[{"delta":{"content":"…", "reasoning_content":"…"}}]}`
+- Simple — `data: {"type":"content"|"reasoning","data":"…"}`
+- Flat — `data: {"content":"…","reasoning_content":"…"}`
+- Plain text — `data: some text` (a non-JSON `data` line is a content chunk)
+
+`content` chunks update the result field through `onChunk`, `reasoning_content` chunks feed the **Thinking** panel through `onReasoning`. If the backend ignores `stream` and answers with a plain body, that body is used instead. A **Stop** click or closing the dialog aborts the request; partially streamed content is kept in the result field.
+
+**Headers** — `aiHeaders` (a `Record<string, string>`) are merged over `Content-Type: application/json`. An `Authorization` header in `aiHeaders` is kept as-is; otherwise a token from `tokenProvider` is sent as `Authorization: Bearer <token>`.
+
+**Errors** — a non-OK response surfaces the backend's error message (JSON `{ error }` / `{ message }` or the raw body) in the dialog.
 
 ## Streaming
 
@@ -83,7 +124,7 @@ Two user controls in the dialog map to request fields. Both are opt-in via optio
 
 - **`thinking: true`** shows the **Thinking** toggle (on by default, reset on each dialog open). The plugin writes the toggle value into the request as `enable_thinking: true | false`.
 - **`thinking` missing or `thinking: false`** hides the toggle and the plugin sends `enable_thinking: false`, so models that think by default do not think.
-- **`reasoningEffort: { options, default? }`** shows the **Reasoning effort** dropdown. `options` lists the custom effort levels you want to offer (`'low' | 'medium' | 'high'`); the extension always adds a `default` item itself (the thinking-mode baseline), so you never list `default` in your config. The `default` field preselects one of your custom levels when the dialog opens — when omitted, `default` is preselected. The value resets on each open. The dropdown is rendered only when `options` is a non-empty list, `thinking` is enabled, and the Thinking toggle is on.
+- **`reasoningEffort: { options, default? }`** shows the **Reasoning effort** dropdown. `options` lists the custom effort levels you want to offer (`'low' | 'medium' | 'high' | 'xhigh' | 'max'`); the extension always adds a `default` item itself (the thinking-mode baseline), so you never list `default` in your config. The `default` field preselects one of your custom levels when the dialog opens — when omitted, `default` is preselected. The value resets on each open. The dropdown is rendered only when `options` is a non-empty list, `thinking` is enabled, and the Thinking toggle is on.
 - **`showReasoning`** (default `false`) controls the collapsible **Thinking** panel that streams the model's reasoning process (the `reasoning_content` delta). Set `showReasoning: true` to show that panel while keeping thinking on — the model still reasons, the result is applied the same way, only the step-by-step reasoning is additionally displayed.
 
 Because providers (vLLM/LM Studio in particular) reject `enable_thinking` and `reasoning_effort` in a single request, the plugin sends exactly one of the two:
@@ -91,7 +132,7 @@ Because providers (vLLM/LM Studio in particular) reject `enable_thinking` and `r
 | State | Request field |
 | --- | --- |
 | Thinking on, effort = `default` (or no effort configured) | `enable_thinking` (from the toggle) |
-| Thinking on, effort = `low` / `medium` / `high` | `reasoning_effort` (from the dropdown); the toggle is disabled |
+| Thinking on, effort = `low` / `medium` / `high` / `xhigh` / `max` | `reasoning_effort` (from the dropdown); the toggle is disabled |
 | Thinking off (toggle off, or `thinking` not enabled in the config) | `enable_thinking: false`; `reasoning_effort` is not sent |
 
 ## Inserting the result
