@@ -2,15 +2,14 @@
 
 import * as mdi from '@mdi/js'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import AiDialog from '@tiptapify/extensions/components/ai/Dialog.vue'
-import defaults from '@tiptapify/constants/defaults'
-import { TiptapifyAiResolvedOptions, variantBtnTypes } from '@tiptapify/types/editor'
-import { computed, ComputedRef, inject, PropType, useTemplateRef } from 'vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { TiptapifyAiResolvedOptions } from '@tiptapify/types/editor'
+import { computed, ComputedRef, inject, useTemplateRef } from 'vue'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 const ai = inject('tiptapifyAi') as ComputedRef<TiptapifyAiResolvedOptions | false>
@@ -32,11 +31,9 @@ function showDialog() {
 
 <template>
   <VBtn color="" :variant="variantBtn" size="32" :disabled="!isAvailable" @click="showDialog">
-    <VTooltip activator="parent">
-      {{ isAvailable ? t('ai.title') : t('ai.unavailable') }}
-    </VTooltip>
+    <Tooltip :label="isAvailable ? t('ai.title') : t('ai.unavailable')" />
     <BtnIcon :icon="icon" />
   </VBtn>
 
-  <AiDialog ref="dialog" :variant-btn="variantBtn" />
+  <AiDialog ref="dialog" />
 </template>

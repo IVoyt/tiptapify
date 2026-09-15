@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
-import defaults from '@tiptapify/constants/defaults'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import {
   TiptapifyAiEditorContext,
   TiptapifyAiMode,
@@ -11,20 +11,15 @@ import {
   TiptapifyAiResponse,
   TiptapifyAiResolvedOptions,
   TiptapifyAiStream,
-  TiptapifyEditor,
-  variantBtnTypes,
-  variantFieldTypes
+  TiptapifyEditor
 } from '@tiptapify/types/editor'
-import { computed, ComputedRef, inject, nextTick, PropType, Ref, ref, useTemplateRef, watch } from 'vue'
+import { computed, ComputedRef, inject, nextTick, Ref, ref, useTemplateRef, watch } from 'vue'
 import * as mdi from '@mdi/js'
 import { ComposerTranslation } from 'vue-i18n'
 import { exceedsLimit } from './charLimit'
 import { DEFAULT_AI_INSTRUCTION } from './backend'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-  variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
-})
+const { variantBtn, variantField } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<TiptapifyEditor>
 const ai = inject('tiptapifyAi') as ComputedRef<TiptapifyAiResolvedOptions | false>

@@ -165,8 +165,8 @@ Found a bug or have ideas on improvement? Feel free to [create a ticket](https:/
 - [x] demo
 - [x] documentation
 - [x] AI prompt dialog with thinking/reasoning effort, streaming output, and backend generation
+- [x] print hotkey in a tooltip
 - [ ] extended video extensions
-- [ ] print hotkey in a tooltip
 
 ## Licence
 [MIT](./LICENSE)

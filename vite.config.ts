@@ -74,6 +74,12 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{ts,js}'],
+    server: {
+      deps: {
+        // let Vite process Vuetify's component CSS imports
+        inline: ['vuetify'],
+      },
+    },
   },
   optimizeDeps: {
     exclude: ['vuetify', '@tiptap/pm'],

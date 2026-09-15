@@ -57,7 +57,7 @@ function showFooter() {
     <VRow>
       <VCol class="d-flex align-center" :class="`justify-${alignment}`">
         <template v-if="limit > 0">
-          <VTooltip>
+          <VTooltip :open-delay="1500">
             <template #default>
               <span v-html="limitText" />
             </template>

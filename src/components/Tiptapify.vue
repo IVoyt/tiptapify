@@ -3,7 +3,7 @@
 import defaults from '@tiptapify/constants/defaults'
 import { itemsPropType, toolbarSections } from '@tiptapify/types/toolbarTypes'
 import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
-import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef } from 'vue'
+import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, toRef } from 'vue'
 import { default as Toolbar } from '@tiptapify/components/Toolbar/Index.vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
 import { TiptapifyAiOptions, TiptapifyAiResolvedOptions, TiptapifyEditor, TiptapifyFooterAlignment, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
@@ -13,6 +13,7 @@ import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 import { useI18n } from 'vue-i18n'
 
 import { getTiptapEditor } from '@tiptapify/components/index'
+import { TIPTAPIFY_CONFIG_KEY } from '@tiptapify/composables/useTiptapifyConfig'
 import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
 
 import Footer from '@tiptapify/components/Footer.vue'
@@ -139,6 +140,10 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
 provide('tiptapifyEditor', editor)
 provide('tiptapifyI18n', { t })
 provide('tiptapifyAi', tiptapifyAi)
+provide(TIPTAPIFY_CONFIG_KEY, {
+  variantBtn: toRef(props, 'variantBtn'),
+  variantField: toRef(props, 'variantField'),
+})
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
 
@@ -162,7 +167,6 @@ onBeforeUnmount(() => {
       <template v-if="toolbar">
         <Toolbar
           v-if="editor"
-          :variant-btn="variantBtn"
           :variant-field="variantField"
           :font-measure="fontMeasure"
           :items="items"

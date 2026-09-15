@@ -14,12 +14,14 @@ declare module 'vue' {
   export interface GlobalComponents {
     BtnIcon: typeof import('./src/components/UI/BtnIcon.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    HotkeyTooltip: typeof import('./src/components/UI/HotkeyTooltip.vue')['default']
     Index: typeof import('./src/components/Toolbar/Index.vue')['default']
     Items: typeof import('./src/components/Toolbar/Items.vue')['default']
     MenuBubble: typeof import('./src/components/MenuBubble.vue')['default']
     MenuFloating: typeof import('./src/components/MenuFloating.vue')['default']
     Tiptapify: typeof import('./src/components/Tiptapify.vue')['default']
     TiptapifyDialog: typeof import('./src/components/UI/TiptapifyDialog.vue')['default']
+    Tooltip: typeof import('./src/components/UI/Tooltip.vue')['default']
   }
 }
 
@@ -27,10 +29,12 @@ declare module 'vue' {
 declare global {
   const BtnIcon: typeof import('./src/components/UI/BtnIcon.vue')['default']
   const Footer: typeof import('./src/components/Footer.vue')['default']
+  const HotkeyTooltip: typeof import('./src/components/UI/HotkeyTooltip.vue')['default']
   const Index: typeof import('./src/components/Toolbar/Index.vue')['default']
   const Items: typeof import('./src/components/Toolbar/Items.vue')['default']
   const MenuBubble: typeof import('./src/components/MenuBubble.vue')['default']
   const MenuFloating: typeof import('./src/components/MenuFloating.vue')['default']
   const Tiptapify: typeof import('./src/components/Tiptapify.vue')['default']
   const TiptapifyDialog: typeof import('./src/components/UI/TiptapifyDialog.vue')['default']
+  const Tooltip: typeof import('./src/components/UI/Tooltip.vue')['default']
 }

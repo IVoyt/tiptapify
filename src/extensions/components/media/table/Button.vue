@@ -3,18 +3,16 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import ColumnActions from '@tiptapify/extensions/components/media/table/ColumnActions.vue'
 import RowActions from '@tiptapify/extensions/components/media/table/RowActions.vue'
 import TableBuilder from '@tiptapify/extensions/components/media/table/TableBuilder.vue'
-import { variantBtnTypes } from '@tiptapify/types/editor'
-import { inject, PropType, Ref } from 'vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { inject, Ref } from 'vue'
 
-import defaults from '@tiptapify/constants/defaults'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -48,9 +46,7 @@ const columnActionsDisabled = () => {
   <VMenu :activator="`#tiptapify-table-button-${editor.instanceId}`" :close-on-content-click="false">
     <VList density="compact">
       <VListItem link>
-        <VTooltip activator="parent">
-          {{ t('media.tables.insertTable') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.insertTable')" />
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="`mdiSvg:${mdi.mdiTablePlus}`" />
         </VListItemTitle>
@@ -68,18 +64,14 @@ const columnActionsDisabled = () => {
       </VListItem>
 
       <VListItem link :disabled="!editor.can().chain().focus().deleteTable().run()" @click="editor.chain().focus().deleteTable().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.deleteTable') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.deleteTable')" />
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="`mdiSvg:${mdi.mdiTableMinus}`" />
         </VListItemTitle>
       </VListItem>
 
       <VListItem link :disabled="rowActionsDisabled()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.row') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.row')" />
 
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="`mdiSvg:${mdi.mdiTableRow}`" />
@@ -89,9 +81,7 @@ const columnActionsDisabled = () => {
       </VListItem>
 
       <VListItem link :disabled="columnActionsDisabled()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.col') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.col')" />
 
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="`mdiSvg:${mdi.mdiTableColumn}`" />
@@ -101,9 +91,7 @@ const columnActionsDisabled = () => {
       </VListItem>
 
       <VListItem link :disabled="!editor.can().chain().focus().mergeCells().run()" @click="editor.chain().focus().mergeCells().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.mergeCells') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.mergeCells')" />
 
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="`mdiSvg:${mdi.mdiTableMergeCells}`" />
@@ -111,9 +99,7 @@ const columnActionsDisabled = () => {
       </VListItem>
 
       <VListItem link :disabled="!editor.can().chain().focus().splitCell().run()" @click="editor.chain().focus().splitCell().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.splitCell') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.splitCell')" />
 
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="`mdiSvg:${mdi.mdiTableSplitCell}`" />

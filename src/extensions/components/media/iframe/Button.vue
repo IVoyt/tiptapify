@@ -2,16 +2,14 @@
 
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import IframeDialog from '@tiptapify/extensions/components/media/iframe/IframeDialog.vue'
-import { variantBtnTypes } from '@tiptapify/types/editor'
-import { inject, PropType, ref, Ref, useTemplateRef } from 'vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { inject, ref, Ref, useTemplateRef } from 'vue'
 
-import defaults from '@tiptapify/constants/defaults'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -29,13 +27,11 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vie
     size="32"
     @click="dialog?.open()"
   >
-    <VTooltip activator="parent">
-      {{ t('media.iframe') }}
-    </VTooltip>
+    <Tooltip :label="t('media.iframe')" />
     <BtnIcon :icon="icon" />
   </VBtn>
 
-  <IframeDialog ref="dialog" :variant-btn="variantBtn" />
+  <IframeDialog ref="dialog" />
 </template>
 
 <style lang="scss" scoped>

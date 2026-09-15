@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { Editor } from '@tiptap/core'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import tiptapifyCharMap from '@tiptapify/extensions/charmap'
 import { PickerEventBus } from '@tiptapify/extensions/PickerEventBus'
 import { computed, ref, watch } from 'vue'
@@ -71,9 +72,7 @@ watch(filter, filterChars)
         :class="['tiptapify-slash-picker__tab', { 'tiptapify-slash-picker__tab--active': activeTab === item.group }]"
         @click="activeTab = item.group"
       >
-        <VTooltip activator="parent">
-          {{ t(`media.charmap.categories.${item.group}`) }}
-        </VTooltip>
+        <Tooltip :label="t(`media.charmap.categories.${item.group}`)" />
         {{ item.items[0]?.char }}
       </button>
     </div>

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { Editor } from '@tiptap/core'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import tiptapifyEmojis from '@tiptapify/extensions/emoji'
 import { PickerEventBus } from '@tiptapify/extensions/PickerEventBus'
 import { computed, ref, watch } from 'vue'
@@ -67,9 +68,7 @@ watch(filter, filterEmoji)
         :class="['tiptapify-slash-picker__tab', { 'tiptapify-slash-picker__tab--active': activeTab === item.group }]"
         @click="activeTab = item.group"
       >
-        <VTooltip activator="parent">
-          {{ t(`media.emoji.categories.${item.group}`) }}
-        </VTooltip>
+        <Tooltip :label="t(`media.emoji.categories.${item.group}`)" />
         {{ item.emojis[0]?.char }}
       </button>
     </div>

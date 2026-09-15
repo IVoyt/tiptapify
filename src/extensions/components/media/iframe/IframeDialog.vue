@@ -2,18 +2,14 @@
 
 import { Editor } from '@tiptap/vue-3'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
-import defaults from '@tiptapify/constants/defaults'
-import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 
 import type { iframeOptions } from '@tiptapify/types/iframe'
 
-import { computed, inject, PropType, Ref, ref, useTemplateRef, watch } from 'vue'
+import { computed, inject, Ref, ref, useTemplateRef, watch } from 'vue'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-  variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
-})
+const { variantBtn, variantField } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }

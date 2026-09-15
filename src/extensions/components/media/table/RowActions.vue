@@ -3,6 +3,7 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { inject, Ref } from 'vue'
 import { ComposerTranslation } from 'vue-i18n'
 
@@ -27,21 +28,15 @@ const rowCanDelete = () => {
   <VMenu submenu activator="parent" open-on-hover open-on-click>
     <VList>
       <VListItem link :disabled="!rowCanAddBefore()" @click="editor.chain().focus().addRowBefore().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.insertRowBefore') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.insertRowBefore')" />
         <BtnIcon :icon="`mdiSvg:${mdi.mdiTableRowPlusBefore}`" />
       </VListItem>
       <VListItem link :disabled="!rowCanAddAfter()" @click="editor.chain().focus().addRowAfter().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.insertRowAfter') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.insertRowAfter')" />
         <BtnIcon :icon="`mdiSvg:${mdi.mdiTableRowPlusAfter}`" />
       </VListItem>
       <VListItem link :disabled="!rowCanDelete()" @click="editor.chain().focus().deleteRow().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.deleteRow') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.deleteRow')" />
         <BtnIcon :icon="`mdiSvg:${mdi.mdiTableRowRemove}`" />
       </VListItem>
     </VList>

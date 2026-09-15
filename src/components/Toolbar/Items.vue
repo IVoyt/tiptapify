@@ -1,15 +1,15 @@
 <script setup lang="ts">
 
-import defaults from '@tiptapify/constants/defaults'
-import { variantBtnTypes } from '@tiptapify/types/editor'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import { PropType } from 'vue'
 
 import { toolbarSections } from '@tiptapify/types/toolbarTypes'
 
 defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
   items: { type: Array as PropType<toolbarSections>, default() { return {} } },
 })
+
+const { variantBtn } = useTiptapifyConfig()
 
 </script>
 

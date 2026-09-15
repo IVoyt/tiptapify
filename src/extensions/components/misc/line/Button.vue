@@ -3,15 +3,13 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
-import { variantBtnTypes } from '@tiptapify/types/editor'
-import { inject, PropType, Ref } from 'vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { inject, Ref } from 'vue'
 
-import defaults from '@tiptapify/constants/defaults'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -26,9 +24,7 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
     :variant="variantBtn"
     @click="editor.chain().focus().setHorizontalRule().run()"
   >
-    <VTooltip activator="parent">
-      {{ t('format.line') }}
-    </VTooltip>
+    <Tooltip :label="t('format.line')" />
     <BtnIcon :icon="`mdiSvg:${mdi.mdiMinus}`" />
   </VBtn>
 </template>

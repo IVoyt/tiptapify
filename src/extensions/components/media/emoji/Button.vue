@@ -1,15 +1,14 @@
 <script lang="ts" setup>
 import * as mdi from '@mdi/js'
-import { TiptapifyEditor, variantBtnTypes } from '@tiptapify/types/editor'
-import { inject, PropType, Ref } from 'vue'
+import { TiptapifyEditor } from '@tiptapify/types/editor'
+import { inject, Ref } from 'vue'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { ComposerTranslation } from 'vue-i18n'
 import EmojiPicker from './Picker.vue'
-import defaults from '@tiptapify/constants/defaults'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<TiptapifyEditor>
 
@@ -18,9 +17,7 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 <template>
   <VBtn :id="`tiptapify-emoji-button-${editor.instanceId}`" color="" :variant="variantBtn" size="32">
-    <VTooltip activator="parent">
-      {{ t('media.emoji.title') }}
-    </VTooltip>
+    <Tooltip :label="t('media.emoji.title')" />
     <BtnIcon :icon="`mdiSvg:${mdi.mdiEmoticon}`" />
   </VBtn>
 

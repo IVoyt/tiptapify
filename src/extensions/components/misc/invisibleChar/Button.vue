@@ -2,15 +2,13 @@
 
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
-import { variantBtnTypes } from '@tiptapify/types/editor'
-import { inject, PropType, Ref } from 'vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { inject, Ref } from 'vue'
 
-import defaults from '@tiptapify/constants/defaults'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -27,9 +25,7 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><pat
     size="32"
     @click="editor.commands.toggleInvisibleCharacters()"
   >
-    <VTooltip activator="parent">
-      {{ t('misc.toggleInvisibleCharacters') }}
-    </VTooltip>
+    <Tooltip :label="t('misc.toggleInvisibleCharacters')" />
     <BtnIcon :icon="icon" />
   </VBtn>
 </template>

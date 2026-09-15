@@ -2,16 +2,14 @@
 
 import * as mdi from '@mdi/js'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import ShowSourceDialog from '@tiptapify/extensions/components/misc/source/ShowSourceDialog.vue'
-import { variantBtnTypes } from '@tiptapify/types/editor'
-import { inject, PropType, ref, useTemplateRef } from 'vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { inject, ref, useTemplateRef } from 'vue'
 
-import defaults from '@tiptapify/constants/defaults'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
@@ -25,13 +23,11 @@ function showDialog() {
 
 <template>
   <VBtn size="32" color="" :variant="variantBtn" @click="showDialog()">
-    <VTooltip activator="parent">
-      {{ t('misc.source') }}
-    </VTooltip>
+    <Tooltip :label="t('misc.source')" />
     <BtnIcon :icon="`mdiSvg:${mdi.mdiCodeTags}`" />
   </VBtn>
 
-  <ShowSourceDialog ref="dialog" :variant-btn="variantBtn" />
+  <ShowSourceDialog ref="dialog" />
 </template>
 
 <style lang="scss" scoped>

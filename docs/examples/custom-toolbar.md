@@ -91,3 +91,51 @@ Toolbar items are organized into sections. Here are all available sections:
 <InteractiveEditor :toolbar="false"
 :bubble-menu="false"
 placeholder="No toolbar..." />
+
+## Custom Toolbar Components
+
+Add your own buttons with the `customExtensions` prop. Each entry is a [toolbar section](/api/types#section) — use a built-in section name (`misc`, `media`, …) to merge your buttons into an existing group, or a new name for a separate group rendered after the built-in sections:
+
+```vue
+<script setup lang="ts">
+import BlockquoteButton from './BlockquoteButton.vue'
+
+const customExtensions = [{
+  section: 'custom',
+  group: true,
+  components: [{ name: 'blockquoteBtn', component: BlockquoteButton }],
+}]
+</script>
+
+<template>
+  <Tiptapify :custom-extensions="customExtensions" />
+</template>
+```
+
+Custom components are rendered inside `<Tiptapify>`, so they have access to the same shared values the built-in buttons use — editor, translations and the editor-level config:
+
+```vue
+<!-- BlockquoteButton.vue -->
+<script setup lang="ts">
+import { inject, type Ref } from 'vue'
+import { TipTapEditor, useTiptapifyConfig } from 'tiptapify'
+
+const editor = inject('tiptapifyEditor') as Ref<TipTapEditor>
+const { variantBtn } = useTiptapifyConfig()
+</script>
+
+<template>
+  <VBtn
+    :color="editor.isActive('blockquote') ? 'primary' : ''"
+    :variant="variantBtn"
+    size="32"
+    @click="editor.commands.toggleBlockquote()"
+  >
+    Quote
+  </VBtn>
+</template>
+```
+
+- `useTiptapifyConfig()` returns the editor-level config (`variantBtn`, `variantField`), so custom components automatically match the styling of the built-in toolbar.
+- The `variantBtn` prop is still passed to every toolbar component for backward compatibility — components written before the shared config keep working unchanged.
+- `inject('tiptapifyI18n')` gives the same translation function built-in buttons use.
