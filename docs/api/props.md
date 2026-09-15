@@ -501,7 +501,7 @@ Border radius for the editor container. Accepts Vuetify radius values (`sm`, `md
 - **Type:** `variantBtnTypes`
 - **Default:** `'tonal'`
 
-Vuetify button variant for toolbar buttons. See [`variantBtnTypes`](/api/types#variantbtntypes).
+Vuetify button variant for toolbar buttons. The value is shared with every toolbar component through the editor config — custom components can read it with [`useTiptapifyConfig`](/api/types#usetiptapifyconfig). See [`variantBtnTypes`](/api/types#variantbtntypes).
 
 ```vue
 <Tiptapify variant-btn="outlined" />
@@ -512,7 +512,7 @@ Vuetify button variant for toolbar buttons. See [`variantBtnTypes`](/api/types#v
 - **Type:** `variantFieldTypes`
 - **Default:** `'outlined'`
 
-Vuetify variant for toolbar dropdown fields. See [`variantFieldTypes`](/api/types#variantfieldtypes).
+Vuetify variant for toolbar dropdown fields. The value is shared with every toolbar component through the editor config — custom components can read it with [`useTiptapifyConfig`](/api/types#usetiptapifyconfig). See [`variantFieldTypes`](/api/types#variantfieldtypes).
 
 ```vue
 <Tiptapify variant-field="filled" />
@@ -523,7 +523,7 @@ Vuetify variant for toolbar dropdown fields. See [`variantFieldTypes`](/api/type
 - **Type:** `Array<toolbarSections>`
 - **Default:** `[]`
 
-Provide custom Tiptap extensions to register with the editor. See [Custom Extensions](/examples/custom-toolbar).
+Provide custom toolbar sections to extend or add toolbar items. Each section's components can read the shared editor config with [`useTiptapifyConfig`](/api/types#usetiptapifyconfig). See [Custom Toolbar](/examples/custom-toolbar#custom-toolbar-components).
 
 ```vue
 <Tiptapify :custom-extensions="customExtensions" />

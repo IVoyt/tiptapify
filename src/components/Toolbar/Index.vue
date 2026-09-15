@@ -2,14 +2,13 @@
 import { Editor } from '@tiptap/vue-3'
 import Items from '@tiptapify/components/Toolbar/Items.vue'
 import defaults from '@tiptapify/constants/defaults'
-import { variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
+import { variantFieldTypes } from '@tiptapify/types/editor'
 import { computed, inject, PropType, Ref } from 'vue'
 import { itemsPropType, toolbarSections } from '@tiptapify/types/toolbarTypes'
 
 import { default as toolbarItemsGroups, availableItems } from '@tiptapify/components/Toolbar/items'
 
 const props = defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
   variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
   items: { type: [Array, Object] as PropType<itemsPropType>, default() { return [] } },
   itemsExclude: { type: Boolean, default() { return false } },
@@ -178,10 +177,10 @@ Object.keys(props.customExtensions).forEach((key: any) => {
   <div v-if="editor" class="tiptapify-toolbar">
     <VToolbar elevation="1" :theme="theme" height="auto" :class="`ps-1 pr-1 rounded-t-${rounded}`">
       <VSlideGroup v-if="toolbarScrollable">
-        <Items :items="toolbarItems" :variant-btn="variantBtn" />
+        <Items :items="toolbarItems" />
       </VSlideGroup>
 
-      <Items v-else :items="toolbarItems" :variant-btn="variantBtn" />
+      <Items v-else :items="toolbarItems" />
     </VToolbar>
   </div>
 </template>

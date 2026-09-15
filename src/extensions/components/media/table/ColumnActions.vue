@@ -3,6 +3,7 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { inject, Ref } from 'vue'
 import { ComposerTranslation } from 'vue-i18n'
 
@@ -27,21 +28,15 @@ const columnCanDelete = () => {
   <VMenu submenu activator="parent" open-on-hover open-on-click>
     <VList>
       <VListItem link :disabled="!columnCanAddBefore()" @click="editor.chain().focus().addColumnBefore().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.insertColBefore') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.insertColBefore')" />
         <BtnIcon :icon="`mdiSvg:${mdi.mdiTableColumnPlusBefore}`" />
       </VListItem>
       <VListItem link :disabled="!columnCanAddAfter()" @click="editor.chain().focus().addColumnAfter().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.insertColAfter') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.insertColAfter')" />
         <BtnIcon :icon="`mdiSvg:${mdi.mdiTableColumnPlusAfter}`" />
       </VListItem>
       <VListItem link :disabled="!columnCanDelete()" @click="editor.chain().focus().deleteColumn().run()">
-        <VTooltip activator="parent">
-          {{ t('media.tables.deleteCol') }}
-        </VTooltip>
+        <Tooltip :label="t('media.tables.deleteCol')" />
         <BtnIcon :icon="`mdiSvg:${mdi.mdiTableColumnRemove}`" />
       </VListItem>
     </VList>

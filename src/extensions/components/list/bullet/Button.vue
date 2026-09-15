@@ -3,18 +3,19 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
-import { variantBtnTypes } from '@tiptapify/types/editor'
-import { computed, inject, PropType, ref, Ref, watch } from 'vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { computed, inject, ref, Ref, watch } from 'vue'
 
-import defaults from '@tiptapify/constants/defaults'
 import { ComposerTranslation } from 'vue-i18n'
 
 const props = defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
   withDisc: { type: Boolean, default: true },
   withCircle: { type: Boolean, default: true },
   withSquare: { type: Boolean, default: true }
 })
+
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -91,9 +92,7 @@ watch(() => bulletLists.value, () => {
         v-bind="menuProps"
         size="32"
       >
-        <VTooltip activator="parent">
-          {{ t('lists.bullet') }}
-        </VTooltip>
+        <Tooltip :label="t('lists.bullet')" hotkey="Mod-Shift-8" />
         <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatListBulleted}`" />
       </VBtn>
     </template>
@@ -106,9 +105,7 @@ watch(() => bulletLists.value, () => {
         :active="editor.isActive(bulletList.name)"
         @click="toggleList(bulletList.name)"
       >
-        <VTooltip activator="parent">
-          {{ t('lists.bullet') }}
-        </VTooltip>
+        <Tooltip :label="t('lists.bullet')" />
         <VListItemTitle class="d-flex justify-center align-center">
           <BtnIcon :icon="bulletList.icon" />
         </VListItemTitle>
@@ -124,9 +121,7 @@ watch(() => bulletLists.value, () => {
     size="32"
     @click="editor.commands.toggleBulletList()"
   >
-    <VTooltip activator="parent">
-      {{ t('lists.bullet') }}
-    </VTooltip>
+    <Tooltip :label="t('lists.bullet')" hotkey="Mod-Shift-8" />
     <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatListBulleted}`" />
   </VBtn>
 </template>

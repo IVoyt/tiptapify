@@ -1,14 +1,13 @@
 <script lang="ts" setup>
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/core'
-import { variantBtnTypes } from '@tiptapify/types/editor'
-import { inject, PropType, Ref } from 'vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { inject, Ref } from 'vue'
 import { ComposerTranslation } from 'vue-i18n'
 import CharmapPicker from './Picker.vue'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return 'flat' } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
@@ -16,9 +15,7 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 <template>
   <VBtn :id="`tiptapify-charmap-button-${editor.instanceId}`" :variant="variantBtn" size="32">
-    <VTooltip activator="parent">
-      {{ t('media.charmap.title') }}
-    </VTooltip>
+    <Tooltip :label="t('media.charmap.title')" />
     <VIcon :icon="`mdiSvg:${mdi.mdiAppleKeyboardCommand}`" tag="svg" size="small" />
   </VBtn>
 

@@ -1,3 +1,7 @@
+### 0.3.0
+- render hotkey in extension tooltip
+- shared editor config
+
 ### 0.2.6
 - AI plugin backend endpoint support
 - fix vitepress themes

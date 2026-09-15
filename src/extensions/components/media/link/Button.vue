@@ -2,16 +2,15 @@
 
 import * as mdi from '@mdi/js'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import LinkDialog from '@tiptapify/extensions/components/media/link/LinkDialog.vue'
-import { TiptapifyEditor, variantBtnTypes } from '@tiptapify/types/editor'
-import { computed, inject, PropType, Ref } from 'vue'
+import { TiptapifyEditor } from '@tiptapify/types/editor'
+import { computed, inject, Ref } from 'vue'
 
-import defaults from '@tiptapify/constants/defaults'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<TiptapifyEditor>
 
@@ -28,13 +27,11 @@ const icon = computed(() => editor.value.isActive('tiptapifyLink') ? `mdiSvg:${m
     size="32"
     @click="editor.commands.showLink()"
   >
-    <VTooltip activator="parent">
-      {{ t('media.link') }}
-    </VTooltip>
+    <Tooltip :label="t('media.link')" />
     <BtnIcon :icon="icon" />
   </VBtn>
 
-  <LinkDialog :variant-btn="variantBtn" />
+  <LinkDialog />
 </template>
 
 <style lang="scss" scoped>

@@ -3,15 +3,13 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
-import { variantBtnTypes } from '@tiptapify/types/editor'
-import { inject, nextTick, PropType, ref, Ref } from 'vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { inject, nextTick, ref, Ref } from 'vue'
 
-import defaults from '@tiptapify/constants/defaults'
 import { ComposerTranslation } from 'vue-i18n'
 
-defineProps({
-  variantBtn: { type: String as PropType<variantBtnTypes>, default() { return defaults.variantBtn } },
-})
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -50,9 +48,7 @@ async function changeEditorContainer(source: string, target: string) {
     :variant="variantBtn"
     @click="showDialog ? dialogClose() : dialogOpen()"
   >
-    <VTooltip activator="parent">
-      {{ t('misc.fullscreen') }}
-    </VTooltip>
+    <Tooltip :label="t('misc.fullscreen')" />
     <BtnIcon :icon="showDialog ? `mdiSvg:${mdi.mdiFullscreenExit}` : `mdiSvg:${mdi.mdiFullscreen}`" />
   </VBtn>
 

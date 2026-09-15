@@ -1,6 +1,7 @@
 import { Plugin } from 'vue'
 import Tiptapify from '@tiptapify/components/Tiptapify.vue'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import { TiptapifyFooterAlignment } from '@tiptapify/types/editor'
 import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
 
@@ -38,6 +39,7 @@ export {
   VueNodeViewRenderer,
   Tiptapify,
   TiptapifyDialog,
+  useTiptapifyConfig,
   createAiBackendProvider,
   Node,
   Mark,
@@ -46,6 +48,7 @@ export {
   mergeAttributes,
 }
 
+export type { TiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 export type { TiptapifyFooterAlignment }
 export type { CommandProps, InputRuleMatch, PasteRuleMatch }
 export type {

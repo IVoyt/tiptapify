@@ -12,7 +12,7 @@ declare class TiptapifyEditor extends Editor {
 
 ## variantBtnTypes
 
-Defines valid values for the `variantBtn` prop across all toolbar button components.
+Defines valid values for the `variantBtn` prop on `<Tiptapify>`. The value is applied to every toolbar button through the editor's shared config (see [`useTiptapifyConfig`](#usetiptapifyconfig)).
 
 ```typescript
 type variantBtnTypes = 'outlined' | 'plain' | 'flat' | 'text' | 'elevated' | 'tonal' | undefined
@@ -20,11 +20,7 @@ type variantBtnTypes = 'outlined' | 'plain' | 'flat' | 'text' | 'elevated' | 'to
 
 ## variantFieldTypes
 
-Defines valid values for the `variantField` prop across toolbar dropdown fields.
-
-```typescript
-type variantFieldTypes = 'outlined' | 'plain' | 'filled' | 'solo' | 'solo-filled' | 'solo-inverted' | 'underlined' | undefined
-```
+Defines valid values for the `variantField` prop on `<Tiptapify>`. The value is applied to toolbar dropdown fields through the editor's shared config (see [`useTiptapifyConfig`](#usetiptapifyconfig)).
 
 ## TiptapifyFooterAlignment
 
@@ -38,7 +34,42 @@ type TiptapifyFooterAlignment = 'start' | 'center' | 'end'
 <Tiptapify footer-alignment="center" />
 ```
 
-## ToolbarSectionsEnum
+## TiptapifyConfig
+
+Editor-level UI configuration shared with every component inside `<Tiptapify>` via Vue `provide`/`inject`. Read it in your own toolbar components with [`useTiptapifyConfig`](#usetiptapifyconfig).
+
+```typescript
+import type { Ref } from 'vue'
+
+interface TiptapifyConfig {
+  variantBtn: Ref<variantBtnTypes>
+  variantField: Ref<variantFieldTypes>
+}
+```
+
+Values are reactive: changing the `variantBtn` / `variantField` prop on `<Tiptapify>` updates every toolbar component without re-rendering props.
+
+## useTiptapifyConfig
+
+Returns the shared config of the `<Tiptapify>` instance that the calling component belongs to. Intended for custom toolbar components (see [Custom Toolbar](/examples/custom-toolbar#custom-toolbar-components)).
+
+```typescript
+function useTiptapifyConfig(): TiptapifyConfig
+```
+
+```vue
+<script setup lang="ts">
+import { useTiptapifyConfig } from 'tiptapify'
+
+const { variantBtn, variantField } = useTiptapifyConfig()
+</script>
+
+<template>
+  <VBtn :variant="variantBtn" size="32" />
+</template>
+```
+
+Outside of a `<Tiptapify>` instance the composable falls back to the package defaults (`flat` / `solo`).
 
 ```typescript
 enum ToolbarSectionsEnum {
@@ -273,6 +304,14 @@ Material Design Icons from `@mdi/js` are re-exported for toolbar icon customizat
 
 ```typescript
 import { mdi } from 'tiptapify'
+```
+
+### `useTiptapifyConfig`
+
+Composable for reading the editor-level UI config (`variantBtn`, `variantField`) from custom toolbar components. See [useTiptapifyConfig](#usetiptapifyconfig).
+
+```typescript
+import { useTiptapifyConfig } from 'tiptapify'
 ```
 
 ### `TipTapEditor`
