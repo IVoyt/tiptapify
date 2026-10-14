@@ -22,7 +22,7 @@ const { variantBtn } = useTiptapifyConfig()
       <template v-else>
         <VBtnGroup v-if="item.group" elevation="4" :class="{ 'tiptapify-btn-group--elevated': variantBtn === 'elevated' }">
           <template v-for="sectionItem in item.components" :key="sectionItem.name">
-            <component :is="sectionItem.component" v-bind="{ variantBtn, ...sectionItem.props ?? {} }" />
+            <component :is="sectionItem.component" v-bind="sectionItem.props ?? {}" />
           </template>
         </VBtnGroup>
         <template v-else>
@@ -30,7 +30,7 @@ const { variantBtn } = useTiptapifyConfig()
             :is="sectionItem.component"
             v-for="sectionItem in item.components"
             :key="sectionItem.name"
-            v-bind="{ variantBtn, ...sectionItem.props ?? {} }"
+            v-bind="sectionItem.props ?? {}"
           />
         </template>
         <div class="menu-divider" />
