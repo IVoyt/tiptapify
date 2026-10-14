@@ -1,4 +1,8 @@
-### 0.3.0
+### 0.3.1
+- do not pass undeclared attributes to toolbar buttons
+- export TiptapifyConfig
+
+- ### 0.3.0
 - render hotkey in extension tooltip
 - shared editor config
 

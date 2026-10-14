@@ -62,6 +62,7 @@ import '@tiptap/extension-invisible-characters'
 
 import Tiptapify from './src/components/Tiptapify.vue'
 import TiptapifyDialog from './src/components/UI/TiptapifyDialog.vue'
+import { TIPTAPIFY_CONFIG_KEY, useTiptapifyConfig, TiptapifyConfig } from './src/composables/useTiptapifyConfig'
 import * as mdi from '@mdi/js'
 
 export type TiptapifyFooterAlignment = 'start' | 'center' | 'end'
@@ -188,6 +189,8 @@ export {
   mdi,
   Tiptapify,
   TiptapifyDialog,
+  TIPTAPIFY_CONFIG_KEY,
+  useTiptapifyConfig,
   TiptapEditor,
   nodeViewProps,
   NodeViewWrapper,
@@ -224,6 +227,8 @@ export type {
   RawCommands,
   SingleCommands,
 }
+
+export type { TiptapifyConfig }
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
