@@ -1,3 +1,7 @@
+### 0.3.2
+- `heading:inline` option renders paragraph/heading levels as separate toolbar buttons
+- tooltips for paragraph and heading level items
+
 ### 0.3.1
 - do not pass undeclared attributes to toolbar buttons
 - export TiptapifyConfig

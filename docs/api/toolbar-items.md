@@ -45,6 +45,12 @@ All available toolbar items organized by section.
 | `textColor`      | Apply text color                           |
 | `highlightColor` | Apply highlight/background color           |
 
+The `heading` item accepts options after a colon: heading levels, `p` to add a paragraph item, and `inline` to show them as separate buttons instead of a dropdown:
+
+```vue
+<Tiptapify :items="['heading:p,2,3,inline', 'bold', 'italic']" />
+```
+
 ## Alignment
 
 | Item      | Description       |

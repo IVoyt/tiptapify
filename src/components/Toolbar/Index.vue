@@ -132,8 +132,15 @@ function addToolbarItem(_toolbarItems: toolbarItemsType, itemsList: Array<any>, 
       _itemOptions.splice(paragraphIndex, 1)
     }
 
+    const inlineIndex = _itemOptions.findIndex((item: string) => item === 'inline')
+    const inline = inlineIndex > -1
+    if (inline) {
+      _itemOptions.splice(inlineIndex, 1)
+    }
+
     component.props = {
       withParagraph,
+      inline,
       customHeadingLevels: _itemOptions.map((item: string) => parseInt(item)),
     }
   }
