@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "代替テキスト",
+      "caption": "キャプション",
+      "caption_placeholder": "キャプションを追加…",
       "dialog_title": "画像を追加/編集",
       "height": "高さ",
       "keep_ratio": "アスペクト比を維持",
@@ -121,6 +123,16 @@
     "indent": "インデントを増やす",
     "numbered": "番号付きリスト",
     "outdent": "インデントを減らす",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "タスクリスト"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "画像",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "外部リンク",
+    "slider": "スライダー",
     "tables": {
       "col": "列",
       "cols": "列数",

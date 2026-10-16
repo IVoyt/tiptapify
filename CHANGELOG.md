@@ -1,3 +1,23 @@
+### 0.3.3
+- quiet toolbar: flat groups divided by separators, ghost buttons with a neutral pressed state, light dropdowns
+- `align` toolbar item: alignment as one dropdown (`align:left,center,right` limits the options)
+- `bulletList:styles` / `orderedList:styles`: marker and numbering styles dropdown, saved as inline `list-style-type` like TinyMCE
+- toolbar on a selected image: float left / right toggles (centered without them), download, edit, remove; resize handles on every side
+- `'|'` in `items` groups the buttons explicitly; custom buttons can be placed by name
+- text bubble menu restyled like the toolbar and hidden for a selected block (image, widget)
+- character limit ring shows its percentage and explains itself in a tooltip
+- `'~'` toolbar item pushes the items after it to the end of the toolbar
+- heading dropdown shows the current style and labels its items; the button no longer runs redo on click
+- images are saved as `<figure><img><figcaption>`; the caption is typed right under the image (a legacy `<img title>` loads its title as the caption)
+- double click on an image opens the image dialog
+- images in the editor never exceed the text width or 400px in height
+- `imageSlider` prop: from this many images in a row the editor shows them as a numbered slider grid; a selected slide moves back and forth among the slides (`moveImage` command)
+- image dialog labels the title field as caption
+- a click on a link selects it instead of opening it
+- custom toolbar buttons can join an existing section; custom sections no longer leak between editors
+- typings: `TipTapEditor`, the editor class the package exports
+- dialogs restyled: rounded card with a soft shadow, bold title, plain close button, roomy padding, outlined rounded fields by default, buttons without uppercase
+
 ### 0.3.2
 - `heading:inline` option renders paragraph/heading levels as separate toolbar buttons
 - tooltips for paragraph and heading level items

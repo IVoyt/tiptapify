@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alternatívny text",
+      "caption": "Popis",
+      "caption_placeholder": "Pridajte popis…",
       "dialog_title": "Pridať/upraviť obrázok",
       "height": "Výška",
       "keep_ratio": "Použiť pomer",
@@ -121,6 +123,16 @@
     "indent": "Zvýšiť odsadenie položky zoznamu",
     "numbered": "Číslovaný zoznam",
     "outdent": "Znížiť odsadenie položky zoznamu",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Úlohový zoznam"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Obrázok",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Externý odkaz",
+    "slider": "Slider",
     "tables": {
       "col": "Stĺpec",
       "cols": "Stĺpce",

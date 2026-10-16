@@ -65,10 +65,12 @@
     },
     "image": {
       "alt": "Alt",
+      "caption": "Caption",
+      "caption_placeholder": "Add a caption…",
       "dialog_title": "Add/edit image",
       "height": "Height",
       "keep_ratio": "Keep ratio",
-      "src": "Source",
+      "src": "Image URL",
       "title": "Add/edit image",
       "width": "Width"
     },
@@ -121,6 +123,16 @@
     "indent": "List item indent",
     "numbered": "Ordered list",
     "outdent": "List item outdent",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Task list"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Image",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "External link",
+    "slider": "Slider",
     "tables": {
       "col": "Column",
       "cols": "Columns",

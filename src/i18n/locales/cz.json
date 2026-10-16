@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "alt",
+      "caption": "Popisek",
+      "caption_placeholder": "Přidejte popisek…",
       "dialog_title": "Přidání/úprava obrázku",
       "height": "Výška",
       "keep_ratio": "Udržet poměr stran",
@@ -121,6 +123,16 @@
     "indent": "Zvětšit odsazení položky seznamu",
     "numbered": "Číslovaný seznam",
     "outdent": "Zmenšit odsazení položky seznamu",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Seznam úkolů"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Obrázek",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Externí odkaz",
+    "slider": "Slider",
     "tables": {
       "col": "Sloupec",
       "cols": "Sloupce",

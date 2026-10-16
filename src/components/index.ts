@@ -1,5 +1,5 @@
 import { Editor, useEditor } from '@tiptap/vue-3'
-import { editorExtensions } from '@tiptapify/components/editorExtensions'
+import { editorExtensions, TiptapifyImageOptions } from '@tiptapify/components/editorExtensions'
 import { toolbarSections } from '@tiptapify/types/toolbarTypes'
 import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
 import { ShallowRef } from 'vue'
@@ -12,8 +12,9 @@ export function getTiptapEditor (
   limit: number | null = null,
   onUpdate: Function = () => {},
   onCreate?: (editor: Editor) => void,
+  imageOptions?: TiptapifyImageOptions,
 ): ShallowRef<Editor | undefined> {
-  const extensions = editorExtensions(placeholder, slashCommands, customExtensions, limit)
+  const extensions = editorExtensions(placeholder, slashCommands, customExtensions, limit, imageOptions)
 
   return useEditor({
     content,

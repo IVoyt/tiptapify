@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "替代文本",
+      "caption": "图片说明",
+      "caption_placeholder": "添加图片说明…",
       "dialog_title": "添加/修改图片",
       "height": "高度",
       "keep_ratio": "保持比例",
@@ -121,6 +123,16 @@
     "indent": "增加列表项缩进",
     "numbered": "有序列表",
     "outdent": "减少列表项缩进",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "任务列表"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "图片",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "外部链接",
+    "slider": "幻灯片",
     "tables": {
       "col": "列",
       "cols": "列",

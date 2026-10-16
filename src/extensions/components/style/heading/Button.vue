@@ -26,6 +26,13 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 import { headingLevels, setHeadingLevels } from '@tiptapify/constants/style'
 import { ComposerTranslation } from 'vue-i18n'
 setHeadingLevels(props.customHeadingLevels)
+
+// A function, not a computed: `isActive` reads the editor state, which Vue does not track
+function currentStyleIcon(): string {
+  const activeLevel = headingLevels.value.find(level => editor.value.isActive('heading', { level }))
+
+  return activeLevel ? `mdiFormatHeader${activeLevel}` : 'mdiFormatParagraph'
+}
 </script>
 
 <template>
@@ -56,38 +63,42 @@ setHeadingLevels(props.customHeadingLevels)
   <template v-else>
     <VBtn
       :id="`tiptapify-heading-button-${editor.instanceId}`"
+      class="tiptapify-dropdown-button"
       :color="editor.isActive('heading') ? 'primary' : ''"
       :variant="variantBtn"
-      size="32"
-      @click="editor.chain().focus().redo().run()"
+      height="32"
     >
       <Tooltip :label="t('style.heading')" hotkey="Mod-Alt-1..6" />
-      <BtnIcon :icon="`mdiSvg:${mdi.mdiFormatHeaderPound}`" />
+      <BtnIcon :icon="`mdiSvg:${mdiIcons[currentStyleIcon()]}`" />
+      <BtnIcon :icon="`mdiSvg:${mdi.mdiChevronDown}`" class="tiptapify-dropdown-button__chevron" />
     </VBtn>
 
-    <VMenu :activator="`#tiptapify-heading-button-${editor.instanceId}`">
+    <VMenu :activator="`#tiptapify-heading-button-${editor.instanceId}`" content-class="tiptapify-menu">
       <VList density="compact">
         <VListItem
           v-if="withParagraph"
           link
-          :color="editor.isActive('paragraph') ? 'primary' : ''"
+          :active="editor.isActive('paragraph')"
           @click="editor.chain().focus().setParagraph().run()"
         >
           <Tooltip :label="t('style.paragraph')" hotkey="Mod-Alt-0" />
-          <VListItemTitle class="d-flex justify-center align-center">
+          <template #prepend>
             <BtnIcon :icon="`mdiSvg:${mdiIcons['mdiFormatParagraph']}`" />
-          </VListItemTitle>
+          </template>
+          <VListItemTitle>{{ t('style.paragraph') }}</VListItemTitle>
         </VListItem>
         <VListItem
           v-for="headingLevel in headingLevels"
           :key="headingLevel"
-          :color="editor.isActive('heading', { level: headingLevel }) ? 'primary' : ''"
+          link
+          :active="editor.isActive('heading', { level: headingLevel })"
           @click="editor.chain().focus().toggleHeading({ level: headingLevel }).run()"
         >
           <Tooltip :label="t(`style.headings.h${headingLevel}`)" :hotkey="`Mod-Alt-${headingLevel}`" />
-          <VListItemTitle class="d-flex justify-center align-center">
+          <template #prepend>
             <BtnIcon :icon="`mdiSvg:${mdiIcons[`mdiFormatHeader${headingLevel}`]}`" />
-          </VListItemTitle>
+          </template>
+          <VListItemTitle>{{ t(`style.headings.h${headingLevel}`) }}</VListItemTitle>
         </VListItem>
       </VList>
     </VMenu>

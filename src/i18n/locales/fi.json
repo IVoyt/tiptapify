@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Vaihtoehtoinen teksti",
+      "caption": "Kuvateksti",
+      "caption_placeholder": "Lisää kuvateksti…",
       "dialog_title": "Lisää/muokkaa kuvaa",
       "height": "Korkeus",
       "keep_ratio": "Säilytä suhde",
@@ -121,6 +123,16 @@
     "indent": "Lisää sisennystä",
     "numbered": "Numeroiden luettelo",
     "outdent": "Vähennä sisennystä",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Tehtävälista"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Kuva",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Ulkoisen linkin",
+    "slider": "Kuvakaruselli",
     "tables": {
       "col": "Sarake",
       "cols": "Sarakkeet",

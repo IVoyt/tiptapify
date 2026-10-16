@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "वैकल्पिक",
+      "caption": "कैप्शन",
+      "caption_placeholder": "कैप्शन जोड़ें…",
       "dialog_title": "चित्र जोड़ें/संपादित करें",
       "height": "ऊँचाई",
       "keep_ratio": "अनुपात बनाए रखें",
@@ -121,6 +123,16 @@
     "indent": "सूची आइटम का अंतर्वेशन",
     "numbered": "क्रमबद्ध सूची",
     "outdent": "सूची आइटम का बहिर्वेशन",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "कार्य सूची"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "चित्र",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "बाहरी लिंक",
+    "slider": "स्लाइडर",
     "tables": {
       "col": "कॉलम",
       "cols": "कॉलम",

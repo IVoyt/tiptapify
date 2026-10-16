@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alt",
+      "caption": "Inscriptio",
+      "caption_placeholder": "Inscriptionem adde…",
       "dialog_title": "Pievienot/mainīt attēlu",
       "height": "Augstums",
       "keep_ratio": "Saglabāt attiecības",
@@ -121,6 +123,16 @@
     "indent": "Palielināt atkāpi",
     "numbered": "Numurēts saraksts",
     "outdent": "Samazināt atkāpi",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Uzdevumu saraksts"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Attēls",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Ārējais saites",
+    "slider": "Series imaginum",
     "tables": {
       "col": "Kolonna",
       "cols": "Kolonnas",

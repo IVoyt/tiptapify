@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alt",
+      "caption": "Legendă",
+      "caption_placeholder": "Adăugați o legendă…",
       "dialog_title": "Adaugă/editează imagine",
       "height": "Înălțime",
       "keep_ratio": "Păstrează proporția",
@@ -121,6 +123,16 @@
     "indent": "Indentare element de listă",
     "numbered": "Listă ordonată",
     "outdent": "Scoatere din indentare a elementului de listă",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Listă de sarcini"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Imagine",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Link extern",
+    "slider": "Slider",
     "tables": {
       "col": "Coloană",
       "cols": "Coloane",

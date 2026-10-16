@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alt",
+      "caption": "Keterangan",
+      "caption_placeholder": "Tambahkan keterangan…",
       "dialog_title": "Tambah/sunting gambar",
       "height": "Tinggi",
       "keep_ratio": "Pertahankan rasio",
@@ -121,6 +123,16 @@
     "indent": "Tambahkan indentasi item daftar",
     "numbered": "Daftar berurutan",
     "outdent": "Kurangi indentasi item daftar",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Daftar tugas"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Gambar",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Tautan eksternal",
+    "slider": "Slider",
     "tables": {
       "col": "Kolom",
       "cols": "Kolom",

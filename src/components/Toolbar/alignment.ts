@@ -2,6 +2,7 @@ import { default as AlignmentLeftButton } from '@tiptapify/extensions/components
 import { default as AlignmentCenterButton } from '@tiptapify/extensions/components/alignment/center/Button.vue'
 import { default as AlignmentRightButton } from '@tiptapify/extensions/components/alignment/right/Button.vue'
 import { default as AlignmentJustifyButton } from '@tiptapify/extensions/components/alignment/justify/Button.vue'
+import { default as AlignmentMenuButton } from '@tiptapify/extensions/components/alignment/menu/Button.vue'
 import { markRaw } from 'vue'
 
 export default {
@@ -23,6 +24,10 @@ export default {
     {
       name: 'justify',
       component: markRaw(AlignmentJustifyButton),
+    },
+    {
+      name: 'align',
+      component: markRaw(AlignmentMenuButton),
     },
   ]
 }

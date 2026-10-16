@@ -59,6 +59,7 @@ The `heading` item accepts options after a colon: heading levels, `p` to add a p
 | `center`  | Align text center |
 | `right`   | Align text right  |
 | `justify` | Justify text      |
+| `align`   | Alignment dropdown; `align:left,center,right` limits its options |
 
 ## List
 
