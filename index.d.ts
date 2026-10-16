@@ -192,6 +192,7 @@ export {
   TIPTAPIFY_CONFIG_KEY,
   useTiptapifyConfig,
   TiptapEditor,
+  TiptapEditor as TipTapEditor,
   nodeViewProps,
   NodeViewWrapper,
   VueNodeViewRenderer,

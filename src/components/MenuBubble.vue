@@ -2,6 +2,7 @@
 import { Editor } from '@tiptap/vue-3'
 import { computed, inject, Ref, ref } from 'vue'
 import { BubbleMenu } from '@tiptap/vue-3/menus'
+import { NodeSelection } from '@tiptap/pm/state'
 import * as mdi from '@mdi/js'
 
 defineProps({
@@ -10,6 +11,10 @@ defineProps({
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
+
+// The menu follows its text or image when the editor scrolls inside its own box; it is created once the
+// box is there, as the menu reads its options only when it is created
+const scrollTarget = inject<Ref<HTMLElement | null>>('tiptapifyScrollContainer', ref(null))
 
 const items = ref([
   {
@@ -85,11 +90,16 @@ const items = ref([
 
 <template>
   <BubbleMenu
-    v-if="editor"
+    v-if="editor && scrollTarget"
     :editor="editor"
-    :options="{ placement: 'bottom' }"
-    :should-show="({ editor, view, state, from, to }) => {
-      if (editor.isActive('image') || editor.isActive('code') || editor.isActive('codeBlock')) {
+    :options="{ placement: 'bottom', scrollTarget }"
+    :should-show="({ editor, state, from, to }) => {
+      // A selected block (image, paywall, widget) is not text to format
+      if (state.selection instanceof NodeSelection) {
+        return false
+      }
+
+      if (editor.isActive('code') || editor.isActive('codeBlock')) {
         return false
       }
 
@@ -99,27 +109,32 @@ const items = ref([
       return (from !== to) && !isAllSelected
     }"
   >
-    <div class="bubble-menu">
-      <VCard>
-        <VCardText class="pa-0">
-          <VToolbar :theme="theme" density="compact" height="auto" class="p-0">
-            <VToolbarItems>
-              <VBtnGroup divided density="compact">
-                <VBtn v-for="(item, key) in items" :key="key" v-bind="item.props" size="x-small" @click="item.click">
-                  <VIcon :icon="item.icon" size="20" />
-                </VBtn>
-              </VBtnGroup>
-            </VToolbarItems>
-          </VToolbar>
-        </VCardText>
-      </VCard>
+    <div class="tiptapify-bubble-menu tiptapify-quiet-buttons">
+      <VBtn
+        v-for="(item, key) in items"
+        :key="key"
+        size="32"
+        variant="text"
+        color=""
+        :disabled="item.props?.disabled"
+        :class="{ 'tiptapify-btn--active': item.props?.color === 'primary' }"
+        @click="item.click"
+      >
+        <VIcon :icon="item.icon" size="20" />
+      </VBtn>
     </div>
   </BubbleMenu>
 </template>
 
 <style scoped lang="scss">
-.bubble-menu {
-  border-radius: 6px;
-  box-shadow: 4px 4px 20px var(--dark-gray);
+.tiptapify-bubble-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border-radius: 10px;
+  background: rgb(var(--v-theme-surface));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 </style>

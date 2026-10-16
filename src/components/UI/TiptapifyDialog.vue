@@ -17,6 +17,15 @@ defineExpose({ open, close })
 const emits = defineEmits(['closeDialog'])
 
 const showDialog = ref<boolean>(false)
+
+const field = { variant: 'outlined', density: 'comfortable' }
+const fieldDefaults = {
+  VTextField: field,
+  VTextarea: field,
+  VSelect: field,
+  VAutocomplete: field,
+  VCombobox: field,
+}
 const movableHandler = ref(null)
 
 function open() {
@@ -141,44 +150,101 @@ onBeforeUnmount(() => {
 
 <template>
   <VDialog v-model="showDialog" :max-width="maxWidth" :fullscreen="fullscreen" @click:outside="emitClose">
-    <VCard>
+    <VCard class="tiptapify-dialog" :class="{ 'tiptapify-dialog--fullscreen': fullscreen }">
       <VCardTitle
         ref="movableHandler"
         class="tiptapify-dialog-header"
         :class="!fullscreen ? 'tiptapify-movable-handler' : ''"
         style="user-select: none;"
       >
-        <VLabel>
+        <span class="tiptapify-dialog-title">
           {{ title ?? t(`dialog.${module}.title`) }}
-        </VLabel>
+        </span>
 
         <VSpacer />
 
-        <VBtn density="compact" class="tiptapify-dialog-close" variant="elevated" elevation="4" icon @click="emitClose">
-          <VIcon size="x-small" :icon="`mdiSvg:${mdi.mdiClose}`" />
+        <VBtn class="tiptapify-dialog-close" variant="text" size="32" icon @click="emitClose">
+          <VIcon size="20" :icon="`mdiSvg:${mdi.mdiClose}`" />
         </VBtn>
       </VCardTitle>
 
-      <VDivider />
+      <!-- Fields a dialog does not style itself get the light outlined look -->
+      <VDefaultsProvider :defaults="fieldDefaults">
+        <slot name="content" />
 
-      <slot name="content" />
-
-      <slot name="actions" />
+        <slot name="actions" />
+      </VDefaultsProvider>
     </VCard>
   </VDialog>
 </template>
 
 <style lang="scss" scoped>
+  /* A light card in the spirit of Flux modals: generous padding, soft corners and shadow, no rules */
+  .tiptapify-dialog {
+    border-radius: 12px !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+
+    &.tiptapify-dialog--fullscreen {
+      border-radius: 0 !important;
+    }
+
+    :deep(.v-card-text) {
+      padding: 4px 20px !important;
+    }
+
+    :deep(.v-field--variant-outlined) {
+      border-radius: 8px;
+
+      .v-field__outline__start {
+        border-start-start-radius: 8px;
+        border-end-start-radius: 8px;
+      }
+
+      .v-field__outline__end {
+        border-start-end-radius: 8px;
+        border-end-end-radius: 8px;
+      }
+    }
+
+    :deep(.v-card-actions) {
+      gap: 8px;
+      padding: 16px 20px 20px !important;
+    }
+
+    :deep(.v-card-actions .v-btn),
+    :deep(.tiptapify-dialog-actions .v-btn) {
+      min-height: 38px;
+      padding-inline: 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+  }
+
   .tiptapify-dialog-header {
-    align-items: center;
     display: flex;
+    align-items: center;
+    padding: 16px 12px 12px 20px !important;
+  }
+
+  .tiptapify-dialog-title {
+    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .tiptapify-dialog-close {
+    color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
   }
 
   :deep(.v-overlay__content) {
     position: fixed;
   }
 
-  .tiptapify-movable-handler, :deep(.tiptapify-movable-handler > *) {
+  .tiptapify-movable-handler {
     cursor: move;
   }
 

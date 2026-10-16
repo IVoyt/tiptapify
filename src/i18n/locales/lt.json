@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "alt",
+      "caption": "Paveikslėlio aprašas",
+      "caption_placeholder": "Pridėkite aprašą…",
       "dialog_title": "Pridėti/keisti paveikslą",
       "height": "Aukštis",
       "keep_ratio": "Išlaikyti proporciją",
@@ -121,6 +123,16 @@
     "indent": "Padidinti sąrašo elemento įtrauką",
     "numbered": "Numeruotas sąrašas",
     "outdent": "Sumažinti sąrašo elemento įtrauką",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Užduočių sąrašas"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Paveikslas",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Išorinė nuoroda",
+    "slider": "Slankiklis",
     "tables": {
       "col": "Stulpelis",
       "cols": "Stulpeliai",

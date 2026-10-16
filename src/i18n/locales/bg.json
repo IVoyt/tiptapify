@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Алтернативен текст",
+      "caption": "Надпис",
+      "caption_placeholder": "Добавете надпис…",
       "dialog_title": "Добави/редактирай изображение",
       "height": "Височина",
       "keep_ratio": "Пазене на пропорцията",
@@ -121,6 +123,16 @@
     "indent": "Увеличаване на отстъпа на елемент от списъка",
     "numbered": "Нумериран списък",
     "outdent": "Намаляване на отстъпа на елемент от списъка",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Списък със задачи"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Изображение",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Външен линк",
+    "slider": "Слайдер",
     "tables": {
       "col": "Колона",
       "cols": "Колони",

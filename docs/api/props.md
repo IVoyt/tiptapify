@@ -79,10 +79,11 @@ Show or hide the toolbar.
 - **Default:** `[]`
 
 Toolbar items to display. Pass an array of item names or an object with named sections. See [Toolbar Items](/api/toolbar-items).
+In an array, `'|'` splits the items into groups (in that order, whatever sections the buttons come from) and `'~'` pushes the items after it to the end of the toolbar. With groups, a name that is not a built-in item keeps a place for the custom button of that name from `customExtensions`; without such a button the place is dropped.
 
 ```vue
 <!-- Array -->
-<Tiptapify :items="['bold', 'italic', 'underline', '|', 'undo', 'redo']" />
+<Tiptapify :items="['bold', 'italic', 'underline', '~', 'undo', 'redo']" />
 
 <!-- Object with sections -->
 <Tiptapify :items="{ format: ['bold', 'italic'], misc: ['undo', 'redo'] }" />
@@ -571,6 +572,17 @@ Height of the loading progress bar.
 
 ```vue
 <Tiptapify :loading-height="'4px'" />
+```
+
+### `imageSlider`
+
+- **Type:** `Number`
+- **Default:** `0`
+
+From this many images in a row (nothing between them) the editor lays them out as a numbered three-column grid, for sites that show such images as a slider. `0` turns it off.
+
+```vue
+<Tiptapify :image-slider="3" />
 ```
 
 ## Events

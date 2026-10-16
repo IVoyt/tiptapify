@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "대체 텍스트",
+      "caption": "캡션",
+      "caption_placeholder": "캡션 추가…",
       "dialog_title": "이미지 추가/편집",
       "height": "높이",
       "keep_ratio": "종횡비 유지",
@@ -121,6 +123,16 @@
     "indent": "들여쓰기 증가",
     "numbered": "번호 매기기 목록",
     "outdent": "들여쓰기 감소",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "작업 목록"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "이미지",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "외부 링크",
+    "slider": "슬라이더",
     "tables": {
       "col": "열",
       "cols": "열",

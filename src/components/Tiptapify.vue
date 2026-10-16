@@ -9,6 +9,7 @@ import { Editor, EditorContent } from '@tiptap/vue-3'
 import { TiptapifyAiOptions, TiptapifyAiResolvedOptions, TiptapifyEditor, TiptapifyFooterAlignment, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
+import ImageBubbleMenu from '@tiptapify/components/ImageBubbleMenu.vue'
 
 import { useI18n } from 'vue-i18n'
 
@@ -49,6 +50,8 @@ const props = defineProps({
   loading: { type: Boolean, default() { return false } },
   loadingColor: { type: String, default() { return 'default' } },
   loadingHeight: { type: String, default() { return '1px' } },
+  // From this many images in a row the editor shows them as a slider grid; 0 turns it off
+  imageSlider: { type: Number, default() { return 0 } },
 })
 
 const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed'])
@@ -135,9 +138,17 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
         getJSON: () => editorInstance.getJSON(),
       })
     },
+    {
+      captionPlaceholder: t('dialog.image.caption_placeholder'),
+      sliderMinImages: props.imageSlider,
+      sliderLabel: t('media.slider'),
+    },
 )
 
 provide('tiptapifyEditor', editor)
+
+const scrollContainer = ref<HTMLElement | null>(null)
+provide('tiptapifyScrollContainer', scrollContainer)
 provide('tiptapifyI18n', { t })
 provide('tiptapifyAi', tiptapifyAi)
 provide(TIPTAPIFY_CONFIG_KEY, {
@@ -163,7 +174,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div :id="`tiptapify-editor-${editor?.instanceId}`">
-    <div :class="`border border-t-0 rounded-t-${rounded} rounded-b-${rounded}`">
+    <div :class="`tiptapify-frame rounded-${rounded}`">
       <template v-if="toolbar">
         <Toolbar
           v-if="editor"
@@ -179,10 +190,12 @@ onBeforeUnmount(() => {
 
       <VProgressLinear v-model="loadingProgress" :color="loadingColor" :height="loadingHeight" :indeterminate="loading" />
 
-      <div class="pa-2 tiptapify-container resizable" :style="computeResizableHeight" @click="onContainerClick">
+      <div ref="scrollContainer" class="pa-2 tiptapify-container resizable" :style="computeResizableHeight" @click="onContainerClick">
         <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
 
         <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
+
+        <ImageBubbleMenu />
 
         <EditorContent :editor="editor" class="tiptapify-editor" />
       </div>
@@ -232,12 +245,21 @@ onBeforeUnmount(() => {
   --border: 1px solid var(--gray-2);
 }
 
+.tiptapify-frame {
+  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border-bottom-color: rgba(var(--v-border-color), calc(var(--v-border-opacity) * 1.6));
+  background: rgb(var(--v-theme-surface));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
 .resizable {
   resize: vertical;
   overflow: auto;
 }
 
 .tiptapify-container {
+  /* The containing block of the bubble menus, so they scroll with the text they belong to */
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -281,6 +303,8 @@ onBeforeUnmount(() => {
 
   /* List styles */
   ul, ol {
+    /* Next to a floated image the markers stay out of it */
+    display: flow-root;
     padding: 0 1rem;
     margin: 1.25rem 1rem 1.25rem 0.4rem;
 
@@ -518,91 +542,184 @@ onBeforeUnmount(() => {
     display: block;
   }
 
-  [data-node="image"].has-focus {
+  /* Image with the caption under it (see extensions/components/media/image/caption.ts) */
+  .tiptapify-image {
+    --tiptapify-image-max-height: 400px;
+
+    flex-direction: column;
+    gap: 4px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 1rem 0;
+
+    /* Never wider than the text, never taller than the max height: big photos stay out of the way */
+    img {
+      max-width: 100%;
+      height: auto !important;
+      margin: 0;
+      border-radius: 4px;
+      background: rgba(var(--v-theme-on-surface), 0.04);
+    }
+
+    [data-resize-wrapper] {
+      max-width: min(100%, calc(var(--tiptapify-image-max-height) * var(--tiptapify-image-ratio, 100)));
+      border-radius: 4px;
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      transition: outline-color 0.15s;
+    }
+
+    /* One block: hovering outlines it, a click selects it and shows its toolbar */
+    img {
+      cursor: pointer;
+    }
+
+    &:hover [data-resize-wrapper] {
+      outline-color: rgba(var(--v-theme-primary), 0.35);
+    }
+
+    &.ProseMirror-selectednode [data-resize-wrapper] {
+      outline-color: rgb(var(--v-theme-primary));
+    }
+
+    /* Centered unless floated; a floated image lets the text wrap around it */
+    &:not([data-align]):not(.tiptapify-slide) {
+      align-items: center;
+      margin-inline: auto;
+
+      .tiptapify-image-caption {
+        text-align: center;
+      }
+    }
+
+    &[data-align='left'],
+    &[data-align='right'] {
+      max-width: 50%;
+      margin-top: 0.25rem;
+    }
+
+    &[data-align='left'] {
+      float: left;
+      margin-right: 1.25rem;
+    }
+
+    &[data-align='right'] {
+      float: right;
+      margin-left: 1.25rem;
+    }
+  }
+
+  /* Images in a row shown as a slider (extensions/components/media/image/slider.ts): a numbered grid */
+  .tiptapify-image.tiptapify-slide {
+    position: relative;
+    display: inline-flex !important;
+    box-sizing: border-box;
+    width: calc(100% / 3);
+    margin: 0;
+    padding: 8px 6px;
+    vertical-align: top;
+    background: rgba(var(--v-theme-primary), 0.06);
+
+    [data-resize-wrapper] {
+      width: 100%;
+    }
+
+    img {
+      width: 100% !important;
+      max-width: none;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
     [data-resize-handle] {
+      display: none !important;
+    }
+
+    &::before {
       position: absolute;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 2px;
-      z-index: 10;
+      top: 14px;
+      left: 12px;
+      z-index: 1;
+      padding: 0 6px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      content: attr(data-slide-label);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 20px;
+      pointer-events: none;
+    }
+  }
 
-      &:hover {
-        background: rgba(0, 0, 0, 0.8);
-      }
+  &:has(.tiptapify-slide) {
+    container-type: inline-size;
+  }
 
-      /* Corner handles */
-      &[data-resize-handle='top-left'],
-      &[data-resize-handle='top-right'],
-      &[data-resize-handle='bottom-left'],
-      &[data-resize-handle='bottom-right'] {
-        width: 8px;
-        height: 8px;
-      }
+  /* The caret between two slides: a vertical line at the edge of the slide before it */
+  .tiptapify-slide + .ProseMirror-gapcursor:has(+ .tiptapify-slide) {
+    display: inline-block;
 
-      &[data-resize-handle='top-left'] {
-        top: -4px;
-        left: -4px;
-        cursor: nwse-resize;
-      }
+    &::after {
+      top: 8px;
+      width: 0;
+      height: calc((100cqw / 3 - 12px) * 0.75);
+      border-top: 0;
+      border-left: 2px solid currentColor;
+    }
+  }
 
-      &[data-resize-handle='top-right'] {
-        top: -4px;
-        right: -4px;
-        cursor: nesw-resize;
-      }
+  .tiptapify-image-caption {
+    width: 100%;
+    min-width: 0;
+    padding: 2px 0 3px;
+    border: 0;
+    border-bottom: 1px dashed transparent;
+    background: transparent;
+    color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+    font: inherit;
+    font-size: 0.875em;
+    outline: none;
+    transition: border-color 0.15s;
 
-      &[data-resize-handle='bottom-left'] {
-        bottom: -4px;
-        left: -4px;
-        cursor: nesw-resize;
-      }
-
-      &[data-resize-handle='bottom-right'] {
-        bottom: -4px;
-        right: -4px;
-        cursor: nwse-resize;
-      }
-
-      /* Edge handles */
-      &[data-resize-handle='top'],
-      &[data-resize-handle='bottom'] {
-        height: 6px;
-        left: 8px;
-        right: 8px;
-      }
-
-      &[data-resize-handle='top'] {
-        top: -3px;
-        cursor: ns-resize;
-      }
-
-      &[data-resize-handle='bottom'] {
-        bottom: -3px;
-        cursor: ns-resize;
-      }
-
-      &[data-resize-handle='left'],
-      &[data-resize-handle='right'] {
-        width: 6px;
-        top: 8px;
-        bottom: 8px;
-      }
-
-      &[data-resize-handle='left'] {
-        left: -3px;
-        cursor: ew-resize;
-      }
-
-      &[data-resize-handle='right'] {
-        right: -3px;
-        cursor: ew-resize;
-      }
+    &::placeholder {
+      color: rgba(var(--v-theme-on-surface), var(--v-disabled-opacity));
     }
 
-    [data-resize-state='true'] [data-resize-wrapper] {
-      outline: 1px solid rgba(0, 0, 0, 0.25);
-      border-radius: 0.125rem;
+    &:hover:not(:disabled),
+    &:focus {
+      border-bottom-color: rgba(var(--v-border-color), 0.4);
     }
+
+    &:disabled:placeholder-shown {
+      display: none;
+    }
+  }
+
+  /* Resize handles of a selected image: dots on its corners and edge middles */
+  [data-node='image'] [data-resize-handle] {
+    display: none;
+  }
+
+  [data-node='image'].ProseMirror-selectednode [data-resize-handle] {
+    position: absolute;
+    z-index: 10;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgb(var(--v-theme-surface));
+    border-radius: 50%;
+    background: rgb(var(--v-theme-primary));
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+
+    &[data-resize-handle='top-left'] { top: -5px !important; left: -5px !important; cursor: nwse-resize; }
+    &[data-resize-handle='top-right'] { top: -5px !important; right: -5px !important; left: auto !important; cursor: nesw-resize; }
+    &[data-resize-handle='bottom-left'] { bottom: -5px !important; left: -5px !important; top: auto !important; cursor: nesw-resize; }
+    &[data-resize-handle='bottom-right'] { right: -5px !important; bottom: -5px !important; top: auto !important; left: auto !important; cursor: nwse-resize; }
+    &[data-resize-handle='top'] { top: -5px !important; left: calc(50% - 5px) !important; right: auto !important; cursor: ns-resize; }
+    &[data-resize-handle='bottom'] { bottom: -5px !important; top: auto !important; left: calc(50% - 5px) !important; right: auto !important; cursor: ns-resize; }
+    &[data-resize-handle='left'] { left: -5px !important; top: calc(50% - 5px) !important; bottom: auto !important; cursor: ew-resize; }
+    &[data-resize-handle='right'] { right: -5px !important; left: auto !important; top: calc(50% - 5px) !important; bottom: auto !important; cursor: ew-resize; }
   }
 }
 
@@ -622,7 +739,7 @@ onBeforeUnmount(() => {
  */
 .tiptapify-dialog-grid {
   display: grid;
-  gap: 24px;
+  gap: 16px;
   grid-template-columns: repeat(12, minmax(0, 1fr));
 
   > .tiptapify-dialog-col {

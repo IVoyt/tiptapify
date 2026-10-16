@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alternativ tekst",
+      "caption": "Bildetekst",
+      "caption_placeholder": "Legg til bildetekst…",
       "dialog_title": "Legg til/rediger bilde",
       "height": "Høyde",
       "keep_ratio": "Behold proporsjon",
@@ -121,6 +123,16 @@
     "indent": "Innrykk i listepunkt",
     "numbered": "Nummerert liste",
     "outdent": "Utrrykk i listepunkt",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Oppgaveliste"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Bilde",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Eksterne lenke",
+    "slider": "Lysbildefremvisning",
     "tables": {
       "col": "Kolonne",
       "cols": "Kolonner",

@@ -8,6 +8,13 @@ import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import { computed, inject, Ref } from 'vue'
 
 import { ComposerTranslation } from 'vue-i18n'
+import ListStyleButton from '@tiptapify/extensions/components/list/styles/ListStyleButton.vue'
+import { orderedListStyles } from '@tiptapify/extensions/components/list/styles'
+
+defineProps({
+  // The numbering styles dropdown (`orderedList:styles`)
+  withStyles: { type: Boolean, default: false },
+})
 
 const { variantBtn } = useTiptapifyConfig()
 
@@ -25,7 +32,19 @@ const buttonDisabled = computed(() => {
 </script>
 
 <template>
+  <ListStyleButton
+    v-if="withStyles"
+    list-type="orderedList"
+    :icon="mdi.mdiFormatListNumbered"
+    :label="t('lists.numbered')"
+    hotkey="Mod-Shift-7"
+    :presets="orderedListStyles"
+    :disabled="buttonDisabled"
+    @toggle="editor.commands.toggleOrderedList()"
+  />
+
   <VBtn
+    v-else
     :color="editor.isActive('orderedList') ? 'primary' : ''"
     :disabled="buttonDisabled"
     :variant="variantBtn"

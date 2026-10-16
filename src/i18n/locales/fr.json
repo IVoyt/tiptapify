@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "alt",
+      "caption": "Légende",
+      "caption_placeholder": "Ajouter une légende…",
       "dialog_title": "Ajouter/modifier l'image",
       "height": "Hauteur",
       "keep_ratio": "Conserver le ratio d'aspect",
@@ -121,6 +123,16 @@
     "indent": "Augmenter l'indentation de l'élément",
     "numbered": "Liste numérotée",
     "outdent": "Diminuer l'indentation de l'élément",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Liste de tâches"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Image",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Lien externe",
+    "slider": "Carrousel",
     "tables": {
       "col": "Colonne",
       "cols": "Colonnes",

@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alternativni opis",
+      "caption": "Opis slike",
+      "caption_placeholder": "Dodajte opis slike…",
       "dialog_title": "Dodaj/uredi sliku",
       "height": "Visina",
       "keep_ratio": "Očuvaj odnos",
@@ -121,6 +123,16 @@
     "indent": "Udubljenje stavke liste",
     "numbered": "Numerisana lista",
     "outdent": "Izbacivanje stavke liste",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Lista zadataka"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Slika",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Vanjska veza",
+    "slider": "Slajder",
     "tables": {
       "col": "Kolona",
       "cols": "Kolone",

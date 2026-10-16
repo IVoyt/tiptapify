@@ -57,16 +57,16 @@ function showFooter() {
     <VRow>
       <VCol class="d-flex align-center" :class="`justify-${alignment}`">
         <template v-if="limit > 0">
-          <VTooltip :open-delay="1500">
+          <VTooltip :open-delay="200" location="top">
             <template #default>
               <span v-html="limitText" />
             </template>
             <template #activator="{ props }">
+              <span class="tiptapify-footer--limit" v-bind="props" :aria-label="limitText.replace('<br>', ': ')">
               <svg
                 height="25"
                 width="25"
                 viewBox="0 0 20 20"
-                v-bind="props"
                 :class="{
                   'character-count': true,
                   'character-count--alert': percentage > 75,
@@ -86,6 +86,8 @@ function showFooter() {
                 />
                 <circle r="6" cx="10" cy="10" fill="white" />
               </svg>
+              <span class="tiptapify-footer--status-item">{{ Math.min(percentage, 999) }}%</span>
+              </span>
             </template>
           </VTooltip>
 
@@ -111,6 +113,14 @@ function showFooter() {
 
 .tiptapify-footer--status-item {
   color: #999;
+}
+
+/* The limit ring with its percentage; the tooltip spells out the limit */
+.tiptapify-footer--limit {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: help;
 }
 
 .tiptapify-footer--divider:not(:last-child) {

@@ -26,7 +26,7 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
     @click="editor.chain().focus().undo().run()"
   >
     <Tooltip :label="t('action.undo')" hotkey="Mod-z" />
-    <BtnIcon :icon="`mdiSvg:${mdi.mdiUndo}`" />
+    <BtnIcon :icon="`mdiSvg:${mdi.mdiUndoVariant}`" />
   </VBtn>
 </template>
 

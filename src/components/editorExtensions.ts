@@ -17,7 +17,6 @@ import { HardBreak } from '@tiptap/extension-hard-break'
 import { HorizontalRule } from '@tiptap/extension-horizontal-rule'
 import { Typography } from '@tiptap/extension-typography'
 import { Highlight } from '@tiptap/extension-highlight'
-import { Image } from '@tiptap/extension-image'
 import { Youtube } from '@tiptap/extension-youtube'
 import { Superscript } from '@tiptap/extension-superscript'
 import { Subscript } from '@tiptap/extension-subscript'
@@ -29,7 +28,10 @@ import { InvisibleCharacters } from '@tiptap/extension-invisible-characters'
 
 import { default as Iframe } from '@tiptapify/extensions/components/media/iframe'
 import { BulletListCircle, BulletListSquare } from '@tiptapify/extensions/components/list/bullet'
+import { ListStyle } from '@tiptapify/extensions/components/list/styles'
 import { TiptapifyImage } from '@tiptapify/extensions/components/media/image'
+import { ImageWithCaption } from '@tiptapify/extensions/components/media/image/caption'
+import { ImageSlider } from '@tiptapify/extensions/components/media/image/slider'
 import { TiptapifyLink } from '@tiptapify/extensions/components/media/link'
 import { TiptapifyVideo } from '@tiptapify/extensions/components/media/video'
 import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
@@ -52,7 +54,22 @@ const lowlight = createLowlight(common)
 // register language example
 // lowlight.register('ts', ts)
 
-export function editorExtensions (placeholder: string, slashCommands: SlashCommandsConfig, customExtensions: toolbarSections, limit: number | null = null) {
+export interface TiptapifyImageOptions {
+  captionPlaceholder: string
+  // Images in a row from which the site shows a slider; 0 disables the slider grid
+  sliderMinImages: number
+  sliderLabel: string
+}
+
+const defaultImageOptions: TiptapifyImageOptions = { captionPlaceholder: '', sliderMinImages: 0, sliderLabel: '' }
+
+export function editorExtensions (
+  placeholder: string,
+  slashCommands: SlashCommandsConfig,
+  customExtensions: toolbarSections,
+  limit: number | null = null,
+  imageOptions: TiptapifyImageOptions = defaultImageOptions,
+) {
   const characterCount = limit && limit > 0 ? CharacterCount.configure({ limit }) : CharacterCount
 
   const extensions = [
@@ -65,7 +82,12 @@ export function editorExtensions (placeholder: string, slashCommands: SlashComma
     Bold,
     Italic,
     Strike,
-    Link,
+    // A click on a link in the text selects it for editing instead of opening it
+    Link.configure({
+      openOnClick: false,
+      enableClickSelection: true,
+      defaultProtocol: 'https',
+    }),
     Blockquote,
     OrderedList,
     BulletList,
@@ -83,11 +105,17 @@ export function editorExtensions (placeholder: string, slashCommands: SlashComma
       openOnClick: false,
       defaultProtocol: 'https'
     }),
-    Image.configure({
+    ImageWithCaption.configure({
       resize: {
         enabled: true,
         alwaysPreserveAspectRatio: true,
+        directions: ['top', 'right', 'bottom', 'left', 'top-left', 'top-right', 'bottom-left', 'bottom-right'],
       },
+      captionPlaceholder: imageOptions.captionPlaceholder,
+    }),
+    ImageSlider.configure({
+      minImages: imageOptions.sliderMinImages,
+      label: imageOptions.sliderLabel,
     }),
     Youtube.configure({
       controls: true,
@@ -117,7 +145,8 @@ export function editorExtensions (placeholder: string, slashCommands: SlashComma
       visible: false,
     }),
     BulletListCircle,
-    BulletListSquare
+    BulletListSquare,
+    ListStyle,
   ]
 
   if (slashCommands !== false) {

@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alternatiivne tekst",
+      "caption": "Pildiallkiri",
+      "caption_placeholder": "Lisa pildiallkiri…",
       "dialog_title": "Lisa/redigeeri pilt",
       "height": "Kõrgus",
       "keep_ratio": "Säilita suhe",
@@ -121,6 +123,16 @@
     "indent": "Nimekirja elemendi sammu lisamine",
     "numbered": "Numbreeritud nimekiri",
     "outdent": "Nimekirja elemendi sammu eemaldamine",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Ülesannete nimekiri"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Pilt",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Väline link",
+    "slider": "Slaider",
     "tables": {
       "col": "Veerg",
       "cols": "Veerud",

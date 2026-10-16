@@ -150,7 +150,7 @@ onUnmounted(() => {
             <VTextField
               v-model="attrs.title"
               density="comfortable"
-              :label="t('dialog.image.title')"
+              :label="t('dialog.image.caption')"
             />
           </div>
         </div>

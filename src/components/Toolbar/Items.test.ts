@@ -4,6 +4,7 @@ import { renderToString } from 'vue/server-renderer'
 import { createVuetify } from 'vuetify'
 import Items from '@tiptapify/components/Toolbar/Items.vue'
 import HeadingButton from '@tiptapify/extensions/components/style/heading/Button.vue'
+import AlignmentMenuButton from '@tiptapify/extensions/components/alignment/menu/Button.vue'
 import { headingLevels } from '@tiptapify/constants/style'
 
 const editor = {
@@ -71,5 +72,28 @@ describe('Toolbar Items', () => {
 
     expect(html).not.toContain('tiptapify-heading-button-1')
     expect(html.match(/<button/g)).toHaveLength(3)
+  })
+
+  it('renders a spacer that pushes the next items to the end', async () => {
+    const { html } = await renderToolbar([
+      items[0],
+      { section: '__spacer__', group: false, components: [] },
+      { section: 'actions', group: true, components: [{ name: 'heading', component: HeadingButton }] },
+    ])
+
+    expect(html).toContain('tiptapify-toolbar-spacer')
+  })
+
+  it('renders the alignment dropdown with the chosen alignments', async () => {
+    const { html } = await renderToolbar([
+      {
+        section: 'alignment',
+        group: true,
+        components: [{ name: 'align', component: AlignmentMenuButton, props: { alignments: ['left', 'center'] } }],
+      },
+    ])
+
+    expect(html).toContain('tiptapify-align-button-1')
+    expect(html).toContain('tiptapify-dropdown-button__chevron')
   })
 })

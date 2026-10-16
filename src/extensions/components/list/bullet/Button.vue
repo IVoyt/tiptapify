@@ -8,8 +8,12 @@ import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import { computed, inject, ref, Ref, watch } from 'vue'
 
 import { ComposerTranslation } from 'vue-i18n'
+import ListStyleButton from '@tiptapify/extensions/components/list/styles/ListStyleButton.vue'
+import { bulletListStyles } from '@tiptapify/extensions/components/list/styles'
 
 const props = defineProps({
+  // The marker styles dropdown (`bulletList:styles`) instead of the separate list types below
+  withStyles: { type: Boolean, default: false },
   withDisc: { type: Boolean, default: true },
   withCircle: { type: Boolean, default: true },
   withSquare: { type: Boolean, default: true }
@@ -83,7 +87,18 @@ watch(() => bulletLists.value, () => {
 </script>
 
 <template>
-  <VMenu v-if="isMenu">
+  <ListStyleButton
+    v-if="withStyles"
+    list-type="bulletList"
+    :icon="mdi.mdiFormatListBulleted"
+    :label="t('lists.bullet')"
+    hotkey="Mod-Shift-8"
+    :presets="bulletListStyles"
+    :disabled="!editor.can().chain().focus().toggleBulletList().run()"
+    @toggle="editor.commands.toggleBulletList()"
+  />
+
+  <VMenu v-else-if="isMenu" content-class="tiptapify-menu">
     <template #activator="{ props: menuProps }">
       <VBtn
         :color="buttonActive ? 'primary' : ''"

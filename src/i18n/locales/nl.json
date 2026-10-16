@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "alt",
+      "caption": "Bijschrift",
+      "caption_placeholder": "Voeg een bijschrift toe…",
       "dialog_title": "Afbeelding toevoegen/wijzigen",
       "height": "Hoogte",
       "keep_ratio": "Verhouding behouden",
@@ -121,6 +123,16 @@
     "indent": "Inspringing verhogen",
     "numbered": "Genummerde lijst",
     "outdent": "Inspringing verlagen",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Takenlijst"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Afbeelding",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Externe link",
+    "slider": "Slider",
     "tables": {
       "col": "Kolom",
       "cols": "Kolommen",

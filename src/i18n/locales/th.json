@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "ข้อความทางเลือก",
+      "caption": "คำบรรยายภาพ",
+      "caption_placeholder": "เพิ่มคำบรรยายภาพ…",
       "dialog_title": "เพิ่ม/แก้ไขรูปภาพ",
       "height": "ความสูง",
       "keep_ratio": "รักษาสัดส่วน",
@@ -121,6 +123,16 @@
     "indent": "เพิ่มการเยื้อง",
     "numbered": "รายการแบบมีหมายเลข",
     "outdent": "ลดการเยื้อง",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "รายการงาน"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "กรอบฝังตัว",
     "image": "รูปภาพ",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "ลิงก์ภายนอก",
+    "slider": "สไลด์",
     "tables": {
       "col": "คอลัมน์",
       "cols": "คอลัมน์",

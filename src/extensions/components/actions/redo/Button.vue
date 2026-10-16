@@ -26,7 +26,7 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
     @click="editor.chain().focus().redo().run()"
   >
     <Tooltip :label="t('action.redo')" hotkey="Mod-Shift-z" />
-    <BtnIcon :icon="`mdiSvg:${mdi.mdiRedo}`" />
+    <BtnIcon :icon="`mdiSvg:${mdi.mdiRedoVariant}`" />
   </VBtn>
 </template>
 

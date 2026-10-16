@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alternatif metin",
+      "caption": "Açıklama",
+      "caption_placeholder": "Açıklama ekleyin…",
       "dialog_title": "Görsel ekle/düzenle",
       "height": "Yükseklik",
       "keep_ratio": "En boy oranını koru",
@@ -121,6 +123,16 @@
     "indent": "Girintiyi artır",
     "numbered": "Numaralı liste",
     "outdent": "Girintiyi azalt",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Görev listesi"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "Görsel",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Harici bağlantı",
+    "slider": "Slayt",
     "tables": {
       "col": "Sütun",
       "cols": "Sütunlar",

@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "نص بديل",
+      "caption": "التعليق",
+      "caption_placeholder": "أضف تعليقًا…",
       "dialog_title": "إضافة/تعديل صورة",
       "height": "الارتفاع",
       "keep_ratio": "الحفاظ على نسبة العرض إلى الارتفاع",
@@ -121,6 +123,16 @@
     "indent": "زيادة المسافة البادئة",
     "numbered": "قائمة مرقمة",
     "outdent": "تقليل المسافة البادئة",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "قائمة مهام"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "إطار مضمن",
     "image": "صورة",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "رابط خارجي",
+    "slider": "شرائح",
     "tables": {
       "col": "عمود",
       "cols": "أعمدة",

@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "טקסט חלופי",
+      "caption": "כיתוב",
+      "caption_placeholder": "הוסיפו כיתוב…",
       "dialog_title": "הוסף/ערוך תמונה",
       "height": "גובה",
       "keep_ratio": "שמור על יחס",
@@ -121,6 +123,16 @@
     "indent": "העמקה בפריט הרשימה",
     "numbered": "רשימה ממוספרת",
     "outdent": "הדקת פריט הרשימה",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "רשימת משימות"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "iframe",
     "image": "תמונה",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "קישור חיצוני",
+    "slider": "מצגת",
     "tables": {
       "col": "עמודה",
       "cols": "עמודות",

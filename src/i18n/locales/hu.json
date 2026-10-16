@@ -65,6 +65,8 @@
     },
     "image": {
       "alt": "Alternatív szöveg",
+      "caption": "Képaláírás",
+      "caption_placeholder": "Képaláírás hozzáadása…",
       "dialog_title": "Kép hozzáadása/szerkesztése",
       "height": "Magasság",
       "keep_ratio": "Arány megtartása",
@@ -121,6 +123,16 @@
     "indent": "Behúzás növelése",
     "numbered": "Számjegyzék",
     "outdent": "Behúzás csökkentése",
+    "styles": {
+      "circle": "Circle",
+      "default": "Default",
+      "lower_alpha": "Lower alpha",
+      "lower_greek": "Lower Greek",
+      "lower_roman": "Lower Roman",
+      "square": "Square",
+      "upper_alpha": "Upper alpha",
+      "upper_roman": "Upper Roman"
+    },
     "task": "Feladatok listája"
   },
   "media": {
@@ -161,7 +173,17 @@
     },
     "iframe": "keretlap",
     "image": "Kép",
+    "image_toolbar": {
+      "align_left": "Align left",
+      "align_right": "Align right",
+      "delete": "Remove",
+      "download": "Download",
+      "edit": "Edit or replace",
+      "move_back": "Move one slide back",
+      "move_forward": "Move one slide forward"
+    },
     "link": "Hivatkozás",
+    "slider": "Diavetítés",
     "tables": {
       "col": "Oszlop",
       "cols": "Oszlopok",
