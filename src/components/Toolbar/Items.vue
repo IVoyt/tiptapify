@@ -41,6 +41,9 @@ defineProps({
 
 <style lang="scss" scoped>
 .tiptapify-toolbar-items {
+  /* Vuetify sizes .v-toolbar-items to its content; grow it to the full toolbar width,
+   * otherwise the `~` spacer has no free space to expand into. */
+  flex-grow: 1;
   flex-wrap: wrap;
   align-items: center;
   gap: 4px 6px;
