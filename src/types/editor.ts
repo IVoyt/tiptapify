@@ -11,6 +11,105 @@ export type variantFieldTypes = 'outlined' | 'plain' | 'filled' | 'solo' | 'solo
 
 export type TiptapifyFooterAlignment = 'start' | 'center' | 'end'
 
+// The skin of the editor chrome: 'default' is the classic look, 'pastel' is the quiet 0.3.3 look
+export type TiptapifySkin = 'default' | 'pastel'
+
+// Structural variants a token cannot express (component markup, vuetify prop bindings).
+// The shape decides which skin rule sets apply; the tokens paint them.
+export type TiptapifyShape = {
+  // VToolbar elevation 1 + no inner hairline vs flat + tinted bar
+  toolbar?: 'raised' | 'flat'
+  // toolbar sections as raised boxes vs plain flex runs
+  groups?: 'box' | 'flat'
+  // native vuetify buttons vs ghost buttons with a neutral pressed state
+  buttons?: 'vuetify' | 'quiet'
+  // bubble menu: VCard + divided VBtnGroup vs flat row of quiet buttons
+  bubble?: 'card' | 'flat'
+  // divider under the title, elevated close, field defaults vs soft card, text close, outlined defaults
+  dialog?: 'classic' | 'soft'
+  // dropdown menus: vuetify list vs the light padded card
+  menu?: 'vuetify' | 'soft'
+}
+
+// The shape after resolution: every key set (missing keys fall back to classic)
+export type ResolvedShape = Required<TiptapifyShape>
+
+export type TiptapifySkinColors = {
+  toolbarBg: string
+  toolbarBorderBottom: string
+  toolbarFg: string
+  groupBg: string
+  groupShadow: string
+  dividerColor: string
+  buttonFg: string
+  buttonHoverBg: string
+  buttonHoverFg: string
+  buttonActiveBg: string
+  buttonActiveHoverBg: string
+  bubbleBg: string
+  bubbleBorder: string
+  bubbleShadow: string
+  menuBorder: string
+  menuShadow: string
+  menuItemActiveBg: string
+  dialogShadow: string
+  frameBg: string
+  frameShadow: string
+  frameBorder: string
+  imageBg: string
+  imageOutline: string
+  imageOutlineHover: string
+  handleBg: string
+  handleBgHover: string
+  handleBorder: string
+  handleShadow: string
+}
+
+export type TiptapifySkinMetrics = {
+  itemsPadding: string
+  itemsGap: string
+  itemsRowGap: string
+  groupGap: string
+  groupHeight: string
+  groupRadius: string
+  dividerWidth: string
+  dividerHeight: string
+  buttonRadius: string
+  bubbleRadius: string
+  bubblePadding: string
+  bubbleGap: string
+  menuListPadding: string
+  menuRadius: string
+  menuItemRadius: string
+  menuItemPadding: string
+  menuItemMinHeight: string
+  dialogRadius: string
+  dialogHeaderPadding: string
+  dialogContentPadding: string
+  dialogActionsPadding: string
+  dialogTitleSize: string
+  dialogTitleWeight: string
+  dialogFieldRadius: string
+  dialogActionBtnMinHeight: string
+  dialogActionBtnRadius: string
+  dialogGridGap: string
+  imageRadius: string
+  handleRadius: string
+}
+
+// A skin as data: token overrides + shape flags, inheriting from a registered skin
+export type TiptapifySkinConfig = TiptapifyShape & {
+  name?: string
+  // registered skin name; implicit 'default'
+  extends?: string
+  colors?: Partial<TiptapifySkinColors>
+  metrics?: Partial<TiptapifySkinMetrics>
+}
+
+// The `skin` prop: a registered name (string) or an inline object; inline objects
+// resolve through the same chain and never enter the global registry
+export type TiptapifySkinInput = string | TiptapifySkinConfig
+
 export type TiptapifyAiMode = 'insert' | 'replace' | 'append'
 
 export type TiptapifyAiPromptExample = {

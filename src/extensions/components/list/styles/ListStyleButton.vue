@@ -3,8 +3,10 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import SkinScope from '@tiptapify/components/SkinScope.vue'
 import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { menuContentClass } from '@tiptapify/skins/menu'
 import { ListStylePreset, ListType } from '@tiptapify/extensions/components/list/styles'
 import { inject, PropType, Ref } from 'vue'
 import { ComposerTranslation } from 'vue-i18n'
@@ -21,7 +23,7 @@ const props = defineProps({
 
 const emit = defineEmits(['toggle'])
 
-const { variantBtn } = useTiptapifyConfig()
+const { variantBtn, shape } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -49,7 +51,7 @@ function presetLabel(preset: ListStylePreset): string {
       <BtnIcon :icon="`mdiSvg:${icon}`" />
     </VBtn>
 
-    <VMenu content-class="tiptapify-menu">
+    <VMenu :content-class="menuContentClass(shape.menu === 'soft')">
       <template #activator="{ props: menuProps }">
         <VBtn
           class="tiptapify-list-style-button__chevron"
@@ -63,23 +65,25 @@ function presetLabel(preset: ListStylePreset): string {
         </VBtn>
       </template>
 
-      <div class="tiptapify-list-style-grid">
-        <button
-          v-for="preset in presets"
-          :key="preset.value ?? 'default'"
-          type="button"
-          class="tiptapify-list-style-grid__item"
-          :class="{ 'tiptapify-list-style-grid__item--active': isPresetActive(preset) }"
-          :title="presetLabel(preset)"
-          :aria-label="presetLabel(preset)"
-          @click="editor.chain().focus().setListStyle(listType, preset.value).run()"
-        >
-          <span v-for="(marker, index) in preset.markers" :key="index" class="tiptapify-list-style-grid__line">
-            <span class="tiptapify-list-style-grid__marker">{{ marker }}</span>
-            <span class="tiptapify-list-style-grid__bar" />
-          </span>
-        </button>
-      </div>
+      <SkinScope>
+        <div class="tiptapify-list-style-grid">
+          <button
+            v-for="preset in presets"
+            :key="preset.value ?? 'default'"
+            type="button"
+            class="tiptapify-list-style-grid__item"
+            :class="{ 'tiptapify-list-style-grid__item--active': isPresetActive(preset) }"
+            :title="presetLabel(preset)"
+            :aria-label="presetLabel(preset)"
+            @click="editor.chain().focus().setListStyle(listType, preset.value).run()"
+          >
+            <span v-for="(marker, index) in preset.markers" :key="index" class="tiptapify-list-style-grid__line">
+              <span class="tiptapify-list-style-grid__marker">{{ marker }}</span>
+              <span class="tiptapify-list-style-grid__bar" />
+            </span>
+          </button>
+        </div>
+      </SkinScope>
     </VMenu>
   </div>
 </template>
@@ -102,16 +106,12 @@ function presetLabel(preset: ListStylePreset): string {
 </style>
 
 <style lang="scss">
-/* Teleported with the menu, so not scoped */
+/* Teleported with the menu, so not scoped. The pastel skin of the grid lives in src/skins/menu.css. */
 .tiptapify-list-style-grid {
   display: grid;
   grid-template-columns: repeat(3, 64px);
   gap: 6px;
-  padding: 6px;
-  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
-  border-radius: 8px;
-  background: rgb(var(--v-theme-surface));
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 4px;
 }
 
 .tiptapify-list-style-grid__item {

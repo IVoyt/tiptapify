@@ -3,8 +3,10 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import SkinScope from '@tiptapify/components/SkinScope.vue'
 import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { menuContentClass } from '@tiptapify/skins/menu'
 import { inject, PropType, Ref } from 'vue'
 
 import { ComposerTranslation } from 'vue-i18n'
@@ -15,7 +17,7 @@ const props = defineProps({
   alignments: { type: Array as PropType<Alignment[]>, default: () => ['left', 'center', 'right', 'justify'] },
 })
 
-const { variantBtn } = useTiptapifyConfig()
+const { variantBtn, shape } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -48,21 +50,23 @@ function currentAlignmentIcon(): string {
     <BtnIcon :icon="`mdiSvg:${mdi.mdiChevronDown}`" class="tiptapify-dropdown-button__chevron" />
   </VBtn>
 
-  <VMenu :activator="`#tiptapify-align-button-${editor.instanceId}`" content-class="tiptapify-menu">
-    <VList density="compact">
-      <VListItem
-        v-for="alignment in alignments"
-        :key="alignment"
-        link
-        :active="editor.isActive({ textAlign: alignment })"
-        @click="editor.chain().focus().toggleTextAlign(alignment).run()"
-      >
-        <Tooltip :label="t(`alignments.${alignment}`)" :hotkey="alignmentOptions[alignment].hotkey" />
-        <template #prepend>
-          <BtnIcon :icon="`mdiSvg:${alignmentOptions[alignment].icon}`" />
-        </template>
-        <VListItemTitle>{{ t(`alignments.${alignment}`) }}</VListItemTitle>
-      </VListItem>
-    </VList>
+  <VMenu :activator="`#tiptapify-align-button-${editor.instanceId}`" :content-class="menuContentClass(shape.menu === 'soft')">
+    <SkinScope>
+      <VList density="compact">
+        <VListItem
+          v-for="alignment in alignments"
+          :key="alignment"
+          link
+          :active="editor.isActive({ textAlign: alignment })"
+          @click="editor.chain().focus().toggleTextAlign(alignment).run()"
+        >
+          <Tooltip :label="t(`alignments.${alignment}`)" :hotkey="alignmentOptions[alignment].hotkey" />
+          <template #prepend>
+            <BtnIcon :icon="`mdiSvg:${alignmentOptions[alignment].icon}`" />
+          </template>
+          <VListItemTitle>{{ t(`alignments.${alignment}`) }}</VListItemTitle>
+        </VListItem>
+      </VList>
+    </SkinScope>
   </VMenu>
 </template>

@@ -1,0 +1,87 @@
+/*
+ * Menu skin rules (spec 2026-10-18-skins-design.md, "Menu CSS strategy").
+ * Each tiptapify menu wraps its content in SkinScope: the scope div carries
+ * the skin tokens, so the menu rules hang off the content-class element
+ * through it. The soft block rides the `tiptapify-menu--soft` carrier, which
+ * the menu shape flag drives (`shape.menu === 'soft'`); tokens paint it, the
+ * fallbacks are the soft shape's base (the 0.3.3 look). Doubled classes: the
+ * admin theme pads menu lists and items with its own !important rules (the
+ * defense of the base commit).
+ *
+ * The five remaining !importants are the admin-theme defense set, kept
+ * deliberately (spec: "no new !important beyond what exists today"):
+ * - list `padding`, item `margin`, item `padding`: the consumer admin theme
+ *   pads Vuetify lists with its own !important rules (documented in the
+ *   Toolbar/Index.vue comment); token-reading does not beat !important,
+ *   only !important does.
+ * - spacer `width`: the admin theme sizes list spacers; the soft menu owns
+ *   this pixel (icon-to-label gap).
+ * - active item `color`: the admin theme repaints active list items
+ *   (`.v-list-item--active { color: ... !important }`-style rules); the
+ *   soft menu's high-emphasis text is part of the skin contract.
+ * Everything else (border, radius, shadow, min-height, active background) is
+ * plain specificity: the doubled classes + scope segment (0-5-0+) outrank
+ * Vuetify's component rules and need no !important.
+ */
+
+/*
+ * Classic skin: Vuetify's own `.v-menu > .v-overlay__content > .v-list` radius/elevation
+ * is a child rule (0-3-0), and the scope div inserts itself between them, so the child
+ * combinator no longer matches. This restoration rule re-arms those two pixels for the
+ * default menu (0-4-0 beats what the content class alone gets), reading the menu tokens
+ * with the fixture-canonical classic fallbacks. Under the soft shape the block below
+ * paints the same properties from the shape's base (equal specificity, later source order).
+ * The classic menu list is therefore a skin rule today: the reachability note "classic
+ * menu metrics = native Vuetify" holds for the item pixels only.
+ */
+.tiptapify-menu > .tiptapify-skin-scope > .v-list.v-list {
+  border-radius: var(--tf-menu-radius, 4px);
+  box-shadow: var(--tf-menu-shadow, 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12));
+}
+
+.tiptapify-menu--soft > .tiptapify-skin-scope > .v-list.v-list {
+  padding: var(--tf-menu-list-padding, 4px) !important;
+  border: var(--tf-menu-border, 1px solid rgba(var(--v-border-color), var(--v-border-opacity)));
+  border-radius: var(--tf-menu-radius, 8px);
+  box-shadow: var(--tf-menu-shadow, 0 4px 16px rgba(0, 0, 0, 0.08));
+}
+
+.tiptapify-menu--soft > .tiptapify-skin-scope > .v-list.v-list > .v-list-item.v-list-item {
+  min-height: var(--tf-menu-item-min-height, 34px);
+  margin: 0 !important;
+  padding: var(--tf-menu-item-padding, 4px 8px) !important;
+  border-radius: var(--tf-menu-item-radius, 6px);
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+}
+
+.tiptapify-menu--soft > .tiptapify-skin-scope > .v-list.v-list > .v-list-item.v-list-item .v-list-item__prepend > .v-icon {
+  margin-inline-end: 0;
+  opacity: 0.6;
+}
+
+.tiptapify-menu--soft > .tiptapify-skin-scope > .v-list.v-list > .v-list-item.v-list-item .v-list-item__spacer {
+  width: 10px !important;
+}
+
+.tiptapify-menu--soft > .tiptapify-skin-scope > .v-list.v-list > .v-list-item.v-list-item .v-list-item-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tiptapify-menu--soft > .tiptapify-skin-scope > .v-list.v-list > .v-list-item.v-list-item.v-list-item--active {
+  background: var(--tf-menu-item-active-bg, rgba(var(--v-theme-on-surface), 0.06));
+  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity)) !important;
+}
+
+.tiptapify-menu--soft > .tiptapify-skin-scope > .v-list.v-list > .v-list-item.v-list-item.v-list-item--active > .v-list-item__overlay {
+  opacity: 0;
+}
+
+/* The list-style grid inside the soft menu; the feature layout stays in ListStyleButton.vue */
+.tiptapify-menu--soft > .tiptapify-skin-scope > .tiptapify-list-style-grid {
+  padding: 6px;
+  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border-radius: 8px;
+  background: rgb(var(--v-theme-surface));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}

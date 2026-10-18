@@ -4,6 +4,7 @@ import { computed, inject, Ref, ref } from 'vue'
 import { BubbleMenu } from '@tiptap/vue-3/menus'
 import { NodeSelection } from '@tiptap/pm/state'
 import * as mdi from '@mdi/js'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 
 defineProps({
   variant: { type: String, default () { return 'flat' } },
@@ -11,6 +12,10 @@ defineProps({
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
+
+// The bubble shape picks the markup: a flat row of buttons vs the classic card; the quiet
+// buttons carrier rides the buttons shape flag
+const { shape } = useTiptapifyConfig()
 
 // The menu follows its text or image when the editor scrolls inside its own box; it is created once the
 // box is there, as the menu reads its options only when it is created
@@ -109,7 +114,11 @@ const items = ref([
       return (from !== to) && !isAllSelected
     }"
   >
-    <div class="tiptapify-bubble-menu tiptapify-quiet-buttons">
+    <div
+      v-if="shape.bubble === 'flat'"
+      class="tiptapify-bubble-menu"
+      :class="{ 'tiptapify-quiet-buttons': shape.buttons === 'quiet' }"
+    >
       <VBtn
         v-for="(item, key) in items"
         :key="key"
@@ -123,18 +132,47 @@ const items = ref([
         <VIcon :icon="item.icon" size="20" />
       </VBtn>
     </div>
+
+    <!-- The classic bubble menu: a small card with a divided group of compact buttons -->
+    <div v-else class="bubble-menu">
+      <VCard>
+        <VCardText class="pa-0">
+          <VToolbar :theme="theme" density="compact" height="auto" class="p-0">
+            <VToolbarItems>
+              <VBtnGroup divided density="compact">
+                <VBtn v-for="(item, key) in items" :key="key" v-bind="item.props" size="x-small" @click="item.click">
+                  <VIcon :icon="item.icon" size="20" />
+                </VBtn>
+              </VBtnGroup>
+            </VToolbarItems>
+          </VToolbar>
+        </VCardText>
+      </VCard>
+    </div>
   </BubbleMenu>
 </template>
 
 <style scoped lang="scss">
+/*
+ * Bubble skin rules: one rule per shape branch, reading `var(--tf-*)`.
+ * The template branch is the shape gate (`bubble: card` renders the classic card,
+ * `bubble: flat` the quiet row), so each rule carries its shape's base as fallback.
+ * The classic card's background/border/padding/gap are VCard/VToolbar layout (not
+ * token dimensions); the flat row paints them from tokens.
+ */
+.bubble-menu {
+  border-radius: var(--tf-bubble-radius, 6px);
+  box-shadow: var(--tf-bubble-shadow, 4px 4px 20px var(--dark-gray));
+}
+
 .tiptapify-bubble-menu {
   display: flex;
   align-items: center;
-  gap: 2px;
-  padding: 4px;
-  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
-  border-radius: 10px;
-  background: rgb(var(--v-theme-surface));
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  gap: var(--tf-bubble-gap, 2px);
+  padding: var(--tf-bubble-padding, 4px);
+  border: var(--tf-bubble-border, 1px solid rgba(var(--v-border-color), var(--v-border-opacity)));
+  border-radius: var(--tf-bubble-radius, 10px);
+  background: var(--tf-bubble-bg, rgb(var(--v-theme-surface)));
+  box-shadow: var(--tf-bubble-shadow, 0 6px 20px rgba(0, 0, 0, 0.12));
 }
 </style>

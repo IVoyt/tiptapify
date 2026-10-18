@@ -6,7 +6,15 @@ import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
 import { computed, onBeforeUnmount, PropType, provide, ref, ShallowRef, toRef } from 'vue'
 import { default as Toolbar } from '@tiptapify/components/Toolbar/Index.vue'
 import { Editor, EditorContent } from '@tiptap/vue-3'
-import { TiptapifyAiOptions, TiptapifyAiResolvedOptions, TiptapifyEditor, TiptapifyFooterAlignment, variantBtnTypes, variantFieldTypes } from '@tiptapify/types/editor'
+import {
+  TiptapifyAiOptions,
+  TiptapifyAiResolvedOptions,
+  TiptapifyEditor,
+  TiptapifyFooterAlignment,
+  TiptapifySkinInput,
+  variantBtnTypes,
+  variantFieldTypes
+} from '@tiptapify/types/editor'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 import ImageBubbleMenu from '@tiptapify/components/ImageBubbleMenu.vue'
@@ -15,6 +23,7 @@ import { useI18n } from 'vue-i18n'
 
 import { getTiptapEditor } from '@tiptapify/components/index'
 import { TIPTAPIFY_CONFIG_KEY } from '@tiptapify/composables/useTiptapifyConfig'
+import { resolveSkin } from '@tiptapify/skins/registry'
 import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
 
 import Footer from '@tiptapify/components/Footer.vue'
@@ -52,6 +61,8 @@ const props = defineProps({
   loadingHeight: { type: String, default() { return '1px' } },
   // From this many images in a row the editor shows them as a slider grid; 0 turns it off
   imageSlider: { type: Number, default() { return 0 } },
+  // The skin of the editor chrome: a registered name ('default', 'pastel') or an inline skin object
+  skin: { type: [String, Object] as PropType<TiptapifySkinInput>, default() { return defaults.skin } },
 })
 
 const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed'])
@@ -151,9 +162,33 @@ const scrollContainer = ref<HTMLElement | null>(null)
 provide('tiptapifyScrollContainer', scrollContainer)
 provide('tiptapifyI18n', { t })
 provide('tiptapifyAi', tiptapifyAi)
+// The skin prop resolves through the registry; computed refs so a prop change
+// re-resolves tokens and shape without an editor re-render
+const resolvedSkin = computed(() => resolveSkin(props.skin))
+
+// The shape classes: `.tiptapify-shape-{flag}-{value}` for all six flags, so CSS gates on
+// shape (not on the skin name); templates read the computed refs. The name class stays
+// as the escape hatch for consumer CSS.
+const shapeClasses = computed(() => {
+  const shape = resolvedSkin.value.shape
+
+  return [
+    `tiptapify-shape-toolbar-${shape.toolbar}`,
+    `tiptapify-shape-groups-${shape.groups}`,
+    `tiptapify-shape-buttons-${shape.buttons}`,
+    `tiptapify-shape-bubble-${shape.bubble}`,
+    `tiptapify-shape-dialog-${shape.dialog}`,
+    `tiptapify-shape-menu-${shape.menu}`,
+  ].join(' ')
+})
+
 provide(TIPTAPIFY_CONFIG_KEY, {
   variantBtn: toRef(props, 'variantBtn'),
   variantField: toRef(props, 'variantField'),
+  skin: toRef(props, 'skin'),
+  skinName: computed(() => resolvedSkin.value.name),
+  tokens: computed(() => resolvedSkin.value.tokens),
+  shape: computed(() => resolvedSkin.value.shape),
 })
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
@@ -173,7 +208,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div :id="`tiptapify-editor-${editor?.instanceId}`">
+  <div
+    :id="`tiptapify-editor-${editor?.instanceId}`"
+    :class="[resolvedSkin.className, shapeClasses]"
+    :style="resolvedSkin.tokens"
+  >
     <div :class="`tiptapify-frame rounded-${rounded}`">
       <template v-if="toolbar">
         <Toolbar
@@ -245,11 +284,28 @@ onBeforeUnmount(() => {
   --border: 1px solid var(--gray-2);
 }
 
+/*
+ * The frame: one rule, skin-agnostic, reading the frame tokens (classic fallbacks).
+ * The classic shape keeps `border-top: 0`: the raised toolbar sits on the frame's top
+ * edge, so no line is needed there. The per-side deltas of the flat shape (full border,
+ * bottom edge at 1.6x border opacity) are a property of that shape, not of any one
+ * skin, so the gate is the toolbar shape class. `--tf-frame-border` is the shorthand
+ * for all sides; the bottom emphasis composes from Vuetify's border-opacity (it is a
+ * shading rule, not a catalog token).
+ */
 .tiptapify-frame {
-  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border: var(--tf-frame-border, 1px solid rgba(var(--v-border-color), var(--v-border-opacity)));
+  border-top: 0;
+  background: var(--tf-frame-bg, transparent);
+  box-shadow: var(--tf-frame-shadow, none);
+}
+
+.tiptapify-shape-toolbar-flat .tiptapify-frame {
+  /* A flat toolbar lives inside the frame: the top edge closes like the other sides... */
+  border-top: var(--tf-frame-border, 1px solid rgba(var(--v-border-color), var(--v-border-opacity)));
+
+  /* ...and the bottom edge carries the frame's visual weight (1.6x border opacity) */
   border-bottom-color: rgba(var(--v-border-color), calc(var(--v-border-opacity) * 1.6));
-  background: rgb(var(--v-theme-surface));
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .resizable {
@@ -557,29 +613,24 @@ onBeforeUnmount(() => {
       max-width: 100%;
       height: auto !important;
       margin: 0;
-      border-radius: 4px;
-      background: rgba(var(--v-theme-on-surface), 0.04);
     }
 
     [data-resize-wrapper] {
       max-width: min(100%, calc(var(--tiptapify-image-max-height) * var(--tiptapify-image-ratio, 100)));
-      border-radius: 4px;
-      outline: 2px solid transparent;
-      outline-offset: 2px;
+      border-radius: var(--tf-image-radius, 0.125rem);
+      outline: 1px solid transparent;
       transition: outline-color 0.15s;
     }
 
     /* One block: hovering outlines it, a click selects it and shows its toolbar */
     img {
       cursor: pointer;
-    }
-
-    &:hover [data-resize-wrapper] {
-      outline-color: rgba(var(--v-theme-primary), 0.35);
+      border-radius: var(--tf-image-radius, 0px);
+      background: var(--tf-image-bg, transparent);
     }
 
     &.ProseMirror-selectednode [data-resize-wrapper] {
-      outline-color: rgb(var(--v-theme-primary));
+      outline: var(--tf-image-outline, 1px solid rgba(0, 0, 0, 0.25));
     }
 
     /* Centered unless floated; a floated image lets the text wrap around it */
@@ -696,7 +747,7 @@ onBeforeUnmount(() => {
     }
   }
 
-  /* Resize handles of a selected image: dots on its corners and edge middles */
+  /* Resize handles of a selected image: dark squares at the corners and edge middles */
   [data-node='image'] [data-resize-handle] {
     display: none;
   }
@@ -707,10 +758,19 @@ onBeforeUnmount(() => {
     display: block;
     width: 10px;
     height: 10px;
-    border: 2px solid rgb(var(--v-theme-surface));
-    border-radius: 50%;
-    background: rgb(var(--v-theme-primary));
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    border: var(--tf-handle-border, none);
+    border-radius: var(--tf-handle-radius, 2px);
+    background: var(--tf-handle-bg, rgba(0, 0, 0, 0.5));
+    box-shadow: var(--tf-handle-shadow, none);
+    transition: background-color 0.15s;
+
+    /* Longhand on purpose: the hover needle in the measurement bundle reads
+     * `background-color` from CSSOM, and a shorthand carrying var() has no
+     * retrievable longhand (pending-substitution value).
+     */
+    &:hover {
+      background-color: var(--tf-handle-bg-hover, rgba(0, 0, 0, 0.8));
+    }
 
     &[data-resize-handle='top-left'] { top: -5px !important; left: -5px !important; cursor: nwse-resize; }
     &[data-resize-handle='top-right'] { top: -5px !important; right: -5px !important; left: auto !important; cursor: nesw-resize; }
@@ -720,6 +780,29 @@ onBeforeUnmount(() => {
     &[data-resize-handle='bottom'] { bottom: -5px !important; top: auto !important; left: calc(50% - 5px) !important; right: auto !important; cursor: ns-resize; }
     &[data-resize-handle='left'] { left: -5px !important; top: calc(50% - 5px) !important; bottom: auto !important; cursor: ew-resize; }
     &[data-resize-handle='right'] { right: -5px !important; left: auto !important; top: calc(50% - 5px) !important; bottom: auto !important; cursor: ew-resize; }
+  }
+}
+
+/*
+ * The quiet image chrome (shape: `buttons: quiet`): the outline around an image becomes an
+ * inset 2px ring (the classic flush 1px hairline is the base rule's fallback) and hovering
+ * tints it. Gated on the buttons shape because that is the flag of the 0.3.3 quiet look this
+ * structure belongs to; the colors stay tokens (`--tf-image-outline*`), the structural
+ * width/offset pair is the shape's base.
+ */
+.tiptapify-shape-buttons-quiet .tiptap .tiptapify-image {
+  [data-resize-wrapper] {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  &:hover [data-resize-wrapper] {
+    outline-color: var(--tf-image-outline-hover, rgba(var(--v-theme-primary), 0.35));
+  }
+
+  &.ProseMirror-selectednode [data-resize-wrapper] {
+    outline: var(--tf-image-outline, 2px solid rgb(var(--v-theme-primary)));
+    outline-offset: 2px;
   }
 }
 
@@ -739,7 +822,7 @@ onBeforeUnmount(() => {
  */
 .tiptapify-dialog-grid {
   display: grid;
-  gap: 16px;
+  gap: var(--tf-dialog-grid-gap, 24px);
   grid-template-columns: repeat(12, minmax(0, 1fr));
 
   > .tiptapify-dialog-col {
@@ -764,6 +847,17 @@ onBeforeUnmount(() => {
       grid-column: span 8;
     }
   }
+}
+
+/*
+ * The soft dialog grid.
+ *
+ * The dialog is teleported to the overlay root, so it has no shape class
+ * ancestor: the shape reaches it through the dialog's own modifier class,
+ * the same way every other soft dialog style applies.
+ */
+.tiptapify-dialog--soft .tiptapify-dialog-grid {
+  gap: var(--tf-dialog-grid-gap, 16px);
 }
 
 .tiptapify-dialog-actions {

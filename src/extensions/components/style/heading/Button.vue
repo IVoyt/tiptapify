@@ -4,8 +4,10 @@ import * as mdi from '@mdi/js'
 import { Level } from '@tiptap/extension-heading'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import SkinScope from '@tiptapify/components/SkinScope.vue'
 import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { menuContentClass } from '@tiptapify/skins/menu'
 import { inject, Ref } from 'vue'
 
 const props = defineProps({
@@ -14,7 +16,7 @@ const props = defineProps({
   inline: { type: Boolean, default: () => false },
 })
 
-const { variantBtn } = useTiptapifyConfig()
+const { variantBtn, shape } = useTiptapifyConfig()
 
 interface MDIIcons { [key: string]: string }
 const mdiIcons = mdi as MDIIcons
@@ -73,34 +75,36 @@ function currentStyleIcon(): string {
       <BtnIcon :icon="`mdiSvg:${mdi.mdiChevronDown}`" class="tiptapify-dropdown-button__chevron" />
     </VBtn>
 
-    <VMenu :activator="`#tiptapify-heading-button-${editor.instanceId}`" content-class="tiptapify-menu">
-      <VList density="compact">
-        <VListItem
-          v-if="withParagraph"
-          link
-          :active="editor.isActive('paragraph')"
-          @click="editor.chain().focus().setParagraph().run()"
-        >
-          <Tooltip :label="t('style.paragraph')" hotkey="Mod-Alt-0" />
-          <template #prepend>
-            <BtnIcon :icon="`mdiSvg:${mdiIcons['mdiFormatParagraph']}`" />
-          </template>
-          <VListItemTitle>{{ t('style.paragraph') }}</VListItemTitle>
-        </VListItem>
-        <VListItem
-          v-for="headingLevel in headingLevels"
-          :key="headingLevel"
-          link
-          :active="editor.isActive('heading', { level: headingLevel })"
-          @click="editor.chain().focus().toggleHeading({ level: headingLevel }).run()"
-        >
-          <Tooltip :label="t(`style.headings.h${headingLevel}`)" :hotkey="`Mod-Alt-${headingLevel}`" />
-          <template #prepend>
-            <BtnIcon :icon="`mdiSvg:${mdiIcons[`mdiFormatHeader${headingLevel}`]}`" />
-          </template>
-          <VListItemTitle>{{ t(`style.headings.h${headingLevel}`) }}</VListItemTitle>
-        </VListItem>
-      </VList>
+    <VMenu :activator="`#tiptapify-heading-button-${editor.instanceId}`" :content-class="menuContentClass(shape.menu === 'soft')">
+      <SkinScope>
+        <VList density="compact">
+          <VListItem
+            v-if="withParagraph"
+            link
+            :active="editor.isActive('paragraph')"
+            @click="editor.chain().focus().setParagraph().run()"
+          >
+            <Tooltip :label="t('style.paragraph')" hotkey="Mod-Alt-0" />
+            <template #prepend>
+              <BtnIcon :icon="`mdiSvg:${mdiIcons['mdiFormatParagraph']}`" />
+            </template>
+            <VListItemTitle>{{ t('style.paragraph') }}</VListItemTitle>
+          </VListItem>
+          <VListItem
+            v-for="headingLevel in headingLevels"
+            :key="headingLevel"
+            link
+            :active="editor.isActive('heading', { level: headingLevel })"
+            @click="editor.chain().focus().toggleHeading({ level: headingLevel }).run()"
+          >
+            <Tooltip :label="t(`style.headings.h${headingLevel}`)" :hotkey="`Mod-Alt-${headingLevel}`" />
+            <template #prepend>
+              <BtnIcon :icon="`mdiSvg:${mdiIcons[`mdiFormatHeader${headingLevel}`]}`" />
+            </template>
+            <VListItemTitle>{{ t(`style.headings.h${headingLevel}`) }}</VListItemTitle>
+          </VListItem>
+        </VList>
+      </SkinScope>
     </VMenu>
   </template>
 </template>

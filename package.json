@@ -1,7 +1,7 @@
 {
   "name": "tiptapify",
   "types": "./index.d.ts",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Tiptap3 editor with Vuetify3 menu implementation",
   "exports": {
     ".": {
@@ -34,6 +34,7 @@
     "test:watch": "vitest",
     "build:charmap": "tsx build-charmap.ts",
     "build:emojis": "tsx build-emojis.ts",
+    "record:skin-baseline": "tsx scripts/record-skin-baseline.ts",
     "docs:dev": "pnpm --filter tiptapify-docs docs:dev",
     "docs:build": "pnpm --filter tiptapify-docs docs:build",
     "docs:preview": "pnpm --filter tiptapify-docs docs:preview"

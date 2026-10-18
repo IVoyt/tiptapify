@@ -585,6 +585,28 @@ From this many images in a row (nothing between them) the editor lays them out a
 <Tiptapify :image-slider="3" />
 ```
 
+### `skin`
+
+- **Type:** `string | TiptapifySkinConfig` ([`TiptapifySkinInput`](/api/types#tiptapifyskininput))
+- **Default:** `'default'`
+
+The look of the editor chrome: toolbar, bubble menus, dropdowns, dialogs, footer.
+
+- `default` — the classic look: a raised toolbar, button groups as raised boxes, card-style bubble menus.
+- `pastel` — the quiet look introduced in 0.3.3: a flat tinted toolbar under a hairline, ghost buttons with a neutral pressed state, light dropdowns, soft dialogs.
+
+Features (image captions, sliders, the align dropdown, list styles) work the same in both skins.
+
+```vue
+<Tiptapify skin="pastel" />
+```
+
+You can also pass an inline skin object: token overrides (`colors` / `metrics`) and shape flags, optionally `extends` a registered skin. It resolves over `default` (or its base), renders under the class `tiptapify-skin-inline` (`tiptapify-skin-{name}` when the object carries a `name`), and its tokens land as `--tf-*` CSS variables on the editor root. Custom names come from `registerSkin('mint', { … })` — see the [Skins guide](/guide/skins) for the token table and the recipes.
+
+```vue
+<Tiptapify :skin="{ extends: 'pastel', colors: { toolbarBg: 'rgba(0, 128, 0, 0.05)' } }" />
+```
+
 ## Events
 
 ### `editor-ready`

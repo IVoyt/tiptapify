@@ -1,0 +1,805 @@
+{
+  "_meta": {
+    "purpose": "Normative skin baseline for 0.3.4 (docs/superpowers/specs/2026-10-18-skins-design.md). Computed styles of every token dimension for the built-in skins, measured on the base CSS (step 1, post-rename) before the token extraction. Acceptance criterion of the CSS rewrite: every recorded dimension must match. Recorded once; changes require a deliberate visual change + changelog note.",
+    "source": "docs/examples/skins.md playground (InteractiveEditor, variantBtn='elevated'), getComputedStyle via CDP",
+    "viewport": "1280x1024",
+    "themes": "light = tiptapifyLight, dark = tiptapifyDark; the docs playground mirrors the vitepress appearance into the vuetify theme",
+    "generatedBy": "pnpm record:skin-baseline (scripts/record-skin-baseline.ts + scripts/skin-baseline-bundle.js)",
+    "recordedAt": "2026-10-18T00:28:29.230Z",
+    "selectors": {
+      "frame": ".tiptapify-frame",
+      "toolbar": ".tiptapify-toolbar .v-toolbar",
+      "items": ".tiptapify-toolbar-items",
+      "group": ".tiptapify-toolbar-group",
+      "divider": ".menu-divider",
+      "groupBtn": ".tiptapify-toolbar-group .v-btn",
+      "buttonsActive": ".tiptapify-toolbar .v-btn.bg-primary (bold selection)",
+      "bubble": ".bubble-menu (default) / .tiptapify-bubble-menu (pastel)",
+      "menu": ".v-overlay__content.tiptapify-menu > .v-list / > .v-list-item",
+      "menuActive": ".v-list-item--active",
+      "dialog": ".tiptapify-dialog (link dialog, teleported overlay)",
+      "image": ".tiptapify-image img / [data-resize-wrapper] / [data-resize-handle] (selected)",
+      "hover": "CSSOM rule declarations resolved through an in-skin probe (raw value + resolved computed value)"
+    },
+    "notes": [
+      "dialog.gridColumnGap/gridRowGap: pastel measures 16px, default 24px. The dialog is teleported to the overlay root (no .tiptapify-skin-pastel ancestor), so the pastel gap rides the dialog's own modifier class, .tiptapify-dialog--pastel .tiptapify-dialog-grid — the same carrier every other pastel dialog rule uses. Re-measured on the fixed CSS: 16px in both themes (light and dark).",
+      "menu.itemMinHeight/itemPadding of the default skin are the native Vuetify values (40px / 16px): the classic menu shape delegates those pixels to Vuetify (reachability contract).",
+      "groupBtn/buttonsActive of the default skin are the native Vuetify elevated rendering (docs playground variantBtn='elevated'); the library default variantBtn='flat' has no shadow. Custom-toolbar playground passes variantBtn via prop; fixture is recorded on the playground defaults.",
+      "frame.borderTopColor / handleBorderTopColor / bubble borderTopColor on default: border-color of a 0-width border (initial); the width is the token dimension.",
+      "hover entries: value = declaration text from CSSOM (canonical contract), resolved = computed through a probe inside the theme-scoped toolbar.",
+      "groups/groupBtn/buttonsActive of the default skin: 2026-10-18 owner-ratified VBtnGroup restoration for `groups: 'box'` (0.3.2 structure: elevation-4 VBtnGroup, conditional tiptapify-btn-group--elevated under playground variantBtn='elevated'). The token box keeps painting the group (32px, radius 4px, surface, elevation-2 triple — the group section is unchanged); the fields updated are the child-button structure: groupBtn.borderRadius is the joined first-child corner (4px 0 0 4px, native VBtnGroup joining), and groupBtn/buttonsActive boxShadow is none — the box owns the elevation, the joined children carry none. Pastel (groups: 'flat') fields untouched: re-measured diffCount 0 on all 13 sections in both themes."
+    ]
+  },
+  "light": {
+    "default": {
+      "toolbar": {
+        "backgroundColor": "rgb(238, 238, 238)",
+        "color": "rgba(0, 0, 0, 0.87)",
+        "borderBottomWidth": "0px",
+        "borderBottomColor": "rgba(0, 0, 0, 0.12)",
+        "borderBottomStyle": "solid",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px"
+      },
+      "items": {
+        "paddingTop": "12px",
+        "paddingRight": "16px",
+        "paddingBottom": "12px",
+        "paddingLeft": "16px",
+        "columnGap": "normal",
+        "rowGap": "5px"
+      },
+      "group": {
+        "columnGap": "normal",
+        "height": "32px",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderRadius": "4px",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px"
+      },
+      "divider": {
+        "width": "0px",
+        "height": "0px",
+        "marginLeft": "4px",
+        "marginRight": "4px",
+        "backgroundColor": "rgba(0, 0, 0, 0)"
+      },
+      "groupBtn": {
+        "borderRadius": "4px 0px 0px 4px",
+        "color": "rgba(0, 0, 0, 0.87)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "boxShadow": "none",
+        "height": "32px"
+      },
+      "buttonsActive": {
+        "mark": "bg-primary",
+        "backgroundColor": "rgb(106, 0, 245)",
+        "color": "rgb(255, 255, 255)",
+        "boxShadow": "none",
+        "opacity": "1"
+      },
+      "bubble": {
+        "rootSelector": ".bubble-menu",
+        "borderRadius": "6px",
+        "boxShadow": "rgb(98, 98, 98) 4px 4px 20px 0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderTopWidth": "0px",
+        "borderTopColor": "rgb(60, 60, 67)",
+        "paddingTop": "0px",
+        "paddingLeft": "0px",
+        "columnGap": "normal",
+        "rowGap": "normal",
+        "hasVCard": "true",
+        "hasDividedBtnGroup": "true",
+        "btnVariant": "v-btn--variant-elevated",
+        "btnBorderRadius": "4px 0px 0px 4px",
+        "btnBackgroundColor": "rgb(255, 255, 255)",
+        "btnColor": "rgba(0, 0, 0, 0.87)",
+        "btnHeight": "36px"
+      },
+      "menu": {
+        "contentClass": "v-overlay__content tiptapify-menu",
+        "listPaddingTop": "8px",
+        "listPaddingRight": "0px",
+        "listPaddingBottom": "8px",
+        "listPaddingLeft": "0px",
+        "listBorderRadius": "4px",
+        "listBorderTopWidth": "0px",
+        "listBorderTopColor": "rgba(0, 0, 0, 0.12)",
+        "listBoxShadow": "rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px",
+        "listBackgroundColor": "rgb(255, 255, 255)",
+        "itemPaddingTop": "4px",
+        "itemPaddingLeft": "16px",
+        "itemMinHeight": "40px",
+        "itemBorderRadius": "0px",
+        "itemColor": "rgba(0, 0, 0, 0.87)",
+        "itemOverlayOpacity": "0.12"
+      },
+      "menuActive": {
+        "activeItemBg": "rgba(0, 0, 0, 0)",
+        "activeItemColor": "rgba(0, 0, 0, 0.87)",
+        "activeOverlayOpacity": "0.12"
+      },
+      "dialog": {
+        "classes": "tiptapify-dialog",
+        "borderRadius": "4px",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px",
+        "headerPaddingTop": "8px",
+        "headerPaddingRight": "16px",
+        "headerPaddingBottom": "8px",
+        "headerPaddingLeft": "16px",
+        "contentPaddingTop": "16px",
+        "contentPaddingRight": "24px",
+        "contentPaddingBottom": "24px",
+        "contentPaddingLeft": "24px",
+        "actionsPaddingTop": "8px",
+        "actionsPaddingRight": "8px",
+        "actionsPaddingBottom": "8px",
+        "actionsPaddingLeft": "8px",
+        "titleFontSize": "20px",
+        "titleFontWeight": "400",
+        "titleColor": "rgba(0, 0, 0, 0.6)",
+        "dividerUnderTitle": "true",
+        "closeVariant": "v-btn--variant-elevated",
+        "fieldVariant": "v-field--variant-outlined",
+        "fieldBorderRadius": "4px",
+        "actionBtnMinHeight": "auto",
+        "actionBtnBorderRadius": "4px",
+        "gridColumnGap": "24px",
+        "gridRowGap": "24px"
+      },
+      "image": {
+        "imgBorderRadius": "0px",
+        "imgBackgroundColor": "rgba(0, 0, 0, 0)",
+        "wrapBorderRadius": "2px",
+        "wrapOutlineStyle": "solid",
+        "wrapOutlineWidth": "1px",
+        "wrapOutlineColor": "rgba(0, 0, 0, 0.25)",
+        "wrapOutlineOffset": "0px",
+        "handleDisplay": "block",
+        "handleBackgroundColor": "rgba(0, 0, 0, 0.5)",
+        "handleBorderTopWidth": "0px",
+        "handleBorderTopColor": "rgb(60, 60, 67)",
+        "handleBorderRadius": "2px",
+        "handleBoxShadow": "none",
+        "handleWidth": "10px",
+        "handleHeight": "10px"
+      },
+      "frame": {
+        "borderTopWidth": "0px",
+        "borderTopColor": "rgb(60, 60, 67)",
+        "borderRightWidth": "1px",
+        "borderRightColor": "rgba(0, 0, 0, 0.12)",
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgba(0, 0, 0, 0.12)",
+        "borderLeftWidth": "1px",
+        "borderLeftColor": "rgba(0, 0, 0, 0.12)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none"
+      },
+      "hover": {
+        "v-list-item:hover|opacity": {
+          "selector": ".v-list-item:hover > .v-list-item__overlay",
+          "value": "calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.04"
+        },
+        "v-list-item--active > .v-list-item__overlay|opacity": {
+          "selector": ".v-list-item--active > .v-list-item__overlay, .v-list-item[aria-haspopup=\"menu\"][aria-expanded=\"true\"] > .v-list-item__overlay",
+          "value": "calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.12"
+        },
+        "v-list-item--active:hover > .v-list-item__overlay|opacity": {
+          "selector": ".v-list-item--active:hover > .v-list-item__overlay, .v-list-item[aria-haspopup=\"menu\"][aria-expanded=\"true\"]:hover > .v-list-item__overlay",
+          "value": "calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.16"
+        },
+        "tiptapify-menu--pastel active overlay|opacity": {
+          "selector": ".tiptapify-menu--pastel > .v-list.v-list > .v-list-item.v-list-item.v-list-item--active > .v-list-item__overlay",
+          "value": "0",
+          "resolved": "0"
+        },
+        ".v-btn.v-btn.v-btn:hover|background-color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn:hover",
+          "value": "rgba(var(--v-theme-on-surface), 0.07)",
+          "resolved": "rgba(0, 0, 0, 0.07)"
+        },
+        ".v-btn.v-btn.v-btn:hover|color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn:hover",
+          "value": "rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity))",
+          "resolved": "rgba(0, 0, 0, 0.87)"
+        },
+        ".bg-primary:hover|background-color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn.bg-primary:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn.bg-primary:hover",
+          "value": "rgba(var(--v-theme-on-surface), 0.14)",
+          "resolved": "rgba(0, 0, 0, 0.14)"
+        },
+        "[data-resize-handle]:hover|background-color": {
+          "selector": ".tiptap [data-node=\"image\"].ProseMirror-selectednode [data-resize-handle]:hover",
+          "value": "rgba(0, 0, 0, 0.8)",
+          "resolved": "rgba(0, 0, 0, 0.8)"
+        },
+        ":hover [data-resize-wrapper]|outline-color": {
+          "selector": ".tiptapify-skin-pastel .tiptap .tiptapify-image:hover [data-resize-wrapper]",
+          "value": "rgba(var(--v-theme-primary), 0.35)",
+          "resolved": "rgba(106, 0, 245, 0.35)"
+        }
+      }
+    },
+    "pastel": {
+      "toolbar": {
+        "backgroundColor": "rgba(0, 0, 0, 0.03)",
+        "color": "rgba(0, 0, 0, 0.87)",
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgba(0, 0, 0, 0.12)",
+        "borderBottomStyle": "solid",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px"
+      },
+      "items": {
+        "paddingTop": "6px",
+        "paddingRight": "8px",
+        "paddingBottom": "6px",
+        "paddingLeft": "8px",
+        "columnGap": "6px",
+        "rowGap": "4px"
+      },
+      "group": {
+        "columnGap": "2px",
+        "height": "32px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "divider": {
+        "width": "1px",
+        "height": "20px",
+        "marginLeft": "0px",
+        "marginRight": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0.12)"
+      },
+      "groupBtn": {
+        "borderRadius": "6px",
+        "color": "rgba(0, 0, 0, 0.6)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "height": "32px"
+      },
+      "buttonsActive": {
+        "mark": "bg-primary",
+        "backgroundColor": "rgba(0, 0, 0, 0.1)",
+        "color": "rgba(0, 0, 0, 0.87)",
+        "boxShadow": "none",
+        "opacity": "1"
+      },
+      "bubble": {
+        "rootSelector": ".tiptapify-bubble-menu",
+        "borderRadius": "10px",
+        "boxShadow": "rgba(0, 0, 0, 0.12) 0px 6px 20px 0px",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderTopWidth": "1px",
+        "borderTopColor": "rgba(0, 0, 0, 0.12)",
+        "paddingTop": "4px",
+        "paddingLeft": "4px",
+        "columnGap": "2px",
+        "rowGap": "2px",
+        "hasVCard": "false",
+        "hasDividedBtnGroup": "false",
+        "btnVariant": "v-btn--variant-text",
+        "btnBorderRadius": "6px",
+        "btnBackgroundColor": "rgba(0, 0, 0, 0)",
+        "btnColor": "rgba(0, 0, 0, 0.6)",
+        "btnHeight": "32px"
+      },
+      "menu": {
+        "contentClass": "v-overlay__content tiptapify-menu tiptapify-menu--pastel",
+        "listPaddingTop": "4px",
+        "listPaddingRight": "4px",
+        "listPaddingBottom": "4px",
+        "listPaddingLeft": "4px",
+        "listBorderRadius": "8px",
+        "listBorderTopWidth": "1px",
+        "listBorderTopColor": "rgba(0, 0, 0, 0.12)",
+        "listBoxShadow": "rgba(0, 0, 0, 0.08) 0px 4px 16px 0px",
+        "listBackgroundColor": "rgb(255, 255, 255)",
+        "itemPaddingTop": "4px",
+        "itemPaddingLeft": "8px",
+        "itemMinHeight": "34px",
+        "itemBorderRadius": "6px",
+        "itemColor": "rgba(0, 0, 0, 0.87)",
+        "itemOverlayOpacity": "0"
+      },
+      "menuActive": {
+        "activeItemBg": "rgba(0, 0, 0, 0.06)",
+        "activeItemColor": "rgba(0, 0, 0, 0.87)",
+        "activeOverlayOpacity": "0"
+      },
+      "dialog": {
+        "classes": "tiptapify-dialog tiptapify-dialog--pastel",
+        "borderRadius": "12px",
+        "boxShadow": "rgba(0, 0, 0, 0.16) 0px 20px 48px 0px, rgba(0, 0, 0, 0.06) 0px 2px 6px 0px",
+        "headerPaddingTop": "16px",
+        "headerPaddingRight": "12px",
+        "headerPaddingBottom": "12px",
+        "headerPaddingLeft": "20px",
+        "contentPaddingTop": "4px",
+        "contentPaddingRight": "20px",
+        "contentPaddingBottom": "4px",
+        "contentPaddingLeft": "20px",
+        "actionsPaddingTop": "16px",
+        "actionsPaddingRight": "20px",
+        "actionsPaddingBottom": "20px",
+        "actionsPaddingLeft": "20px",
+        "titleFontSize": "18px",
+        "titleFontWeight": "600",
+        "titleColor": "rgba(0, 0, 0, 0.87)",
+        "dividerUnderTitle": "false",
+        "closeVariant": "v-btn--variant-text",
+        "fieldVariant": "v-field--variant-outlined",
+        "fieldBorderRadius": "8px",
+        "actionBtnMinHeight": "38px",
+        "actionBtnBorderRadius": "8px",
+        "gridColumnGap": "16px",
+        "gridRowGap": "16px"
+      },
+      "image": {
+        "imgBorderRadius": "4px",
+        "imgBackgroundColor": "rgba(0, 0, 0, 0.04)",
+        "wrapBorderRadius": "4px",
+        "wrapOutlineStyle": "solid",
+        "wrapOutlineWidth": "2px",
+        "wrapOutlineColor": "rgb(106, 0, 245)",
+        "wrapOutlineOffset": "2px",
+        "handleDisplay": "block",
+        "handleBackgroundColor": "rgb(106, 0, 245)",
+        "handleBorderTopWidth": "2px",
+        "handleBorderTopColor": "rgb(255, 255, 255)",
+        "handleBorderRadius": "50%",
+        "handleBoxShadow": "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px",
+        "handleWidth": "10px",
+        "handleHeight": "10px"
+      },
+      "frame": {
+        "borderTopWidth": "1px",
+        "borderTopColor": "rgba(0, 0, 0, 0.12)",
+        "borderRightWidth": "1px",
+        "borderRightColor": "rgba(0, 0, 0, 0.12)",
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgba(0, 0, 0, 0.192)",
+        "borderLeftWidth": "1px",
+        "borderLeftColor": "rgba(0, 0, 0, 0.12)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "boxShadow": "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
+      },
+      "hover": {
+        "v-list-item:hover|opacity": {
+          "selector": ".v-list-item:hover > .v-list-item__overlay",
+          "value": "calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.04"
+        },
+        "v-list-item--active > .v-list-item__overlay|opacity": {
+          "selector": ".v-list-item--active > .v-list-item__overlay, .v-list-item[aria-haspopup=\"menu\"][aria-expanded=\"true\"] > .v-list-item__overlay",
+          "value": "calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.12"
+        },
+        "v-list-item--active:hover > .v-list-item__overlay|opacity": {
+          "selector": ".v-list-item--active:hover > .v-list-item__overlay, .v-list-item[aria-haspopup=\"menu\"][aria-expanded=\"true\"]:hover > .v-list-item__overlay",
+          "value": "calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.16"
+        },
+        "tiptapify-menu--pastel active overlay|opacity": {
+          "selector": ".tiptapify-menu--pastel > .v-list.v-list > .v-list-item.v-list-item.v-list-item--active > .v-list-item__overlay",
+          "value": "0",
+          "resolved": "0"
+        },
+        ".v-btn.v-btn.v-btn:hover|background-color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn:hover",
+          "value": "rgba(var(--v-theme-on-surface), 0.07)",
+          "resolved": "rgba(0, 0, 0, 0.07)"
+        },
+        ".v-btn.v-btn.v-btn:hover|color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn:hover",
+          "value": "rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity))",
+          "resolved": "rgba(0, 0, 0, 0.87)"
+        },
+        ".bg-primary:hover|background-color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn.bg-primary:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn.bg-primary:hover",
+          "value": "rgba(var(--v-theme-on-surface), 0.14)",
+          "resolved": "rgba(0, 0, 0, 0.14)"
+        },
+        "[data-resize-handle]:hover|background-color": {
+          "selector": ".tiptap [data-node=\"image\"].ProseMirror-selectednode [data-resize-handle]:hover",
+          "value": "rgba(0, 0, 0, 0.8)",
+          "resolved": "rgba(0, 0, 0, 0.8)"
+        },
+        ":hover [data-resize-wrapper]|outline-color": {
+          "selector": ".tiptapify-skin-pastel .tiptap .tiptapify-image:hover [data-resize-wrapper]",
+          "value": "rgba(var(--v-theme-primary), 0.35)",
+          "resolved": "rgba(106, 0, 245, 0.35)"
+        }
+      }
+    }
+  },
+  "dark": {
+    "default": {
+      "toolbar": {
+        "backgroundColor": "rgb(66, 66, 66)",
+        "color": "rgb(255, 255, 255)",
+        "borderBottomWidth": "0px",
+        "borderBottomColor": "rgba(255, 255, 255, 0.12)",
+        "borderBottomStyle": "solid",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px"
+      },
+      "items": {
+        "paddingTop": "12px",
+        "paddingRight": "16px",
+        "paddingBottom": "12px",
+        "paddingLeft": "16px",
+        "columnGap": "normal",
+        "rowGap": "5px"
+      },
+      "group": {
+        "columnGap": "normal",
+        "height": "32px",
+        "backgroundColor": "rgb(33, 33, 33)",
+        "borderRadius": "4px",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px"
+      },
+      "divider": {
+        "width": "0px",
+        "height": "0px",
+        "marginLeft": "4px",
+        "marginRight": "4px",
+        "backgroundColor": "rgba(0, 0, 0, 0)"
+      },
+      "groupBtn": {
+        "borderRadius": "4px 0px 0px 4px",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgb(33, 33, 33)",
+        "boxShadow": "none",
+        "height": "32px"
+      },
+      "buttonsActive": {
+        "mark": "bg-primary",
+        "backgroundColor": "rgb(168, 85, 247)",
+        "color": "rgb(255, 255, 255)",
+        "boxShadow": "none",
+        "opacity": "1"
+      },
+      "bubble": {
+        "rootSelector": ".bubble-menu",
+        "borderRadius": "6px",
+        "boxShadow": "rgb(98, 98, 98) 4px 4px 20px 0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderTopWidth": "0px",
+        "borderTopColor": "rgb(223, 223, 214)",
+        "paddingTop": "0px",
+        "paddingLeft": "0px",
+        "columnGap": "normal",
+        "rowGap": "normal",
+        "hasVCard": "true",
+        "hasDividedBtnGroup": "true",
+        "btnVariant": "v-btn--variant-elevated",
+        "btnBorderRadius": "4px 0px 0px 4px",
+        "btnBackgroundColor": "rgb(33, 33, 33)",
+        "btnColor": "rgb(255, 255, 255)",
+        "btnHeight": "36px"
+      },
+      "menu": {
+        "contentClass": "v-overlay__content tiptapify-menu",
+        "listPaddingTop": "8px",
+        "listPaddingRight": "0px",
+        "listPaddingBottom": "8px",
+        "listPaddingLeft": "0px",
+        "listBorderRadius": "4px",
+        "listBorderTopWidth": "0px",
+        "listBorderTopColor": "rgba(255, 255, 255, 0.12)",
+        "listBoxShadow": "rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px",
+        "listBackgroundColor": "rgb(33, 33, 33)",
+        "itemPaddingTop": "4px",
+        "itemPaddingLeft": "16px",
+        "itemMinHeight": "40px",
+        "itemBorderRadius": "0px",
+        "itemColor": "rgb(255, 255, 255)",
+        "itemOverlayOpacity": "0.12"
+      },
+      "menuActive": {
+        "activeItemBg": "rgba(0, 0, 0, 0)",
+        "activeItemColor": "rgb(255, 255, 255)",
+        "activeOverlayOpacity": "0.12"
+      },
+      "dialog": {
+        "classes": "tiptapify-dialog",
+        "borderRadius": "4px",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px",
+        "headerPaddingTop": "8px",
+        "headerPaddingRight": "16px",
+        "headerPaddingBottom": "8px",
+        "headerPaddingLeft": "16px",
+        "contentPaddingTop": "16px",
+        "contentPaddingRight": "24px",
+        "contentPaddingBottom": "24px",
+        "contentPaddingLeft": "24px",
+        "actionsPaddingTop": "8px",
+        "actionsPaddingRight": "8px",
+        "actionsPaddingBottom": "8px",
+        "actionsPaddingLeft": "8px",
+        "titleFontSize": "20px",
+        "titleFontWeight": "400",
+        "titleColor": "rgba(255, 255, 255, 0.7)",
+        "dividerUnderTitle": "true",
+        "closeVariant": "v-btn--variant-elevated",
+        "fieldVariant": "v-field--variant-outlined",
+        "fieldBorderRadius": "4px",
+        "actionBtnMinHeight": "auto",
+        "actionBtnBorderRadius": "4px",
+        "gridColumnGap": "24px",
+        "gridRowGap": "24px"
+      },
+      "image": {
+        "imgBorderRadius": "0px",
+        "imgBackgroundColor": "rgba(0, 0, 0, 0)",
+        "wrapBorderRadius": "2px",
+        "wrapOutlineStyle": "solid",
+        "wrapOutlineWidth": "1px",
+        "wrapOutlineColor": "rgba(0, 0, 0, 0.25)",
+        "wrapOutlineOffset": "0px",
+        "handleDisplay": "block",
+        "handleBackgroundColor": "rgba(0, 0, 0, 0.5)",
+        "handleBorderTopWidth": "0px",
+        "handleBorderTopColor": "rgb(223, 223, 214)",
+        "handleBorderRadius": "2px",
+        "handleBoxShadow": "none",
+        "handleWidth": "10px",
+        "handleHeight": "10px"
+      },
+      "frame": {
+        "borderTopWidth": "0px",
+        "borderTopColor": "rgb(223, 223, 214)",
+        "borderRightWidth": "1px",
+        "borderRightColor": "rgba(255, 255, 255, 0.12)",
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgba(255, 255, 255, 0.12)",
+        "borderLeftWidth": "1px",
+        "borderLeftColor": "rgba(255, 255, 255, 0.12)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none"
+      },
+      "hover": {
+        "v-list-item:hover|opacity": {
+          "selector": ".v-list-item:hover > .v-list-item__overlay",
+          "value": "calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.04"
+        },
+        "v-list-item--active > .v-list-item__overlay|opacity": {
+          "selector": ".v-list-item--active > .v-list-item__overlay, .v-list-item[aria-haspopup=\"menu\"][aria-expanded=\"true\"] > .v-list-item__overlay",
+          "value": "calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.12"
+        },
+        "v-list-item--active:hover > .v-list-item__overlay|opacity": {
+          "selector": ".v-list-item--active:hover > .v-list-item__overlay, .v-list-item[aria-haspopup=\"menu\"][aria-expanded=\"true\"]:hover > .v-list-item__overlay",
+          "value": "calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.16"
+        },
+        "tiptapify-menu--pastel active overlay|opacity": {
+          "selector": ".tiptapify-menu--pastel > .v-list.v-list > .v-list-item.v-list-item.v-list-item--active > .v-list-item__overlay",
+          "value": "0",
+          "resolved": "0"
+        },
+        ".v-btn.v-btn.v-btn:hover|background-color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn:hover",
+          "value": "rgba(var(--v-theme-on-surface), 0.07)",
+          "resolved": "rgba(255, 255, 255, 0.07)"
+        },
+        ".v-btn.v-btn.v-btn:hover|color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn:hover",
+          "value": "rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity))",
+          "resolved": "rgb(255, 255, 255)"
+        },
+        ".bg-primary:hover|background-color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn.bg-primary:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn.bg-primary:hover",
+          "value": "rgba(var(--v-theme-on-surface), 0.14)",
+          "resolved": "rgba(255, 255, 255, 0.14)"
+        },
+        "[data-resize-handle]:hover|background-color": {
+          "selector": ".tiptap [data-node=\"image\"].ProseMirror-selectednode [data-resize-handle]:hover",
+          "value": "rgba(0, 0, 0, 0.8)",
+          "resolved": "rgba(0, 0, 0, 0.8)"
+        },
+        ":hover [data-resize-wrapper]|outline-color": {
+          "selector": ".tiptapify-skin-pastel .tiptap .tiptapify-image:hover [data-resize-wrapper]",
+          "value": "rgba(var(--v-theme-primary), 0.35)",
+          "resolved": "rgba(168, 85, 247, 0.35)"
+        }
+      }
+    },
+    "pastel": {
+      "toolbar": {
+        "backgroundColor": "rgba(255, 255, 255, 0.03)",
+        "color": "rgb(255, 255, 255)",
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgba(255, 255, 255, 0.12)",
+        "borderBottomStyle": "solid",
+        "boxShadow": "rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px"
+      },
+      "items": {
+        "paddingTop": "6px",
+        "paddingRight": "8px",
+        "paddingBottom": "6px",
+        "paddingLeft": "8px",
+        "columnGap": "6px",
+        "rowGap": "4px"
+      },
+      "group": {
+        "columnGap": "2px",
+        "height": "32px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "divider": {
+        "width": "1px",
+        "height": "20px",
+        "marginLeft": "0px",
+        "marginRight": "0px",
+        "backgroundColor": "rgba(255, 255, 255, 0.12)"
+      },
+      "groupBtn": {
+        "borderRadius": "6px",
+        "color": "rgba(255, 255, 255, 0.7)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "height": "32px"
+      },
+      "buttonsActive": {
+        "mark": "bg-primary",
+        "backgroundColor": "rgba(255, 255, 255, 0.1)",
+        "color": "rgb(255, 255, 255)",
+        "boxShadow": "none",
+        "opacity": "1"
+      },
+      "bubble": {
+        "rootSelector": ".tiptapify-bubble-menu",
+        "borderRadius": "10px",
+        "boxShadow": "rgba(0, 0, 0, 0.12) 0px 6px 20px 0px",
+        "backgroundColor": "rgb(33, 33, 33)",
+        "borderTopWidth": "1px",
+        "borderTopColor": "rgba(255, 255, 255, 0.12)",
+        "paddingTop": "4px",
+        "paddingLeft": "4px",
+        "columnGap": "2px",
+        "rowGap": "2px",
+        "hasVCard": "false",
+        "hasDividedBtnGroup": "false",
+        "btnVariant": "v-btn--variant-text",
+        "btnBorderRadius": "6px",
+        "btnBackgroundColor": "rgba(0, 0, 0, 0)",
+        "btnColor": "rgba(255, 255, 255, 0.7)",
+        "btnHeight": "32px"
+      },
+      "menu": {
+        "contentClass": "v-overlay__content tiptapify-menu tiptapify-menu--pastel",
+        "listPaddingTop": "4px",
+        "listPaddingRight": "4px",
+        "listPaddingBottom": "4px",
+        "listPaddingLeft": "4px",
+        "listBorderRadius": "8px",
+        "listBorderTopWidth": "1px",
+        "listBorderTopColor": "rgba(255, 255, 255, 0.12)",
+        "listBoxShadow": "rgba(0, 0, 0, 0.08) 0px 4px 16px 0px",
+        "listBackgroundColor": "rgb(33, 33, 33)",
+        "itemPaddingTop": "4px",
+        "itemPaddingLeft": "8px",
+        "itemMinHeight": "34px",
+        "itemBorderRadius": "6px",
+        "itemColor": "rgb(255, 255, 255)",
+        "itemOverlayOpacity": "0"
+      },
+      "menuActive": {
+        "activeItemBg": "rgba(255, 255, 255, 0.06)",
+        "activeItemColor": "rgb(255, 255, 255)",
+        "activeOverlayOpacity": "0"
+      },
+      "dialog": {
+        "classes": "tiptapify-dialog tiptapify-dialog--pastel",
+        "borderRadius": "12px",
+        "boxShadow": "rgba(0, 0, 0, 0.16) 0px 20px 48px 0px, rgba(0, 0, 0, 0.06) 0px 2px 6px 0px",
+        "headerPaddingTop": "16px",
+        "headerPaddingRight": "12px",
+        "headerPaddingBottom": "12px",
+        "headerPaddingLeft": "20px",
+        "contentPaddingTop": "4px",
+        "contentPaddingRight": "20px",
+        "contentPaddingBottom": "4px",
+        "contentPaddingLeft": "20px",
+        "actionsPaddingTop": "16px",
+        "actionsPaddingRight": "20px",
+        "actionsPaddingBottom": "20px",
+        "actionsPaddingLeft": "20px",
+        "titleFontSize": "18px",
+        "titleFontWeight": "600",
+        "titleColor": "rgb(255, 255, 255)",
+        "dividerUnderTitle": "false",
+        "closeVariant": "v-btn--variant-text",
+        "fieldVariant": "v-field--variant-outlined",
+        "fieldBorderRadius": "8px",
+        "actionBtnMinHeight": "38px",
+        "actionBtnBorderRadius": "8px",
+        "gridColumnGap": "16px",
+        "gridRowGap": "16px"
+      },
+      "image": {
+        "imgBorderRadius": "4px",
+        "imgBackgroundColor": "rgba(255, 255, 255, 0.04)",
+        "wrapBorderRadius": "4px",
+        "wrapOutlineStyle": "solid",
+        "wrapOutlineWidth": "2px",
+        "wrapOutlineColor": "rgb(168, 85, 247)",
+        "wrapOutlineOffset": "2px",
+        "handleDisplay": "block",
+        "handleBackgroundColor": "rgb(168, 85, 247)",
+        "handleBorderTopWidth": "2px",
+        "handleBorderTopColor": "rgb(33, 33, 33)",
+        "handleBorderRadius": "50%",
+        "handleBoxShadow": "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px",
+        "handleWidth": "10px",
+        "handleHeight": "10px"
+      },
+      "frame": {
+        "borderTopWidth": "1px",
+        "borderTopColor": "rgba(255, 255, 255, 0.12)",
+        "borderRightWidth": "1px",
+        "borderRightColor": "rgba(255, 255, 255, 0.12)",
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgba(255, 255, 255, 0.192)",
+        "borderLeftWidth": "1px",
+        "borderLeftColor": "rgba(255, 255, 255, 0.12)",
+        "backgroundColor": "rgb(33, 33, 33)",
+        "boxShadow": "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
+      },
+      "hover": {
+        "v-list-item:hover|opacity": {
+          "selector": ".v-list-item:hover > .v-list-item__overlay",
+          "value": "calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.04"
+        },
+        "v-list-item--active > .v-list-item__overlay|opacity": {
+          "selector": ".v-list-item--active > .v-list-item__overlay, .v-list-item[aria-haspopup=\"menu\"][aria-expanded=\"true\"] > .v-list-item__overlay",
+          "value": "calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.12"
+        },
+        "v-list-item--active:hover > .v-list-item__overlay|opacity": {
+          "selector": ".v-list-item--active:hover > .v-list-item__overlay, .v-list-item[aria-haspopup=\"menu\"][aria-expanded=\"true\"]:hover > .v-list-item__overlay",
+          "value": "calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))",
+          "resolved": "0.16"
+        },
+        "tiptapify-menu--pastel active overlay|opacity": {
+          "selector": ".tiptapify-menu--pastel > .v-list.v-list > .v-list-item.v-list-item.v-list-item--active > .v-list-item__overlay",
+          "value": "0",
+          "resolved": "0"
+        },
+        ".v-btn.v-btn.v-btn:hover|background-color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn:hover",
+          "value": "rgba(var(--v-theme-on-surface), 0.07)",
+          "resolved": "rgba(255, 255, 255, 0.07)"
+        },
+        ".v-btn.v-btn.v-btn:hover|color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn:hover",
+          "value": "rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity))",
+          "resolved": "rgb(255, 255, 255)"
+        },
+        ".bg-primary:hover|background-color": {
+          "selector": ".tiptapify-skin-pastel .tiptapify-toolbar .v-btn.v-btn.v-btn.bg-primary:hover, .tiptapify-quiet-buttons .v-btn.v-btn.v-btn.bg-primary:hover",
+          "value": "rgba(var(--v-theme-on-surface), 0.14)",
+          "resolved": "rgba(255, 255, 255, 0.14)"
+        },
+        "[data-resize-handle]:hover|background-color": {
+          "selector": ".tiptap [data-node=\"image\"].ProseMirror-selectednode [data-resize-handle]:hover",
+          "value": "rgba(0, 0, 0, 0.8)",
+          "resolved": "rgba(0, 0, 0, 0.8)"
+        },
+        ":hover [data-resize-wrapper]|outline-color": {
+          "selector": ".tiptapify-skin-pastel .tiptap .tiptapify-image:hover [data-resize-wrapper]",
+          "value": "rgba(var(--v-theme-primary), 0.35)",
+          "resolved": "rgba(168, 85, 247, 0.35)"
+        }
+      }
+    }
+  }
+}

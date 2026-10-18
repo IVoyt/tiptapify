@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TiptapifyAiEditorContext, TiptapifyAiRequest, TiptapifyAiStream, variantBtnTypes } from '@tiptapify/types/editor'
+import { TiptapifyAiEditorContext, TiptapifyAiRequest, TiptapifyAiStream, TiptapifySkinInput, variantBtnTypes } from '@tiptapify/types/editor'
 import { ref, onMounted, onUnmounted, PropType, computed } from 'vue'
 import { useTheme } from 'vuetify'
 
@@ -13,6 +13,8 @@ const props = defineProps({
   slashCommands: { type: [Boolean,Array<string>], default() { return true } },
   placeholder: { type: String, default() { return 'Start typing...' } },
   variantBtn: { type: String as PropType<variantBtnTypes>, default() { return 'elevated' } },
+  // A built-in name, a registered custom skin, or an inline skin object
+  editorSkin: { type: [String, Object] as PropType<TiptapifySkinInput>, default() { return 'default' } },
   aiDemo: { type: Boolean, default() { return false } },
 })
 
@@ -258,6 +260,7 @@ onMounted(() => {
       :slash-commands="slashCommands"
       :interactive-styles="true"
       :variant-btn="variantBtn"
+      :skin="editorSkin"
       :ai="aiConfig"
     />
   </div>
