@@ -1,3 +1,11 @@
+### 0.3.4
+- `skin` prop: `default` is the classic look, `pastel` is the quiet 0.3.3 one; the editor is classic by default again
+- custom skins: `registerSkin('name', { extends, colors, metrics, shape })` or an inline object on the `skin` prop
+- skin tokens as CSS variables (`--tf-*`): toolbar, buttons, groups, bubble menus, dropdowns, dialogs, frame, images
+- shape flags: toolbar raised/flat, groups box/flat, buttons vuetify/quiet, bubble card/flat, dialog classic/soft, menu vuetify/soft
+- classic toolbar sections render as VBtnGroup again (0.3.2 structure restored)
+- typings: `TiptapifySkinConfig`, `TiptapifyShape`; docs: Skins guide with the token table
+
 ### 0.3.3
 - quiet toolbar: flat groups divided by separators, ghost buttons with a neutral pressed state, light dropdowns
 - `align` toolbar item: alignment as one dropdown (`align:left,center,right` limits the options)

@@ -4,6 +4,7 @@ import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import { TiptapifyFooterAlignment } from '@tiptapify/types/editor'
 import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
+import { registerSkin, defineSkin } from '@tiptapify/skins/registry'
 
 import { Editor as TipTapEditor, nodeViewProps, NodeViewWrapper, VueNodeViewRenderer } from '@tiptap/vue-3'
 import { Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
@@ -12,6 +13,9 @@ import type { CommandProps, InputRuleMatch, PasteRuleMatch } from '@tiptap/core'
 import * as mdi from '@mdi/js'
 
 import { messages } from './i18n'
+
+// The shared menu skin stylesheet: shipped in the dist CSS next to the SFC styles (spec: Menu CSS strategy)
+import './skins/menu.css'
 
 interface PackageOptions {
   i18n?: any;
@@ -46,11 +50,22 @@ export {
   markInputRule,
   markPasteRule,
   mergeAttributes,
+  registerSkin,
+  defineSkin,
 }
 
 export type { TiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 export type { TiptapifyFooterAlignment }
 export type { CommandProps, InputRuleMatch, PasteRuleMatch }
+export type {
+  TiptapifySkin,
+  TiptapifyShape,
+  TiptapifySkinColors,
+  TiptapifySkinMetrics,
+  TiptapifySkinConfig,
+  TiptapifySkinInput,
+  ResolvedShape,
+} from '@tiptapify/types/editor'
 export type {
   TiptapifyAiBackendProviderOptions,
   TiptapifyAiBackendRequest,

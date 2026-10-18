@@ -56,6 +56,7 @@ export default defineConfig({
           items: [
             { text: 'Installation', link: '/guide/installation' },
             { text: 'Quick Start', link: '/guide/quick-start' },
+            { text: 'Skins', link: '/guide/skins' },
             { text: 'Internationalization', link: '/guide/i18n' },
             { text: 'AI Extension', link: '/guide/ai' },
           ],
@@ -66,6 +67,7 @@ export default defineConfig({
           text: 'Examples',
           items: [
             { text: 'Basic Usage', link: '/examples/basic' },
+            { text: 'Skins', link: '/examples/skins' },
             { text: 'Custom Toolbar', link: '/examples/custom-toolbar' },
             { text: 'Media', link: '/examples/media' },
             { text: 'Slash Commands', link: '/examples/slash-commands' },

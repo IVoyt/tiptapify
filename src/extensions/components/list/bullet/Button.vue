@@ -3,8 +3,10 @@
 import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
+import SkinScope from '@tiptapify/components/SkinScope.vue'
 import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+import { menuContentClass } from '@tiptapify/skins/menu'
 import { computed, inject, ref, Ref, watch } from 'vue'
 
 import { ComposerTranslation } from 'vue-i18n'
@@ -19,7 +21,7 @@ const props = defineProps({
   withSquare: { type: Boolean, default: true }
 })
 
-const { variantBtn } = useTiptapifyConfig()
+const { variantBtn, shape } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -98,7 +100,7 @@ watch(() => bulletLists.value, () => {
     @toggle="editor.commands.toggleBulletList()"
   />
 
-  <VMenu v-else-if="isMenu" content-class="tiptapify-menu">
+  <VMenu v-else-if="isMenu" :content-class="menuContentClass(shape.menu === 'soft')">
     <template #activator="{ props: menuProps }">
       <VBtn
         :color="buttonActive ? 'primary' : ''"
@@ -112,20 +114,22 @@ watch(() => bulletLists.value, () => {
       </VBtn>
     </template>
 
-    <VList>
-      <VListItem
-        v-for="(bulletList, key) in menuItems"
-        :key="key"
-        link
-        :active="editor.isActive(bulletList.name)"
-        @click="toggleList(bulletList.name)"
-      >
-        <Tooltip :label="t('lists.bullet')" />
-        <VListItemTitle class="d-flex justify-center align-center">
-          <BtnIcon :icon="bulletList.icon" />
-        </VListItemTitle>
-      </VListItem>
-    </VList>
+    <SkinScope>
+      <VList>
+        <VListItem
+          v-for="(bulletList, key) in menuItems"
+          :key="key"
+          link
+          :active="editor.isActive(bulletList.name)"
+          @click="toggleList(bulletList.name)"
+        >
+          <Tooltip :label="t('lists.bullet')" />
+          <VListItemTitle class="d-flex justify-center align-center">
+            <BtnIcon :icon="bulletList.icon" />
+          </VListItemTitle>
+        </VListItem>
+      </VList>
+    </SkinScope>
   </VMenu>
 
   <VBtn

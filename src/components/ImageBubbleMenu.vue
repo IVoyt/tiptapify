@@ -8,9 +8,13 @@ import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { ImageAlign } from '@tiptapify/extensions/components/media/image/caption'
 import { inject, Ref, ref } from 'vue'
 import { ComposerTranslation } from 'vue-i18n'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 
 // The toolbar on a selected image: float toggles (or, for a slide, its place in the slider), download, edit, removal
 const editor = inject('tiptapifyEditor') as Ref<Editor>
+
+// The image menu follows the buttons shape flag: a quiet carrier in the quiet shape
+const { shape } = useTiptapifyConfig()
 
 // The menu follows its text or image when the editor scrolls inside its own box; it is created once the
 // box is there, as the menu reads its options only when it is created
@@ -62,7 +66,7 @@ function download() {
     :options="{ placement: 'top', offset: -52, flip: false, scrollTarget }"
     :should-show="isImageSelected"
   >
-    <div class="tiptapify-image-menu tiptapify-quiet-buttons">
+    <div class="tiptapify-image-menu" :class="{ 'tiptapify-quiet-buttons': shape.buttons === 'quiet' }">
       <template v-if="isSlide()">
         <VBtn size="32" variant="text" color="" :disabled="!editor.can().moveImage(-1)" @click="editor.chain().focus().moveImage(-1).run()">
           <Tooltip :label="t('media.image_toolbar.move_back')" />
@@ -110,15 +114,20 @@ function download() {
 </template>
 
 <style scoped lang="scss">
+/*
+ * The image menu follows the bubble tokens: one rule, the classic shape's base as fallback;
+ * the quiet shape paints its border/radius/shadow from the same tokens.
+ * The internal divider is this menu's own layout, not the toolbar divider surface.
+ */
 .tiptapify-image-menu {
   display: flex;
   align-items: center;
-  gap: 2px;
-  padding: 4px;
-  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
-  border-radius: 10px;
-  background: rgb(var(--v-theme-surface));
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  gap: var(--tf-bubble-gap, 2px);
+  padding: var(--tf-bubble-padding, 4px);
+  border: var(--tf-bubble-border, none);
+  border-radius: var(--tf-bubble-radius, 6px);
+  background: var(--tf-bubble-bg, rgb(var(--v-theme-surface)));
+  box-shadow: var(--tf-bubble-shadow, 4px 4px 20px var(--dark-gray));
 }
 
 .tiptapify-image-menu__divider {

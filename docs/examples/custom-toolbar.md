@@ -17,6 +17,21 @@ Use `|` as a separator between button groups.
 
 <InteractiveEditor :items="['bold', 'italic', 'underline', '|', 'heading', 'bulletList', 'orderedList', '|', 'link', 'image', '|', 'undo', 'redo']" placeholder="Custom toolbar..." />
 
+## List Styles Dropdown
+
+The `:styles` suffix swaps a list button for its marker/numbering styles dropdown: the list button opens a grid of `list-style-type` options, saved as an inline style. The grid renders inside the skin's menu surface, so it follows the active skin ([Skins guide](/guide/skins)):
+
+```vue
+<template>
+  <Tiptapify
+    :items="['bold', 'italic', '|', 'bulletList:styles', 'orderedList:styles', '|', 'undo', 'redo']"
+    placeholder="Open the list styles dropdowns..."
+  />
+</template>
+```
+
+<InteractiveEditor :items="['bold', 'italic', '|', 'bulletList:styles', 'orderedList:styles', '|', 'undo', 'redo']" placeholder="Open the list styles dropdowns..." />
+
 ## Excluding Items
 
 Use `items-exclude` alongside `items` to show most toolbar items but exclude specific ones:

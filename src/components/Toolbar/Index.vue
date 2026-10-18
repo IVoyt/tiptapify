@@ -7,6 +7,7 @@ import { computed, inject, PropType, Ref } from 'vue'
 import { itemsPropType, toolbarSections } from '@tiptapify/types/toolbarTypes'
 
 import { default as toolbarItemsGroups, availableItems } from '@tiptapify/components/Toolbar/items'
+import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 
 const props = defineProps({
   variantField: { type: String as PropType<variantFieldTypes>, default() { return defaults.variantField } },
@@ -22,6 +23,10 @@ const props = defineProps({
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
+
+// The toolbar shape flag styles the bar: a flat tinted bar when `toolbar` is flat;
+// the classic shape keeps the raised Vuetify toolbar
+const { shape } = useTiptapifyConfig()
 
 const propsItems = computed(() => props.items)
 const propsItemsExclude = computed(() => props.itemsExclude)
@@ -272,7 +277,13 @@ toolbarItems = toolbarItems
 
 <template>
   <div v-if="editor" class="tiptapify-toolbar">
-    <VToolbar flat :theme="theme" height="auto" :class="`rounded-t-${rounded}`">
+    <VToolbar
+      :elevation="shape.toolbar === 'flat' ? 0 : 1"
+      :flat="shape.toolbar === 'flat'"
+      :theme="theme"
+      height="auto"
+      :class="`rounded-t-${rounded}`"
+    >
       <VSlideGroup v-if="toolbarScrollable">
         <Items :items="toolbarItems" />
       </VSlideGroup>
@@ -284,30 +295,39 @@ toolbarItems = toolbarItems
 
 <style lang="scss">
 /*
- * Quiet toolbar: a tinted bar under a hairline, ghost icon buttons that only get a background on
- * hover, and a neutral "pressed" state instead of the filled primary button. The buttons keep
- * coloring themselves with `color="primary"` when active; the toolbar maps that to the pressed look.
+ * Flat toolbar: a tinted bar under a hairline. The raised shape paints the bar with the Vuetify
+ * toolbar and its own button variants instead, so this rule set is gated on the shape and its
+ * fallbacks are the flat shape's base look (the raised values are Vuetify's, not skin rules).
  */
-.tiptapify-toolbar {
+.tiptapify-shape-toolbar-flat .tiptapify-toolbar {
   > .v-toolbar {
-    background: rgba(var(--v-theme-on-surface), 0.03);
-    border-bottom: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
-    color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
+    background: var(--tf-toolbar-bg, rgba(var(--v-theme-on-surface), 0.03));
+    border-bottom: var(--tf-toolbar-border-bottom, 1px solid rgba(var(--v-border-color), var(--v-border-opacity)));
+    color: var(--tf-toolbar-fg, rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity)));
   }
 }
 
 /*
- * Quiet buttons of the toolbar and the bubble menus. Tripled class: outranks Vuetify's color utilities and
- * the theme rules that repaint colored buttons on hover, focus and press (`.bg-primary:focus` and the like).
- * Active buttons keep `color="primary"` (or `.tiptapify-btn--active`) and get the neutral pressed look.
+ * Quiet buttons: ghost icon buttons that only get a background on hover, and a neutral "pressed"
+ * state instead of the filled primary button. The buttons keep coloring themselves with
+ * `color="primary"` when active; this rule maps that to the pressed look. The rules apply iff
+ * `buttons` is quiet: through the root shape class in the toolbar, and through the
+ * `.tiptapify-quiet-buttons` carrier that the bubble menus carry only in that shape.
+ * Tripled class: outranks Vuetify's variant rules (`.v-btn--variant-elevated` background/shadow
+ * are plain (0-1-0), so the doubled/tripled class beats them — no `!important` needed for the
+ * resting state). The pressed-state block keeps its `!important`s: an active button carries the
+ * runtime theme utility class `.bg-primary`/`.text-primary`, which Vuetify generates with
+ * `!important`, and the consumer "admin theme" repaints those colored buttons on hover, focus
+ * and press (`.bg-primary:focus` and the like) — plain specificity loses against `!important`;
+ * this is the admin-theme defense set of the skin layer (spec: Specificity convention).
  */
-.tiptapify-toolbar,
+.tiptapify-shape-buttons-quiet .tiptapify-toolbar,
 .tiptapify-quiet-buttons {
   .v-btn.v-btn.v-btn {
-    border-radius: 6px;
-    box-shadow: none !important;
-    background-color: transparent !important;
-    color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity)) !important;
+    border-radius: var(--tf-button-radius, 6px);
+    box-shadow: none;
+    background-color: transparent;
+    color: var(--tf-button-fg, rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity)));
     transition: background-color 0.15s, color 0.15s;
 
     > .v-btn__overlay,
@@ -318,8 +338,8 @@ toolbarItems = toolbarItems
     &:hover,
     &:focus-visible,
     &[aria-expanded='true'] {
-      background-color: rgba(var(--v-theme-on-surface), 0.07) !important;
-      color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity)) !important;
+      background-color: var(--tf-button-hover-bg, rgba(var(--v-theme-on-surface), 0.07)) !important;
+      color: var(--tf-button-hover-fg, rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity))) !important;
     }
 
     &.bg-primary,
@@ -328,14 +348,14 @@ toolbarItems = toolbarItems
       &,
       &:focus,
       &:active {
-        background-color: rgba(var(--v-theme-on-surface), 0.1) !important;
-        color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity)) !important;
+        background-color: var(--tf-button-active-bg, rgba(var(--v-theme-on-surface), 0.1)) !important;
+        color: var(--tf-button-hover-fg, rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity))) !important;
       }
 
       &:hover,
       &:focus-visible,
       &[aria-expanded='true'] {
-        background-color: rgba(var(--v-theme-on-surface), 0.14) !important;
+        background-color: var(--tf-button-active-hover-bg, rgba(var(--v-theme-on-surface), 0.14)) !important;
       }
     }
 
@@ -357,45 +377,6 @@ toolbarItems = toolbarItems
   }
 }
 
-/* Dropdowns opened from the toolbar: a light card with compact rows of icon + label. */
-.tiptapify-menu {
-  /* Doubled classes: the admin theme pads menu lists and items with its own !important rules */
-  > .v-list.v-list {
-    padding: 4px !important;
-    border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-
-    > .v-list-item.v-list-item {
-      min-height: 34px;
-      margin: 0 !important;
-      padding: 4px 8px !important;
-      border-radius: 6px;
-      color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));
-
-      .v-list-item__prepend > .v-icon {
-        margin-inline-end: 0;
-        opacity: 0.6;
-      }
-
-      .v-list-item__spacer {
-        width: 10px !important;
-      }
-
-      .v-list-item-title {
-        font-size: 14px;
-        font-weight: 500;
-      }
-
-      &.v-list-item--active {
-        background: rgba(var(--v-theme-on-surface), 0.06);
-        color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity)) !important;
-
-        > .v-list-item__overlay {
-          opacity: 0;
-        }
-      }
-    }
-  }
-}
+/* Dropdowns opened from the toolbar: a light card with compact rows of icon + label.
+ * The pastel menu skin rules moved to src/skins/menu.css (SkinScope wrapper, spec step 5). */
 </style>

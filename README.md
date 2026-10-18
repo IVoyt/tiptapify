@@ -27,6 +27,7 @@
 - Bubble Menu
 - Floating Menu
 - Slash Command
+- Skins: classic (default), pastel, and custom (`registerSkin` / inline) via the `skin` prop
 - Dark theme
 
 ## Installation

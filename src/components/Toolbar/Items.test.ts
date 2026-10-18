@@ -1,11 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { createSSRApp, h, provide, ref } from 'vue'
+import { computed, createSSRApp, h, provide, ref } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { createVuetify } from 'vuetify'
 import Items from '@tiptapify/components/Toolbar/Items.vue'
 import HeadingButton from '@tiptapify/extensions/components/style/heading/Button.vue'
 import AlignmentMenuButton from '@tiptapify/extensions/components/alignment/menu/Button.vue'
 import { headingLevels } from '@tiptapify/constants/style'
+import { TIPTAPIFY_CONFIG_KEY } from '@tiptapify/composables/useTiptapifyConfig'
+import { resolveSkin } from '@tiptapify/skins/registry'
+import { variantBtnTypes } from '@tiptapify/types/editor'
 
 const editor = {
   instanceId: 1,
@@ -23,16 +26,31 @@ const items = [
   },
 ]
 
-async function renderToolbar (toolbarItems: typeof items = items) {
+async function renderToolbar (
+  toolbarItems: typeof items = items,
+  skin: unknown = 'default',
+  variantBtn: variantBtnTypes = 'flat',
+) {
   const warnings: string[] = []
   const warn = vi.spyOn(console, 'warn').mockImplementation((...args: unknown[]) => {
     warnings.push(args.map(String).join(' '))
   })
 
+  // The shape the section markup reads: exactly the chain a real editor provides
+  const resolved = resolveSkin(skin as never)
+
   const app = createSSRApp({
     setup () {
       provide('tiptapifyEditor', ref(editor))
       provide('tiptapifyI18n', { t: (key: string) => key })
+      provide(TIPTAPIFY_CONFIG_KEY, {
+        variantBtn: ref(variantBtn),
+        variantField: ref('outlined'),
+        skin: ref(skin),
+        skinName: computed(() => resolved.name),
+        tokens: computed(() => resolved.tokens),
+        shape: computed(() => resolved.shape),
+      })
 
       return () => h(Items, { items: toolbarItems })
     },
@@ -43,6 +61,13 @@ async function renderToolbar (toolbarItems: typeof items = items) {
   warn.mockRestore()
 
   return { html, warnings }
+}
+
+// The opening tag of the section's group element
+function groupTag (html: string): string {
+  const match = html.match(/<div[^>]*class="[^"]*tiptapify-toolbar-group[^"]*"[^>]*>/)
+
+  return match ? match[0] : ''
 }
 
 describe('Toolbar Items', () => {
@@ -95,5 +120,36 @@ describe('Toolbar Items', () => {
 
     expect(html).toContain('tiptapify-align-button-1')
     expect(html).toContain('tiptapify-dropdown-button__chevron')
+  })
+
+  it('renders a grouped section as a VBtnGroup under groups: box', async () => {
+    const tag = groupTag(await renderToolbar(items, 'default').then((r) => r.html))
+
+    expect(tag).toContain('tiptapify-toolbar-group')
+    expect(tag).toContain('v-btn-group')
+    expect(tag).toContain('elevation-4')
+  })
+
+  it('keeps the 0.3.2 variantBtn elevation class conditional', async () => {
+    const flat = groupTag(await renderToolbar(items, 'default', 'flat').then((r) => r.html))
+    expect(flat).toContain('v-btn-group')
+    expect(flat).not.toContain('tiptapify-btn-group--elevated')
+
+    const elevated = groupTag(await renderToolbar(items, 'default', 'elevated').then((r) => r.html))
+    expect(elevated).toContain('tiptapify-btn-group--elevated')
+  })
+
+  it('renders a grouped section as a plain div under groups: flat', async () => {
+    const tag = groupTag(await renderToolbar(items, 'pastel').then((r) => r.html))
+
+    expect(tag).toContain('tiptapify-toolbar-group')
+    expect(tag).not.toContain('v-btn-group')
+  })
+
+  it('an inline groups: box flag on a pastel-base skin gets the VBtnGroup markup', async () => {
+    const tag = groupTag(await renderToolbar(items, { extends: 'pastel', groups: 'box' }).then((r) => r.html))
+
+    expect(tag).toContain('tiptapify-toolbar-group')
+    expect(tag).toContain('v-btn-group')
   })
 })
