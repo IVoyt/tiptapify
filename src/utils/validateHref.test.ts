@@ -30,6 +30,23 @@ describe('isValidHref', () => {
     expect(isValidHref('https://example.com/a/b?q=1-2_3%40&r=99')).toBe(true)
   })
 
+  it('accepts facebook post, photo and permalink URLs', () => {
+    expect(isValidHref('https://www.facebook.com/user.name/posts/pfbid02abcXYZ123')).toBe(true)
+    expect(isValidHref('https://www.facebook.com/photo/?fbid=123456&set=a.789')).toBe(true)
+    expect(isValidHref('https://m.facebook.com/permalink.php?story_fbid=pfbid0abc&id=100064')).toBe(true)
+    expect(isValidHref('https://fb.watch/abc_DEF12/')).toBe(true)
+  })
+
+  it('accepts dots, underscores and other URL characters in the path', () => {
+    expect(isValidHref('https://example.com/docs/file_v2.pdf')).toBe(true)
+    expect(isValidHref('https://example.com/~user/a+b,c:d')).toBe(true)
+  })
+
+  it('accepts a hyphenated or non-latin domain', () => {
+    expect(isValidHref('https://my-site.com')).toBe(true)
+    expect(isValidHref('https://ліга.укр/новини')).toBe(true)
+  })
+
   it('accepts mailto links', () => {
     expect(isValidHref('mailto:test@example.com')).toBe(true)
   })
@@ -60,6 +77,14 @@ describe('isValidHref', () => {
 
   it('rejects URLs containing spaces', () => {
     expect(isValidHref('https://exa mple.com')).toBe(false)
+  })
+
+  it('rejects an http URL without slashes after the protocol', () => {
+    expect(isValidHref('https:example.com')).toBe(false)
+  })
+
+  it('rejects a domain with an empty label', () => {
+    expect(isValidHref('https://example..com')).toBe(false)
   })
 
   it('rejects plain text', () => {
