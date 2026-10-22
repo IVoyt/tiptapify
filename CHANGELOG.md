@@ -1,3 +1,7 @@
+### 0.3.5
+- link dialog accepts URLs the old href regex rejected: dots and underscores in the path and query (`/user.name/posts/…`, `permalink.php`, `?set=a.789`, `/file.pdf`), hyphenated and non-latin domains
+- http(s) links are validated with the URL parser: explicit `http(s)://` prefix, no whitespace, hostname with non-empty dotted labels; `mailto:` and `tel:` checks are unchanged
+
 ### 0.3.4
 - `skin` prop: `default` is the classic look, `pastel` is the quiet 0.3.3 one; the editor is classic by default again
 - custom skins: `registerSkin('name', { extends, colors, metrics, shape })` or an inline object on the `skin` prop
