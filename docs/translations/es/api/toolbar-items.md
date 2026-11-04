@@ -8,6 +8,7 @@ Todos los elementos de la barra de herramientas disponibles, organizados por sec
 |----------|------------------------------------|
 | `undo`   | Deshace el último cambio           |
 | `redo`   | Rehace el último cambio deshecho   |
+| `resetChanges` | Descarta todos los cambios desde que se abrió el editor y borra el historial (pide confirmación) |
 
 ## IA {#ai}
 

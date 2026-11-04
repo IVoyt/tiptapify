@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "purpose": "Session-recorded style matrix of the 0.3.4 base work (theme-prop, pre-rename), captured 2026-10-18 on docs dev (vitepress, Vuetify dark variant 'tiptapifyDark', default viewport). Safety net for spec step 2: the CANONICAL baseline fixture (src/skins/__fixtures__/chrome-baseline.json) is re-measured there in light AND dark; values marked truncated must not be trusted verbatim.",
+    "source": "getComputedStyle via CDP evaluate_script, docs/examples/themes.md playground (InteractiveEditor, variantBtn='elevated')",
+    "classes": "root classes are tiptapify-theme-{name} (old terminology); step 1 renames them to tiptapify-skin-{name}",
+    "selectors": {
+      "frame": ".tiptapify-frame",
+      "toolbar": ".tiptapify-toolbar .v-toolbar",
+      "items": ".tiptapify-toolbar-items",
+      "group": ".tiptapify-toolbar-group",
+      "divider": ".menu-divider",
+      "groupBtn": ".tiptapify-toolbar-group .v-btn",
+      "menu": "VMenu content (.tiptapify-menu / .tiptapify-menu--pastel), .v-list computed",
+      "bubbleClassic": ".bubble-menu (MenuBubble card branch)",
+      "bubblePastel": ".tiptapify-bubble-menu (flat branch)",
+      "dialog": ".tiptapify-dialog (VCard, teleported overlay)"
+    }
+  },
+  "default": {
+    "frame": { "borderTopWidth": "0px", "borderBottomWidth": "1px", "borderBottomColor": "rgba(255, 255, 255, 0.12)", "backgroundColor": "rgba(0, 0, 0, 0)", "boxShadow": "none" },
+    "toolbar": { "backgroundColor": "rgb(66, 66, 66)", "boxShadow": "rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px", "borderBottomWidth": "0px" },
+    "items": { "paddingTop": "12px", "paddingLeft": "16px", "gap": "5px normal" },
+    "group": { "backgroundColor": "rgb(33, 33, 33)", "boxShadow": "rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px", "height": "32px", "gap": "normal" },
+    "divider": { "width": "0px", "height": "0px", "marginLeft": "4px", "backgroundColor": "rgba(0, 0, 0, 0)", "display": "block" },
+    "groupBtn": { "backgroundColor": "rgb(33, 33, 33)", "color": "rgb(255, 255, 255)", "boxShadow": "rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px", "_note": "docs playground variantBtn='elevated'; library default is 'flat' (no shadow) — measure both variants in step 2" },
+    "menu": { "contentClass": "v-overlay__content tiptapify-menu", "listPadding": "8px 0px", "listBorderRadius": "4px", "listBorderTopWidth": "0px", "listBoxShadow": "rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px" },
+    "bubble": { "root": ".bubble-menu", "borderRadius": "6px", "boxShadow": "rgb(98, 98, 98) 4px 4px 20px 0px", "hasVCard": true, "hasDividedVBtnGroup": true, "btnVariant": "elevated" },
+    "dialog": { "classes": ["tiptapify-dialog"], "borderRadius": "4px", "boxShadow": "rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, r...", "_truncated": true, "dividerUnderTitle": true, "titleFontSize": "20px", "titleFontWeight": "400", "closeVariant": "elevated", "fieldVariant": "filled", "actionsTextTransform": "uppercase", "actionsLetterSpacing": "1.25px" }
+  },
+  "pastel": {
+    "frame": { "borderTopWidth": "1px", "borderBottomWidth": "1px", "borderBottomColor": "rgba(255, 255, 255, 0.192)", "backgroundColor": "rgb(33, 33, 33)", "boxShadow": "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px" },
+    "toolbar": { "backgroundColor": "rgba(255, 255, 255, 0.03)", "boxShadow": "rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px", "borderBottomWidth": "1px" },
+    "items": { "paddingTop": "6px", "paddingLeft": "8px", "gap": "4px 6px" },
+    "group": { "backgroundColor": "rgba(0, 0, 0, 0)", "boxShadow": "none", "height": "32px", "gap": "2px" },
+    "divider": { "width": "1px", "height": "20px", "marginLeft": "0px", "backgroundColor": "rgba(255, 255, 255, 0.12)", "display": "block" },
+    "groupBtn": { "backgroundColor": "rgba(0, 0, 0, 0)", "color": "rgba(255, 255, 255, 0.7)", "boxShadow": "none" },
+    "menu": { "contentClass": "v-overlay__content tiptapify-menu tiptapify-menu--pastel", "listPadding": "4px", "listBorderRadius": "8px", "listBorderTopWidth": "1px", "listBoxShadow": "rgba(0, 0, 0, 0.08) 0px 4px 16px 0px" },
+    "bubble": { "root": ".tiptapify-bubble-menu.tiptapify-quiet-buttons", "borderRadius": "10px", "btnBackgroundColor": "rgba(0, 0, 0, 0)" },
+    "dialog": { "classes": ["tiptapify-dialog", "tiptapify-dialog--pastel"], "borderRadius": "12px", "boxShadow": "rgba(0, 0, 0, 0.16) 0px 20px 48px 0px, r...", "_truncated": true, "dividerUnderTitle": false, "titleFontSize": "18px", "titleFontWeight": "600", "closeVariant": "text", "fieldVariant": "outlined", "actionsTextTransform": "none", "actionsLetterSpacing": "normal" }
+  }
+}

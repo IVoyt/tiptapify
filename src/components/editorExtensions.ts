@@ -27,6 +27,7 @@ import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 import { InvisibleCharacters } from '@tiptap/extension-invisible-characters'
 
 import { default as Iframe } from '@tiptapify/extensions/components/media/iframe'
+import { ResetChanges } from '@tiptapify/extensions/components/actions/reset/resetChanges'
 import { BulletListCircle, BulletListSquare } from '@tiptapify/extensions/components/list/bullet'
 import { ListStyle } from '@tiptapify/extensions/components/list/styles'
 import { TiptapifyImage } from '@tiptapify/extensions/components/media/image'
@@ -149,6 +150,7 @@ export function editorExtensions (
     TableKit,
     Code,
     UndoRedo,
+    ResetChanges,
     Focus,
     CodeBlockLowlight
       .extend({

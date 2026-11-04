@@ -8,6 +8,7 @@ Kõik saadaolevad tööriistariba üksused sektsioonide kaupa.
 |----------|------------------------------------|
 | `undo`   | Võta viimane muudatus tagasi       |
 | `redo`   | Tee viimati tagasivõetud muudatus uuesti |
+| `resetChanges` | Tühistab kõik muudatused alates redaktori avamisest ja tühjendab ajaloo (küsib enne kinnitust) |
 
 ## AI {#ai}
 

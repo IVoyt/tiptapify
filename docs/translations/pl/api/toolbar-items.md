@@ -8,6 +8,7 @@ Wszystkie dostępne elementy paska narzędzi, pogrupowane według sekcji.
 |----------|----------------------------------|
 | `undo`   | Cofa ostatnią zmianę             |
 | `redo`   | Ponawia ostatnio cofniętą zmianę |
+| `resetChanges` | Odrzuca wszystkie zmiany od otwarcia edytora i czyści historię (najpierw pyta) |
 
 ## AI {#ai}
 

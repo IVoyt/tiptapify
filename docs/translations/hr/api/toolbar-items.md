@@ -8,6 +8,7 @@ Sve dostupne stavke alatne trake, organizirane po odjeljcima.
 |----------|-------------------------------------|
 | `undo`   | Poništi zadnju promjenu             |
 | `redo`   | Ponovi zadnju poništenu promjenu    |
+| `resetChanges` | Odbacuje sve promjene od otvaranja uređivača i briše povijest (prvo traži potvrdu) |
 
 ## AI {#ai}
 

@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Yinele",
+    "reset": "Sıfırla",
+    "reset_changes": "Değişiklikleri sıfırla",
+    "reset_changes_confirm": "Düzenleyici açıldığından beri yapılan tüm değişiklikler silinecek. Bu işlem geri alınamaz.",
+    "reset_changes_dont_ask": "Bir daha sorma",
     "undo": "Geri al"
   },
   "ai": {

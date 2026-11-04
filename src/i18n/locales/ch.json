@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "重做",
+    "reset": "重置",
+    "reset_changes": "重置更改",
+    "reset_changes_confirm": "自打开编辑器以来的所有更改都将被丢弃。此操作无法撤销。",
+    "reset_changes_dont_ask": "不再询问",
     "undo": "撤销"
   },
   "ai": {

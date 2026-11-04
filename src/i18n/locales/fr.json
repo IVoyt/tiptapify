@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Refaire",
+    "reset": "Réinitialiser",
+    "reset_changes": "Réinitialiser les modifications",
+    "reset_changes_confirm": "Toutes les modifications depuis l’ouverture de l’éditeur seront abandonnées. Cette action est irréversible.",
+    "reset_changes_dont_ask": "Ne plus demander",
     "undo": "Annuler"
   },
   "ai": {

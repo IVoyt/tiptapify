@@ -1,3 +1,6 @@
+### 0.4.2
+- added "Reset changes" toolbar button with "Don’t ask again" option (kept in `localStorage`)
+
 ### 0.4.1
 - the image dialog logic is exported as `imageDialog` (`applyImage`, `removeImage`, `selectedImageAttrs`, the size helpers and their types), for a host that replaces the image dialog with its own: imported from `tiptapify/src/…` it ran another copy of prosemirror-state than the editor of the build, so a selected image was not found — "Remove" did nothing and "Save" replaced the image instead of updating it; the selected image is now found by its node, not by `instanceof NodeSelection`
 

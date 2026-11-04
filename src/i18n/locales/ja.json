@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "やり直し",
+    "reset": "リセット",
+    "reset_changes": "変更をリセット",
+    "reset_changes_confirm": "エディターを開いてからのすべての変更が破棄されます。この操作は元に戻せません。",
+    "reset_changes_dont_ask": "今後は確認しない",
     "undo": "取り消し"
   },
   "ai": {

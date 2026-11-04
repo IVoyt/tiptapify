@@ -8,6 +8,7 @@ Kaikki käytettävissä olevat työkalurivin kohteet osioittain.
 |----------|-----------------------------|
 | `undo`   | Kumoa viimeisin muutos      |
 | `redo`   | Tee uudelleen viimeksi kumottu muutos |
+| `resetChanges` | Hylkää kaikki muutokset editorin avaamisen jälkeen ja tyhjentää historian (kysyy ensin) |
 
 ## AI {#ai}
 

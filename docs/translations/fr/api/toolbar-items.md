@@ -8,6 +8,7 @@ Tous les éléments de la barre d'outils disponibles, organisés par section.
 |----------|-----------------------------------|
 | `undo`   | Annuler la dernière modification  |
 | `redo`   | Rétablir la dernière modification annulée |
+| `resetChanges` | Abandonner toutes les modifications depuis l’ouverture de l’éditeur et vider l’historique (demande confirmation) |
 
 ## IA {#ai}
 

@@ -8,6 +8,7 @@ Alla tillgängliga verktygsfältsobjekt ordnade efter sektion.
 |----------|----------------------------------|
 | `undo`   | Ångra den senaste ändringen      |
 | `redo`   | Gör om den senast ångrade ändringen |
+| `resetChanges` | Förkasta alla ändringar sedan redigeraren öppnades och rensa historiken (frågar först) |
 
 ## AI {#ai}
 

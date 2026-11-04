@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Tee uuesti",
+    "reset": "Lähtesta",
+    "reset_changes": "Lähtesta muudatused",
+    "reset_changes_confirm": "Kõik muudatused alates redaktori avamisest tühistatakse. Seda ei saa tagasi võtta.",
+    "reset_changes_dont_ask": "Ära küsi enam",
     "undo": "Tühista"
   },
   "ai": {

@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "ביצוע מחדש",
+    "reset": "איפוס",
+    "reset_changes": "איפוס שינויים",
+    "reset_changes_confirm": "כל השינויים מאז פתיחת העורך יבוטלו. לא ניתן לבטל פעולה זו.",
+    "reset_changes_dont_ask": "אל תשאל שוב",
     "undo": "ביטול"
   },
   "ai": {

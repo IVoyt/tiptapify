@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Tee uudelleen",
+    "reset": "Palauta",
+    "reset_changes": "Palauta muutokset",
+    "reset_changes_confirm": "Kaikki muutokset editorin avaamisen jälkeen hylätään. Tätä ei voi kumota.",
+    "reset_changes_dont_ask": "Älä kysy uudelleen",
     "undo": "Kumoa"
   },
   "ai": {

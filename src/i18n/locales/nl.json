@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Opnieuw",
+    "reset": "Herstellen",
+    "reset_changes": "Wijzigingen herstellen",
+    "reset_changes_confirm": "Alle wijzigingen sinds het openen van de editor worden verwijderd. Dit kan niet ongedaan worden gemaakt.",
+    "reset_changes_dont_ask": "Niet meer vragen",
     "undo": "Ongedaan maken"
   },
   "ai": {

@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "다시 실행",
+    "reset": "초기화",
+    "reset_changes": "변경 사항 초기화",
+    "reset_changes_confirm": "편집기를 연 이후의 모든 변경 사항이 삭제됩니다. 이 작업은 되돌릴 수 없습니다.",
+    "reset_changes_dont_ask": "다시 묻지 않기",
     "undo": "실행 취소"
   },
   "ai": {

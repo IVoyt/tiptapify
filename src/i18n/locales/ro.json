@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Refăce",
+    "reset": "Resetează",
+    "reset_changes": "Resetează modificările",
+    "reset_changes_confirm": "Toate modificările de la deschiderea editorului vor fi eliminate. Acțiunea nu poate fi anulată.",
+    "reset_changes_dont_ask": "Nu mai întreba",
     "undo": "Anulează"
   },
   "ai": {

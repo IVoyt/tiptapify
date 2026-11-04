@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Làm lại",
+    "reset": "Đặt lại",
+    "reset_changes": "Đặt lại thay đổi",
+    "reset_changes_confirm": "Mọi thay đổi kể từ khi mở trình soạn thảo sẽ bị hủy. Không thể hoàn tác thao tác này.",
+    "reset_changes_dont_ask": "Không hỏi lại",
     "undo": "Hoàn tác"
   },
   "ai": {

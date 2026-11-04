@@ -8,6 +8,7 @@ Všechny dostupné položky panelu nástrojů seřazené podle sekcí.
 |----------|-----------------------------|
 | `undo`   | Vrátit poslední změnu       |
 | `redo`   | Znovu provést vrácenou změnu |
+| `resetChanges` | Zahodí všechny změny od otevření editoru a vymaže historii (nejprve se zeptá) |
 
 ## AI {#ai}
 

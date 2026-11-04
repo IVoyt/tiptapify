@@ -8,6 +8,7 @@ Tutti gli elementi disponibili della barra degli strumenti, organizzati per sezi
 |----------|----------------------------------|
 | `undo`   | Annulla l'ultima modifica        |
 | `redo`   | Ripristina l'ultima modifica annullata |
+| `resetChanges` | Annulla tutte le modifiche dall’apertura dell’editor e svuota la cronologia (chiede conferma) |
 
 ## AI {#ai}
 

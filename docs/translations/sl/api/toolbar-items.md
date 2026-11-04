@@ -8,6 +8,7 @@ Vsi razpoložljivi elementi orodne vrstice, razvrščeni po odsekih.
 |----------|-----------------------------|
 | `undo`   | Razveljavi zadnjo spremembo |
 | `redo`   | Ponovi zadnjo razveljavljeno spremembo |
+| `resetChanges` | Zavrže vse spremembe od odprtja urejevalnika in počisti zgodovino (najprej vpraša) |
 
 ## AI {#ai}
 
