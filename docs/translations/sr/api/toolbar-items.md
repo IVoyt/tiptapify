@@ -8,6 +8,7 @@ Sve dostupne stavke trake sa alatima, organizovane po odeljcima.
 |----------|--------------------------------------|
 | `undo`   | Poništi poslednju izmenu             |
 | `redo`   | Ponovi poslednju poništenu izmenu    |
+| `resetChanges` | Odbacuje sve izmene od otvaranja uređivača i briše istoriju (prvo pita) |
 
 ## AI {#ai}
 

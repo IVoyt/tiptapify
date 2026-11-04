@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Redo",
+    "reset": "Reset",
+    "reset_changes": "Reset changes",
+    "reset_changes_confirm": "All changes made since the editor opened will be discarded. This cannot be undone.",
+    "reset_changes_dont_ask": "Don’t ask again",
     "undo": "Undo"
   },
   "ai": {

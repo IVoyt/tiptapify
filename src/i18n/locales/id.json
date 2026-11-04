@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Ulang",
+    "reset": "Atur ulang",
+    "reset_changes": "Atur ulang perubahan",
+    "reset_changes_confirm": "Semua perubahan sejak editor dibuka akan dibuang. Tindakan ini tidak dapat diurungkan.",
+    "reset_changes_dont_ask": "Jangan tanya lagi",
     "undo": "Urungkan"
   },
   "ai": {

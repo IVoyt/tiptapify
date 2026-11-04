@@ -8,6 +8,7 @@ Všetky dostupné položky lišty nástrojov usporiadané podľa sekcií.
 |----------|-----------------------------|
 | `undo`   | Vráti poslednú zmenu        |
 | `redo`   | Zopakuje naposledy vrátenú zmenu |
+| `resetChanges` | Zahodí všetky zmeny od otvorenia editora a vymaže históriu (najprv sa opýta) |
 
 ## AI {#ai}
 

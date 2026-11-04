@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Znova",
+    "reset": "Obnoviť",
+    "reset_changes": "Zahodiť zmeny",
+    "reset_changes_confirm": "Všetky zmeny od otvorenia editora budú zahodené. Túto akciu nemožno vrátiť späť.",
+    "reset_changes_dont_ask": "Už sa nepýtať",
     "undo": "Späť"
   },
   "ai": {

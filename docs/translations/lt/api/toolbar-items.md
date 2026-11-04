@@ -8,6 +8,7 @@ Visi galimi įrankių juostos elementai, suskirstyti pagal skyrius.
 |----------|-----------------------------|
 | `undo`   | Atšaukti paskutinį pakeitimą |
 | `redo`   | Pakartoti paskutinį atšauktą pakeitimą |
+| `resetChanges` | Atmeta visus pakeitimus nuo redaktoriaus atidarymo ir išvalo istoriją (pirma paklausia) |
 
 ## DI {#ai}
 

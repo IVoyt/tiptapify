@@ -1,5 +1,6 @@
 import { default as UndoButton } from '@tiptapify/extensions/components/actions/undo/Button.vue'
 import { default as RedoButton } from '@tiptapify/extensions/components/actions/redo/Button.vue'
+import { default as ResetButton } from '@tiptapify/extensions/components/actions/reset/Button.vue'
 import { markRaw } from 'vue'
 
 export default {
@@ -13,6 +14,10 @@ export default {
     {
       name: 'redo',
       component: markRaw(RedoButton),
+    },
+    {
+      name: 'resetChanges',
+      component: markRaw(ResetButton),
     }
   ]
 }

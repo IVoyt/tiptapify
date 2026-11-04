@@ -8,6 +8,7 @@ Az összes elérhető eszköztárelem szakaszok szerint rendezve.
 |----------|-----------------------------|
 | `undo`   | Az utolsó módosítás visszavonása |
 | `redo`   | Az utoljára visszavont módosítás újra végrehajtása |
+| `resetChanges` | A szerkesztő megnyitása óta végzett összes változtatás elvetése és az előzmények törlése (előbb rákérdez) |
 
 ## AI {#ai}
 

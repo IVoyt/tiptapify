@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Ismétlés",
+    "reset": "Visszaállítás",
+    "reset_changes": "Változtatások visszaállítása",
+    "reset_changes_confirm": "A szerkesztő megnyitása óta végzett összes változtatás elvész. Ez nem vonható vissza.",
+    "reset_changes_dont_ask": "Ne kérdezze újra",
     "undo": "Visszavonás"
   },
   "ai": {

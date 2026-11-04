@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Gjør om",
+    "reset": "Tilbakestill",
+    "reset_changes": "Tilbakestill endringer",
+    "reset_changes_confirm": "Alle endringer siden redigeringsprogrammet ble åpnet, forkastes. Dette kan ikke angres.",
+    "reset_changes_dont_ask": "Ikke spør igjen",
     "undo": "Angre"
   },
   "ai": {

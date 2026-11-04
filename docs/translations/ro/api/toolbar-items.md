@@ -8,6 +8,7 @@ Toate elementele disponibile ale barei de instrumente, organizate pe secțiuni.
 |----------|------------------------------------|
 | `undo`   | Anulează ultima modificare         |
 | `redo`   | Reface ultima modificare anulată   |
+| `resetChanges` | Elimină toate modificările de la deschiderea editorului și golește istoricul (cere confirmare) |
 
 ## AI {#ai}
 

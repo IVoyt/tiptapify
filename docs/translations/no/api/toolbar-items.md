@@ -8,6 +8,7 @@ Alle tilgjengelige verktøylinjeelementer ordnet etter seksjon.
 |----------|-----------------------------------|
 | `undo`   | Angre siste endring               |
 | `redo`   | Gjør om siste angrede endring     |
+| `resetChanges` | Forkast alle endringer siden redigeringsprogrammet ble åpnet, og tøm historikken (spør først) |
 
 ## AI {#ai}
 

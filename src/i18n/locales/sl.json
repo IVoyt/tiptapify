@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Ponovi",
+    "reset": "Ponastavi",
+    "reset_changes": "Ponastavi spremembe",
+    "reset_changes_confirm": "Vse spremembe od odprtja urejevalnika bodo zavržene. Tega ni mogoče razveljaviti.",
+    "reset_changes_dont_ask": "Ne sprašuj več",
     "undo": "Razveljavi"
   },
   "ai": {

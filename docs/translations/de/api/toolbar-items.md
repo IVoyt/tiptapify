@@ -8,6 +8,7 @@ Alle verfügbaren Symbolleisten-Elemente, nach Bereichen geordnet.
 |----------|-----------------------------|
 | `undo`   | Letzte Änderung rückgängig machen |
 | `redo`   | Zuletzt rückgängig gemachte Änderung wiederherstellen |
+| `resetChanges` | Alle Änderungen seit dem Öffnen des Editors verwerfen und den Verlauf leeren (fragt vorher nach) |
 
 ## AI {#ai}
 

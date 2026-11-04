@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Wiederholen",
+    "reset": "Zurücksetzen",
+    "reset_changes": "Änderungen zurücksetzen",
+    "reset_changes_confirm": "Alle Änderungen seit dem Öffnen des Editors werden verworfen. Dies kann nicht rückgängig gemacht werden.",
+    "reset_changes_dont_ask": "Nicht mehr fragen",
     "undo": "Rückgängig"
   },
   "ai": {

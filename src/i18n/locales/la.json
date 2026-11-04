@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Atcelt atsaukšanu",
+    "reset": "Atiestatīt",
+    "reset_changes": "Atiestatīt izmaiņas",
+    "reset_changes_confirm": "Visas izmaiņas kopš redaktora atvēršanas tiks atmestas. To nevar atsaukt.",
+    "reset_changes_dont_ask": "Vairs nejautāt",
     "undo": "Atsaukt"
   },
   "ai": {

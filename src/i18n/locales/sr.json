@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Ponovo",
+    "reset": "Resetuj",
+    "reset_changes": "Resetuj izmene",
+    "reset_changes_confirm": "Sve izmene od otvaranja uređivača biće odbačene. Ovo se ne može poništiti.",
+    "reset_changes_dont_ask": "Ne pitaj ponovo",
     "undo": "Poništi"
   },
   "ai": {

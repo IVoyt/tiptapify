@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Ponów",
+    "reset": "Resetuj",
+    "reset_changes": "Resetuj zmiany",
+    "reset_changes_confirm": "Wszystkie zmiany od otwarcia edytora zostaną odrzucone. Tej operacji nie można cofnąć.",
+    "reset_changes_dont_ask": "Nie pytaj ponownie",
     "undo": "Cofnij"
   },
   "ai": {

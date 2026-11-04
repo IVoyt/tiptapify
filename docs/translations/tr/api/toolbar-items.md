@@ -8,6 +8,7 @@ Bölümlere göre düzenlenmiş, kullanılabilir tüm araç çubuğu öğeleri.
 |----------|-----------------------------|
 | `undo`   | Son değişikliği geri alır   |
 | `redo`   | Geri alınan son değişikliği yineler |
+| `resetChanges` | Düzenleyici açıldığından beri yapılan tüm değişiklikleri atar ve geçmişi temizler (önce sorar) |
 
 ## AI {#ai}
 

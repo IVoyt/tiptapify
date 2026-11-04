@@ -8,6 +8,7 @@ All available toolbar items organized by section.
 |----------|-----------------------------|
 | `undo`   | Undo the last change        |
 | `redo`   | Redo the last undone change |
+| `resetChanges` | Discard all changes since the editor opened and clear the history (asks first) |
 
 ## AI
 

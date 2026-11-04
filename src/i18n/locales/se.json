@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Gör om",
+    "reset": "Återställ",
+    "reset_changes": "Återställ ändringar",
+    "reset_changes_confirm": "Alla ändringar sedan redigeraren öppnades förkastas. Detta kan inte ångras.",
+    "reset_changes_dont_ask": "Fråga inte igen",
     "undo": "Ångra"
   },
   "ai": {

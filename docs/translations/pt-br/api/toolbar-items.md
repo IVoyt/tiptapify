@@ -8,6 +8,7 @@ Todos os itens disponíveis da barra de ferramentas, organizados por seção.
 |----------|------------------------------------|
 | `undo`   | Desfaz a última alteração          |
 | `redo`   | Refaz a última alteração desfeita  |
+| `resetChanges` | Descarta todas as alterações desde que o editor foi aberto e limpa o histórico (pede confirmação) |
 
 ## IA {#ai}
 

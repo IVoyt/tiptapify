@@ -1,6 +1,10 @@
 {
   "action": {
     "redo": "Ripeti",
+    "reset": "Ripristina",
+    "reset_changes": "Ripristina modifiche",
+    "reset_changes_confirm": "Tutte le modifiche dall’apertura dell’editor verranno annullate. L’operazione non può essere annullata.",
+    "reset_changes_dont_ask": "Non chiedere più",
     "undo": "Annulla"
   },
   "ai": {

@@ -8,6 +8,7 @@ Semua item toolbar yang tersedia, disusun menurut seksi.
 |----------|-------------------------------|
 | `undo`   | Urungkan perubahan terakhir   |
 | `redo`   | Ulangi perubahan yang diurungkan terakhir |
+| `resetChanges` | Buang semua perubahan sejak editor dibuka dan hapus riwayat (meminta konfirmasi dulu) |
 
 ## AI {#ai}
 

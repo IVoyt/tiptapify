@@ -8,6 +8,7 @@ Visi pieejamie rīkjoslas elementi, sakārtoti pa sadaļām.
 |----------|-------------------------------------|
 | `undo`   | Atsaukt pēdējo izmaiņu              |
 | `redo`   | Atcelt pēdējās atsauktās izmaiņas atsaukšanu |
+| `resetChanges` | Atmet visas izmaiņas kopš redaktora atvēršanas un notīra vēsturi (vispirms jautā) |
 
 ## AI {#ai}
 

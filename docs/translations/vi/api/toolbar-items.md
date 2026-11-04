@@ -8,6 +8,7 @@ Tất cả các mục thanh công cụ có sẵn, sắp xếp theo nhóm.
 |----------|-----------------------------|
 | `undo`   | Hoàn tác thay đổi gần nhất  |
 | `redo`   | Làm lại thay đổi vừa hoàn tác |
+| `resetChanges` | Hủy mọi thay đổi kể từ khi mở trình soạn thảo và xóa lịch sử (hỏi trước) |
 
 ## AI {#ai}
 

@@ -8,6 +8,7 @@ Alle beschikbare toolbaritems, per sectie gegroepeerd.
 |----------|----------------------------------------|
 | `undo`   | De laatste wijziging ongedaan maken    |
 | `redo`   | De laatst ongedaan gemaakte wijziging opnieuw uitvoeren |
+| `resetChanges` | Alle wijzigingen sinds het openen van de editor verwijderen en de geschiedenis wissen (vraagt eerst) |
 
 ## AI {#ai}
 
