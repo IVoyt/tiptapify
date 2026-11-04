@@ -140,6 +140,16 @@ describe('image dialog apply', () => {
     expect(selectedImageAttrs(editor!.state)).toMatchObject({ src: 'https://example.com/a.png', width: 640 })
   })
 
+  it('reads a node selection made by another copy of prosemirror-state', () => {
+    createEditor('<p>Text</p><img src="https://example.com/a.png" width="640">')
+    const { from, to } = editor!.state.selection
+    const node = editor!.state.doc.nodeAt(6)
+    const foreignSelection = { from, to, node }
+    const state = { ...editor!.state, selection: foreignSelection } as unknown as Parameters<typeof selectedImageAttrs>[0]
+
+    expect(selectedImageAttrs(state)).toMatchObject({ src: 'https://example.com/a.png', width: 640 })
+  })
+
   it('sends the selected image to the dialog, or none to insert one', () => {
     createEditor('<p>Text</p><img src="https://example.com/a.png">')
     const details: Array<{ image: Record<string, unknown> | null }> = []

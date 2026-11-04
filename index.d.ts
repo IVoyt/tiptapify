@@ -360,6 +360,9 @@ export type {
 
 export type { TiptapifyConfig }
 
+/** The logic of the image dialog, for a host that replaces the dialog with its own */
+export * as imageDialog from './src/extensions/components/media/image/imageDialog'
+
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
     Tiptapify: typeof Tiptapify

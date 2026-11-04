@@ -6,6 +6,7 @@ import { TiptapifyFooterAlignment } from '@tiptapify/types/editor'
 import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
 import { registerSkin, defineSkin } from '@tiptapify/skins/registry'
 import { contentCss, inlineContentStyles } from '@tiptapify/utils/contentStyles'
+import * as imageDialog from '@tiptapify/extensions/components/media/image/imageDialog'
 
 import { Editor as TipTapEditor, nodeViewProps, NodeViewWrapper, VueNodeViewRenderer } from '@tiptap/vue-3'
 import { Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
@@ -55,6 +56,7 @@ export {
   defineSkin,
   contentCss,
   inlineContentStyles,
+  imageDialog,
 }
 
 export type { TiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'

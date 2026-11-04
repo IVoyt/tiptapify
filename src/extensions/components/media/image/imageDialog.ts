@@ -5,6 +5,8 @@ import { ImageAlign } from '@tiptapify/extensions/components/media/image/caption
 
 export { resizeSide, toSize }
 
+export type { ImageAlign }
+
 export type ImageSizeMode = 'original' | 'text' | 'custom'
 
 export type ImageSize = MediaSize
@@ -27,12 +29,13 @@ const typeName = 'image'
  * The attributes of the image selected as a node, or null when no image is selected (the dialog inserts one).
  */
 export function selectedImageAttrs(state: EditorState): Record<string, unknown> | null {
-  const { selection } = state
-  if (!(selection instanceof NodeSelection) || selection.node.type.name !== typeName) {
+  // Not instanceof: a host that imports this module from the source runs another copy of prosemirror-state than the editor
+  const { node } = state.selection as Partial<NodeSelection>
+  if (node?.type.name !== typeName) {
     return null
   }
 
-  return { ...selection.node.attrs }
+  return { ...node.attrs }
 }
 
 /**
