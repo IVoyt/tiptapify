@@ -6,7 +6,7 @@ A **skin** is one look of the editor chrome: the toolbar, the buttons and groups
 <Tiptapify skin="pastel" />
 ```
 
-A skin is two things: **tokens** (paint and sizes as CSS variables) and **shape** (structural variants a token cannot express). The two built-ins are `default` — the classic look, a raised toolbar with raised button groups — and `pastel`, the quiet look introduced in 0.3.3. Custom skins are first-class: `registerSkin()` and inline skin objects resolve through exactly the same machinery, and the built-ins are registered skins, not special cases.
+A skin is two things: **tokens** (paint and sizes as CSS variables) and **shape** (structural variants a token cannot express). The two built-ins are `default` — the classic look, a raised toolbar with raised button groups — and `pastel`, the quiet look. Custom skins are first-class: `registerSkin()` and inline skin objects resolve through exactly the same machinery, and the built-ins are registered skins, not special cases.
 
 ## Terminology: skin vs Vuetify theme
 
@@ -40,7 +40,7 @@ Six flags decide which rule sets apply; the tokens paint them:
 | `toolbar` | `raised` · `flat` | VToolbar elevation + no inner hairline vs flat tinted bar |
 | `groups` | `box` · `flat` | toolbar sections as raised **VBtnGroup** boxes (0.3.2 markup: joined buttons, the group tokens paint the box) vs plain flex div runs |
 | `buttons` | `vuetify` · `quiet` | native Vuetify buttons vs ghost buttons with a neutral pressed state |
-| `bubble` | `card` · `flat` | bubble menu: VCard + divided VBtnGroup vs flat row of quiet buttons |
+| `bubble` | `card` · `flat` | kept for compatibility: the bubble menus are one token-painted row of icon buttons in both shapes (their buttons follow `buttons`) |
 | `dialog` | `classic` · `soft` | divider under the title, elevated close vs soft card, text close |
 | `menu` | `vuetify` · `soft` | dropdown menus: Vuetify list vs the light padded card |
 
@@ -103,16 +103,16 @@ These tokens are consumed **only under `buttons: 'quiet'`** — see [Reachabilit
 | `buttonActiveHoverBg` | `--tf-button-active-hover-bg` | `rgba(var(--v-theme-on-surface), 0.14)` |
 | `buttonRadius` | `--tf-button-radius` | `6px` |
 
-### Bubble menus (text and image)
+### Bubble menus (selection, empty line, image)
 
 | token | CSS variable | classic | pastel |
 |---|---|---|---|
 | `bubbleBg` | `--tf-bubble-bg` | `rgb(var(--v-theme-surface))` | same |
 | `bubbleBorder` | `--tf-bubble-border` | `none` | `1px solid rgba(var(--v-border-color), var(--v-border-opacity))` |
-| `bubbleShadow` | `--tf-bubble-shadow` | `4px 4px 20px var(--dark-gray)` | `0 6px 20px rgba(0, 0, 0, 0.12)` |
+| `bubbleShadow` | `--tf-bubble-shadow` | `0 4px 14px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08)` | `0 6px 20px rgba(0, 0, 0, 0.12)` |
 | `bubbleRadius` | `--tf-bubble-radius` | `6px` | `10px` |
-| `bubblePadding` | `--tf-bubble-padding` | `0px` (card layout) | `4px` |
-| `bubbleGap` | `--tf-bubble-gap` | `0px` | `2px` |
+| `bubblePadding` | `--tf-bubble-padding` | `4px` | same |
+| `bubbleGap` | `--tf-bubble-gap` | `2px` | same |
 
 ### Dropdown menus
 
@@ -190,7 +190,7 @@ Per group:
 - **Buttons** (`buttonFg`, `buttonHover*`, `buttonActive*`, `buttonRadius`) — inert under `buttons: 'vuetify'`: the native Vuetify buttons paint their own states. Style them with Vuetify theme colors (`primary`, `surface`, …) — the classic shapes deliberately inherit them.
 - **Menu item metrics** (`menuItemRadius/Padding/MinHeight/ActiveBg`) — inert under `menu: 'vuetify'`; Vuetify owns those item pixels. The menu **list** box (radius/shadow/padding) is skin-painted in both shapes (see the [menu note](#menu-classic-note)).
 - **Dialog soft chrome** (`dialogActionBtn*`, `dialogFieldRadius`, the soft paddings, the missing divider) — painted under `dialog: 'soft'`; under `dialog: 'classic'` the dialog is a VCard with the classic paddings.
-- **Bubble chrome** (`bubblePadding`, `bubbleGap`, `bubbleBorder`) — the flat bubble rules are gated on `bubble: 'flat'`; the card shape paints its VCard metrics.
+- **Bubble chrome** — the selection, empty-line and image menus are one row of icon buttons in both shapes, painted by the bubble tokens; `bubble` no longer changes their markup.
 
 An override equal to the catalog base is **not emitted** — under a non-classic shape the shape's own base paints via the CSS fallback, so "restoring" a classic value (e.g. setting `buttonActiveBg` back to `rgb(var(--v-theme-primary))` under `buttons: 'quiet'`) silently does nothing. To force a classic-looking value under a non-classic shape, set an override that differs from the catalog base — an equivalent literal like `rgba(var(--v-theme-primary), 1)` paints identically and survives the skip.
 
@@ -286,7 +286,9 @@ The stable hooks to write against:
 | `tiptapify-shape-{flag}-{value}` ×6 | editor root — the resolved shape |
 | `tiptapify-toolbar` · `tiptapify-toolbar-items` · `tiptapify-toolbar-group` · `menu-divider` | the toolbar and its sections |
 | `tiptapify-quiet-buttons` | toolbar and bubble roots under `buttons: 'quiet'` |
-| `tiptapify-bubble-menu` | the flat bubble menu root |
+| `tiptapify-bubble-row` · `tiptapify-bubble-divider` | the row of every bubble menu and the hairline between its groups |
+| `tiptapify-bubble-menu` · `floating-menu` · `tiptapify-image-menu` | the selection, empty-line and image menu rows |
+| `tiptapify-btn--active` | a pressed button of a bubble menu (an active mark, the image float) |
 | `tiptapify-menu` · `tiptapify-menu--soft` | dropdown overlay content, the carrier of the soft menu rules |
 | `tiptapify-skin-scope` | the token scope div inside teleported menus |
 | `tiptapify-dialog` · `tiptapify-dialog--soft` | the dialog card and its soft carrier |

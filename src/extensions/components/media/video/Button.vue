@@ -4,6 +4,7 @@ import { Editor } from '@tiptap/vue-3'
 import BtnIcon from '@tiptapify/components/UI/BtnIcon.vue'
 import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import VideoDialog from '@tiptapify/extensions/components/media/video/VideoDialog.vue'
+import { selectedVideoNode } from '@tiptapify/extensions/components/media/video'
 import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import { inject, Ref } from 'vue'
 
@@ -20,7 +21,7 @@ const icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" vie
 
 <template>
   <VBtn
-    :color="editor.isActive('video') ? 'primary' : ''"
+    :color="selectedVideoNode(editor) ? 'primary' : ''"
     :variant="variantBtn"
     size="32"
     @click="editor.commands.showTiptapifyVideo()"

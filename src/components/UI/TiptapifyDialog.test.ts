@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { App, computed, createApp, h, nextTick, provide, Ref, ref } from 'vue'
 import { createVuetify } from 'vuetify'
 import { VTextField } from 'vuetify/components'
@@ -23,7 +23,7 @@ if (!('visualViewport' in globalThis)) {
 // variant and the field defaults all key off `shape.dialog`, not the skin name.
 const openApps: { app: App, host: HTMLElement }[] = []
 
-async function openDialog (skinInput: unknown): Promise<HTMLElement> {
+async function openDialog (skinInput: unknown, listeners: Record<string, () => void> = {}, slots: Record<string, () => unknown> = {}): Promise<HTMLElement> {
   const config = resolveSkin(skinInput)
   const dialog: Ref<{ open: () => void } | null> = ref(null)
 
@@ -39,8 +39,9 @@ async function openDialog (skinInput: unknown): Promise<HTMLElement> {
       })
       provide('tiptapifyI18n', { t: (key: string) => key })
 
-      return () => h(TiptapifyDialog, { ref: dialog, title: 'Probe dialog', module: 'link' }, {
+      return () => h(TiptapifyDialog, { ref: dialog, title: 'Probe dialog', module: 'link', ...listeners }, {
         content: () => h('div', { class: 'probe-content' }, [h(VTextField, { label: 'Field' })]),
+        ...slots,
       })
     },
   })
@@ -128,5 +129,38 @@ describe('TiptapifyDialog shape wiring', () => {
     const classic = await openDialog({ dialog: 'classic' })
     expect(classic.classList.contains('tiptapify-dialog--soft')).toBe(false)
     expect(classic.querySelector('.tiptapify-dialog-header')?.nextElementSibling?.classList.contains('v-divider')).toBe(true)
+  })
+})
+
+describe('TiptapifyDialog form', () => {
+  it('submits on Enter in a field: the content is a form', async () => {
+    const onSubmit = vi.fn()
+    const card = await openDialog('default', { onSubmit })
+
+    card.querySelector('form')!.requestSubmit()
+
+    expect(onSubmit).toHaveBeenCalledOnce()
+  })
+
+  it('tells the dialog it closed, however it was closed', async () => {
+    const onClosed = vi.fn()
+    const card = await openDialog('default', { onClosed })
+
+    card.querySelector<HTMLElement>('.tiptapify-dialog-close')!.click()
+    await nextTick()
+
+    expect(onClosed).toHaveBeenCalledOnce()
+  })
+})
+
+describe('TiptapifyDialog title', () => {
+  it('shows the title prop, or the title slot of the dialog', async () => {
+    const plain = await openDialog('default')
+    expect(plain.querySelector('.tiptapify-dialog-title')!.textContent!.trim()).toBe('Probe dialog')
+
+    disposeDialogs()
+
+    const custom = await openDialog('default', {}, { title: () => h('b', { class: 'probe-title' }, 'With icon') })
+    expect(custom.querySelector('.tiptapify-dialog-title .probe-title')!.textContent).toBe('With icon')
   })
 })

@@ -20,6 +20,7 @@ const SOURCES = [
   '../components/MenuBubble.vue',
   '../components/ImageBubbleMenu.vue',
   '../components/UI/TiptapifyDialog.vue',
+  '../components/UI/BubbleRow.vue',
   './menu.css',
   '../extensions/components/list/styles/ListStyleButton.vue',
 ]

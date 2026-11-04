@@ -1,48 +1,164 @@
 <script lang="ts" setup>
 
+import { aiErrorDetail, aiErrorKind } from '@tiptapify/extensions/components/ai/errors'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
 import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import {
   TiptapifyAiEditorContext,
   TiptapifyAiMode,
   TiptapifyAiOpenAiResponse,
-  TiptapifyAiReasoningEffort,
   TiptapifyAiRequest,
   TiptapifyAiResponse,
   TiptapifyAiResolvedOptions,
   TiptapifyAiStream,
   TiptapifyEditor
 } from '@tiptapify/types/editor'
-import { computed, ComputedRef, inject, nextTick, Ref, ref, useTemplateRef, watch } from 'vue'
+import { computed, ComputedRef, inject, nextTick, Ref, ref, shallowRef, useTemplateRef, watch, watchEffect } from 'vue'
 import * as mdi from '@mdi/js'
 import { ComposerTranslation } from 'vue-i18n'
 import { exceedsLimit } from './charLimit'
 import { DEFAULT_AI_INSTRUCTION } from './backend'
+import { AiContextInfo, describeAiContext, selectedTextOf, textAround, wholeWordRange } from './context'
+import { changePercent, diffWords, formatChangePercent } from './diff'
+import {
+  aiActions,
+  AiApplyAction,
+  AiRange,
+  applyAiResult,
+  countedText,
+  parseAiResult,
+  plainText,
+  projectedCharacters,
+  renderAiResult
+} from './result'
+import { AiThinkingChoice, applyThinking, initialThinkingChoice, thinkingChoices } from './thinking'
 
-const { variantBtn, variantField } = useTiptapifyConfig()
+const { variantBtn } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<TiptapifyEditor>
 const ai = inject('tiptapifyAi') as ComputedRef<TiptapifyAiResolvedOptions | false>
 const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 const dialog = useTemplateRef('dialog')
+const resultEl = useTemplateRef<HTMLElement>('resultEl')
+const reasoningTextEl = useTemplateRef<HTMLElement>('reasoningTextEl')
+
 const prompt = ref('')
+// The prompt of the shown result, for "Another version" after the prompt was edited
+const lastPrompt = ref('')
 const result = ref('')
 const reasoning = ref('')
-const reasoningPanel = ref<number[]>([])
-const reasoningTextEl = ref<HTMLElement | null>(null)
+const reasoningOpen = ref(false)
+const reasoningStartedAt = ref<number | null>(null)
+const reasoningEndedAt = ref<number | null>(null)
 const error = ref('')
 const loading = ref(false)
-const requestController = ref<AbortController | null>(null)
-const requestRange = ref<{ from: number, to: number } | null>(null)
+const copied = ref(false)
+const showChanges = ref(false)
+const requestController = shallowRef<AbortController | null>(null)
+const requestRange = ref<AiRange | null>(null)
+// The selected text the result was generated from, for the change percent and the diff
+const requestText = ref('')
 const requestMode = ref<TiptapifyAiMode>('insert')
-const thinkingEnabled = ref(false)
-const reasoningEffort = ref<'default' | TiptapifyAiReasoningEffort | null>(null)
+const context = ref<AiContextInfo>({ kind: 'cursor', paragraphs: 0, characters: 0, excerpt: '' })
+const thinkingChoice = ref<AiThinkingChoice | null>(null)
 
-watch(loading, (value) => {
-  if (value) {
-    reasoningPanel.value = [0]
+const aiProvider = computed(() => ai?.value ? ai.value.aiProvider : undefined)
+const promptExamples = computed(() => ai?.value ? ai.value.promptExamples : [])
+const showReasoning = computed(() => ai?.value?.showReasoning === true)
+const thinkingOptions = computed(() => thinkingChoices(ai?.value || {}))
+// With effort options the control speaks of effort ("Effort: high"), otherwise of thinking on/off
+const effortMode = computed(() => thinkingOptions.value.length > 2)
+const isGenerateDisabled = computed(() => !aiProvider.value || !prompt.value.trim() || loading.value)
+
+const contextIcon = computed(() => ({
+  selection: mdi.mdiSelect,
+  document: mdi.mdiTextBoxOutline,
+  cursor: mdi.mdiCursorText,
+})[context.value.kind])
+const contextLabel = computed(() => {
+  const { kind, paragraphs, characters } = context.value
+  if (kind !== 'selection') {
+    return t(`ai.context.${kind}`)
   }
+
+  return t('ai.context.selection', {
+    paragraphs: t('ai.context.paragraphs', paragraphs),
+    characters: t('ai.context.characters', characters),
+  })
+})
+
+const actions = computed(() => aiActions(context.value.kind === 'selection', ai?.value ? ai.value.mode : undefined))
+
+const resultFragment = computed(() => parseAiResult(result.value, editor.value.schema))
+const resultText = computed(() => countedText(resultFragment.value))
+const changes = computed(() => diffWords(requestText.value, plainText(resultFragment.value)))
+const percent = computed(() => {
+  const value = loading.value ? null : changePercent(requestText.value, plainText(resultFragment.value))
+
+  return value === null ? '' : formatChangePercent(value)
+})
+
+const characterCountLimit = computed(() => {
+  const limit = getCharacterCountExtension()?.options?.limit
+  return typeof limit === 'number' ? limit : null
+})
+const counter = computed(() => {
+  if (characterCountLimit.value === null) {
+    return t('ai.context.characters', resultText.value.length)
+  }
+
+  const projected = projectedCharacters(editor.value.state.doc, resultText.value, actions.value[0], requestRange.value)
+
+  return `${projected} / ${characterCountLimit.value}`
+})
+
+// The CharacterCount extension rejects a result over its limit, so that action stays disabled; replacing frees the selected characters
+function exceeds(action: AiApplyAction) {
+  const limit = characterCountLimit.value
+  if (limit === null || !result.value) {
+    return false
+  }
+
+  return exceedsLimit(resultText.value, {
+    doc: editor.value.state.doc,
+    limit,
+    mode: action === 'replace' ? 'replace' : 'insert',
+    range: requestRange.value,
+  })
+}
+
+function canApply(action: AiApplyAction) {
+  return Boolean(result.value.trim()) && !loading.value && !exceeds(action)
+}
+
+const primaryExceeded = computed(() => exceeds(actions.value[0]))
+
+// Loading shows in the result itself, not in the status line
+const status = computed(() => {
+  if (!aiProvider.value) {
+    return { type: 'warning', text: t('ai.unavailable') }
+  }
+  if (error.value) {
+    return { type: 'error', text: error.value }
+  }
+  if (primaryExceeded.value) {
+    return { type: 'error', text: t('ai.limit_exceeded') }
+  }
+
+  return null
+})
+
+const reasoningLabel = computed(() => {
+  if (loading.value && reasoningEndedAt.value === null) {
+    return t('ai.thinking_now')
+  }
+
+  const started = reasoningStartedAt.value ?? 0
+  const seconds = Math.max(1, Math.round(((reasoningEndedAt.value ?? started) - started) / 1000))
+
+  return t('ai.thought_for', { seconds })
 })
 
 watch(reasoning, () => {
@@ -54,106 +170,66 @@ watch(reasoning, () => {
   })
 })
 
-const aiProvider = computed(() => ai?.value ? ai.value.aiProvider : undefined)
-const promptExamples = computed(() => ai?.value ? ai.value.promptExamples : [])
-const reasoningEffortOptions = computed<TiptapifyAiReasoningEffort[]>(() => {
-  const configured = ai?.value?.reasoningEffort
-  if (!configured || !Array.isArray(configured.options)) {
-    return []
+watchEffect(() => {
+  if (resultEl.value) {
+    renderAiResult(resultFragment.value, editor.value.schema, resultEl.value)
   }
-
-  return configured.options.filter(option => option !== 'default')
-})
-const reasoningEffortItems = computed<Array<'default' | TiptapifyAiReasoningEffort>>(() => {
-  return ['default', ...reasoningEffortOptions.value]
-})
-const reasoningEffortSupported = computed(() => reasoningEffortOptions.value.length > 0)
-const thinkingSupported = computed(() => ai?.value?.thinking === true)
-const showReasoning = computed(() => ai?.value?.showReasoning === true)
-const showReasoningEffort = computed(() => thinkingSupported.value && reasoningEffortSupported.value && thinkingEnabled.value)
-const useReasoningEffort = computed(() => {
-  return thinkingSupported.value
-    && thinkingEnabled.value
-    && reasoningEffortSupported.value
-    && reasoningEffort.value !== null
-    && reasoningEffort.value !== 'default'
-})
-const isGenerateDisabled = computed(() => !aiProvider.value || !prompt.value.trim() || loading.value)
-const characterCountLimit = computed(() => {
-  const limit = getCharacterCountExtension()?.options?.limit
-  return typeof limit === 'number' ? limit : null
-})
-const limitExceeded = computed(() => {
-  const limit = characterCountLimit.value
-  if (limit === null || !result.value) {
-    return false
-  }
-
-  return exceedsLimit(result.value, {
-    doc: editor.value.state.doc,
-    limit,
-    mode: requestMode.value,
-    range: requestRange.value,
-  })
-})
-// A result that exceeds the character limit cannot be inserted (the
-// CharacterCount extension rejects it), so the apply action (and its
-// alternative modes) is disabled until the result is shortened.
-const isApplyDisabled = computed(() => !result.value.trim() || loading.value || limitExceeded.value)
-const actionLabel = computed(() => t(`ai.${requestMode.value}`))
-const modeOptions: TiptapifyAiMode[] = ['insert', 'replace', 'append']
-const alternativeModes = computed(() => modeOptions.filter(mode => mode !== requestMode.value))
-
-function applyInMode(mode: TiptapifyAiMode) {
-  if (isApplyDisabled.value) {
-    return
-  }
-
-  requestMode.value = mode
-  apply()
-}
+}, { flush: 'post' })
 
 defineExpose({ showDialog })
 
-function resetReasoningEffort() {
-  const configured = ai?.value?.reasoningEffort
-  const options = reasoningEffortOptions.value
+function actionLabel(action: AiApplyAction) {
+  return t({ replace: 'ai.replace_selection', below: 'ai.insert_below', insert: 'ai.insert', append: 'ai.append' }[action])
+}
 
-  if (options.length === 0) {
-    reasoningEffort.value = null
-    return
+// A menu item ("High") and the control's own label ("Effort: high"): with effort options
+// thinking on is the provider's default effort
+function choiceLabel(choice: AiThinkingChoice, group: 'states' | 'label' = 'states') {
+  if (choice === 'off' || (choice === 'on' && !effortMode.value)) {
+    return t(`ai.thinking_${group}.${choice}`)
   }
 
-  reasoningEffort.value = configured?.default && options.includes(configured.default)
-    ? configured.default
-    : 'default'
+  return t(`ai.effort_${group === 'states' ? 'levels' : 'label'}.${choice === 'on' ? 'default' : choice}`)
+}
+
+function resetResult() {
+  result.value = ''
+  reasoning.value = ''
+  reasoningOpen.value = false
+  reasoningStartedAt.value = null
+  reasoningEndedAt.value = null
+  error.value = ''
+  copied.value = false
+  showChanges.value = false
+}
+
+function reset() {
+  requestController.value?.abort()
+  requestController.value = null
+  loading.value = false
+
+  prompt.value = ''
+  lastPrompt.value = ''
+  requestRange.value = null
+  requestText.value = ''
+  requestMode.value = 'insert'
+  resetResult()
 }
 
 function showDialog() {
+  reset()
   prompt.value = ai?.value && ai.value.defaultPrompt ? ai.value.defaultPrompt : ''
-  result.value = ''
-  reasoning.value = ''
-  error.value = ''
-  requestRange.value = null
-  const { from, to } = editor.value.state.selection
-  requestMode.value = ai.value?.mode ?? (getSelectedText(from, to) ? 'replace' : 'insert')
-  thinkingEnabled.value = true
-  resetReasoningEffort()
+
+  const { doc, selection } = editor.value.state
+  const { from, to } = wholeWordRange(doc, selection.from, selection.to)
+  context.value = describeAiContext(doc, from, to)
+  requestMode.value = (ai?.value ? ai.value.mode : undefined) ?? (selectedTextOf(doc, from, to) ? 'replace' : 'insert')
+  thinkingChoice.value = initialThinkingChoice(ai?.value || {})
 
   dialog.value?.open()
 }
 
-function close() {
-  requestController.value?.abort()
-  requestController.value = null
-
-  prompt.value = ''
-  result.value = ''
-  reasoning.value = ''
-  error.value = ''
-  requestRange.value = null
-  requestMode.value = 'insert'
-
+function cancel() {
   dialog.value?.close()
 }
 
@@ -165,20 +241,20 @@ function applyExample(examplePrompt: string) {
   prompt.value = examplePrompt
 }
 
-function getSelectedText(from: number, to: number) {
-  if (from === to) {
-    return ''
+// Enter sends, Shift+Enter is a new line (an IME composition keeps its Enter)
+function onPromptKeydown(event: KeyboardEvent) {
+  if (event.key !== 'Enter' || event.shiftKey || event.isComposing) {
+    return
   }
 
-  return editor.value.state.doc.textBetween(from, to, '\n')
+  event.preventDefault()
+  generate()
 }
 
 function buildDefaultMessages(context: TiptapifyAiEditorContext) {
   const systemPrompt = ai.value && ai.value.systemPrompt
     ? ai.value.systemPrompt
     : DEFAULT_AI_INSTRUCTION
-  const contextText = context.selectedText || context.text
-  const contextLabel = context.selectedText ? 'Selected text' : 'Editor text'
 
   return [
     {
@@ -187,11 +263,26 @@ function buildDefaultMessages(context: TiptapifyAiEditorContext) {
     },
     {
       role: 'user' as const,
-      content: contextText
-        ? `${contextLabel}:\n${contextText}\n\nUser request:\n${context.prompt}`
-        : context.prompt,
+      content: defaultUserMessage(context),
     },
   ]
+}
+
+// A selection goes with the text around it and the rule to answer for the selection alone: given only a
+// fragment, a model takes it for the whole text and completes it, and the completion lands next to the rest
+function defaultUserMessage(context: TiptapifyAiEditorContext): string {
+  if (!context.selectedText) {
+    return context.text ? `Editor text:\n${context.text}\n\nUser request:\n${context.prompt}` : context.prompt
+  }
+
+  return [
+    context.textBefore ? `Text before the selection:\n${context.textBefore}` : '',
+    `Selected text:\n${context.selectedText}`,
+    context.textAfter ? `Text after the selection:\n${context.textAfter}` : '',
+    'Work on the selected text only and answer with its new version alone. The text before and after it stays '
+    + 'in the document as it is: do not repeat it and do not continue the selection into it.',
+    `User request:\n${context.prompt}`,
+  ].filter(Boolean).join('\n\n')
 }
 
 function buildOpenAiRequest(context: TiptapifyAiEditorContext): TiptapifyAiRequest {
@@ -212,16 +303,7 @@ function buildOpenAiRequest(context: TiptapifyAiEditorContext): TiptapifyAiReque
     request.temperature = options.temperature
   }
 
-  if (useReasoningEffort.value) {
-    delete request.enable_thinking
-    request.reasoning_effort = reasoningEffort.value
-  } else {
-    delete request.reasoning_effort
-
-    request.enable_thinking = thinkingSupported.value && thinkingEnabled.value
-  }
-
-  return request
+  return applyThinking(request, thinkingChoice.value)
 }
 
 function isTiptapifyAiResponse(response: unknown): response is TiptapifyAiResponse {
@@ -246,26 +328,48 @@ function getResponseContent(response: TiptapifyAiResponse | TiptapifyAiOpenAiRes
   return content.trimStart()
 }
 
-async function generate() {
-  if (isGenerateDisabled.value || !aiProvider.value) {
+// Thinking ends with the first chunk of the answer (or with the request)
+function markThoughtEnd() {
+  if (reasoningStartedAt.value !== null && reasoningEndedAt.value === null) {
+    reasoningEndedAt.value = Date.now()
+  }
+}
+
+
+function errorMessage(err: unknown): string {
+  const kind = aiErrorKind(err)
+  const detail = aiErrorDetail(err)
+
+  if (kind === 'other') {
+    return detail || t('ai.error')
+  }
+
+  return detail ? `${t(`ai.errors.${kind}`)} ${t('ai.errors.service_says')} ${detail}` : t(`ai.errors.${kind}`)
+}
+async function generate(promptText = prompt.value.trim()) {
+  if (!aiProvider.value || loading.value || !promptText) {
     return
   }
 
-  error.value = ''
-  result.value = ''
-  reasoning.value = ''
+  resetResult()
   loading.value = true
+  lastPrompt.value = promptText
 
   const controller = new AbortController()
   requestController.value = controller
 
-  const { from, to } = editor.value.state.selection
-  const selectedText = getSelectedText(from, to)
+  const { doc, selection } = editor.value.state
+  const { from, to } = wholeWordRange(doc, selection.from, selection.to)
+  const selectedText = selectedTextOf(doc, from, to)
   requestRange.value = selectedText ? { from, to } : null
+  requestText.value = selectedText
 
+  const around = textAround(doc, from, to)
   const context: TiptapifyAiEditorContext = {
-    prompt: prompt.value.trim(),
+    prompt: promptText,
     selectedText,
+    textBefore: around.before,
+    textAfter: around.after,
     text: selectedText || editor.value.getText(),
     html: editor.value.getHTML(),
     json: editor.value.getJSON(),
@@ -277,11 +381,13 @@ async function generate() {
     signal: controller.signal,
     onChunk: (chunk: string) => {
       if (chunk && !controller.signal.aborted) {
+        markThoughtEnd()
         result.value += chunk
       }
     },
     onReasoning: (chunk: string) => {
       if (chunk && !controller.signal.aborted) {
+        reasoningStartedAt.value ??= Date.now()
         reasoning.value += chunk
       }
     },
@@ -296,10 +402,15 @@ async function generate() {
     }
   } catch (err) {
     if (!controller.signal.aborted) {
-      error.value = err instanceof Error ? err.message : t('ai.error')
+      error.value = errorMessage(err)
     }
   } finally {
-    loading.value = false
+    // A request the dialog already let go of (closed meanwhile) leaves the state alone
+    if (requestController.value === controller) {
+      loading.value = false
+      requestController.value = null
+      markThoughtEnd()
+    }
   }
 }
 
@@ -307,262 +418,448 @@ function getCharacterCountExtension() {
   return editor.value.options.extensions?.find(item => item.name === 'characterCount')
 }
 
-function apply() {
-  if (isApplyDisabled.value) {
+async function copyResult() {
+  const container = document.createElement('div')
+  renderAiResult(resultFragment.value, editor.value.schema, container)
+  const text = plainText(resultFragment.value)
+
+  try {
+    if (typeof ClipboardItem === 'undefined') {
+      await navigator.clipboard.writeText(text)
+    } else {
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/html': new Blob([container.innerHTML], { type: 'text/html' }),
+        'text/plain': new Blob([text], { type: 'text/plain' }),
+      })])
+    }
+  } catch {
+    // No clipboard access (an insecure page or a denied permission): the button stays as it was
     return
   }
 
-  const chain = editor.value.chain().focus()
-  if (requestMode.value === 'replace' && requestRange.value) {
-    chain.deleteRange(requestRange.value)
+  copied.value = true
+  setTimeout(() => {
+    copied.value = false
+  }, 1500)
+}
+
+function apply(action: AiApplyAction) {
+  if (!canApply(action)) {
+    return
   }
 
-  if (requestMode.value === 'append') {
-    chain.insertContentAt(editor.value.state.doc.content.size, result.value).run()
-  } else {
-    chain.insertContent(result.value).run()
-  }
-
-  close()
+  applyAiResult(editor.value, action, result.value, requestRange.value)
+  dialog.value?.close()
 }
 
 </script>
 
 <template>
-  <TiptapifyDialog ref="dialog" module="ai" :title="t('ai.title')" :max-width="720" @close-dialog="close">
-    <template #content>
-      <VCardText>
-        <VAlert v-if="!aiProvider" type="warning" variant="tonal" density="compact" class="mb-4">
-          {{ t('ai.unavailable') }}
-        </VAlert>
+  <TiptapifyDialog ref="dialog" module="ai" :title="t('ai.title')" :max-width="640" @submit="apply(actions[0])" @closed="reset">
+    <template #title>
+      <VIcon size="20" class="mr-2" :icon="`mdiSvg:${mdi.mdiCreation}`" />{{ t('ai.title') }}
+    </template>
 
-        <div v-if="promptExamples.length" class="mb-4">
-          <VLabel class="mb-2 d-block">
-            {{ t('ai.quick_prompts') }}
-          </VLabel>
-          <div class="d-flex flex-wrap ga-2">
-            <VChip
-              v-for="example in promptExamples"
-              :key="`${example.title}:${example.prompt}`"
+    <template #content>
+      <VCardText class="ai-dialog">
+        <div class="ai-context">
+          <VIcon size="16" :icon="`mdiSvg:${contextIcon}`" />
+          <span class="ai-context__label">{{ contextLabel }}</span>
+          <span v-if="context.excerpt" class="ai-context__excerpt">
+            {{ t('ai.context.excerpt', { text: context.excerpt }) }}
+          </span>
+        </div>
+
+        <div v-if="promptExamples.length" class="ai-examples" role="group" :aria-label="t('ai.quick_prompts')">
+          <VChip
+            v-for="example in promptExamples"
+            :key="`${example.title}:${example.prompt}`"
+            size="small"
+            variant="tonal"
+            :disabled="loading || !aiProvider"
+            @click="applyExample(example.prompt)"
+          >
+            {{ example.title }}
+          </VChip>
+        </div>
+
+        <div class="ai-prompt" :class="{ 'ai-prompt--disabled': !aiProvider }">
+          <VTextarea
+            v-model="prompt"
+            class="ai-prompt__input"
+            :aria-label="t('ai.prompt')"
+            :placeholder="t('ai.prompt_placeholder')"
+            :disabled="loading || !aiProvider"
+            variant="plain"
+            density="compact"
+            rows="2"
+            max-rows="8"
+            hide-details
+            auto-grow
+            autofocus
+            @keydown="onPromptKeydown"
+          />
+
+          <div class="ai-prompt__bar">
+            <VMenu v-if="thinkingChoice" location="top start">
+              <template #activator="{ props }">
+                <VBtn
+                  v-bind="props"
+                  class="ai-thinking"
+                  size="small"
+                  variant="text"
+                  :disabled="loading || !aiProvider"
+                  :prepend-icon="`mdiSvg:${mdi.mdiBrain}`"
+                  :append-icon="`mdiSvg:${mdi.mdiChevronDown}`"
+                >
+                  {{ choiceLabel(thinkingChoice, 'label') }}
+                </VBtn>
+              </template>
+              <VList density="compact">
+                <VListSubheader>{{ effortMode ? t('ai.reasoning_effort') : t('ai.thinking') }}</VListSubheader>
+                <VListItem
+                  v-for="choice in thinkingOptions"
+                  :key="choice"
+                  :active="choice === thinkingChoice"
+                  color="primary"
+                  @click="thinkingChoice = choice"
+                >
+                  <VListItemTitle>{{ choiceLabel(choice) }}</VListItemTitle>
+                </VListItem>
+              </VList>
+            </VMenu>
+
+            <VSpacer />
+
+            <span class="ai-prompt__hint">{{ t('ai.send_hint') }}</span>
+
+            <VBtn
+              v-if="loading"
+              class="ai-send ai-send--stop"
+              icon
+              size="32"
               variant="tonal"
-              :disabled="loading || !aiProvider"
-              @click="applyExample(example.prompt)"
+              :aria-label="t('ai.stop')"
+              @click="stop"
             >
-              {{ example.title }}
-            </VChip>
+              <VIcon size="18" :icon="`mdiSvg:${mdi.mdiStop}`" />
+              <Tooltip :label="t('ai.stop')" />
+            </VBtn>
+            <VBtn
+              v-else
+              class="ai-send"
+              icon
+              size="32"
+              color="primary"
+              variant="flat"
+              :disabled="isGenerateDisabled"
+              :aria-label="t('ai.generate')"
+              @click="generate()"
+            >
+              <VIcon size="18" :icon="`mdiSvg:${mdi.mdiArrowUp}`" />
+              <Tooltip :label="t('ai.generate')" />
+            </VBtn>
           </div>
         </div>
 
-        <VTextarea
-          v-model="prompt"
-          :label="t('ai.prompt')"
-          :variant="variantField"
-          :disabled="loading || !aiProvider"
-          rows="4"
-          auto-grow
-          autofocus
-        />
-
-        <div v-if="thinkingSupported" class="ai-thinking-toggle d-flex align-center mb-4">
-          <VIcon size="x-small" class="mr-2" :icon="`mdiSvg:${mdi.mdiBrain}`" />
-          <VLabel>{{ t('ai.thinking') }}</VLabel>
-          <VSwitch
-            v-model="thinkingEnabled"
-            :disabled="loading || useReasoningEffort"
-            density="compact"
-            hide-details
-            color="primary"
-            class="ai-thinking-toggle__switch"
-          />
+        <div v-if="status" class="ai-status" :class="`ai-status--${status.type}`" role="alert">
+          <VIcon size="16" :icon="`mdiSvg:${mdi.mdiAlertCircleOutline}`" />
+          <span>{{ status.text }}</span>
         </div>
 
-        <div v-if="showReasoningEffort" class="ai-reasoning-effort d-flex align-center mb-4">
-          <VIcon size="x-small" class="mr-2" :icon="`mdiSvg:${mdi.mdiGauge}`" />
-          <VLabel>{{ t('ai.reasoning_effort') }}</VLabel>
-          <VSelect
-            v-model="reasoningEffort"
-            :items="reasoningEffortItems"
-            :disabled="loading"
-            :variant="variantField"
-            density="compact"
-            hide-details
-            class="ai-reasoning-effort__select"
-          />
+        <div v-if="showReasoning && reasoning" class="ai-reasoning">
+          <button
+            type="button"
+            class="ai-reasoning__toggle"
+            :aria-expanded="reasoningOpen"
+            @click="reasoningOpen = !reasoningOpen"
+          >
+            <VIcon size="16" :icon="`mdiSvg:${mdi.mdiBrain}`" />
+            <span>{{ reasoningLabel }}</span>
+            <VIcon size="16" :icon="`mdiSvg:${reasoningOpen ? mdi.mdiChevronDown : mdi.mdiChevronRight}`" />
+          </button>
+          <pre v-if="reasoningOpen" ref="reasoningTextEl" class="ai-reasoning__text">{{ reasoning }}</pre>
         </div>
 
-        <VExpansionPanels v-if="showReasoning && reasoning" v-model="reasoningPanel" variant="default" class="ai-reasoning mb-4">
-          <VExpansionPanel :value="0">
-            <template #title>
-              <VIcon size="x-small" :icon="`mdiSvg:${mdi.mdiBrain}`" />
-              <span class="ml-2">{{ t('ai.thinking') }}</span>
-            </template>
-            <template #text>
-              <pre ref="reasoningTextEl" class="ai-reasoning__text">{{ reasoning }}</pre>
-            </template>
-          </VExpansionPanel>
-        </VExpansionPanels>
+        <div v-if="result || loading" class="ai-result" :aria-busy="loading">
+          <VProgressLinear v-if="loading" class="ai-result__progress" color="primary" height="2" indeterminate />
 
-        <VTextarea
-          v-model="result"
-          :label="t('ai.result')"
-          :variant="variantField"
-          :loading="loading && !result"
-          :readonly="loading"
-          rows="5"
-          auto-grow
-        />
+          <div v-if="!result" class="ai-result__placeholder">
+            {{ t('ai.loading') }}
+          </div>
+          <div v-else-if="showChanges" class="ai-result__content ai-diff">
+            <span v-for="(segment, index) in changes" :key="index" :class="`ai-diff__${segment.type}`">{{ segment.text }}</span>
+          </div>
+          <div v-else ref="resultEl" class="ai-result__content" role="region" :aria-label="t('ai.result')" />
 
-        <VLabel
-          v-if="characterCountLimit !== null && result"
-          class="ai-char-count d-block"
-          :class="{ 'ai-char-count--exceeded': limitExceeded }"
-        >
-          {{ result.length }} / {{ characterCountLimit }}
-        </VLabel>
+          <div v-if="result" class="ai-result__footer">
+            <span v-if="percent" class="ai-result__meta">{{ t('ai.change_vs_original', { percent }) }}</span>
+            <span class="ai-result__meta ai-result__counter" :class="{ 'ai-result__meta--exceeded': primaryExceeded }">{{ counter }}</span>
 
-        <VAlert
-          v-if="limitExceeded"
-          type="error"
-          variant="tonal"
-          density="compact"
-          class="ai-limit-alert mt-4"
-        >
-          {{ t('ai.limit_exceeded') }}
-        </VAlert>
+            <VSpacer />
 
-        <VAlert v-if="loading" type="info" variant="tonal" density="compact" class="mt-4">
-          {{ t('ai.loading') }}
-        </VAlert>
-
-        <VAlert v-if="error" type="error" variant="tonal" density="compact" class="mt-4">
-          {{ error }}
-        </VAlert>
+            <VBtn
+              v-if="requestText"
+              size="small"
+              variant="text"
+              :active="showChanges"
+              :disabled="loading"
+              :prepend-icon="`mdiSvg:${mdi.mdiCompareHorizontal}`"
+              @click="showChanges = !showChanges"
+            >
+              {{ t('ai.changes') }}
+            </VBtn>
+            <VBtn
+              size="small"
+              variant="text"
+              :disabled="loading || !aiProvider"
+              :prepend-icon="`mdiSvg:${mdi.mdiRefresh}`"
+              @click="generate(lastPrompt)"
+            >
+              {{ t('ai.another_version') }}
+            </VBtn>
+            <VBtn
+              size="small"
+              variant="text"
+              :disabled="loading"
+              :prepend-icon="`mdiSvg:${copied ? mdi.mdiCheck : mdi.mdiContentCopy}`"
+              @click="copyResult"
+            >
+              {{ copied ? t('ai.copied') : t('ai.copy') }}
+            </VBtn>
+          </div>
+        </div>
       </VCardText>
     </template>
 
     <template #actions>
       <VCardActions>
+        <VBtn :variant="variantBtn" @click="cancel">
+          {{ t('dialog.cancel') }}
+        </VBtn>
+
         <VSpacer />
-        <VBtn :variant="variantBtn" @click="close">
-          {{ t('dialog.close') }}
-        </VBtn>
-        <VBtn color="primary" :variant="variantBtn" :disabled="isGenerateDisabled" :loading="loading" @click="generate">
-          {{ t('ai.generate') }}
-        </VBtn>
-        <VBtn v-if="loading" color="warning" :variant="variantBtn" @click="stop">
-          {{ t('ai.stop') }}
-        </VBtn>
 
-        <VBtnGroup
-          :class="{ 'tiptapify-btn-group--elevated': variantBtn === 'elevated' && !isApplyDisabled }"
-          density="compact"
-          :variant="variantBtn"
-          divided
-        >
-          <VBtn
-            color="primary"
-            :variant="variantBtn"
-            :disabled="isApplyDisabled"
-            @click="apply"
-          >
-            {{ t('ai.insert') }}
-          </VBtn>
-
-          <VMenu>
-            <template #activator="{ props }">
-              <VBtn
-                v-bind="{ ...props, minWidth: 30 }"
-                color="primary"
-                :disabled="isApplyDisabled"
-                :variant="variantBtn"
-              >
-                <VIcon :icon="`mdiSvg:${mdi.mdiDotsVertical}`" />
-              </VBtn>
-            </template>
-            <VList>
-              <VListItem
-                v-for="mode in alternativeModes"
-                :key="mode"
-                @click="applyInMode(mode)"
-              >
-                <VListItemTitle>{{ t(`ai.${mode}`) }}</VListItemTitle>
-              </VListItem>
-            </VList>
-          </VMenu>
-        </VBtnGroup>
+        <VBtn :variant="variantBtn" :disabled="!canApply(actions[1])" @click="apply(actions[1])">
+          {{ actionLabel(actions[1]) }}
+        </VBtn>
+        <VBtn type="submit" color="primary" :variant="variantBtn" :disabled="!canApply(actions[0])">
+          {{ actionLabel(actions[0]) }}
+        </VBtn>
       </VCardActions>
     </template>
   </TiptapifyDialog>
 </template>
 
 <style lang="scss" scoped>
-.tiptapify-btn-group--elevated {
-  box-shadow:
-    0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)),
-    0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)),
-    0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
+.ai-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.ai-thinking-toggle {
-  &__switch {
-    flex: 0 0 auto;
-    margin-left: auto;
+.ai-context {
+  align-items: center;
+  color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+  display: flex;
+  font-size: .8125rem;
+  gap: 6px;
+  min-width: 0;
 
-    --v-switch-scale: 1;
-    --v-switch-track-height: 14px;
-    --v-switch-thumb-height: 20px;
-    --v-switch-thumb-width: 20px;
+  &__label {
+    white-space: nowrap;
+  }
+
+  &__excerpt {
+    font-style: italic;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
-.ai-reasoning-effort {
-  &__select {
-    flex: 0 0 auto;
-    margin-left: auto;
+.ai-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
 
-    :deep(.v-input) {
-      width: 140px;
-    }
+.ai-prompt {
+  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border-radius: var(--tf-dialog-field-radius, 8px);
+  padding: 6px 8px 6px 12px;
+  transition: border-color .15s;
+
+  &:focus-within {
+    border-color: rgb(var(--v-theme-primary));
+  }
+
+  &--disabled {
+    opacity: .6;
+  }
+
+  &__input :deep(.v-field__input) {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  &__bar {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+  }
+
+  &__hint {
+    color: rgba(var(--v-theme-on-surface), var(--v-disabled-opacity));
+    font-size: .75rem;
+    white-space: nowrap;
+  }
+}
+
+.ai-thinking {
+  color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+  letter-spacing: normal;
+  margin-left: -8px;
+  text-transform: none;
+}
+
+.ai-status {
+  align-items: flex-start;
+  display: flex;
+  font-size: .8125rem;
+  gap: 6px;
+
+  &--warning {
+    color: rgb(var(--v-theme-warning));
+  }
+
+  &--error {
+    color: rgb(var(--v-theme-error));
+  }
+
+  .v-icon {
+    margin-top: 1px;
   }
 }
 
 .ai-reasoning {
-  :deep(.v-expansion-panel-title) {
+  &__toggle {
+    align-items: center;
+    background: none;
+    border: 0;
     color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
     font-size: .8125rem;
-    font-weight: 500;
-    padding: .625rem .75rem;
+    gap: 6px;
+    padding: 0;
   }
 
-  :deep(.v-expansion-panel-title__icon) {
-    color: rgba(var(--v-theme-on-surface), var(--v-disabled-opacity));
-  }
-}
-
-.ai-reasoning__text {
-  color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
-  font-family: 'JetBrainsMono', monospace;
-  font-size: .75rem;
-  line-height: 1.4;
-  margin: 0;
-  max-height: 200px;
-  overflow: auto;
-  padding: .25rem .75rem .625rem;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.ai-char-count {
-  font-size: .75rem;
-  margin-top: .25rem;
-  text-align: right;
-
-  &--exceeded {
-    color: var(--red-soft);
+  &__text {
+    color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+    font-family: 'JetBrainsMono', monospace;
+    font-size: .75rem;
+    line-height: 1.4;
+    margin: 6px 0 0 22px;
+    max-height: 200px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 }
 
-.ai-limit-alert {
-  color: var(--red-soft, #B24A40) !important;
+.ai-result {
+  background: rgba(var(--v-theme-on-surface), .03);
+  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+  border-radius: var(--tf-dialog-field-radius, 8px);
+  overflow: hidden;
+  position: relative;
+
+  &__progress {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  &__placeholder {
+    color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+    font-size: .875rem;
+    padding: 12px;
+  }
+
+  // The preview keeps the whitespace of plain text, the way it is inserted
+  &__content {
+    font-size: .875rem;
+    line-height: 1.55;
+    max-height: 280px;
+    overflow: auto;
+    padding: 10px 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+
+    :deep(> :first-child) {
+      margin-top: 0;
+    }
+
+    :deep(> :last-child) {
+      margin-bottom: 0;
+    }
+
+    :deep(p),
+    :deep(ul),
+    :deep(ol),
+    :deep(blockquote) {
+      margin: 0 0 .5em;
+    }
+
+    :deep(ul),
+    :deep(ol) {
+      padding-left: 1.5em;
+    }
+
+    :deep(img),
+    :deep(iframe),
+    :deep(video) {
+      max-width: 100%;
+    }
+  }
+
+  &__footer {
+    align-items: center;
+    border-top: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding: 2px 4px 2px 12px;
+
+    .v-btn {
+      letter-spacing: normal;
+      text-transform: none;
+    }
+  }
+
+  &__meta {
+    color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+    font-size: .75rem;
+    white-space: nowrap;
+
+    &--exceeded {
+      color: rgb(var(--v-theme-error));
+    }
+  }
+}
+
+.ai-diff {
+  &__insert {
+    background: rgba(var(--v-theme-success), .16);
+  }
+
+  &__delete {
+    background: rgba(var(--v-theme-error), .12);
+    color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+    text-decoration: line-through;
+  }
 }
 </style>

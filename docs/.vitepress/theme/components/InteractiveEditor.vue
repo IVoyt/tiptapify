@@ -2,6 +2,7 @@
 import { TiptapifyAiEditorContext, TiptapifyAiRequest, TiptapifyAiStream, TiptapifySkinInput, variantBtnTypes } from '@tiptapify/types/editor'
 import { ref, onMounted, onUnmounted, PropType, computed } from 'vue'
 import { useTheme } from 'vuetify'
+import { useDocsStrings } from '../docsStrings'
 
 const props = defineProps({
   height: { type: [Number,String], default() { return 400 } },
@@ -11,7 +12,8 @@ const props = defineProps({
   bubbleMenu: { type: Boolean, default() { return false } },
   floatingMenu: { type: Boolean, default() { return false } },
   slashCommands: { type: [Boolean,Array<string>], default() { return true } },
-  placeholder: { type: String, default() { return 'Start typing...' } },
+  // Empty: the docs' own "Start typing..." in the language of the page
+  placeholder: { type: String, default() { return '' } },
   variantBtn: { type: String as PropType<variantBtnTypes>, default() { return 'elevated' } },
   // A built-in name, a registered custom skin, or an inline skin object
   editorSkin: { type: [String, Object] as PropType<TiptapifySkinInput>, default() { return 'default' } },
@@ -27,6 +29,7 @@ const aiStream = ref(false)
 const aiThinking = ref(false)
 const aiShowReasoning = ref(false)
 const theme = useTheme()
+const strings = useDocsStrings()
 
 const aiConfig = computed(() => {
   if (!props.aiDemo) {
@@ -176,41 +179,41 @@ onMounted(() => {
   <div class="interactive-editor">
     <div v-if="aiDemo" class="ai-demo-settings">
       <div class="ai-demo-settings__header">
-        <strong>AI provider</strong>
-        <span>Mode, endpoint, model, token, and the stream, thinking, and reasoning toggles are used only in this page session and are not stored.</span>
+        <strong>{{ strings.demo.aiProvider }}</strong>
+        <span>{{ strings.demo.aiProviderNote }}</span>
       </div>
 
       <div class="ai-demo-settings__grid">
         <VSelect
           v-model="aiMode"
           :items="[
-            { title: 'OpenAI-compatible provider', value: 'provider' },
-            { title: 'Backend endpoint', value: 'backend' },
+            { title: strings.demo.aiModeProvider, value: 'provider' },
+            { title: strings.demo.aiModeBackend, value: 'backend' },
           ]"
           item-title="title"
           item-value="value"
-          label="Mode"
+          :label="strings.demo.aiMode"
           density="compact"
           variant="outlined"
           hide-details
         />
         <VTextField
           v-model="aiEndpoint"
-          :label="aiMode === 'backend' ? 'Backend endpoint' : 'Endpoint'"
+          :label="aiMode === 'backend' ? strings.demo.aiBackendEndpoint : strings.demo.aiEndpoint"
           density="compact"
           variant="outlined"
           hide-details
         />
         <VTextField
           v-model="aiModel"
-          label="Model"
+          :label="strings.demo.aiModel"
           density="compact"
           variant="outlined"
           hide-details
         />
         <VTextField
           v-model="aiToken"
-          label="API token"
+          :label="strings.demo.aiToken"
           type="password"
           density="compact"
           variant="outlined"
@@ -219,7 +222,7 @@ onMounted(() => {
         />
         <VSwitch
           v-model="aiStream"
-          label="Stream"
+          :label="strings.demo.aiStream"
           label-position="start"
           density="compact"
           color="primary"
@@ -228,7 +231,7 @@ onMounted(() => {
         />
         <VSwitch
           v-model="aiThinking"
-          label="Thinking"
+          :label="strings.demo.aiThinking"
           label-position="start"
           density="compact"
           color="primary"
@@ -237,7 +240,7 @@ onMounted(() => {
         />
         <VSwitch
           v-model="aiShowReasoning"
-          label="Show reasoning"
+          :label="strings.demo.aiShowReasoning"
           label-position="start"
           density="compact"
           color="primary"
@@ -250,7 +253,7 @@ onMounted(() => {
     <Tiptapify
       v-model="content"
       :height="height"
-      :placeholder="placeholder"
+      :placeholder="placeholder || strings.demo.startTyping"
       font-measure="pt"
       :items="items || []"
       :items-exclude="itemsExclude"

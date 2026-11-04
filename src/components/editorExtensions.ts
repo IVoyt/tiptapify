@@ -34,6 +34,9 @@ import { ImageWithCaption } from '@tiptapify/extensions/components/media/image/c
 import { ImageSlider } from '@tiptapify/extensions/components/media/image/slider'
 import { TiptapifyLink } from '@tiptapify/extensions/components/media/link'
 import { TiptapifyVideo } from '@tiptapify/extensions/components/media/video'
+import { VideoFile } from '@tiptapify/extensions/components/media/video/videoFile'
+import { LinkCard } from '@tiptapify/extensions/components/media/linkCard'
+import { LinkCardPaste } from '@tiptapify/extensions/components/media/linkCard/pasteCard'
 import CodeBlockComponent from '@tiptapify/extensions/components/CodeBlockComponent.vue'
 import SlashCommands, { SlashCommandsExtensionOptions } from '@tiptapify/extensions/slash-commands'
 import { SlashCommandsConfig } from '@tiptapify/types/slashCommandsTypes'
@@ -59,9 +62,22 @@ export interface TiptapifyImageOptions {
   // Images in a row from which the site shows a slider; 0 disables the slider grid
   sliderMinImages: number
   sliderLabel: string
+  // Images embedded as base64 data URLs: kept unless the host uploads images to its own server
+  allowBase64?: boolean
 }
 
 const defaultImageOptions: TiptapifyImageOptions = { captionPlaceholder: '', sliderMinImages: 0, sliderLabel: '' }
+
+// No default size: a responsive video is saved without one and must load back responsive
+const ResponsiveYoutube = Youtube.extend({
+  addAttributes() {
+    return {
+      ...this.parent?.(),
+      width: { default: null },
+      height: { default: null },
+    }
+  },
+})
 
 export function editorExtensions (
   placeholder: string,
@@ -112,17 +128,21 @@ export function editorExtensions (
         directions: ['top', 'right', 'bottom', 'left', 'top-left', 'top-right', 'bottom-left', 'bottom-right'],
       },
       captionPlaceholder: imageOptions.captionPlaceholder,
+      allowBase64: imageOptions.allowBase64 ?? true,
     }),
     ImageSlider.configure({
       minImages: imageOptions.sliderMinImages,
       label: imageOptions.sliderLabel,
     }),
-    Youtube.configure({
+    ResponsiveYoutube.configure({
       controls: true,
       nocookie: true,
     }),
     TiptapifyImage,
     TiptapifyVideo,
+    VideoFile,
+    LinkCard,
+    LinkCardPaste,
     Iframe,
     Superscript,
     Subscript,

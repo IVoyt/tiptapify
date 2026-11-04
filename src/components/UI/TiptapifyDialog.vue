@@ -23,9 +23,17 @@ const { shape, tokens } = useTiptapifyConfig()
 const dialogSoft = computed(() => shape.value.dialog === 'soft')
 
 defineExpose({ open, close })
-const emits = defineEmits(['closeDialog'])
+// `submit`: Enter in a field or a submit button; `closed`: closed in any way (close button, click outside,
+// Esc, close()), for the dialog to reset its form
+const emits = defineEmits(['closeDialog', 'submit', 'closed'])
 
 const showDialog = ref<boolean>(false)
+
+watch(showDialog, (shown) => {
+  if (!shown) {
+    emits('closed')
+  }
+})
 
 const field = { variant: 'outlined', density: 'comfortable' }
 const fieldDefaults = {
@@ -171,7 +179,8 @@ onBeforeUnmount(() => {
         style="user-select: none;"
       >
         <span class="tiptapify-dialog-title">
-          {{ title ?? t(`dialog.${module}.title`) }}
+          <!-- A dialog may put an icon or more into its title -->
+          <slot name="title">{{ title ?? t(`dialog.${module}.title`) }}</slot>
         </span>
 
         <VSpacer />
@@ -193,9 +202,11 @@ onBeforeUnmount(() => {
 
       <!-- In the soft dialog shape, fields a dialog does not style itself get the light outlined look -->
       <VDefaultsProvider :defaults="dialogSoft ? fieldDefaults : {}">
-        <slot name="content" />
+        <form class="tiptapify-dialog-form" novalidate @submit.prevent="emits('submit')">
+          <slot name="content" />
 
-        <slot name="actions" />
+          <slot name="actions" />
+        </form>
       </VDefaultsProvider>
     </VCard>
   </VDialog>

@@ -1,278 +1,428 @@
 <script setup lang="ts">
 
+import * as mdi from '@mdi/js'
 import { Editor } from '@tiptap/vue-3'
-
-import { computed, inject, Ref, ref } from 'vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
+import {
+  addRecent,
+  ColorKind,
+  GridPosition,
+  loadRecent,
+  moveInGrid,
+  normalizeHex,
+  palettes,
+  sameColor,
+  saveRecent,
+  Swatch,
+  writeColor,
+} from '@tiptapify/extensions/components/style/color/colors'
+import { computed, inject, PropType, Ref, ref, watch } from 'vue'
 import { ComposerTranslation } from 'vue-i18n'
 
-const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
-
-defineExpose({ open, close })
-
 const props = defineProps({
-  fontColor: { type: Boolean, default: false },
-  backgroundColor: { type: Boolean, default: false },
+  kind: { type: String as PropType<ColorKind>, required: true },
+  // The toolbar button that opens the popover (a CSS selector)
+  activator: { type: String, required: true },
   color: { type: String, default: '' },
 })
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
-const colorPicker = ref(false)
-const initialColor = ref(computed(() => props.color).value)
-const customColor = ref(computed(() => props.color).value)
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
-const colorSelected = ref<boolean>(false)
+type EyeDropperApi = { open: () => Promise<{ sRGBHex: string }> }
+const EyeDropper = (globalThis as { EyeDropper?: new () => EyeDropperApi }).EyeDropper
 
-const greyShades = {
-  black: '#000',
-  '#222': '#222',
-  darkgray: '#444',
-  gray: '#888',
-  lightgray: '#ccc',
-  white: '#fff',
-}
-const blueShades = {
-  '#000044': '#000044',
-  '#00006e': '#00006e',
-  '#0000bb': '#0000bb',
-  blue: '#0000ff',
-  lightblue: '#0088ff',
-  cyan: '#00FFFF',
-}
-const greenShades = {
-  '#003100': '#003100',
-  '#005200': '#005200',
-  '#007000': '#007000',
-  '#00b700': '#00b700',
-  green: '#00ff00',
-  '#70ff70': '#70ff70',
-}
-const redShades = {
-  '#520000': '#520000',
-  '#810000': '#810000',
-  '#b20000': '#b20000',
-  red: '#ff0000',
-  '#ff2323': '#ff2323',
-  '#ff5c5c': '#ff5c5c',
-}
-const otherShades = {
-  brown: '#964B00',
-  orange: '#ff9900',
-  yellow: '#ffff00',
-  pink: '#ff00ff',
-  purple: '#800080',
-  indigo: '#4b0082',
-}
-const colors = { ...greyShades, ...blueShades, ...greenShades, ...redShades, ...otherShades }
+const menu = ref(false)
+// The color a preview falls back to: the one the popover opened with, then the last applied one
+const original = ref('')
+const previewing = ref(false)
+const recent = ref<string[]>(loadRecent(props.kind))
+const focused = ref<GridPosition>({ row: 0, col: 0 })
+const swatchesEl = ref<HTMLElement>()
 
-type Color = { r: number, g: number, b: number, a?: number }
+const hex = ref('')
+const hexDirty = ref(false)
+const hexError = ref(false)
 
-function calculateShadowColor(color: string): string {
-  const rgb: Color = hexToRgb(color)
+const customOpen = ref(false)
+const pickerColor = ref('')
+const pickerDirty = ref(false)
 
-  for (const channel of Object.keys(rgb)) {
-    rgb[channel] = Math.round(rgb[channel] * .35)
+const title = computed(() => t(props.kind === 'text' ? 'style.color.text' : 'style.color.highlight'))
+const palette = computed(() => palettes[props.kind])
+const rows = computed<Swatch[][]>(() => {
+  const recentRow = recent.value.map(value => ({ value, name: '' }))
+
+  return recentRow.length ? [...palette.value, recentRow] : palette.value
+})
+const hexSample = computed(() => normalizeHex(hex.value) ?? (hex.value ? '' : original.value))
+
+function swatchLabel(swatch: Swatch): string {
+  return swatch.name ? t(`style.color.${swatch.name}`) : String(swatch.value).toUpperCase()
+}
+
+function isActive(swatch: Swatch): boolean {
+  return swatch.value === null ? !original.value : sameColor(swatch.value, original.value)
+}
+
+function activePosition(): GridPosition {
+  for (const [row, swatches] of rows.value.entries()) {
+    const col = swatches.findIndex(isActive)
+    if (col !== -1) {
+      return { row, col }
+    }
   }
 
-  return Object.values(rgb).join(', ')
+  return { row: 0, col: 0 }
 }
 
-function hexToRgb(hex: string): Color {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-  hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-    return r + r + g + g + b + b
-  })
-
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-  return {
-    r: result ? parseInt(result[1], 16) : 0,
-    g: result ? parseInt(result[2], 16) : 0,
-    b: result ? parseInt(result[3], 16) : 0
-  }
+function preview(value: string | null) {
+  writeColor(editor.value, props.kind, value, { history: false })
+  previewing.value = true
 }
 
-function hoverColor(color: string) {
-  colorSelected.value = false
-
-  if (props.fontColor) {
-    editor.value
-      .chain()
-      .focus()
-      .setColor(color)
-      .command(({ tr }) => {
-        tr.setMeta('addToHistory', false)
-        return true
-      })
-      .run()
-  }
-
-  if (props.backgroundColor) {
-    editor.value
-      .chain()
-      .focus()
-      .setHighlight({ color })
-      .command(({ tr }) => {
-        tr.setMeta('addToHistory', false)
-        return true
-      })
-      .run()
-  }
-}
-
-function close() {
-  resetColor()
-}
-
-function resetColor() {
-  if (colorSelected.value) {
+function endPreview() {
+  if (!previewing.value) {
     return
   }
 
-  if (props.fontColor) {
-    editor.value
-      .chain()
-      .focus()
-      .setColor(initialColor.value)
-      .command(({ tr }) => {
-        tr.setMeta('addToHistory', false)
-        return true
-      })
-      .run()
+  previewing.value = false
+  writeColor(editor.value, props.kind, original.value || null, { history: false })
+}
+
+/**
+ * The preview is reverted first: re-setting the color it already shows would add no step,
+ * and undo would then skip this change.
+ */
+function apply(value: string | null, close = true) {
+  endPreview()
+  writeColor(editor.value, props.kind, value, { focus: close })
+
+  original.value = value ?? ''
+  hex.value = value ?? ''
+  hexDirty.value = false
+  hexError.value = false
+
+  if (value) {
+    recent.value = addRecent(recent.value, value)
+    saveRecent(props.kind, recent.value)
   }
 
-  if (props.backgroundColor) {
-    if (initialColor.value) {
-      editor.value
-        .chain()
-        .focus()
-        .setHighlight({ color: initialColor.value })
-        .command(({ tr }) => {
-          tr.setMeta('addToHistory', false)
-          return true
-        })
-        .run()
-    } else {
-      editor.value
-        .chain()
-        .focus()
-        .unsetHighlight()
-        .command(({ tr }) => {
-          tr.setMeta('addToHistory', false)
-          return true
-        })
-        .run()
+  if (close) {
+    menu.value = false
+  }
+}
+
+function swatchElement(position: GridPosition): HTMLElement | null {
+  return swatchesEl.value?.querySelector<HTMLElement>(`[data-row="${position.row}"][data-col="${position.col}"]`) ?? null
+}
+
+function onSwatchKeydown(event: KeyboardEvent, position: GridPosition, swatch: Swatch) {
+  // Handled here: the menu turns Enter into "focus the next field"
+  if (event.key === 'Enter') {
+    event.preventDefault()
+    event.stopPropagation()
+    apply(swatch.value)
+
+    return
+  }
+
+  const next = moveInGrid(rows.value.map(row => row.length), position, event.key)
+  if (!next) {
+    return
+  }
+
+  event.preventDefault()
+  focused.value = next
+  swatchElement(next)?.focus()
+  preview(rows.value[next.row][next.col].value)
+}
+
+function onSwatchesFocusout(event: FocusEvent) {
+  if (!swatchesEl.value?.contains(event.relatedTarget as Node | null)) {
+    endPreview()
+  }
+}
+
+function onHexInput() {
+  hexDirty.value = true
+  const value = normalizeHex(hex.value)
+  if (value) {
+    hexError.value = false
+    preview(value)
+  } else {
+    endPreview()
+  }
+}
+
+function commitHex(close: boolean) {
+  // A blur caused by Esc closing the popover must not apply what was typed
+  if (!menu.value || (!close && !hexDirty.value) || !hex.value.trim()) {
+    return
+  }
+
+  const value = normalizeHex(hex.value)
+  if (!value) {
+    hexError.value = true
+
+    return
+  }
+
+  apply(value, close)
+}
+
+function toggleCustom() {
+  customOpen.value = !customOpen.value
+  pickerColor.value = normalizeHex(hex.value) ?? normalizeHex(original.value) ?? String(palette.value[1][0].value)
+  pickerDirty.value = false
+}
+
+function onPick(value: string) {
+  const picked = normalizeHex(value)
+  if (!picked || picked === normalizeHex(pickerColor.value)) {
+    return
+  }
+
+  pickerColor.value = picked
+  pickerDirty.value = true
+  hex.value = picked
+  hexError.value = false
+  preview(picked)
+}
+
+// The picker reports every step of a drag; the color is applied once, when the pointer is released
+function onPickerPointerdown() {
+  window.addEventListener('pointerup', commitPick, { once: true })
+}
+
+function commitPick() {
+  if (!menu.value || !pickerDirty.value) {
+    return
+  }
+
+  pickerDirty.value = false
+  apply(pickerColor.value, false)
+}
+
+async function pickFromScreen() {
+  if (!EyeDropper) {
+    return
+  }
+
+  try {
+    const value = normalizeHex((await new EyeDropper().open()).sRGBHex)
+    if (value) {
+      apply(value)
     }
+  } catch {
+    // Picking was cancelled
   }
 }
 
-function setColor(color: string) {
-  colorSelected.value = true
+watch(menu, open => {
+  if (!open) {
+    hexDirty.value = false
+    customOpen.value = false
+    endPreview()
 
-  if (props.fontColor) {
-    editor.value.chain().focus().setColor(color).run()
+    return
   }
 
-  if (props.backgroundColor) {
-    editor.value.chain().focus().setHighlight({ color }).run()
-  }
-}
+  original.value = props.color
+  previewing.value = false
+  hex.value = normalizeHex(props.color) ?? ''
+  hexError.value = false
+  // Another editor on the page may have added colors since
+  recent.value = loadRecent(props.kind)
+  focused.value = activePosition()
+})
 
-function unsetColor() {
-  if (props.fontColor) {
-    editor.value.chain().focus().unsetColor().run()
-  }
-
-  if (props.backgroundColor) {
-    editor.value.chain().focus().unsetHighlight().run()
-  }
-}
-
-function isColorActive(color: string): boolean {
-  return props.color === color
-}
 </script>
 
 <template>
-  <VSheet class="pa-2">
-    <div class="tiptapify-style-color-container">
-      <template v-for="colorCode in colors">
-        <div
-          class="tiptapify-style-color-item"
-          :class="isColorActive(colorCode) ? 'tiptapify-style-color-item-active' : ''"
-          @mouseenter="hoverColor(colorCode)"
-          @mouseleave="resetColor()"
-          @click="setColor(colorCode)"
+  <VMenu
+    v-model="menu"
+    :activator="activator"
+    :close-on-content-click="false"
+    location="bottom start"
+    @after-enter="swatchElement(focused)?.focus()"
+  >
+    <VSheet class="tiptapify-color pa-2" :width="272" role="dialog" :aria-label="title">
+      <div ref="swatchesEl" @focusout="onSwatchesFocusout">
+        <template v-for="(row, rowIndex) in rows" :key="rowIndex">
+          <div v-if="rowIndex === palette.length" class="tiptapify-color__label text-caption text-medium-emphasis">
+            {{ t('style.color.recent') }}
+          </div>
+          <div class="tiptapify-color__row">
+            <button
+              v-for="(swatch, colIndex) in row"
+              :key="`${swatch.value}-${colIndex}`"
+              type="button"
+              class="tiptapify-color__swatch"
+              :class="{
+                'tiptapify-color__swatch--none': swatch.value === null,
+                'tiptapify-color__swatch--active': isActive(swatch),
+              }"
+              :style="swatch.value ? { backgroundColor: swatch.value } : undefined"
+              :data-row="rowIndex"
+              :data-col="colIndex"
+              :tabindex="focused.row === rowIndex && focused.col === colIndex ? 0 : -1"
+              :aria-label="swatchLabel(swatch)"
+              :aria-pressed="isActive(swatch)"
+              @mouseenter="preview(swatch.value)"
+              @mouseleave="endPreview()"
+              @focus="focused = { row: rowIndex, col: colIndex }"
+              @keydown="onSwatchKeydown($event, { row: rowIndex, col: colIndex }, swatch)"
+              @click="apply(swatch.value)"
+            >
+              <Tooltip :label="swatchLabel(swatch)" :open-delay="300" />
+            </button>
+          </div>
+        </template>
+      </div>
+
+      <VDivider class="my-2" />
+
+      <div class="tiptapify-color__custom">
+        <VTextField
+          v-model="hex"
+          class="tiptapify-color__hex"
+          variant="outlined"
+          density="compact"
+          hide-details="auto"
+          placeholder="#000000"
+          spellcheck="false"
+          :aria-label="t('style.color.hex')"
+          :error-messages="hexError ? t('style.color.hex_invalid') : []"
+          @update:model-value="onHexInput"
+          @keydown.enter.stop.prevent="commitHex(true)"
+          @blur="commitHex(false)"
         >
-          <div
-            class="tiptapify-style-color-picker"
-            :style="`background-color: ${colorCode}; box-shadow: 1px 1px 4px rgb(${calculateShadowColor(colorCode)});`"
-          />
-        </div>
-      </template>
-    </div>
-
-    <VDivider class="mt-2 mb-2" />
-
-    <VMenu v-model="colorPicker" :close-on-content-click="false">
-      <template #activator="{ props: menuProps }">
-        <VBtn v-bind="menuProps" color="default" variant="flat" block>
-          <template #prepend>
-            <div
-              class="tiptapify-style-color-picker"
-              :style="`background-color: ${customColor}; box-shadow: 1px 1px 4px rgb(0, 0, 0, .35);`"
+          <template #prepend-inner>
+            <span
+              class="tiptapify-color__sample"
+              :class="{ 'tiptapify-color__swatch--none': !hexSample }"
+              :style="hexSample ? { backgroundColor: hexSample } : undefined"
             />
           </template>
-          <template #default>
-            {{ t('style.color.custom') }}
-          </template>
+        </VTextField>
+
+        <VBtn
+          v-if="EyeDropper"
+          class="tiptapify-color__eyedropper"
+          variant="text"
+          :size="32"
+          icon
+          :aria-label="t('style.color.eyedropper')"
+          @click="pickFromScreen"
+        >
+          <VIcon :icon="`mdiSvg:${mdi.mdiEyedropperVariant}`" size="small" />
+          <Tooltip :label="t('style.color.eyedropper')" />
         </VBtn>
-      </template>
 
-      <VCard>
-        <VCardItem>
-          <VColorPicker v-model="customColor" elevated elevation="24" hide-inputs @update:model-value="hoverColor($event)" />
-        </VCardItem>
+        <!-- An icon, not a text label: a translated label would squeeze the HEX field -->
+        <VBtn
+          class="tiptapify-color__custom-toggle"
+          variant="text"
+          size="small"
+          icon
+          :color="customOpen ? 'primary' : ''"
+          :aria-label="t('style.color.custom')"
+          :aria-expanded="customOpen"
+          @click="toggleCustom"
+        >
+          <VIcon :icon="`mdiSvg:${mdi.mdiPaletteOutline}`" size="small" />
+          <Tooltip :label="t('style.color.custom')" />
+        </VBtn>
+      </div>
 
-        <VCardActions>
-          <VBtn variant="flat" color="primary" @click="setColor(customColor)">
-            OK
-          </VBtn>
-          <VBtn variant="flat" color="grey-400" @click="colorPicker = !colorPicker; customColor = initialColor; resetColor()">
-            Cancel
-          </VBtn>
-        </VCardActions>
-      </VCard>
-    </VMenu>
-
-    <VDivider class="mt-2 mb-2" />
-
-    <VBtn color="default" block variant="flat" @click="unsetColor">
-      {{ t('style.color.unset') }}
-    </VBtn>
-  </VSheet>
+      <div
+        v-if="customOpen"
+        class="tiptapify-color__picker mt-2"
+        @pointerdown="onPickerPointerdown"
+        @keydown.enter.stop.prevent="commitPick"
+      >
+        <VColorPicker
+          :model-value="pickerColor"
+          mode="hex"
+          :modes="['hex']"
+          :width="256"
+          :canvas-height="120"
+          elevation="0"
+          hide-inputs
+          @update:model-value="onPick"
+        />
+      </div>
+    </VSheet>
+  </VMenu>
 </template>
 
 <style lang="scss" scoped>
-.tiptapify-style-color-container {
+.tiptapify-color__label {
+  margin: 8px 2px 2px;
+}
+
+.tiptapify-color__row {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+  justify-items: center;
 }
 
-.tiptapify-style-color-item {
-  cursor: pointer;
-  border-radius: 8px;
-  padding: 5px;
-  transition: background-color .2s;
-}
-
-.tiptapify-style-color-item:hover, .tiptapify-style-color-item-active {
-  background-color: #dedede;
-}
-
-.tiptapify-style-color-picker {
+.tiptapify-color__swatch {
   width: 24px;
   height: 24px;
-  margin: 2px;
+  margin: 4px 0;
   border-radius: 4px;
+  border: 1px solid rgba(var(--v-border-color), .24);
+  cursor: pointer;
+  transition: transform .1s;
+
+  &:hover, &:focus-visible {
+    transform: scale(1.15);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgb(var(--v-theme-on-surface));
+    outline-offset: 1px;
+  }
+}
+
+.tiptapify-color__swatch--active {
+  box-shadow: 0 0 0 2px rgb(var(--v-theme-surface)), 0 0 0 4px rgb(var(--v-theme-primary));
+}
+
+// "Default" / "No highlight": an empty cell crossed out in red
+.tiptapify-color__swatch--none {
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1px), #e53935 calc(50% - 1px), #e53935 calc(50% + 1px), transparent calc(50% + 1px)),
+    rgb(var(--v-theme-surface));
+}
+
+.tiptapify-color__custom {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.tiptapify-color__hex {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  :deep(input) {
+    font-family: monospace;
+  }
+}
+
+.tiptapify-color__eyedropper, .tiptapify-color__custom-toggle {
+  margin-top: 4px;
+}
+
+.tiptapify-color__sample {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1px solid rgba(var(--v-border-color), .24);
 }
 </style>

@@ -42,8 +42,8 @@ All available toolbar items organized by section.
 | `fontFamily`     | Dropdown to select font family             |
 | `fontSize`       | Dropdown to select font size               |
 | `lineHeight`     | Set line height                            |
-| `textColor`      | Apply text color                           |
-| `highlightColor` | Apply highlight/background color           |
+| `textColor`      | Text color: palette, recent colors, HEX, eyedropper, custom picker |
+| `highlightColor` | Highlight color: the same picker, "No highlight" first |
 
 The `heading` item accepts options after a colon: heading levels, `p` to add a paragraph item, and `inline` to show them as separate buttons instead of a dropdown:
 
@@ -75,10 +75,10 @@ The `heading` item accepts options after a colon: heading levels, `p` to add a p
 
 | Item      | Description                       |
 |-----------|-----------------------------------|
-| `link`    | Insert/edit a hyperlink           |
-| `image`   | Insert an image by URL            |
-| `video`   | Embed a YouTube video             |
-| `iframe`  | Embed any URL as an iframe        |
+| `link`    | Insert/edit a link, or a [link card](/guide/link-cards) with `linkPreview` |
+| `image`   | Insert/edit an image: by URL or upload, alt, caption, size, position |
+| `video`   | Insert/edit a YouTube, Vimeo or video file (`.mp4`, `.webm`, `.ogg`, `.mov`) |
+| `iframe`  | Embed a page by its address or its iframe code |
 | `emoji`   | Open emoji picker (10 categories) |
 | `charmap` | Open special characters picker    |
 | `table`   | Insert a table                    |

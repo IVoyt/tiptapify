@@ -49,13 +49,15 @@ The provider is a plain async function you implement. tiptapify does not call an
 
 | Field | Source |
 | --- | --- |
-| `messages` | `createMessages(context)` if provided, otherwise the default pair: a system message (your `systemPrompt` or a built-in default) and a user message that embeds the prompt plus the selected editor text (or the whole text when nothing is selected) |
+| `messages` | `createMessages(context)` if provided, otherwise the default pair: a system message (your `systemPrompt` or a built-in default) and a user message that embeds the prompt plus the selected editor text with the text around it and the rule to answer for the selection alone (or the whole text when nothing is selected) |
 | `model` | `model` option, when set |
 | `temperature` | `temperature` option, when set |
 | `stream` | `stream` option, or `chatCompletionOptions.stream` |
 | `enable_thinking` / `reasoning_effort` | the thinking toggle / effort dropdown — see below |
 
-**Context** (`TiptapifyAiEditorContext`) gives the provider full editor state: `prompt`, `selectedText`, `text`, `html`, `json`, and `mode` (`insert` / `replace` / `append`).
+**Context** (`TiptapifyAiEditorContext`) gives the provider full editor state: `prompt`, `selectedText`, `textBefore` / `textAfter` (the text of the selection's paragraph around it, up to 500 characters each), `text`, `html`, `json`, and `mode` (`insert` / `replace` / `append`).
+
+A selection that starts or ends inside a word takes the whole word, and the default messages send the text around the selection with the rule to answer for the selection alone: given only a fragment, a model takes it for the whole text and completes it, and the replacement would repeat what follows the selection.
 
 **Response**: the provider may return the content as a plain `string`, as `{ content }` (`TiptapifyAiResponse`), or as an OpenAI-compatible `choices` payload (`TiptapifyAiOpenAiResponse`). The dialog extracts the content in that order and trims leading whitespace. On rejection the error message is shown in the dialog (or `ai.error` when the error is not an `Error` instance) and the dialog stays open.
 
@@ -134,6 +136,30 @@ Because providers (vLLM/LM Studio in particular) reject `enable_thinking` and `r
 | Thinking on, effort = `default` (or no effort configured) | `enable_thinking` (from the toggle) |
 | Thinking on, effort = `low` / `medium` / `high` / `xhigh` / `max` | `reasoning_effort` (from the dropdown); the toggle is disabled |
 | Thinking off (toggle off, or `thinking` not enabled in the config) | `enable_thinking: false`; `reasoning_effort` is not sent |
+
+## Errors
+
+The dialog explains a failed request instead of showing the raw error, and adds the service's own message after it:
+
+| What happened | Explanation |
+| --- | --- |
+| The browser got no response (`Failed to fetch`, `NetworkError…`, `Load failed`) | The service is down, unreachable, or CORS blocked the answer; the browser console tells which |
+| `401` / `403` | Check the API key or the access rights |
+| `404` | Check the endpoint path |
+| `408` / `504` / a timeout | The service did not answer in time |
+| `429` | Too many requests |
+| `5xx` | The service is unavailable (loading a model, busy) |
+
+With `aiEndpoint` the status comes from the response. A custom `aiProvider` gets the same explanations by throwing an error with a `status`:
+
+```ts
+if (!response.ok) {
+  const body = await response.json().catch(() => null)
+  throw Object.assign(new Error(body?.error?.message ?? ''), { status: response.status })
+}
+```
+
+Any other error is shown with its own message.
 
 ## Inserting the result
 

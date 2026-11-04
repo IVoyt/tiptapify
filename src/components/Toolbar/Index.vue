@@ -366,6 +366,16 @@ toolbarItems = toolbarItems
   }
 }
 
+/*
+ * Classic active buttons (`color="primary"` -> `.bg-primary`): Vuetify 4 puts its utilities in a cascade
+ * layer under the button variant's background, so this unlayered rule restores the fill. The quiet buttons
+ * above keep their own pressed look (their rules carry `!important`).
+ */
+.tiptapify-toolbar .v-btn.bg-primary {
+  background-color: rgb(var(--v-theme-primary));
+  color: rgb(var(--v-theme-on-primary));
+}
+
 /* A toolbar button that opens a dropdown: the current choice and a chevron */
 .tiptapify-toolbar .v-btn.tiptapify-dropdown-button {
   min-width: 0;

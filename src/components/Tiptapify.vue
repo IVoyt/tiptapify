@@ -11,23 +11,29 @@ import {
   TiptapifyAiResolvedOptions,
   TiptapifyEditor,
   TiptapifyFooterAlignment,
+  TiptapifyLinkPreviewOptions,
   TiptapifySkinInput,
+  TiptapifyUploadOptions,
   variantBtnTypes,
   variantFieldTypes
 } from '@tiptapify/types/editor'
 import MenuBubble from '@tiptapify/components/MenuBubble.vue'
 import MenuFloating from '@tiptapify/components/MenuFloating.vue'
 import ImageBubbleMenu from '@tiptapify/components/ImageBubbleMenu.vue'
+import PasteCardMenu from '@tiptapify/extensions/components/media/linkCard/PasteCardMenu.vue'
 
 import { useI18n } from 'vue-i18n'
 
 import { getTiptapEditor } from '@tiptapify/components/index'
-import { TIPTAPIFY_CONFIG_KEY } from '@tiptapify/composables/useTiptapifyConfig'
+import { skinRootClasses, TIPTAPIFY_CONFIG_KEY } from '@tiptapify/composables/useTiptapifyConfig'
+import { TIPTAPIFY_UPLOAD_KEY } from '@tiptapify/composables/useTiptapifyUpload'
+import { createLinkPreviewState, TIPTAPIFY_LINK_PREVIEW_KEY } from '@tiptapify/composables/useTiptapifyLinkPreview'
 import { resolveSkin } from '@tiptapify/skins/registry'
 import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
 
 import Footer from '@tiptapify/components/Footer.vue'
 import { useTheme } from 'vuetify/framework'
+import { contentCss, contentHTML, TiptapifyContentStyles } from '@tiptapify/utils/contentStyles'
 
 const props = defineProps({
   locale: { type: String, default () { return 'en' } },
@@ -63,6 +69,14 @@ const props = defineProps({
   imageSlider: { type: Number, default() { return 0 } },
   // The skin of the editor chrome: a registered name ('default', 'pastel') or an inline skin object
   skin: { type: [String, Object] as PropType<TiptapifySkinInput>, default() { return defaults.skin } },
+  // The upload endpoint of files picked in the image and video dialogs; without it a picked image is
+  // embedded as base64 and a video is inserted by its link only
+  upload: { type: Object as PropType<TiptapifyUploadOptions | null>, default: null },
+  // The backend endpoint of link cards (OpenGraph data of pages); without it there are no link cards
+  linkPreview: { type: Object as PropType<TiptapifyLinkPreviewOptions | null>, default: null },
+  // How the saved HTML carries the look of its content: `inline` styles, or `classes` for a site that loads
+  // tiptapify/content.css
+  contentStyles: { type: String as PropType<TiptapifyContentStyles>, default: 'inline' },
 })
 
 const emit = defineEmits(['update:modelValue', 'editor-ready', 'content-changed'])
@@ -121,7 +135,7 @@ const tiptapifyAi = computed(() => {
 })
 
 function contentChanged() {
-  const html = editor.value?.getHTML() ?? ''
+  const html = contentHTML(editor.value?.getHTML() ?? '', props.contentStyles)
   emit('update:modelValue', html)
   emit('content-changed', { html, json: editor.value?.getJSON() })
 }
@@ -145,7 +159,7 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
       (<TiptapifyEditor>editorInstance).interactiveStyles = props.interactiveStyles
       emit('editor-ready', {
         editor: editorInstance,
-        getHTML: () => editorInstance.getHTML(),
+        getHTML: () => contentHTML(editorInstance.getHTML(), props.contentStyles),
         getJSON: () => editorInstance.getJSON(),
       })
     },
@@ -153,34 +167,33 @@ const editor: ShallowRef<Editor | undefined> = getTiptapEditor(
       captionPlaceholder: t('dialog.image.caption_placeholder'),
       sliderMinImages: props.imageSlider,
       sliderLabel: t('media.slider'),
+      // Without an upload endpoint the image dialog embeds a picked file as base64
+      allowBase64: !props.upload?.endpoint,
     },
 )
 
 provide('tiptapifyEditor', editor)
 
+// The editor shows its content with the content styles, under its own `.tiptap` (the HTML preview too)
+const CONTENT_STYLE_ID = 'tiptapify-content-styles'
+if (typeof document !== 'undefined' && !document.getElementById(CONTENT_STYLE_ID)) {
+  const style = document.createElement('style')
+  style.id = CONTENT_STYLE_ID
+  style.textContent = contentCss('.tiptap', { weightless: false })
+  document.head.append(style)
+}
+
 const scrollContainer = ref<HTMLElement | null>(null)
 provide('tiptapifyScrollContainer', scrollContainer)
 provide('tiptapifyI18n', { t })
 provide('tiptapifyAi', tiptapifyAi)
+provide(TIPTAPIFY_UPLOAD_KEY, toRef(props, 'upload'))
+provide(TIPTAPIFY_LINK_PREVIEW_KEY, createLinkPreviewState(toRef(props, 'linkPreview')))
 // The skin prop resolves through the registry; computed refs so a prop change
 // re-resolves tokens and shape without an editor re-render
 const resolvedSkin = computed(() => resolveSkin(props.skin))
 
-// The shape classes: `.tiptapify-shape-{flag}-{value}` for all six flags, so CSS gates on
-// shape (not on the skin name); templates read the computed refs. The name class stays
-// as the escape hatch for consumer CSS.
-const shapeClasses = computed(() => {
-  const shape = resolvedSkin.value.shape
-
-  return [
-    `tiptapify-shape-toolbar-${shape.toolbar}`,
-    `tiptapify-shape-groups-${shape.groups}`,
-    `tiptapify-shape-buttons-${shape.buttons}`,
-    `tiptapify-shape-bubble-${shape.bubble}`,
-    `tiptapify-shape-dialog-${shape.dialog}`,
-    `tiptapify-shape-menu-${shape.menu}`,
-  ].join(' ')
-})
+const rootClasses = computed(() => skinRootClasses(resolvedSkin.value.className, resolvedSkin.value.shape))
 
 provide(TIPTAPIFY_CONFIG_KEY, {
   variantBtn: toRef(props, 'variantBtn'),
@@ -189,6 +202,7 @@ provide(TIPTAPIFY_CONFIG_KEY, {
   skinName: computed(() => resolvedSkin.value.name),
   tokens: computed(() => resolvedSkin.value.tokens),
   shape: computed(() => resolvedSkin.value.shape),
+  rootClasses,
 })
 
 editor.value?.chain().setFontFamily(props.defaultFontFamily).run()
@@ -210,7 +224,7 @@ onBeforeUnmount(() => {
 <template>
   <div
     :id="`tiptapify-editor-${editor?.instanceId}`"
-    :class="[resolvedSkin.className, shapeClasses]"
+    :class="rootClasses"
     :style="resolvedSkin.tokens"
   >
     <div :class="`tiptapify-frame rounded-${rounded}`">
@@ -230,11 +244,13 @@ onBeforeUnmount(() => {
       <VProgressLinear v-model="loadingProgress" :color="loadingColor" :height="loadingHeight" :indeterminate="loading" />
 
       <div ref="scrollContainer" class="pa-2 tiptapify-container resizable" :style="computeResizableHeight" @click="onContainerClick">
-        <MenuFloating v-if="floatingMenu" :variant="variantBtn" :theme="currentTheme" />
+        <MenuFloating v-if="floatingMenu" />
 
-        <MenuBubble v-if="bubbleMenu" :variant="variantBtn" :theme="currentTheme" />
+        <MenuBubble v-if="bubbleMenu" />
 
         <ImageBubbleMenu />
+
+        <PasteCardMenu />
 
         <EditorContent :editor="editor" class="tiptapify-editor" />
       </div>
@@ -370,33 +386,14 @@ onBeforeUnmount(() => {
     }
   }
 
-  /* Task list specific styles */
+  /* Task lists: the layout is the content styles (utils/contentStyles.ts); the editor adds the pointer */
   ul[data-type='taskList'] {
-    list-style: none;
-    margin-left: 0;
-    padding: 0;
-
-    li {
-      align-items: flex-start;
-      display: flex;
-
-      > label {
-        flex: 0 0 auto;
-        margin-right: 0.5rem;
-        user-select: none;
-      }
-
-      > div {
-        flex: 1 1 auto;
-      }
+    li > label {
+      user-select: none;
     }
 
     input[type='checkbox'] {
       cursor: pointer;
-    }
-
-    ul[data-type='taskList'] {
-      margin: 0;
     }
   }
 
@@ -598,6 +595,41 @@ onBeforeUnmount(() => {
     display: block;
   }
 
+  /*
+   * While editing, a click on a player or an embed selects its block (a double click opens the video
+   * or the embed dialog)
+   */
+  &[contenteditable='true'] {
+    div[data-youtube-video],
+    .iframe-wrapper,
+    .tiptapify-video {
+      cursor: pointer;
+    }
+
+    div[data-youtube-video] iframe,
+    .iframe-wrapper iframe,
+    .tiptapify-video video {
+      pointer-events: none;
+    }
+  }
+
+  div[data-youtube-video].ProseMirror-selectednode iframe,
+  .iframe-wrapper.ProseMirror-selectednode iframe,
+  .tiptapify-video.ProseMirror-selectednode video {
+    outline: 2px solid rgb(var(--v-theme-primary));
+    outline-offset: 2px;
+  }
+
+  /* Link cards: their look is the content styles; the editor only adds the selection */
+  .tiptapify-link-card {
+    cursor: pointer;
+
+    &.ProseMirror-selectednode {
+      outline: 2px solid rgb(var(--v-theme-primary));
+      outline-offset: 2px;
+    }
+  }
+
   /* Image with the caption under it (see extensions/components/media/image/caption.ts) */
   .tiptapify-image {
     --tiptapify-image-max-height: 400px;
@@ -608,7 +640,10 @@ onBeforeUnmount(() => {
     max-width: 100%;
     margin: 1rem 0;
 
-    /* Never wider than the text, never taller than the max height: big photos stay out of the way */
+    /*
+     * Never wider than the text; without a set width (dialog or resizing) never taller than the max height
+     * either, so big photos stay out of the way
+     */
     img {
       max-width: 100%;
       height: auto !important;
@@ -616,10 +651,14 @@ onBeforeUnmount(() => {
     }
 
     [data-resize-wrapper] {
-      max-width: min(100%, calc(var(--tiptapify-image-max-height) * var(--tiptapify-image-ratio, 100)));
+      max-width: 100%;
       border-radius: var(--tf-image-radius, 0.125rem);
       outline: 1px solid transparent;
       transition: outline-color 0.15s;
+    }
+
+    &:not([data-sized]) [data-resize-wrapper] {
+      max-width: min(100%, calc(var(--tiptapify-image-max-height) * var(--tiptapify-image-ratio, 100)));
     }
 
     /* One block: hovering outlines it, a click selects it and shows its toolbar */
@@ -862,6 +901,7 @@ onBeforeUnmount(() => {
 
 .tiptapify-dialog-actions {
   display: flex;
+  flex: 1 1 auto;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;

@@ -144,7 +144,8 @@ async function createBackendError(response: Response): Promise<Error> {
     // Keep the raw body
   }
 
-  return new Error(message || `Request failed with status ${response.status}`)
+  // The status lets the dialog explain the error (see errors.ts)
+  return Object.assign(new Error(message || `Request failed with status ${response.status}`), { status: response.status })
 }
 
 function parseBackendResponse(text: string): TiptapifyAiResponse | TiptapifyAiOpenAiResponse | string {

@@ -5,6 +5,7 @@ import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
 import { TiptapifyFooterAlignment } from '@tiptapify/types/editor'
 import { createAiBackendProvider } from '@tiptapify/extensions/components/ai/backend'
 import { registerSkin, defineSkin } from '@tiptapify/skins/registry'
+import { contentCss, inlineContentStyles } from '@tiptapify/utils/contentStyles'
 
 import { Editor as TipTapEditor, nodeViewProps, NodeViewWrapper, VueNodeViewRenderer } from '@tiptap/vue-3'
 import { Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
@@ -52,9 +53,12 @@ export {
   mergeAttributes,
   registerSkin,
   defineSkin,
+  contentCss,
+  inlineContentStyles,
 }
 
 export type { TiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
+export type { TiptapifyContentStyles } from '@tiptapify/utils/contentStyles'
 export type { TiptapifyFooterAlignment }
 export type { CommandProps, InputRuleMatch, PasteRuleMatch }
 export type {
@@ -65,6 +69,10 @@ export type {
   TiptapifySkinConfig,
   TiptapifySkinInput,
   ResolvedShape,
+  TiptapifyLinkPreviewData,
+  TiptapifyLinkPreviewOptions,
+  TiptapifyUploadKind,
+  TiptapifyUploadOptions,
 } from '@tiptapify/types/editor'
 export type {
   TiptapifyAiBackendProviderOptions,
