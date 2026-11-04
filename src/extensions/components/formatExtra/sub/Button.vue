@@ -19,7 +19,7 @@ const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
 
 <template>
   <VBtn
-    :color="editor.isActive('sub') ? 'primary' : ''"
+    :color="editor.isActive('subscript') ? 'primary' : ''"
     :disabled="!editor.can().chain().focus().toggleSubscript().run()"
     :variant="variantBtn"
     size="32"

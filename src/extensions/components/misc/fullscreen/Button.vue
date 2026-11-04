@@ -9,7 +9,7 @@ import { inject, nextTick, ref, Ref } from 'vue'
 
 import { ComposerTranslation } from 'vue-i18n'
 
-const { variantBtn } = useTiptapifyConfig()
+const { variantBtn, rootClasses, tokens } = useTiptapifyConfig()
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
 
@@ -54,7 +54,7 @@ async function changeEditorContainer(source: string, target: string) {
 
   <VDialog v-model="showDialog" fullscreen @close="dialogClose()" @update:model-value="!showDialog ? dialogClose() : ''">
     <VCard>
-      <div :id="`tiptapify-editor-fullscreen-${editor?.instanceId}`" />
+      <div :id="`tiptapify-editor-fullscreen-${editor?.instanceId}`" :class="rootClasses" :style="tokens" />
     </VCard>
   </VDialog>
 </template>

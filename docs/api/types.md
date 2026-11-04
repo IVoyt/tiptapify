@@ -42,8 +42,8 @@ Defines the built-in names for the `skin` prop on the `<Tiptapify>` component: t
 type TiptapifySkin = 'default' | 'pastel'
 ```
 
-- `default` — the classic look: a raised toolbar, button groups as raised boxes, card-style bubble menus.
-- `pastel` — the quiet look introduced in 0.3.3: a flat tinted toolbar, ghost buttons, light dropdowns, soft dialogs.
+- `default` — the classic look: a raised toolbar, button groups as raised boxes, Vuetify buttons with a primary pressed state.
+- `pastel` — the quiet look: a flat tinted toolbar, ghost buttons, light dropdowns, soft dialogs.
 
 Custom skins add names: `registerSkin('mint', { extends: 'pastel', colors: { … } })`; `defineSkin` is the identity helper for typed const definitions. Both are exported from `tiptapify`.
 
@@ -60,7 +60,7 @@ type TiptapifyShape = {
   toolbar?: 'raised' | 'flat'   // elevated bar vs flat tinted bar
   groups?: 'box' | 'flat'       // toolbar sections as raised boxes vs plain runs
   buttons?: 'vuetify' | 'quiet' // native Vuetify buttons vs ghost buttons
-  bubble?: 'card' | 'flat'      // bubble menu: VCard vs flat row
+  bubble?: 'card' | 'flat'      // kept for compatibility: the bubble menus are one row in both
   dialog?: 'classic' | 'soft'   // classic dialog chrome vs soft card
   menu?: 'vuetify' | 'soft'     // dropdown menus: Vuetify list vs padded card
 }
@@ -96,6 +96,56 @@ type TiptapifySkinConfig = TiptapifyShape & {
 ```
 
 An inline object resolves through the same chain as a registered skin (classic → `extends` → own), never enters the global registry, and renders under the class `tiptapify-skin-inline` unless it carries a `name`. Its tokens are emitted as `--tf-*` CSS variables on the editor root.
+
+## TiptapifyContentStyles
+
+The type of the `contentStyles` prop (see [Content styles](/guide/content-styles)).
+
+```typescript
+type TiptapifyContentStyles = 'inline' | 'classes'
+
+// The content HTML with the content styles written into its style attributes (unchanged without a DOM)
+function inlineContentStyles(html: string): string
+
+// The content styles as a stylesheet for the content inside `scope`, weightless (:where) by default
+function contentCss(scope?: string, options?: { weightless?: boolean }): string
+```
+
+## TiptapifyUploadOptions
+
+The type of the `upload` prop: the endpoint of [uploads](/guide/uploads).
+
+```typescript
+type TiptapifyUploadOptions = {
+  // POST {endpoint}: multipart `file` and `kind`, answered by { url } (or an error status with { error })
+  endpoint: string
+  // extra request headers, e.g. authorization
+  headers?: Record<string, string>
+}
+
+// The `kind` field of an upload
+type TiptapifyUploadKind = 'image' | 'video'
+```
+
+## TiptapifyLinkPreviewOptions
+
+The type of the `linkPreview` prop and of the data its endpoint answers (see [Link cards](/guide/link-cards)).
+
+```typescript
+type TiptapifyLinkPreviewOptions = {
+  // GET {endpoint} answers the handshake, GET {endpoint}?url=<page> the data of the page
+  endpoint: string
+  headers?: Record<string, string>
+}
+
+type TiptapifyLinkPreviewData = {
+  url: string
+  title?: string
+  description?: string
+  image?: string
+  siteName?: string
+}
+```
 
 ## TiptapifyConfig
 
@@ -196,7 +246,9 @@ interface TiptapifyAiReasoningEffortOptions {
 
 interface TiptapifyAiEditorContext {
   prompt: string
-  selectedText: string
+  selectedText: string  // whole words: a selection cut inside a word takes the word
+  textBefore: string    // the selection's paragraph before it, up to 500 characters ('' without a selection)
+  textAfter: string     // the selection's paragraph after it, up to 500 characters
   text: string
   html: string
   json: object

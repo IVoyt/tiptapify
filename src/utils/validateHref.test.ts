@@ -67,12 +67,41 @@ describe('isValidHref', () => {
     expect(isValidHref('https://.com')).toBe(false)
   })
 
-  it('rejects unsupported protocols', () => {
-    expect(isValidHref('ftp://example.com')).toBe(false)
+  it('accepts any protocol with a host: ftp, sftp, file shares', () => {
+    for (const href of ['ftp://files.example.com/a.zip', 'sftp://user@host/dir', 'smb://server/share', 'ftp://192.168.0.10/']) {
+      expect(isValidHref(href), href).toBe(true)
+    }
+  })
+
+  it('accepts an internal host without a dot: intranet and localhost', () => {
+    for (const href of ['http://intranet/wiki/page', 'http://localhost:8080/admin', 'https://jira/browse/LIGA-1']) {
+      expect(isValidHref(href), href).toBe(true)
+    }
+  })
+
+  it('accepts other protocols without slashes: sms, skype, magnet', () => {
+    for (const href of ['sms:+380441234567', 'skype:user.name?call', 'magnet:?xt=urn:btih:abc']) {
+      expect(isValidHref(href), href).toBe(true)
+    }
+  })
+
+  it('rejects a host and port typed without a protocol: it is not a protocol', () => {
+    expect(isValidHref('localhost:8080/admin')).toBe(false)
+  })
+
+  it('rejects a protocol with slashes but no host', () => {
+    expect(isValidHref('ftp://')).toBe(false)
+    expect(isValidHref('ftp:///path')).toBe(false)
   })
 
   it('rejects javascript pseudo-protocols', () => {
     expect(isValidHref('javascript:alert(1)')).toBe(false)
+  })
+
+  it('rejects the protocols that run code or embed content', () => {
+    for (const href of ['JavaScript:alert(1)', 'vbscript:msgbox(1)', 'data:text/html;base64,PHNjcmlwdD4=']) {
+      expect(isValidHref(href), href).toBe(false)
+    }
   })
 
   it('rejects URLs containing spaces', () => {
@@ -89,5 +118,21 @@ describe('isValidHref', () => {
 
   it('rejects plain text', () => {
     expect(isValidHref('not a url')).toBe(false)
+  })
+
+  it('accepts an anchor and links relative to the site or the page', () => {
+    for (const href of ['#section-2', '/news/politics?page=2', './about', '../index.html', '?tab=comments']) {
+      expect(isValidHref(href), href).toBe(true)
+    }
+  })
+
+  it('rejects relative links with spaces and a bare anchor or slash', () => {
+    for (const href of ['#', '/', '/news/a b', '# heading']) {
+      expect(isValidHref(href), href).toBe(false)
+    }
+  })
+
+  it('rejects a protocol-relative link', () => {
+    expect(isValidHref('//evil.example/x')).toBe(false)
   })
 })

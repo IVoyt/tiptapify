@@ -42,7 +42,7 @@ const content = ref('<p>The classic look: a raised toolbar with raised button gr
 
 ## Pastel
 
-A flat tinted toolbar under a hairline, ghost buttons with a neutral pressed state, light dropdowns — the look introduced in 0.3.3:
+A flat tinted toolbar under a hairline, ghost buttons with a neutral pressed state, light dropdowns:
 
 <InteractiveEditor editor-skin="pastel" :bubble-menu="true" placeholder="Pastel skin..." />
 

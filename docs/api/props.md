@@ -108,7 +108,7 @@ When `true`, the `items` prop specifies items to **exclude** rather than include
 - **Type:** `Boolean`
 - **Default:** `true`
 
-Show the bubble menu when text is selected.
+Show the bubble menu when text is selected: one row of icon buttons in groups — bold, italic, underline, strikethrough | superscript, subscript | highlight, inline code | link | clear formatting. Each button has a tooltip with its shortcut and shows when its mark is on the selection. It hides for a selected block (image, widget), inside code, and when the whole document is selected.
 
 ```vue
 <Tiptapify :bubble-menu="false" />
@@ -119,7 +119,7 @@ Show the bubble menu when text is selected.
 - **Type:** `Boolean`
 - **Default:** `true`
 
-Show the floating menu on empty lines.
+Show the floating menu on empty lines: heading 1, heading 2 and a bulleted list, in the same row of icon buttons as the bubble menu.
 
 ```vue
 <Tiptapify :floating-menu="false" />
@@ -415,7 +415,7 @@ Shorten the result to re-enable the action:
 />
 ```
 
-Use `systemPrompt`, `temperature`, `chatCompletionOptions`, or `createMessages(context)` to customize the OpenAI-compatible chat-completions request. `context` contains `{ prompt, selectedText, text, html, json, mode }`.
+Use `systemPrompt`, `temperature`, `chatCompletionOptions`, or `createMessages(context)` to customize the OpenAI-compatible chat-completions request. `context` contains `{ prompt, selectedText, textBefore, textAfter, text, html, json, mode }`: `textBefore` / `textAfter` are the text of the selection's paragraph around it (up to 500 characters each, empty without a selection) — send them with the selection, or a model takes the fragment for the whole text and completes it.
 
 ### `ai.aiEndpoint`
 
@@ -592,8 +592,8 @@ From this many images in a row (nothing between them) the editor lays them out a
 
 The look of the editor chrome: toolbar, bubble menus, dropdowns, dialogs, footer.
 
-- `default` — the classic look: a raised toolbar, button groups as raised boxes, card-style bubble menus.
-- `pastel` — the quiet look introduced in 0.3.3: a flat tinted toolbar under a hairline, ghost buttons with a neutral pressed state, light dropdowns, soft dialogs.
+- `default` — the classic look: a raised toolbar, button groups as raised boxes, Vuetify buttons with a primary pressed state.
+- `pastel` — the quiet look: a flat tinted toolbar under a hairline, ghost buttons with a neutral pressed state, light dropdowns, soft dialogs.
 
 Features (image captions, sliders, the align dropdown, list styles) work the same in both skins.
 
@@ -605,6 +605,41 @@ You can also pass an inline skin object: token overrides (`colors` / `metrics`) 
 
 ```vue
 <Tiptapify :skin="{ extends: 'pastel', colors: { toolbarBg: 'rgba(0, 128, 0, 0.05)' } }" />
+```
+
+### `upload`
+
+- **Type:** `{ endpoint: string, headers?: Record<string, string> }` ([`TiptapifyUploadOptions`](/api/types#tiptapifyuploadoptions))
+- **Default:** `null`
+
+The endpoint of [uploads](/guide/uploads): files picked in the image and video dialogs (and a video poster, the image of a link card) are sent to it with `POST {endpoint}` (multipart `file` and `kind`), and the document keeps the URL it answers (`{ "url": … }`).
+
+Without it the image dialog still takes a file: a picked image (and a video poster) is embedded into the document as a base64 data URL, and base64 images are kept when the document loads. The video dialog offers **Upload** only with this prop. With `upload` set, base64 images are dropped when the document loads.
+
+```vue
+<Tiptapify :upload="{ endpoint: '/api/uploads', headers: { Authorization: `Bearer ${token}` } }" />
+```
+
+### `contentStyles`
+
+- **Type:** `'inline' | 'classes'` ([`TiptapifyContentStyles`](/api/types#tiptapifycontentstyles))
+- **Default:** `'inline'`
+
+How the saved HTML carries the look of link cards, images with captions, videos, embeds and task lists (see [Content styles](/guide/content-styles)): `inline` writes it into their `style` attributes, so a site shows the HTML as it is; `classes` keeps classes only, for a site that loads `tiptapify/content.css`. The editor ignores these styles when HTML loads, so either kind of HTML loads back the same.
+
+```vue
+<Tiptapify v-model="html" content-styles="classes" />
+```
+
+### `linkPreview`
+
+- **Type:** `{ endpoint: string, headers?: Record<string, string> }` ([`TiptapifyLinkPreviewOptions`](/api/types#tiptapifylinkpreviewoptions))
+- **Default:** `null`
+
+The backend endpoint of [link cards](/guide/link-cards): it reads the OpenGraph data of pages, which a browser can't (CORS). The editor checks it with a handshake as it starts (`GET {endpoint}` must answer `200 { "tiptapifyLinkPreview": 1 }`); until it answers, nothing offers a card.
+
+```vue
+<Tiptapify :link-preview="{ endpoint: '/api/link-preview' }" />
 ```
 
 ## Events

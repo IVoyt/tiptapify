@@ -1,4 +1,5 @@
 import { Extension } from '@tiptap/core'
+import { selectedImageAttrs } from '@tiptapify/extensions/components/media/image/imageDialog'
 
 const name: string = 'tiptapifyImage'
 
@@ -18,7 +19,7 @@ export const TiptapifyImage = Extension.create({
       showTiptapifyImage: () => ({ editor }) => {
         const event = new CustomEvent(`tiptapify-show-${name}`, {
           detail: {
-            image: editor.getAttributes('image'),
+            image: selectedImageAttrs(editor.state),
             editorId: editor.instanceId
           }
         })

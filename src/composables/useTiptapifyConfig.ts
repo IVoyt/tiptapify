@@ -15,6 +15,24 @@ export interface TiptapifyConfig {
   // css variable name -> value; only overrides, the css fallbacks carry the base
   tokens: ComputedRef<Record<string, string>>
   shape: ComputedRef<Required<TiptapifyShape>>
+  // the skin and shape classes of the editor root
+  rootClasses: ComputedRef<string[]>
+}
+
+/**
+ * The classes of the editor root: the skin name class (the escape hatch for consumer CSS) and
+ * `tiptapify-shape-{flag}-{value}` for all six shape flags, which the skin CSS gates on.
+ */
+export function skinRootClasses(className: string, shape: Required<TiptapifyShape>): string[] {
+  return [
+    className,
+    `tiptapify-shape-toolbar-${shape.toolbar}`,
+    `tiptapify-shape-groups-${shape.groups}`,
+    `tiptapify-shape-buttons-${shape.buttons}`,
+    `tiptapify-shape-bubble-${shape.bubble}`,
+    `tiptapify-shape-dialog-${shape.dialog}`,
+    `tiptapify-shape-menu-${shape.menu}`,
+  ]
 }
 
 export const TIPTAPIFY_CONFIG_KEY: InjectionKey<TiptapifyConfig> = Symbol('tiptapifyConfig')
@@ -32,5 +50,6 @@ export function useTiptapifyConfig(): TiptapifyConfig {
     skinName: computed(() => defaultSkin.name),
     tokens: computed(() => defaultSkin.tokens),
     shape: computed(() => defaultSkin.shape),
+    rootClasses: computed(() => skinRootClasses(defaultSkin.className, defaultSkin.shape)),
   })
 }

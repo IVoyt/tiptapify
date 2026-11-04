@@ -74,7 +74,8 @@ export const ImageWithCaption = Image.extend<ImageWithCaptionOptions>({
       HTMLAttributes,
       align ? { style: `float: ${align}` } : {},
     )
-    const figure: [string, Record<string, unknown>, ...unknown[]] = ['figure', {}, ['img', imageAttributes]]
+    // The figure carries the float too (`data-align`), for the content styles to float it with its caption
+    const figure: [string, Record<string, unknown>, ...unknown[]] = ['figure', align ? { 'data-align': align } : {}, ['img', imageAttributes]]
     if (title) {
       figure.push(['figcaption', {}, String(title)])
     }
@@ -158,6 +159,17 @@ export const ImageWithCaption = Image.extend<ImageWithCaptionOptions>({
       }
       syncAlign(node.attrs.align)
 
+      // An image with a set width (from the dialog or resizing) is shown at that width: CSS caps by height only
+      // the images without one, so resizing can make an image larger than the max height
+      const syncSized = (width: unknown) => {
+        if (width) {
+          nodeView.dom.dataset.sized = ''
+        } else {
+          delete nodeView.dom.dataset.sized
+        }
+      }
+      syncSized(node.attrs.width)
+
       // The aspect ratio lets CSS cap a tall image by its height without distorting it
       const img = nodeView.dom.querySelector('img') as HTMLImageElement
       const setAspectRatio = () => {
@@ -167,6 +179,18 @@ export const ImageWithCaption = Image.extend<ImageWithCaptionOptions>({
       }
       img.addEventListener('load', setAspectRatio)
       setAspectRatio()
+
+      // The resizable view reads the size from the attributes only once, so later changes (undo, the dialog)
+      // are applied here; only a changed size, since the view also updates mid-drag
+      const syncSize = (previous: ProseMirrorNode, updated: ProseMirrorNode) => {
+        const { width, height } = updated.attrs
+        if (width === previous.attrs.width && height === previous.attrs.height) {
+          return
+        }
+
+        img.style.width = width ? `${width}px` : ''
+        img.style.height = height ? `${height}px` : ''
+      }
       nodeView.dom.classList.add('tiptapify-image')
       nodeView.dom.append(caption)
 
@@ -226,6 +250,7 @@ export const ImageWithCaption = Image.extend<ImageWithCaptionOptions>({
       nodeView.update = (updatedNode: ProseMirrorNode, ...args: unknown[]) => {
         const updated = updateResizableView(updatedNode, ...args)
         if (updated) {
+          syncSize(node, updatedNode)
           node = updatedNode
           const title = updatedNode.attrs.title ?? ''
           if (caption.value !== title && document.activeElement !== caption) {
@@ -233,6 +258,7 @@ export const ImageWithCaption = Image.extend<ImageWithCaptionOptions>({
           }
           caption.disabled = !editor.isEditable
           syncAlign(updatedNode.attrs.align)
+          syncSized(updatedNode.attrs.width)
         }
 
         return updated

@@ -176,6 +176,7 @@ describe('createAiBackendProvider', () => {
     const provider = createAiBackendProvider({ endpoint: '/api' })
 
     await expect(provider(createRequest(), createContext())).rejects.toThrow('Model is busy')
+    await expect(provider(createRequest(), createContext())).rejects.toMatchObject({ status: 500 })
   })
 
   it('throws a status error when the error body is not JSON', async () => {

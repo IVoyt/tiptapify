@@ -11,7 +11,7 @@ export type variantFieldTypes = 'outlined' | 'plain' | 'filled' | 'solo' | 'solo
 
 export type TiptapifyFooterAlignment = 'start' | 'center' | 'end'
 
-// The skin of the editor chrome: 'default' is the classic look, 'pastel' is the quiet 0.3.3 look
+// The skin of the editor chrome: 'default' is the classic look, 'pastel' is the quiet look
 export type TiptapifySkin = 'default' | 'pastel'
 
 // Structural variants a token cannot express (component markup, vuetify prop bindings).
@@ -127,6 +127,9 @@ export type TiptapifyAiChatMessage = {
 export type TiptapifyAiEditorContext = {
   prompt: string,
   selectedText: string,
+  // The text of the selection's paragraph before and after it (empty without a selection)
+  textBefore: string,
+  textAfter: string,
   text: string,
   html: string,
   json: object,
@@ -219,4 +222,40 @@ export type TiptapifyAiOptions = {
 export type TiptapifyAiResolvedOptions = TiptapifyAiOptions & {
   enabled: boolean,
   promptExamples: TiptapifyAiPromptExample[],
+}
+
+export type TiptapifyUploadKind = 'image' | 'video'
+
+// The upload endpoint: `POST {endpoint}` takes a file (multipart `file` and `kind`) and answers `{ url }`
+export type TiptapifyUploadOptions = {
+  endpoint: string,
+  // Extra request headers, e.g. authorization
+  headers?: Record<string, string>,
+}
+
+export type TiptapifyUploadContext = {
+  kind: TiptapifyUploadKind,
+  // Upload progress from 0 to 1
+  onProgress: (fraction: number) => void,
+  // Aborted when the user cancels the upload or closes the dialog
+  signal: AbortSignal,
+}
+
+// Stores a picked file and gives its URL: the upload endpoint, else (an image only) a base64 data URL
+export type TiptapifyUpload = (file: File, context: TiptapifyUploadContext) => Promise<{ url: string }>
+
+// The backend endpoint of link cards: it reads the OpenGraph data of pages (a browser can't, CORS)
+export type TiptapifyLinkPreviewOptions = {
+  // `GET {endpoint}` answers the handshake, `GET {endpoint}?url=<page>` the data of the page
+  endpoint: string,
+  // Extra request headers, e.g. authorization
+  headers?: Record<string, string>,
+}
+
+export type TiptapifyLinkPreviewData = {
+  url: string,
+  title?: string,
+  description?: string,
+  image?: string,
+  siteName?: string,
 }

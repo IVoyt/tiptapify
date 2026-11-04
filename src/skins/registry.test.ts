@@ -88,7 +88,7 @@ describe('skin registry', () => {
     expect(skin.className).toBe('tiptapify-skin-inline')
     expect(skin.shape.bubble).toBe('flat')
     expect(skin.tokens['--tf-bubble-radius']).toBe('2px')
-    expect(skin.tokens['--tf-bubble-padding']).toBe('4px')
+    expect(skin.tokens['--tf-bubble-border']).toBe('1px solid rgba(var(--v-border-color), var(--v-border-opacity))')
   })
 
   it('ignores unknown token keys in dev with a warning', () => {

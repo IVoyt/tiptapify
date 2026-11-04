@@ -1,96 +1,127 @@
 <script setup lang="ts">
 import { Editor } from '@tiptap/vue-3'
-import { computed, inject, Ref, ref } from 'vue'
+import { inject, Ref, ref } from 'vue'
 import { BubbleMenu } from '@tiptap/vue-3/menus'
 import { NodeSelection } from '@tiptap/pm/state'
 import * as mdi from '@mdi/js'
-import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
-
-defineProps({
-  variant: { type: String, default () { return 'flat' } },
-  theme: { type: String, default () { return 'light' } },
-})
+import BubbleRow from '@tiptapify/components/UI/BubbleRow.vue'
+import Tooltip from '@tiptapify/components/UI/Tooltip.vue'
+import { ComposerTranslation } from 'vue-i18n'
 
 const editor = inject('tiptapifyEditor') as Ref<Editor>
-
-// The bubble shape picks the markup: a flat row of buttons vs the classic card; the quiet
-// buttons carrier rides the buttons shape flag
-const { shape } = useTiptapifyConfig()
 
 // The menu follows its text or image when the editor scrolls inside its own box; it is created once the
 // box is there, as the menu reads its options only when it is created
 const scrollTarget = inject<Ref<HTMLElement | null>>('tiptapifyScrollContainer', ref(null))
 
-const items = ref([
-  {
-    name: 'bold',
-    icon: `mdiSvg:${mdi.mdiFormatBold}`,
-    props: {
-      disabled: computed(() => !editor?.value.can().chain().focus().toggleBold().run()),
-      color: computed(() => editor.value.isActive('bold') ? 'primary' : ''),
+type BubbleItem = {
+  name: string,
+  icon: string,
+  label: string,
+  hotkey?: string,
+  active?: () => boolean,
+  disabled?: () => boolean,
+  click: () => void,
+}
+
+const { t } = inject('tiptapifyI18n') as { t: ComposerTranslation }
+
+const groups: BubbleItem[][] = [
+  [
+    {
+      name: 'bold',
+      icon: mdi.mdiFormatBold,
+      label: 'format.bold',
+      hotkey: 'Mod-b',
+      active: () => editor.value.isActive('bold'),
+      disabled: () => !editor.value.can().chain().focus().toggleBold().run(),
+      click: () => editor.value.chain().focus().toggleBold().run(),
     },
-    click: () => editor.value.chain().focus().toggleBold().run(),
-  },
-  {
-    name: 'italic',
-    icon: `mdiSvg:${mdi.mdiFormatItalic}`,
-    props: {
-      disabled: computed(() => !editor.value.can().chain().focus().toggleItalic().run()),
-      color: computed(() => editor.value.isActive('italic') ? 'primary' : ''),
+    {
+      name: 'italic',
+      icon: mdi.mdiFormatItalic,
+      label: 'format.italic',
+      hotkey: 'Mod-i',
+      active: () => editor.value.isActive('italic'),
+      disabled: () => !editor.value.can().chain().focus().toggleItalic().run(),
+      click: () => editor.value.chain().focus().toggleItalic().run(),
     },
-    click: () => editor.value.chain().focus().toggleItalic().run(),
-  },
-  {
-    name: 'strike',
-    icon: `mdiSvg:${mdi.mdiFormatStrikethroughVariant}`,
-    props: {
-      disabled: computed(() => !editor.value.can().chain().focus().toggleStrike().run()),
-      color: computed(() => editor.value.isActive('strike') ? 'primary' : ''),
+    {
+      name: 'underline',
+      icon: mdi.mdiFormatUnderline,
+      label: 'format.underline',
+      hotkey: 'Mod-u',
+      active: () => editor.value.isActive('underline'),
+      disabled: () => !editor.value.can().chain().focus().toggleUnderline().run(),
+      click: () => editor.value.chain().focus().toggleUnderline().run(),
     },
-    click: () => editor.value.chain().focus().toggleStrike().run(),
-  },
-  {
-    name: 'underline',
-    icon: `mdiSvg:${mdi.mdiFormatUnderline}`,
-    props: {
-      disabled: computed(() => !editor.value.can().chain().focus().toggleUnderline().run()),
-      color: computed(() => editor.value.isActive('underline') ? 'primary' : ''),
+    {
+      name: 'strike',
+      icon: mdi.mdiFormatStrikethroughVariant,
+      label: 'format.strike',
+      hotkey: 'Mod-Shift-s',
+      active: () => editor.value.isActive('strike'),
+      disabled: () => !editor.value.can().chain().focus().toggleStrike().run(),
+      click: () => editor.value.chain().focus().toggleStrike().run(),
     },
-    click: () => editor.value.chain().focus().toggleUnderline().run(),
-  },
-  {
-    name: 'highlight',
-    icon: `mdiSvg:${mdi.mdiFormatColorHighlight}`,
-    props: {
-      disabled: computed(() => !editor.value.can().chain().focus().toggleHighlight().run()),
-      color: computed(() => editor.value.isActive('highlight') ? 'primary' : ''),
+  ],
+  [
+    {
+      name: 'superscript',
+      icon: mdi.mdiFormatSuperscript,
+      label: 'format.sup',
+      hotkey: 'Mod-.',
+      active: () => editor.value.isActive('superscript'),
+      disabled: () => !editor.value.can().chain().focus().toggleSuperscript().run(),
+      click: () => editor.value.chain().focus().toggleSuperscript().run(),
     },
-    click: () => editor.value.chain().focus().toggleHighlight().run(),
-  },
-  {
-    name: 'code',
-    icon: `mdiSvg:${mdi.mdiXml}`,
-    props: {
-      disabled: computed(() => !editor.value.can().chain().focus().toggleCode().run()),
-      color: computed(() => editor.value.isActive('code') ? 'primary' : ''),
+    {
+      name: 'subscript',
+      icon: mdi.mdiFormatSubscript,
+      label: 'format.sub',
+      hotkey: 'Mod-,',
+      active: () => editor.value.isActive('subscript'),
+      disabled: () => !editor.value.can().chain().focus().toggleSubscript().run(),
+      click: () => editor.value.chain().focus().toggleSubscript().run(),
     },
-    click: () => editor.value.chain().focus().toggleCode().run(),
-  },
-  {
-    name: 'link',
-    icon: computed(() => editor.value.isActive('link') ? `mdiSvg:${mdi.mdiLinkOff}` : `mdiSvg:${mdi.mdiLink}`),
-    props: {
-      color: computed(() => editor.value.isActive('link') ? 'primary' : ''),
-      disabled: computed(() => editor.value.isActive('code') || editor.value.isActive('codeBlock')),
+  ],
+  [
+    {
+      name: 'highlight',
+      icon: mdi.mdiFormatColorHighlight,
+      label: 'style.color.highlight',
+      active: () => editor.value.isActive('highlight'),
+      disabled: () => !editor.value.can().chain().focus().toggleHighlight().run(),
+      click: () => editor.value.chain().focus().toggleHighlight().run(),
     },
-    click: () => editor.value.commands.showLink()
-  },
-  {
-    name: 'format clear',
-    icon: `mdiSvg:${mdi.mdiFormatClear}`,
-    click: () => editor.value.chain().focus().unsetAllMarks().clearNodes().run(),
-  }
-])
+    {
+      name: 'code',
+      icon: mdi.mdiCodeTags,
+      label: 'format.code',
+      hotkey: 'Mod-e',
+      active: () => editor.value.isActive('code'),
+      disabled: () => !editor.value.can().chain().focus().toggleCode().run(),
+      click: () => editor.value.chain().focus().toggleCode().run(),
+    },
+  ],
+  [
+    {
+      name: 'link',
+      icon: mdi.mdiLink,
+      label: 'media.link',
+      active: () => editor.value.isActive('link'),
+      click: () => editor.value.commands.showLink(),
+    },
+  ],
+  [
+    {
+      name: 'format clear',
+      icon: mdi.mdiFormatClear,
+      label: 'format.formatClear',
+      click: () => editor.value.chain().focus().unsetAllMarks().clearNodes().run(),
+    },
+  ],
+]
 </script>
 
 <template>
@@ -114,65 +145,24 @@ const items = ref([
       return (from !== to) && !isAllSelected
     }"
   >
-    <div
-      v-if="shape.bubble === 'flat'"
-      class="tiptapify-bubble-menu"
-      :class="{ 'tiptapify-quiet-buttons': shape.buttons === 'quiet' }"
-    >
-      <VBtn
-        v-for="(item, key) in items"
-        :key="key"
-        size="32"
-        variant="text"
-        color=""
-        :disabled="item.props?.disabled"
-        :class="{ 'tiptapify-btn--active': item.props?.color === 'primary' }"
-        @click="item.click"
-      >
-        <VIcon :icon="item.icon" size="20" />
-      </VBtn>
-    </div>
-
-    <!-- The classic bubble menu: a small card with a divided group of compact buttons -->
-    <div v-else class="bubble-menu">
-      <VCard>
-        <VCardText class="pa-0">
-          <VToolbar :theme="theme" density="compact" height="auto" class="p-0">
-            <VToolbarItems>
-              <VBtnGroup divided density="compact">
-                <VBtn v-for="(item, key) in items" :key="key" v-bind="item.props" size="x-small" @click="item.click">
-                  <VIcon :icon="item.icon" size="20" />
-                </VBtn>
-              </VBtnGroup>
-            </VToolbarItems>
-          </VToolbar>
-        </VCardText>
-      </VCard>
-    </div>
+    <BubbleRow class="tiptapify-bubble-menu">
+      <template v-for="(group, index) in groups" :key="index">
+        <div v-if="index > 0" class="tiptapify-bubble-divider" />
+        <VBtn
+          v-for="item in group"
+          :key="item.name"
+          size="32"
+          variant="text"
+          color=""
+          :disabled="item.disabled?.()"
+          :class="{ 'tiptapify-btn--active': item.active?.() }"
+          :aria-pressed="item.active ? item.active() : undefined"
+          @click="item.click"
+        >
+          <Tooltip :label="t(item.label)" :hotkey="item.hotkey" />
+          <VIcon :icon="`mdiSvg:${item.icon}`" size="20" />
+        </VBtn>
+      </template>
+    </BubbleRow>
   </BubbleMenu>
 </template>
-
-<style scoped lang="scss">
-/*
- * Bubble skin rules: one rule per shape branch, reading `var(--tf-*)`.
- * The template branch is the shape gate (`bubble: card` renders the classic card,
- * `bubble: flat` the quiet row), so each rule carries its shape's base as fallback.
- * The classic card's background/border/padding/gap are VCard/VToolbar layout (not
- * token dimensions); the flat row paints them from tokens.
- */
-.bubble-menu {
-  border-radius: var(--tf-bubble-radius, 6px);
-  box-shadow: var(--tf-bubble-shadow, 4px 4px 20px var(--dark-gray));
-}
-
-.tiptapify-bubble-menu {
-  display: flex;
-  align-items: center;
-  gap: var(--tf-bubble-gap, 2px);
-  padding: var(--tf-bubble-padding, 4px);
-  border: var(--tf-bubble-border, 1px solid rgba(var(--v-border-color), var(--v-border-opacity)));
-  border-radius: var(--tf-bubble-radius, 10px);
-  background: var(--tf-bubble-bg, rgb(var(--v-theme-surface)));
-  box-shadow: var(--tf-bubble-shadow, 0 6px 20px rgba(0, 0, 0, 0.12));
-}
-</style>

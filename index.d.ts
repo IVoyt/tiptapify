@@ -157,10 +157,40 @@ export type TiptapifySkinConfig = TiptapifyShape & {
 // The `skin` prop: a registered name (string) or an inline object
 export type TiptapifySkinInput = string | TiptapifySkinConfig
 
+export type TiptapifyUploadKind = 'image' | 'video'
+
+/** `POST {endpoint}` takes a file (multipart `file` and `kind`) and answers `{ url }`, an error `{ error }` */
+export type TiptapifyUploadOptions = {
+  endpoint: string,
+  headers?: Record<string, string>,
+}
+
+export type TiptapifyLinkPreviewOptions = {
+  endpoint: string,
+  headers?: Record<string, string>,
+}
+
+export type TiptapifyLinkPreviewData = {
+  url: string,
+  title?: string,
+  description?: string,
+  image?: string,
+  siteName?: string,
+}
+
 export declare function registerSkin(name: string, skin: TiptapifySkinConfig): void
 
 // Identity for typed const definitions; the object never enters the registry
 export declare function defineSkin(skin: TiptapifySkinConfig): TiptapifySkinConfig
+
+/** How the saved HTML carries the look of its content: `inline` styles, or `classes` for tiptapify/content.css */
+export type TiptapifyContentStyles = 'inline' | 'classes'
+
+/** The content HTML with the content styles written into its `style` attributes (unchanged without a DOM) */
+export declare function inlineContentStyles(html: string): string
+
+/** The content styles as a stylesheet for the content inside `scope` (`.tiptapify-content`), weightless by default */
+export declare function contentCss(scope?: string, options?: { weightless?: boolean }): string
 
 export interface TiptapifyOptions {
   i18n?: string
@@ -183,6 +213,10 @@ export interface TiptapifyAiChatMessage {
 export interface TiptapifyAiEditorContext {
   prompt: string
   selectedText: string
+  /** The text of the selection's paragraph before it (empty without a selection) */
+  textBefore: string
+  /** The text of the selection's paragraph after it (empty without a selection) */
+  textAfter: string
   text: string
   html: string
   json: object

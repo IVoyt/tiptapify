@@ -13,6 +13,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BtnIcon: typeof import('./src/components/UI/BtnIcon.vue')['default']
+    BubbleRow: typeof import('./src/components/UI/BubbleRow.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     HotkeyTooltip: typeof import('./src/components/UI/HotkeyTooltip.vue')['default']
     ImageBubbleMenu: typeof import('./src/components/ImageBubbleMenu.vue')['default']
@@ -30,6 +31,7 @@ declare module 'vue' {
 // For TSX support
 declare global {
   const BtnIcon: typeof import('./src/components/UI/BtnIcon.vue')['default']
+  const BubbleRow: typeof import('./src/components/UI/BubbleRow.vue')['default']
   const Footer: typeof import('./src/components/Footer.vue')['default']
   const HotkeyTooltip: typeof import('./src/components/UI/HotkeyTooltip.vue')['default']
   const ImageBubbleMenu: typeof import('./src/components/ImageBubbleMenu.vue')['default']

@@ -47,9 +47,7 @@ const selectedColor = computed(() => editor.value.getAttributes('highlight').col
     />
   </VBtn>
 
-  <VMenu :activator="`#tiptapify-highlight-button-${editor.instanceId}`">
-    <StyleColor :font-color="false" :background-color="true" :color="selectedColor" />
-  </VMenu>
+  <StyleColor kind="highlight" :activator="`#tiptapify-highlight-button-${editor.instanceId}`" :color="selectedColor" />
 </template>
 
 <style lang="scss" scoped>
