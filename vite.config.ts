@@ -98,6 +98,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{ts,js}'],
+    setupFiles: ['src/test/setup.ts'],
     server: {
       deps: {
         // let Vite process Vuetify's component CSS imports
