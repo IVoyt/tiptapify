@@ -1,4 +1,4 @@
-import { Plugin } from 'vue'
+import type { Plugin as VuePlugin } from 'vue'
 import Tiptapify from '@tiptapify/components/Tiptapify.vue'
 import TiptapifyDialog from '@tiptapify/components/UI/TiptapifyDialog.vue'
 import { useTiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'
@@ -9,7 +9,9 @@ import { contentCss, inlineContentStyles } from '@tiptapify/utils/contentStyles'
 import * as imageDialog from '@tiptapify/extensions/components/media/image/imageDialog'
 
 import { Editor as TipTapEditor, nodeViewProps, NodeViewWrapper, VueNodeViewRenderer } from '@tiptap/vue-3'
-import { Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
+import { Extension, Node, Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core'
+import { Plugin, PluginKey } from '@tiptap/pm/state'
+import { Decoration, DecorationSet } from '@tiptap/pm/view'
 import type { CommandProps, InputRuleMatch, PasteRuleMatch } from '@tiptap/core'
 
 import * as mdi from '@mdi/js'
@@ -23,7 +25,7 @@ interface PackageOptions {
   i18n?: any;
 }
 
-const TiptapifyPlugin: Plugin = {
+const TiptapifyPlugin: VuePlugin = {
   install(app, options: PackageOptions = {}) {
     app.component('Tiptapify', Tiptapify)
     app.component('TiptapifyDialog', TiptapifyDialog)
@@ -47,6 +49,7 @@ export {
   TiptapifyDialog,
   useTiptapifyConfig,
   createAiBackendProvider,
+  Extension,
   Node,
   Mark,
   markInputRule,
@@ -57,6 +60,10 @@ export {
   contentCss,
   inlineContentStyles,
   imageDialog,
+  Plugin,
+  PluginKey,
+  Decoration,
+  DecorationSet,
 }
 
 export type { TiptapifyConfig } from '@tiptapify/composables/useTiptapifyConfig'

@@ -1,3 +1,6 @@
+### 0.4.3
+- the ProseMirror plugin API is exported: `Extension` (declared in `index.d.ts` but missing from the build), `Plugin`, `PluginKey`, `Decoration`, `DecorationSet` — the same copy of `@tiptap/pm` the editor of the build runs on, so a host can draw decorations (shown in the editor, never saved to HTML/JSON) without a copy of its own
+
 ### 0.4.2
 - added "Reset changes" toolbar button with "Don’t ask again" option (kept in `localStorage`)
 

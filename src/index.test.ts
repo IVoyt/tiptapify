@@ -1,7 +1,10 @@
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { registerSkin, defineSkin } from '@tiptapify/index'
+import Document from '@tiptap/extension-document'
+import Paragraph from '@tiptap/extension-paragraph'
+import Text from '@tiptap/extension-text'
+import { registerSkin, defineSkin, Extension, Plugin, PluginKey, Decoration, DecorationSet, TipTapEditor } from '@tiptapify/index'
 import { registerSkin as fromRegistry, defineSkin as defineFromRegistry } from '@tiptapify/skins/registry'
 
 describe('package entry exports', () => {
@@ -19,6 +22,31 @@ describe('package entry exports', () => {
     const skin = { extends: 'pastel', colors: { toolbarBg: 'rebeccapurple' } }
 
     expect(defineSkin(skin)).toBe(skin)
+  })
+
+  it('exports the ProseMirror plugin API for decorations a host draws without saving them', () => {
+    const key = new PluginKey<DecorationSet>('hostDecoration')
+    const HostDecoration = Extension.create({
+      name: 'hostDecoration',
+      addProseMirrorPlugins: () => [
+        new Plugin<DecorationSet>({
+          key,
+          state: {
+            init: (_, { doc }) => DecorationSet.create(doc, [Decoration.widget(doc.content.size, () => document.createElement('hr'))]),
+            apply: (tr, decorations) => decorations.map(tr.mapping, tr.doc),
+          },
+          props: {
+            decorations: state => key.getState(state),
+          },
+        }),
+      ],
+    })
+    const editor = new TipTapEditor({ content: '<p>text</p>', extensions: [Document, Paragraph, Text, HostDecoration] })
+
+    expect(key.getState(editor.state)?.find()).toHaveLength(1)
+    expect(editor.getHTML()).toBe('<p>text</p>')
+
+    editor.destroy()
   })
 })
 
