@@ -10,6 +10,8 @@ import {
   markPasteRule,
   mergeAttributes
 } from '@tiptap/core'
+import { Plugin, PluginKey } from '@tiptap/pm/state'
+import { Decoration, DecorationSet } from '@tiptap/pm/view'
 import type {
   AnyExtension,
   CanCommands,
@@ -334,6 +336,10 @@ export {
   markPasteRule,
   Node,
   PasteRule,
+  Plugin,
+  PluginKey,
+  Decoration,
+  DecorationSet,
 }
 
 export type {
